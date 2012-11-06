@@ -1,0 +1,497 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E125549416491530006D42F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549316491530006D42F5 /* UIKit.framework */; };
+		E125549616491530006D42F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549516491530006D42F5 /* Foundation.framework */; };
+		E125549816491530006D42F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549716491530006D42F5 /* CoreGraphics.framework */; };
+		E125549E16491530006D42F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E125549C16491530006D42F5 /* InfoPlist.strings */; };
+		E12554A016491530006D42F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E125549F16491530006D42F5 /* main.m */; };
+		E12554A416491530006D42F5 /* WTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E12554A316491530006D42F5 /* WTAppDelegate.m */; };
+		E12554A616491530006D42F5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E12554A516491530006D42F5 /* Default.png */; };
+		E12554A816491530006D42F5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12554A716491530006D42F5 /* Default@2x.png */; };
+		E12554AA16491530006D42F5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12554A916491530006D42F5 /* Default-568h@2x.png */; };
+		E12554AD16491530006D42F5 /* WTFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12554AC16491530006D42F5 /* WTFirstViewController.m */; };
+		E12554AF16491530006D42F5 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = E12554AE16491530006D42F5 /* first.png */; };
+		E12554B116491530006D42F5 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12554B016491530006D42F5 /* first@2x.png */; };
+		E12554B416491530006D42F5 /* WTSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12554B316491530006D42F5 /* WTSecondViewController.m */; };
+		E12554B616491530006D42F5 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = E12554B516491530006D42F5 /* second.png */; };
+		E12554B816491530006D42F5 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12554B716491530006D42F5 /* second@2x.png */; };
+		E12554BB16491530006D42F5 /* WTFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12554B916491530006D42F5 /* WTFirstViewController.xib */; };
+		E12554BE16491530006D42F5 /* WTSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12554BC16491530006D42F5 /* WTSecondViewController.xib */; };
+		E12554C616491532006D42F5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12554C516491531006D42F5 /* SenTestingKit.framework */; };
+		E12554C716491532006D42F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549316491530006D42F5 /* UIKit.framework */; };
+		E12554C816491532006D42F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549516491530006D42F5 /* Foundation.framework */; };
+		E12554D016491532006D42F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E12554CE16491532006D42F5 /* InfoPlist.strings */; };
+		E12554D316491532006D42F5 /* WeTongjiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E12554D216491532006D42F5 /* WeTongjiTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E12554C916491532006D42F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E125548616491530006D42F5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E125548E16491530006D42F5;
+			remoteInfo = WeTongji;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E125548F16491530006D42F5 /* WeTongji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeTongji.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E125549316491530006D42F5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E125549516491530006D42F5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E125549716491530006D42F5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E125549B16491530006D42F5 /* WeTongji-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WeTongji-Info.plist"; sourceTree = "<group>"; };
+		E125549D16491530006D42F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E125549F16491530006D42F5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E12554A116491530006D42F5 /* WeTongji-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeTongji-Prefix.pch"; sourceTree = "<group>"; };
+		E12554A216491530006D42F5 /* WTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WTAppDelegate.h; sourceTree = "<group>"; };
+		E12554A316491530006D42F5 /* WTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTAppDelegate.m; sourceTree = "<group>"; };
+		E12554A516491530006D42F5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		E12554A716491530006D42F5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		E12554A916491530006D42F5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		E12554AB16491530006D42F5 /* WTFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WTFirstViewController.h; sourceTree = "<group>"; };
+		E12554AC16491530006D42F5 /* WTFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTFirstViewController.m; sourceTree = "<group>"; };
+		E12554AE16491530006D42F5 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		E12554B016491530006D42F5 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		E12554B216491530006D42F5 /* WTSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WTSecondViewController.h; sourceTree = "<group>"; };
+		E12554B316491530006D42F5 /* WTSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTSecondViewController.m; sourceTree = "<group>"; };
+		E12554B516491530006D42F5 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		E12554B716491530006D42F5 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		E12554BA16491530006D42F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WTFirstViewController.xib; sourceTree = "<group>"; };
+		E12554BD16491530006D42F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WTSecondViewController.xib; sourceTree = "<group>"; };
+		E12554C416491531006D42F5 /* WeTongjiTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeTongjiTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E12554C516491531006D42F5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		E12554CD16491532006D42F5 /* WeTongjiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WeTongjiTests-Info.plist"; sourceTree = "<group>"; };
+		E12554CF16491532006D42F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E12554D116491532006D42F5 /* WeTongjiTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeTongjiTests.h; sourceTree = "<group>"; };
+		E12554D216491532006D42F5 /* WeTongjiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeTongjiTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E125548C16491530006D42F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E125549416491530006D42F5 /* UIKit.framework in Frameworks */,
+				E125549616491530006D42F5 /* Foundation.framework in Frameworks */,
+				E125549816491530006D42F5 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E12554C016491531006D42F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E12554C616491532006D42F5 /* SenTestingKit.framework in Frameworks */,
+				E12554C716491532006D42F5 /* UIKit.framework in Frameworks */,
+				E12554C816491532006D42F5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E125548416491530006D42F5 = {
+			isa = PBXGroup;
+			children = (
+				E125549916491530006D42F5 /* WeTongji */,
+				E12554CB16491532006D42F5 /* WeTongjiTests */,
+				E125549216491530006D42F5 /* Frameworks */,
+				E125549016491530006D42F5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E125549016491530006D42F5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E125548F16491530006D42F5 /* WeTongji.app */,
+				E12554C416491531006D42F5 /* WeTongjiTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E125549216491530006D42F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E125549316491530006D42F5 /* UIKit.framework */,
+				E125549516491530006D42F5 /* Foundation.framework */,
+				E125549716491530006D42F5 /* CoreGraphics.framework */,
+				E12554C516491531006D42F5 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E125549916491530006D42F5 /* WeTongji */ = {
+			isa = PBXGroup;
+			children = (
+				E12554A216491530006D42F5 /* WTAppDelegate.h */,
+				E12554A316491530006D42F5 /* WTAppDelegate.m */,
+				E12554AB16491530006D42F5 /* WTFirstViewController.h */,
+				E12554AC16491530006D42F5 /* WTFirstViewController.m */,
+				E12554AE16491530006D42F5 /* first.png */,
+				E12554B016491530006D42F5 /* first@2x.png */,
+				E12554B216491530006D42F5 /* WTSecondViewController.h */,
+				E12554B316491530006D42F5 /* WTSecondViewController.m */,
+				E12554B516491530006D42F5 /* second.png */,
+				E12554B716491530006D42F5 /* second@2x.png */,
+				E12554B916491530006D42F5 /* WTFirstViewController.xib */,
+				E12554BC16491530006D42F5 /* WTSecondViewController.xib */,
+				E125549A16491530006D42F5 /* Supporting Files */,
+			);
+			path = WeTongji;
+			sourceTree = "<group>";
+		};
+		E125549A16491530006D42F5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E125549B16491530006D42F5 /* WeTongji-Info.plist */,
+				E125549C16491530006D42F5 /* InfoPlist.strings */,
+				E125549F16491530006D42F5 /* main.m */,
+				E12554A116491530006D42F5 /* WeTongji-Prefix.pch */,
+				E12554A516491530006D42F5 /* Default.png */,
+				E12554A716491530006D42F5 /* Default@2x.png */,
+				E12554A916491530006D42F5 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E12554CB16491532006D42F5 /* WeTongjiTests */ = {
+			isa = PBXGroup;
+			children = (
+				E12554D116491532006D42F5 /* WeTongjiTests.h */,
+				E12554D216491532006D42F5 /* WeTongjiTests.m */,
+				E12554CC16491532006D42F5 /* Supporting Files */,
+			);
+			path = WeTongjiTests;
+			sourceTree = "<group>";
+		};
+		E12554CC16491532006D42F5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E12554CD16491532006D42F5 /* WeTongjiTests-Info.plist */,
+				E12554CE16491532006D42F5 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E125548E16491530006D42F5 /* WeTongji */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E12554D616491532006D42F5 /* Build configuration list for PBXNativeTarget "WeTongji" */;
+			buildPhases = (
+				E125548B16491530006D42F5 /* Sources */,
+				E125548C16491530006D42F5 /* Frameworks */,
+				E125548D16491530006D42F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WeTongji;
+			productName = WeTongji;
+			productReference = E125548F16491530006D42F5 /* WeTongji.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E12554C316491531006D42F5 /* WeTongjiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E12554D916491532006D42F5 /* Build configuration list for PBXNativeTarget "WeTongjiTests" */;
+			buildPhases = (
+				E12554BF16491531006D42F5 /* Sources */,
+				E12554C016491531006D42F5 /* Frameworks */,
+				E12554C116491531006D42F5 /* Resources */,
+				E12554C216491531006D42F5 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E12554CA16491532006D42F5 /* PBXTargetDependency */,
+			);
+			name = WeTongjiTests;
+			productName = WeTongjiTests;
+			productReference = E12554C416491531006D42F5 /* WeTongjiTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E125548616491530006D42F5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = WT;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Tongji Apple Club";
+			};
+			buildConfigurationList = E125548916491530006D42F5 /* Build configuration list for PBXProject "WeTongji" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E125548416491530006D42F5;
+			productRefGroup = E125549016491530006D42F5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E125548E16491530006D42F5 /* WeTongji */,
+				E12554C316491531006D42F5 /* WeTongjiTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E125548D16491530006D42F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E125549E16491530006D42F5 /* InfoPlist.strings in Resources */,
+				E12554A616491530006D42F5 /* Default.png in Resources */,
+				E12554A816491530006D42F5 /* Default@2x.png in Resources */,
+				E12554AA16491530006D42F5 /* Default-568h@2x.png in Resources */,
+				E12554AF16491530006D42F5 /* first.png in Resources */,
+				E12554B116491530006D42F5 /* first@2x.png in Resources */,
+				E12554B616491530006D42F5 /* second.png in Resources */,
+				E12554B816491530006D42F5 /* second@2x.png in Resources */,
+				E12554BB16491530006D42F5 /* WTFirstViewController.xib in Resources */,
+				E12554BE16491530006D42F5 /* WTSecondViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E12554C116491531006D42F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E12554D016491532006D42F5 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E12554C216491531006D42F5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E125548B16491530006D42F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E12554A016491530006D42F5 /* main.m in Sources */,
+				E12554A416491530006D42F5 /* WTAppDelegate.m in Sources */,
+				E12554AD16491530006D42F5 /* WTFirstViewController.m in Sources */,
+				E12554B416491530006D42F5 /* WTSecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E12554BF16491531006D42F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E12554D316491532006D42F5 /* WeTongjiTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E12554CA16491532006D42F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E125548E16491530006D42F5 /* WeTongji */;
+			targetProxy = E12554C916491532006D42F5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E125549C16491530006D42F5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E125549D16491530006D42F5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E12554B916491530006D42F5 /* WTFirstViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E12554BA16491530006D42F5 /* en */,
+			);
+			name = WTFirstViewController.xib;
+			sourceTree = "<group>";
+		};
+		E12554BC16491530006D42F5 /* WTSecondViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E12554BD16491530006D42F5 /* en */,
+			);
+			name = WTSecondViewController.xib;
+			sourceTree = "<group>";
+		};
+		E12554CE16491532006D42F5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E12554CF16491532006D42F5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E12554D416491532006D42F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E12554D516491532006D42F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E12554D716491532006D42F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WeTongji/WeTongji-Prefix.pch";
+				INFOPLIST_FILE = "WeTongji/WeTongji-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E12554D816491532006D42F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WeTongji/WeTongji-Prefix.pch";
+				INFOPLIST_FILE = "WeTongji/WeTongji-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		E12554DA16491532006D42F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WeTongji.app/WeTongji";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WeTongji/WeTongji-Prefix.pch";
+				INFOPLIST_FILE = "WeTongjiTests/WeTongjiTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		E12554DB16491532006D42F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WeTongji.app/WeTongji";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WeTongji/WeTongji-Prefix.pch";
+				INFOPLIST_FILE = "WeTongjiTests/WeTongjiTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E125548916491530006D42F5 /* Build configuration list for PBXProject "WeTongji" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E12554D416491532006D42F5 /* Debug */,
+				E12554D516491532006D42F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E12554D616491532006D42F5 /* Build configuration list for PBXNativeTarget "WeTongji" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E12554D716491532006D42F5 /* Debug */,
+				E12554D816491532006D42F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E12554D916491532006D42F5 /* Build configuration list for PBXNativeTarget "WeTongjiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E12554DA16491532006D42F5 /* Debug */,
+				E12554DB16491532006D42F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E125548616491530006D42F5 /* Project object */;
+}
