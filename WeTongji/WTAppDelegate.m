@@ -7,10 +7,9 @@
 //
 
 #import "WTAppDelegate.h"
-
 #import "WTFirstViewController.h"
-
 #import "WTSecondViewController.h"
+#import <WeTongjiSDK/WeTongjiSDK.h>
 
 @implementation WTAppDelegate
 
@@ -18,6 +17,14 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        NSLog(@"login success");
+    } failureBlock:^(NSError *error) {
+         NSLog(@"login failure");
+    }];
+    [request login:@"000000" password:@"123456"];
+    [[WTClient sharedClient] enqueueRequest:request];
+    
     UIViewController *viewController1 = [[WTFirstViewController alloc] initWithNibName:@"WTFirstViewController" bundle:nil];
     UIViewController *viewController2 = [[WTSecondViewController alloc] initWithNibName:@"WTSecondViewController" bundle:nil];
     self.tabBarController = [[UITabBarController alloc] init];

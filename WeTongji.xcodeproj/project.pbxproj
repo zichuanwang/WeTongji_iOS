@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E11702FC1650F82A00D82F4A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11702FB1650F82A00D82F4A /* SystemConfiguration.framework */; };
+		E11702FE1650F83F00D82F4A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */; };
+		E1170316165156A400D82F4A /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1170315165156A400D82F4A /* icon@2x.png */; };
+		E1170318165156BE00D82F4A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1170317165156BE00D82F4A /* icon.png */; };
 		E125549416491530006D42F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549316491530006D42F5 /* UIKit.framework */; };
 		E125549616491530006D42F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549516491530006D42F5 /* Foundation.framework */; };
 		E125549816491530006D42F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549716491530006D42F5 /* CoreGraphics.framework */; };
@@ -32,6 +36,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E11702E61650F3C600D82F4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E11702DF1650F3C500D82F4A /* WeTongjiSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E110DF2B16365B990087EA46;
+			remoteInfo = WeTongjiSDK;
+		};
+		E11702E91650F49500D82F4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E11702DF1650F3C500D82F4A /* WeTongjiSDK.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E110DF2A16365B990087EA46;
+			remoteInfo = WeTongjiSDK;
+		};
 		E12554C916491532006D42F5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E125548616491530006D42F5 /* Project object */;
@@ -42,6 +60,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E11702DF1650F3C500D82F4A /* WeTongjiSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WeTongjiSDK.xcodeproj; path = ../WeTongjiSDK/WeTongjiSDK.xcodeproj; sourceTree = "<group>"; };
+		E11702FB1650F82A00D82F4A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		E1170315165156A400D82F4A /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		E1170317165156BE00D82F4A /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		E125548F16491530006D42F5 /* WeTongji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeTongji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E125549316491530006D42F5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E125549516491530006D42F5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -78,6 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E11702FE1650F83F00D82F4A /* MobileCoreServices.framework in Frameworks */,
+				E11702FC1650F82A00D82F4A /* SystemConfiguration.framework in Frameworks */,
 				E125549416491530006D42F5 /* UIKit.framework in Frameworks */,
 				E125549616491530006D42F5 /* Foundation.framework in Frameworks */,
 				E125549816491530006D42F5 /* CoreGraphics.framework in Frameworks */,
@@ -97,9 +122,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E11702E01650F3C500D82F4A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E11702E71650F3C600D82F4A /* WeTongjiSDK.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		E125548416491530006D42F5 = {
 			isa = PBXGroup;
 			children = (
+				E1170317165156BE00D82F4A /* icon.png */,
+				E1170315165156A400D82F4A /* icon@2x.png */,
+				E11702DF1650F3C500D82F4A /* WeTongjiSDK.xcodeproj */,
 				E125549916491530006D42F5 /* WeTongji */,
 				E12554CB16491532006D42F5 /* WeTongjiTests */,
 				E125549216491530006D42F5 /* Frameworks */,
@@ -119,6 +155,8 @@
 		E125549216491530006D42F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */,
+				E11702FB1650F82A00D82F4A /* SystemConfiguration.framework */,
 				E125549316491530006D42F5 /* UIKit.framework */,
 				E125549516491530006D42F5 /* Foundation.framework */,
 				E125549716491530006D42F5 /* CoreGraphics.framework */,
@@ -194,6 +232,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				E11702EA1650F49500D82F4A /* PBXTargetDependency */,
 			);
 			name = WeTongji;
 			productName = WeTongji;
@@ -239,6 +278,12 @@
 			mainGroup = E125548416491530006D42F5;
 			productRefGroup = E125549016491530006D42F5 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E11702E01650F3C500D82F4A /* Products */;
+					ProjectRef = E11702DF1650F3C500D82F4A /* WeTongjiSDK.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E125548E16491530006D42F5 /* WeTongji */,
@@ -246,6 +291,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E11702E71650F3C600D82F4A /* WeTongjiSDK.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = WeTongjiSDK.framework;
+			remoteRef = E11702E61650F3C600D82F4A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E125548D16491530006D42F5 /* Resources */ = {
@@ -262,6 +317,8 @@
 				E12554B816491530006D42F5 /* second@2x.png in Resources */,
 				E12554BB16491530006D42F5 /* WTFirstViewController.xib in Resources */,
 				E12554BE16491530006D42F5 /* WTSecondViewController.xib in Resources */,
+				E1170316165156A400D82F4A /* icon@2x.png in Resources */,
+				E1170318165156BE00D82F4A /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +371,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		E11702EA1650F49500D82F4A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WeTongjiSDK;
+			targetProxy = E11702E91650F49500D82F4A /* PBXContainerItemProxy */;
+		};
 		E12554CA16491532006D42F5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E125548E16491530006D42F5 /* WeTongji */;
@@ -413,6 +475,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WeTongji/WeTongji-Prefix.pch";
 				INFOPLIST_FILE = "WeTongji/WeTongji-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					WeTongjiSDK,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -424,6 +490,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WeTongji/WeTongji-Prefix.pch";
 				INFOPLIST_FILE = "WeTongji/WeTongji-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					WeTongjiSDK,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -482,6 +552,7 @@
 				E12554D816491532006D42F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E12554D916491532006D42F5 /* Build configuration list for PBXNativeTarget "WeTongjiTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +561,7 @@
 				E12554DB16491532006D42F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
