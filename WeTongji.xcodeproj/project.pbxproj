@@ -11,6 +11,30 @@
 		E11702FE1650F83F00D82F4A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */; };
 		E1170316165156A400D82F4A /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1170315165156A400D82F4A /* icon@2x.png */; };
 		E1170318165156BE00D82F4A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1170317165156BE00D82F4A /* icon.png */; };
+		E11703711651EF4800D82F4A /* WTTabBarBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E117035B1651EF4700D82F4A /* WTTabBarBg.png */; };
+		E11703721651EF4800D82F4A /* WTTabBarBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E117035C1651EF4700D82F4A /* WTTabBarBg@2x.png */; };
+		E11703731651EF4800D82F4A /* WTTabBarButtonBillBoard.png in Resources */ = {isa = PBXBuildFile; fileRef = E117035D1651EF4700D82F4A /* WTTabBarButtonBillBoard.png */; };
+		E11703741651EF4800D82F4A /* WTTabBarButtonBillBoard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E117035E1651EF4700D82F4A /* WTTabBarButtonBillBoard@2x.png */; };
+		E11703751651EF4800D82F4A /* WTTabBarButtonBillBoardHl.png in Resources */ = {isa = PBXBuildFile; fileRef = E117035F1651EF4700D82F4A /* WTTabBarButtonBillBoardHl.png */; };
+		E11703761651EF4800D82F4A /* WTTabBarButtonBillBoardHl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E11703601651EF4700D82F4A /* WTTabBarButtonBillBoardHl@2x.png */; };
+		E11703771651EF4800D82F4A /* WTTabBarButtonHome.png in Resources */ = {isa = PBXBuildFile; fileRef = E11703611651EF4700D82F4A /* WTTabBarButtonHome.png */; };
+		E11703781651EF4800D82F4A /* WTTabBarButtonHome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E11703621651EF4700D82F4A /* WTTabBarButtonHome@2x.png */; };
+		E11703791651EF4800D82F4A /* WTTabBarButtonHomeHl.png in Resources */ = {isa = PBXBuildFile; fileRef = E11703631651EF4700D82F4A /* WTTabBarButtonHomeHl.png */; };
+		E117037A1651EF4800D82F4A /* WTTabBarButtonHomeHl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E11703641651EF4700D82F4A /* WTTabBarButtonHomeHl@2x.png */; };
+		E117037B1651EF4800D82F4A /* WTTabBarButtonMe.png in Resources */ = {isa = PBXBuildFile; fileRef = E11703651651EF4700D82F4A /* WTTabBarButtonMe.png */; };
+		E117037C1651EF4800D82F4A /* WTTabBarButtonMe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E11703661651EF4700D82F4A /* WTTabBarButtonMe@2x.png */; };
+		E117037D1651EF4800D82F4A /* WTTabBarButtonMeHl.png in Resources */ = {isa = PBXBuildFile; fileRef = E11703671651EF4700D82F4A /* WTTabBarButtonMeHl.png */; };
+		E117037E1651EF4800D82F4A /* WTTabBarButtonMeHl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E11703681651EF4700D82F4A /* WTTabBarButtonMeHl@2x.png */; };
+		E117037F1651EF4800D82F4A /* WTTabBarButtonNow.png in Resources */ = {isa = PBXBuildFile; fileRef = E11703691651EF4700D82F4A /* WTTabBarButtonNow.png */; };
+		E11703801651EF4800D82F4A /* WTTabBarButtonNow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E117036A1651EF4700D82F4A /* WTTabBarButtonNow@2x.png */; };
+		E11703811651EF4800D82F4A /* WTTabBarButtonNowHl.png in Resources */ = {isa = PBXBuildFile; fileRef = E117036B1651EF4700D82F4A /* WTTabBarButtonNowHl.png */; };
+		E11703821651EF4800D82F4A /* WTTabBarButtonNowHl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E117036C1651EF4700D82F4A /* WTTabBarButtonNowHl@2x.png */; };
+		E11703831651EF4800D82F4A /* WTTabBarButtonPowerSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = E117036D1651EF4700D82F4A /* WTTabBarButtonPowerSearch.png */; };
+		E11703841651EF4800D82F4A /* WTTabBarButtonPowerSearch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E117036E1651EF4700D82F4A /* WTTabBarButtonPowerSearch@2x.png */; };
+		E11703851651EF4800D82F4A /* WTTabBarButtonPowerSearchHl.png in Resources */ = {isa = PBXBuildFile; fileRef = E117036F1651EF4700D82F4A /* WTTabBarButtonPowerSearchHl.png */; };
+		E11703861651EF4800D82F4A /* WTTabBarButtonPowerSearchHl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E11703701651EF4700D82F4A /* WTTabBarButtonPowerSearchHl@2x.png */; };
+		E11703921651F07800D82F4A /* WTTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E11703901651F07800D82F4A /* WTTabBarViewController.m */; };
+		E11703991651F35B00D82F4A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E11703981651F35A00D82F4A /* MainWindow.xib */; };
 		E125549416491530006D42F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549316491530006D42F5 /* UIKit.framework */; };
 		E125549616491530006D42F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549516491530006D42F5 /* Foundation.framework */; };
 		E125549816491530006D42F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549716491530006D42F5 /* CoreGraphics.framework */; };
@@ -20,14 +44,6 @@
 		E12554A616491530006D42F5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E12554A516491530006D42F5 /* Default.png */; };
 		E12554A816491530006D42F5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12554A716491530006D42F5 /* Default@2x.png */; };
 		E12554AA16491530006D42F5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12554A916491530006D42F5 /* Default-568h@2x.png */; };
-		E12554AD16491530006D42F5 /* WTFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12554AC16491530006D42F5 /* WTFirstViewController.m */; };
-		E12554AF16491530006D42F5 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = E12554AE16491530006D42F5 /* first.png */; };
-		E12554B116491530006D42F5 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12554B016491530006D42F5 /* first@2x.png */; };
-		E12554B416491530006D42F5 /* WTSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12554B316491530006D42F5 /* WTSecondViewController.m */; };
-		E12554B616491530006D42F5 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = E12554B516491530006D42F5 /* second.png */; };
-		E12554B816491530006D42F5 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12554B716491530006D42F5 /* second@2x.png */; };
-		E12554BB16491530006D42F5 /* WTFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12554B916491530006D42F5 /* WTFirstViewController.xib */; };
-		E12554BE16491530006D42F5 /* WTSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12554BC16491530006D42F5 /* WTSecondViewController.xib */; };
 		E12554C616491532006D42F5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12554C516491531006D42F5 /* SenTestingKit.framework */; };
 		E12554C716491532006D42F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549316491530006D42F5 /* UIKit.framework */; };
 		E12554C816491532006D42F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549516491530006D42F5 /* Foundation.framework */; };
@@ -65,6 +81,31 @@
 		E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E1170315165156A400D82F4A /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		E1170317165156BE00D82F4A /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		E117035B1651EF4700D82F4A /* WTTabBarBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTabBarBg.png; sourceTree = "<group>"; };
+		E117035C1651EF4700D82F4A /* WTTabBarBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTabBarBg@2x.png"; sourceTree = "<group>"; };
+		E117035D1651EF4700D82F4A /* WTTabBarButtonBillBoard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTabBarButtonBillBoard.png; sourceTree = "<group>"; };
+		E117035E1651EF4700D82F4A /* WTTabBarButtonBillBoard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTabBarButtonBillBoard@2x.png"; sourceTree = "<group>"; };
+		E117035F1651EF4700D82F4A /* WTTabBarButtonBillBoardHl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTabBarButtonBillBoardHl.png; sourceTree = "<group>"; };
+		E11703601651EF4700D82F4A /* WTTabBarButtonBillBoardHl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTabBarButtonBillBoardHl@2x.png"; sourceTree = "<group>"; };
+		E11703611651EF4700D82F4A /* WTTabBarButtonHome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTabBarButtonHome.png; sourceTree = "<group>"; };
+		E11703621651EF4700D82F4A /* WTTabBarButtonHome@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTabBarButtonHome@2x.png"; sourceTree = "<group>"; };
+		E11703631651EF4700D82F4A /* WTTabBarButtonHomeHl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTabBarButtonHomeHl.png; sourceTree = "<group>"; };
+		E11703641651EF4700D82F4A /* WTTabBarButtonHomeHl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTabBarButtonHomeHl@2x.png"; sourceTree = "<group>"; };
+		E11703651651EF4700D82F4A /* WTTabBarButtonMe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTabBarButtonMe.png; sourceTree = "<group>"; };
+		E11703661651EF4700D82F4A /* WTTabBarButtonMe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTabBarButtonMe@2x.png"; sourceTree = "<group>"; };
+		E11703671651EF4700D82F4A /* WTTabBarButtonMeHl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTabBarButtonMeHl.png; sourceTree = "<group>"; };
+		E11703681651EF4700D82F4A /* WTTabBarButtonMeHl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTabBarButtonMeHl@2x.png"; sourceTree = "<group>"; };
+		E11703691651EF4700D82F4A /* WTTabBarButtonNow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTabBarButtonNow.png; sourceTree = "<group>"; };
+		E117036A1651EF4700D82F4A /* WTTabBarButtonNow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTabBarButtonNow@2x.png"; sourceTree = "<group>"; };
+		E117036B1651EF4700D82F4A /* WTTabBarButtonNowHl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTabBarButtonNowHl.png; sourceTree = "<group>"; };
+		E117036C1651EF4700D82F4A /* WTTabBarButtonNowHl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTabBarButtonNowHl@2x.png"; sourceTree = "<group>"; };
+		E117036D1651EF4700D82F4A /* WTTabBarButtonPowerSearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTabBarButtonPowerSearch.png; sourceTree = "<group>"; };
+		E117036E1651EF4700D82F4A /* WTTabBarButtonPowerSearch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTabBarButtonPowerSearch@2x.png"; sourceTree = "<group>"; };
+		E117036F1651EF4700D82F4A /* WTTabBarButtonPowerSearchHl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTabBarButtonPowerSearchHl.png; sourceTree = "<group>"; };
+		E11703701651EF4700D82F4A /* WTTabBarButtonPowerSearchHl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTabBarButtonPowerSearchHl@2x.png"; sourceTree = "<group>"; };
+		E117038F1651F07800D82F4A /* WTTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTabBarViewController.h; sourceTree = "<group>"; };
+		E11703901651F07800D82F4A /* WTTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTabBarViewController.m; sourceTree = "<group>"; };
+		E11703981651F35A00D82F4A /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		E125548F16491530006D42F5 /* WeTongji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeTongji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E125549316491530006D42F5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E125549516491530006D42F5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -78,16 +119,6 @@
 		E12554A516491530006D42F5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		E12554A716491530006D42F5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		E12554A916491530006D42F5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		E12554AB16491530006D42F5 /* WTFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WTFirstViewController.h; sourceTree = "<group>"; };
-		E12554AC16491530006D42F5 /* WTFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTFirstViewController.m; sourceTree = "<group>"; };
-		E12554AE16491530006D42F5 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		E12554B016491530006D42F5 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		E12554B216491530006D42F5 /* WTSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WTSecondViewController.h; sourceTree = "<group>"; };
-		E12554B316491530006D42F5 /* WTSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTSecondViewController.m; sourceTree = "<group>"; };
-		E12554B516491530006D42F5 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		E12554B716491530006D42F5 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
-		E12554BA16491530006D42F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WTFirstViewController.xib; sourceTree = "<group>"; };
-		E12554BD16491530006D42F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WTSecondViewController.xib; sourceTree = "<group>"; };
 		E12554C416491531006D42F5 /* WeTongjiTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeTongjiTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12554C516491531006D42F5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		E12554CD16491532006D42F5 /* WeTongjiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WeTongjiTests-Info.plist"; sourceTree = "<group>"; };
@@ -130,6 +161,51 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		E117035A1651EF3E00D82F4A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E117035B1651EF4700D82F4A /* WTTabBarBg.png */,
+				E117035C1651EF4700D82F4A /* WTTabBarBg@2x.png */,
+				E117035D1651EF4700D82F4A /* WTTabBarButtonBillBoard.png */,
+				E117035E1651EF4700D82F4A /* WTTabBarButtonBillBoard@2x.png */,
+				E117035F1651EF4700D82F4A /* WTTabBarButtonBillBoardHl.png */,
+				E11703601651EF4700D82F4A /* WTTabBarButtonBillBoardHl@2x.png */,
+				E11703611651EF4700D82F4A /* WTTabBarButtonHome.png */,
+				E11703621651EF4700D82F4A /* WTTabBarButtonHome@2x.png */,
+				E11703631651EF4700D82F4A /* WTTabBarButtonHomeHl.png */,
+				E11703641651EF4700D82F4A /* WTTabBarButtonHomeHl@2x.png */,
+				E11703651651EF4700D82F4A /* WTTabBarButtonMe.png */,
+				E11703661651EF4700D82F4A /* WTTabBarButtonMe@2x.png */,
+				E11703671651EF4700D82F4A /* WTTabBarButtonMeHl.png */,
+				E11703681651EF4700D82F4A /* WTTabBarButtonMeHl@2x.png */,
+				E11703691651EF4700D82F4A /* WTTabBarButtonNow.png */,
+				E117036A1651EF4700D82F4A /* WTTabBarButtonNow@2x.png */,
+				E117036B1651EF4700D82F4A /* WTTabBarButtonNowHl.png */,
+				E117036C1651EF4700D82F4A /* WTTabBarButtonNowHl@2x.png */,
+				E117036D1651EF4700D82F4A /* WTTabBarButtonPowerSearch.png */,
+				E117036E1651EF4700D82F4A /* WTTabBarButtonPowerSearch@2x.png */,
+				E117036F1651EF4700D82F4A /* WTTabBarButtonPowerSearchHl.png */,
+				E11703701651EF4700D82F4A /* WTTabBarButtonPowerSearchHl@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E11703871651EF5600D82F4A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		E117038E1651EFD900D82F4A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E117038F1651F07800D82F4A /* WTTabBarViewController.h */,
+				E11703901651F07800D82F4A /* WTTabBarViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		E125548416491530006D42F5 = {
 			isa = PBXGroup;
 			children = (
@@ -168,18 +244,12 @@
 		E125549916491530006D42F5 /* WeTongji */ = {
 			isa = PBXGroup;
 			children = (
+				E117038E1651EFD900D82F4A /* View Controllers */,
+				E11703871651EF5600D82F4A /* Views */,
 				E12554A216491530006D42F5 /* WTAppDelegate.h */,
 				E12554A316491530006D42F5 /* WTAppDelegate.m */,
-				E12554AB16491530006D42F5 /* WTFirstViewController.h */,
-				E12554AC16491530006D42F5 /* WTFirstViewController.m */,
-				E12554AE16491530006D42F5 /* first.png */,
-				E12554B016491530006D42F5 /* first@2x.png */,
-				E12554B216491530006D42F5 /* WTSecondViewController.h */,
-				E12554B316491530006D42F5 /* WTSecondViewController.m */,
-				E12554B516491530006D42F5 /* second.png */,
-				E12554B716491530006D42F5 /* second@2x.png */,
-				E12554B916491530006D42F5 /* WTFirstViewController.xib */,
-				E12554BC16491530006D42F5 /* WTSecondViewController.xib */,
+				E11703981651F35A00D82F4A /* MainWindow.xib */,
+				E117035A1651EF3E00D82F4A /* Resources */,
 				E125549A16491530006D42F5 /* Supporting Files */,
 			);
 			path = WeTongji;
@@ -311,14 +381,31 @@
 				E12554A616491530006D42F5 /* Default.png in Resources */,
 				E12554A816491530006D42F5 /* Default@2x.png in Resources */,
 				E12554AA16491530006D42F5 /* Default-568h@2x.png in Resources */,
-				E12554AF16491530006D42F5 /* first.png in Resources */,
-				E12554B116491530006D42F5 /* first@2x.png in Resources */,
-				E12554B616491530006D42F5 /* second.png in Resources */,
-				E12554B816491530006D42F5 /* second@2x.png in Resources */,
-				E12554BB16491530006D42F5 /* WTFirstViewController.xib in Resources */,
-				E12554BE16491530006D42F5 /* WTSecondViewController.xib in Resources */,
 				E1170316165156A400D82F4A /* icon@2x.png in Resources */,
 				E1170318165156BE00D82F4A /* icon.png in Resources */,
+				E11703711651EF4800D82F4A /* WTTabBarBg.png in Resources */,
+				E11703721651EF4800D82F4A /* WTTabBarBg@2x.png in Resources */,
+				E11703731651EF4800D82F4A /* WTTabBarButtonBillBoard.png in Resources */,
+				E11703741651EF4800D82F4A /* WTTabBarButtonBillBoard@2x.png in Resources */,
+				E11703751651EF4800D82F4A /* WTTabBarButtonBillBoardHl.png in Resources */,
+				E11703761651EF4800D82F4A /* WTTabBarButtonBillBoardHl@2x.png in Resources */,
+				E11703771651EF4800D82F4A /* WTTabBarButtonHome.png in Resources */,
+				E11703781651EF4800D82F4A /* WTTabBarButtonHome@2x.png in Resources */,
+				E11703791651EF4800D82F4A /* WTTabBarButtonHomeHl.png in Resources */,
+				E117037A1651EF4800D82F4A /* WTTabBarButtonHomeHl@2x.png in Resources */,
+				E117037B1651EF4800D82F4A /* WTTabBarButtonMe.png in Resources */,
+				E117037C1651EF4800D82F4A /* WTTabBarButtonMe@2x.png in Resources */,
+				E117037D1651EF4800D82F4A /* WTTabBarButtonMeHl.png in Resources */,
+				E117037E1651EF4800D82F4A /* WTTabBarButtonMeHl@2x.png in Resources */,
+				E117037F1651EF4800D82F4A /* WTTabBarButtonNow.png in Resources */,
+				E11703801651EF4800D82F4A /* WTTabBarButtonNow@2x.png in Resources */,
+				E11703811651EF4800D82F4A /* WTTabBarButtonNowHl.png in Resources */,
+				E11703821651EF4800D82F4A /* WTTabBarButtonNowHl@2x.png in Resources */,
+				E11703831651EF4800D82F4A /* WTTabBarButtonPowerSearch.png in Resources */,
+				E11703841651EF4800D82F4A /* WTTabBarButtonPowerSearch@2x.png in Resources */,
+				E11703851651EF4800D82F4A /* WTTabBarButtonPowerSearchHl.png in Resources */,
+				E11703861651EF4800D82F4A /* WTTabBarButtonPowerSearchHl@2x.png in Resources */,
+				E11703991651F35B00D82F4A /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,8 +442,7 @@
 			files = (
 				E12554A016491530006D42F5 /* main.m in Sources */,
 				E12554A416491530006D42F5 /* WTAppDelegate.m in Sources */,
-				E12554AD16491530006D42F5 /* WTFirstViewController.m in Sources */,
-				E12554B416491530006D42F5 /* WTSecondViewController.m in Sources */,
+				E11703921651F07800D82F4A /* WTTabBarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,22 +476,6 @@
 				E125549D16491530006D42F5 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		E12554B916491530006D42F5 /* WTFirstViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E12554BA16491530006D42F5 /* en */,
-			);
-			name = WTFirstViewController.xib;
-			sourceTree = "<group>";
-		};
-		E12554BC16491530006D42F5 /* WTSecondViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E12554BD16491530006D42F5 /* en */,
-			);
-			name = WTSecondViewController.xib;
 			sourceTree = "<group>";
 		};
 		E12554CE16491532006D42F5 /* InfoPlist.strings */ = {
@@ -475,6 +545,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WeTongji/WeTongji-Prefix.pch";
 				INFOPLIST_FILE = "WeTongji/WeTongji-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					WeTongjiSDK,
@@ -490,6 +561,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WeTongji/WeTongji-Prefix.pch";
 				INFOPLIST_FILE = "WeTongji/WeTongji-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					WeTongjiSDK,
