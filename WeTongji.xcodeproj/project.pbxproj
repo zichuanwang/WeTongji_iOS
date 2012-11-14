@@ -49,16 +49,6 @@
 		E12554C816491532006D42F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549516491530006D42F5 /* Foundation.framework */; };
 		E12554D016491532006D42F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E12554CE16491532006D42F5 /* InfoPlist.strings */; };
 		E12554D316491532006D42F5 /* WeTongjiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E12554D216491532006D42F5 /* WeTongjiTests.m */; };
-		E14934A4165389E80010A187 /* WTTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E14934A3165389E80010A187 /* WTTabBar.m */; };
-		E14934B6165399BC0010A187 /* WTSoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E14934B4165399B60010A187 /* WTSoundManager.m */; };
-		E14934B9165399E20010A187 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E14934B8165399E20010A187 /* AudioToolbox.framework */; };
-		E14934C616539DA40010A187 /* WTTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E14934C516539DA40010A187 /* WTTabBarButton.m */; };
-		E14934CC1653A4030010A187 /* dtmf1.wav in Resources */ = {isa = PBXBuildFile; fileRef = E14934C71653A4030010A187 /* dtmf1.wav */; };
-		E14934CD1653A4030010A187 /* dtmf2.wav in Resources */ = {isa = PBXBuildFile; fileRef = E14934C81653A4030010A187 /* dtmf2.wav */; };
-		E14934CE1653A4030010A187 /* dtmf3.wav in Resources */ = {isa = PBXBuildFile; fileRef = E14934C91653A4030010A187 /* dtmf3.wav */; };
-		E14934CF1653A4030010A187 /* dtmf4.wav in Resources */ = {isa = PBXBuildFile; fileRef = E14934CA1653A4030010A187 /* dtmf4.wav */; };
-		E14934D01653A4030010A187 /* dtmf5.wav in Resources */ = {isa = PBXBuildFile; fileRef = E14934CB1653A4030010A187 /* dtmf5.wav */; };
-		E14934D21653CDE50010A187 /* sound_reload.wav in Resources */ = {isa = PBXBuildFile; fileRef = E14934D11653CDE50010A187 /* sound_reload.wav */; };
 		E1C53DD216523DCE0011C8A1 /* WTSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C53DD016523DCE0011C8A1 /* WTSearchViewController.m */; };
 		E1C53DD316523DCE0011C8A1 /* WTSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C53DD116523DCE0011C8A1 /* WTSearchViewController.xib */; };
 /* End PBXBuildFile section */
@@ -137,19 +127,6 @@
 		E12554CF16491532006D42F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E12554D116491532006D42F5 /* WeTongjiTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeTongjiTests.h; sourceTree = "<group>"; };
 		E12554D216491532006D42F5 /* WeTongjiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeTongjiTests.m; sourceTree = "<group>"; };
-		E14934A2165389E80010A187 /* WTTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTabBar.h; sourceTree = "<group>"; };
-		E14934A3165389E80010A187 /* WTTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTabBar.m; sourceTree = "<group>"; };
-		E14934B3165399B60010A187 /* WTSoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSoundManager.h; sourceTree = "<group>"; };
-		E14934B4165399B60010A187 /* WTSoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSoundManager.m; sourceTree = "<group>"; };
-		E14934B8165399E20010A187 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		E14934C416539DA40010A187 /* WTTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTabBarButton.h; sourceTree = "<group>"; };
-		E14934C516539DA40010A187 /* WTTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTabBarButton.m; sourceTree = "<group>"; };
-		E14934C71653A4030010A187 /* dtmf1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dtmf1.wav; sourceTree = "<group>"; };
-		E14934C81653A4030010A187 /* dtmf2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dtmf2.wav; sourceTree = "<group>"; };
-		E14934C91653A4030010A187 /* dtmf3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dtmf3.wav; sourceTree = "<group>"; };
-		E14934CA1653A4030010A187 /* dtmf4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dtmf4.wav; sourceTree = "<group>"; };
-		E14934CB1653A4030010A187 /* dtmf5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dtmf5.wav; sourceTree = "<group>"; };
-		E14934D11653CDE50010A187 /* sound_reload.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound_reload.wav; sourceTree = "<group>"; };
 		E1C53DCF16523DCE0011C8A1 /* WTSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSearchViewController.h; sourceTree = "<group>"; };
 		E1C53DD016523DCE0011C8A1 /* WTSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSearchViewController.m; sourceTree = "<group>"; };
 		E1C53DD116523DCE0011C8A1 /* WTSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSearchViewController.xib; sourceTree = "<group>"; };
@@ -160,7 +137,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E14934B9165399E20010A187 /* AudioToolbox.framework in Frameworks */,
 				E11702FE1650F83F00D82F4A /* MobileCoreServices.framework in Frameworks */,
 				E11702FC1650F82A00D82F4A /* SystemConfiguration.framework in Frameworks */,
 				E125549416491530006D42F5 /* UIKit.framework in Frameworks */,
@@ -193,12 +169,6 @@
 		E117035A1651EF3E00D82F4A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E14934D11653CDE50010A187 /* sound_reload.wav */,
-				E14934C71653A4030010A187 /* dtmf1.wav */,
-				E14934C81653A4030010A187 /* dtmf2.wav */,
-				E14934C91653A4030010A187 /* dtmf3.wav */,
-				E14934CA1653A4030010A187 /* dtmf4.wav */,
-				E14934CB1653A4030010A187 /* dtmf5.wav */,
 				E117035B1651EF4700D82F4A /* WTTabBarBg.png */,
 				E117035C1651EF4700D82F4A /* WTTabBarBg@2x.png */,
 				E117035D1651EF4700D82F4A /* WTTabBarButtonBillBoard.png */,
@@ -266,7 +236,6 @@
 		E125549216491530006D42F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E14934B8165399E20010A187 /* AudioToolbox.framework */,
 				E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */,
 				E11702FB1650F82A00D82F4A /* SystemConfiguration.framework */,
 				E125549316491530006D42F5 /* UIKit.framework */,
@@ -280,7 +249,6 @@
 		E125549916491530006D42F5 /* WeTongji */ = {
 			isa = PBXGroup;
 			children = (
-				E14934B7165399C10010A187 /* Tools */,
 				E117038E1651EFD900D82F4A /* View Controllers */,
 				E11703871651EF5600D82F4A /* Views */,
 				E12554A216491530006D42F5 /* WTAppDelegate.h */,
@@ -325,24 +293,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E14934B7165399C10010A187 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				E14934B3165399B60010A187 /* WTSoundManager.h */,
-				E14934B4165399B60010A187 /* WTSoundManager.m */,
-			);
-			name = Tools;
-			sourceTree = "<group>";
-		};
 		E1C53DCD16523DA60011C8A1 /* Root */ = {
 			isa = PBXGroup;
 			children = (
 				E117038F1651F07800D82F4A /* WTTabBarViewController.h */,
 				E11703901651F07800D82F4A /* WTTabBarViewController.m */,
-				E14934A2165389E80010A187 /* WTTabBar.h */,
-				E14934A3165389E80010A187 /* WTTabBar.m */,
-				E14934C416539DA40010A187 /* WTTabBarButton.h */,
-				E14934C516539DA40010A187 /* WTTabBarButton.m */,
 			);
 			name = Root;
 			sourceTree = "<group>";
@@ -476,12 +431,6 @@
 				E11703861651EF4800D82F4A /* WTTabBarButtonPowerSearchHl@2x.png in Resources */,
 				E11703991651F35B00D82F4A /* MainWindow.xib in Resources */,
 				E1C53DD316523DCE0011C8A1 /* WTSearchViewController.xib in Resources */,
-				E14934CC1653A4030010A187 /* dtmf1.wav in Resources */,
-				E14934CD1653A4030010A187 /* dtmf2.wav in Resources */,
-				E14934CE1653A4030010A187 /* dtmf3.wav in Resources */,
-				E14934CF1653A4030010A187 /* dtmf4.wav in Resources */,
-				E14934D01653A4030010A187 /* dtmf5.wav in Resources */,
-				E14934D21653CDE50010A187 /* sound_reload.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,9 +469,6 @@
 				E12554A416491530006D42F5 /* WTAppDelegate.m in Sources */,
 				E11703921651F07800D82F4A /* WTTabBarViewController.m in Sources */,
 				E1C53DD216523DCE0011C8A1 /* WTSearchViewController.m in Sources */,
-				E14934A4165389E80010A187 /* WTTabBar.m in Sources */,
-				E14934B6165399BC0010A187 /* WTSoundManager.m in Sources */,
-				E14934C616539DA40010A187 /* WTTabBarButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

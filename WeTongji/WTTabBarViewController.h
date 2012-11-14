@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WTTabBar.h"
 
-@interface WTTabBarViewController : UITabBarController<WTTabBarDelegate>
+@interface WTTabBarViewController : UITabBarController
 
 @end
