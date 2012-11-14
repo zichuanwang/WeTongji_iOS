@@ -7,6 +7,7 @@
 //
 
 #import "WTAppDelegate.h"
+#import "WTSoundManager.h"
 
 @implementation WTAppDelegate
 
@@ -14,6 +15,7 @@
 {
     // Override point for customization after application launch.
     [self.window makeKeyAndVisible];
+    [[WTSoundManager sharedManager] loadSoundResource];
     return YES;
 }
 
