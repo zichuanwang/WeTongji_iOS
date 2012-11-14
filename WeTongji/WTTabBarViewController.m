@@ -42,7 +42,7 @@
     [self hideBuiltInTabBar];
     [self showCustomTabBar];
     
-    self.selectedIndex = 2;
+    [self didClickTabBarButton:self.buttonArray[0]];
 }
 
 #pragma mark - UI methods
@@ -75,57 +75,67 @@
 	for (int i = 0; i < viewCount; i++) {
 		UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
 		btn.tag = i;
-		[btn addTarget:self action:@selector(selectTab:) forControlEvents:UIControlEventTouchUpInside];
+		[btn addTarget:self action:@selector(didClickTabBarButton:) forControlEvents:UIControlEventTouchUpInside];
         btn.frame = CGRectMake(64 * i, 0, 64, 50);
+        UIImage *normalStateImage = nil;
+        UIImage *selectStateImage = nil;
 		switch (i) {
             case 0: {
-                [btn setImage:[UIImage imageNamed:@"WTTabBarButtonHome"] forState:UIControlStateNormal];
-                [btn setImage:[UIImage imageNamed:@"WTTabBarButtonHomeHl"] forState:UIControlStateSelected];
+                normalStateImage = [UIImage imageNamed:@"WTTabBarButtonHome"];
+                selectStateImage = [UIImage imageNamed:@"WTTabBarButtonHomeHl"];
                 break;
             }
             case 1: {
-                [btn setImage:[UIImage imageNamed:@"WTTabBarButtonNow"] forState:UIControlStateNormal];
-                [btn setImage:[UIImage imageNamed:@"WTTabBarButtonNowHl"] forState:UIControlStateSelected];
+                normalStateImage = [UIImage imageNamed:@"WTTabBarButtonNow"];
+                selectStateImage = [UIImage imageNamed:@"WTTabBarButtonNowHl"];
                 break;
             }
             case 2: {
-                [btn setImage:[UIImage imageNamed:@"WTTabBarButtonPowerSearch"] forState:UIControlStateNormal];
-                [btn setImage:[UIImage imageNamed:@"WTTabBarButtonPowerSearchHl"] forState:UIControlStateSelected];
+                normalStateImage = [UIImage imageNamed:@"WTTabBarButtonPowerSearch"];
+                selectStateImage = [UIImage imageNamed:@"WTTabBarButtonPowerSearchHl"];
                 break;
             }
             case 3: {
-                [btn setImage:[UIImage imageNamed:@"WTTabBarButtonBillBoard"] forState:UIControlStateNormal];
-                [btn setImage:[UIImage imageNamed:@"WTTabBarButtonBillBoardHl"] forState:UIControlStateSelected];
+                normalStateImage = [UIImage imageNamed:@"WTTabBarButtonBillBoard"];
+                selectStateImage = [UIImage imageNamed:@"WTTabBarButtonBillBoardHl"];
                 break;
             }
             case 4: {
-                [btn setImage:[UIImage imageNamed:@"WTTabBarButtonMe"] forState:UIControlStateNormal];
-                [btn setImage:[UIImage imageNamed:@"WTTabBarButtonMeHl"] forState:UIControlStateSelected];
+                normalStateImage = [UIImage imageNamed:@"WTTabBarButtonMe"];
+                selectStateImage = [UIImage imageNamed:@"WTTabBarButtonMeHl"];
                 break;
             }
         }
+        [btn setImage:normalStateImage forState:UIControlStateNormal];
+        [btn setImage:selectStateImage forState:UIControlStateSelected];
+        
 		[self.buttonArray addObject:btn];
 		[self.bgImageView addSubview:btn];
 	}
     ((UIButton *)self.buttonArray[0]).selected = YES;
 }
 
-- (void)selectTab:(UIButton *)button {
-    if (self.selectedIndex == button.tag) {
-        //[[self.viewControllers objectAtIndex:button.tag] popToRootViewControllerAnimated:YES];
-        return;
-    }
+#pragma mark - Actions 
 
+- (void)didDragEnterTabBarButton:(UIButton *)button {
+    NSLog(@"drag enter");
+}
+
+- (void)didClickTabBarButton:(UIButton *)button {
     self.selectedIndex = button.tag;
+    
     // button.tag==4时似乎系统有bug，用下面的方法折衷
     if (button.tag == 4) {
         self.selectedViewController = [self.viewControllers lastObject];
     }
     
     for (UIButton* btn in self.buttonArray) {
-        [btn setSelected:NO];
+        btn.selected = NO;
+        btn.userInteractionEnabled = YES;
     }
-    [button setSelected:YES];
+    
+    button.selected = YES;
+    button.userInteractionEnabled = NO;
 }
 
 @end

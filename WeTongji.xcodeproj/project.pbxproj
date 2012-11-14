@@ -49,6 +49,8 @@
 		E12554C816491532006D42F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549516491530006D42F5 /* Foundation.framework */; };
 		E12554D016491532006D42F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E12554CE16491532006D42F5 /* InfoPlist.strings */; };
 		E12554D316491532006D42F5 /* WeTongjiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E12554D216491532006D42F5 /* WeTongjiTests.m */; };
+		E1C53DD216523DCE0011C8A1 /* WTSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C53DD016523DCE0011C8A1 /* WTSearchViewController.m */; };
+		E1C53DD316523DCE0011C8A1 /* WTSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C53DD116523DCE0011C8A1 /* WTSearchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +127,9 @@
 		E12554CF16491532006D42F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E12554D116491532006D42F5 /* WeTongjiTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeTongjiTests.h; sourceTree = "<group>"; };
 		E12554D216491532006D42F5 /* WeTongjiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeTongjiTests.m; sourceTree = "<group>"; };
+		E1C53DCF16523DCE0011C8A1 /* WTSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSearchViewController.h; sourceTree = "<group>"; };
+		E1C53DD016523DCE0011C8A1 /* WTSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSearchViewController.m; sourceTree = "<group>"; };
+		E1C53DD116523DCE0011C8A1 /* WTSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSearchViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,8 +205,8 @@
 		E117038E1651EFD900D82F4A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E117038F1651F07800D82F4A /* WTTabBarViewController.h */,
-				E11703901651F07800D82F4A /* WTTabBarViewController.m */,
+				E1C53DCE16523DAF0011C8A1 /* Search */,
+				E1C53DCD16523DA60011C8A1 /* Root */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -286,6 +291,25 @@
 				E12554CE16491532006D42F5 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E1C53DCD16523DA60011C8A1 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				E117038F1651F07800D82F4A /* WTTabBarViewController.h */,
+				E11703901651F07800D82F4A /* WTTabBarViewController.m */,
+			);
+			name = Root;
+			sourceTree = "<group>";
+		};
+		E1C53DCE16523DAF0011C8A1 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				E1C53DCF16523DCE0011C8A1 /* WTSearchViewController.h */,
+				E1C53DD016523DCE0011C8A1 /* WTSearchViewController.m */,
+				E1C53DD116523DCE0011C8A1 /* WTSearchViewController.xib */,
+			);
+			name = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +430,7 @@
 				E11703851651EF4800D82F4A /* WTTabBarButtonPowerSearchHl.png in Resources */,
 				E11703861651EF4800D82F4A /* WTTabBarButtonPowerSearchHl@2x.png in Resources */,
 				E11703991651F35B00D82F4A /* MainWindow.xib in Resources */,
+				E1C53DD316523DCE0011C8A1 /* WTSearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +468,7 @@
 				E12554A016491530006D42F5 /* main.m in Sources */,
 				E12554A416491530006D42F5 /* WTAppDelegate.m in Sources */,
 				E11703921651F07800D82F4A /* WTTabBarViewController.m in Sources */,
+				E1C53DD216523DCE0011C8A1 /* WTSearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
