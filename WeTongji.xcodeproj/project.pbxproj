@@ -49,6 +49,8 @@
 		E12554C816491532006D42F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549516491530006D42F5 /* Foundation.framework */; };
 		E12554D016491532006D42F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E12554CE16491532006D42F5 /* InfoPlist.strings */; };
 		E12554D316491532006D42F5 /* WeTongjiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E12554D216491532006D42F5 /* WeTongjiTests.m */; };
+		E1C033CC16691E75004738EF /* WTDistrictBuildingMap.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1C033CB16691E75004738EF /* WTDistrictBuildingMap.plist */; };
+		E1C033E116692590004738EF /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C033E016692590004738EF /* libxml2.dylib */; };
 		E1C53DD216523DCE0011C8A1 /* WTSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C53DD016523DCE0011C8A1 /* WTSearchViewController.m */; };
 		E1C53DD316523DCE0011C8A1 /* WTSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C53DD116523DCE0011C8A1 /* WTSearchViewController.xib */; };
 /* End PBXBuildFile section */
@@ -127,6 +129,8 @@
 		E12554CF16491532006D42F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E12554D116491532006D42F5 /* WeTongjiTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeTongjiTests.h; sourceTree = "<group>"; };
 		E12554D216491532006D42F5 /* WeTongjiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeTongjiTests.m; sourceTree = "<group>"; };
+		E1C033CB16691E75004738EF /* WTDistrictBuildingMap.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WTDistrictBuildingMap.plist; sourceTree = "<group>"; };
+		E1C033E016692590004738EF /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		E1C53DCF16523DCE0011C8A1 /* WTSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSearchViewController.h; sourceTree = "<group>"; };
 		E1C53DD016523DCE0011C8A1 /* WTSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSearchViewController.m; sourceTree = "<group>"; };
 		E1C53DD116523DCE0011C8A1 /* WTSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSearchViewController.xib; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1C033E116692590004738EF /* libxml2.dylib in Frameworks */,
 				E11702FE1650F83F00D82F4A /* MobileCoreServices.framework in Frameworks */,
 				E11702FC1650F82A00D82F4A /* SystemConfiguration.framework in Frameworks */,
 				E125549416491530006D42F5 /* UIKit.framework in Frameworks */,
@@ -169,6 +174,7 @@
 		E117035A1651EF3E00D82F4A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E1C033CB16691E75004738EF /* WTDistrictBuildingMap.plist */,
 				E117035B1651EF4700D82F4A /* WTTabBarBg.png */,
 				E117035C1651EF4700D82F4A /* WTTabBarBg@2x.png */,
 				E117035D1651EF4700D82F4A /* WTTabBarButtonBillBoard.png */,
@@ -236,6 +242,7 @@
 		E125549216491530006D42F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E1C033E016692590004738EF /* libxml2.dylib */,
 				E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */,
 				E11702FB1650F82A00D82F4A /* SystemConfiguration.framework */,
 				E125549316491530006D42F5 /* UIKit.framework */,
@@ -431,6 +438,7 @@
 				E11703861651EF4800D82F4A /* WTTabBarButtonPowerSearchHl@2x.png in Resources */,
 				E11703991651F35B00D82F4A /* MainWindow.xib in Resources */,
 				E1C53DD316523DCE0011C8A1 /* WTSearchViewController.xib in Resources */,
+				E1C033CC16691E75004738EF /* WTDistrictBuildingMap.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,6 +583,7 @@
 				OTHER_LDFLAGS = (
 					"-framework",
 					WeTongjiSDK,
+					"-lxml2",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -591,6 +600,7 @@
 				OTHER_LDFLAGS = (
 					"-framework",
 					WeTongjiSDK,
+					"-lxml2",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

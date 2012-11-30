@@ -6,6 +6,7 @@
 //  Copyright (c) 2012年 Tongji Apple Club. All rights reserved.
 //
 
+#import <WeTongjiSDK/WeTongjiSDK.h>
 #import "WTSearchViewController.h"
 
 @interface WTSearchViewController ()
@@ -29,6 +30,15 @@
     // Do any additional setup after loading the view from its nib.
     [self.searchBar.subviews[0] removeFromSuperview];
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapView:)]];
+    
+    BlockARCWeakSelf weakSelf = self;
+    [[WTElectricityBalanceQueryService sharedService] getElectricChargeBalanceWithDistrict:@"四平校区" building:@"西南八楼" room:@"119" successBlock:^(id responseObject) {
+        NSString *balance = responseObject;
+        weakSelf.label.text = balance;
+        [weakSelf.label sizeToFit];
+    } failureBlock:^(NSError *error) {
+        NSLog(@"Query Electricity Balance Failure:%@", error.localizedDescription);
+    }];
 }
 
 - (void)didReceiveMemoryWarning

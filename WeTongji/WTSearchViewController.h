@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WTSearchViewController : UIViewController
+@interface WTSearchViewController : UIViewController <UIWebViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
+
+@property (nonatomic, weak) IBOutlet UILabel *label;
 
 @end
