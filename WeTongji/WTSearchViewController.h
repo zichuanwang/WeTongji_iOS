@@ -14,4 +14,10 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *label;
 
+@property (nonatomic, weak) IBOutlet UITextField *districtTextField;
+@property (nonatomic, weak) IBOutlet UITextField *buildingTextField;
+@property (nonatomic, weak) IBOutlet UITextField *roomTextField;
+
+- (IBAction)didClickRefreshButton:(UIButton *)sender;
+
 @end
