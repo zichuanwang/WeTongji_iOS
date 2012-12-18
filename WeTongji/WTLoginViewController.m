@@ -68,6 +68,7 @@
     self.passwordTextField.placeholder = NSLocalizedString(@"Password", nil);
     
     [self.loginPanelContainerView addSubview:self.forgetPasswordButton];
+    [self.accountTextField becomeFirstResponder];
 }
 
 - (void)configureNavigationBar {
