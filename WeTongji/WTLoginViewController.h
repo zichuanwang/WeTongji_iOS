@@ -10,6 +10,11 @@
 
 @interface WTLoginViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UIView      *loginPanelContainerView;
+@property (nonatomic, weak) IBOutlet UIImageView *loginPanelBgImageView;
+@property (nonatomic, weak) IBOutlet UITextField *accountTextField;
+@property (nonatomic, weak) IBOutlet UITextField *passwordTextField;
+
 + (void)show;
 
 @end

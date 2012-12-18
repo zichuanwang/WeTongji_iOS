@@ -10,7 +10,7 @@
 
 @implementation WTResourceFactory
 
-+ (UIButton *)createNavigationBarButtonWithText:(NSString *)text {
++ (UIButton *)createNormalButtonWithText:(NSString *)text {
     UIButton *button = [[UIButton alloc] init];
     
     UIEdgeInsets insets = UIEdgeInsetsMake(0.0, 5.0, 0.0, 5.0);

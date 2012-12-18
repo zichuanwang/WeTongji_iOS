@@ -13,6 +13,8 @@
 
 @interface WTLoginViewController ()
 
+@property (nonatomic, strong) UIButton *forgetPasswordButton;
+
 @end
 
 @implementation WTLoginViewController
@@ -31,6 +33,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self configureNavigationBar];
+    [self configureLoginPanel];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,8 +42,36 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Properties
+
+- (UIButton *)forgetPasswordButton {
+    if(_forgetPasswordButton == nil) {
+        _forgetPasswordButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Forgot?", nil)];
+        [_forgetPasswordButton resetCenterY:self.passwordTextField.center.y];
+        
+        CGFloat containerViewWidth = self.loginPanelContainerView.frame.size.width;
+        CGFloat textfieldOriginX = self.accountTextField.frame.origin.x;
+        CGFloat forgetButtonDisToRightBorder = 10;
+        [_forgetPasswordButton resetOriginX:containerViewWidth - forgetButtonDisToRightBorder - _forgetPasswordButton.frame.size.width];
+        
+        [self.passwordTextField resetWidth:containerViewWidth - _forgetPasswordButton.frame.size.width - textfieldOriginX - forgetButtonDisToRightBorder * 2];
+    }
+    return _forgetPasswordButton;
+}
+
+- (void)configureLoginPanel {
+    UIEdgeInsets insets = UIEdgeInsetsMake(6.0, 7.0, 8.0, 7.0);
+    UIImage *bgImage = [[UIImage imageNamed:@"WTInfoPanelBg"] resizableImageWithCapInsets:insets];
+    self.loginPanelBgImageView.image = bgImage;
+    
+    self.accountTextField.placeholder = NSLocalizedString(@"Student No.", nil);
+    self.passwordTextField.placeholder = NSLocalizedString(@"Password", nil);
+    
+    [self.loginPanelContainerView addSubview:self.forgetPasswordButton];
+}
+
 - (void)configureNavigationBar {
-    UIButton *cancelButton = [WTResourceFactory createNavigationBarButtonWithText:NSLocalizedString(@"Not now", nil)];
+    UIButton *cancelButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Not now", nil)];
     [cancelButton addTarget:self action:@selector(didClickCancelButton:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:cancelButton];
 }

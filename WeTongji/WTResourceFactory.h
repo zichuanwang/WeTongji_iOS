@@ -10,6 +10,6 @@
 
 @interface WTResourceFactory : NSObject
 
-+ (UIButton *)createNavigationBarButtonWithText:(NSString *)text;
++ (UIButton *)createNormalButtonWithText:(NSString *)text;
 
 @end

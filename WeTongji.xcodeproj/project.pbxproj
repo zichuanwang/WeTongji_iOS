@@ -75,6 +75,10 @@
 		E188222D1680288100A41F47 /* WTNavigationBarButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E188222B1680288100A41F47 /* WTNavigationBarButton.png */; };
 		E188222E1680288100A41F47 /* WTNavigationBarButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E188222C1680288100A41F47 /* WTNavigationBarButton@2x.png */; };
 		E188223116802AD700A41F47 /* WTResourceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E188223016802AD700A41F47 /* WTResourceFactory.m */; };
+		E188223816803E1400A41F47 /* WTInfoPanelBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E188223616803E1400A41F47 /* WTInfoPanelBg.png */; };
+		E188223916803E1400A41F47 /* WTInfoPanelBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E188223716803E1400A41F47 /* WTInfoPanelBg@2x.png */; };
+		E188223C1680461E00A41F47 /* WTInfoPanelDivier@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E188223A1680461D00A41F47 /* WTInfoPanelDivier@2x.png */; };
+		E188223D1680461E00A41F47 /* WTInfoPanelDivier.png in Resources */ = {isa = PBXBuildFile; fileRef = E188223B1680461E00A41F47 /* WTInfoPanelDivier.png */; };
 		E1C033CC16691E75004738EF /* WTDistrictBuildingMap.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1C033CB16691E75004738EF /* WTDistrictBuildingMap.plist */; };
 		E1C033E116692590004738EF /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C033E016692590004738EF /* libxml2.dylib */; };
 		E1C53DD216523DCE0011C8A1 /* WTSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C53DD016523DCE0011C8A1 /* WTSearchViewController.m */; };
@@ -191,6 +195,10 @@
 		E188222C1680288100A41F47 /* WTNavigationBarButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNavigationBarButton@2x.png"; sourceTree = "<group>"; };
 		E188222F16802AD700A41F47 /* WTResourceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTResourceFactory.h; sourceTree = "<group>"; };
 		E188223016802AD700A41F47 /* WTResourceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTResourceFactory.m; sourceTree = "<group>"; };
+		E188223616803E1400A41F47 /* WTInfoPanelBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTInfoPanelBg.png; sourceTree = "<group>"; };
+		E188223716803E1400A41F47 /* WTInfoPanelBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTInfoPanelBg@2x.png"; sourceTree = "<group>"; };
+		E188223A1680461D00A41F47 /* WTInfoPanelDivier@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTInfoPanelDivier@2x.png"; sourceTree = "<group>"; };
+		E188223B1680461E00A41F47 /* WTInfoPanelDivier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTInfoPanelDivier.png; sourceTree = "<group>"; };
 		E1C033CB16691E75004738EF /* WTDistrictBuildingMap.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WTDistrictBuildingMap.plist; sourceTree = "<group>"; };
 		E1C033E016692590004738EF /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		E1C53DCF16523DCE0011C8A1 /* WTSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSearchViewController.h; sourceTree = "<group>"; };
@@ -236,6 +244,7 @@
 		E117035A1651EF3E00D82F4A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E188223E1680462100A41F47 /* InfoPanel */,
 				E18821EE1680103E00A41F47 /* NavigationBar */,
 				E18821BC1680058E00A41F47 /* Corner */,
 				E18821BB1680058000A41F47 /* TabBar */,
@@ -449,6 +458,17 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		E188223E1680462100A41F47 /* InfoPanel */ = {
+			isa = PBXGroup;
+			children = (
+				E188223616803E1400A41F47 /* WTInfoPanelBg.png */,
+				E188223716803E1400A41F47 /* WTInfoPanelBg@2x.png */,
+				E188223A1680461D00A41F47 /* WTInfoPanelDivier@2x.png */,
+				E188223B1680461E00A41F47 /* WTInfoPanelDivier.png */,
+			);
+			name = InfoPanel;
+			sourceTree = "<group>";
+		};
 		E1C53DCD16523DA60011C8A1 /* Root */ = {
 			isa = PBXGroup;
 			children = (
@@ -610,6 +630,10 @@
 				E1882227168025E600A41F47 /* WTLoginViewController.xib in Resources */,
 				E188222D1680288100A41F47 /* WTNavigationBarButton.png in Resources */,
 				E188222E1680288100A41F47 /* WTNavigationBarButton@2x.png in Resources */,
+				E188223816803E1400A41F47 /* WTInfoPanelBg.png in Resources */,
+				E188223916803E1400A41F47 /* WTInfoPanelBg@2x.png in Resources */,
+				E188223C1680461E00A41F47 /* WTInfoPanelDivier@2x.png in Resources */,
+				E188223D1680461E00A41F47 /* WTInfoPanelDivier.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
