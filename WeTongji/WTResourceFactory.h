@@ -12,4 +12,6 @@
 
 + (UIButton *)createNormalButtonWithText:(NSString *)text;
 
++ (UIButton *)createFocusButtonWithText:(NSString *)text;
+
 @end

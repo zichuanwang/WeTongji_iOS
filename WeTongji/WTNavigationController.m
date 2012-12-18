@@ -40,6 +40,10 @@
     if([self.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
         [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"WTNavigationBarBg"] forBarMetrics:UIBarMetricsDefault];
     }
+    UIImageView *shadowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTNavigationBarShadow"]];
+    [shadowImageView resetOriginY:self.navigationBar.frame.size.height];
+    [self.navigationBar addSubview:shadowImageView];
+    
     [self showTopCorner];
 }
 

@@ -75,11 +75,21 @@
     UIButton *cancelButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Not now", nil)];
     [cancelButton addTarget:self action:@selector(didClickCancelButton:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:cancelButton];
+    
+    UIButton *loginButton = [WTResourceFactory createFocusButtonWithText:NSLocalizedString(@"Log In / Sign Up", nil)];
+    [loginButton addTarget:self action:@selector(didClickLoginButton:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:loginButton];
 }
+
+#pragma mark - Actions
 
 - (void)didClickCancelButton:(UIButton *)sender {
     UIViewController *rootVC = [[UIApplication sharedApplication] rootViewController];
     [rootVC dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)didClickLoginButton:(UIButton *)sender {
+    sender.selected = !sender.selected;
 }
 
 + (void)show {
