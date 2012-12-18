@@ -11,5 +11,6 @@
 @interface WTHomeViewController : UIViewController
 
 - (IBAction)didClickLoginButton:(UIButton *)sender;
+- (IBAction)didClickShineButton:(UIButton *)sender;
 
 @end

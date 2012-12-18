@@ -52,6 +52,15 @@
 		E14FA6791680A9F3008A8D33 /* WTSelectButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6751680A9F3008A8D33 /* WTSelectButton.png */; };
 		E14FA67A1680A9F3008A8D33 /* WTSelectButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6761680A9F3008A8D33 /* WTSelectButton@2x.png */; };
 		E14FA67B1680A9F3008A8D33 /* WTFocusButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6771680A9F3008A8D33 /* WTFocusButton@2x.png */; };
+		E14FA6801680B9DE008A8D33 /* WTNotificationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E14FA67F1680B9DE008A8D33 /* WTNotificationButton.m */; };
+		E14FA6871680BBDD008A8D33 /* WTNotificationNormalButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6811680BBDD008A8D33 /* WTNotificationNormalButton.png */; };
+		E14FA6881680BBDD008A8D33 /* WTNotificationNormalButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6821680BBDD008A8D33 /* WTNotificationNormalButton@2x.png */; };
+		E14FA6891680BBDD008A8D33 /* WTNotificationShineButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6831680BBDD008A8D33 /* WTNotificationShineButton@2x.png */; };
+		E14FA68A1680BBDD008A8D33 /* WTNotificationShineButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6841680BBDD008A8D33 /* WTNotificationShineButton.png */; };
+		E14FA68B1680BBDD008A8D33 /* WTNotificationSelectButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6851680BBDD008A8D33 /* WTNotificationSelectButton@2x.png */; };
+		E14FA68C1680BBDD008A8D33 /* WTNotificationSelectButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6861680BBDD008A8D33 /* WTNotificationSelectButton.png */; };
+		E14FA68F1680C546008A8D33 /* WTNotificationRing.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA68D1680C546008A8D33 /* WTNotificationRing.png */; };
+		E14FA6901680C546008A8D33 /* WTNotificationRing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA68E1680C546008A8D33 /* WTNotificationRing@2x.png */; };
 		E18821C51680059600A41F47 /* WTCornerBottomLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = E18821BD1680059600A41F47 /* WTCornerBottomLeft.png */; };
 		E18821C61680059600A41F47 /* WTCornerBottomLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E18821BE1680059600A41F47 /* WTCornerBottomLeft@2x.png */; };
 		E18821C71680059600A41F47 /* WTCornerBottomRight.png in Resources */ = {isa = PBXBuildFile; fileRef = E18821BF1680059600A41F47 /* WTCornerBottomRight.png */; };
@@ -166,6 +175,16 @@
 		E14FA6751680A9F3008A8D33 /* WTSelectButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTSelectButton.png; sourceTree = "<group>"; };
 		E14FA6761680A9F3008A8D33 /* WTSelectButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTSelectButton@2x.png"; sourceTree = "<group>"; };
 		E14FA6771680A9F3008A8D33 /* WTFocusButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTFocusButton@2x.png"; sourceTree = "<group>"; };
+		E14FA67E1680B9DE008A8D33 /* WTNotificationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNotificationButton.h; sourceTree = "<group>"; };
+		E14FA67F1680B9DE008A8D33 /* WTNotificationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNotificationButton.m; sourceTree = "<group>"; };
+		E14FA6811680BBDD008A8D33 /* WTNotificationNormalButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNotificationNormalButton.png; sourceTree = "<group>"; };
+		E14FA6821680BBDD008A8D33 /* WTNotificationNormalButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNotificationNormalButton@2x.png"; sourceTree = "<group>"; };
+		E14FA6831680BBDD008A8D33 /* WTNotificationShineButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNotificationShineButton@2x.png"; sourceTree = "<group>"; };
+		E14FA6841680BBDD008A8D33 /* WTNotificationShineButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNotificationShineButton.png; sourceTree = "<group>"; };
+		E14FA6851680BBDD008A8D33 /* WTNotificationSelectButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNotificationSelectButton@2x.png"; sourceTree = "<group>"; };
+		E14FA6861680BBDD008A8D33 /* WTNotificationSelectButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNotificationSelectButton.png; sourceTree = "<group>"; };
+		E14FA68D1680C546008A8D33 /* WTNotificationRing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNotificationRing.png; sourceTree = "<group>"; };
+		E14FA68E1680C546008A8D33 /* WTNotificationRing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNotificationRing@2x.png"; sourceTree = "<group>"; };
 		E18821BD1680059600A41F47 /* WTCornerBottomLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTCornerBottomLeft.png; sourceTree = "<group>"; };
 		E18821BE1680059600A41F47 /* WTCornerBottomLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTCornerBottomLeft@2x.png"; sourceTree = "<group>"; };
 		E18821BF1680059600A41F47 /* WTCornerBottomRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTCornerBottomRight.png; sourceTree = "<group>"; };
@@ -319,6 +338,7 @@
 		E125549916491530006D42F5 /* WeTongji */ = {
 			isa = PBXGroup;
 			children = (
+				E14FA67D1680B9BB008A8D33 /* CustomViews */,
 				E18821CE1680077C00A41F47 /* Categories */,
 				E18821CD1680077000A41F47 /* Tools */,
 				E117038E1651EFD900D82F4A /* View Controllers */,
@@ -369,6 +389,14 @@
 		E14FA67C1680A9F7008A8D33 /* button */ = {
 			isa = PBXGroup;
 			children = (
+				E14FA68D1680C546008A8D33 /* WTNotificationRing.png */,
+				E14FA68E1680C546008A8D33 /* WTNotificationRing@2x.png */,
+				E14FA6811680BBDD008A8D33 /* WTNotificationNormalButton.png */,
+				E14FA6821680BBDD008A8D33 /* WTNotificationNormalButton@2x.png */,
+				E14FA6831680BBDD008A8D33 /* WTNotificationShineButton@2x.png */,
+				E14FA6841680BBDD008A8D33 /* WTNotificationShineButton.png */,
+				E14FA6851680BBDD008A8D33 /* WTNotificationSelectButton@2x.png */,
+				E14FA6861680BBDD008A8D33 /* WTNotificationSelectButton.png */,
 				E188222B1680288100A41F47 /* WTNormalButton.png */,
 				E188222C1680288100A41F47 /* WTNormalButton@2x.png */,
 				E14FA6741680A9F2008A8D33 /* WTFocusButton.png */,
@@ -377,6 +405,15 @@
 				E14FA6771680A9F3008A8D33 /* WTFocusButton@2x.png */,
 			);
 			name = button;
+			sourceTree = "<group>";
+		};
+		E14FA67D1680B9BB008A8D33 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				E14FA67E1680B9DE008A8D33 /* WTNotificationButton.h */,
+				E14FA67F1680B9DE008A8D33 /* WTNotificationButton.m */,
+			);
+			name = CustomViews;
 			sourceTree = "<group>";
 		};
 		E18821BB1680058000A41F47 /* TabBar */ = {
@@ -658,6 +695,14 @@
 				E14FA6791680A9F3008A8D33 /* WTSelectButton.png in Resources */,
 				E14FA67A1680A9F3008A8D33 /* WTSelectButton@2x.png in Resources */,
 				E14FA67B1680A9F3008A8D33 /* WTFocusButton@2x.png in Resources */,
+				E14FA6871680BBDD008A8D33 /* WTNotificationNormalButton.png in Resources */,
+				E14FA6881680BBDD008A8D33 /* WTNotificationNormalButton@2x.png in Resources */,
+				E14FA6891680BBDD008A8D33 /* WTNotificationShineButton@2x.png in Resources */,
+				E14FA68A1680BBDD008A8D33 /* WTNotificationShineButton.png in Resources */,
+				E14FA68B1680BBDD008A8D33 /* WTNotificationSelectButton@2x.png in Resources */,
+				E14FA68C1680BBDD008A8D33 /* WTNotificationSelectButton.png in Resources */,
+				E14FA68F1680C546008A8D33 /* WTNotificationRing.png in Resources */,
+				E14FA6901680C546008A8D33 /* WTNotificationRing@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,6 +748,7 @@
 				E1882226168025E600A41F47 /* WTLoginViewController.m in Sources */,
 				E188222A1680271A00A41F47 /* UIApplication+Addition.m in Sources */,
 				E188223116802AD700A41F47 /* WTResourceFactory.m in Sources */,
+				E14FA6801680B9DE008A8D33 /* WTNotificationButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
