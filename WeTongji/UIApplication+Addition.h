@@ -1,5 +1,5 @@
 //
-//  WTHomeViewController.h
+//  UIApplication+Addition.h
 //  WeTongji
 //
 //  Created by 王 紫川 on 12-12-18.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WTHomeViewController : UIViewController
+@interface UIApplication (Addition)
 
-- (IBAction)didClickLoginButton:(UIButton *)sender;
+- (UIViewController *)rootViewController;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "WTHomeViewController.h"
+#import "WTLoginViewController.h"
 
 @interface WTHomeViewController ()
 
@@ -39,6 +40,10 @@
 - (void)configureNavigationBar {
     UIImageView *logoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTNavigationBarLogo"]];
     self.navigationItem.titleView = logoImageView;
+}
+
+- (IBAction)didClickLoginButton:(UIButton *)sender {
+    [WTLoginViewController show];
 }
 
 @end

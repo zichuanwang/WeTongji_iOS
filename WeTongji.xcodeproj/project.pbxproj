@@ -68,6 +68,13 @@
 		E18821FA168013AF00A41F47 /* WTNavigationBarLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E18821F8168013AF00A41F47 /* WTNavigationBarLogo@2x.png */; };
 		E18821FE16801BF700A41F47 /* WTHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E18821FC16801BF700A41F47 /* WTHomeViewController.m */; };
 		E18821FF16801BF700A41F47 /* WTHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E18821FD16801BF700A41F47 /* WTHomeViewController.xib */; };
+		E18822201680252A00A41F47 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E188221E1680252A00A41F47 /* Localizable.strings */; };
+		E1882226168025E600A41F47 /* WTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1882224168025E600A41F47 /* WTLoginViewController.m */; };
+		E1882227168025E600A41F47 /* WTLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1882225168025E600A41F47 /* WTLoginViewController.xib */; };
+		E188222A1680271A00A41F47 /* UIApplication+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E18822291680271A00A41F47 /* UIApplication+Addition.m */; };
+		E188222D1680288100A41F47 /* WTNavigationBarButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E188222B1680288100A41F47 /* WTNavigationBarButton.png */; };
+		E188222E1680288100A41F47 /* WTNavigationBarButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E188222C1680288100A41F47 /* WTNavigationBarButton@2x.png */; };
+		E188223116802AD700A41F47 /* WTResourceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E188223016802AD700A41F47 /* WTResourceFactory.m */; };
 		E1C033CC16691E75004738EF /* WTDistrictBuildingMap.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1C033CB16691E75004738EF /* WTDistrictBuildingMap.plist */; };
 		E1C033E116692590004738EF /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C033E016692590004738EF /* libxml2.dylib */; };
 		E1C53DD216523DCE0011C8A1 /* WTSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C53DD016523DCE0011C8A1 /* WTSearchViewController.m */; };
@@ -171,6 +178,19 @@
 		E18821FB16801BF700A41F47 /* WTHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTHomeViewController.h; sourceTree = "<group>"; };
 		E18821FC16801BF700A41F47 /* WTHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTHomeViewController.m; sourceTree = "<group>"; };
 		E18821FD16801BF700A41F47 /* WTHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTHomeViewController.xib; sourceTree = "<group>"; };
+		E18822151680230B00A41F47 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		E18822161680230B00A41F47 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		E188221F1680252A00A41F47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E18822211680253600A41F47 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		E1882223168025E600A41F47 /* WTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTLoginViewController.h; sourceTree = "<group>"; };
+		E1882224168025E600A41F47 /* WTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTLoginViewController.m; sourceTree = "<group>"; };
+		E1882225168025E600A41F47 /* WTLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTLoginViewController.xib; sourceTree = "<group>"; };
+		E18822281680271A00A41F47 /* UIApplication+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Addition.h"; sourceTree = "<group>"; };
+		E18822291680271A00A41F47 /* UIApplication+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Addition.m"; sourceTree = "<group>"; };
+		E188222B1680288100A41F47 /* WTNavigationBarButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNavigationBarButton.png; sourceTree = "<group>"; };
+		E188222C1680288100A41F47 /* WTNavigationBarButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNavigationBarButton@2x.png"; sourceTree = "<group>"; };
+		E188222F16802AD700A41F47 /* WTResourceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTResourceFactory.h; sourceTree = "<group>"; };
+		E188223016802AD700A41F47 /* WTResourceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTResourceFactory.m; sourceTree = "<group>"; };
 		E1C033CB16691E75004738EF /* WTDistrictBuildingMap.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WTDistrictBuildingMap.plist; sourceTree = "<group>"; };
 		E1C033E016692590004738EF /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		E1C53DCF16523DCE0011C8A1 /* WTSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSearchViewController.h; sourceTree = "<group>"; };
@@ -234,6 +254,7 @@
 		E117038E1651EFD900D82F4A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E1882222168025D200A41F47 /* Login */,
 				E18821E716800E7B00A41F47 /* Home */,
 				E1C53DCE16523DAF0011C8A1 /* Search */,
 				E1C53DCD16523DA60011C8A1 /* Root */,
@@ -280,6 +301,7 @@
 		E125549916491530006D42F5 /* WeTongji */ = {
 			isa = PBXGroup;
 			children = (
+				E18821CE1680077C00A41F47 /* Categories */,
 				E18821CD1680077000A41F47 /* Tools */,
 				E117038E1651EFD900D82F4A /* View Controllers */,
 				E11703871651EF5600D82F4A /* Views */,
@@ -295,6 +317,7 @@
 		E125549A16491530006D42F5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E188221E1680252A00A41F47 /* Localizable.strings */,
 				E125549B16491530006D42F5 /* WeTongji-Info.plist */,
 				E125549C16491530006D42F5 /* InfoPlist.strings */,
 				E125549F16491530006D42F5 /* main.m */,
@@ -372,7 +395,8 @@
 		E18821CD1680077000A41F47 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				E18821CE1680077C00A41F47 /* Categories */,
+				E188222F16802AD700A41F47 /* WTResourceFactory.h */,
+				E188223016802AD700A41F47 /* WTResourceFactory.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -382,6 +406,8 @@
 			children = (
 				E18821CF168007B800A41F47 /* UIView+Resize.h */,
 				E18821D0168007B800A41F47 /* UIView+Resize.m */,
+				E18822281680271A00A41F47 /* UIApplication+Addition.h */,
+				E18822291680271A00A41F47 /* UIApplication+Addition.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -401,6 +427,8 @@
 		E18821EE1680103E00A41F47 /* NavigationBar */ = {
 			isa = PBXGroup;
 			children = (
+				E188222B1680288100A41F47 /* WTNavigationBarButton.png */,
+				E188222C1680288100A41F47 /* WTNavigationBarButton@2x.png */,
 				E18821EF1680104700A41F47 /* WTNavigationBarBg.png */,
 				E18821F01680104700A41F47 /* WTNavigationBarBg@2x.png */,
 				E18821F11680104700A41F47 /* WTNavigationBarShadow.png */,
@@ -409,6 +437,16 @@
 				E18821F8168013AF00A41F47 /* WTNavigationBarLogo@2x.png */,
 			);
 			name = NavigationBar;
+			sourceTree = "<group>";
+		};
+		E1882222168025D200A41F47 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E1882223168025E600A41F47 /* WTLoginViewController.h */,
+				E1882224168025E600A41F47 /* WTLoginViewController.m */,
+				E1882225168025E600A41F47 /* WTLoginViewController.xib */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		E1C53DCD16523DA60011C8A1 /* Root */ = {
@@ -488,6 +526,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = E125548416491530006D42F5;
 			productRefGroup = E125549016491530006D42F5 /* Products */;
@@ -567,6 +606,10 @@
 				E18821F9168013AF00A41F47 /* WTNavigationBarLogo.png in Resources */,
 				E18821FA168013AF00A41F47 /* WTNavigationBarLogo@2x.png in Resources */,
 				E18821FF16801BF700A41F47 /* WTHomeViewController.xib in Resources */,
+				E18822201680252A00A41F47 /* Localizable.strings in Resources */,
+				E1882227168025E600A41F47 /* WTLoginViewController.xib in Resources */,
+				E188222D1680288100A41F47 /* WTNavigationBarButton.png in Resources */,
+				E188222E1680288100A41F47 /* WTNavigationBarButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +652,9 @@
 				E18821EA16800E9B00A41F47 /* WTNavigationController.m in Sources */,
 				E18821ED16800EC300A41F47 /* WTHomeNavigationController.m in Sources */,
 				E18821FE16801BF700A41F47 /* WTHomeViewController.m in Sources */,
+				E1882226168025E600A41F47 /* WTLoginViewController.m in Sources */,
+				E188222A1680271A00A41F47 /* UIApplication+Addition.m in Sources */,
+				E188223116802AD700A41F47 /* WTResourceFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,6 +686,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E125549D16491530006D42F5 /* en */,
+				E18822151680230B00A41F47 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -648,8 +695,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				E12554CF16491532006D42F5 /* en */,
+				E18822161680230B00A41F47 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E188221E1680252A00A41F47 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E188221F1680252A00A41F47 /* en */,
+				E18822211680253600A41F47 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -677,7 +734,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -698,7 +755,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
