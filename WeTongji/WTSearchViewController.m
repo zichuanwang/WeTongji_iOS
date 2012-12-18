@@ -6,7 +6,6 @@
 //  Copyright (c) 2012年 Tongji Apple Club. All rights reserved.
 //
 
-#import <WeTongjiSDK/WeTongjiSDK.h>
 #import "WTSearchViewController.h"
 
 @interface WTSearchViewController ()

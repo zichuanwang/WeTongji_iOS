@@ -1,21 +1,21 @@
 //
-//  WTTabBarViewController.m
+//  WTTabBarController.m
 //  WeTongji
 //
 //  Created by 王 紫川 on 12-11-13.
 //  Copyright (c) 2012年 Tongji Apple Club. All rights reserved.
 //
 
-#import "WTTabBarViewController.h"
+#import "WTTabBarController.h"
 
-@interface WTTabBarViewController ()
+@interface WTTabBarController ()
 
 @property (nonatomic, strong) NSMutableArray *buttonArray;
 @property (nonatomic, strong) UIImageView *bgImageView;
 
 @end
 
-@implementation WTTabBarViewController
+@implementation WTTabBarController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,7 +38,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self addCustomTabBarBg];
     [self hideBuiltInTabBar];
     [self showCustomTabBar];
     
@@ -57,26 +56,24 @@
     self.bgImageView = bgImageView;
     self.bgImageView.userInteractionEnabled = YES;
     
+    UIImageView *bottomLeftCornerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTCornerBottomLeft"]];
+    UIImageView *bottomRightCornerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTCornerBottomRight"]];
+    [bottomLeftCornerImageView resetOrigin:CGPointMake(0, 1 - bottomLeftCornerImageView.frame.size.height)];
+    [bottomRightCornerImageView resetOrigin:CGPointMake(screenSize.width - bottomRightCornerImageView.frame.size.width, 1 - bottomLeftCornerImageView.frame.size.height)];
+    
+    [bgImageView addSubview:bottomLeftCornerImageView];
+    [bgImageView addSubview:bottomRightCornerImageView];
     [self.view addSubview:bgImageView];
 }
 
-- (void)hideBuiltInTabBar{
-	for(UIView *view in self.view.subviews){
-		if([view isKindOfClass:[UITabBar class]]){
-			view.hidden = YES;
-			break;
-		}
-	}
-}
-
-- (void)showCustomTabBar{
-	int viewCount = self.viewControllers.count;
+- (void)addCustomTabBarButtons {
+    int viewCount = self.viewControllers.count;
 	self.buttonArray = [NSMutableArray arrayWithCapacity:viewCount];
 	for (int i = 0; i < viewCount; i++) {
 		UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
 		btn.tag = i;
 		[btn addTarget:self action:@selector(didClickTabBarButton:) forControlEvents:UIControlEventTouchUpInside];
-        btn.frame = CGRectMake(64 * i, 0, 64, 50);
+        btn.frame = CGRectMake(64 * i, 0, 64, self.bgImageView.frame.size.height + 4);
         UIImage *normalStateImage = nil;
         UIImage *selectStateImage = nil;
 		switch (i) {
@@ -112,19 +109,29 @@
 		[self.buttonArray addObject:btn];
 		[self.bgImageView addSubview:btn];
 	}
+}
+
+- (void)hideBuiltInTabBar {
+	for(UIView *view in self.view.subviews){
+		if([view isKindOfClass:[UITabBar class]]){
+			view.hidden = YES;
+			break;
+		}
+	}
+}
+
+- (void)showCustomTabBar {
+    [self addCustomTabBarBg];
+    [self addCustomTabBarButtons];
     ((UIButton *)self.buttonArray[0]).selected = YES;
 }
 
 #pragma mark - Actions 
 
-- (void)didDragEnterTabBarButton:(UIButton *)button {
-    NSLog(@"drag enter");
-}
-
 - (void)didClickTabBarButton:(UIButton *)button {
     self.selectedIndex = button.tag;
     
-    // button.tag==4时似乎系统有bug，用下面的方法折衷
+    // |button.tag == 4| 时似乎系统有bug，用下面的方法折衷
     if (button.tag == 4) {
         self.selectedViewController = [self.viewControllers lastObject];
     }

@@ -11,4 +11,6 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import <WeTongjiSDK/WeTongjiSDK.h>
+    #import "UIView+Resize.h"
 #endif

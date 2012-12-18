@@ -1,5 +1,5 @@
 //
-//  WTTabBarViewController.h
+//  WTTabBarController.h
 //  WeTongji
 //
 //  Created by 王 紫川 on 12-11-13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WTTabBarViewController : UITabBarController
+@interface WTTabBarController : UITabBarController
 
 @end
