@@ -226,6 +226,9 @@
 		E14FA6BE16820011008A8D33 /* WTLikeSelectButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTLikeSelectButton@2x.png"; sourceTree = "<group>"; };
 		E14FA6C316820285008A8D33 /* WTLikeButtonFlagBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTLikeButtonFlagBg.png; sourceTree = "<group>"; };
 		E14FA6C416820286008A8D33 /* WTLikeButtonFlagBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTLikeButtonFlagBg@2x.png"; sourceTree = "<group>"; };
+		E14FA6C7168203FE008A8D33 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E14FA6C8168203FE008A8D33 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E14FA6C9168203FE008A8D33 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E18821BD1680059600A41F47 /* WTCornerBottomLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTCornerBottomLeft.png; sourceTree = "<group>"; };
 		E18821BE1680059600A41F47 /* WTCornerBottomLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTCornerBottomLeft@2x.png"; sourceTree = "<group>"; };
 		E18821BF1680059600A41F47 /* WTCornerBottomRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTCornerBottomRight.png; sourceTree = "<group>"; };
@@ -667,6 +670,7 @@
 			knownRegions = (
 				en,
 				"zh-Hans",
+				de,
 			);
 			mainGroup = E125548416491530006D42F5;
 			productRefGroup = E125549016491530006D42F5 /* Products */;
@@ -863,6 +867,7 @@
 			children = (
 				E125549D16491530006D42F5 /* en */,
 				E18822151680230B00A41F47 /* zh-Hans */,
+				E14FA6C8168203FE008A8D33 /* de */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -872,6 +877,7 @@
 			children = (
 				E12554CF16491532006D42F5 /* en */,
 				E18822161680230B00A41F47 /* zh-Hans */,
+				E14FA6C9168203FE008A8D33 /* de */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -881,6 +887,7 @@
 			children = (
 				E188221F1680252A00A41F47 /* en */,
 				E18822211680253600A41F47 /* zh-Hans */,
+				E14FA6C7168203FE008A8D33 /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
