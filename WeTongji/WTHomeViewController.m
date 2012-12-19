@@ -12,6 +12,7 @@
 #import "WTNotificationButton.h"
 #import "WTNavigationController.h"
 #import "WTNotificationModalViewController.h"
+#import "WTEventDetailViewController.h"
 
 @interface WTHomeViewController ()
 
@@ -85,6 +86,11 @@
     } else {
         [self.notificationButton stopShine];
     }
+}
+
+- (IBAction)didClickTenClockButton:(UIButton *)sender {
+    WTEventDetailViewController *vc = [[WTEventDetailViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

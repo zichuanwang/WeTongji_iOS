@@ -66,9 +66,30 @@
     
     button.titleLabel.font = [UIFont boldSystemFontOfSize:14];
     button.titleLabel.shadowOffset = CGSizeMake(0, 1);
-    CGFloat titleLabelWidth = [text sizeWithFont:button.titleLabel.font].width;
     
+    CGFloat titleLabelWidth = [text sizeWithFont:button.titleLabel.font].width;
     [button resetSize:CGSizeMake(titleLabelWidth + 30, normalImage.size.height)];
+    
+    return button;
+}
+
++ (UIButton *)createNavBarBackButtonWithText:(NSString *)text {
+    UIButton *button = [[UIButton alloc] init];
+    text = [NSString stringWithFormat:@"  %@", text];
+    [button setTitle:text forState:UIControlStateNormal];
+    
+    UIEdgeInsets insets = UIEdgeInsetsMake(0.0, 8.0, 0.0, 6.0);
+    UIImage *image = [[UIImage imageNamed:@"WTNavigationBarBackButton"] resizableImageWithCapInsets:insets];
+    [button setBackgroundImage:image forState:UIControlStateNormal];
+    
+    [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [button setTitleShadowColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:12];
+    button.titleLabel.shadowOffset = CGSizeMake(0, 1);
+    
+    CGFloat titleLabelWidth = [text sizeWithFont:button.titleLabel.font].width;
+    [button resetSize:CGSizeMake(titleLabelWidth + 20, image.size.height)];
     
     return button;
 }

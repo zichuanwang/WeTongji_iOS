@@ -14,4 +14,6 @@
 
 + (UIButton *)createFocusButtonWithText:(NSString *)text;
 
++ (UIButton *)createNavBarBackButtonWithText:(NSString *)text;
+
 @end

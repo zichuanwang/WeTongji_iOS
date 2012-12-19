@@ -12,5 +12,6 @@
 
 - (IBAction)didClickLoginButton:(UIButton *)sender;
 - (IBAction)didClickShineButton:(UIButton *)sender;
+- (IBAction)didClickTenClockButton:(UIButton *)sender;
 
 @end
