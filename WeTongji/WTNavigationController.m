@@ -53,8 +53,8 @@
     }
     
     UIImageView *shadowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTNavigationBarShadow"]];
-    [shadowImageView resetOriginY:self.navigationBar.frame.size.height + 20];
-    [self.view addSubview:shadowImageView];
+    [shadowImageView resetOriginY:self.navigationBar.frame.size.height];
+    [self.navigationBar insertSubview:shadowImageView atIndex:0];
     self.navigationBarShadowImageView = shadowImageView;
     
     [self showTopCorner];

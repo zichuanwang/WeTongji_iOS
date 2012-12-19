@@ -73,7 +73,17 @@
     
     UIBarButtonItem *barCommentButton = [[UIBarButtonItem alloc] initWithCustomView:commentButton];
     UIBarButtonItem *barMoreButton = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
-    UIBarButtonItem *barLikeButton = [[UIBarButtonItem alloc] initWithCustomView:likeButton];
+    
+    UIImageView *likeFlagBg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTLikeButtonFlagBg"]];
+    //[likeFlagBg resetOrigin:CGPointMake(260, 0)];
+    [self.navigationController.navigationBar addSubview:likeFlagBg];
+    UIView *likeButtonContainerView = [[UIView alloc] initWithFrame:likeButton.frame];
+    [likeFlagBg resetOriginY:0];
+    [likeFlagBg resetCenterX:likeButton.frame.size.width / 2];
+    [likeButtonContainerView addSubview:likeFlagBg];
+    [likeButtonContainerView addSubview:likeButton];
+
+    UIBarButtonItem *barLikeButton = [[UIBarButtonItem alloc] initWithCustomView:likeButtonContainerView];
     
     [buttons addObject:barCommentButton];
     [buttons addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
@@ -81,15 +91,7 @@
     [buttons addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
     [buttons addObject:barLikeButton];
     
-//    bi = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-//    bi.width = -30;
-//    [buttons addObject:bi];
-    
     [toolbar setItems:buttons animated:NO];
-    
-//    UIImageView *likeFlagBg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTLikeButtonFlagBg"]];
-//    [likeFlagBg resetOrigin:CGPointMake(260, 0)];
-//    [self.navigationController.navigationBar addSubview:likeFlagBg];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:toolbar];
 }
