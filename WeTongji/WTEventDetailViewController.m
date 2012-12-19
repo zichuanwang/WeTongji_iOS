@@ -78,6 +78,7 @@
     //[likeFlagBg resetOrigin:CGPointMake(260, 0)];
     [self.navigationController.navigationBar addSubview:likeFlagBg];
     UIView *likeButtonContainerView = [[UIView alloc] initWithFrame:likeButton.frame];
+    [likeButton resetOriginY:2];
     [likeFlagBg resetOriginY:0];
     [likeFlagBg resetCenterX:likeButton.frame.size.width / 2];
     [likeButtonContainerView addSubview:likeFlagBg];
