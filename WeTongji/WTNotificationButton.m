@@ -14,6 +14,9 @@
 @property (nonatomic, strong) UIImageView *ringImageView;
 @property (nonatomic, strong) UIImageView *shineImageView;
 @property (nonatomic, assign, getter = isShining) BOOL shining;
+@property (nonatomic, assign, getter = isShineAnimationLocked) BOOL shineAnimationLocked;
+@property (nonatomic, assign) SEL targetAction;
+@property (nonatomic, weak) id target;
 
 @end
 
@@ -55,10 +58,22 @@
     [self addSubview:self.shineImageView];
 }
 
+#pragma mark - Logic
+
+- (void)performTargetMethod {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [self.target performSelector:self.targetAction withObject:self];
+#pragma clang diagnostic pop
+}
+
 #pragma mark - Properties
 
 - (void)setSelected:(BOOL)selected {
     [self.button setSelected:!selected];
+    
+    if(selected)
+        [self stopShine];
 }
 
 - (BOOL)isSelected {
@@ -109,41 +124,55 @@
 #pragma mark - Public methods
 
 - (void)startShine {
-    self.shineImageView.hidden = NO;
-    self.button.hidden = YES;
+    if(self.isSelected)
+        return;
+    if(self.isShining)
+        return;
+    self.shining = YES;
     [self startShineAnimation];
+    self.shineImageView.hidden = NO;
 }
 
 - (void)stopShine {
     self.shineImageView.hidden = YES;
-    self.button.hidden = NO;
     self.shining = NO;
 }
 
 - (void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents {
-    [self.button addTarget:target action:action forControlEvents:controlEvents];
+    self.target = target;
+    self.targetAction = action;
+    [self.button addTarget:self action:@selector(didClickButton:) forControlEvents:controlEvents];
+}
+
+#pragma mark - Action
+
+- (void)didClickButton:(UIButton *)button {
+    [self performTargetMethod];
 }
 
 #pragma mark - Animation
 
 - (void)startShineAnimation {
-    if(self.isShining)
+    if(!self.isShining)
         return;
-    self.shining = YES;
+    if(self.isShineAnimationLocked)
+        return;
     self.ringImageView.hidden = NO;
     self.ringImageView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
     self.ringImageView.alpha = 1;
     
     BlockARCWeakSelf weakSelf = self;
-    [UIView animateWithDuration:1.0 delay:0.5 options:UIViewAnimationOptionCurveEaseOut animations:^{
+    self.shineAnimationLocked = YES;
+    [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         weakSelf.ringImageView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 3.0, 3.0);
         weakSelf.ringImageView.alpha = 0;
     } completion:^(BOOL finished) {
         if(weakSelf.isShining) {
-            [weakSelf startShineAnimation];
+            [weakSelf performSelector:@selector(startShineAnimation) withObject:nil afterDelay:0.5];
         } else {
             weakSelf.ringImageView.hidden = YES;
         }
+        self.shineAnimationLocked = NO;
     }];
 }
 

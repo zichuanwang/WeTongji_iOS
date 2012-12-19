@@ -10,4 +10,8 @@
 
 @interface WTNavigationController : UINavigationController
 
+- (void)showInnerModalViewController:(UIViewController *)vc;
+
+- (void)hideInnerModalViewController;
+
 @end

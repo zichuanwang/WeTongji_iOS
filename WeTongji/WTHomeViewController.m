@@ -10,6 +10,8 @@
 #import "WTLoginViewController.h"
 #import "WTHomeNavigationController.h"
 #import "WTNotificationButton.h"
+#import "WTNavigationController.h"
+#import "WTNotificationModalViewController.h"
 
 @interface WTHomeViewController ()
 
@@ -60,8 +62,16 @@
 
 #pragma mark - Actions
 
-- (IBAction)didClickNotificationButton:(UIButton *)sender {
+- (IBAction)didClickNotificationButton:(WTNotificationButton *)sender {
     sender.selected = !sender.selected;
+    WTNavigationController *nav = (WTNavigationController *)self.navigationController;
+    if(sender.selected) {
+        WTNotificationModalViewController *vc = [[WTNotificationModalViewController alloc] init];
+        [nav showInnerModalViewController:vc];
+        [sender stopShine];
+    } else {
+        [nav hideInnerModalViewController];
+    }
 }
 
 - (IBAction)didClickLoginButton:(UIButton *)sender {

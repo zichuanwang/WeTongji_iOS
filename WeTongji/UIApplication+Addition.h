@@ -10,6 +10,6 @@
 
 @interface UIApplication (Addition)
 
-- (UIViewController *)rootViewController;
+@property (nonatomic, readonly) UIViewController *rootViewController;
 
 @end

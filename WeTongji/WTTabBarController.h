@@ -10,4 +10,7 @@
 
 @interface WTTabBarController : UITabBarController
 
+- (void)hideTabBar;
+- (void)showTabBar;
+
 @end

@@ -10,8 +10,8 @@
 
 @interface WTTabBarController ()
 
+@property (nonatomic, strong) UIImageView *tabBarBgImageView;
 @property (nonatomic, strong) NSMutableArray *buttonArray;
-@property (nonatomic, strong) UIImageView *bgImageView;
 
 @end
 
@@ -38,10 +38,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self hideBuiltInTabBar];
     [self showCustomTabBar];
+    [self adjustBuiltInTabBar];
     
     [self didClickTabBarButton:self.buttonArray[0]];
+    self.selectedViewController.view.superview.clipsToBounds = NO;
 }
 
 #pragma mark - UI methods
@@ -53,8 +54,8 @@
     bgImageView.frame = CGRectMake(0, screenSize.height - bgImage.size.height, screenSize.width, bgImage.size.height);
     
     bgImageView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-    self.bgImageView = bgImageView;
-    self.bgImageView.userInteractionEnabled = YES;
+    self.tabBarBgImageView = bgImageView;
+    self.tabBarBgImageView.userInteractionEnabled = YES;
     
     UIImageView *bottomLeftCornerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTCornerBottomLeft"]];
     UIImageView *bottomRightCornerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTCornerBottomRight"]];
@@ -73,7 +74,7 @@
 		UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
 		btn.tag = i;
 		[btn addTarget:self action:@selector(didClickTabBarButton:) forControlEvents:UIControlEventTouchUpInside];
-        btn.frame = CGRectMake(64 * i, 0, 64, self.bgImageView.frame.size.height + 4);
+        btn.frame = CGRectMake(64 * i, 0, 64, self.tabBarBgImageView.frame.size.height + 4);
         UIImage *normalStateImage = nil;
         UIImage *selectStateImage = nil;
 		switch (i) {
@@ -107,23 +108,43 @@
         [btn setImage:selectStateImage forState:UIControlStateSelected];
         
 		[self.buttonArray addObject:btn];
-		[self.bgImageView addSubview:btn];
+		[self.tabBarBgImageView addSubview:btn];
 	}
 }
 
-- (void)hideBuiltInTabBar {
-	for(UIView *view in self.view.subviews){
-		if([view isKindOfClass:[UITabBar class]]){
-			view.hidden = YES;
-			break;
-		}
-	}
+- (void)setBuildInTabBarHeight:(CGFloat)height {
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    for(UIView *view in self.view.subviews) {
+        if([view isKindOfClass:[UITabBar class]]) {
+            [view resetOriginY:screenSize.height - height];
+            [view resetHeight:height];
+        } else if(view != self.tabBarBgImageView) {
+            [view resetHeight:screenSize.height - height];
+        }
+    }
+}
+
+- (void)adjustBuiltInTabBar {
+    self.tabBar.hidden = YES;
+    [self setBuildInTabBarHeight:self.tabBarBgImageView.frame.size.height - 1];
 }
 
 - (void)showCustomTabBar {
     [self addCustomTabBarBg];
     [self addCustomTabBarButtons];
     ((UIButton *)self.buttonArray[0]).selected = YES;
+}
+
+#pragma mark - Public methods
+
+- (void)hideTabBar {
+    [self setBuildInTabBarHeight:0];
+    self.tabBarBgImageView.hidden = YES;
+}
+
+- (void)showTabBar {
+    [self adjustBuiltInTabBar];
+    self.tabBarBgImageView.hidden = NO;
 }
 
 #pragma mark - Actions 

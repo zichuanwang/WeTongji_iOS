@@ -12,6 +12,7 @@
 
 @property (nonatomic, assign, getter = isSelected) BOOL selected;
 
+// The selector must be |doSomething:|
 - (void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;
 - (void)startShine;
 - (void)stopShine;
