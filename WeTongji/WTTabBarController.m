@@ -59,11 +59,20 @@
     
     UIImageView *bottomLeftCornerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTCornerBottomLeft"]];
     UIImageView *bottomRightCornerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTCornerBottomRight"]];
+    
+    UIImageView *tabBarBottomLeftCornerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTCornerBottomLeft"]];
+    UIImageView *tabBarBottomRightCornerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTCornerBottomRight"]];
+    
     [bottomLeftCornerImageView resetOrigin:CGPointMake(0, 1 - bottomLeftCornerImageView.frame.size.height)];
     [bottomRightCornerImageView resetOrigin:CGPointMake(screenSize.width - bottomRightCornerImageView.frame.size.width, 1 - bottomLeftCornerImageView.frame.size.height)];
     
+    [tabBarBottomLeftCornerImageView resetOrigin:CGPointMake(0, bgImageView.frame.size.height - tabBarBottomLeftCornerImageView.frame.size.height)];
+    [tabBarBottomRightCornerImageView resetOrigin:CGPointMake(screenSize.width - tabBarBottomRightCornerImageView.frame.size.width, bgImageView.frame.size.height - bottomLeftCornerImageView.frame.size.height)];
+    
     [bgImageView addSubview:bottomLeftCornerImageView];
     [bgImageView addSubview:bottomRightCornerImageView];
+    [bgImageView addSubview:tabBarBottomLeftCornerImageView];
+    [bgImageView addSubview:tabBarBottomRightCornerImageView];
     [self.view addSubview:bgImageView];
 }
 
