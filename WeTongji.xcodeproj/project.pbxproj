@@ -332,16 +332,24 @@
 		E117038E1651EFD900D82F4A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E14FA6951680DEB1008A8D33 /* WTModalViewController */,
+				E1250C0A16859A1D00802808 /* Event */,
+				E14FA6951680DEB1008A8D33 /* NavigationModal */,
 				E1882222168025D200A41F47 /* Login */,
 				E18821E716800E7B00A41F47 /* Home */,
 				E1C53DCE16523DAF0011C8A1 /* Search */,
 				E1C53DCD16523DA60011C8A1 /* Root */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E1250C0A16859A1D00802808 /* Event */ = {
+			isa = PBXGroup;
+			children = (
 				E14FA6A61681EBC1008A8D33 /* WTEventDetailViewController.h */,
 				E14FA6A71681EBC2008A8D33 /* WTEventDetailViewController.m */,
 				E14FA6A81681EBC3008A8D33 /* WTEventDetailViewController.xib */,
 			);
-			name = ViewControllers;
+			name = Event;
 			sourceTree = "<group>";
 		};
 		E125548416491530006D42F5 = {
@@ -470,14 +478,14 @@
 			name = CustomViews;
 			sourceTree = "<group>";
 		};
-		E14FA6951680DEB1008A8D33 /* WTModalViewController */ = {
+		E14FA6951680DEB1008A8D33 /* NavigationModal */ = {
 			isa = PBXGroup;
 			children = (
 				E14FA6961680DEDB008A8D33 /* WTNotificationModalViewController.h */,
 				E14FA6971680DEDB008A8D33 /* WTNotificationModalViewController.m */,
 				E14FA6981680DEDB008A8D33 /* WTNotificationModalViewController.xib */,
 			);
-			name = WTModalViewController;
+			name = NavigationModal;
 			sourceTree = "<group>";
 		};
 		E18821BB1680058000A41F47 /* TabBar */ = {
