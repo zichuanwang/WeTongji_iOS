@@ -1,15 +1,16 @@
 //
-//  WTNotificationButton.m
+//  WTNotificationBarButton.m
 //  WeTongji
 //
 //  Created by 王 紫川 on 12-12-18.
 //  Copyright (c) 2012年 Tongji Apple Club. All rights reserved.
 //
 
-#import "WTNotificationButton.h"
+#import "WTNotificationBarButton.h"
 
-@interface WTNotificationButton()
+@interface WTNotificationBarButton()
 
+@property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) UIButton *button;
 @property (nonatomic, strong) UIImageView *ringImageView;
 @property (nonatomic, strong) UIImageView *shineImageView;
@@ -20,42 +21,18 @@
 
 @end
 
-@implementation WTNotificationButton
+@implementation WTNotificationBarButton
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-        [self configureNotificationButton];
-    }
-    return self;
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        // Initialization code
-        [self configureNotificationButton];
-    }
-    return self;
-}
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
-
-- (void)configureNotificationButton {
-    [self resetSize:self.button.frame.size];
++ (WTNotificationBarButton *)createNotificationBarButtonWithTarget:(id)target
+                                                            action:(SEL)action {
+    WTNotificationBarButton *result = [[WTNotificationBarButton alloc] init];
+    [result setCustomView:result.containerView];
     
-    [self addSubview:self.button];
-    [self addSubview:self.ringImageView];
-    [self addSubview:self.shineImageView];
+    result.target = target;
+    result.targetAction = action;
+    [result.button addTarget:result action:@selector(didClickButton:) forControlEvents:UIControlEventTouchUpInside];
+    
+    return result;
 }
 
 #pragma mark - Logic
@@ -83,7 +60,7 @@
 - (UIImageView *)ringImageView {
     if(_ringImageView == nil) {
         _ringImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTNotificationRing"]];
-        _ringImageView.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2);
+        _ringImageView.center = CGPointMake(self.button.frame.size.width / 2, self.button.frame.size.height / 2);
         _ringImageView.hidden = YES;
     }
     return _ringImageView;
@@ -96,6 +73,18 @@
         _shineImageView.hidden = YES;
     }
     return _shineImageView;
+}
+
+- (UIView *)containerView {
+    if(!_containerView) {
+        _containerView = [[UIView alloc] init];
+        [_containerView resetSize:self.button.frame.size];
+        
+        [_containerView addSubview:self.button];
+        [_containerView addSubview:self.ringImageView];
+        [_containerView addSubview:self.shineImageView];
+    }
+    return _containerView;
 }
 
 - (UIButton *)button {
@@ -136,12 +125,6 @@
 - (void)stopShine {
     self.shineImageView.hidden = YES;
     self.shining = NO;
-}
-
-- (void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents {
-    self.target = target;
-    self.targetAction = action;
-    [self.button addTarget:self action:@selector(didClickButton:) forControlEvents:controlEvents];
 }
 
 #pragma mark - Action

@@ -9,14 +9,14 @@
 #import "WTHomeViewController.h"
 #import "WTLoginViewController.h"
 #import "WTHomeNavigationController.h"
-#import "WTNotificationButton.h"
+#import "WTNotificationBarButton.h"
 #import "WTNavigationController.h"
 #import "WTNotificationModalViewController.h"
 #import "WTEventDetailViewController.h"
 
 @interface WTHomeViewController ()
 
-@property (nonatomic, strong) WTNotificationButton *notificationButton;
+@property (nonatomic, strong) WTNotificationBarButton *notificationButton;
 
 @end
 
@@ -55,22 +55,21 @@
     UIImageView *logoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTNavigationBarLogo"]];
     self.navigationItem.titleView = logoImageView;
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.notificationButton];
+    self.navigationItem.leftBarButtonItem = self.notificationButton;
 }
 
 #pragma mark - Properties
 
-- (WTNotificationButton *)notificationButton {
+- (WTNotificationBarButton *)notificationButton {
     if(_notificationButton == nil) {
-        _notificationButton = [[WTNotificationButton alloc] init];
-        [_notificationButton addTarget:self action:@selector(didClickNotificationButton:) forControlEvents:UIControlEventTouchUpInside];
+        _notificationButton = [WTNotificationBarButton createNotificationBarButtonWithTarget:self action:@selector(didClickNotificationButton:)];
     }
     return _notificationButton;
 }
 
 #pragma mark - Actions
 
-- (IBAction)didClickNotificationButton:(WTNotificationButton *)sender {
+- (IBAction)didClickNotificationButton:(WTNotificationBarButton *)sender {
     sender.selected = !sender.selected;
     WTNavigationController *nav = (WTNavigationController *)self.navigationController;
     if(sender.selected) {

@@ -52,7 +52,7 @@
 		E14FA6791680A9F3008A8D33 /* WTSelectButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6751680A9F3008A8D33 /* WTSelectButton.png */; };
 		E14FA67A1680A9F3008A8D33 /* WTSelectButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6761680A9F3008A8D33 /* WTSelectButton@2x.png */; };
 		E14FA67B1680A9F3008A8D33 /* WTFocusButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6771680A9F3008A8D33 /* WTFocusButton@2x.png */; };
-		E14FA6801680B9DE008A8D33 /* WTNotificationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E14FA67F1680B9DE008A8D33 /* WTNotificationButton.m */; };
+		E14FA6801680B9DE008A8D33 /* WTNotificationBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E14FA67F1680B9DE008A8D33 /* WTNotificationBarButton.m */; };
 		E14FA6871680BBDD008A8D33 /* WTNotificationNormalButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6811680BBDD008A8D33 /* WTNotificationNormalButton.png */; };
 		E14FA6881680BBDD008A8D33 /* WTNotificationNormalButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6821680BBDD008A8D33 /* WTNotificationNormalButton@2x.png */; };
 		E14FA6891680BBDD008A8D33 /* WTNotificationShineButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6831680BBDD008A8D33 /* WTNotificationShineButton@2x.png */; };
@@ -196,8 +196,8 @@
 		E14FA6751680A9F3008A8D33 /* WTSelectButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTSelectButton.png; sourceTree = "<group>"; };
 		E14FA6761680A9F3008A8D33 /* WTSelectButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTSelectButton@2x.png"; sourceTree = "<group>"; };
 		E14FA6771680A9F3008A8D33 /* WTFocusButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTFocusButton@2x.png"; sourceTree = "<group>"; };
-		E14FA67E1680B9DE008A8D33 /* WTNotificationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNotificationButton.h; sourceTree = "<group>"; };
-		E14FA67F1680B9DE008A8D33 /* WTNotificationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNotificationButton.m; sourceTree = "<group>"; };
+		E14FA67E1680B9DE008A8D33 /* WTNotificationBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNotificationBarButton.h; sourceTree = "<group>"; };
+		E14FA67F1680B9DE008A8D33 /* WTNotificationBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNotificationBarButton.m; sourceTree = "<group>"; };
 		E14FA6811680BBDD008A8D33 /* WTNotificationNormalButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNotificationNormalButton.png; sourceTree = "<group>"; };
 		E14FA6821680BBDD008A8D33 /* WTNotificationNormalButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNotificationNormalButton@2x.png"; sourceTree = "<group>"; };
 		E14FA6831680BBDD008A8D33 /* WTNotificationShineButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNotificationShineButton@2x.png"; sourceTree = "<group>"; };
@@ -478,8 +478,8 @@
 		E14FA67D1680B9BB008A8D33 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				E14FA67E1680B9DE008A8D33 /* WTNotificationButton.h */,
-				E14FA67F1680B9DE008A8D33 /* WTNotificationButton.m */,
+				E14FA67E1680B9DE008A8D33 /* WTNotificationBarButton.h */,
+				E14FA67F1680B9DE008A8D33 /* WTNotificationBarButton.m */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -847,7 +847,7 @@
 				E1882226168025E600A41F47 /* WTLoginViewController.m in Sources */,
 				E188222A1680271A00A41F47 /* UIApplication+Addition.m in Sources */,
 				E188223116802AD700A41F47 /* WTResourceFactory.m in Sources */,
-				E14FA6801680B9DE008A8D33 /* WTNotificationButton.m in Sources */,
+				E14FA6801680B9DE008A8D33 /* WTNotificationBarButton.m in Sources */,
 				E14FA6991680DEDB008A8D33 /* WTNotificationModalViewController.m in Sources */,
 				E14FA6A11680E067008A8D33 /* UIImage+ScreenShoot.m in Sources */,
 				E14FA6A91681EBC5008A8D33 /* WTEventDetailViewController.m in Sources */,

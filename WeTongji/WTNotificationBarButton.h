@@ -1,5 +1,5 @@
 //
-//  WTNotificationButton.h
+//  WTNotificationBarButton.h
 //  WeTongji
 //
 //  Created by 王 紫川 on 12-12-18.
@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WTNotificationButton : UIView
+@interface WTNotificationBarButton : UIBarButtonItem
 
 @property (nonatomic, assign, getter = isSelected) BOOL selected;
 
-// The selector must be |doSomething:|
-- (void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;
++ (WTNotificationBarButton *)createNotificationBarButtonWithTarget:(id)target action:(SEL)action;
 - (void)startShine;
 - (void)stopShine;
 

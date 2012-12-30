@@ -10,13 +10,14 @@
 #import "WTTabBarController.h"
 #import "UIApplication+Addition.h"
 #import "UIImage+ScreenShoot.h"
+#import "WTNotificationBarButton.h"
 
 @interface WTNavigationController ()
 
 @property (nonatomic, strong) UIViewController *innerModalViewController;
 
 @property (nonatomic, strong) UIImageView *screenShootImageView;
-@property (nonatomic, strong) UIImageView *screenShootContainerView;
+@property (nonatomic, strong) UIView *screenShootContainerView;
 
 @property (nonatomic, strong) UIImageView *navigationBarShadowImageView;
 
@@ -119,9 +120,9 @@
 
 #pragma mark - Properties
 
-- (UIImageView *)screenShootContainerView {
+- (UIView *)screenShootContainerView {
     if(!_screenShootContainerView) {
-        _screenShootContainerView = [[UIImageView alloc] init];
+        _screenShootContainerView = [[UIView alloc] init];
         
         CGSize screenSize = [UIScreen mainScreen].bounds.size;
         [_screenShootContainerView resetSize:CGSizeMake(screenSize.width, screenSize.height - 44 - 20)];
@@ -140,8 +141,20 @@
         _screenShootImageView = [[UIImageView alloc] initWithImage:[UIImage screenShoot]];
         self.navigationBarShadowImageView.hidden = NO;
         [_screenShootImageView resetSize:[UIScreen mainScreen].bounds.size];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapScreenShootImageView:)];
+        [_screenShootImageView addGestureRecognizer:tap];
+        _screenShootImageView.userInteractionEnabled = YES;
     }
     return _screenShootImageView;
+}
+
+#pragma mark - Handle gesture recognizer
+
+- (void)didTapScreenShootImageView:(UIGestureRecognizer *)gestureRecognizer {
+    [self hideInnerModalViewController];
+    WTNotificationBarButton *notificationButton = (WTNotificationBarButton *)self.topViewController.navigationItem.leftBarButtonItem;
+    notificationButton.selected = NO;
 }
 
 @end

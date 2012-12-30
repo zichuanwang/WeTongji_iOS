@@ -28,7 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self.searchBar.subviews[0] removeFromSuperview];
-    //[self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapView:)]];
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapView:)]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,7 +59,7 @@
 #pragma mark - Handle gesture recognizer
 
 - (void)didTapView:(UIGestureRecognizer*)gestureRecognizer {
-    [self.searchBar resignFirstResponder];
+    [self.view endEditing:YES];
 }
 
 @end
