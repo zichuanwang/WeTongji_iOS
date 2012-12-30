@@ -111,6 +111,8 @@
 		E188223916803E1400A41F47 /* WTInfoPanelBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E188223716803E1400A41F47 /* WTInfoPanelBg@2x.png */; };
 		E188223C1680461E00A41F47 /* WTInfoPanelDivier@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E188223A1680461D00A41F47 /* WTInfoPanelDivier@2x.png */; };
 		E188223D1680461E00A41F47 /* WTInfoPanelDivier.png in Resources */ = {isa = PBXBuildFile; fileRef = E188223B1680461E00A41F47 /* WTInfoPanelDivier.png */; };
+		E1B892821690F4B1009D901C /* WTRootBackgroundUnit.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B892801690F4B1009D901C /* WTRootBackgroundUnit.png */; };
+		E1B892831690F4B1009D901C /* WTRootBackgroundUnit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B892811690F4B1009D901C /* WTRootBackgroundUnit@2x.png */; };
 		E1C033CC16691E75004738EF /* WTDistrictBuildingMap.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1C033CB16691E75004738EF /* WTDistrictBuildingMap.plist */; };
 		E1C033E116692590004738EF /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C033E016692590004738EF /* libxml2.dylib */; };
 		E1C53DD216523DCE0011C8A1 /* WTSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C53DD016523DCE0011C8A1 /* WTSearchViewController.m */; };
@@ -270,6 +272,8 @@
 		E188223716803E1400A41F47 /* WTInfoPanelBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTInfoPanelBg@2x.png"; sourceTree = "<group>"; };
 		E188223A1680461D00A41F47 /* WTInfoPanelDivier@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTInfoPanelDivier@2x.png"; sourceTree = "<group>"; };
 		E188223B1680461E00A41F47 /* WTInfoPanelDivier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTInfoPanelDivier.png; sourceTree = "<group>"; };
+		E1B892801690F4B1009D901C /* WTRootBackgroundUnit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTRootBackgroundUnit.png; sourceTree = "<group>"; };
+		E1B892811690F4B1009D901C /* WTRootBackgroundUnit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTRootBackgroundUnit@2x.png"; sourceTree = "<group>"; };
 		E1C033CB16691E75004738EF /* WTDistrictBuildingMap.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WTDistrictBuildingMap.plist; sourceTree = "<group>"; };
 		E1C033E016692590004738EF /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		E1C53DCF16523DCE0011C8A1 /* WTSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSearchViewController.h; sourceTree = "<group>"; };
@@ -315,6 +319,8 @@
 		E117035A1651EF3E00D82F4A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E1B892801690F4B1009D901C /* WTRootBackgroundUnit.png */,
+				E1B892811690F4B1009D901C /* WTRootBackgroundUnit@2x.png */,
 				E14FA69B1680DF62008A8D33 /* WTModalViewBg.png */,
 				E14FA69C1680DF63008A8D33 /* WTModalViewBg@2x.png */,
 				E14FA6C316820285008A8D33 /* WTLikeButtonFlagBg.png */,
@@ -794,6 +800,8 @@
 				E14FA6C216820012008A8D33 /* WTLikeSelectButton@2x.png in Resources */,
 				E14FA6C516820287008A8D33 /* WTLikeButtonFlagBg.png in Resources */,
 				E14FA6C616820287008A8D33 /* WTLikeButtonFlagBg@2x.png in Resources */,
+				E1B892821690F4B1009D901C /* WTRootBackgroundUnit.png in Resources */,
+				E1B892831690F4B1009D901C /* WTRootBackgroundUnit@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
