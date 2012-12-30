@@ -72,13 +72,11 @@
 }
 
 - (void)configureNavigationBar {
-    UIButton *cancelButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Not now", nil)];
-    [cancelButton addTarget:self action:@selector(didClickCancelButton:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:cancelButton];
+    UIBarButtonItem *cancalBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:NSLocalizedString(@"Not now", nil) target:self action:@selector(didClickCancelButton:)];
+    self.navigationItem.leftBarButtonItem = cancalBarButtonItem;
     
-    UIButton *loginButton = [WTResourceFactory createFocusButtonWithText:NSLocalizedString(@"Log In / Sign Up", nil)];
-    [loginButton addTarget:self action:@selector(didClickLoginButton:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:loginButton];
+    UIBarButtonItem *loginBarButtonItem = [WTResourceFactory createFocusBarButtonWithText:NSLocalizedString(@"Log In / Sign Up", nil) target:self action:@selector(didClickLoginButton:)];
+    self.navigationItem.rightBarButtonItem = loginBarButtonItem;
 }
 
 #pragma mark - Actions

@@ -10,6 +10,55 @@
 
 @implementation WTResourceFactory
 
++ (UIBarButtonItem *)createNormalBarButtonWithText:(NSString *)text
+                                            target:(id)target
+                                            action:(SEL)action {
+    UIButton *button = [WTResourceFactory createNormalButtonWithText:text];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    return [WTResourceFactory createBarButtonWithButton:button];
+}
+
++ (UIBarButtonItem *)createFocusBarButtonWithText:(NSString *)text
+                                            target:(id)target
+                                            action:(SEL)selector {
+    UIButton *button = [WTResourceFactory createFocusButtonWithText:text];
+    [button addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
+    return [WTResourceFactory createBarButtonWithButton:button];
+}
+
++ (UIBarButtonItem *)createBackBarButtonWithText:(NSString *)text
+                                   target:(id)target
+                                   action:(SEL)action {
+    UIButton *button = [[UIButton alloc] init];
+    text = [NSString stringWithFormat:@"  %@", text];
+    [button setTitle:text forState:UIControlStateNormal];
+    
+    UIEdgeInsets insets = UIEdgeInsetsMake(0.0, 8.0, 0.0, 6.0);
+    UIImage *image = [[UIImage imageNamed:@"WTNavigationBarBackButton"] resizableImageWithCapInsets:insets];
+    [button setBackgroundImage:image forState:UIControlStateNormal];
+    
+    [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [button setTitleShadowColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:12];
+    button.titleLabel.shadowOffset = CGSizeMake(0, 1);
+    
+    CGFloat titleLabelWidth = [text sizeWithFont:button.titleLabel.font].width;
+    [button resetSize:CGSizeMake(titleLabelWidth + 20, image.size.height)];
+    
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    
+    return [WTResourceFactory createBarButtonWithButton:button];
+}
+
++ (UIBarButtonItem *)createBarButtonWithButton:(UIButton *)button {
+    UIView *containerView = [[UIView alloc] initWithFrame:button.frame];
+    [button resetOrigin:CGPointMake(0, 1)];
+    [containerView addSubview:button];
+    UIBarButtonItem *barBtnItem = [[UIBarButtonItem alloc] initWithCustomView:containerView];
+    return barBtnItem;
+}
+
 + (UIButton *)createNormalButtonWithText:(NSString *)text {
     return [WTResourceFactory createButtonWithText:text
                                         normalImage:[UIImage imageNamed:@"WTNormalButton"]
@@ -64,32 +113,11 @@
         [button setTitleShadowColor:selectShadowColor forState:UIControlStateSelected];
 
     
-    button.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-    button.titleLabel.shadowOffset = CGSizeMake(0, 1);
-    
-    CGFloat titleLabelWidth = [text sizeWithFont:button.titleLabel.font].width;
-    [button resetSize:CGSizeMake(titleLabelWidth + 30, normalImage.size.height)];
-    
-    return button;
-}
-
-+ (UIButton *)createNavBarBackButtonWithText:(NSString *)text {
-    UIButton *button = [[UIButton alloc] init];
-    text = [NSString stringWithFormat:@"  %@", text];
-    [button setTitle:text forState:UIControlStateNormal];
-    
-    UIEdgeInsets insets = UIEdgeInsetsMake(0.0, 8.0, 0.0, 6.0);
-    UIImage *image = [[UIImage imageNamed:@"WTNavigationBarBackButton"] resizableImageWithCapInsets:insets];
-    [button setBackgroundImage:image forState:UIControlStateNormal];
-    
-    [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-    [button setTitleShadowColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    
     button.titleLabel.font = [UIFont boldSystemFontOfSize:12];
     button.titleLabel.shadowOffset = CGSizeMake(0, 1);
     
     CGFloat titleLabelWidth = [text sizeWithFont:button.titleLabel.font].width;
-    [button resetSize:CGSizeMake(titleLabelWidth + 20, image.size.height)];
+    [button resetSize:CGSizeMake(titleLabelWidth + 30, normalImage.size.height)];
     
     return button;
 }

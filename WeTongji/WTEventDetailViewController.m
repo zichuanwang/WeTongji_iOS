@@ -39,12 +39,8 @@
 
 - (void)configureNavigationBar {
     // back button
-    UIButton *backButton = [WTResourceFactory createNavBarBackButtonWithText:@"10:00"];
-    UIView *containerView = [[UIView alloc] initWithFrame:backButton.frame];
-    [backButton resetOrigin:CGPointMake(0, 2)];
-    [containerView addSubview:backButton];
-    [backButton addTarget:self action:@selector(didClickBackButton:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:containerView];
+    UIBarButtonItem *backBarButtonItem = [WTResourceFactory createBackBarButtonWithText:@"10:00" target:self action:@selector(didClickBackButton:)];
+    self.navigationItem.leftBarButtonItem = backBarButtonItem;
     
      // right buttons
     UIButton *commentButton = [[UIButton alloc] init];

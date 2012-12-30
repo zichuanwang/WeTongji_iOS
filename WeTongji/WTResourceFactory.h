@@ -14,6 +14,16 @@
 
 + (UIButton *)createFocusButtonWithText:(NSString *)text;
 
-+ (UIButton *)createNavBarBackButtonWithText:(NSString *)text;
++ (UIBarButtonItem *)createBackBarButtonWithText:(NSString *)text
+                                   target:(id)target
+                                   action:(SEL)action;
+
++ (UIBarButtonItem *)createNormalBarButtonWithText:(NSString *)text
+                                            target:(id)target
+                                            action:(SEL)action;
+
++ (UIBarButtonItem *)createFocusBarButtonWithText:(NSString *)text
+                                           target:(id)target
+                                           action:(SEL)action;
 
 @end
