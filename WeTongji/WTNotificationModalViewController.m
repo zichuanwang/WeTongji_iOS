@@ -31,6 +31,13 @@
     
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     [self.view resetHeight:screenSize.height - 20 - 44 - 41];
+    
+    UIImage *topShadowImage = [UIImage imageNamed:@"WTTopShadow"];
+    UIImageView *topShadowImageView = [[UIImageView alloc] initWithImage:topShadowImage];
+    [topShadowImageView resetSize:CGSizeMake(screenSize.width, 6)];
+    [topShadowImageView resetOrigin:CGPointMake(0, self.view.frame.size.height - 6)];
+    
+    [self.view addSubview:topShadowImageView];
 }
 
 - (void)didReceiveMemoryWarning

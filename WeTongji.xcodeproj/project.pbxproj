@@ -111,17 +111,29 @@
 		E188223916803E1400A41F47 /* WTInfoPanelBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E188223716803E1400A41F47 /* WTInfoPanelBg@2x.png */; };
 		E188223C1680461E00A41F47 /* WTInfoPanelDivier@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E188223A1680461D00A41F47 /* WTInfoPanelDivier@2x.png */; };
 		E188223D1680461E00A41F47 /* WTInfoPanelDivier.png in Resources */ = {isa = PBXBuildFile; fileRef = E188223B1680461E00A41F47 /* WTInfoPanelDivier.png */; };
+		E1AEA9891691AFBC007DFA4C /* WTTopShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AEA9871691AFBB007DFA4C /* WTTopShadow.png */; };
+		E1AEA98A1691AFBC007DFA4C /* WTTopShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AEA9881691AFBC007DFA4C /* WTTopShadow@2x.png */; };
+		E1AEA98F1691B3BA007DFA4C /* WTLeftShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AEA98B1691B3BA007DFA4C /* WTLeftShadow.png */; };
+		E1AEA9901691B3BA007DFA4C /* WTLeftShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AEA98C1691B3BA007DFA4C /* WTLeftShadow@2x.png */; };
+		E1AEA9911691B3BA007DFA4C /* WTRightShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AEA98D1691B3BA007DFA4C /* WTRightShadow.png */; };
+		E1AEA9921691B3BA007DFA4C /* WTRightShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AEA98E1691B3BA007DFA4C /* WTRightShadow@2x.png */; };
 		E1B892821690F4B1009D901C /* WTRootBackgroundUnit.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B892801690F4B1009D901C /* WTRootBackgroundUnit.png */; };
 		E1B892831690F4B1009D901C /* WTRootBackgroundUnit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B892811690F4B1009D901C /* WTRootBackgroundUnit@2x.png */; };
 		E1B8928A16917D16009D901C /* WTTestBanner1.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B8928916917D15009D901C /* WTTestBanner1.png */; };
-		E1B89294169181CB009D901C /* WTViewShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B89292169181CA009D901C /* WTViewShadow.png */; };
-		E1B89295169181CB009D901C /* WTViewShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B89293169181CA009D901C /* WTViewShadow@2x.png */; };
+		E1B89294169181CB009D901C /* WTBottomShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B89292169181CA009D901C /* WTBottomShadow.png */; };
+		E1B89295169181CB009D901C /* WTBottomShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B89293169181CA009D901C /* WTBottomShadow@2x.png */; };
 		E1B89298169184E2009D901C /* WTTestBanner3.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B89296169184E0009D901C /* WTTestBanner3.png */; };
 		E1B89299169184E2009D901C /* WTTestBanner2.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B89297169184E0009D901C /* WTTestBanner2.png */; };
 		E1C033CC16691E75004738EF /* WTDistrictBuildingMap.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1C033CB16691E75004738EF /* WTDistrictBuildingMap.plist */; };
 		E1C033E116692590004738EF /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C033E016692590004738EF /* libxml2.dylib */; };
 		E1C53DD216523DCE0011C8A1 /* WTSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C53DD016523DCE0011C8A1 /* WTSearchViewController.m */; };
 		E1C53DD316523DCE0011C8A1 /* WTSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C53DD116523DCE0011C8A1 /* WTSearchViewController.xib */; };
+		E1D373721691CD1C0012E30A /* WTPanelBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D373701691CD1C0012E30A /* WTPanelBg.png */; };
+		E1D373731691CD1C0012E30A /* WTPanelBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D373711691CD1C0012E30A /* WTPanelBg@2x.png */; };
+		E1D3737B1691D0370012E30A /* WTPanelMoreHighlightButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D373791691D0370012E30A /* WTPanelMoreHighlightButton@2x.png */; };
+		E1D3737C1691D0370012E30A /* WTPanelMoreHighlightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D3737A1691D0370012E30A /* WTPanelMoreHighlightButton.png */; };
+		E1D3737F1691D09C0012E30A /* WTPanelMoreNormalButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D3737D1691D09C0012E30A /* WTPanelMoreNormalButton.png */; };
+		E1D373801691D09C0012E30A /* WTPanelMoreNormalButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D3737E1691D09C0012E30A /* WTPanelMoreNormalButton@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -277,11 +289,17 @@
 		E188223716803E1400A41F47 /* WTInfoPanelBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTInfoPanelBg@2x.png"; sourceTree = "<group>"; };
 		E188223A1680461D00A41F47 /* WTInfoPanelDivier@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTInfoPanelDivier@2x.png"; sourceTree = "<group>"; };
 		E188223B1680461E00A41F47 /* WTInfoPanelDivier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTInfoPanelDivier.png; sourceTree = "<group>"; };
+		E1AEA9871691AFBB007DFA4C /* WTTopShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTopShadow.png; sourceTree = "<group>"; };
+		E1AEA9881691AFBC007DFA4C /* WTTopShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTopShadow@2x.png"; sourceTree = "<group>"; };
+		E1AEA98B1691B3BA007DFA4C /* WTLeftShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTLeftShadow.png; sourceTree = "<group>"; };
+		E1AEA98C1691B3BA007DFA4C /* WTLeftShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTLeftShadow@2x.png"; sourceTree = "<group>"; };
+		E1AEA98D1691B3BA007DFA4C /* WTRightShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTRightShadow.png; sourceTree = "<group>"; };
+		E1AEA98E1691B3BA007DFA4C /* WTRightShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTRightShadow@2x.png"; sourceTree = "<group>"; };
 		E1B892801690F4B1009D901C /* WTRootBackgroundUnit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTRootBackgroundUnit.png; sourceTree = "<group>"; };
 		E1B892811690F4B1009D901C /* WTRootBackgroundUnit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTRootBackgroundUnit@2x.png"; sourceTree = "<group>"; };
 		E1B8928916917D15009D901C /* WTTestBanner1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTestBanner1.png; sourceTree = "<group>"; };
-		E1B89292169181CA009D901C /* WTViewShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTViewShadow.png; sourceTree = "<group>"; };
-		E1B89293169181CA009D901C /* WTViewShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTViewShadow@2x.png"; sourceTree = "<group>"; };
+		E1B89292169181CA009D901C /* WTBottomShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTBottomShadow.png; sourceTree = "<group>"; };
+		E1B89293169181CA009D901C /* WTBottomShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTBottomShadow@2x.png"; sourceTree = "<group>"; };
 		E1B89296169184E0009D901C /* WTTestBanner3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTestBanner3.png; sourceTree = "<group>"; };
 		E1B89297169184E0009D901C /* WTTestBanner2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTestBanner2.png; sourceTree = "<group>"; };
 		E1C033CB16691E75004738EF /* WTDistrictBuildingMap.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WTDistrictBuildingMap.plist; sourceTree = "<group>"; };
@@ -289,6 +307,12 @@
 		E1C53DCF16523DCE0011C8A1 /* WTSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSearchViewController.h; sourceTree = "<group>"; };
 		E1C53DD016523DCE0011C8A1 /* WTSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSearchViewController.m; sourceTree = "<group>"; };
 		E1C53DD116523DCE0011C8A1 /* WTSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSearchViewController.xib; sourceTree = "<group>"; };
+		E1D373701691CD1C0012E30A /* WTPanelBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTPanelBg.png; sourceTree = "<group>"; };
+		E1D373711691CD1C0012E30A /* WTPanelBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTPanelBg@2x.png"; sourceTree = "<group>"; };
+		E1D373791691D0370012E30A /* WTPanelMoreHighlightButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTPanelMoreHighlightButton@2x.png"; sourceTree = "<group>"; };
+		E1D3737A1691D0370012E30A /* WTPanelMoreHighlightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTPanelMoreHighlightButton.png; sourceTree = "<group>"; };
+		E1D3737D1691D09C0012E30A /* WTPanelMoreNormalButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTPanelMoreNormalButton.png; sourceTree = "<group>"; };
+		E1D3737E1691D09C0012E30A /* WTPanelMoreNormalButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTPanelMoreNormalButton@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,10 +353,13 @@
 		E117035A1651EF3E00D82F4A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E14FA67C1680A9F7008A8D33 /* button */,
+				E1D373701691CD1C0012E30A /* WTPanelBg.png */,
+				E1D373711691CD1C0012E30A /* WTPanelBg@2x.png */,
+				E14FA67C1680A9F7008A8D33 /* Button */,
 				E18821BC1680058E00A41F47 /* Corner */,
 				E188223E1680462100A41F47 /* InfoPanel */,
 				E18821EE1680103E00A41F47 /* NavigationBar */,
+				E1AEA9861691AF56007DFA4C /* Shadow */,
 				E18821BB1680058000A41F47 /* TabBar */,
 				E1C033CB16691E75004738EF /* WTDistrictBuildingMap.plist */,
 				E14FA6C316820285008A8D33 /* WTLikeButtonFlagBg.png */,
@@ -341,11 +368,9 @@
 				E14FA69C1680DF63008A8D33 /* WTModalViewBg@2x.png */,
 				E1B892801690F4B1009D901C /* WTRootBackgroundUnit.png */,
 				E1B892811690F4B1009D901C /* WTRootBackgroundUnit@2x.png */,
+				E1B8928916917D15009D901C /* WTTestBanner1.png */,
 				E1B89297169184E0009D901C /* WTTestBanner2.png */,
 				E1B89296169184E0009D901C /* WTTestBanner3.png */,
-				E1B8928916917D15009D901C /* WTTestBanner1.png */,
-				E1B89292169181CA009D901C /* WTViewShadow.png */,
-				E1B89293169181CA009D901C /* WTViewShadow@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -459,9 +484,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E14FA67C1680A9F7008A8D33 /* button */ = {
+		E14FA67C1680A9F7008A8D33 /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				E1D3737D1691D09C0012E30A /* WTPanelMoreNormalButton.png */,
+				E1D3737E1691D09C0012E30A /* WTPanelMoreNormalButton@2x.png */,
+				E1D373791691D0370012E30A /* WTPanelMoreHighlightButton@2x.png */,
+				E1D3737A1691D0370012E30A /* WTPanelMoreHighlightButton.png */,
 				E14FA6AF1681F7FC008A8D33 /* WTCommentButton.png */,
 				E14FA6B11681F7FC008A8D33 /* WTCommentButton@2x.png */,
 				E14FA6741680A9F2008A8D33 /* WTFocusButton.png */,
@@ -487,7 +516,7 @@
 				E14FA6751680A9F3008A8D33 /* WTSelectButton.png */,
 				E14FA6761680A9F3008A8D33 /* WTSelectButton@2x.png */,
 			);
-			name = button;
+			name = Button;
 			sourceTree = "<group>";
 		};
 		E14FA67D1680B9BB008A8D33 /* CustomViews */ = {
@@ -619,6 +648,21 @@
 				E188223B1680461E00A41F47 /* WTInfoPanelDivier.png */,
 			);
 			name = InfoPanel;
+			sourceTree = "<group>";
+		};
+		E1AEA9861691AF56007DFA4C /* Shadow */ = {
+			isa = PBXGroup;
+			children = (
+				E1B89292169181CA009D901C /* WTBottomShadow.png */,
+				E1B89293169181CA009D901C /* WTBottomShadow@2x.png */,
+				E1AEA98B1691B3BA007DFA4C /* WTLeftShadow.png */,
+				E1AEA98C1691B3BA007DFA4C /* WTLeftShadow@2x.png */,
+				E1AEA98D1691B3BA007DFA4C /* WTRightShadow.png */,
+				E1AEA98E1691B3BA007DFA4C /* WTRightShadow@2x.png */,
+				E1AEA9871691AFBB007DFA4C /* WTTopShadow.png */,
+				E1AEA9881691AFBC007DFA4C /* WTTopShadow@2x.png */,
+			);
+			name = Shadow;
 			sourceTree = "<group>";
 		};
 		E1C53DCD16523DA60011C8A1 /* Root */ = {
@@ -818,10 +862,22 @@
 				E1B892821690F4B1009D901C /* WTRootBackgroundUnit.png in Resources */,
 				E1B892831690F4B1009D901C /* WTRootBackgroundUnit@2x.png in Resources */,
 				E1B8928A16917D16009D901C /* WTTestBanner1.png in Resources */,
-				E1B89294169181CB009D901C /* WTViewShadow.png in Resources */,
-				E1B89295169181CB009D901C /* WTViewShadow@2x.png in Resources */,
+				E1B89294169181CB009D901C /* WTBottomShadow.png in Resources */,
+				E1B89295169181CB009D901C /* WTBottomShadow@2x.png in Resources */,
 				E1B89298169184E2009D901C /* WTTestBanner3.png in Resources */,
 				E1B89299169184E2009D901C /* WTTestBanner2.png in Resources */,
+				E1AEA9891691AFBC007DFA4C /* WTTopShadow.png in Resources */,
+				E1AEA98A1691AFBC007DFA4C /* WTTopShadow@2x.png in Resources */,
+				E1AEA98F1691B3BA007DFA4C /* WTLeftShadow.png in Resources */,
+				E1AEA9901691B3BA007DFA4C /* WTLeftShadow@2x.png in Resources */,
+				E1AEA9911691B3BA007DFA4C /* WTRightShadow.png in Resources */,
+				E1AEA9921691B3BA007DFA4C /* WTRightShadow@2x.png in Resources */,
+				E1D373721691CD1C0012E30A /* WTPanelBg.png in Resources */,
+				E1D373731691CD1C0012E30A /* WTPanelBg@2x.png in Resources */,
+				E1D3737B1691D0370012E30A /* WTPanelMoreHighlightButton@2x.png in Resources */,
+				E1D3737C1691D0370012E30A /* WTPanelMoreHighlightButton.png in Resources */,
+				E1D3737F1691D09C0012E30A /* WTPanelMoreNormalButton.png in Resources */,
+				E1D373801691D09C0012E30A /* WTPanelMoreNormalButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

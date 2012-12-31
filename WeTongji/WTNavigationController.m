@@ -110,8 +110,8 @@
         
         // release screen shoot views
         [self.screenShootContainerView removeFromSuperview];
-        self.screenShootContainerView = nil;
         self.screenShootImageView = nil;
+        self.screenShootContainerView = nil;
         
         WTTabBarController *tabBarVC = (WTTabBarController *)[UIApplication sharedApplication].rootViewController;
         [tabBarVC showTabBar];
