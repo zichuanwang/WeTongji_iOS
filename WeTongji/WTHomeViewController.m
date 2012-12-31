@@ -37,6 +37,7 @@
     // Do any additional setup after loading the view from its nib.
     [self configureNavigationBar];
     [self configureBackgroung];
+    [self configureTestBanner];
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,6 +59,26 @@
     self.navigationItem.leftBarButtonItem = self.notificationButton;
 }
 
+- (void)configureTestBanner {
+    int imageCount = 3;
+    self.bannerScrollView.contentSize = CGSizeMake(self.bannerScrollView.frame.size.width * imageCount, self.bannerScrollView.frame.size.height);
+    for(int i = 0; i < imageCount; i++) {
+        NSString *imageName = [NSString stringWithFormat:@"WTTestBanner%d", i + 1];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+        imageView.contentMode = UIViewContentModeScaleToFill;
+        [imageView resetOrigin:CGPointMake(self.bannerScrollView.frame.size.width * i, 0)];
+        [imageView resetSize:self.bannerScrollView.frame.size];
+        [self.bannerScrollView addSubview:imageView];
+    }
+    
+    self.bannerPageControl.numberOfPages = imageCount;
+}
+
+- (void)updateBannerScrollView {
+    int currentPage = self.bannerScrollView.contentOffset.x / self.bannerScrollView.frame.size.width;
+    self.bannerPageControl.currentPage = currentPage;
+}
+
 #pragma mark - Properties
 
 - (WTNotificationBarButton *)notificationButton {
@@ -69,7 +90,7 @@
 
 #pragma mark - Actions
 
-- (IBAction)didClickNotificationButton:(WTNotificationBarButton *)sender {
+- (void)didClickNotificationButton:(WTNotificationBarButton *)sender {
     sender.selected = !sender.selected;
     WTNavigationController *nav = (WTNavigationController *)self.navigationController;
     if(sender.selected) {
@@ -81,22 +102,16 @@
     }
 }
 
-- (IBAction)didClickLoginButton:(UIButton *)sender {
-    [WTLoginViewController show];
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    [self updateBannerScrollView];
 }
 
-- (IBAction)didClickShineButton:(UIButton *)sender {
-    sender.selected = !sender.selected;
-    if(sender.isSelected) {
-        [self.notificationButton startShine];
-    } else {
-        [self.notificationButton stopShine];
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if(decelerate == NO) {
+        [self updateBannerScrollView];
     }
-}
-
-- (IBAction)didClickTenClockButton:(UIButton *)sender {
-    WTEventDetailViewController *vc = [[WTEventDetailViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

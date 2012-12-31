@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WTHomeViewController : UIViewController
+@interface WTHomeViewController : UIViewController<UIScrollViewDelegate>
 
-- (IBAction)didClickLoginButton:(UIButton *)sender;
-- (IBAction)didClickShineButton:(UIButton *)sender;
-- (IBAction)didClickTenClockButton:(UIButton *)sender;
+@property (nonatomic, weak) IBOutlet UIScrollView *bannerScrollView;
+@property (nonatomic, weak) IBOutlet UIPageControl *bannerPageControl;
 
 @end
