@@ -40,6 +40,9 @@
     [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     [button setTitleShadowColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
+    [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
+    [button setTitleShadowColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+    
     button.titleLabel.font = [UIFont boldSystemFontOfSize:12];
     button.titleLabel.shadowOffset = CGSizeMake(0, 1);
     
@@ -65,8 +68,8 @@
                                         selectImage:nil
                                    normalTitleColor:[UIColor darkGrayColor]
                                  normalShadowColor:[UIColor whiteColor]
-                                   selectTitleColor:nil
-                                  selectShadowColor:nil];
+                                   highlightTitleColor:[UIColor darkGrayColor]
+                                  highlightShadowColor:[UIColor grayColor]];
 }
 
 + (UIButton *)createFocusButtonWithText:(NSString *)text {
@@ -75,8 +78,8 @@
                                        selectImage:[UIImage imageNamed:@"WTSelectButton"]
                                   normalTitleColor:[UIColor whiteColor]
                                  normalShadowColor:[UIColor lightGrayColor]
-                                  selectTitleColor:[UIColor whiteColor]
-                                 selectShadowColor:[UIColor grayColor]];
+                                  highlightTitleColor:[UIColor grayColor]
+                                 highlightShadowColor:[UIColor darkGrayColor]];
 }
 
 + (UIButton *)createButtonWithText:(NSString *)text
@@ -84,8 +87,8 @@
                        selectImage:(UIImage *)selectImage
                   normalTitleColor:(UIColor *)normalTitleColor
                   normalShadowColor:(UIColor *)normalShadowColor
-                  selectTitleColor:(UIColor *)selectTitleColor
-                 selectShadowColor:(UIColor *)selectShadowColor{
+                  highlightTitleColor:(UIColor *)highlightTitleColor
+                 highlightShadowColor:(UIColor *)highlightShadowColor{
     UIButton *button = [[UIButton alloc] init];
     [button setTitle:text forState:UIControlStateNormal];
     
@@ -106,11 +109,11 @@
     if(normalShadowColor)
         [button setTitleShadowColor:normalShadowColor forState:UIControlStateNormal];
 
-    if(selectTitleColor)
-        [button setTitleColor:selectTitleColor forState:UIControlStateSelected];
+    if(highlightTitleColor)
+        [button setTitleColor:highlightTitleColor forState:UIControlStateHighlighted];
     
-    if(selectShadowColor)
-        [button setTitleShadowColor:selectShadowColor forState:UIControlStateSelected];
+    if(highlightShadowColor)
+        [button setTitleShadowColor:highlightShadowColor forState:UIControlStateHighlighted];
 
     
     button.titleLabel.font = [UIFont boldSystemFontOfSize:12];
