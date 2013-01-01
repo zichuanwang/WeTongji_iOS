@@ -128,29 +128,26 @@
 		E1C033E116692590004738EF /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C033E016692590004738EF /* libxml2.dylib */; };
 		E1C53DD216523DCE0011C8A1 /* WTSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C53DD016523DCE0011C8A1 /* WTSearchViewController.m */; };
 		E1C53DD316523DCE0011C8A1 /* WTSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C53DD116523DCE0011C8A1 /* WTSearchViewController.xib */; };
-		E1D373721691CD1C0012E30A /* WTPanelBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D373701691CD1C0012E30A /* WTPanelBg.png */; };
-		E1D373731691CD1C0012E30A /* WTPanelBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D373711691CD1C0012E30A /* WTPanelBg@2x.png */; };
 		E1D3737B1691D0370012E30A /* WTPanelMoreHighlightButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D373791691D0370012E30A /* WTPanelMoreHighlightButton@2x.png */; };
 		E1D3737C1691D0370012E30A /* WTPanelMoreHighlightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D3737A1691D0370012E30A /* WTPanelMoreHighlightButton.png */; };
 		E1D3737F1691D09C0012E30A /* WTPanelMoreNormalButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D3737D1691D09C0012E30A /* WTPanelMoreNormalButton.png */; };
 		E1D373801691D09C0012E30A /* WTPanelMoreNormalButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D3737E1691D09C0012E30A /* WTPanelMoreNormalButton@2x.png */; };
+		E1D373911692ECE10012E30A /* WTBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D373901692ECE10012E30A /* WTBannerView.m */; };
+		E1D373931692ED2C0012E30A /* WTBannerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D373921692ED2C0012E30A /* WTBannerView.xib */; };
+		E1D373981692F4EE0012E30A /* WTPanelHighlightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D373941692F4EE0012E30A /* WTPanelHighlightButton.png */; };
+		E1D373991692F4EE0012E30A /* WTPanelHighlightButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D373951692F4EE0012E30A /* WTPanelHighlightButton@2x.png */; };
+		E1D3739A1692F4EE0012E30A /* WTPanelNormalButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D373961692F4EE0012E30A /* WTPanelNormalButton.png */; };
+		E1D3739B1692F4EE0012E30A /* WTPanelNormalButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D373971692F4EE0012E30A /* WTPanelNormalButton@2x.png */; };
+		E1D3739E1692F4FA0012E30A /* WTPanelShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D3739C1692F4FA0012E30A /* WTPanelShadow.png */; };
+		E1D3739F1692F4FA0012E30A /* WTPanelShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D3739D1692F4FA0012E30A /* WTPanelShadow@2x.png */; };
+		E1D373A1169333390012E30A /* WTBannerContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D373A0169333390012E30A /* WTBannerContainerView.xib */; };
+		E1D373A4169346F20012E30A /* WTPanelNowIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D373A2169346F20012E30A /* WTPanelNowIcon.png */; };
+		E1D373A5169346F20012E30A /* WTPanelNowIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D373A3169346F20012E30A /* WTPanelNowIcon@2x.png */; };
+		E1D373CF169350AF0012E30A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D373CE169350AE0012E30A /* CoreText.framework */; };
+		E1D373F216935DD30012E30A /* libOHAttributedLabel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D373F116935DD30012E30A /* libOHAttributedLabel.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E11702E61650F3C600D82F4A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E11702DF1650F3C500D82F4A /* WeTongjiSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E110DF2B16365B990087EA46;
-			remoteInfo = WeTongjiSDK;
-		};
-		E11702E91650F49500D82F4A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E11702DF1650F3C500D82F4A /* WeTongjiSDK.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = E110DF2A16365B990087EA46;
-			remoteInfo = WeTongjiSDK;
-		};
 		E12554C916491532006D42F5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E125548616491530006D42F5 /* Project object */;
@@ -161,7 +158,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E11702DF1650F3C500D82F4A /* WeTongjiSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WeTongjiSDK.xcodeproj; path = ../WeTongjiSDK/WeTongjiSDK.xcodeproj; sourceTree = "<group>"; };
 		E11702FB1650F82A00D82F4A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E1170315165156A400D82F4A /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
@@ -307,12 +303,24 @@
 		E1C53DCF16523DCE0011C8A1 /* WTSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSearchViewController.h; sourceTree = "<group>"; };
 		E1C53DD016523DCE0011C8A1 /* WTSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSearchViewController.m; sourceTree = "<group>"; };
 		E1C53DD116523DCE0011C8A1 /* WTSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSearchViewController.xib; sourceTree = "<group>"; };
-		E1D373701691CD1C0012E30A /* WTPanelBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTPanelBg.png; sourceTree = "<group>"; };
-		E1D373711691CD1C0012E30A /* WTPanelBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTPanelBg@2x.png"; sourceTree = "<group>"; };
 		E1D373791691D0370012E30A /* WTPanelMoreHighlightButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTPanelMoreHighlightButton@2x.png"; sourceTree = "<group>"; };
 		E1D3737A1691D0370012E30A /* WTPanelMoreHighlightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTPanelMoreHighlightButton.png; sourceTree = "<group>"; };
 		E1D3737D1691D09C0012E30A /* WTPanelMoreNormalButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTPanelMoreNormalButton.png; sourceTree = "<group>"; };
 		E1D3737E1691D09C0012E30A /* WTPanelMoreNormalButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTPanelMoreNormalButton@2x.png"; sourceTree = "<group>"; };
+		E1D3738F1692ECE10012E30A /* WTBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBannerView.h; sourceTree = "<group>"; };
+		E1D373901692ECE10012E30A /* WTBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTBannerView.m; sourceTree = "<group>"; };
+		E1D373921692ED2C0012E30A /* WTBannerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTBannerView.xib; sourceTree = "<group>"; };
+		E1D373941692F4EE0012E30A /* WTPanelHighlightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTPanelHighlightButton.png; sourceTree = "<group>"; };
+		E1D373951692F4EE0012E30A /* WTPanelHighlightButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTPanelHighlightButton@2x.png"; sourceTree = "<group>"; };
+		E1D373961692F4EE0012E30A /* WTPanelNormalButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTPanelNormalButton.png; sourceTree = "<group>"; };
+		E1D373971692F4EE0012E30A /* WTPanelNormalButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTPanelNormalButton@2x.png"; sourceTree = "<group>"; };
+		E1D3739C1692F4FA0012E30A /* WTPanelShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTPanelShadow.png; sourceTree = "<group>"; };
+		E1D3739D1692F4FA0012E30A /* WTPanelShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTPanelShadow@2x.png"; sourceTree = "<group>"; };
+		E1D373A0169333390012E30A /* WTBannerContainerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTBannerContainerView.xib; sourceTree = "<group>"; };
+		E1D373A2169346F20012E30A /* WTPanelNowIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTPanelNowIcon.png; sourceTree = "<group>"; };
+		E1D373A3169346F20012E30A /* WTPanelNowIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTPanelNowIcon@2x.png"; sourceTree = "<group>"; };
+		E1D373CE169350AE0012E30A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		E1D373F116935DD30012E30A /* libOHAttributedLabel.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOHAttributedLabel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,12 +328,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1D373CF169350AF0012E30A /* CoreText.framework in Frameworks */,
 				E1C033E116692590004738EF /* libxml2.dylib in Frameworks */,
 				E11702FE1650F83F00D82F4A /* MobileCoreServices.framework in Frameworks */,
 				E11702FC1650F82A00D82F4A /* SystemConfiguration.framework in Frameworks */,
 				E125549416491530006D42F5 /* UIKit.framework in Frameworks */,
 				E125549616491530006D42F5 /* Foundation.framework in Frameworks */,
 				E125549816491530006D42F5 /* CoreGraphics.framework in Frameworks */,
+				E1D373F216935DD30012E30A /* libOHAttributedLabel.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,19 +352,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E11702E01650F3C500D82F4A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E11702E71650F3C600D82F4A /* WeTongjiSDK.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		E117035A1651EF3E00D82F4A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E1D373701691CD1C0012E30A /* WTPanelBg.png */,
-				E1D373711691CD1C0012E30A /* WTPanelBg@2x.png */,
+				E1D373A61693473E0012E30A /* Other */,
 				E14FA67C1680A9F7008A8D33 /* Button */,
 				E18821BC1680058E00A41F47 /* Corner */,
 				E188223E1680462100A41F47 /* InfoPanel */,
@@ -362,15 +363,6 @@
 				E1AEA9861691AF56007DFA4C /* Shadow */,
 				E18821BB1680058000A41F47 /* TabBar */,
 				E1C033CB16691E75004738EF /* WTDistrictBuildingMap.plist */,
-				E14FA6C316820285008A8D33 /* WTLikeButtonFlagBg.png */,
-				E14FA6C416820286008A8D33 /* WTLikeButtonFlagBg@2x.png */,
-				E14FA69B1680DF62008A8D33 /* WTModalViewBg.png */,
-				E14FA69C1680DF63008A8D33 /* WTModalViewBg@2x.png */,
-				E1B892801690F4B1009D901C /* WTRootBackgroundUnit.png */,
-				E1B892811690F4B1009D901C /* WTRootBackgroundUnit@2x.png */,
-				E1B8928916917D15009D901C /* WTTestBanner1.png */,
-				E1B89297169184E0009D901C /* WTTestBanner2.png */,
-				E1B89296169184E0009D901C /* WTTestBanner3.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -401,9 +393,9 @@
 		E125548416491530006D42F5 = {
 			isa = PBXGroup;
 			children = (
+				E1D373F116935DD30012E30A /* libOHAttributedLabel.a */,
 				E1170317165156BE00D82F4A /* icon.png */,
 				E1170315165156A400D82F4A /* icon@2x.png */,
-				E11702DF1650F3C500D82F4A /* WeTongjiSDK.xcodeproj */,
 				E125549916491530006D42F5 /* WeTongji */,
 				E12554CB16491532006D42F5 /* WeTongjiTests */,
 				E125549216491530006D42F5 /* Frameworks */,
@@ -423,6 +415,7 @@
 		E125549216491530006D42F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E1D373CE169350AE0012E30A /* CoreText.framework */,
 				E1C033E016692590004738EF /* libxml2.dylib */,
 				E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */,
 				E11702FB1650F82A00D82F4A /* SystemConfiguration.framework */,
@@ -487,6 +480,10 @@
 		E14FA67C1680A9F7008A8D33 /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				E1D373941692F4EE0012E30A /* WTPanelHighlightButton.png */,
+				E1D373951692F4EE0012E30A /* WTPanelHighlightButton@2x.png */,
+				E1D373961692F4EE0012E30A /* WTPanelNormalButton.png */,
+				E1D373971692F4EE0012E30A /* WTPanelNormalButton@2x.png */,
 				E1D3737D1691D09C0012E30A /* WTPanelMoreNormalButton.png */,
 				E1D3737E1691D09C0012E30A /* WTPanelMoreNormalButton@2x.png */,
 				E1D373791691D0370012E30A /* WTPanelMoreHighlightButton@2x.png */,
@@ -524,6 +521,10 @@
 			children = (
 				E14FA67E1680B9DE008A8D33 /* WTNotificationBarButton.h */,
 				E14FA67F1680B9DE008A8D33 /* WTNotificationBarButton.m */,
+				E1D3738F1692ECE10012E30A /* WTBannerView.h */,
+				E1D373901692ECE10012E30A /* WTBannerView.m */,
+				E1D373921692ED2C0012E30A /* WTBannerView.xib */,
+				E1D373A0169333390012E30A /* WTBannerContainerView.xib */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -653,6 +654,8 @@
 		E1AEA9861691AF56007DFA4C /* Shadow */ = {
 			isa = PBXGroup;
 			children = (
+				E1D3739C1692F4FA0012E30A /* WTPanelShadow.png */,
+				E1D3739D1692F4FA0012E30A /* WTPanelShadow@2x.png */,
 				E1B89292169181CA009D901C /* WTBottomShadow.png */,
 				E1B89293169181CA009D901C /* WTBottomShadow@2x.png */,
 				E1AEA98B1691B3BA007DFA4C /* WTLeftShadow.png */,
@@ -686,6 +689,24 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
+		E1D373A61693473E0012E30A /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				E1D373A2169346F20012E30A /* WTPanelNowIcon.png */,
+				E1D373A3169346F20012E30A /* WTPanelNowIcon@2x.png */,
+				E14FA6C316820285008A8D33 /* WTLikeButtonFlagBg.png */,
+				E14FA6C416820286008A8D33 /* WTLikeButtonFlagBg@2x.png */,
+				E14FA69B1680DF62008A8D33 /* WTModalViewBg.png */,
+				E14FA69C1680DF63008A8D33 /* WTModalViewBg@2x.png */,
+				E1B892801690F4B1009D901C /* WTRootBackgroundUnit.png */,
+				E1B892811690F4B1009D901C /* WTRootBackgroundUnit@2x.png */,
+				E1B8928916917D15009D901C /* WTTestBanner1.png */,
+				E1B89297169184E0009D901C /* WTTestBanner2.png */,
+				E1B89296169184E0009D901C /* WTTestBanner3.png */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -700,7 +721,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				E11702EA1650F49500D82F4A /* PBXTargetDependency */,
 			);
 			name = WeTongji;
 			productName = WeTongji;
@@ -748,12 +768,6 @@
 			mainGroup = E125548416491530006D42F5;
 			productRefGroup = E125549016491530006D42F5 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = E11702E01650F3C500D82F4A /* Products */;
-					ProjectRef = E11702DF1650F3C500D82F4A /* WeTongjiSDK.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				E125548E16491530006D42F5 /* WeTongji */,
@@ -761,16 +775,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		E11702E71650F3C600D82F4A /* WeTongjiSDK.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = WeTongjiSDK.framework;
-			remoteRef = E11702E61650F3C600D82F4A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E125548D16491530006D42F5 /* Resources */ = {
@@ -872,12 +876,20 @@
 				E1AEA9901691B3BA007DFA4C /* WTLeftShadow@2x.png in Resources */,
 				E1AEA9911691B3BA007DFA4C /* WTRightShadow.png in Resources */,
 				E1AEA9921691B3BA007DFA4C /* WTRightShadow@2x.png in Resources */,
-				E1D373721691CD1C0012E30A /* WTPanelBg.png in Resources */,
-				E1D373731691CD1C0012E30A /* WTPanelBg@2x.png in Resources */,
 				E1D3737B1691D0370012E30A /* WTPanelMoreHighlightButton@2x.png in Resources */,
 				E1D3737C1691D0370012E30A /* WTPanelMoreHighlightButton.png in Resources */,
 				E1D3737F1691D09C0012E30A /* WTPanelMoreNormalButton.png in Resources */,
 				E1D373801691D09C0012E30A /* WTPanelMoreNormalButton@2x.png in Resources */,
+				E1D373931692ED2C0012E30A /* WTBannerView.xib in Resources */,
+				E1D373981692F4EE0012E30A /* WTPanelHighlightButton.png in Resources */,
+				E1D373991692F4EE0012E30A /* WTPanelHighlightButton@2x.png in Resources */,
+				E1D3739A1692F4EE0012E30A /* WTPanelNormalButton.png in Resources */,
+				E1D3739B1692F4EE0012E30A /* WTPanelNormalButton@2x.png in Resources */,
+				E1D3739E1692F4FA0012E30A /* WTPanelShadow.png in Resources */,
+				E1D3739F1692F4FA0012E30A /* WTPanelShadow@2x.png in Resources */,
+				E1D373A1169333390012E30A /* WTBannerContainerView.xib in Resources */,
+				E1D373A4169346F20012E30A /* WTPanelNowIcon.png in Resources */,
+				E1D373A5169346F20012E30A /* WTPanelNowIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -927,6 +939,7 @@
 				E14FA6991680DEDB008A8D33 /* WTNotificationModalViewController.m in Sources */,
 				E14FA6A11680E067008A8D33 /* UIImage+ScreenShoot.m in Sources */,
 				E14FA6A91681EBC5008A8D33 /* WTEventDetailViewController.m in Sources */,
+				E1D373911692ECE10012E30A /* WTBannerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -941,11 +954,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E11702EA1650F49500D82F4A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = WeTongjiSDK;
-			targetProxy = E11702E91650F49500D82F4A /* PBXContainerItemProxy */;
-		};
 		E12554CA16491532006D42F5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E125548E16491530006D42F5 /* WeTongji */;
@@ -1011,6 +1019,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-framework",
+					WeTongjiSDK,
+					"-Objc",
+				);
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1032,6 +1045,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = (
+					"-framework",
+					WeTongjiSDK,
+					"-Objc",
+				);
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1040,16 +1058,24 @@
 		E12554D716491532006D42F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WeTongji/WeTongji-Prefix.pch";
+				HEADER_SEARCH_PATHS = "../WeTongjiSDK/**";
 				INFOPLIST_FILE = "WeTongji/WeTongji-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/WeTongji-haxzmecxsluyiegvzukrqyecviwx/Build/Products/Debug-iphoneos\"",
+				);
 				OTHER_LDFLAGS = (
 					"-framework",
 					WeTongjiSDK,
-					"-lxml2",
+					"-Objc",
+					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "../OHAttributedLabel/OHAttributedLabel/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1057,16 +1083,24 @@
 		E12554D816491532006D42F5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WeTongji/WeTongji-Prefix.pch";
+				HEADER_SEARCH_PATHS = "../WeTongjiSDK/**";
 				INFOPLIST_FILE = "WeTongji/WeTongji-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/WeTongji-haxzmecxsluyiegvzukrqyecviwx/Build/Products/Debug-iphoneos\"",
+				);
 				OTHER_LDFLAGS = (
 					"-framework",
 					WeTongjiSDK,
-					"-lxml2",
+					"-Objc",
+					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "../OHAttributedLabel/OHAttributedLabel/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

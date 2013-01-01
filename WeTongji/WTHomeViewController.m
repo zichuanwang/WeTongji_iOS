@@ -7,16 +7,15 @@
 //
 
 #import "WTHomeViewController.h"
-#import "WTLoginViewController.h"
-#import "WTHomeNavigationController.h"
 #import "WTNotificationBarButton.h"
-#import "WTNavigationController.h"
+#import "WTBannerView.h"
+#import "OHAttributedLabel.h"
 #import "WTNotificationModalViewController.h"
-#import "WTEventDetailViewController.h"
 
 @interface WTHomeViewController ()
 
 @property (nonatomic, strong) WTNotificationBarButton *notificationButton;
+@property (nonatomic, strong) WTBannerView *bannerView;
 
 @end
 
@@ -37,7 +36,8 @@
     // Do any additional setup after loading the view from its nib.
     [self configureNavigationBar];
     [self configureBackgroung];
-    [self configureTestBanner];
+    [self configureBanner];
+    [self configureNowPanel];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -53,6 +53,12 @@
 
 #pragma mark - UI methods
 
+- (void)configureBanner {
+    self.bannerView = [[[NSBundle mainBundle] loadNibNamed:@"WTBannerView" owner:self options:nil] lastObject];
+    [self.bannerView resetOrigin:CGPointZero];
+    [self.scrollView addSubview:self.bannerView];
+}
+
 - (void)configureBackgroung {
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
 }
@@ -64,50 +70,10 @@
     self.navigationItem.leftBarButtonItem = self.notificationButton;
 }
 
-- (void)configureTestBanner {
-    int imageCount = 3;
-    self.bannerScrollView.contentSize = CGSizeMake(self.bannerScrollView.frame.size.width * imageCount, self.bannerScrollView.frame.size.height);
-    for(int i = 0; i < imageCount; i++) {
-        NSString *imageName = [NSString stringWithFormat:@"WTTestBanner%d", i + 1];
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
-        imageView.contentMode = UIViewContentModeScaleToFill;
-        [imageView resetOrigin:CGPointMake(self.bannerScrollView.frame.size.width * i, 0)];
-        [imageView resetSize:self.bannerScrollView.frame.size];
-        [self.bannerScrollView addSubview:imageView];
-    }
-    
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(14, 42, 300, 24)];
-    titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20];
-    titleLabel.textColor = [UIColor whiteColor];
-    titleLabel.shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6f];
-    titleLabel.shadowOffset = CGSizeMake(0, 1);
-    titleLabel.backgroundColor = [UIColor clearColor];
-    titleLabel.text = @"WeTongji 3.0 Coming Soon";
-    
-    UILabel *orgnizationLabel = [[UILabel alloc] initWithFrame:CGRectMake(14, 68, 200, 18)];
-    orgnizationLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:12];
-    orgnizationLabel.textColor = [UIColor colorWithRed:13.0f / 255 green:195.0f / 255 blue:204.0f / 255 alpha:1.0f];
-    orgnizationLabel.shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5f];
-    orgnizationLabel.backgroundColor = [UIColor clearColor];
-    orgnizationLabel.shadowOffset = CGSizeMake(0, 1);
-    orgnizationLabel.text = @"Tongji Apple Club";
-    
-    [self.bannerScrollView addSubview:titleLabel];
-    [self.bannerScrollView addSubview:orgnizationLabel];
-    
-    UIImageView *leftShadowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTLeftShadow"]];
-    UIImageView *rightShadowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTRightShadow"]];
-    [leftShadowImageView resetOrigin:CGPointMake(-4, 0)];
-    [rightShadowImageView resetOrigin:CGPointMake(self.bannerScrollView.contentSize.width, 0)];
-    [self.bannerScrollView addSubview:leftShadowImageView];
-    [self.bannerScrollView addSubview:rightShadowImageView];
-    
-    self.bannerPageControl.numberOfPages = imageCount;
-}
-
-- (void)updateBannerScrollView {
-    int currentPage = self.bannerScrollView.contentOffset.x / self.bannerScrollView.frame.size.width;
-    self.bannerPageControl.currentPage = currentPage;
+- (void)configureNowPanel {
+    NSMutableAttributedString *text = [self.nowPanelFriendLabel.attributedText mutableCopy];
+    [text setTextBold:YES range:NSMakeRange(0, 1)];
+    self.nowPanelFriendLabel.attributedText = text;
 }
 
 #pragma mark - Properties
@@ -136,15 +102,9 @@
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    if(scrollView == self.bannerScrollView)
-        [self updateBannerScrollView];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    if(decelerate == NO) {
-        if(scrollView == self.bannerScrollView)
-            [self updateBannerScrollView];
-    }
 }
 
 @end
