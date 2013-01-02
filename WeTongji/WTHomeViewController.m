@@ -7,15 +7,12 @@
 //
 
 #import "WTHomeViewController.h"
-#import "WTNotificationBarButton.h"
 #import "WTBannerView.h"
 #import "OHAttributedLabel.h"
-#import "WTNotificationModalViewController.h"
 #import "WTHomeSelectContainerView.h"
 
 @interface WTHomeViewController ()
 
-@property (nonatomic, strong) WTNotificationBarButton *notificationButton;
 @property (nonatomic, strong) WTBannerView *bannerView;
 
 @end
@@ -84,29 +81,6 @@
     NSMutableAttributedString *text = [self.nowPanelFriendLabel.attributedText mutableCopy];
     [text setTextBold:YES range:NSMakeRange(0, 1)];
     self.nowPanelFriendLabel.attributedText = text;
-}
-
-#pragma mark - Properties
-
-- (WTNotificationBarButton *)notificationButton {
-    if(_notificationButton == nil) {
-        _notificationButton = [WTNotificationBarButton createNotificationBarButtonWithTarget:self action:@selector(didClickNotificationButton:)];
-    }
-    return _notificationButton;
-}
-
-#pragma mark - Actions
-
-- (void)didClickNotificationButton:(WTNotificationBarButton *)sender {
-    sender.selected = !sender.selected;
-    WTNavigationController *nav = (WTNavigationController *)self.navigationController;
-    if(sender.selected) {
-        WTNotificationModalViewController *vc = [[WTNotificationModalViewController alloc] init];
-        [nav showInnerModalViewController:vc];
-        [sender stopShine];
-    } else {
-        [nav hideInnerModalViewController];
-    }
 }
 
 #pragma mark - UIScrollViewDelegate

@@ -7,7 +7,7 @@
 //
 
 #import "WTLoginViewController.h"
-#import "WTNavigationController.h"
+#import "WTRootNavigationController.h"
 #import "UIApplication+Addition.h"
 #import "WTResourceFactory.h"
 
@@ -92,7 +92,7 @@
 
 + (void)show {
     WTLoginViewController *vc = [[WTLoginViewController alloc] init];
-    WTNavigationController *nav = [[WTNavigationController alloc] initWithRootViewController:vc];
+    WTRootNavigationController *nav = [[WTRootNavigationController alloc] initWithRootViewController:vc];
     
     UIViewController *rootVC = [UIApplication sharedApplication].rootViewController;
     [rootVC presentViewController:nav animated:YES completion:nil];

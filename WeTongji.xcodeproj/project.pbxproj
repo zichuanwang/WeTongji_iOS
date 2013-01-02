@@ -89,8 +89,8 @@
 		E18821CB1680059600A41F47 /* WTCornerTopRight.png in Resources */ = {isa = PBXBuildFile; fileRef = E18821C31680059600A41F47 /* WTCornerTopRight.png */; };
 		E18821CC1680059600A41F47 /* WTCornerTopRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E18821C41680059600A41F47 /* WTCornerTopRight@2x.png */; };
 		E18821D1168007B800A41F47 /* UIView+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = E18821D0168007B800A41F47 /* UIView+Resize.m */; };
-		E18821D816800BF200A41F47 /* WTTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E18821D716800BF200A41F47 /* WTTabBarController.m */; };
-		E18821EA16800E9B00A41F47 /* WTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E18821E916800E9B00A41F47 /* WTNavigationController.m */; };
+		E18821D816800BF200A41F47 /* WTRootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E18821D716800BF200A41F47 /* WTRootTabBarController.m */; };
+		E18821EA16800E9B00A41F47 /* WTRootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E18821E916800E9B00A41F47 /* WTRootNavigationController.m */; };
 		E18821ED16800EC300A41F47 /* WTHomeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E18821EC16800EC300A41F47 /* WTHomeNavigationController.m */; };
 		E18821F31680104700A41F47 /* WTNavigationBarBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E18821EF1680104700A41F47 /* WTNavigationBarBg.png */; };
 		E18821F41680104700A41F47 /* WTNavigationBarBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E18821F01680104700A41F47 /* WTNavigationBarBg@2x.png */; };
@@ -153,6 +153,17 @@
 		E1D3740E1694135D0012E30A /* WTHomeSelectItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D3740D1694135D0012E30A /* WTHomeSelectItemView.xib */; };
 		E1D37411169415460012E30A /* WTHomeSelectItemViewBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D3740F169415460012E30A /* WTHomeSelectItemViewBg.png */; };
 		E1D37412169415460012E30A /* WTHomeSelectItemViewBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D37410169415460012E30A /* WTHomeSelectItemViewBg@2x.png */; };
+		E1D3741616942E740012E30A /* WTBillboardNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D3741516942E740012E30A /* WTBillboardNavigationViewController.m */; };
+		E1D3741A16942ECE0012E30A /* WTBillboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D3741816942ECE0012E30A /* WTBillboardViewController.m */; };
+		E1D3741B16942ECE0012E30A /* WTBillboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D3741916942ECE0012E30A /* WTBillboardViewController.xib */; };
+		E1D3741E16942F4C0012E30A /* WTRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D3741D16942F4C0012E30A /* WTRootViewController.m */; };
+		E1D374241694321A0012E30A /* WTMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D374221694321A0012E30A /* WTMeViewController.m */; };
+		E1D374251694321A0012E30A /* WTMeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D374231694321A0012E30A /* WTMeViewController.xib */; };
+		E1D37428169432320012E30A /* WTMeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D37427169432320012E30A /* WTMeNavigationController.m */; };
+		E1D3742B169432C00012E30A /* WTNowNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D3742A169432C00012E30A /* WTNowNavigationController.m */; };
+		E1D3742F169432D30012E30A /* WTNowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D3742D169432D30012E30A /* WTNowViewController.m */; };
+		E1D37430169432D30012E30A /* WTNowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D3742E169432D30012E30A /* WTNowViewController.xib */; };
+		E1D37433169433890012E30A /* WTSearchNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D37432169433890012E30A /* WTSearchNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,7 +203,7 @@
 		E117036E1651EF4700D82F4A /* WTTabBarButtonPowerSearch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTabBarButtonPowerSearch@2x.png"; sourceTree = "<group>"; };
 		E117036F1651EF4700D82F4A /* WTTabBarButtonPowerSearchHl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTabBarButtonPowerSearchHl.png; sourceTree = "<group>"; };
 		E11703701651EF4700D82F4A /* WTTabBarButtonPowerSearchHl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTabBarButtonPowerSearchHl@2x.png"; sourceTree = "<group>"; };
-		E117038F1651F07800D82F4A /* WTTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTabBarController.h; sourceTree = "<group>"; };
+		E117038F1651F07800D82F4A /* WTRootTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTRootTabBarController.h; sourceTree = "<group>"; };
 		E11703981651F35A00D82F4A /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		E125548F16491530006D42F5 /* WeTongji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeTongji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E125549316491530006D42F5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -262,9 +273,9 @@
 		E18821C41680059600A41F47 /* WTCornerTopRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTCornerTopRight@2x.png"; sourceTree = "<group>"; };
 		E18821CF168007B800A41F47 /* UIView+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Resize.h"; sourceTree = "<group>"; };
 		E18821D0168007B800A41F47 /* UIView+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Resize.m"; sourceTree = "<group>"; };
-		E18821D716800BF200A41F47 /* WTTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTabBarController.m; sourceTree = "<group>"; };
-		E18821E816800E9B00A41F47 /* WTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNavigationController.h; sourceTree = "<group>"; };
-		E18821E916800E9B00A41F47 /* WTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNavigationController.m; sourceTree = "<group>"; };
+		E18821D716800BF200A41F47 /* WTRootTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTRootTabBarController.m; sourceTree = "<group>"; };
+		E18821E816800E9B00A41F47 /* WTRootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTRootNavigationController.h; sourceTree = "<group>"; };
+		E18821E916800E9B00A41F47 /* WTRootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTRootNavigationController.m; sourceTree = "<group>"; };
 		E18821EB16800EC300A41F47 /* WTHomeNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTHomeNavigationController.h; sourceTree = "<group>"; };
 		E18821EC16800EC300A41F47 /* WTHomeNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTHomeNavigationController.m; sourceTree = "<group>"; };
 		E18821EF1680104700A41F47 /* WTNavigationBarBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNavigationBarBg.png; sourceTree = "<group>"; };
@@ -339,6 +350,25 @@
 		E1D3740D1694135D0012E30A /* WTHomeSelectItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTHomeSelectItemView.xib; sourceTree = "<group>"; };
 		E1D3740F169415460012E30A /* WTHomeSelectItemViewBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTHomeSelectItemViewBg.png; sourceTree = "<group>"; };
 		E1D37410169415460012E30A /* WTHomeSelectItemViewBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTHomeSelectItemViewBg@2x.png"; sourceTree = "<group>"; };
+		E1D3741416942E740012E30A /* WTBillboardNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBillboardNavigationViewController.h; sourceTree = "<group>"; };
+		E1D3741516942E740012E30A /* WTBillboardNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTBillboardNavigationViewController.m; sourceTree = "<group>"; };
+		E1D3741716942ECE0012E30A /* WTBillboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBillboardViewController.h; sourceTree = "<group>"; };
+		E1D3741816942ECE0012E30A /* WTBillboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTBillboardViewController.m; sourceTree = "<group>"; };
+		E1D3741916942ECE0012E30A /* WTBillboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTBillboardViewController.xib; sourceTree = "<group>"; };
+		E1D3741C16942F4C0012E30A /* WTRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTRootViewController.h; sourceTree = "<group>"; };
+		E1D3741D16942F4C0012E30A /* WTRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTRootViewController.m; sourceTree = "<group>"; };
+		E1D374211694321A0012E30A /* WTMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTMeViewController.h; sourceTree = "<group>"; };
+		E1D374221694321A0012E30A /* WTMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTMeViewController.m; sourceTree = "<group>"; };
+		E1D374231694321A0012E30A /* WTMeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTMeViewController.xib; sourceTree = "<group>"; };
+		E1D37426169432320012E30A /* WTMeNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTMeNavigationController.h; sourceTree = "<group>"; };
+		E1D37427169432320012E30A /* WTMeNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTMeNavigationController.m; sourceTree = "<group>"; };
+		E1D37429169432C00012E30A /* WTNowNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNowNavigationController.h; sourceTree = "<group>"; };
+		E1D3742A169432C00012E30A /* WTNowNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNowNavigationController.m; sourceTree = "<group>"; };
+		E1D3742C169432D20012E30A /* WTNowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNowViewController.h; sourceTree = "<group>"; };
+		E1D3742D169432D30012E30A /* WTNowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNowViewController.m; sourceTree = "<group>"; };
+		E1D3742E169432D30012E30A /* WTNowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNowViewController.xib; sourceTree = "<group>"; };
+		E1D37431169433890012E30A /* WTSearchNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSearchNavigationController.h; sourceTree = "<group>"; };
+		E1D37432169433890012E30A /* WTSearchNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSearchNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,6 +418,9 @@
 		E117038E1651EFD900D82F4A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E1D37420169431ED0012E30A /* Me */,
+				E1D3741F169431E10012E30A /* Now */,
+				E1D3741316942E350012E30A /* Billboard */,
 				E1250C0A16859A1D00802808 /* Event */,
 				E14FA6951680DEB1008A8D33 /* NavigationModal */,
 				E1882222168025D200A41F47 /* Login */,
@@ -696,10 +729,12 @@
 		E1C53DCD16523DA60011C8A1 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				E18821E816800E9B00A41F47 /* WTNavigationController.h */,
-				E18821E916800E9B00A41F47 /* WTNavigationController.m */,
-				E117038F1651F07800D82F4A /* WTTabBarController.h */,
-				E18821D716800BF200A41F47 /* WTTabBarController.m */,
+				E18821E816800E9B00A41F47 /* WTRootNavigationController.h */,
+				E18821E916800E9B00A41F47 /* WTRootNavigationController.m */,
+				E117038F1651F07800D82F4A /* WTRootTabBarController.h */,
+				E18821D716800BF200A41F47 /* WTRootTabBarController.m */,
+				E1D3741C16942F4C0012E30A /* WTRootViewController.h */,
+				E1D3741D16942F4C0012E30A /* WTRootViewController.m */,
 			);
 			name = Root;
 			sourceTree = "<group>";
@@ -710,6 +745,8 @@
 				E1C53DCF16523DCE0011C8A1 /* WTSearchViewController.h */,
 				E1C53DD016523DCE0011C8A1 /* WTSearchViewController.m */,
 				E1C53DD116523DCE0011C8A1 /* WTSearchViewController.xib */,
+				E1D37431169433890012E30A /* WTSearchNavigationController.h */,
+				E1D37432169433890012E30A /* WTSearchNavigationController.m */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -741,6 +778,42 @@
 			children = (
 			);
 			name = CustomCells;
+			sourceTree = "<group>";
+		};
+		E1D3741316942E350012E30A /* Billboard */ = {
+			isa = PBXGroup;
+			children = (
+				E1D3741416942E740012E30A /* WTBillboardNavigationViewController.h */,
+				E1D3741516942E740012E30A /* WTBillboardNavigationViewController.m */,
+				E1D3741716942ECE0012E30A /* WTBillboardViewController.h */,
+				E1D3741816942ECE0012E30A /* WTBillboardViewController.m */,
+				E1D3741916942ECE0012E30A /* WTBillboardViewController.xib */,
+			);
+			name = Billboard;
+			sourceTree = "<group>";
+		};
+		E1D3741F169431E10012E30A /* Now */ = {
+			isa = PBXGroup;
+			children = (
+				E1D37429169432C00012E30A /* WTNowNavigationController.h */,
+				E1D3742A169432C00012E30A /* WTNowNavigationController.m */,
+				E1D3742C169432D20012E30A /* WTNowViewController.h */,
+				E1D3742D169432D30012E30A /* WTNowViewController.m */,
+				E1D3742E169432D30012E30A /* WTNowViewController.xib */,
+			);
+			name = Now;
+			sourceTree = "<group>";
+		};
+		E1D37420169431ED0012E30A /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				E1D374211694321A0012E30A /* WTMeViewController.h */,
+				E1D374221694321A0012E30A /* WTMeViewController.m */,
+				E1D374231694321A0012E30A /* WTMeViewController.xib */,
+				E1D37426169432320012E30A /* WTMeNavigationController.h */,
+				E1D37427169432320012E30A /* WTMeNavigationController.m */,
+			);
+			name = Me;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -932,6 +1005,9 @@
 				E1D3740E1694135D0012E30A /* WTHomeSelectItemView.xib in Resources */,
 				E1D37411169415460012E30A /* WTHomeSelectItemViewBg.png in Resources */,
 				E1D37412169415460012E30A /* WTHomeSelectItemViewBg@2x.png in Resources */,
+				E1D3741B16942ECE0012E30A /* WTBillboardViewController.xib in Resources */,
+				E1D374251694321A0012E30A /* WTMeViewController.xib in Resources */,
+				E1D37430169432D30012E30A /* WTNowViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -970,8 +1046,8 @@
 				E12554A416491530006D42F5 /* WTAppDelegate.m in Sources */,
 				E1C53DD216523DCE0011C8A1 /* WTSearchViewController.m in Sources */,
 				E18821D1168007B800A41F47 /* UIView+Resize.m in Sources */,
-				E18821D816800BF200A41F47 /* WTTabBarController.m in Sources */,
-				E18821EA16800E9B00A41F47 /* WTNavigationController.m in Sources */,
+				E18821D816800BF200A41F47 /* WTRootTabBarController.m in Sources */,
+				E18821EA16800E9B00A41F47 /* WTRootNavigationController.m in Sources */,
 				E18821ED16800EC300A41F47 /* WTHomeNavigationController.m in Sources */,
 				E18821FE16801BF700A41F47 /* WTHomeViewController.m in Sources */,
 				E1882226168025E600A41F47 /* WTLoginViewController.m in Sources */,
@@ -984,6 +1060,14 @@
 				E1D373911692ECE10012E30A /* WTBannerView.m in Sources */,
 				E1D373FE16936CC80012E30A /* WTHomeSelectContainerView.m in Sources */,
 				E1D3740C1694134A0012E30A /* WTHomeSelectItemView.m in Sources */,
+				E1D3741616942E740012E30A /* WTBillboardNavigationViewController.m in Sources */,
+				E1D3741A16942ECE0012E30A /* WTBillboardViewController.m in Sources */,
+				E1D3741E16942F4C0012E30A /* WTRootViewController.m in Sources */,
+				E1D374241694321A0012E30A /* WTMeViewController.m in Sources */,
+				E1D37428169432320012E30A /* WTMeNavigationController.m in Sources */,
+				E1D3742B169432C00012E30A /* WTNowNavigationController.m in Sources */,
+				E1D3742F169432D30012E30A /* WTNowViewController.m in Sources */,
+				E1D37433169433890012E30A /* WTSearchNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

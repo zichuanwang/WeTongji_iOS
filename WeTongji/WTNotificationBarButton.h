@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WTNavigationController.h"
+#import "WTRootNavigationController.h"
 
 @interface WTNotificationBarButton : UIBarButtonItem
 

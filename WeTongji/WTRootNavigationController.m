@@ -6,13 +6,13 @@
 //  Copyright (c) 2012年 Tongji Apple Club. All rights reserved.
 //
 
-#import "WTNavigationController.h"
-#import "WTTabBarController.h"
+#import "WTRootNavigationController.h"
+#import "WTRootTabBarController.h"
 #import "UIApplication+Addition.h"
 #import "UIImage+ScreenShoot.h"
 #import "WTNotificationBarButton.h"
 
-@interface WTNavigationController ()
+@interface WTRootNavigationController ()
 
 @property (nonatomic, strong) UIViewController *innerModalViewController;
 
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation WTNavigationController
+@implementation WTRootNavigationController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -78,7 +78,7 @@
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     [self.screenShootContainerView resetOriginY:screenSize.height - self.screenShootContainerView.frame.size.height];
     
-    WTTabBarController *tabBarVC = (WTTabBarController *)[UIApplication sharedApplication].rootViewController;
+    WTRootTabBarController *tabBarVC = (WTRootTabBarController *)[UIApplication sharedApplication].rootViewController;
     [tabBarVC hideTabBar];
     
     [self.view insertSubview:self.screenShootContainerView belowSubview:self.navigationBarShadowImageView];
@@ -113,7 +113,7 @@
         self.screenShootImageView = nil;
         self.screenShootContainerView = nil;
         
-        WTTabBarController *tabBarVC = (WTTabBarController *)[UIApplication sharedApplication].rootViewController;
+        WTRootTabBarController *tabBarVC = (WTRootTabBarController *)[UIApplication sharedApplication].rootViewController;
         [tabBarVC showTabBar];
     }];
 }

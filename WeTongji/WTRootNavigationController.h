@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WTNavigationController : UINavigationController
+@interface WTRootNavigationController : UINavigationController
 
 - (void)showInnerModalViewController:(UIViewController *)vc;
 

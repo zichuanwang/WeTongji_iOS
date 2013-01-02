@@ -1,5 +1,5 @@
 //
-//  WTTabBarController.h
+//  WTRootTabBarController.h
 //  WeTongji
 //
 //  Created by 王 紫川 on 12-11-13.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WTTabBarController : UITabBarController
+@interface WTRootTabBarController : UITabBarController
 
 - (void)hideTabBar;
 - (void)showTabBar;

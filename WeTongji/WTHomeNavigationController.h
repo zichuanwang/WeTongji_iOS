@@ -6,9 +6,9 @@
 //  Copyright (c) 2012年 Tongji Apple Club. All rights reserved.
 //
 
-#import "WTNavigationController.h"
+#import "WTRootNavigationController.h"
 
 
-@interface WTHomeNavigationController : WTNavigationController
+@interface WTHomeNavigationController : WTRootNavigationController
 
 @end

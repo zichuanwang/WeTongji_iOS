@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WTRootViewController.h"
 
 @class OHAttributedLabel;
 
-@interface WTHomeViewController : UIViewController<UIScrollViewDelegate>
+@interface WTHomeViewController : WTRootViewController<UIScrollViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, weak) IBOutlet UIButton *panelMoreButton;

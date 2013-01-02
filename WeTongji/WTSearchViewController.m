@@ -29,12 +29,20 @@
     // Do any additional setup after loading the view from its nib.
     [self.searchBar.subviews[0] removeFromSuperview];
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapView:)]];
+    
+    [self configureNavigationBar];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UI methods
+
+- (void)configureNavigationBar {
+    self.navigationItem.leftBarButtonItem = self.notificationButton;
 }
 
 - (void)getElectricityBalance {
