@@ -11,6 +11,7 @@
 #import "WTBannerView.h"
 #import "OHAttributedLabel.h"
 #import "WTNotificationModalViewController.h"
+#import "WTHomeSelectContainerView.h"
 
 @interface WTHomeViewController ()
 
@@ -38,11 +39,13 @@
     [self configureBackgroung];
     [self configureBanner];
     [self configureNowPanel];
+    
+    [self configureNewsSelect];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, self.scrollView.frame.size.height + 1);
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, 500);
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,6 +55,13 @@
 }
 
 #pragma mark - UI methods
+
+- (void)configureNewsSelect {
+    WTHomeSelectContainerView *containerView = [[[NSBundle mainBundle] loadNibNamed:@"WTHomeSelectContainerView" owner:self options:nil] lastObject];
+    [containerView resetOrigin:CGPointMake(0, 240)];
+    containerView.categoryLabel.text = NSLocalizedString(@"News", nil);
+    [self.scrollView addSubview:containerView];
+}
 
 - (void)configureBanner {
     self.bannerView = [[[NSBundle mainBundle] loadNibNamed:@"WTBannerView" owner:self options:nil] lastObject];
