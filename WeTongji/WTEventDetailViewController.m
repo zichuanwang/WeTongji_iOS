@@ -8,6 +8,7 @@
 
 #import "WTEventDetailViewController.h"
 #import "WTResourceFactory.h"
+#import "WTLikeButtonView.h"
 
 @interface WTEventDetailViewController ()
 
@@ -52,14 +53,6 @@
     UIImage *moreImage = [UIImage imageNamed:@"WTMoreButton"];
     [moreButton resetSize:moreImage.size];
     [moreButton setBackgroundImage:moreImage forState:UIControlStateNormal];
-
-    UIButton *likeButton = [[UIButton alloc] init];
-    UIImage *likeNormalImage = [UIImage imageNamed:@"WTLikeNormalButton"];
-    UIImage *likeSelectImage = [UIImage imageNamed:@"WTLikeSelectButton"];
-    [likeButton setBackgroundImage:likeNormalImage forState:UIControlStateNormal];
-    [likeButton setBackgroundImage:likeSelectImage forState:UIControlStateSelected];
-    [likeButton resetSize:likeNormalImage.size];
-    [likeButton addTarget:self action:@selector(didClickLikeButton:) forControlEvents:UIControlEventTouchUpInside];
     
     UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 160, 44)];
     if (toolbar.subviews.count > 0)
@@ -70,16 +63,7 @@
     UIBarButtonItem *barCommentButton = [[UIBarButtonItem alloc] initWithCustomView:commentButton];
     UIBarButtonItem *barMoreButton = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
     
-    UIImageView *likeFlagBg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTLikeButtonFlagBg"]];
-    //[likeFlagBg resetOrigin:CGPointMake(260, 0)];
-    [self.navigationController.navigationBar addSubview:likeFlagBg];
-    UIView *likeButtonContainerView = [[UIView alloc] initWithFrame:likeButton.frame];
-    [likeButton resetOriginY:2];
-    [likeFlagBg resetOriginY:0];
-    [likeFlagBg resetCenterX:likeButton.frame.size.width / 2];
-    [likeButtonContainerView addSubview:likeFlagBg];
-    [likeButtonContainerView addSubview:likeButton];
-
+    WTLikeButtonView *likeButtonContainerView = [WTLikeButtonView createLikeButtonViewWithTarget:self action:@selector(didClickLikeButton:)];
     UIBarButtonItem *barLikeButton = [[UIBarButtonItem alloc] initWithCustomView:likeButtonContainerView];
     
     [buttons addObject:barCommentButton];

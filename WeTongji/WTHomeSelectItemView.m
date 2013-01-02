@@ -54,3 +54,45 @@
 }
 
 @end
+
+@implementation WTHomeSelectNewsView
+
++ (WTHomeSelectNewsView *)createHomeSelectNewsView {
+    NSArray *viewArray = [[NSBundle mainBundle] loadNibNamed:@"WTHomeSelectItemView" owner:self options:nil];
+    WTHomeSelectNewsView *result = nil;
+    for(UIView *view in viewArray) {
+        if([view isKindOfClass:[WTHomeSelectNewsView class]])
+            result = (WTHomeSelectNewsView *)view;
+    }
+    return result;
+}
+
+@end
+
+@implementation WTHomeSelectStarView
+
++ (WTHomeSelectStarView *)createHomeSelectStarView {
+    NSArray *viewArray = [[NSBundle mainBundle] loadNibNamed:@"WTHomeSelectItemView" owner:self options:nil];
+    WTHomeSelectStarView *result = nil;
+    for(UIView *view in viewArray) {
+        if([view isKindOfClass:[WTHomeSelectStarView class]])
+            result = (WTHomeSelectStarView *)view;
+    }
+    return result;
+}
+
+@end
+
+@implementation WTHomeSelectActivityView
+
++ (WTHomeSelectActivityView *)createHomeSelectActivityView {
+    NSArray *viewArray = [[NSBundle mainBundle] loadNibNamed:@"WTHomeSelectItemView" owner:self options:nil];
+    WTHomeSelectActivityView *result = nil;
+    for(UIView *view in viewArray) {
+        if([view isKindOfClass:[WTHomeSelectActivityView class]])
+            result = (WTHomeSelectActivityView *)view;
+    }
+    return result;
+}
+
+@end

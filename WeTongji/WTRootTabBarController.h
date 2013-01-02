@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    WTRootTabBarViewControllerHome = 0,
+    WTRootTabBarViewControllerNow,
+    WTRootTabBarViewControllerSearch,
+    WTRootTabBarViewControllerBillboard,
+    WTRootTabBarViewControllerMe,
+} WTRootTabBarViewControllerName;
+
 @interface WTRootTabBarController : UITabBarController
+
+- (void)clickTabWithName:(WTRootTabBarViewControllerName)name;
 
 - (void)hideTabBar;
 - (void)showTabBar;

@@ -18,4 +18,6 @@
 
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *nowPanelFriendLabel;
 
+- (IBAction)didClickShowNowTabButton:(UIButton *)sender;
+
 @end

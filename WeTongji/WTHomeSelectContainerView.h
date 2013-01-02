@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    WTHomeSelectContainerViewCategoryNews,
+    WTHomeSelectContainerViewCategoryFeatured,
+    WTHomeSelectContainerViewCategoryActivity,
+} WTHomeSelectContainerViewCategory;
+
 @interface WTHomeSelectContainerView : UIView
 
 @property (nonatomic, weak) IBOutlet UILabel *categoryLabel;
 @property (nonatomic, weak) IBOutlet UILabel *seeAllLabel;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+
++ (WTHomeSelectContainerView *)createHomeSelectContainerViewWithCategory:(WTHomeSelectContainerViewCategory)category;
 
 @end

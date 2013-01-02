@@ -32,6 +32,30 @@
     [self configureScrollView];
 }
 
++ (WTHomeSelectContainerView *)createHomeSelectContainerViewWithCategory:(WTHomeSelectContainerViewCategory)category {
+    WTHomeSelectContainerView *result = [[[NSBundle mainBundle] loadNibNamed:@"WTHomeSelectContainerView" owner:self options:nil] lastObject];
+    switch(category) {
+        case WTHomeSelectContainerViewCategoryNews:
+        {
+            result.categoryLabel.text = NSLocalizedString(@"News", nil);
+        }
+            break;
+        case WTHomeSelectContainerViewCategoryFeatured:
+        {
+            result.categoryLabel.text = NSLocalizedString(@"Featured", nil);
+        }
+            break;
+        case WTHomeSelectContainerViewCategoryActivity:
+        {
+            result.categoryLabel.text = NSLocalizedString(@"Activity", nil);
+        }
+            break;
+        default:
+            break;
+    }
+    return result;
+}
+
 #pragma mark - Logic methods
 
 - (NSUInteger)numberOfItemViewsInScrollView {

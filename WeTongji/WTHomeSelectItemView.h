@@ -11,5 +11,30 @@
 @interface WTHomeSelectItemView : UIView
 
 @property (nonatomic, weak) IBOutlet UIImageView *bgImageView;
+@property (nonatomic, weak) IBOutlet UILabel *subCategoryLabel;
+
+@end
+
+@interface WTHomeSelectNewsView : WTHomeSelectItemView
+
+@property (nonatomic, weak) IBOutlet UILabel *newsTitleLabel;
+
++ (WTHomeSelectNewsView *)createHomeSelectNewsView;
+
+@end
+
+@interface WTHomeSelectStarView : WTHomeSelectItemView
+
+@property (nonatomic, weak) IBOutlet UIImageView *avatarImageView;
+
++ (WTHomeSelectStarView *)createHomeSelectStarView;
+
+@end
+
+@interface WTHomeSelectActivityView : WTHomeSelectItemView
+
+@property (nonatomic, weak) IBOutlet UIImageView *posterImageView;
+
++ (WTHomeSelectActivityView *)createHomeSelectActivityView;
 
 @end

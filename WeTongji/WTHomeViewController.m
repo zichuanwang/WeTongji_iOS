@@ -10,6 +10,8 @@
 #import "WTBannerView.h"
 #import "OHAttributedLabel.h"
 #import "WTHomeSelectContainerView.h"
+#import "UIApplication+Addition.h"
+
 
 @interface WTHomeViewController ()
 
@@ -38,11 +40,13 @@
     [self configureNowPanel];
     
     [self configureNewsSelect];
+    [self configureFeaturedSelect];
+    [self configureActivitySelect];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, 500);
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, 660);
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,9 +58,20 @@
 #pragma mark - UI methods
 
 - (void)configureNewsSelect {
-    WTHomeSelectContainerView *containerView = [[[NSBundle mainBundle] loadNibNamed:@"WTHomeSelectContainerView" owner:self options:nil] lastObject];
+    WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryNews];
     [containerView resetOrigin:CGPointMake(0, 240)];
-    containerView.categoryLabel.text = NSLocalizedString(@"News", nil);
+    [self.scrollView addSubview:containerView];
+}
+
+- (void)configureFeaturedSelect {
+    WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryFeatured];
+    [containerView resetOrigin:CGPointMake(0, 380)];
+    [self.scrollView addSubview:containerView];
+}
+
+- (void)configureActivitySelect {
+    WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryActivity];
+    [containerView resetOrigin:CGPointMake(0, 520)];
     [self.scrollView addSubview:containerView];
 }
 
@@ -89,6 +104,13 @@
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+}
+
+#pragma mark - Actions
+
+- (IBAction)didClickShowNowTabButton:(UIButton *)sender {
+    WTRootTabBarController *tabBarVC = [UIApplication sharedApplication].rootTabBarController;
+    [tabBarVC clickTabWithName:WTRootTabBarViewControllerNow];
 }
 
 @end

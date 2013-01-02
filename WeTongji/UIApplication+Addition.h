@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WTRootTabBarController.h"
 
 @interface UIApplication (Addition)
 
-@property (nonatomic, readonly) UIViewController *rootViewController;
+@property (nonatomic, readonly) WTRootTabBarController *rootTabBarController;
 
 @end

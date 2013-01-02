@@ -11,9 +11,9 @@
 
 @implementation UIApplication (Addition)
 
-- (UIViewController *)rootViewController {
+- (WTRootTabBarController *)rootTabBarController {
     WTAppDelegate *appDelegate = (WTAppDelegate *)[[UIApplication sharedApplication] delegate];
-    return appDelegate.window.rootViewController;
+    return (WTRootTabBarController *)appDelegate.window.rootViewController;
 }
 
 @end

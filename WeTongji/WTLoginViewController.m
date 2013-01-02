@@ -82,7 +82,7 @@
 #pragma mark - Actions
 
 - (void)didClickCancelButton:(UIButton *)sender {
-    UIViewController *rootVC = [UIApplication sharedApplication].rootViewController;
+    UIViewController *rootVC = [UIApplication sharedApplication].rootTabBarController;
     [rootVC dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -94,7 +94,7 @@
     WTLoginViewController *vc = [[WTLoginViewController alloc] init];
     WTRootNavigationController *nav = [[WTRootNavigationController alloc] initWithRootViewController:vc];
     
-    UIViewController *rootVC = [UIApplication sharedApplication].rootViewController;
+    UIViewController *rootVC = [UIApplication sharedApplication].rootTabBarController;
     [rootVC presentViewController:nav animated:YES completion:nil];
 }
 

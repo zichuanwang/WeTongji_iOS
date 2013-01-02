@@ -77,8 +77,7 @@
 - (void)showInnerModalViewController:(UIViewController *)vc {
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     [self.screenShootContainerView resetOriginY:screenSize.height - self.screenShootContainerView.frame.size.height];
-    
-    WTRootTabBarController *tabBarVC = (WTRootTabBarController *)[UIApplication sharedApplication].rootViewController;
+    WTRootTabBarController *tabBarVC = [UIApplication sharedApplication].rootTabBarController;
     [tabBarVC hideTabBar];
     
     [self.view insertSubview:self.screenShootContainerView belowSubview:self.navigationBarShadowImageView];
@@ -113,7 +112,7 @@
         self.screenShootImageView = nil;
         self.screenShootContainerView = nil;
         
-        WTRootTabBarController *tabBarVC = (WTRootTabBarController *)[UIApplication sharedApplication].rootViewController;
+        WTRootTabBarController *tabBarVC = [UIApplication sharedApplication].rootTabBarController;
         [tabBarVC showTabBar];
     }];
 }

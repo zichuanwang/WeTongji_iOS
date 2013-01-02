@@ -41,7 +41,7 @@
     [self showCustomTabBar];
     [self adjustBuiltInTabBar];
     
-    [self didClickTabBarButton:self.buttonArray[0]];
+    [self clickTabWithName:WTRootTabBarViewControllerHome];
     self.selectedViewController.view.superview.clipsToBounds = NO;
 }
 
@@ -145,6 +145,10 @@
 }
 
 #pragma mark - Public methods
+
+- (void)clickTabWithName:(WTRootTabBarViewControllerName)name {
+    [self didClickTabBarButton:self.buttonArray[name]];
+}
 
 - (void)hideTabBar {
     [self setBuildInTabBarHeight:0];
