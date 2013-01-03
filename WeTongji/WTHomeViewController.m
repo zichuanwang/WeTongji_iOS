@@ -42,11 +42,8 @@
     [self configureNewsSelect];
     [self configureFeaturedSelect];
     [self configureActivitySelect];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, 660);
+    
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, 670);
 }
 
 - (void)didReceiveMemoryWarning
