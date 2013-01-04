@@ -19,6 +19,9 @@
 		039E37F0169701BC00178F1C /* now_event_cell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 039E37E4169701BC00178F1C /* now_event_cell@2x.png */; };
 		039E37F1169701BC00178F1C /* past_event_cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 039E37E5169701BC00178F1C /* past_event_cell.png */; };
 		039E37F2169701BC00178F1C /* past_event_cell@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 039E37E6169701BC00178F1C /* past_event_cell@2x.png */; };
+		039E37FE16970FBB00178F1C /* WTEventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 039E37FD16970FBB00178F1C /* WTEventTableViewCell.m */; };
+		039E380116970FD000178F1C /* WTClassTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 039E380016970FD000178F1C /* WTClassTableViewCell.m */; };
+		039E380316970FF600178F1C /* WTEventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 039E380216970FF600178F1C /* WTEventTableViewCell.xib */; };
 		E11702FC1650F82A00D82F4A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11702FB1650F82A00D82F4A /* SystemConfiguration.framework */; };
 		E11702FE1650F83F00D82F4A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */; };
 		E1170316165156A400D82F4A /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1170315165156A400D82F4A /* icon@2x.png */; };
@@ -219,6 +222,11 @@
 		039E37E4169701BC00178F1C /* now_event_cell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "now_event_cell@2x.png"; sourceTree = "<group>"; };
 		039E37E5169701BC00178F1C /* past_event_cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = past_event_cell.png; sourceTree = "<group>"; };
 		039E37E6169701BC00178F1C /* past_event_cell@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "past_event_cell@2x.png"; sourceTree = "<group>"; };
+		039E37FC16970FBB00178F1C /* WTEventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTEventTableViewCell.h; sourceTree = "<group>"; };
+		039E37FD16970FBB00178F1C /* WTEventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTEventTableViewCell.m; sourceTree = "<group>"; };
+		039E37FF16970FD000178F1C /* WTClassTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTClassTableViewCell.h; sourceTree = "<group>"; };
+		039E380016970FD000178F1C /* WTClassTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTClassTableViewCell.m; sourceTree = "<group>"; };
+		039E380216970FF600178F1C /* WTEventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTEventTableViewCell.xib; sourceTree = "<group>"; };
 		E11702FB1650F82A00D82F4A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E1170315165156A400D82F4A /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
@@ -877,6 +885,11 @@
 		E1D373F916936B5B0012E30A /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				039E37FC16970FBB00178F1C /* WTEventTableViewCell.h */,
+				039E37FD16970FBB00178F1C /* WTEventTableViewCell.m */,
+				039E380216970FF600178F1C /* WTEventTableViewCell.xib */,
+				039E37FF16970FD000178F1C /* WTClassTableViewCell.h */,
+				039E380016970FD000178F1C /* WTClassTableViewCell.m */,
 			);
 			name = CustomCells;
 			sourceTree = "<group>";
@@ -1167,6 +1180,7 @@
 				039E37F0169701BC00178F1C /* now_event_cell@2x.png in Resources */,
 				039E37F1169701BC00178F1C /* past_event_cell.png in Resources */,
 				039E37F2169701BC00178F1C /* past_event_cell@2x.png in Resources */,
+				039E380316970FF600178F1C /* WTEventTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1236,6 +1250,8 @@
 				E1D3745A1694C8000012E30A /* User.m in Sources */,
 				E1D3745D1694C8000012E30A /* News.m in Sources */,
 				E1D374601694C8000012E30A /* Star.m in Sources */,
+				039E37FE16970FBB00178F1C /* WTEventTableViewCell.m in Sources */,
+				039E380116970FD000178F1C /* WTClassTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
