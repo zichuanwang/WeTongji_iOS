@@ -28,6 +28,12 @@
     // Configure the view for the selected state
 }
 
+- (void)resetTextColorForPast
+{
+    self.eventNameLabel.textColor = [UIColor grayColor];
+    self.eventLocationLabel.textColor = [UIColor grayColor];
+}
+
 - (void)resetCellForNow
 {
     self.nowView.hidden = FALSE;
@@ -50,6 +56,7 @@
 {
     if (status == ePAST) {
         [self resetCellForNormalAndPast];
+        [self resetTextColorForPast];
         self.bgView.image = [UIImage imageNamed:@"past_event_cell"];
     } else if (status == eNORMAL){
         [self resetCellForNormalAndPast];
