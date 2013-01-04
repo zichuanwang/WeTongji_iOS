@@ -20,6 +20,7 @@ typedef enum {
 @property (nonatomic, weak) IBOutlet UILabel *seeAllLabel;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
-+ (WTHomeSelectContainerView *)createHomeSelectContainerViewWithCategory:(WTHomeSelectContainerViewCategory)category;
++ (WTHomeSelectContainerView *)createHomeSelectContainerViewWithCategory:(WTHomeSelectContainerViewCategory)category
+                                                           itemInfoArray:(NSArray *)array;
 
 @end

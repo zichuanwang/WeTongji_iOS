@@ -6,12 +6,15 @@
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "WTHomeSelectItemView.h"
 #import "WTResourceFactory.h"
+#import "WTLikeButtonView.h"
 
 @interface WTHomeSelectItemView()
 
 @property (nonatomic, strong) UIButton *showAllButton;
+@property (nonatomic, strong) WTLikeButtonView *likeButtonView;
 
 @end
 
@@ -40,7 +43,21 @@
     UIImage *bgImage = [[UIImage imageNamed:@"WTHomeSelectItemViewBg"] resizableImageWithCapInsets:insets];
     self.bgImageView.image = bgImage;
     
-    [self addSubview:self.showAllButton];
+    if([self isMemberOfClass:[WTHomeSelectStarView class]]) {
+        [self addSubview:self.likeButtonView];
+    } else { // WTHomeSelectNewsView, WTHomeSelectActivityView
+        [self addSubview:self.showAllButton];
+    }
+}
+
+#pragma mark - Actions
+
+- (void)didClickShowAllButon:(UIButton *)sender {
+    
+}
+
+- (void)didClickLikeButton:(UIButton *)sender {
+    sender.selected = !sender.selected;
 }
 
 #pragma mark - Properties
@@ -49,8 +66,17 @@
     if(_showAllButton == nil) {
         _showAllButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Show All", nil)];
         [_showAllButton resetOrigin:CGPointMake(self.frame.size.width - _showAllButton.frame.size.width - 8, -3)];
+        [_showAllButton addTarget:self action:@selector(didClickShowAllButon:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _showAllButton;
+}
+
+- (WTLikeButtonView *)likeButtonView {
+    if(_likeButtonView == nil) {
+        _likeButtonView = [WTLikeButtonView createLikeButtonViewWithTarget:self action:@selector(didClickLikeButton:)];
+        [_likeButtonView resetOrigin:CGPointMake(240, -2)];
+    }
+    return _likeButtonView;
 }
 
 @end
@@ -78,7 +104,13 @@
         if([view isKindOfClass:[WTHomeSelectStarView class]])
             result = (WTHomeSelectStarView *)view;
     }
+    [result configureAvatarImageView];
     return result;
+}
+
+- (void)configureAvatarImageView {
+    self.avatarContainerView.layer.masksToBounds = YES;
+    self.avatarContainerView.layer.cornerRadius = 6.0f;
 }
 
 @end

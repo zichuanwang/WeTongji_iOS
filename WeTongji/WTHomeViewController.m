@@ -55,19 +55,19 @@
 #pragma mark - UI methods
 
 - (void)configureNewsSelect {
-    WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryNews];
+    WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryNews itemInfoArray:@[@"", @"", @""]];
     [containerView resetOrigin:CGPointMake(0, 240)];
     [self.scrollView addSubview:containerView];
 }
 
 - (void)configureFeaturedSelect {
-    WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryFeatured];
+    WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryFeatured itemInfoArray:@[@"", @"", @""]];
     [containerView resetOrigin:CGPointMake(0, 380)];
     [self.scrollView addSubview:containerView];
 }
 
 - (void)configureActivitySelect {
-    WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryActivity];
+    WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryActivity itemInfoArray:@[@"", @"", @""]];
     [containerView resetOrigin:CGPointMake(0, 520)];
     [self.scrollView addSubview:containerView];
 }

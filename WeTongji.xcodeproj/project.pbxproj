@@ -48,6 +48,8 @@
 		E12554C816491532006D42F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549516491530006D42F5 /* Foundation.framework */; };
 		E12554D016491532006D42F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E12554CE16491532006D42F5 /* InfoPlist.strings */; };
 		E12554D316491532006D42F5 /* WeTongjiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E12554D216491532006D42F5 /* WeTongjiTests.m */; };
+		E14F964F1696FCF40048414D /* TestAvatar1.png in Resources */ = {isa = PBXBuildFile; fileRef = E14F964E1696FCF40048414D /* TestAvatar1.png */; };
+		E14F96521696FD660048414D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E14F96511696FD660048414D /* QuartzCore.framework */; };
 		E14FA6781680A9F3008A8D33 /* WTFocusButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6741680A9F2008A8D33 /* WTFocusButton.png */; };
 		E14FA6791680A9F3008A8D33 /* WTSelectButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6751680A9F3008A8D33 /* WTSelectButton.png */; };
 		E14FA67A1680A9F3008A8D33 /* WTSelectButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6761680A9F3008A8D33 /* WTSelectButton@2x.png */; };
@@ -242,6 +244,8 @@
 		E12554CF16491532006D42F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E12554D116491532006D42F5 /* WeTongjiTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeTongjiTests.h; sourceTree = "<group>"; };
 		E12554D216491532006D42F5 /* WeTongjiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeTongjiTests.m; sourceTree = "<group>"; };
+		E14F964E1696FCF40048414D /* TestAvatar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TestAvatar1.png; sourceTree = "<group>"; };
+		E14F96511696FD660048414D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E14FA6741680A9F2008A8D33 /* WTFocusButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTFocusButton.png; sourceTree = "<group>"; };
 		E14FA6751680A9F3008A8D33 /* WTSelectButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTSelectButton.png; sourceTree = "<group>"; };
 		E14FA6761680A9F3008A8D33 /* WTSelectButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTSelectButton@2x.png"; sourceTree = "<group>"; };
@@ -420,6 +424,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E14F96521696FD660048414D /* QuartzCore.framework in Frameworks */,
 				E1D374721694CB170012E30A /* CoreData.framework in Frameworks */,
 				E1D373CF169350AF0012E30A /* CoreText.framework in Frameworks */,
 				E1C033E116692590004738EF /* libxml2.dylib in Frameworks */,
@@ -510,6 +515,7 @@
 		E125549216491530006D42F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E14F96511696FD660048414D /* QuartzCore.framework */,
 				E1D374711694CB140012E30A /* CoreData.framework */,
 				E1D373F116935DD30012E30A /* libOHAttributedLabel.a */,
 				E1D373CE169350AE0012E30A /* CoreText.framework */,
@@ -803,6 +809,7 @@
 		E1D373A61693473E0012E30A /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				E14F964E1696FCF40048414D /* TestAvatar1.png */,
 				E1D374611694C9B60012E30A /* WTAvatarCover.png */,
 				E1D374621694C9B60012E30A /* WTAvatarCover@2x.png */,
 				E1D374651694C9B60012E30A /* WTLargePosterCover.png */,
@@ -1111,6 +1118,7 @@
 				E1D3746E1694C9B60012E30A /* WTLargePosterCover@2x.png in Resources */,
 				E1D3746F1694C9B60012E30A /* WTSmallPosterCover.png in Resources */,
 				E1D374701694C9B60012E30A /* WTSmallPosterCover@2x.png in Resources */,
+				E14F964F1696FCF40048414D /* TestAvatar1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
