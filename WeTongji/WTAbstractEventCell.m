@@ -41,7 +41,7 @@
 {
     CGRect frame = self.timeLabel.frame;
     frame.origin.x = self.nowView.frame.origin.x;
-    frame.origin.y = self.nowView.frame.origin.y;
+    frame.origin.y = self.nowView.frame.origin.y + 4;
     self.timeLabel.frame = frame;
     self.nowView.hidden= YES;
 }
