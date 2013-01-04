@@ -7,18 +7,21 @@
 //
 
 #import "WTNowViewController.h"
+#import "WTResourceFactory.h"
 
 @interface WTNowViewController ()
 
 @end
 
 @implementation WTNowViewController
+@synthesize titleBgView = _titleBgView;
+@synthesize countLabel = _countLabel;
+@synthesize timeLabel = _timeLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -39,7 +42,10 @@
 #pragma mark - UI methods
 
 - (void)configureNavigationBar {
+    self.navigationItem.titleView = self.titleBgView;
+    
     self.navigationItem.leftBarButtonItem = self.notificationButton;
+    self.navigationItem.rightBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:@"Now" target:self action:nil];
 }
 
 @end
