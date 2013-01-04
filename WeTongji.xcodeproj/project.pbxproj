@@ -22,6 +22,8 @@
 		039E37FE16970FBB00178F1C /* WTEventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 039E37FD16970FBB00178F1C /* WTEventTableViewCell.m */; };
 		039E380116970FD000178F1C /* WTClassTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 039E380016970FD000178F1C /* WTClassTableViewCell.m */; };
 		039E380316970FF600178F1C /* WTEventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 039E380216970FF600178F1C /* WTEventTableViewCell.xib */; };
+		039E380E16971F8C00178F1C /* WTClassTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 039E380D16971F8C00178F1C /* WTClassTableViewCell.xib */; };
+		039E38111697205000178F1C /* WTAbstractEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 039E38101697205000178F1C /* WTAbstractEventCell.m */; };
 		E11702FC1650F82A00D82F4A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11702FB1650F82A00D82F4A /* SystemConfiguration.framework */; };
 		E11702FE1650F83F00D82F4A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */; };
 		E1170316165156A400D82F4A /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1170315165156A400D82F4A /* icon@2x.png */; };
@@ -227,6 +229,9 @@
 		039E37FF16970FD000178F1C /* WTClassTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTClassTableViewCell.h; sourceTree = "<group>"; };
 		039E380016970FD000178F1C /* WTClassTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTClassTableViewCell.m; sourceTree = "<group>"; };
 		039E380216970FF600178F1C /* WTEventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTEventTableViewCell.xib; sourceTree = "<group>"; };
+		039E380D16971F8C00178F1C /* WTClassTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTClassTableViewCell.xib; sourceTree = "<group>"; };
+		039E380F1697205000178F1C /* WTAbstractEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTAbstractEventCell.h; sourceTree = "<group>"; };
+		039E38101697205000178F1C /* WTAbstractEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTAbstractEventCell.m; sourceTree = "<group>"; };
 		E11702FB1650F82A00D82F4A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E1170315165156A400D82F4A /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
@@ -890,6 +895,9 @@
 				039E380216970FF600178F1C /* WTEventTableViewCell.xib */,
 				039E37FF16970FD000178F1C /* WTClassTableViewCell.h */,
 				039E380016970FD000178F1C /* WTClassTableViewCell.m */,
+				039E380D16971F8C00178F1C /* WTClassTableViewCell.xib */,
+				039E380F1697205000178F1C /* WTAbstractEventCell.h */,
+				039E38101697205000178F1C /* WTAbstractEventCell.m */,
 			);
 			name = CustomCells;
 			sourceTree = "<group>";
@@ -1181,6 +1189,7 @@
 				039E37F1169701BC00178F1C /* past_event_cell.png in Resources */,
 				039E37F2169701BC00178F1C /* past_event_cell@2x.png in Resources */,
 				039E380316970FF600178F1C /* WTEventTableViewCell.xib in Resources */,
+				039E380E16971F8C00178F1C /* WTClassTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1252,6 +1261,7 @@
 				E1D374601694C8000012E30A /* Star.m in Sources */,
 				039E37FE16970FBB00178F1C /* WTEventTableViewCell.m in Sources */,
 				039E380116970FD000178F1C /* WTClassTableViewCell.m in Sources */,
+				039E38111697205000178F1C /* WTAbstractEventCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 
 #import "WTNowViewController.h"
 #import "WTResourceFactory.h"
-#import "WTEventTableViewCell.h"
+#import "WTAbstractEventCell.h"
 
 @interface WTNowViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSIndexPath *nowIndexPath;
@@ -79,10 +79,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"Cell";
-    WTEventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"WTEventTableViewCell" owner:self options:nil] objectAtIndex:0];
-        [cell updateCellStatus:eNORMAL];
+    WTAbstractEventCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (indexPath.section == 3) {
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"WTClassTableViewCell" owner:self options:nil] objectAtIndex:0];
+            [cell updateCellStatus:eNORMAL];
+        }
+
+    } else {
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"WTEventTableViewCell" owner:self options:nil] objectAtIndex:0];
+            [cell updateCellStatus:eNORMAL];
+        }
     }
     if (indexPath.section < 2) {
         [cell updateCellStatus:ePAST];

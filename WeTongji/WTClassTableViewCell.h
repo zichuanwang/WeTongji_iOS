@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WTAbstractEventCell.h"
+@interface WTClassTableViewCell : WTAbstractEventCell
 
-@interface WTClassTableViewCell : UITableViewCell
-- (void)configureNow;
 @end
