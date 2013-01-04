@@ -10,6 +10,6 @@
 #import "WTAbstractEventCell.h"
 
 @interface WTEventTableViewCell : WTAbstractEventCell
-
+@property (nonatomic, weak) IBOutlet UIImageView *icon;
 
 @end
