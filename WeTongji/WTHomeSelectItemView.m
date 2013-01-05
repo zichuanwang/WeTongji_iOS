@@ -70,7 +70,7 @@
 - (WTLikeButtonView *)likeButtonView {
     if(_likeButtonView == nil) {
         _likeButtonView = [WTLikeButtonView createLikeButtonViewWithTarget:self action:@selector(didClickLikeButton:)];
-        [_likeButtonView resetOrigin:CGPointMake(240, -2)];
+        [_likeButtonView resetOrigin:CGPointMake(240, -1)];
     }
     return _likeButtonView;
 }
