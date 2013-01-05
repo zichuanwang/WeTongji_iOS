@@ -168,8 +168,8 @@
 		E1D3740916936D560012E30A /* WTDarkGrayMoreIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D3740716936D560012E30A /* WTDarkGrayMoreIndicator@2x.png */; };
 		E1D3740C1694134A0012E30A /* WTHomeSelectItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D3740B1694134A0012E30A /* WTHomeSelectItemView.m */; };
 		E1D3740E1694135D0012E30A /* WTHomeSelectItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D3740D1694135D0012E30A /* WTHomeSelectItemView.xib */; };
-		E1D37411169415460012E30A /* WTHomeSelectItemViewBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D3740F169415460012E30A /* WTHomeSelectItemViewBg.png */; };
-		E1D37412169415460012E30A /* WTHomeSelectItemViewBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D37410169415460012E30A /* WTHomeSelectItemViewBg@2x.png */; };
+		E1D37411169415460012E30A /* WTRoundCornerPanelBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D3740F169415460012E30A /* WTRoundCornerPanelBg.png */; };
+		E1D37412169415460012E30A /* WTRoundCornerPanelBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D37410169415460012E30A /* WTRoundCornerPanelBg@2x.png */; };
 		E1D3741616942E740012E30A /* WTBillboardNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D3741516942E740012E30A /* WTBillboardNavigationViewController.m */; };
 		E1D3741A16942ECE0012E30A /* WTBillboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D3741816942ECE0012E30A /* WTBillboardViewController.m */; };
 		E1D3741B16942ECE0012E30A /* WTBillboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D3741916942ECE0012E30A /* WTBillboardViewController.xib */; };
@@ -403,8 +403,8 @@
 		E1D3740A169413490012E30A /* WTHomeSelectItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTHomeSelectItemView.h; sourceTree = "<group>"; };
 		E1D3740B1694134A0012E30A /* WTHomeSelectItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTHomeSelectItemView.m; sourceTree = "<group>"; };
 		E1D3740D1694135D0012E30A /* WTHomeSelectItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTHomeSelectItemView.xib; sourceTree = "<group>"; };
-		E1D3740F169415460012E30A /* WTHomeSelectItemViewBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTHomeSelectItemViewBg.png; sourceTree = "<group>"; };
-		E1D37410169415460012E30A /* WTHomeSelectItemViewBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTHomeSelectItemViewBg@2x.png"; sourceTree = "<group>"; };
+		E1D3740F169415460012E30A /* WTRoundCornerPanelBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTRoundCornerPanelBg.png; sourceTree = "<group>"; };
+		E1D37410169415460012E30A /* WTRoundCornerPanelBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTRoundCornerPanelBg@2x.png"; sourceTree = "<group>"; };
 		E1D3741416942E740012E30A /* WTBillboardNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBillboardNavigationViewController.h; sourceTree = "<group>"; };
 		E1D3741516942E740012E30A /* WTBillboardNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTBillboardNavigationViewController.m; sourceTree = "<group>"; };
 		E1D3741716942ECE0012E30A /* WTBillboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBillboardViewController.h; sourceTree = "<group>"; };
@@ -868,8 +868,8 @@
 				E1D374681694C9B60012E30A /* WTSmallPosterCover@2x.png */,
 				E1D374631694C9B60012E30A /* WTBannerCover.png */,
 				E1D374641694C9B60012E30A /* WTBannerCover@2x.png */,
-				E1D3740F169415460012E30A /* WTHomeSelectItemViewBg.png */,
-				E1D37410169415460012E30A /* WTHomeSelectItemViewBg@2x.png */,
+				E1D3740F169415460012E30A /* WTRoundCornerPanelBg.png */,
+				E1D37410169415460012E30A /* WTRoundCornerPanelBg@2x.png */,
 				E1D3740616936D560012E30A /* WTDarkGrayMoreIndicator.png */,
 				E1D3740716936D560012E30A /* WTDarkGrayMoreIndicator@2x.png */,
 				E14FA6C316820285008A8D33 /* WTLikeButtonFlagBg.png */,
@@ -1163,8 +1163,8 @@
 				E1D3740816936D560012E30A /* WTDarkGrayMoreIndicator.png in Resources */,
 				E1D3740916936D560012E30A /* WTDarkGrayMoreIndicator@2x.png in Resources */,
 				E1D3740E1694135D0012E30A /* WTHomeSelectItemView.xib in Resources */,
-				E1D37411169415460012E30A /* WTHomeSelectItemViewBg.png in Resources */,
-				E1D37412169415460012E30A /* WTHomeSelectItemViewBg@2x.png in Resources */,
+				E1D37411169415460012E30A /* WTRoundCornerPanelBg.png in Resources */,
+				E1D37412169415460012E30A /* WTRoundCornerPanelBg@2x.png in Resources */,
 				E1D3741B16942ECE0012E30A /* WTBillboardViewController.xib in Resources */,
 				E1D374251694321A0012E30A /* WTMeViewController.xib in Resources */,
 				E1D37430169432D30012E30A /* WTNowViewController.xib in Resources */,
