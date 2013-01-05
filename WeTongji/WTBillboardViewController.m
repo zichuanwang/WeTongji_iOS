@@ -53,8 +53,6 @@
     [titleContainerView addSubview:titleLabel];
     
     self.navigationItem.titleView = titleContainerView;
-    
-    self.navigationItem.leftBarButtonItem = self.notificationButton;
 }
 
 @end

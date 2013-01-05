@@ -28,12 +28,20 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self configureUI];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UI methods
+
+- (void)configureUI {
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
+    self.navigationItem.leftBarButtonItem = self.notificationButton;
 }
 
 #pragma mark - Properties

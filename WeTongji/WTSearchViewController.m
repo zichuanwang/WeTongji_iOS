@@ -42,7 +42,6 @@
 #pragma mark - UI methods
 
 - (void)configureNavigationBar {
-    self.navigationItem.leftBarButtonItem = self.notificationButton;
 }
 
 - (void)getElectricityBalance {

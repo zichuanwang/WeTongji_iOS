@@ -8,18 +8,15 @@
 
 #import "WTNowViewController.h"
 #import "WTResourceFactory.h"
-#import "WTAbstractEventCell.h"
+#import "WTNowBaseCell.h"
 
-@interface WTNowViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface WTNowViewController ()
+
 @property (nonatomic, strong) NSIndexPath *nowIndexPath;
+
 @end
 
 @implementation WTNowViewController
-@synthesize titleBgView = _titleBgView;
-@synthesize countLabel = _countLabel;
-@synthesize timeLabel = _timeLabel;
-
-@synthesize nowIndexPath = _nowIndexPath;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,7 +31,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self configureNavigationBar];
-    [self configureBackground];
+    [self configureTableView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,17 +41,24 @@
 }
 
 #pragma mark - UI methods
-- (void)configureNavigationBar {
-    self.navigationItem.titleView = self.titleBgView;
-    
-    self.navigationItem.leftBarButtonItem = self.notificationButton;
-    self.navigationItem.rightBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:@"Now"
-                                                                                       target:self
-                                                                                       action:nil];
+
+- (void)configureTableView {
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 5)];
+    headerView.backgroundColor = [UIColor clearColor];
+    self.tableView.tableHeaderView = headerView;
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 5)];
+    footerView.backgroundColor = [UIColor clearColor];
+    self.tableView.tableFooterView = footerView;
 }
 
-- (void)configureBackground {
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
+- (void)configureNavigationBar {
+    self.navigationItem.leftBarButtonItem = self.notificationButton;
+    
+    self.navigationItem.titleView = self.titleBgView;
+    
+    self.navigationItem.rightBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:NSLocalizedString(@"Now", nil)
+                                                                                       target:self
+                                                                                       action:nil];
 }
 
 - (void)viewDidUnload {
@@ -66,52 +70,38 @@
 }
 
 #pragma mark - UITableViewDataSource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 1;
-}
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 5;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    static NSString *cellIdentifier = @"Cell";
-    WTAbstractEventCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (indexPath.section == 3) {
-        if (cell == nil) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"WTClassTableViewCell" owner:self options:nil] objectAtIndex:0];
-            [cell updateCellStatus:eNORMAL];
-        }
+    return 1;
+}
 
-    } else {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    WTNowBaseCell *cell = nil;
+    if (indexPath.row == 2 || indexPath.row == 0) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"WTNowCourseCell"];
         if (cell == nil) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"WTEventTableViewCell" owner:self options:nil] objectAtIndex:0];
-            [cell updateCellStatus:eNORMAL];
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"WTNowCourseCell" owner:self options:nil] lastObject];
+        }
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"WTNowActivityCell"];
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"WTNowActivityCell" owner:self options:nil] lastObject];
         }
     }
-    if (indexPath.section < 2) {
-        [cell updateCellStatus:ePAST];
-    } else if (indexPath.section == 2) {
-        [cell updateCellStatus:eNOW];
+    if (indexPath.row < 2) {
+        [cell updateCellStatus:WTNowBaseCellTypePast];
+    } else if (indexPath.row == 2) {
+        [cell updateCellStatus:WTNowBaseCellTypeNow];
+    } else {
+        [cell updateCellStatus:WTNowBaseCellTypeNormal];
     }
     return cell;
 }
 
-- (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 104;
-}
-
-- (float)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 20;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
-    return [[UIView alloc] initWithFrame:CGRectZero];
-}
 @end

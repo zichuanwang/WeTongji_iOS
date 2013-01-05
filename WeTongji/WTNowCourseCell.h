@@ -1,5 +1,5 @@
 //
-//  WTClassTableViewCell.h
+//  WTNowBaseCell.h
 //  WeTongji
 //
 //  Created by 吴 wuziqi on 13-1-4.
@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WTAbstractEventCell.h"
-@interface WTClassTableViewCell : WTAbstractEventCell
+#import "WTNowBaseCell.h"
+
+@interface WTNowCourseCell : WTNowBaseCell
+
+@property (nonatomic, weak) IBOutlet UILabel *courseNameLabel;
 
 @end

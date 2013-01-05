@@ -11,6 +11,7 @@
 
 @interface WTHomeSelectContainerView()
 
+@property (nonatomic, assign) WTHomeSelectContainerViewCategory category;
 @property (nonatomic, strong) NSMutableArray *itemInfoArray;
 @property (nonatomic, strong) NSMutableArray *itemViewArray;
 
@@ -21,7 +22,6 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if(self) {
-        self.itemInfoArray = [[NSMutableArray alloc] initWithArray:@[@"", @"", @""]];
         self.itemViewArray = [NSMutableArray array];
     }
     return self;
@@ -32,8 +32,9 @@
     [self configureScrollView];
 }
 
-+ (WTHomeSelectContainerView *)createHomeSelectContainerViewWithCategory:(WTHomeSelectContainerViewCategory)category {
++ (WTHomeSelectContainerView *)createHomeSelectContainerViewWithCategory:(WTHomeSelectContainerViewCategory)category itemInfoArray:(NSArray *)array {
     WTHomeSelectContainerView *result = [[[NSBundle mainBundle] loadNibNamed:@"WTHomeSelectContainerView" owner:self options:nil] lastObject];
+    result.category = category;
     switch(category) {
         case WTHomeSelectContainerViewCategoryNews:
         {
@@ -53,6 +54,10 @@
         default:
             break;
     }
+    if(array)
+        result.itemInfoArray = [[NSMutableArray alloc] initWithArray:array];
+    else
+        result.itemInfoArray = [NSMutableArray array];
     return result;
 }
 
@@ -65,7 +70,25 @@
 - (WTHomeSelectItemView *)itemViewAtIndex:(NSUInteger)index {
     if(index >= self.itemViewArray.count) {
         WTHomeSelectItemView *itemView = nil;
-        itemView = [[[NSBundle mainBundle] loadNibNamed:@"WTHomeSelectItemView" owner:self options:nil] lastObject];
+        switch(self.category) {
+            case WTHomeSelectContainerViewCategoryNews:
+            {
+                itemView = [WTHomeSelectNewsView createHomeSelectNewsView];
+            }
+                break;
+            case WTHomeSelectContainerViewCategoryFeatured:
+            {
+                itemView = [WTHomeSelectStarView createHomeSelectStarView];
+            }
+                break;
+            case WTHomeSelectContainerViewCategoryActivity:
+            {
+                itemView = [WTHomeSelectActivityView createHomeSelectActivityView];
+            }
+                break;
+            default:
+                break;
+        }
         [self.itemViewArray addObject:itemView];
         return itemView;
     } else {
