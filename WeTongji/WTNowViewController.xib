@@ -173,6 +173,7 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MSAwLjQAA</bytes>
 						</object>
+						<string key="IBUIShadowOffset">{0, 1}</string>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<object class="IBUIFontDescription" key="IBUIFontDescription">
 							<int key="type">1</int>
@@ -207,7 +208,7 @@
 							<object class="IBUILabel" id="897530322">
 								<reference key="NSNextResponder" ref="468633861"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrameSize">{14, 14}</string>
+								<string key="NSFrame">{{-0.5, 0}, {15, 14}}</string>
 								<reference key="NSSuperview" ref="468633861"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView"/>
