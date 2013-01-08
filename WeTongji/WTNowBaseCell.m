@@ -50,11 +50,11 @@
 
 - (void)updateCellStatus:(WTNowBaseCellType)type {
     if(type == WTNowBaseCellTypePast) {
-        self.alpha = 0.5f;
+        self.containerView.alpha = 0.5f;
     } else {
-        self.alpha = 1.0f;
+        self.containerView.alpha = 1.0f;
     }
-    
+        
     if(type == WTNowBaseCellTypeNow){
         [self showNowView];
         self.ringImageView.hidden = NO;

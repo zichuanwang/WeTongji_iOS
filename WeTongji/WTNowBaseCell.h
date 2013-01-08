@@ -23,6 +23,7 @@ typedef enum {
 @property (nonatomic, weak) IBOutlet UILabel *whereLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *ringImageView;
 @property (nonatomic, weak) IBOutlet UILabel *nowLabel;
+@property (nonatomic, weak) IBOutlet UIView *containerView;
 
 - (void)updateCellStatus:(WTNowBaseCellType)type;
 
