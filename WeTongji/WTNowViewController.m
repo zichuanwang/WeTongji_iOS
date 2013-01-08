@@ -34,6 +34,10 @@
     [self configureTableView];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [self.tableView resetHeight:self.view.frame.size.height];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -49,6 +53,8 @@
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 5)];
     footerView.backgroundColor = [UIColor clearColor];
     self.tableView.tableFooterView = footerView;
+    
+    self.tableView.scrollsToTop = NO;
 }
 
 - (void)configureNavigationBar {
@@ -59,14 +65,6 @@
     self.navigationItem.rightBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:NSLocalizedString(@"Now", nil)
                                                                                        target:self
                                                                                        action:nil];
-}
-
-- (void)viewDidUnload {
-    self.tableView = nil;
-    self.titleBgView = nil;
-    self.timeLabel = nil;
-    self.countLabel = nil;
-    [super viewDidUnload];
 }
 
 #pragma mark - UITableViewDataSource

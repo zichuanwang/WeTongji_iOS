@@ -43,6 +43,11 @@
     [self configureActivitySelect];
     
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, 670);
+    self.scrollView.scrollsToTop = NO;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self.scrollView resetHeight:self.view.frame.size.height];
 }
 
 - (void)didReceiveMemoryWarning
