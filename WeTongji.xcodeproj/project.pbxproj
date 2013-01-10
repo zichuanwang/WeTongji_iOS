@@ -14,6 +14,8 @@
 		039E380316970FF600178F1C /* WTNowActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 039E380216970FF600178F1C /* WTNowActivityCell.xib */; };
 		039E380E16971F8C00178F1C /* WTNowCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 039E380D16971F8C00178F1C /* WTNowCourseCell.xib */; };
 		039E38111697205000178F1C /* WTNowBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 039E38101697205000178F1C /* WTNowBaseCell.m */; };
+		A1DD01CF169F244E009EBE02 /* WTNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DD01CD169F244E009EBE02 /* WTNewsViewController.m */; };
+		A1DD01D0169F244E009EBE02 /* WTNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1DD01CE169F244E009EBE02 /* WTNewsViewController.xib */; };
 		E11702FC1650F82A00D82F4A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11702FB1650F82A00D82F4A /* SystemConfiguration.framework */; };
 		E11702FE1650F83F00D82F4A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */; };
 		E1170316165156A400D82F4A /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1170315165156A400D82F4A /* icon@2x.png */; };
@@ -220,6 +222,9 @@
 		039E380D16971F8C00178F1C /* WTNowCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNowCourseCell.xib; sourceTree = "<group>"; };
 		039E380F1697205000178F1C /* WTNowBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNowBaseCell.h; sourceTree = "<group>"; };
 		039E38101697205000178F1C /* WTNowBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNowBaseCell.m; sourceTree = "<group>"; };
+		A1DD01CC169F244E009EBE02 /* WTNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNewsViewController.h; sourceTree = "<group>"; };
+		A1DD01CD169F244E009EBE02 /* WTNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNewsViewController.m; sourceTree = "<group>"; };
+		A1DD01CE169F244E009EBE02 /* WTNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNewsViewController.xib; sourceTree = "<group>"; };
 		E11702FB1650F82A00D82F4A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E1170315165156A400D82F4A /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
@@ -496,6 +501,16 @@
 			name = Now;
 			sourceTree = "<group>";
 		};
+		A1DD01CA169F2437009EBE02 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				A1DD01CC169F244E009EBE02 /* WTNewsViewController.h */,
+				A1DD01CD169F244E009EBE02 /* WTNewsViewController.m */,
+				A1DD01CE169F244E009EBE02 /* WTNewsViewController.xib */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
 		E117035A1651EF3E00D82F4A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,6 +531,7 @@
 		E117038E1651EFD900D82F4A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A1DD01CA169F2437009EBE02 /* News */,
 				E1D3741316942E350012E30A /* Billboard */,
 				E1250C0A16859A1D00802808 /* Event */,
 				E18821E716800E7B00A41F47 /* Home */,
@@ -1183,6 +1199,7 @@
 				E1C482F11698A83D004F025A /* WTNowBarTitleCountViewBg@2x.png in Resources */,
 				E1C482F21698A83D004F025A /* WTNowBarTitleViewBg.png in Resources */,
 				E1C482F31698A83D004F025A /* WTNowBarTitleViewBg@2x.png in Resources */,
+				A1DD01D0169F244E009EBE02 /* WTNewsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1255,6 +1272,7 @@
 				039E37FE16970FBB00178F1C /* WTNowActivityCell.m in Sources */,
 				039E380116970FD000178F1C /* WTNowCourseCell.m in Sources */,
 				039E38111697205000178F1C /* WTNowBaseCell.m in Sources */,
+				A1DD01CF169F244E009EBE02 /* WTNewsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
