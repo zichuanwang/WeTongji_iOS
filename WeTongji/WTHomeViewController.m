@@ -9,8 +9,9 @@
 #import "WTHomeViewController.h"
 #import "WTBannerView.h"
 #import "OHAttributedLabel.h"
-#import "WTHomeSelectContainerView.h"
 #import "UIApplication+Addition.h"
+#import "WTNewsViewController.h"
+#import "WTHomeNavigationController.h"
 
 
 @interface WTHomeViewController ()
@@ -60,18 +61,21 @@
 
 - (void)configureNewsSelect {
     WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryNews itemInfoArray:@[@"", @"", @""]];
+    containerView.selectDelegate = self;
     [containerView resetOrigin:CGPointMake(0, 240)];
     [self.scrollView addSubview:containerView];
 }
 
 - (void)configureFeaturedSelect {
     WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryFeatured itemInfoArray:@[@"", @"", @""]];
+    containerView.selectDelegate = self;
     [containerView resetOrigin:CGPointMake(0, 380)];
     [self.scrollView addSubview:containerView];
 }
 
 - (void)configureActivitySelect {
     WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryActivity itemInfoArray:@[@"", @"", @""]];
+    containerView.selectDelegate = self;
     [containerView resetOrigin:CGPointMake(0, 520)];
     [self.scrollView addSubview:containerView];
 }
@@ -106,6 +110,30 @@
 - (IBAction)didClickShowNowTabButton:(UIButton *)sender {
     WTRootTabBarController *tabBarVC = [UIApplication sharedApplication].rootTabBarController;
     [tabBarVC clickTabWithName:WTRootTabBarViewControllerNow];
+}
+
+#pragma mark - WTHomeSelectDelegate Protocol Implementation
+
+- (void)seeAllForCategory:(WTHomeSelectContainerViewCategory)category {
+    WTHomeNavigationController *nc = (WTHomeNavigationController *)self.navigationController;
+    
+    switch (category) {
+        case WTHomeSelectContainerViewCategoryNews:
+            [nc navigateToViewController:[[WTNewsViewController alloc] init]];
+            break;
+            
+        case WTHomeSelectContainerViewCategoryActivity:
+            //TODO
+            break;
+            
+        case WTHomeSelectContainerViewCategoryFeatured:
+            //TODO
+            break;
+            
+        default:
+            break;
+
+    }
 }
 
 @end

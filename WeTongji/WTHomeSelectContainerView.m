@@ -119,4 +119,13 @@
     self.scrollView.contentOffset = CGPointMake(0, 0);
 }
 
+#pragma mark - Actions
+
+- (void)didClickSeeAllButton:(UIButton *)sender {
+    if (self.selectDelegate
+        && [self.selectDelegate respondsToSelector:@selector(seeAllForCategory:)]) {
+        [self.selectDelegate seeAllForCategory:self.category];
+    }
+}
+
 @end

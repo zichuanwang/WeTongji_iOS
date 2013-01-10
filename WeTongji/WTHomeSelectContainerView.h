@@ -14,13 +14,30 @@ typedef enum {
     WTHomeSelectContainerViewCategoryActivity,
 } WTHomeSelectContainerViewCategory;
 
+
+#pragma mark - WTHomeSelectDelegate Protocol
+
+@protocol WTHomeSelectDelegate <NSObject>
+
+- (void)seeAllForCategory:(WTHomeSelectContainerViewCategory)category;
+
+@end
+
+#pragma mark - WTHomeSelectContainerView Interface
+
 @interface WTHomeSelectContainerView : UIView
 
 @property (nonatomic, weak) IBOutlet UILabel *categoryLabel;
 @property (nonatomic, weak) IBOutlet UILabel *seeAllLabel;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
+@property (nonatomic, weak) id <WTHomeSelectDelegate> selectDelegate;
+
+- (IBAction)didClickSeeAllButton:(UIButton *)sender;
+
 + (WTHomeSelectContainerView *)createHomeSelectContainerViewWithCategory:(WTHomeSelectContainerViewCategory)category
                                                            itemInfoArray:(NSArray *)array;
 
 @end
+
+

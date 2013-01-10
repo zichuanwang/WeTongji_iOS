@@ -38,4 +38,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)navigateToViewController:(UIViewController *)vc {
+    [self pushViewController:vc animated:NO];
+}
+
 @end
