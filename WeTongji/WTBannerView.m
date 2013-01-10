@@ -18,7 +18,7 @@
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
-    if(self) {
+    if (self) {
         
     }
     return self;
@@ -34,7 +34,7 @@
        titleText:(NSString *)title
 organizationName:(NSString *)organization
          atIndex:(NSUInteger)index {
-    if(index >= self.bannerCount)
+    if (index >= self.bannerCount)
         return;
     WTBannerContainerView *containerView = self.bannerContainerViewArray[index];
     containerView.titleLabel.text = title;
@@ -45,20 +45,20 @@ organizationName:(NSString *)organization
 #pragma mark - Properties
 
 - (NSMutableArray *)bannerContainerViewArray {
-    if(_bannerContainerViewArray == nil) {
+    if (_bannerContainerViewArray == nil) {
         _bannerContainerViewArray = [[NSMutableArray alloc] init];
     }
     return _bannerContainerViewArray;
 }
 
 - (void)setBannerCount:(NSUInteger)bannerCount {
-    if(bannerCount > _bannerCount) {
+    if (bannerCount > _bannerCount) {
         for(NSUInteger i = _bannerCount; i < bannerCount; i++) {
             WTBannerContainerView *containerView = [self createBannerContainerViewAtIndex:i];
             [self.bannerContainerViewArray addObject:containerView];
             [self.bannerScrollView addSubview:containerView];
         }
-    } else if(bannerCount < _bannerCount) {
+    } else if (bannerCount < _bannerCount) {
         for(NSUInteger i = bannerCount; i < _bannerCount; i++) {
             WTBannerContainerView *containerView = [self createBannerContainerViewAtIndex:i];
             [containerView removeFromSuperview];
@@ -102,13 +102,13 @@ organizationName:(NSString *)organization
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    if(scrollView == self.bannerScrollView)
+    if (scrollView == self.bannerScrollView)
         [self updateBannerScrollView];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    if(decelerate == NO) {
-        if(scrollView == self.bannerScrollView)
+    if (decelerate == NO) {
+        if (scrollView == self.bannerScrollView)
             [self updateBannerScrollView];
     }
 }

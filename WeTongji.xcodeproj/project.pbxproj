@@ -334,8 +334,8 @@
 		E18821F21680104700A41F47 /* WTNavigationBarShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNavigationBarShadow@2x.png"; sourceTree = "<group>"; };
 		E18821F7168013AF00A41F47 /* WTNavigationBarLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNavigationBarLogo.png; sourceTree = "<group>"; };
 		E18821F8168013AF00A41F47 /* WTNavigationBarLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNavigationBarLogo@2x.png"; sourceTree = "<group>"; };
-		E18821FB16801BF700A41F47 /* WTHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTHomeViewController.h; sourceTree = "<group>"; };
-		E18821FC16801BF700A41F47 /* WTHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTHomeViewController.m; sourceTree = "<group>"; };
+		E18821FB16801BF700A41F47 /* WTHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = WTHomeViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		E18821FC16801BF700A41F47 /* WTHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = WTHomeViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		E18821FD16801BF700A41F47 /* WTHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTHomeViewController.xib; sourceTree = "<group>"; };
 		E18822151680230B00A41F47 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		E18822161680230B00A41F47 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -397,7 +397,7 @@
 		E1D373CE169350AE0012E30A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		E1D373F116935DD30012E30A /* libOHAttributedLabel.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOHAttributedLabel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D373F716936B540012E30A /* WTHomeSelectContainerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTHomeSelectContainerView.xib; sourceTree = "<group>"; };
-		E1D373FC16936CC80012E30A /* WTHomeSelectContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTHomeSelectContainerView.h; sourceTree = "<group>"; };
+		E1D373FC16936CC80012E30A /* WTHomeSelectContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = WTHomeSelectContainerView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		E1D373FD16936CC80012E30A /* WTHomeSelectContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTHomeSelectContainerView.m; sourceTree = "<group>"; };
 		E1D3740616936D560012E30A /* WTDarkGrayMoreIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTDarkGrayMoreIndicator.png; sourceTree = "<group>"; };
 		E1D3740716936D560012E30A /* WTDarkGrayMoreIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTDarkGrayMoreIndicator@2x.png"; sourceTree = "<group>"; };

@@ -47,7 +47,7 @@
 #pragma mark - Properties
 
 - (WTNotificationBarButton *)notificationButton {
-    if(_notificationButton == nil) {
+    if (_notificationButton == nil) {
         _notificationButton = [WTNotificationBarButton createNotificationBarButtonWithTarget:self action:@selector(didClickNotificationButton:)];
     }
     return _notificationButton;
@@ -58,7 +58,7 @@
 - (void)didClickNotificationButton:(WTNotificationBarButton *)sender {
     sender.selected = !sender.selected;
     WTRootNavigationController *nav = (WTRootNavigationController *)self.navigationController;
-    if(sender.selected) {
+    if (sender.selected) {
         WTNotificationModalViewController *vc = [[WTNotificationModalViewController alloc] init];
         [nav showInnerModalViewController:vc];
         [sender stopShine];

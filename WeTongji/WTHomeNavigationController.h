@@ -11,6 +11,4 @@
 
 @interface WTHomeNavigationController : WTRootNavigationController
 
-- (void)navigateToViewController:(UIViewController *)vc;
-
 @end

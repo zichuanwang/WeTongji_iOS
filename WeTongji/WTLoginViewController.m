@@ -45,7 +45,7 @@
 #pragma mark - Properties
 
 - (UIButton *)forgetPasswordButton {
-    if(_forgetPasswordButton == nil) {
+    if (_forgetPasswordButton == nil) {
         _forgetPasswordButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Forgot?", nil)];
         [_forgetPasswordButton resetCenterY:self.passwordTextField.center.y];
         

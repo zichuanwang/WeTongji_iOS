@@ -93,26 +93,26 @@
     [button setTitle:text forState:UIControlStateNormal];
     
     UIEdgeInsets insets = UIEdgeInsetsMake(0.0, 5.0, 0.0, 5.0);
-    if(normalImage) {
+    if (normalImage) {
         UIImage *resizableNormalImage = [normalImage resizableImageWithCapInsets:insets];
         [button setBackgroundImage:resizableNormalImage forState:UIControlStateNormal];
     }
     
-    if(selectImage) {
+    if (selectImage) {
         UIImage *resizableSelectImage = [selectImage resizableImageWithCapInsets:insets];
         [button setBackgroundImage:resizableSelectImage forState:UIControlStateSelected];
     }
         
-    if(normalTitleColor)
+    if (normalTitleColor)
         [button setTitleColor:normalTitleColor forState:UIControlStateNormal];
     
-    if(normalShadowColor)
+    if (normalShadowColor)
         [button setTitleShadowColor:normalShadowColor forState:UIControlStateNormal];
 
-    if(highlightTitleColor)
+    if (highlightTitleColor)
         [button setTitleColor:highlightTitleColor forState:UIControlStateHighlighted];
     
-    if(highlightShadowColor)
+    if (highlightShadowColor)
         [button setTitleShadowColor:highlightShadowColor forState:UIControlStateHighlighted];
 
     

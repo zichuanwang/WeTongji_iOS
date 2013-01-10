@@ -39,7 +39,7 @@
 */
 
 - (void)didMoveToSuperview {    
-    if([self isMemberOfClass:[WTHomeSelectStarView class]]) {
+    if ([self isMemberOfClass:[WTHomeSelectStarView class]]) {
         [self addSubview:self.likeButtonView];
     } else { // WTHomeSelectNewsView, WTHomeSelectActivityView
         [self addSubview:self.showAllButton];
@@ -59,7 +59,7 @@
 #pragma mark - Properties
 
 - (UIButton *)showAllButton {
-    if(_showAllButton == nil) {
+    if (_showAllButton == nil) {
         _showAllButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Show All", nil)];
         [_showAllButton resetOrigin:CGPointMake(self.frame.size.width - _showAllButton.frame.size.width - 8, -3)];
         [_showAllButton addTarget:self action:@selector(didClickShowAllButon:) forControlEvents:UIControlEventTouchUpInside];
@@ -68,7 +68,7 @@
 }
 
 - (WTLikeButtonView *)likeButtonView {
-    if(_likeButtonView == nil) {
+    if (_likeButtonView == nil) {
         _likeButtonView = [WTLikeButtonView createLikeButtonViewWithTarget:self action:@selector(didClickLikeButton:)];
         [_likeButtonView resetOrigin:CGPointMake(240, -1)];
     }
@@ -83,7 +83,7 @@
     NSArray *viewArray = [[NSBundle mainBundle] loadNibNamed:@"WTHomeSelectItemView" owner:self options:nil];
     WTHomeSelectNewsView *result = nil;
     for(UIView *view in viewArray) {
-        if([view isKindOfClass:[WTHomeSelectNewsView class]])
+        if ([view isKindOfClass:[WTHomeSelectNewsView class]])
             result = (WTHomeSelectNewsView *)view;
     }
     return result;
@@ -97,7 +97,7 @@
     NSArray *viewArray = [[NSBundle mainBundle] loadNibNamed:@"WTHomeSelectItemView" owner:self options:nil];
     WTHomeSelectStarView *result = nil;
     for(UIView *view in viewArray) {
-        if([view isKindOfClass:[WTHomeSelectStarView class]])
+        if ([view isKindOfClass:[WTHomeSelectStarView class]])
             result = (WTHomeSelectStarView *)view;
     }
     [result configureAvatarImageView];
@@ -117,7 +117,7 @@
     NSArray *viewArray = [[NSBundle mainBundle] loadNibNamed:@"WTHomeSelectItemView" owner:self options:nil];
     WTHomeSelectActivityView *result = nil;
     for(UIView *view in viewArray) {
-        if([view isKindOfClass:[WTHomeSelectActivityView class]])
+        if ([view isKindOfClass:[WTHomeSelectActivityView class]])
             result = (WTHomeSelectActivityView *)view;
     }
     return result;

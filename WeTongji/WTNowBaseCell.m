@@ -49,13 +49,13 @@
 }
 
 - (void)updateCellStatus:(WTNowBaseCellType)type {
-    if(type == WTNowBaseCellTypePast) {
+    if (type == WTNowBaseCellTypePast) {
         self.containerView.alpha = 0.5f;
     } else {
         self.containerView.alpha = 1.0f;
     }
         
-    if(type == WTNowBaseCellTypeNow){
+    if (type == WTNowBaseCellTypeNow){
         [self showNowView];
         self.ringImageView.hidden = NO;
     } else {

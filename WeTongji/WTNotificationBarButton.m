@@ -49,7 +49,7 @@
 - (void)setSelected:(BOOL)selected {
     [self.button setSelected:!selected];
     
-    if(selected)
+    if (selected)
         [self stopShine];
 }
 
@@ -58,7 +58,7 @@
 }
 
 - (UIImageView *)ringImageView {
-    if(_ringImageView == nil) {
+    if (_ringImageView == nil) {
         _ringImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTNotificationRing"]];
         _ringImageView.center = CGPointMake(self.button.frame.size.width / 2, self.button.frame.size.height / 2);
         _ringImageView.hidden = YES;
@@ -67,7 +67,7 @@
 }
 
 - (UIImageView *)shineImageView {
-    if(!_shineImageView) {
+    if (!_shineImageView) {
         UIImage *shineImage = [UIImage imageNamed:@"WTNotificationShineButton"];
         _shineImageView = [[UIImageView alloc] initWithImage:shineImage];
         _shineImageView.hidden = YES;
@@ -76,7 +76,7 @@
 }
 
 - (UIView *)containerView {
-    if(!_containerView) {
+    if (!_containerView) {
         _containerView = [[UIView alloc] init];
         [_containerView resetSize:self.button.frame.size];
         
@@ -88,7 +88,7 @@
 }
 
 - (UIButton *)button {
-    if(!_button) {
+    if (!_button) {
         _button = [[UIButton alloc] init];
         UIImage *normalImage = [UIImage imageNamed:@"WTNotificationNormalButton"];
         UIImage *selectImage = [UIImage imageNamed:@"WTNotificationSelectButton"];
@@ -113,9 +113,9 @@
 #pragma mark - Public methods
 
 - (void)startShine {
-    if(self.isSelected)
+    if (self.isSelected)
         return;
-    if(self.isShining)
+    if (self.isShining)
         return;
     self.shining = YES;
     [self startShineAnimation];
@@ -136,9 +136,9 @@
 #pragma mark - Animation
 
 - (void)startShineAnimation {
-    if(!self.isShining)
+    if (!self.isShining)
         return;
-    if(self.isShineAnimationLocked)
+    if (self.isShineAnimationLocked)
         return;
     self.ringImageView.hidden = NO;
     self.ringImageView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
@@ -150,7 +150,7 @@
         weakSelf.ringImageView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 3.0, 3.0);
         weakSelf.ringImageView.alpha = 0;
     } completion:^(BOOL finished) {
-        if(weakSelf.isShining) {
+        if (weakSelf.isShining) {
             [weakSelf performSelector:@selector(startShineAnimation) withObject:nil afterDelay:0.5];
         } else {
             weakSelf.ringImageView.hidden = YES;

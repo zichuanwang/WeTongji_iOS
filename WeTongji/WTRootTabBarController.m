@@ -124,10 +124,10 @@
 - (void)setBuildInTabBarHeight:(CGFloat)height {
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     for(UIView *view in self.view.subviews) {
-        if([view isKindOfClass:[UITabBar class]]) {
+        if ([view isKindOfClass:[UITabBar class]]) {
             [view resetOriginY:screenSize.height - height];
             [view resetHeight:height];
-        } else if(view != self.tabBarBgImageView) {
+        } else if (view != self.tabBarBgImageView) {
             [view resetHeight:screenSize.height - height];
         }
     }

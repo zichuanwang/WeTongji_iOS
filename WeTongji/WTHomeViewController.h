@@ -12,7 +12,7 @@
 
 @class OHAttributedLabel;
 
-@interface WTHomeViewController : WTRootViewController <UIScrollViewDelegate, WTHomeSelectDelegate>
+@interface WTHomeViewController : WTRootViewController <UIScrollViewDelegate, WTHomeSelectContainerViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, weak) IBOutlet UIButton *panelMoreButton;

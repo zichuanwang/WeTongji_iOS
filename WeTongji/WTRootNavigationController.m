@@ -48,7 +48,7 @@
 }
 
 - (void)configureNavigationBar {
-    if([self.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
+    if ([self.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
         [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"WTNavigationBarBg"] forBarMetrics:UIBarMetricsDefault];
         self.navigationBar.shadowImage = [[UIImage alloc] init];
     }
@@ -120,7 +120,7 @@
 #pragma mark - Properties
 
 - (UIView *)screenShootContainerView {
-    if(!_screenShootContainerView) {
+    if (!_screenShootContainerView) {
         _screenShootContainerView = [[UIView alloc] init];
         
         CGSize screenSize = [UIScreen mainScreen].bounds.size;
@@ -135,7 +135,7 @@
 }
 
 - (UIImageView *)screenShootImageView {
-    if(!_screenShootImageView) {
+    if (!_screenShootImageView) {
         self.navigationBarShadowImageView.hidden = YES;
         _screenShootImageView = [[UIImageView alloc] initWithImage:[UIImage screenShoot]];
         self.navigationBarShadowImageView.hidden = NO;

@@ -11,7 +11,6 @@
 
 @interface WTHomeSelectContainerView()
 
-@property (nonatomic, assign) WTHomeSelectContainerViewCategory category;
 @property (nonatomic, strong) NSMutableArray *itemInfoArray;
 @property (nonatomic, strong) NSMutableArray *itemViewArray;
 
@@ -21,7 +20,7 @@
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
-    if(self) {
+    if (self) {
         self.itemViewArray = [NSMutableArray array];
     }
     return self;
@@ -35,7 +34,7 @@
 + (WTHomeSelectContainerView *)createHomeSelectContainerViewWithCategory:(WTHomeSelectContainerViewCategory)category itemInfoArray:(NSArray *)array {
     WTHomeSelectContainerView *result = [[[NSBundle mainBundle] loadNibNamed:@"WTHomeSelectContainerView" owner:self options:nil] lastObject];
     result.category = category;
-    switch(category) {
+    switch (category) {
         case WTHomeSelectContainerViewCategoryNews:
         {
             result.categoryLabel.text = NSLocalizedString(@"News", nil);
@@ -54,7 +53,7 @@
         default:
             break;
     }
-    if(array)
+    if (array)
         result.itemInfoArray = [[NSMutableArray alloc] initWithArray:array];
     else
         result.itemInfoArray = [NSMutableArray array];
@@ -68,9 +67,9 @@
 }
 
 - (WTHomeSelectItemView *)itemViewAtIndex:(NSUInteger)index {
-    if(index >= self.itemViewArray.count) {
+    if (index >= self.itemViewArray.count) {
         WTHomeSelectItemView *itemView = nil;
-        switch(self.category) {
+        switch (self.category) {
             case WTHomeSelectContainerViewCategoryNews:
             {
                 itemView = [WTHomeSelectNewsView createHomeSelectNewsView];
@@ -122,9 +121,8 @@
 #pragma mark - Actions
 
 - (void)didClickSeeAllButton:(UIButton *)sender {
-    if (self.selectDelegate
-        && [self.selectDelegate respondsToSelector:@selector(seeAllForCategory:)]) {
-        [self.selectDelegate seeAllForCategory:self.category];
+    if ([self.delegate respondsToSelector:@selector(homeSelectContainerViewDidClickSeeAllButton:)]) {
+        [self.delegate homeSelectContainerViewDidClickSeeAllButton:self];
     }
 }
 

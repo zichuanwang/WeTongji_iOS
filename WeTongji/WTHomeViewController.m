@@ -11,8 +11,6 @@
 #import "OHAttributedLabel.h"
 #import "UIApplication+Addition.h"
 #import "WTNewsViewController.h"
-#import "WTHomeNavigationController.h"
-
 
 @interface WTHomeViewController ()
 
@@ -61,21 +59,21 @@
 
 - (void)configureNewsSelect {
     WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryNews itemInfoArray:@[@"", @"", @""]];
-    containerView.selectDelegate = self;
+    containerView.delegate = self;
     [containerView resetOrigin:CGPointMake(0, 240)];
     [self.scrollView addSubview:containerView];
 }
 
 - (void)configureFeaturedSelect {
     WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryFeatured itemInfoArray:@[@"", @"", @""]];
-    containerView.selectDelegate = self;
+    containerView.delegate = self;
     [containerView resetOrigin:CGPointMake(0, 380)];
     [self.scrollView addSubview:containerView];
 }
 
 - (void)configureActivitySelect {
     WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryActivity itemInfoArray:@[@"", @"", @""]];
-    containerView.selectDelegate = self;
+    containerView.delegate = self;
     [containerView resetOrigin:CGPointMake(0, 520)];
     [self.scrollView addSubview:containerView];
 }
@@ -112,14 +110,13 @@
     [tabBarVC clickTabWithName:WTRootTabBarViewControllerNow];
 }
 
-#pragma mark - WTHomeSelectDelegate Protocol Implementation
+#pragma mark - WTHomeSelectContainerViewDelegate
 
-- (void)seeAllForCategory:(WTHomeSelectContainerViewCategory)category {
-    WTHomeNavigationController *nc = (WTHomeNavigationController *)self.navigationController;
+- (void)homeSelectContainerViewDidClickSeeAllButton:(WTHomeSelectContainerView *)containerView {
     
-    switch (category) {
+    switch (containerView.category) {
         case WTHomeSelectContainerViewCategoryNews:
-            [nc navigateToViewController:[[WTNewsViewController alloc] init]];
+            [self.navigationController pushViewController:[[WTNewsViewController alloc] init] animated:YES];
             break;
             
         case WTHomeSelectContainerViewCategoryActivity:
@@ -132,7 +129,6 @@
             
         default:
             break;
-
     }
 }
 
