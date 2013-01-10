@@ -28,4 +28,7 @@
 
 + (UIView *)createNavigationBarTitleViewWithText:(NSString *)text;
 
++ (UIBarButtonItem *)createLogoBackBarButtonWithTarget:(id)target
+                                                action:(SEL)action;
+
 @end

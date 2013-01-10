@@ -22,7 +22,7 @@
     [titleLabel sizeToFit];
     
     UIView *titleContainerView = [[UIView alloc] initWithFrame:titleLabel.frame];
-    [titleLabel resetOriginY:2];
+    [titleLabel resetOriginY:0];
     [titleContainerView addSubview:titleLabel];
     
     return titleContainerView;
@@ -41,6 +41,23 @@
                                             action:(SEL)selector {
     UIButton *button = [WTResourceFactory createFocusButtonWithText:text];
     [button addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
+    return [WTResourceFactory createBarButtonWithButton:button];
+}
+
++ (UIBarButtonItem *)createLogoBackBarButtonWithTarget:(id)target action:(SEL)action {
+    UIButton *button = [[UIButton alloc] init];
+    
+    UIEdgeInsets insets = UIEdgeInsetsMake(0.0, 8.0, 0.0, 6.0);
+    UIImage *image = [[UIImage imageNamed:@"WTNavigationBarBackButton"] resizableImageWithCapInsets:insets];
+    [button setBackgroundImage:image forState:UIControlStateNormal];
+    
+    UIImage *backBarButtonLogoImage = [UIImage imageNamed:@"WTNavigationBarBackButtonLogo"];
+    [button setImage:backBarButtonLogoImage forState:UIControlStateNormal];
+    
+    [button resetSize:backBarButtonLogoImage.size];
+    
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    
     return [WTResourceFactory createBarButtonWithButton:button];
 }
 
