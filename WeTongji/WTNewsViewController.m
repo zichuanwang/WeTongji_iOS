@@ -8,6 +8,7 @@
 
 #import "WTNewsViewController.h"
 #import "OHAttributedLabel.h"
+#import "WTResourceFactory.h"
 
 @interface WTNewsViewController ()
 
@@ -40,7 +41,7 @@
 #pragma mark - UI methods
 
 - (void)configureNavigationBar {
-    self.navigationItem.title = NSLocalizedString(@"News", @"");
+    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"News", nil)];
 }
 
 @end

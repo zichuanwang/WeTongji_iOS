@@ -26,4 +26,6 @@
                                            target:(id)target
                                            action:(SEL)action;
 
++ (UIView *)createNavigationBarTitleViewWithText:(NSString *)text;
+
 @end

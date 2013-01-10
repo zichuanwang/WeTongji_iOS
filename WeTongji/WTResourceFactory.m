@@ -10,6 +10,24 @@
 
 @implementation WTResourceFactory
 
++ (UIView *)createNavigationBarTitleViewWithText:(NSString *)text {
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 44)];
+    titleLabel.backgroundColor = [UIColor clearColor];
+    titleLabel.font = [UIFont boldSystemFontOfSize:20.0f];
+    titleLabel.textAlignment = UITextAlignmentCenter;
+    titleLabel.textColor = [UIColor darkGrayColor];
+    titleLabel.shadowColor = [UIColor whiteColor];
+    titleLabel.shadowOffset = CGSizeMake(0, 1);
+    titleLabel.text = text;
+    [titleLabel sizeToFit];
+    
+    UIView *titleContainerView = [[UIView alloc] initWithFrame:titleLabel.frame];
+    [titleLabel resetOriginY:2];
+    [titleContainerView addSubview:titleLabel];
+    
+    return titleContainerView;
+}
+
 + (UIBarButtonItem *)createNormalBarButtonWithText:(NSString *)text
                                             target:(id)target
                                             action:(SEL)action {
