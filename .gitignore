@@ -12,3 +12,7 @@ WeTongji.xcworkspace/contents.xcworkspacedata
 WeTongji.xcworkspace/xcuserdata/bluebitch.xcuserdatad/WorkspaceSettings.xcsettings
 
 WeTongji/WTBannerContainerView.xib
+
+*.xcworkspacedata
+
+*.xcworkspacedata
