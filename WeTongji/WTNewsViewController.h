@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WTCoreDataTableViewController.h"
 
-@interface WTNewsViewController : UIViewController
+@interface WTNewsViewController : WTCoreDataTableViewController
 
 @end

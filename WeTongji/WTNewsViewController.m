@@ -56,6 +56,7 @@
 }
 
 - (void)didClickFilterButton:(UIButton *)sender {
+    sender.selected = !sender.selected;
 }
 
 @end

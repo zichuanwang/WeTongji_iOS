@@ -63,6 +63,9 @@
 		E13B0E5316A2E18800A45079 /* WTNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E13B0E5216A2E18800A45079 /* WTNewsCell.xib */; };
 		E13B0E5616A2F31100A45079 /* WTFilterLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0E5416A2F31100A45079 /* WTFilterLogo.png */; };
 		E13B0E5716A2F31100A45079 /* WTFilterLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0E5516A2F31100A45079 /* WTFilterLogo@2x.png */; };
+		E13B0E5A16A3028900A45079 /* WTCoreDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0E5916A3028900A45079 /* WTCoreDataViewController.m */; };
+		E13B0E5D16A302A500A45079 /* WTCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0E5C16A302A500A45079 /* WTCoreDataTableViewController.m */; };
+		E13B0E6A16A3078300A45079 /* WTCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0E6916A3078300A45079 /* WTCoreDataManager.m */; };
 		E14F964F1696FCF40048414D /* TestAvatar1.png in Resources */ = {isa = PBXBuildFile; fileRef = E14F964E1696FCF40048414D /* TestAvatar1.png */; };
 		E14F96521696FD660048414D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E14F96511696FD660048414D /* QuartzCore.framework */; };
 		E14FA6781680A9F3008A8D33 /* WTFocusButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6741680A9F2008A8D33 /* WTFocusButton.png */; };
@@ -285,6 +288,12 @@
 		E13B0E5216A2E18800A45079 /* WTNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNewsCell.xib; sourceTree = "<group>"; };
 		E13B0E5416A2F31100A45079 /* WTFilterLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTFilterLogo.png; sourceTree = "<group>"; };
 		E13B0E5516A2F31100A45079 /* WTFilterLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTFilterLogo@2x.png"; sourceTree = "<group>"; };
+		E13B0E5816A3028900A45079 /* WTCoreDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCoreDataViewController.h; sourceTree = "<group>"; };
+		E13B0E5916A3028900A45079 /* WTCoreDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCoreDataViewController.m; sourceTree = "<group>"; };
+		E13B0E5B16A302A500A45079 /* WTCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCoreDataTableViewController.h; sourceTree = "<group>"; };
+		E13B0E5C16A302A500A45079 /* WTCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCoreDataTableViewController.m; sourceTree = "<group>"; };
+		E13B0E6816A3078200A45079 /* WTCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCoreDataManager.h; sourceTree = "<group>"; };
+		E13B0E6916A3078300A45079 /* WTCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCoreDataManager.m; sourceTree = "<group>"; };
 		E14F964E1696FCF40048414D /* TestAvatar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TestAvatar1.png; sourceTree = "<group>"; };
 		E14F96511696FD660048414D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E14FA6741680A9F2008A8D33 /* WTFocusButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTFocusButton.png; sourceTree = "<group>"; };
@@ -778,6 +787,8 @@
 			children = (
 				E188222F16802AD700A41F47 /* WTResourceFactory.h */,
 				E188223016802AD700A41F47 /* WTResourceFactory.m */,
+				E13B0E6816A3078200A45079 /* WTCoreDataManager.h */,
+				E13B0E6916A3078300A45079 /* WTCoreDataManager.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -867,6 +878,10 @@
 				E18821D716800BF200A41F47 /* WTRootTabBarController.m */,
 				E1D3741C16942F4C0012E30A /* WTRootViewController.h */,
 				E1D3741D16942F4C0012E30A /* WTRootViewController.m */,
+				E13B0E5816A3028900A45079 /* WTCoreDataViewController.h */,
+				E13B0E5916A3028900A45079 /* WTCoreDataViewController.m */,
+				E13B0E5B16A302A500A45079 /* WTCoreDataTableViewController.h */,
+				E13B0E5C16A302A500A45079 /* WTCoreDataTableViewController.m */,
 			);
 			name = Root;
 			sourceTree = "<group>";
@@ -1299,6 +1314,9 @@
 				039E38111697205000178F1C /* WTNowBaseCell.m in Sources */,
 				A1DD01CF169F244E009EBE02 /* WTNewsViewController.m in Sources */,
 				E13B0E5116A2E16C00A45079 /* WTNewsCell.m in Sources */,
+				E13B0E5A16A3028900A45079 /* WTCoreDataViewController.m in Sources */,
+				E13B0E5D16A302A500A45079 /* WTCoreDataTableViewController.m in Sources */,
+				E13B0E6A16A3078300A45079 /* WTCoreDataManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
