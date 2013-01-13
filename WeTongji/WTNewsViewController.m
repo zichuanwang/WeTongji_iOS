@@ -39,6 +39,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Data load methods
+
+- (void)loadData {
+    
+}
+
 #pragma mark - UI methods
 
 - (void)configureNavigationBar {
@@ -57,6 +63,31 @@
 
 - (void)didClickFilterButton:(UIButton *)sender {
     sender.selected = !sender.selected;
+}
+
+#pragma mark - CoreDataTableViewController methods
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    
+}
+ 
+- (void)configureRequest:(NSFetchRequest *)request {
+    [request setEntity:[NSEntityDescription entityForName:@"News" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
+    
+    NSSortDescriptor *sortByPublishTime = [[NSSortDescriptor alloc] initWithKey:@"publish_date" ascending:NO];
+    [request setSortDescriptors:[NSArray arrayWithObject:sortByPublishTime]];
+}
+
+- (NSString *)customCellClassName {
+    return nil;
+}
+
+- (NSString *)customSectionNameKeyPath {
+    return nil;
+}
+
+- (NSString *)customCacheName {
+    return nil;
 }
 
 @end
