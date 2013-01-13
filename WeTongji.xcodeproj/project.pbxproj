@@ -236,8 +236,8 @@
 		A1DD01CE169F244E009EBE02 /* WTNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNewsViewController.xib; sourceTree = "<group>"; };
 		E11702FB1650F82A00D82F4A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		E1170315165156A400D82F4A /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
-		E1170317165156BE00D82F4A /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		E1170315165156A400D82F4A /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../../icon@2x.png"; sourceTree = "<group>"; };
+		E1170317165156BE00D82F4A /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../icon.png; sourceTree = "<group>"; };
 		E117035B1651EF4700D82F4A /* WTTabBarBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTabBarBg.png; sourceTree = "<group>"; };
 		E117035C1651EF4700D82F4A /* WTTabBarBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTabBarBg@2x.png"; sourceTree = "<group>"; };
 		E117035D1651EF4700D82F4A /* WTTabBarButtonBillBoard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTabBarButtonBillBoard.png; sourceTree = "<group>"; };
@@ -272,9 +272,9 @@
 		E12554A116491530006D42F5 /* WeTongji-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeTongji-Prefix.pch"; sourceTree = "<group>"; };
 		E12554A216491530006D42F5 /* WTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WTAppDelegate.h; sourceTree = "<group>"; };
 		E12554A316491530006D42F5 /* WTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTAppDelegate.m; sourceTree = "<group>"; };
-		E12554A516491530006D42F5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		E12554A716491530006D42F5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		E12554A916491530006D42F5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		E12554A516491530006D42F5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		E12554A716491530006D42F5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		E12554A916491530006D42F5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		E12554C416491531006D42F5 /* WeTongjiTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeTongjiTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12554C516491531006D42F5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		E12554CD16491532006D42F5 /* WeTongjiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WeTongjiTests-Info.plist"; sourceTree = "<group>"; };
@@ -580,8 +580,6 @@
 		E125548416491530006D42F5 = {
 			isa = PBXGroup;
 			children = (
-				E1170317165156BE00D82F4A /* icon.png */,
-				E1170315165156A400D82F4A /* icon@2x.png */,
 				E125549916491530006D42F5 /* WeTongji */,
 				E12554CB16491532006D42F5 /* WeTongjiTests */,
 				E117035A1651EF3E00D82F4A /* Resources */,
@@ -624,12 +622,9 @@
 				E1D3743C1694C3B90012E30A /* Core Data */,
 				E1D373F916936B5B0012E30A /* CustomCells */,
 				E14FA67D1680B9BB008A8D33 /* CustomViews */,
-				E11703981651F35A00D82F4A /* MainWindow.xib */,
 				E125549A16491530006D42F5 /* Supporting Files */,
 				E18821CD1680077000A41F47 /* Tools */,
 				E117038E1651EFD900D82F4A /* ViewControllers */,
-				E12554A216491530006D42F5 /* WTAppDelegate.h */,
-				E12554A316491530006D42F5 /* WTAppDelegate.m */,
 			);
 			path = WeTongji;
 			sourceTree = "<group>";
@@ -637,14 +632,14 @@
 		E125549A16491530006D42F5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E188221E1680252A00A41F47 /* Localizable.strings */,
-				E125549B16491530006D42F5 /* WeTongji-Info.plist */,
 				E125549C16491530006D42F5 /* InfoPlist.strings */,
+				E188221E1680252A00A41F47 /* Localizable.strings */,
 				E125549F16491530006D42F5 /* main.m */,
+				E11703981651F35A00D82F4A /* MainWindow.xib */,
+				E125549B16491530006D42F5 /* WeTongji-Info.plist */,
 				E12554A116491530006D42F5 /* WeTongji-Prefix.pch */,
-				E12554A516491530006D42F5 /* Default.png */,
-				E12554A716491530006D42F5 /* Default@2x.png */,
-				E12554A916491530006D42F5 /* Default-568h@2x.png */,
+				E12554A216491530006D42F5 /* WTAppDelegate.h */,
+				E12554A316491530006D42F5 /* WTAppDelegate.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -901,6 +896,11 @@
 		E1D373A61693473E0012E30A /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				E1170317165156BE00D82F4A /* icon.png */,
+				E1170315165156A400D82F4A /* icon@2x.png */,
+				E12554A516491530006D42F5 /* Default.png */,
+				E12554A716491530006D42F5 /* Default@2x.png */,
+				E12554A916491530006D42F5 /* Default-568h@2x.png */,
 				E13B0E5416A2F31100A45079 /* WTFilterLogo.png */,
 				E13B0E5516A2F31100A45079 /* WTFilterLogo@2x.png */,
 				E13B0E4A169F4F5500A45079 /* WTNavigationBarBackButtonLogo.png */,
