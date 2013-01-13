@@ -10,6 +10,16 @@
 
 @implementation WTResourceFactory
 
++ (UIBarButtonItem *)createFilterBarButtonWithTarget:(id)target
+                                              action:(SEL)action {
+    UIButton *button = [WTResourceFactory createFocusButtonWithText:@""];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    UIImage *filterLogoImage = [UIImage imageNamed:@"WTFilterLogo"];
+    [button setImage:filterLogoImage forState:UIControlStateNormal];
+    [button resetWidth:filterLogoImage.size.width];
+    return [WTResourceFactory createBarButtonWithButton:button];
+}
+
 + (UIView *)createNavigationBarTitleViewWithText:(NSString *)text {
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 44)];
     titleLabel.backgroundColor = [UIColor clearColor];

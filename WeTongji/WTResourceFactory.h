@@ -31,4 +31,7 @@
 + (UIBarButtonItem *)createLogoBackBarButtonWithTarget:(id)target
                                                 action:(SEL)action;
 
++ (UIBarButtonItem *)createFilterBarButtonWithTarget:(id)target
+                                              action:(SEL)action;
+
 @end

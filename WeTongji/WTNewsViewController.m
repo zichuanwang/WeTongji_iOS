@@ -30,6 +30,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self configureNavigationBar];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,13 +43,19 @@
 
 - (void)configureNavigationBar {
     self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"News", nil)];
-    self.navigationItem.leftBarButtonItem = [WTResourceFactory createLogoBackBarButtonWithTarget:self action:@selector(didClickBackButton:)];
+    self.navigationItem.leftBarButtonItem = [WTResourceFactory createLogoBackBarButtonWithTarget:self
+                                                                                          action:@selector(didClickBackButton:)];
+    self.navigationItem.rightBarButtonItem = [WTResourceFactory createFilterBarButtonWithTarget:self
+                                                                                         action:@selector(didClickFilterButton:)];
 }
 
 #pragma mark - Actions
 
 - (void)didClickBackButton:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)didClickFilterButton:(UIButton *)sender {
 }
 
 @end

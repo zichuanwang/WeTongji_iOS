@@ -59,6 +59,10 @@
 		E12554D316491532006D42F5 /* WeTongjiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E12554D216491532006D42F5 /* WeTongjiTests.m */; };
 		E13B0E4C169F4F5500A45079 /* WTNavigationBarBackButtonLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0E4A169F4F5500A45079 /* WTNavigationBarBackButtonLogo.png */; };
 		E13B0E4D169F4F5500A45079 /* WTNavigationBarBackButtonLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0E4B169F4F5500A45079 /* WTNavigationBarBackButtonLogo@2x.png */; };
+		E13B0E5116A2E16C00A45079 /* WTNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0E5016A2E16C00A45079 /* WTNewsCell.m */; };
+		E13B0E5316A2E18800A45079 /* WTNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E13B0E5216A2E18800A45079 /* WTNewsCell.xib */; };
+		E13B0E5616A2F31100A45079 /* WTFilterLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0E5416A2F31100A45079 /* WTFilterLogo.png */; };
+		E13B0E5716A2F31100A45079 /* WTFilterLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0E5516A2F31100A45079 /* WTFilterLogo@2x.png */; };
 		E14F964F1696FCF40048414D /* TestAvatar1.png in Resources */ = {isa = PBXBuildFile; fileRef = E14F964E1696FCF40048414D /* TestAvatar1.png */; };
 		E14F96521696FD660048414D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E14F96511696FD660048414D /* QuartzCore.framework */; };
 		E14FA6781680A9F3008A8D33 /* WTFocusButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6741680A9F2008A8D33 /* WTFocusButton.png */; };
@@ -276,6 +280,11 @@
 		E12554D216491532006D42F5 /* WeTongjiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeTongjiTests.m; sourceTree = "<group>"; };
 		E13B0E4A169F4F5500A45079 /* WTNavigationBarBackButtonLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNavigationBarBackButtonLogo.png; sourceTree = "<group>"; };
 		E13B0E4B169F4F5500A45079 /* WTNavigationBarBackButtonLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNavigationBarBackButtonLogo@2x.png"; sourceTree = "<group>"; };
+		E13B0E4F16A2E16C00A45079 /* WTNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNewsCell.h; sourceTree = "<group>"; };
+		E13B0E5016A2E16C00A45079 /* WTNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNewsCell.m; sourceTree = "<group>"; };
+		E13B0E5216A2E18800A45079 /* WTNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNewsCell.xib; sourceTree = "<group>"; };
+		E13B0E5416A2F31100A45079 /* WTFilterLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTFilterLogo.png; sourceTree = "<group>"; };
+		E13B0E5516A2F31100A45079 /* WTFilterLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTFilterLogo@2x.png"; sourceTree = "<group>"; };
 		E14F964E1696FCF40048414D /* TestAvatar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TestAvatar1.png; sourceTree = "<group>"; };
 		E14F96511696FD660048414D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E14FA6741680A9F2008A8D33 /* WTFocusButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTFocusButton.png; sourceTree = "<group>"; };
@@ -877,6 +886,8 @@
 		E1D373A61693473E0012E30A /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				E13B0E5416A2F31100A45079 /* WTFilterLogo.png */,
+				E13B0E5516A2F31100A45079 /* WTFilterLogo@2x.png */,
 				E13B0E4A169F4F5500A45079 /* WTNavigationBarBackButtonLogo.png */,
 				E13B0E4B169F4F5500A45079 /* WTNavigationBarBackButtonLogo@2x.png */,
 				E14F964E1696FCF40048414D /* TestAvatar1.png */,
@@ -916,6 +927,9 @@
 				039E380D16971F8C00178F1C /* WTNowCourseCell.xib */,
 				039E380F1697205000178F1C /* WTNowBaseCell.h */,
 				039E38101697205000178F1C /* WTNowBaseCell.m */,
+				E13B0E4F16A2E16C00A45079 /* WTNewsCell.h */,
+				E13B0E5016A2E16C00A45079 /* WTNewsCell.m */,
+				E13B0E5216A2E18800A45079 /* WTNewsCell.xib */,
 			);
 			name = CustomCells;
 			sourceTree = "<group>";
@@ -1208,6 +1222,9 @@
 				A1DD01D0169F244E009EBE02 /* WTNewsViewController.xib in Resources */,
 				E13B0E4C169F4F5500A45079 /* WTNavigationBarBackButtonLogo.png in Resources */,
 				E13B0E4D169F4F5500A45079 /* WTNavigationBarBackButtonLogo@2x.png in Resources */,
+				E13B0E5316A2E18800A45079 /* WTNewsCell.xib in Resources */,
+				E13B0E5616A2F31100A45079 /* WTFilterLogo.png in Resources */,
+				E13B0E5716A2F31100A45079 /* WTFilterLogo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1281,6 +1298,7 @@
 				039E380116970FD000178F1C /* WTNowCourseCell.m in Sources */,
 				039E38111697205000178F1C /* WTNowBaseCell.m in Sources */,
 				A1DD01CF169F244E009EBE02 /* WTNewsViewController.m in Sources */,
+				E13B0E5116A2E16C00A45079 /* WTNewsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
