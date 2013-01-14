@@ -57,12 +57,12 @@
 }
 
 - (void)insertCellAtIndexPath:(NSIndexPath *)indexPath {
-    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+    [self.tableView insertRowsAtIndexPaths:@[indexPath]
                           withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)deleteCellAtIndexPath:(NSIndexPath *)indexPath {
-    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath]
                           withRowAnimation:UITableViewRowAnimationFade];
 }
 
@@ -100,7 +100,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
+    return [[self.fetchedResultsController sections][section] numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -113,7 +113,7 @@
     if (cell == nil) {
         if (name) {
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:[self customCellClassName] owner:self options:nil];
-            cell = [nib objectAtIndex:0];
+            cell = nib[0];
         }
         else {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
@@ -155,9 +155,9 @@
             
         case NSFetchedResultsChangeMove:
             // NSLog(@"did move");
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+            [tableView deleteRowsAtIndexPaths:@[indexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+            [tableView insertRowsAtIndexPaths:@[newIndexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
     }

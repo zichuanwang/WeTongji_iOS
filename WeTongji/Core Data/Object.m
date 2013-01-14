@@ -1,17 +1,16 @@
 //
-//  Star.m
+//  Object.m
 //  WeTongji
 //
 //  Created by 王 紫川 on 13-1-14.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
-#import "Star.h"
+#import "Object.h"
 
 
-@implementation Star
+@implementation Object
 
-@dynamic motto;
-@dynamic name;
+@dynamic identifier;
 
 @end

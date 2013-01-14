@@ -31,6 +31,8 @@
     // Do any additional setup after loading the view from its nib.
     [self configureNavigationBar];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
+    
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,7 +44,14 @@
 #pragma mark - Data load methods
 
 - (void)loadData {
-    
+    WTClient * client = [WTClient sharedClient];
+    WTRequest * request = [WTRequest requestWithSuccessBlock:^(id responseData) {
+        WTLOG(@"Get news: %@", responseData);
+    } failureBlock:^(NSError * error) {
+        WTLOGERROR(@"Get news:%@", error.localizedDescription);
+    }];
+    [request getNewsInTypes:nil sortMethod:nil page:0];
+    [client enqueueRequest:request];
 }
 
 #pragma mark - UI methods
@@ -70,12 +79,12 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
 }
- 
+
 - (void)configureRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"News" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
     NSSortDescriptor *sortByPublishTime = [[NSSortDescriptor alloc] initWithKey:@"publish_date" ascending:NO];
-    [request setSortDescriptors:[NSArray arrayWithObject:sortByPublishTime]];
+    [request setSortDescriptors:@[sortByPublishTime]];
 }
 
 - (NSString *)customCellClassName {

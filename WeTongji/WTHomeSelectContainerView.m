@@ -91,7 +91,7 @@
         [self.itemViewArray addObject:itemView];
         return itemView;
     } else {
-        return [self.itemViewArray objectAtIndex:index];
+        return (self.itemViewArray)[index];
     }
 }
 

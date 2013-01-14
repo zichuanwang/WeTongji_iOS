@@ -2,7 +2,7 @@
 //  Activity.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-1-3.
+//  Created by 王 紫川 on 13-1-14.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -13,8 +13,7 @@
 
 @interface Activity : Event
 
-@property (nonatomic, retain) NSString * identifier;
-@property (nonatomic, retain) NSString * organizer_id;
 @property (nonatomic, retain) NSString * content;
+@property (nonatomic, retain) NSString * organizer_id;
 
 @end

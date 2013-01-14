@@ -56,7 +56,7 @@
     
     UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 160, 44)];
     if (toolbar.subviews.count > 0)
-        [[toolbar.subviews objectAtIndex:0] removeFromSuperview];
+        [(toolbar.subviews)[0] removeFromSuperview];
     
     NSMutableArray *buttons = [[NSMutableArray alloc] initWithCapacity:5];
     
