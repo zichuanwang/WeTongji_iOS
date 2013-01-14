@@ -7,37 +7,45 @@
 //
 
 #import "News+Addition.h"
+#import "WTCoreDataManager.h"
+#import "NSString+Addition.h"
 
 @implementation News (Addition)
 
-+ (News *)insertUser:(NSDictionary *)dict inManagedObjectContext:(NSManagedObjectContext *)context {
++ (News *)insertNews:(NSDictionary *)dict {
     NSString *newsID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
     if (!newsID || [newsID isEqualToString:@""]) {
         return nil;
     }
     
-    News *result = [News newsWithID:newsID inManagedObjectContext:context];
+    News *result = [News newsWithID:newsID];
     if (!result) {
-        result = [NSEntityDescription insertNewObjectForEntityForName:@"News" inManagedObjectContext:context];
+        result = [NSEntityDescription insertNewObjectForEntityForName:@"News" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
     }
     
     result.identifier = newsID;
     result.title = [NSString stringWithFormat:@"%@", dict[@"Title"]];
     result.content = [NSString stringWithFormat:@"%@", dict[@"Context"]];
+    result.summary = [NSString stringWithFormat:@"%@", dict[@"Summary"]];
+    result.publish_date = [[NSString stringWithFormat:@"%@", [dict objectForKey:@"CreatedAt"]] convertToDate];
     
     return result;
 }
 
-+ (News *)newsWithID:(NSString *)newsID inManagedObjectContext:(NSManagedObjectContext *)context {
++ (News *)newsWithID:(NSString *)newsID {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
-    [request setEntity:[NSEntityDescription entityForName:@"News" inManagedObjectContext:context]];
+    [request setEntity:[NSEntityDescription entityForName:@"News" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     [request setPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", newsID]];
     
-    News *result = [[context executeFetchRequest:request error:NULL] lastObject];
+    News *result = [[[WTCoreDataManager sharedManager].managedObjectContext executeFetchRequest:request error:NULL] lastObject];
     
     return result;
+}
+
+- (void)awakeFromFetch {
+    self.publish_day = [NSString yearMonthDayConvertFromDate:self.publish_date];
 }
 
 @end

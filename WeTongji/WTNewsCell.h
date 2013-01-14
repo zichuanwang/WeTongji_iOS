@@ -10,4 +10,12 @@
 
 @interface WTNewsCell : UITableViewCell
 
+@property (nonatomic, weak) IBOutlet UILabel *categoryLabel;
+@property (nonatomic, weak) IBOutlet UILabel *summaryLabel;
+@property (nonatomic, weak) IBOutlet UIView *containerView;
+
+- (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
+                          category:(NSString *)category
+                           summary:(NSString *)summary;
+
 @end

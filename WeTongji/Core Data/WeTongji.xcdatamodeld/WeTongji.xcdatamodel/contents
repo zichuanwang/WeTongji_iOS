@@ -17,6 +17,8 @@
     <entity name="News" representedClassName="News" parentEntity="Object" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="publish_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="publish_day" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
+        <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Object" representedClassName="Object" syncable="YES">
@@ -35,10 +37,10 @@
         <element name="Activity" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Event" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Image" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="News" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="News" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Object" positionX="160" positionY="192" width="128" height="60"/>
         <element name="Organization" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Star" positionX="160" positionY="192" width="128" height="75"/>
         <element name="User" positionX="160" positionY="192" width="128" height="45"/>
-        <element name="Object" positionX="160" positionY="192" width="128" height="60"/>
     </elements>
 </model>

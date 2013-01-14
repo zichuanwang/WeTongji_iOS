@@ -49,7 +49,7 @@
 }
 
 - (NSString *)customCacheName {
-    return nil;
+    return NSStringFromClass(self.class);
 }
 
 - (NSString *)customSectionNameKeyPath {

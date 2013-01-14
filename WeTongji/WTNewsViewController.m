@@ -9,6 +9,8 @@
 #import "WTNewsViewController.h"
 #import "OHAttributedLabel.h"
 #import "WTResourceFactory.h"
+#import "News+Addition.h"
+#import "WTNewsCell.h"
 
 @interface WTNewsViewController ()
 
@@ -47,6 +49,10 @@
     WTClient * client = [WTClient sharedClient];
     WTRequest * request = [WTRequest requestWithSuccessBlock:^(id responseData) {
         WTLOG(@"Get news: %@", responseData);
+        NSDictionary *resultDict = (NSDictionary *)responseData;
+        NSArray *resultArray = resultDict[@"SchoolNews"];
+        for(NSDictionary *dict in resultArray)
+            [News insertNews:dict];
     } failureBlock:^(NSError * error) {
         WTLOGERROR(@"Get news:%@", error.localizedDescription);
     }];
@@ -74,10 +80,34 @@
     sender.selected = !sender.selected;
 }
 
+#pragma mark - UITableView delegates
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIImageView *bgImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 25)];
+    bgImageView.image = [UIImage imageNamed:@"WTTableViewSectionBgUnit"];
+    
+    NSString *sectionName = [[[self.fetchedResultsController sections] objectAtIndex:section] name];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, tableView.bounds.size.width, 24)];
+    label.text = sectionName;
+    label.font = [UIFont boldSystemFontOfSize:14.0f];
+    label.textColor = [UIColor whiteColor];
+    label.shadowColor = [UIColor grayColor];
+    label.shadowOffset = CGSizeMake(0, 1.0f);
+    label.backgroundColor = [UIColor clearColor];
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 24)];
+    [headerView addSubview:bgImageView];
+    [headerView addSubview:label];
+    
+    return headerView;
+}
+
 #pragma mark - CoreDataTableViewController methods
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    
+    WTNewsCell *newsCell = (WTNewsCell *)cell;
+    News *news = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [newsCell configureCellWithIndexPath:indexPath category:NSLocalizedString(@"Campus Update", nil) summary:news.title];
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {
@@ -88,15 +118,11 @@
 }
 
 - (NSString *)customCellClassName {
-    return nil;
+    return @"WTNewsCell";
 }
 
 - (NSString *)customSectionNameKeyPath {
-    return nil;
-}
-
-- (NSString *)customCacheName {
-    return nil;
+    return @"publish_day";
 }
 
 @end

@@ -10,4 +10,7 @@
 
 @interface News (Addition)
 
++ (News *)insertNews:(NSDictionary *)dict;
++ (News *)newsWithID:(NSString *)newsID;
+
 @end
