@@ -11,4 +11,7 @@
 
 @interface WTMeViewController : WTRootViewController
 
+- (IBAction)didClickLoginButton:(UIButton *)sender;
+- (IBAction)didClickActivityDetailButton:(UIButton *)sender;
+
 @end

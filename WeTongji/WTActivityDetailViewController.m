@@ -6,15 +6,15 @@
 //  Copyright (c) 2012年 Tongji Apple Club. All rights reserved.
 //
 
-#import "WTEventDetailViewController.h"
+#import "WTActivityDetailViewController.h"
 #import "WTResourceFactory.h"
 #import "WTLikeButtonView.h"
 
-@interface WTEventDetailViewController ()
+@interface WTActivityDetailViewController ()
 
 @end
 
-@implementation WTEventDetailViewController
+@implementation WTActivityDetailViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

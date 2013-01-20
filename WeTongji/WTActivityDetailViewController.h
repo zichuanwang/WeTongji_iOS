@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WTEventDetailViewController : UIViewController
+@interface WTActivityDetailViewController : UIViewController
 
 @end
