@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12A256" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="11G63b" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Activity" representedClassName="Activity" parentEntity="Event" syncable="YES">
-        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="organizer_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="activityDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="begin" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="canFavorite" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="canLike" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="canSchedule" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="channelId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="end" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="favorite" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="like" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="organizer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="organizerAvatar" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="schedule" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Event" representedClassName="Event" parentEntity="Object" syncable="YES">
         <attribute name="begin_time" optional="YES" attributeType="Date" syncable="YES"/>
@@ -34,7 +49,7 @@
     </entity>
     <entity name="User" representedClassName="User" parentEntity="Object" syncable="YES"/>
     <elements>
-        <element name="Activity" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="Activity" positionX="160" positionY="192" width="128" height="300"/>
         <element name="Event" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Image" positionX="160" positionY="192" width="128" height="75"/>
         <element name="News" positionX="160" positionY="192" width="128" height="120"/>

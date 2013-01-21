@@ -3,3 +3,7 @@ WeTongji.xcodeproj/project.xcworkspace/
 .DS_Store
 WeTongji.xcworkspace/xcuserdata/*
 
+
+WeTongji/Core Data/NSObject+Activity_Addition.h
+
+WeTongji/Core Data/NSObject+Activity_Addition.m

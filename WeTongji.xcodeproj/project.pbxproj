@@ -14,6 +14,12 @@
 		039E380316970FF600178F1C /* WTNowActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 039E380216970FF600178F1C /* WTNowActivityCell.xib */; };
 		039E380E16971F8C00178F1C /* WTNowCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 039E380D16971F8C00178F1C /* WTNowCourseCell.xib */; };
 		039E38111697205000178F1C /* WTNowBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 039E38101697205000178F1C /* WTNowBaseCell.m */; };
+		A14A9FD316AD83D000176654 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = A14A9FD216AD83D000176654 /* Activity.m */; };
+		A1ADA9DB16AC460500E3A62E /* WTActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ADA9D916AC460500E3A62E /* WTActivityViewController.m */; };
+		A1ADA9DC16AC460500E3A62E /* WTActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1ADA9DA16AC460500E3A62E /* WTActivityViewController.xib */; };
+		A1ADA9E016AC58E400E3A62E /* WTActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ADA9DF16AC58E400E3A62E /* WTActivityCell.m */; };
+		A1ADA9E516AC5AE400E3A62E /* WTActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1ADA9E416AC5AE400E3A62E /* WTActivityCell.xib */; };
+		A1ADA9EB16AC655400E3A62E /* Activity+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ADA9EA16AC655400E3A62E /* Activity+Addition.m */; };
 		A1DD01CF169F244E009EBE02 /* WTNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DD01CD169F244E009EBE02 /* WTNewsViewController.m */; };
 		A1DD01D0169F244E009EBE02 /* WTNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1DD01CE169F244E009EBE02 /* WTNewsViewController.xib */; };
 		E10C422316AB03410084337C /* WTSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = E10C422216AB03410084337C /* WTSwitch.m */; };
@@ -79,7 +85,6 @@
 		E13B0EA516A45F4B00A45079 /* WTDebugTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0EA416A45F4B00A45079 /* WTDebugTool.m */; };
 		E13B0EAD16A4665600A45079 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0EAC16A4665600A45079 /* Event.m */; };
 		E13B0EB316A4665A00A45079 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0EB216A4665A00A45079 /* Image.m */; };
-		E13B0EB616A4665B00A45079 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0EB516A4665B00A45079 /* Activity.m */; };
 		E13B0EB916A4666900A45079 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0EB816A4666800A45079 /* User.m */; };
 		E13B0EBC16A4666A00A45079 /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0EBB16A4666A00A45079 /* Organization.m */; };
 		E13B0EBF16A4666C00A45079 /* Star.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0EBE16A4666C00A45079 /* Star.m */; };
@@ -248,6 +253,16 @@
 		039E380D16971F8C00178F1C /* WTNowCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNowCourseCell.xib; sourceTree = "<group>"; };
 		039E380F1697205000178F1C /* WTNowBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNowBaseCell.h; sourceTree = "<group>"; };
 		039E38101697205000178F1C /* WTNowBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNowBaseCell.m; sourceTree = "<group>"; };
+		A14A9FD116AD83D000176654 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
+		A14A9FD216AD83D000176654 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
+		A1ADA9D816AC460500E3A62E /* WTActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTActivityViewController.h; sourceTree = "<group>"; };
+		A1ADA9D916AC460500E3A62E /* WTActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTActivityViewController.m; sourceTree = "<group>"; };
+		A1ADA9DA16AC460500E3A62E /* WTActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTActivityViewController.xib; sourceTree = "<group>"; };
+		A1ADA9DE16AC58E300E3A62E /* WTActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTActivityCell.h; sourceTree = "<group>"; };
+		A1ADA9DF16AC58E400E3A62E /* WTActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTActivityCell.m; sourceTree = "<group>"; };
+		A1ADA9E416AC5AE400E3A62E /* WTActivityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTActivityCell.xib; sourceTree = "<group>"; };
+		A1ADA9E916AC655400E3A62E /* Activity+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Activity+Addition.h"; sourceTree = "<group>"; };
+		A1ADA9EA16AC655400E3A62E /* Activity+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Activity+Addition.m"; sourceTree = "<group>"; };
 		A1DD01CC169F244E009EBE02 /* WTNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNewsViewController.h; sourceTree = "<group>"; };
 		A1DD01CD169F244E009EBE02 /* WTNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNewsViewController.m; sourceTree = "<group>"; };
 		A1DD01CE169F244E009EBE02 /* WTNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNewsViewController.xib; sourceTree = "<group>"; };
@@ -331,8 +346,6 @@
 		E13B0EAC16A4665600A45079 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		E13B0EB116A4665900A45079 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		E13B0EB216A4665A00A45079 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
-		E13B0EB416A4665B00A45079 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
-		E13B0EB516A4665B00A45079 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
 		E13B0EB716A4666800A45079 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		E13B0EB816A4666800A45079 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		E13B0EBA16A4666A00A45079 /* Organization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Organization.h; sourceTree = "<group>"; };
@@ -627,6 +640,9 @@
 				E10C422016A90EAC0084337C /* WTActivityDetailViewController.h */,
 				E14FA6A71681EBC2008A8D33 /* WTActivityDetailViewController.m */,
 				E14FA6A81681EBC3008A8D33 /* WTActivityDetailViewController.xib */,
+				A1ADA9D816AC460500E3A62E /* WTActivityViewController.h */,
+				A1ADA9D916AC460500E3A62E /* WTActivityViewController.m */,
+				A1ADA9DA16AC460500E3A62E /* WTActivityViewController.xib */,
 			);
 			name = Activity;
 			sourceTree = "<group>";
@@ -1010,6 +1026,9 @@
 				E13B0E4F16A2E16C00A45079 /* WTNewsCell.h */,
 				E13B0E5016A2E16C00A45079 /* WTNewsCell.m */,
 				E13B0E5216A2E18800A45079 /* WTNewsCell.xib */,
+				A1ADA9DE16AC58E300E3A62E /* WTActivityCell.h */,
+				A1ADA9DF16AC58E400E3A62E /* WTActivityCell.m */,
+				A1ADA9E416AC5AE400E3A62E /* WTActivityCell.xib */,
 			);
 			name = CustomCells;
 			sourceTree = "<group>";
@@ -1063,12 +1082,12 @@
 		E1D3743D1694C3D90012E30A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A14A9FD116AD83D000176654 /* Activity.h */,
+				A14A9FD216AD83D000176654 /* Activity.m */,
 				E13B0EAB16A4665600A45079 /* Event.h */,
 				E13B0EAC16A4665600A45079 /* Event.m */,
 				E13B0EB116A4665900A45079 /* Image.h */,
 				E13B0EB216A4665A00A45079 /* Image.m */,
-				E13B0EB416A4665B00A45079 /* Activity.h */,
-				E13B0EB516A4665B00A45079 /* Activity.m */,
 				E13B0EB716A4666800A45079 /* User.h */,
 				E13B0EB816A4666800A45079 /* User.m */,
 				E13B0EBA16A4666A00A45079 /* Organization.h */,
@@ -1090,6 +1109,8 @@
 				E13B0E6C16A4476000A45079 /* User+Addition.m */,
 				E13B0E7316A448C100A45079 /* News+Addition.h */,
 				E13B0E7416A448C100A45079 /* News+Addition.m */,
+				A1ADA9E916AC655400E3A62E /* Activity+Addition.h */,
+				A1ADA9EA16AC655400E3A62E /* Activity+Addition.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1322,6 +1343,8 @@
 				E10C423016AB051A0084337C /* WTSwitchCover@2x.png in Resources */,
 				E10C423116AB051A0084337C /* WTSwitchHandler.png in Resources */,
 				E10C423216AB051A0084337C /* WTSwitchHandler@2x.png in Resources */,
+				A1ADA9DC16AC460500E3A62E /* WTActivityViewController.xib in Resources */,
+				A1ADA9E516AC5AE400E3A62E /* WTActivityCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1397,7 +1420,6 @@
 				E13B0EA516A45F4B00A45079 /* WTDebugTool.m in Sources */,
 				E13B0EAD16A4665600A45079 /* Event.m in Sources */,
 				E13B0EB316A4665A00A45079 /* Image.m in Sources */,
-				E13B0EB616A4665B00A45079 /* Activity.m in Sources */,
 				E13B0EB916A4666900A45079 /* User.m in Sources */,
 				E13B0EBC16A4666A00A45079 /* Organization.m in Sources */,
 				E13B0EBF16A4666C00A45079 /* Star.m in Sources */,
@@ -1405,6 +1427,10 @@
 				E13B0ED316A4704900A45079 /* NSString+Addition.m in Sources */,
 				E13B0ED916A4859D00A45079 /* News.m in Sources */,
 				E10C422316AB03410084337C /* WTSwitch.m in Sources */,
+				A1ADA9DB16AC460500E3A62E /* WTActivityViewController.m in Sources */,
+				A1ADA9E016AC58E400E3A62E /* WTActivityCell.m in Sources */,
+				A1ADA9EB16AC655400E3A62E /* Activity+Addition.m in Sources */,
+				A14A9FD316AD83D000176654 /* Activity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

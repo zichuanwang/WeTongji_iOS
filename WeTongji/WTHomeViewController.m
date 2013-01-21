@@ -11,6 +11,7 @@
 #import "OHAttributedLabel.h"
 #import "UIApplication+Addition.h"
 #import "WTNewsViewController.h"
+#import "WTActivityViewController.h"
 
 @interface WTHomeViewController ()
 
@@ -120,7 +121,7 @@
             break;
             
         case WTHomeSelectContainerViewCategoryActivity:
-            //TODO
+            [self.navigationController pushViewController:[[WTActivityViewController alloc] init] animated:YES];
             break;
             
         case WTHomeSelectContainerViewCategoryFeatured:
