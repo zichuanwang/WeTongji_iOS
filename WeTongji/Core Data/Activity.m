@@ -2,8 +2,8 @@
 //  Activity.m
 //  WeTongji
 //
-//  Created by Shen Yuncheng on 1/21/13.
-//  Copyright (c) 2013 Tongji Apple Club. All rights reserved.
+//  Created by 王 紫川 on 13-1-26.
+//  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
 #import "Activity.h"
@@ -11,22 +11,22 @@
 
 @implementation Activity
 
+@dynamic activityDescription;
 @dynamic begin;
-@dynamic end;
-@dynamic location;
-@dynamic organizer;
-@dynamic title;
 @dynamic canFavorite;
-@dynamic canSchedule;
 @dynamic canLike;
+@dynamic canSchedule;
 @dynamic channelId;
 @dynamic createdAt;
-@dynamic activityDescription;
+@dynamic end;
 @dynamic favorite;
 @dynamic image;
 @dynamic like;
+@dynamic location;
+@dynamic organizer;
 @dynamic organizerAvatar;
 @dynamic schedule;
 @dynamic status;
+@dynamic title;
 
 @end

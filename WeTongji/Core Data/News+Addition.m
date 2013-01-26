@@ -30,6 +30,8 @@
     result.summary = [NSString stringWithFormat:@"%@", dict[@"Summary"]];
     result.publish_date = [[NSString stringWithFormat:@"%@", [dict objectForKey:@"CreatedAt"]] convertToDate];
     
+    result.publish_day = [NSString yearMonthDayConvertFromDate:result.publish_date];
+    
     return result;
 }
 
@@ -45,6 +47,7 @@
 }
 
 - (void)awakeFromFetch {
+    [super awakeFromFetch];
     self.publish_day = [NSString yearMonthDayConvertFromDate:self.publish_date];
 }
 
