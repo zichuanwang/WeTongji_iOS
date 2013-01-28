@@ -64,6 +64,14 @@
                 _switchState = 0;
             NSLog(@"switch state :%d", _switchState);
         }];
+    } else {
+        [UIView animateWithDuration:0.25f animations:^{
+            self.scrollView.contentOffset = _switchState ? CGPointMake(0, 0) : CGPointMake(64, 0);
+        } completion:^(BOOL finished) {
+            if (finished)
+                _switchState = !_switchState;
+            NSLog(@"switch state :%d", _switchState);
+        }];
     }
 }
 
