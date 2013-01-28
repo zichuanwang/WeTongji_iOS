@@ -52,24 +52,21 @@
         [UIView animateWithDuration:0.25f animations:^{
             self.scrollView.contentOffset = CGPointMake(64, 0);
         } completion:^(BOOL finished) {
-            if (finished)
-                _switchState = 1;
+            _switchState = 1;
             NSLog(@"switch state :%d", _switchState);
         }];
     } else if (location.x > 78) {
         [UIView animateWithDuration:0.25f animations:^{
             self.scrollView.contentOffset = CGPointMake(0, 0);
         } completion:^(BOOL finished) {
-            if (finished)
-                _switchState = 0;
+            _switchState = 0;
             NSLog(@"switch state :%d", _switchState);
         }];
     } else {
         [UIView animateWithDuration:0.25f animations:^{
             self.scrollView.contentOffset = _switchState ? CGPointMake(0, 0) : CGPointMake(64, 0);
         } completion:^(BOOL finished) {
-            if (finished)
-                _switchState = !_switchState;
+            _switchState = !_switchState;
             NSLog(@"switch state :%d", _switchState);
         }];
     }
