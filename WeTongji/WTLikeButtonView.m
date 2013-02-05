@@ -29,12 +29,25 @@
     self.frame = likeButton.frame;
     
     UIImageView *likeFlagBg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTLikeButtonFlagBg"]];
+    
+    UILabel *friendCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(1, 0, likeButton.frame.size.width, 20)];
+    friendCountLabel.textAlignment = UITextAlignmentCenter;
+    friendCountLabel.font = [UIFont boldSystemFontOfSize:12];
+    friendCountLabel.backgroundColor = [UIColor clearColor];
+    friendCountLabel.textColor = [UIColor colorWithRed:150 / 255.0f green:150 / 255.0f blue:150 / 255.0f alpha:1];
+    friendCountLabel.shadowColor = [UIColor whiteColor];
+    friendCountLabel.shadowOffset = CGSizeMake(0, 1);
+    friendCountLabel.text = @"53";
+    
+    self.friendCountLabel = friendCountLabel;
 
-    [likeButton resetOriginY:2];
+    [likeButton resetOriginY:0];
     [likeFlagBg resetOriginY:0];
     [likeFlagBg resetCenterX:likeButton.frame.size.width / 2];
+    [friendCountLabel resetOriginY:likeFlagBg.frame.size.height - 38];
     [self addSubview:likeFlagBg];
     [self addSubview:likeButton];
+    [self addSubview:friendCountLabel];
 }
 
 @end

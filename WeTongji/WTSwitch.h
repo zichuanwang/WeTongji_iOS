@@ -11,7 +11,7 @@
 @protocol WTSwitchDelegate;
 
 @interface WTSwitch : UIView <UIScrollViewDelegate> {
-    BOOL _switchState;
+    BOOL _switchState; // 0 for on, 1 for off
 }
 
 @property (nonatomic, strong) IBOutlet UILabel *onLabel;
