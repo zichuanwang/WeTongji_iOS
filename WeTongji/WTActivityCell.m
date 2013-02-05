@@ -43,10 +43,10 @@
     self.timeLabel.text = time;
     self.locationLabel.text = location;
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURL]];
-    [self.image setImageWithURLRequest:request
+    [self.posterImageView setImageWithURLRequest:request
                           placeholderImage:[UIImage imageNamed:@"Default"]
                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                        self.image.image = image;
+                                        self.posterImageView.image = image;
                                    }
                                    failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                        NSLog(@"The specified image: \"%@\" cannot be found on server", [[NSURL URLWithString:imageURL] lastPathComponent]);
