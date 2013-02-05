@@ -19,7 +19,7 @@
                              title:(NSString *)title
                               time:(NSString *)time
                           location:(NSString *)location
-                         imageName:(NSString *)imageName;
+                         imageURL:(NSString *)imageURL;
 
 
 @end

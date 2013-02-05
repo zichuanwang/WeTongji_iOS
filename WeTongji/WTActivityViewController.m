@@ -57,7 +57,7 @@
     } failureBlock:^(NSError * error) {
         WTLOGERROR(@"Get activity:%@", error.localizedDescription);
     }];
-    [request getActivitiesInChannel:nil inSort:nil Expired:YES nextPage:1];
+    [request getActivitiesInChannel:nil inSort:nil Expired:NO nextPage:0];
     [client enqueueRequest:request];
 }
 
@@ -87,7 +87,7 @@
     WTActivityCell *activityCell = (WTActivityCell *)cell;
     
     Activity *activity = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [activityCell configureCellWithIndexPath:indexPath title:activity.title time:activity.begin location:activity.location imageName:activity.image];//TODO
+    [activityCell configureCellWithIndexPath:indexPath title:activity.title time:activity.begin location:activity.location imageURL:activity.image];//TODO
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {
@@ -103,6 +103,12 @@
 
 - (NSString *)customSectionNameKeyPath {
     return nil;
+}
+
+#pragma mark - TableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"select");
 }
 
 @end

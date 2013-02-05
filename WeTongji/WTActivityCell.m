@@ -7,6 +7,7 @@
 //
 
 #import "WTActivityCell.h"
+#import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
 
 @interface WTActivityCell ()
 
@@ -32,7 +33,7 @@
     // Configure the view for the selected state
 }
 
-- (void)configureCellWithIndexPath:(NSIndexPath *)indexPath title:(NSString *)title time:(NSString *)time location:(NSString *)location imageName:(NSString *)imageName {
+- (void)configureCellWithIndexPath:(NSIndexPath *)indexPath title:(NSString *)title time:(NSString *)time location:(NSString *)location imageURL:(NSString *)imageURL {
     if (indexPath.row % 2) {
         self.containerView.backgroundColor = [UIColor colorWithRed:221.0f / 255 green:221.0f / 255 blue:221.0f / 255 alpha:1.0f];
     } else {
@@ -41,7 +42,15 @@
     self.titleLabel.text = title;
     self.timeLabel.text = time;
     self.locationLabel.text = location;
-    self.imageView.image = [UIImage imageNamed:imageName];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURL]];
+    [self.image setImageWithURLRequest:request
+                          placeholderImage:[UIImage imageNamed:@"Default"]
+                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                        self.image.image = image;
+                                   }
+                                   failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                       NSLog(@"The specified image: \"%@\" cannot be found on server", [[NSURL URLWithString:imageURL] lastPathComponent]);
+                                   }];
 }
 
 @end
