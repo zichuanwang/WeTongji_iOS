@@ -38,36 +38,33 @@
     return result;
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    self.handlerButton.highlighted = NO;
-    [super touchesEnded:touches withEvent:event];
-}
-
 #pragma mark - Gesture handler
 
 - (void)didTapView:(UITapGestureRecognizer *)gesture {
+    self.handlerButton.highlighted = NO;
+    
     CGPoint location = [gesture locationInView:self.scrollView];
     NSLog(@"%@", NSStringFromCGPoint(location));
     if (location.x < 50) {
         [UIView animateWithDuration:0.25f animations:^{
             self.scrollView.contentOffset = CGPointMake(64, 0);
         } completion:^(BOOL finished) {
-            _switchState = 1;
-            NSLog(@"switch state :%d", _switchState);
+            //_switchState = 1;
+            NSLog(@"3 switch state :%d", _switchState);
         }];
     } else if (location.x > 78) {
         [UIView animateWithDuration:0.25f animations:^{
             self.scrollView.contentOffset = CGPointMake(0, 0);
         } completion:^(BOOL finished) {
-            _switchState = 0;
-            NSLog(@"switch state :%d", _switchState);
+            //_switchState = 0;
+            NSLog(@"2 switch state :%d", _switchState);
         }];
     } else {
         [UIView animateWithDuration:0.25f animations:^{
             self.scrollView.contentOffset = _switchState ? CGPointMake(0, 0) : CGPointMake(64, 0);
         } completion:^(BOOL finished) {
-            _switchState = !_switchState;
-            NSLog(@"switch state :%d", _switchState);
+            //_switchState = !_switchState;
+            NSLog(@"1 switch state :%d", _switchState);
         }];
     }
 }
@@ -76,22 +73,20 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.handlerButton resetCenterX:64 - scrollView.contentOffset.x];
+    
+    _switchState = (scrollView.contentOffset.x >= 50);
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     self.handlerButton.highlighted = NO;
     
-    if (decelerate == false) {
-        _switchState = (scrollView.contentOffset.x != 0);
-    }
-    
-    NSLog(@"switch state :%d", _switchState);
+    NSLog(@"contentOffset:%f, switch state :%d", scrollView.contentOffset.x, _switchState);
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    _switchState = (scrollView.contentOffset.x != 0);
-    
-    NSLog(@"switch state :%d", _switchState);
+    self.handlerButton.highlighted = NO;
+        
+    NSLog(@"contentOffset:%f, switch state :%d", scrollView.contentOffset.x, _switchState);
 }
 
 @end

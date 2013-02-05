@@ -11,6 +11,7 @@
 @interface WTLikeButtonView : UIView
 
 @property (nonatomic, strong) UIButton *likeButton;
+@property (nonatomic, strong) UILabel *friendCountLabel;
 
 + (WTLikeButtonView *)createLikeButtonViewWithTarget:(id)target action:(SEL)action;
 
