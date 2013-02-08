@@ -79,13 +79,13 @@
     switch (self.currentWTDisableNavBarType) {
         case WTDisableNavBarTypeLeft:
         {
-            self.navigationItem.leftBarButtonItem.enabled = NO;
+            self.sourceViewController.navigationItem.leftBarButtonItem.enabled = NO;
         }
             break;
             
         case WTDisableNavBarTypeRight:
         {
-            self.navigationItem.rightBarButtonItem.enabled = NO;
+            self.sourceViewController.navigationItem.rightBarButtonItem.enabled = NO;
         }
             break;
             
@@ -98,13 +98,13 @@
     switch (self.currentWTDisableNavBarType) {
         case WTDisableNavBarTypeLeft:
         {
-            self.navigationItem.leftBarButtonItem.enabled = YES;
+            self.sourceViewController.navigationItem.leftBarButtonItem.enabled = YES;
         }
             break;
             
         case WTDisableNavBarTypeRight:
         {
-            self.navigationItem.rightBarButtonItem.enabled = YES;
+            self.sourceViewController.navigationItem.rightBarButtonItem.enabled = YES;
         }
             break;
             
@@ -131,10 +131,10 @@
     self.innerModalViewController = innerController;
     self.sourceViewController = sourceController;
     
-    self.view.userInteractionEnabled = NO;
-    
     self.currentWTDisableNavBarType = type;
     [self disableNavBar];
+    
+    self.view.userInteractionEnabled = NO;
     
     [UIView animateWithDuration:0.3 animations:^{
         [innerController.view resetOriginY:0];
@@ -152,6 +152,9 @@
     } completion:^(BOOL finished) {
         self.view.userInteractionEnabled = YES;
         
+        [self enableNavBar];
+        self.currentWTDisableNavBarType = WTDisableNavBarTypeNone;
+        
         [self.sourceViewController didHideInnderModalViewController];
         self.sourceViewController = nil;
         
@@ -165,9 +168,6 @@
         
         WTRootTabBarController *tabBarVC = [UIApplication sharedApplication].rootTabBarController;
         [tabBarVC showTabBar];
-        
-        [self enableNavBar];
-        self.currentWTDisableNavBarType = WTDisableNavBarTypeNone;
     }];
 }
 

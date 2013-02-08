@@ -91,13 +91,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    NSLog(@"numberOfSectionsInTableView:%d", [[self.fetchedResultsController sections] count]);
     return [[self.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"numberOfRowsInSection:%d", [[self.fetchedResultsController sections][section] numberOfObjects]);
     return [[self.fetchedResultsController sections][section] numberOfObjects];
 }
 
