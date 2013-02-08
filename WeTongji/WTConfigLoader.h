@@ -8,21 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
+#define kTableViewType                  @"TableViewType"
+#define kTableViewContent               @"TableViewContent"
+
+#define kCellTitle                      @"CellTitle"
+#define kCellThumbnail                  @"CellThumbnail"
 #define kCellAccessoryType              @"CellAccessoryType"
+
 #define kCellAccessoryTypeNone          @"CellAccessoryTypeNone"
 #define kCellAccessoryTypeSwitch        @"CellAccessoryTypeSwitch"
 #define kCellAccessoryTypeDisclosure    @"CellAccessoryTypeDisclosure"
 #define kCellAccessoryTypeCheckmark     @"CellAccessoryTypeCheckmark"
 
-#define kTableViewType                  @"TableViewType"
 #define kTableViewTypePlain             @"TableViewTypePlain"
 #define kTableViewTypeGroup             @"TableViewTypeGroup"
 #define kTableViewTypeSeparator         @"TableViewTypeSeparator"
 
 #define kTableViewSectionHeader         @"TableViewSectionHeader"
-
-#define kCellTitle                      @"CellTitle"
-#define kCellThumbnail                  @"CellThumbnail"
 
 #define kWTActivityConfig               @"WTActivitySettingConfig"
 #define kWTNewsConfig                   @"WTNewsSettingConfig"
@@ -32,5 +34,7 @@
 }
 
 + (WTConfigLoader *)sharedLoader;
+
+- (NSArray *)loadConfig:(NSString *)configKey;
 
 @end

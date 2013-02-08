@@ -18,8 +18,8 @@
     return self;
 }
 
-- (NSArray *)getConfig:(NSString *)configKey {
-    if (_configDictionary[configKey]) {
+- (NSArray *)loadConfig:(NSString *)configKey {
+    if (!_configDictionary[configKey]) {
         [self readPlist:configKey];
     }
     return _configDictionary[configKey];
@@ -37,7 +37,8 @@
 
 - (void)readPlist:(NSString *)configKey {
     NSString *configFilePath = [[NSBundle mainBundle] pathForResource:configKey ofType:@"plist"];
-    _configDictionary[configKey] = [[NSDictionary alloc] initWithContentsOfFile:configFilePath];
+    NSArray *array = [[NSArray alloc] initWithContentsOfFile:configFilePath];
+    _configDictionary[configKey] = array;
 }
 
 @end

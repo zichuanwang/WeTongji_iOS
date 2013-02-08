@@ -7,6 +7,7 @@
 //
 
 #import "WTNewsSettingViewController.h"
+#import "WTConfigLoader.h"
 
 @interface WTNewsSettingViewController ()
 
@@ -16,7 +17,7 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:@"WTInnerSettingViewController" bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -33,6 +34,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSArray *)loadSettingConfig {
+    return [[WTConfigLoader sharedLoader] loadConfig:kWTNewsConfig];
 }
 
 @end
