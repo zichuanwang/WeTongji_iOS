@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "WTNotificationBarButton.h"
+#import "WTRootNavigationController.h"
 
-@interface WTRootViewController : UIViewController
+@interface WTRootViewController : UIViewController <WTRootNavigationControllerDelegate>
 
 @property (nonatomic, strong) WTNotificationBarButton *notificationButton;
 

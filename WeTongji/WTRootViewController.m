@@ -7,7 +7,7 @@
 //
 
 #import "WTRootViewController.h"
-#import "WTNotificationModalViewController.h"
+#import "WTInnerModalViewController.h"
 
 @interface WTRootViewController ()
 
@@ -56,15 +56,25 @@
 #pragma mark - Actions
 
 - (void)didClickNotificationButton:(WTNotificationBarButton *)sender {
-    sender.selected = !sender.selected;
+    
     WTRootNavigationController *nav = (WTRootNavigationController *)self.navigationController;
-    if (sender.selected) {
-        WTNotificationModalViewController *vc = [[WTNotificationModalViewController alloc] init];
-        [nav showInnerModalViewController:vc];
+    
+    if (!sender.selected) {
+        sender.selected = YES;
+        
+        WTInnerModalViewController *vc = [[WTInnerModalViewController alloc] init];
+        [nav showInnerModalViewController:vc sourceViewController:self disableNavBarType:WTDisableNavBarTypeRight];
         [sender stopShine];
+        
     } else {
         [nav hideInnerModalViewController];
     }
+}
+
+#pragma mark - WTRootNavigationControllerDelegate
+
+- (void)didHideInnderModalViewController {
+    self.notificationButton.selected = NO;
 }
 
 @end

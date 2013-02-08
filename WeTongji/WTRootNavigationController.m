@@ -15,11 +15,14 @@
 @interface WTRootNavigationController ()
 
 @property (nonatomic, strong) UIViewController *innerModalViewController;
+@property (nonatomic, strong) UIViewController<WTRootNavigationControllerDelegate> *sourceViewController;
 
 @property (nonatomic, strong) UIImageView *screenShootImageView;
 @property (nonatomic, strong) UIView *screenShootContainerView;
 
 @property (nonatomic, strong) UIImageView *navigationBarShadowImageView;
+
+@property (nonatomic, assign) WTDisableNavBarType currentWTDisableNavBarType;
 
 @end
 
@@ -72,9 +75,49 @@
     [self.navigationBar addSubview:topRightCornerImageView];
 }
 
+- (void)disableNavBar {
+    switch (self.currentWTDisableNavBarType) {
+        case WTDisableNavBarTypeLeft:
+        {
+            self.navigationItem.leftBarButtonItem.enabled = NO;
+        }
+            break;
+            
+        case WTDisableNavBarTypeRight:
+        {
+            self.navigationItem.rightBarButtonItem.enabled = NO;
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)enableNavBar {
+    switch (self.currentWTDisableNavBarType) {
+        case WTDisableNavBarTypeLeft:
+        {
+            self.navigationItem.leftBarButtonItem.enabled = YES;
+        }
+            break;
+            
+        case WTDisableNavBarTypeRight:
+        {
+            self.navigationItem.rightBarButtonItem.enabled = YES;
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
 #pragma mark - Public methods
 
-- (void)showInnerModalViewController:(UIViewController *)vc {
+- (void)showInnerModalViewController:(UIViewController *)innerController
+                sourceViewController:(UIViewController<WTRootNavigationControllerDelegate> *)sourceController
+                   disableNavBarType:(WTDisableNavBarType)type {
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     [self.screenShootContainerView resetOriginY:screenSize.height - self.screenShootContainerView.frame.size.height];
     WTRootTabBarController *tabBarVC = [UIApplication sharedApplication].rootTabBarController;
@@ -82,15 +125,20 @@
     
     [self.view insertSubview:self.screenShootContainerView belowSubview:self.navigationBarShadowImageView];
     
-    [vc.view resetOriginY:-vc.view.frame.size.height];
-    [self.topViewController.view addSubview:vc.view];
+    [innerController.view resetOriginY:-innerController.view.frame.size.height];
+    [self.topViewController.view addSubview:innerController.view];
     
-    self.innerModalViewController = vc;
+    self.innerModalViewController = innerController;
+    self.sourceViewController = sourceController;
     
     self.view.userInteractionEnabled = NO;
+    
+    self.currentWTDisableNavBarType = type;
+    [self disableNavBar];
+    
     [UIView animateWithDuration:0.3 animations:^{
-        [vc.view resetOriginY:0];
-        [self.screenShootContainerView resetOriginYByOffset:vc.view.frame.size.height];
+        [innerController.view resetOriginY:0];
+        [self.screenShootContainerView resetOriginYByOffset:innerController.view.frame.size.height];
     } completion:^(BOOL finished) {
         self.view.userInteractionEnabled = YES;
     }];
@@ -104,6 +152,9 @@
     } completion:^(BOOL finished) {
         self.view.userInteractionEnabled = YES;
         
+        [self.sourceViewController didHideInnderModalViewController];
+        self.sourceViewController = nil;
+        
         [self.innerModalViewController.view removeFromSuperview];
         self.innerModalViewController = nil;
         
@@ -114,6 +165,9 @@
         
         WTRootTabBarController *tabBarVC = [UIApplication sharedApplication].rootTabBarController;
         [tabBarVC showTabBar];
+        
+        [self enableNavBar];
+        self.currentWTDisableNavBarType = WTDisableNavBarTypeNone;
     }];
 }
 

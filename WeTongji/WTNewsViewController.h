@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "WTCoreDataTableViewController.h"
+#import "WTRootNavigationController.h"
 
-@interface WTNewsViewController : WTCoreDataTableViewController
+@interface WTNewsViewController : WTCoreDataTableViewController <WTRootNavigationControllerDelegate>
 
 @end

@@ -11,8 +11,11 @@
 #import "WTResourceFactory.h"
 #import "News+Addition.h"
 #import "WTNewsCell.h"
+#import "WTNewsSettingViewController.h"
 
 @interface WTNewsViewController ()
+
+@property (nonatomic, readonly) UIButton *filterButton;
 
 @end
 
@@ -60,6 +63,12 @@
     [client enqueueRequest:request];
 }
 
+#pragma mark - Properties
+
+- (UIButton *)filterButton {
+    return (UIButton *)self.navigationItem.rightBarButtonItem.customView.subviews.lastObject;
+}
+
 #pragma mark - UI methods
 
 - (void)configureNavigationBar {
@@ -77,7 +86,18 @@
 }
 
 - (void)didClickFilterButton:(UIButton *)sender {
-    sender.selected = !sender.selected;
+    
+    WTRootNavigationController *nav = (WTRootNavigationController *)self.navigationController;
+    
+    if (sender.selected) {
+        sender.selected = NO;
+        
+        WTNewsSettingViewController *vc = [[WTNewsSettingViewController alloc] init];
+        [nav showInnerModalViewController:vc sourceViewController:self disableNavBarType:WTDisableNavBarTypeLeft];
+        
+    } else {
+        [nav hideInnerModalViewController];
+    }
 }
 
 #pragma mark - UITableView delegates
@@ -123,6 +143,12 @@
 
 - (NSString *)customSectionNameKeyPath {
     return @"publish_day";
+}
+
+#pragma mark - WTRootNavigationControllerDelegate
+
+- (void)didHideInnderModalViewController {
+    self.filterButton.selected = YES;
 }
 
 @end

@@ -6,13 +6,13 @@
 //  Copyright (c) 2012年 Tongji Apple Club. All rights reserved.
 //
 
-#import "WTNotificationModalViewController.h"
+#import "WTInnerModalViewController.h"
 
-@interface WTNotificationModalViewController ()
+@interface WTInnerModalViewController ()
 
 @end
 
-@implementation WTNotificationModalViewController
+@implementation WTInnerModalViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

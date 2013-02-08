@@ -48,10 +48,6 @@
     return nil;
 }
 
-- (NSString *)customCacheName {
-    return NSStringFromClass(self.class);
-}
-
 - (NSString *)customSectionNameKeyPath {
     return nil;
 }
@@ -84,7 +80,7 @@
     
     [self configureRequest:fetchRequest];
     
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext sectionNameKeyPath:[self customSectionNameKeyPath] cacheName:[self customCacheName]];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext sectionNameKeyPath:[self customSectionNameKeyPath] cacheName:nil];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
@@ -95,11 +91,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    NSLog(@"numberOfSectionsInTableView:%d", [[self.fetchedResultsController sections] count]);
     return [[self.fetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"numberOfRowsInSection:%d", [[self.fetchedResultsController sections][section] numberOfObjects]);
     return [[self.fetchedResultsController sections][section] numberOfObjects];
 }
 

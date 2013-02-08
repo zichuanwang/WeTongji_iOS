@@ -26,6 +26,5 @@
 
 - (NSString *)customCellClassName;
 - (NSString *)customSectionNameKeyPath;
-- (NSString *)customCacheName;
 
 @end

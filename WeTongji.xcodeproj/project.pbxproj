@@ -108,8 +108,8 @@
 		E14FA68C1680BBDD008A8D33 /* WTNotificationSelectButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6861680BBDD008A8D33 /* WTNotificationSelectButton.png */; };
 		E14FA68F1680C546008A8D33 /* WTNotificationRing.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA68D1680C546008A8D33 /* WTNotificationRing.png */; };
 		E14FA6901680C546008A8D33 /* WTNotificationRing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA68E1680C546008A8D33 /* WTNotificationRing@2x.png */; };
-		E14FA6991680DEDB008A8D33 /* WTNotificationModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E14FA6971680DEDB008A8D33 /* WTNotificationModalViewController.m */; };
-		E14FA69A1680DEDB008A8D33 /* WTNotificationModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6981680DEDB008A8D33 /* WTNotificationModalViewController.xib */; };
+		E14FA6991680DEDB008A8D33 /* WTInnerModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E14FA6971680DEDB008A8D33 /* WTInnerModalViewController.m */; };
+		E14FA69A1680DEDB008A8D33 /* WTInnerSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6981680DEDB008A8D33 /* WTInnerSettingViewController.xib */; };
 		E14FA69D1680DF63008A8D33 /* WTModalViewBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA69B1680DF62008A8D33 /* WTModalViewBg.png */; };
 		E14FA69E1680DF63008A8D33 /* WTModalViewBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA69C1680DF63008A8D33 /* WTModalViewBg@2x.png */; };
 		E14FA6A11680E067008A8D33 /* UIImage+ScreenShoot.m in Sources */ = {isa = PBXBuildFile; fileRef = E14FA6A01680E067008A8D33 /* UIImage+ScreenShoot.m */; };
@@ -127,8 +127,12 @@
 		E14FA6C216820012008A8D33 /* WTLikeSelectButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6BE16820011008A8D33 /* WTLikeSelectButton@2x.png */; };
 		E14FA6C516820287008A8D33 /* WTLikeButtonFlagBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6C316820285008A8D33 /* WTLikeButtonFlagBg.png */; };
 		E14FA6C616820287008A8D33 /* WTLikeButtonFlagBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6C416820286008A8D33 /* WTLikeButtonFlagBg@2x.png */; };
+		E1528D6B16C5533C00BD2B42 /* WTNewsSettingConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1528D6A16C5533C00BD2B42 /* WTNewsSettingConfig.plist */; };
+		E1528D6E16C5608E00BD2B42 /* WTNewsSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1528D6D16C5608E00BD2B42 /* WTNewsSettingViewController.m */; };
+		E1528D7116C561C100BD2B42 /* WTInnerSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1528D7016C561C100BD2B42 /* WTInnerSettingViewController.m */; };
 		E1545B8616B319CC00FC1437 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = E1545B8516B319CC00FC1437 /* Activity.m */; };
 		E1545B8A16B319CE00FC1437 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = E1545B8916B319CE00FC1437 /* News.m */; };
+		E15C3D1A16C37B3200A91AAF /* WTConfigLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = E15C3D1916C37B3200A91AAF /* WTConfigLoader.m */; };
 		E18821C51680059600A41F47 /* WTCornerBottomLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = E18821BD1680059600A41F47 /* WTCornerBottomLeft.png */; };
 		E18821C61680059600A41F47 /* WTCornerBottomLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E18821BE1680059600A41F47 /* WTCornerBottomLeft@2x.png */; };
 		E18821C71680059600A41F47 /* WTCornerBottomRight.png in Resources */ = {isa = PBXBuildFile; fileRef = E18821BF1680059600A41F47 /* WTCornerBottomRight.png */; };
@@ -376,9 +380,9 @@
 		E14FA6861680BBDD008A8D33 /* WTNotificationSelectButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNotificationSelectButton.png; sourceTree = "<group>"; };
 		E14FA68D1680C546008A8D33 /* WTNotificationRing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNotificationRing.png; sourceTree = "<group>"; };
 		E14FA68E1680C546008A8D33 /* WTNotificationRing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNotificationRing@2x.png"; sourceTree = "<group>"; };
-		E14FA6961680DEDB008A8D33 /* WTNotificationModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNotificationModalViewController.h; sourceTree = "<group>"; };
-		E14FA6971680DEDB008A8D33 /* WTNotificationModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNotificationModalViewController.m; sourceTree = "<group>"; };
-		E14FA6981680DEDB008A8D33 /* WTNotificationModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNotificationModalViewController.xib; sourceTree = "<group>"; };
+		E14FA6961680DEDB008A8D33 /* WTInnerModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTInnerModalViewController.h; sourceTree = "<group>"; };
+		E14FA6971680DEDB008A8D33 /* WTInnerModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTInnerModalViewController.m; sourceTree = "<group>"; };
+		E14FA6981680DEDB008A8D33 /* WTInnerSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTInnerSettingViewController.xib; sourceTree = "<group>"; };
 		E14FA69B1680DF62008A8D33 /* WTModalViewBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTModalViewBg.png; sourceTree = "<group>"; };
 		E14FA69C1680DF63008A8D33 /* WTModalViewBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTModalViewBg@2x.png"; sourceTree = "<group>"; };
 		E14FA69F1680E067008A8D33 /* UIImage+ScreenShoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ScreenShoot.h"; sourceTree = "<group>"; };
@@ -400,10 +404,17 @@
 		E14FA6C7168203FE008A8D33 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E14FA6C8168203FE008A8D33 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E14FA6C9168203FE008A8D33 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E1528D6A16C5533C00BD2B42 /* WTNewsSettingConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WTNewsSettingConfig.plist; sourceTree = "<group>"; };
+		E1528D6C16C5608E00BD2B42 /* WTNewsSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNewsSettingViewController.h; sourceTree = "<group>"; };
+		E1528D6D16C5608E00BD2B42 /* WTNewsSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNewsSettingViewController.m; sourceTree = "<group>"; };
+		E1528D6F16C561C100BD2B42 /* WTInnerSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTInnerSettingViewController.h; sourceTree = "<group>"; };
+		E1528D7016C561C100BD2B42 /* WTInnerSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTInnerSettingViewController.m; sourceTree = "<group>"; };
 		E1545B8416B319CC00FC1437 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
 		E1545B8516B319CC00FC1437 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
 		E1545B8816B319CE00FC1437 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
 		E1545B8916B319CE00FC1437 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
+		E15C3D1816C37B3200A91AAF /* WTConfigLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTConfigLoader.h; sourceTree = "<group>"; };
+		E15C3D1916C37B3200A91AAF /* WTConfigLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTConfigLoader.m; sourceTree = "<group>"; };
 		E18821BD1680059600A41F47 /* WTCornerBottomLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTCornerBottomLeft.png; sourceTree = "<group>"; };
 		E18821BE1680059600A41F47 /* WTCornerBottomLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTCornerBottomLeft@2x.png"; sourceTree = "<group>"; };
 		E18821BF1680059600A41F47 /* WTCornerBottomRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTCornerBottomRight.png; sourceTree = "<group>"; };
@@ -606,6 +617,7 @@
 		E117035A1651EF3E00D82F4A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E1528D6916C5531900BD2B42 /* Config */,
 				E10C422616AB05110084337C /* Switch */,
 				039E37D9169701AE00178F1C /* Now */,
 				E14FA67C1680A9F7008A8D33 /* Button */,
@@ -629,7 +641,7 @@
 				E18821E716800E7B00A41F47 /* Home */,
 				E1882222168025D200A41F47 /* Login */,
 				E1D37420169431ED0012E30A /* Me */,
-				E14FA6951680DEB1008A8D33 /* NavigationModal */,
+				E14FA6951680DEB1008A8D33 /* InnerModal */,
 				A1DD01CA169F2437009EBE02 /* News */,
 				E1D3741F169431E10012E30A /* Now */,
 				E1C53DCD16523DA60011C8A1 /* Root */,
@@ -800,14 +812,26 @@
 			name = CustomViews;
 			sourceTree = "<group>";
 		};
-		E14FA6951680DEB1008A8D33 /* NavigationModal */ = {
+		E14FA6951680DEB1008A8D33 /* InnerModal */ = {
 			isa = PBXGroup;
 			children = (
-				E14FA6961680DEDB008A8D33 /* WTNotificationModalViewController.h */,
-				E14FA6971680DEDB008A8D33 /* WTNotificationModalViewController.m */,
-				E14FA6981680DEDB008A8D33 /* WTNotificationModalViewController.xib */,
+				E14FA6961680DEDB008A8D33 /* WTInnerModalViewController.h */,
+				E14FA6971680DEDB008A8D33 /* WTInnerModalViewController.m */,
+				E1528D6F16C561C100BD2B42 /* WTInnerSettingViewController.h */,
+				E1528D7016C561C100BD2B42 /* WTInnerSettingViewController.m */,
+				E14FA6981680DEDB008A8D33 /* WTInnerSettingViewController.xib */,
+				E1528D6C16C5608E00BD2B42 /* WTNewsSettingViewController.h */,
+				E1528D6D16C5608E00BD2B42 /* WTNewsSettingViewController.m */,
 			);
-			name = NavigationModal;
+			name = InnerModal;
+			sourceTree = "<group>";
+		};
+		E1528D6916C5531900BD2B42 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				E1528D6A16C5533C00BD2B42 /* WTNewsSettingConfig.plist */,
+			);
+			name = Config;
 			sourceTree = "<group>";
 		};
 		E18821BB1680058000A41F47 /* TabBar */ = {
@@ -857,12 +881,14 @@
 		E18821CD1680077000A41F47 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				E188222F16802AD700A41F47 /* WTResourceFactory.h */,
-				E188223016802AD700A41F47 /* WTResourceFactory.m */,
+				E15C3D1816C37B3200A91AAF /* WTConfigLoader.h */,
+				E15C3D1916C37B3200A91AAF /* WTConfigLoader.m */,
 				E13B0E6816A3078200A45079 /* WTCoreDataManager.h */,
 				E13B0E6916A3078300A45079 /* WTCoreDataManager.m */,
 				E13B0EA316A45F4B00A45079 /* WTDebugTool.h */,
 				E13B0EA416A45F4B00A45079 /* WTDebugTool.m */,
+				E188222F16802AD700A41F47 /* WTResourceFactory.h */,
+				E188223016802AD700A41F47 /* WTResourceFactory.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -1261,7 +1287,7 @@
 				E14FA68C1680BBDD008A8D33 /* WTNotificationSelectButton.png in Resources */,
 				E14FA68F1680C546008A8D33 /* WTNotificationRing.png in Resources */,
 				E14FA6901680C546008A8D33 /* WTNotificationRing@2x.png in Resources */,
-				E14FA69A1680DEDB008A8D33 /* WTNotificationModalViewController.xib in Resources */,
+				E14FA69A1680DEDB008A8D33 /* WTInnerSettingViewController.xib in Resources */,
 				E14FA69D1680DF63008A8D33 /* WTModalViewBg.png in Resources */,
 				E14FA69E1680DF63008A8D33 /* WTModalViewBg@2x.png in Resources */,
 				E14FA6AA1681EBC5008A8D33 /* WTActivityDetailViewController.xib in Resources */,
@@ -1353,6 +1379,7 @@
 				A1ADA9E516AC5AE400E3A62E /* WTActivityCell.xib in Resources */,
 				E199053516B7CDCE00F2C787 /* WTGrayPanel.png in Resources */,
 				E199053616B7CDCE00F2C787 /* WTGrayPanel@2x.png in Resources */,
+				E1528D6B16C5533C00BD2B42 /* WTNewsSettingConfig.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1399,7 +1426,7 @@
 				E188222A1680271A00A41F47 /* UIApplication+Addition.m in Sources */,
 				E188223116802AD700A41F47 /* WTResourceFactory.m in Sources */,
 				E14FA6801680B9DE008A8D33 /* WTNotificationBarButton.m in Sources */,
-				E14FA6991680DEDB008A8D33 /* WTNotificationModalViewController.m in Sources */,
+				E14FA6991680DEDB008A8D33 /* WTInnerModalViewController.m in Sources */,
 				E14FA6A11680E067008A8D33 /* UIImage+ScreenShoot.m in Sources */,
 				E14FA6A91681EBC5008A8D33 /* WTActivityDetailViewController.m in Sources */,
 				E1D373911692ECE10012E30A /* WTBannerView.m in Sources */,
@@ -1439,6 +1466,9 @@
 				A1ADA9EB16AC655400E3A62E /* Activity+Addition.m in Sources */,
 				E1545B8616B319CC00FC1437 /* Activity.m in Sources */,
 				E1545B8A16B319CE00FC1437 /* News.m in Sources */,
+				E15C3D1A16C37B3200A91AAF /* WTConfigLoader.m in Sources */,
+				E1528D6E16C5608E00BD2B42 /* WTNewsSettingViewController.m in Sources */,
+				E1528D7116C561C100BD2B42 /* WTInnerSettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1557,6 +1587,7 @@
 		E12554D716491532006D42F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hongming Zhu (H5SJ56Z88P)";
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WeTongji/WeTongji-Prefix.pch";
@@ -1574,6 +1605,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "69DFDEA7-A29F-4404-9C87-98D7925C2699";
 				USER_HEADER_SEARCH_PATHS = "../OHAttributedLabel/OHAttributedLabel/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1582,6 +1614,7 @@
 		E12554D816491532006D42F5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hongming Zhu (H5SJ56Z88P)";
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WeTongji/WeTongji-Prefix.pch";
@@ -1599,6 +1632,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "69DFDEA7-A29F-4404-9C87-98D7925C2699";
 				USER_HEADER_SEARCH_PATHS = "../OHAttributedLabel/OHAttributedLabel/**";
 				WRAPPER_EXTENSION = app;
 			};

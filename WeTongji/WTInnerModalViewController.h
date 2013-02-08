@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WTNotificationModalViewController : UIViewController
+@interface WTInnerModalViewController : UIViewController
 
 @end

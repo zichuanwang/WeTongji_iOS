@@ -118,13 +118,15 @@
 }
 
 + (UIButton *)createFocusButtonWithText:(NSString *)text {
-    return [WTResourceFactory createButtonWithText:text
-                                       normalImage:[UIImage imageNamed:@"WTFocusButton"]
-                                       selectImage:[UIImage imageNamed:@"WTSelectButton"]
-                                  normalTitleColor:[UIColor whiteColor]
-                                 normalShadowColor:[UIColor lightGrayColor]
-                                  highlightTitleColor:[UIColor grayColor]
-                                 highlightShadowColor:[UIColor darkGrayColor]];
+    UIButton *result = [WTResourceFactory createButtonWithText:text
+                                                   normalImage:[UIImage imageNamed:@"WTSelectButton"]
+                                                   selectImage:[UIImage imageNamed:@"WTFocusButton"]
+                                              normalTitleColor:[UIColor whiteColor]
+                                             normalShadowColor:[UIColor lightGrayColor]
+                                           highlightTitleColor:[UIColor grayColor]
+                                          highlightShadowColor:[UIColor darkGrayColor]];
+    result.selected = YES;
+    return result;
 }
 
 + (UIButton *)createButtonWithText:(NSString *)text

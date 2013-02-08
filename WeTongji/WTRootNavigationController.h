@@ -8,10 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    WTDisableNavBarTypeNone,
+    WTDisableNavBarTypeLeft,
+    WTDisableNavBarTypeRight,
+} WTDisableNavBarType;
+
+@protocol WTRootNavigationControllerDelegate;
+
 @interface WTRootNavigationController : UINavigationController
 
-- (void)showInnerModalViewController:(UIViewController *)vc;
+- (void)showInnerModalViewController:(UIViewController *)innerController
+                sourceViewController:(UIViewController<WTRootNavigationControllerDelegate> *)sourceController
+                   disableNavBarType:(WTDisableNavBarType)type;
 
 - (void)hideInnerModalViewController;
+
+@end
+
+@protocol WTRootNavigationControllerDelegate <NSObject>
+
+- (void)didHideInnderModalViewController;
 
 @end
