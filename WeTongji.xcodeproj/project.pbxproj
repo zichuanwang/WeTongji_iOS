@@ -39,6 +39,7 @@
 		E1132E7216C632F6004CB808 /* WTPublishDateIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E6C16C632F6004CB808 /* WTPublishDateIcon@2x.png */; };
 		E1132E7516C63308004CB808 /* WTCheckmarkIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E7316C63308004CB808 /* WTCheckmarkIcon.png */; };
 		E1132E7616C63308004CB808 /* WTCheckmarkIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E7416C63308004CB808 /* WTCheckmarkIcon@2x.png */; };
+		E1132E7916C65823004CB808 /* NSUserDefaults+WTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E1132E7816C65823004CB808 /* NSUserDefaults+WTAddition.m */; };
 		E11702FC1650F82A00D82F4A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11702FB1650F82A00D82F4A /* SystemConfiguration.framework */; };
 		E11702FE1650F83F00D82F4A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */; };
 		E1170316165156A400D82F4A /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1170315165156A400D82F4A /* icon@2x.png */; };
@@ -100,7 +101,7 @@
 		E13B0EC216A4666D00A45079 /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0EC116A4666D00A45079 /* Object.m */; };
 		E13B0EC516A468B800A45079 /* WTTableViewSectionBgUnit.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0EC316A468B800A45079 /* WTTableViewSectionBgUnit.png */; };
 		E13B0EC616A468B800A45079 /* WTTableViewSectionBgUnit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0EC416A468B800A45079 /* WTTableViewSectionBgUnit@2x.png */; };
-		E13B0ED316A4704900A45079 /* NSString+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0ED216A4704900A45079 /* NSString+Addition.m */; };
+		E13B0ED316A4704900A45079 /* NSString+WTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0ED216A4704900A45079 /* NSString+WTAddition.m */; };
 		E13B0EDC16A486F300A45079 /* WTTableViewSeperatorUnit.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0EDA16A486F300A45079 /* WTTableViewSeperatorUnit.png */; };
 		E13B0EDD16A486F300A45079 /* WTTableViewSeperatorUnit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0EDB16A486F300A45079 /* WTTableViewSeperatorUnit@2x.png */; };
 		E14F964F1696FCF40048414D /* TestAvatar1.png in Resources */ = {isa = PBXBuildFile; fileRef = E14F964E1696FCF40048414D /* TestAvatar1.png */; };
@@ -169,7 +170,7 @@
 		E18822201680252A00A41F47 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E188221E1680252A00A41F47 /* Localizable.strings */; };
 		E1882226168025E600A41F47 /* WTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1882224168025E600A41F47 /* WTLoginViewController.m */; };
 		E1882227168025E600A41F47 /* WTLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1882225168025E600A41F47 /* WTLoginViewController.xib */; };
-		E188222A1680271A00A41F47 /* UIApplication+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E18822291680271A00A41F47 /* UIApplication+Addition.m */; };
+		E188222A1680271A00A41F47 /* UIApplication+WTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E18822291680271A00A41F47 /* UIApplication+WTAddition.m */; };
 		E188222D1680288100A41F47 /* WTNormalButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E188222B1680288100A41F47 /* WTNormalButton.png */; };
 		E188222E1680288100A41F47 /* WTNormalButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E188222C1680288100A41F47 /* WTNormalButton@2x.png */; };
 		E188223116802AD700A41F47 /* WTResourceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E188223016802AD700A41F47 /* WTResourceFactory.m */; };
@@ -303,6 +304,8 @@
 		E1132E6C16C632F6004CB808 /* WTPublishDateIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTPublishDateIcon@2x.png"; sourceTree = "<group>"; };
 		E1132E7316C63308004CB808 /* WTCheckmarkIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTCheckmarkIcon.png; sourceTree = "<group>"; };
 		E1132E7416C63308004CB808 /* WTCheckmarkIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTCheckmarkIcon@2x.png"; sourceTree = "<group>"; };
+		E1132E7716C65823004CB808 /* NSUserDefaults+WTAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+WTAddition.h"; sourceTree = "<group>"; };
+		E1132E7816C65823004CB808 /* NSUserDefaults+WTAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+WTAddition.m"; sourceTree = "<group>"; };
 		E11702FB1650F82A00D82F4A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E1170315165156A400D82F4A /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../../icon@2x.png"; sourceTree = "<group>"; };
@@ -383,8 +386,8 @@
 		E13B0EC116A4666D00A45079 /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
 		E13B0EC316A468B800A45079 /* WTTableViewSectionBgUnit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTableViewSectionBgUnit.png; sourceTree = "<group>"; };
 		E13B0EC416A468B800A45079 /* WTTableViewSectionBgUnit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTableViewSectionBgUnit@2x.png"; sourceTree = "<group>"; };
-		E13B0ED116A4704900A45079 /* NSString+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Addition.h"; sourceTree = "<group>"; };
-		E13B0ED216A4704900A45079 /* NSString+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Addition.m"; sourceTree = "<group>"; };
+		E13B0ED116A4704900A45079 /* NSString+WTAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WTAddition.h"; sourceTree = "<group>"; };
+		E13B0ED216A4704900A45079 /* NSString+WTAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WTAddition.m"; sourceTree = "<group>"; };
 		E13B0EDA16A486F300A45079 /* WTTableViewSeperatorUnit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTableViewSeperatorUnit.png; sourceTree = "<group>"; };
 		E13B0EDB16A486F300A45079 /* WTTableViewSeperatorUnit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTableViewSeperatorUnit@2x.png"; sourceTree = "<group>"; };
 		E14F964E1696FCF40048414D /* TestAvatar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TestAvatar1.png; sourceTree = "<group>"; };
@@ -472,8 +475,8 @@
 		E1882223168025E600A41F47 /* WTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTLoginViewController.h; sourceTree = "<group>"; };
 		E1882224168025E600A41F47 /* WTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTLoginViewController.m; sourceTree = "<group>"; };
 		E1882225168025E600A41F47 /* WTLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTLoginViewController.xib; sourceTree = "<group>"; };
-		E18822281680271A00A41F47 /* UIApplication+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Addition.h"; sourceTree = "<group>"; };
-		E18822291680271A00A41F47 /* UIApplication+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Addition.m"; sourceTree = "<group>"; };
+		E18822281680271A00A41F47 /* UIApplication+WTAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+WTAddition.h"; sourceTree = "<group>"; };
+		E18822291680271A00A41F47 /* UIApplication+WTAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+WTAddition.m"; sourceTree = "<group>"; };
 		E188222B1680288100A41F47 /* WTNormalButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNormalButton.png; sourceTree = "<group>"; };
 		E188222C1680288100A41F47 /* WTNormalButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNormalButton@2x.png"; sourceTree = "<group>"; };
 		E188222F16802AD700A41F47 /* WTResourceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTResourceFactory.h; sourceTree = "<group>"; };
@@ -939,14 +942,16 @@
 		E18821CE1680077C00A41F47 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				E13B0ED116A4704900A45079 /* NSString+Addition.h */,
-				E13B0ED216A4704900A45079 /* NSString+Addition.m */,
+				E13B0ED116A4704900A45079 /* NSString+WTAddition.h */,
+				E13B0ED216A4704900A45079 /* NSString+WTAddition.m */,
 				E18821CF168007B800A41F47 /* UIView+Resize.h */,
 				E18821D0168007B800A41F47 /* UIView+Resize.m */,
-				E18822281680271A00A41F47 /* UIApplication+Addition.h */,
-				E18822291680271A00A41F47 /* UIApplication+Addition.m */,
+				E18822281680271A00A41F47 /* UIApplication+WTAddition.h */,
+				E18822291680271A00A41F47 /* UIApplication+WTAddition.m */,
 				E14FA69F1680E067008A8D33 /* UIImage+ScreenShoot.h */,
 				E14FA6A01680E067008A8D33 /* UIImage+ScreenShoot.m */,
+				E1132E7716C65823004CB808 /* NSUserDefaults+WTAddition.h */,
+				E1132E7816C65823004CB808 /* NSUserDefaults+WTAddition.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1483,7 +1488,7 @@
 				E18821ED16800EC300A41F47 /* WTHomeNavigationController.m in Sources */,
 				E18821FE16801BF700A41F47 /* WTHomeViewController.m in Sources */,
 				E1882226168025E600A41F47 /* WTLoginViewController.m in Sources */,
-				E188222A1680271A00A41F47 /* UIApplication+Addition.m in Sources */,
+				E188222A1680271A00A41F47 /* UIApplication+WTAddition.m in Sources */,
 				E188223116802AD700A41F47 /* WTResourceFactory.m in Sources */,
 				E14FA6801680B9DE008A8D33 /* WTNotificationBarButton.m in Sources */,
 				E14FA6991680DEDB008A8D33 /* WTInnerModalViewController.m in Sources */,
@@ -1519,7 +1524,7 @@
 				E13B0EBC16A4666A00A45079 /* Organization.m in Sources */,
 				E13B0EBF16A4666C00A45079 /* Star.m in Sources */,
 				E13B0EC216A4666D00A45079 /* Object.m in Sources */,
-				E13B0ED316A4704900A45079 /* NSString+Addition.m in Sources */,
+				E13B0ED316A4704900A45079 /* NSString+WTAddition.m in Sources */,
 				E10C422316AB03410084337C /* WTSwitch.m in Sources */,
 				A1ADA9DB16AC460500E3A62E /* WTActivityViewController.m in Sources */,
 				A1ADA9E016AC58E400E3A62E /* WTActivityCell.m in Sources */,
@@ -1529,6 +1534,7 @@
 				E15C3D1A16C37B3200A91AAF /* WTConfigLoader.m in Sources */,
 				E1528D6E16C5608E00BD2B42 /* WTNewsSettingViewController.m in Sources */,
 				E1528D7116C561C100BD2B42 /* WTInnerSettingViewController.m in Sources */,
+				E1132E7916C65823004CB808 /* NSUserDefaults+WTAddition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

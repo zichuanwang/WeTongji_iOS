@@ -1,5 +1,5 @@
 //
-//  NSString+Addition.h
+//  NSString+WTAddition.h
 //  WeTongji
 //
 //  Created by 紫川 王 on 12-4-26.
@@ -8,7 +8,7 @@
 
 
 
-@interface NSString (Addition)
+@interface NSString (WTAddition)
 
 - (NSDate *)convertToDate;
 + (NSString *)yearMonthDayConvertFromDate:(NSDate *)date;

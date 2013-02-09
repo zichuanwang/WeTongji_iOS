@@ -12,6 +12,8 @@
 				<string>Smart Order</string>
 				<key>CellAccessoryType</key>
 				<string>CellAccessoryTypeSwitch</string>
+				<key>UserDefaultKey</key>
+				<string>NewsSmartOrder</string>
 			</dict>
 		</array>
 	</dict>
@@ -22,6 +24,8 @@
 	<dict>
 		<key>TableViewSupportsMultiSelection</key>
 		<true/>
+		<key>UserDefaultKey</key>
+		<string>NewsShowTypes</string>
 		<key>TableViewType</key>
 		<string>TableViewTypeGroup</string>
 		<key>TableViewSectionHeader</key>
@@ -42,7 +46,13 @@
 			</dict>
 			<dict>
 				<key>CellTitle</key>
-				<string>Assosication News</string>
+				<string>Association News</string>
+				<key>CellAccessoryType</key>
+				<string>CellAccessoryTypeCheckmark</string>
+			</dict>
+			<dict>
+				<key>CellTitle</key>
+				<string>Local Recommendation</string>
 				<key>CellAccessoryType</key>
 				<string>CellAccessoryTypeCheckmark</string>
 			</dict>
@@ -51,6 +61,8 @@
 	<dict>
 		<key>TableViewSupportsMultiSelection</key>
 		<false/>
+		<key>UserDefaultKey</key>
+		<string>NewsOrderMethod</string>
 		<key>TableViewType</key>
 		<string>TableViewTypeGroup</string>
 		<key>TableViewSectionHeader</key>

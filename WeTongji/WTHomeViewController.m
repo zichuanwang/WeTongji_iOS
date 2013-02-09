@@ -9,7 +9,7 @@
 #import "WTHomeViewController.h"
 #import "WTBannerView.h"
 #import "OHAttributedLabel.h"
-#import "UIApplication+Addition.h"
+#import "UIApplication+WTAddition.h"
 #import "WTNewsViewController.h"
 #import "WTActivityViewController.h"
 

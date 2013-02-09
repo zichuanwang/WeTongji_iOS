@@ -8,7 +8,7 @@
 
 #import "News+Addition.h"
 #import "WTCoreDataManager.h"
-#import "NSString+Addition.h"
+#import "NSString+WTAddition.h"
 
 @implementation News (Addition)
 

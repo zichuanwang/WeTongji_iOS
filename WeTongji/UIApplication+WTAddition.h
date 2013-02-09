@@ -1,5 +1,5 @@
 //
-//  UIApplication+Addition.h
+//  UIApplication+WTAddition.h
 //  WeTongji
 //
 //  Created by 王 紫川 on 12-12-18.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WTRootTabBarController.h"
 
-@interface UIApplication (Addition)
+@interface UIApplication (WTAddition)
 
 @property (nonatomic, readonly) WTRootTabBarController *rootTabBarController;
 

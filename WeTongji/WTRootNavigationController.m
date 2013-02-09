@@ -8,7 +8,7 @@
 
 #import "WTRootNavigationController.h"
 #import "WTRootTabBarController.h"
-#import "UIApplication+Addition.h"
+#import "UIApplication+WTAddition.h"
 #import "UIImage+ScreenShoot.h"
 #import "WTNotificationBarButton.h"
 

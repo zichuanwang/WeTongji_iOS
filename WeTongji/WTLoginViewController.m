@@ -8,7 +8,7 @@
 
 #import "WTLoginViewController.h"
 #import "WTRootNavigationController.h"
-#import "UIApplication+Addition.h"
+#import "UIApplication+WTAddition.h"
 #import "WTResourceFactory.h"
 
 @interface WTLoginViewController ()

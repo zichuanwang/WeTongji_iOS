@@ -8,26 +8,28 @@
 
 #import <Foundation/Foundation.h>
 
-#define kTableViewType                  @"TableViewType"
-#define kTableViewContent               @"TableViewContent"
+#define kTableViewType                      @"TableViewType"
+#define kTableViewContent                   @"TableViewContent"
 
-#define kCellTitle                      @"CellTitle"
-#define kCellThumbnail                  @"CellThumbnail"
-#define kCellAccessoryType              @"CellAccessoryType"
+#define kCellTitle                          @"CellTitle"
+#define kCellThumbnail                      @"CellThumbnail"
+#define kCellAccessoryType                  @"CellAccessoryType"
 
-#define kCellAccessoryTypeNone          @"CellAccessoryTypeNone"
-#define kCellAccessoryTypeSwitch        @"CellAccessoryTypeSwitch"
-#define kCellAccessoryTypeDisclosure    @"CellAccessoryTypeDisclosure"
-#define kCellAccessoryTypeCheckmark     @"CellAccessoryTypeCheckmark"
+#define kCellAccessoryTypeNone              @"CellAccessoryTypeNone"
+#define kCellAccessoryTypeSwitch            @"CellAccessoryTypeSwitch"
+#define kCellAccessoryTypeDisclosure        @"CellAccessoryTypeDisclosure"
+#define kCellAccessoryTypeCheckmark         @"CellAccessoryTypeCheckmark"
 
-#define kTableViewTypePlain             @"TableViewTypePlain"
-#define kTableViewTypeGroup             @"TableViewTypeGroup"
-#define kTableViewTypeSeparator         @"TableViewTypeSeparator"
+#define kTableViewTypePlain                 @"TableViewTypePlain"
+#define kTableViewTypeGroup                 @"TableViewTypeGroup"
+#define kTableViewTypeSeparator             @"TableViewTypeSeparator"
 
-#define kTableViewSectionHeader         @"TableViewSectionHeader"
+#define kTableViewSectionHeader             @"TableViewSectionHeader"
+#define kTableViewSupportsMultiSelection    @"TableViewSupportsMultiSelection"
+#define kUserDefaultKey                     @"UserDefaultKey"
 
-#define kWTActivityConfig               @"WTActivitySettingConfig"
-#define kWTNewsConfig                   @"WTNewsSettingConfig"
+#define kWTActivityConfig                   @"WTActivitySettingConfig"
+#define kWTNewsConfig                       @"WTNewsSettingConfig"
 
 @interface WTConfigLoader : NSObject {
     NSMutableDictionary *_configDictionary;

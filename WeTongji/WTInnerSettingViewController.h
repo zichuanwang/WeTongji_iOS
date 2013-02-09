@@ -22,9 +22,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) WTSwitch *selectSwitch;
 
-+ (WTSettingPlainCell *)createPlainCell;
-
-- (void)createSwitch;
++ (WTSettingPlainCell *)createPlainCell:(NSDictionary *)cellInfo;
 
 @end
 
@@ -33,9 +31,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *headerLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *bgImageView;
 
-- (void)addCell:(NSDictionary *)cellInfo;
-
-+ (WTSettingGroupTableView *)createGroupTableView;
++ (WTSettingGroupTableView *)createGroupTableView:(NSDictionary *)tableViewInfo;
 
 @end
 

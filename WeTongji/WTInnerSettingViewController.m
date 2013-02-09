@@ -9,6 +9,7 @@
 #import "WTInnerSettingViewController.h"
 #import "WTConfigLoader.h"
 #import "WTSwitch.h"
+#import "NSUserDefaults+WTAddition.h"
 
 @interface WTInnerSettingViewController ()
 
@@ -64,35 +65,13 @@
         if ([tableViewType isEqualToString:kTableViewTypePlain]) {
             NSArray *contentArray = dict[kTableViewContent];
             for (NSDictionary *cellDict in contentArray) {
-                NSString *cellTitle = NSLocalizedString(cellDict[kCellTitle], nil);
-                NSString *cellAccessoryType = cellDict[kCellAccessoryType];
-                NSString *cellThumbnail = cellDict[kCellThumbnail];
-                
-                WTSettingPlainCell *plainCell = [WTSettingPlainCell createPlainCell];
+                WTSettingPlainCell *plainCell = [WTSettingPlainCell createPlainCell:cellDict];
                 [plainCell resetOriginY:originY];
                 originY += plainCell.frame.size.height;
                 [self.scrollView addSubview:plainCell];
-                
-                plainCell.titleLabel.text = cellTitle;
-                if ([cellAccessoryType isEqualToString:kCellAccessoryTypeSwitch]) {
-                    [plainCell createSwitch];
-                }
-                
-                if (cellThumbnail) {
-                    
-                }
             }
         } else if ([tableViewType isEqualToString:kTableViewTypeGroup]) {
-            WTSettingGroupTableView *tableView = [WTSettingGroupTableView createGroupTableView];
-            
-            NSString *headerTitle = NSLocalizedString(dict[kTableViewSectionHeader], nil);
-            tableView.headerLabel.text = headerTitle;
-            
-            NSArray *contentArray = dict[kTableViewContent];
-            for (NSDictionary *cellDict in contentArray) {
-                [tableView addCell:cellDict];
-            }
-            
+            WTSettingGroupTableView *tableView = [WTSettingGroupTableView createGroupTableView:dict];
             [tableView resetOriginY:originY];
             originY += tableView.frame.size.height;
             [self.scrollView addSubview:tableView];
@@ -111,7 +90,7 @@
 
 @implementation WTSettingPlainCell
 
-+ (WTSettingPlainCell *)createPlainCell {
++ (WTSettingPlainCell *)createPlainCell:(NSDictionary *)cellInfo {
     WTSettingPlainCell *result = nil;
     NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"WTSettingCells" owner:self options:nil];
     for (UIView *view in views) {
@@ -119,6 +98,18 @@
             result = (WTSettingPlainCell *)view;
             break;
         }
+    }
+    NSString *cellTitle = NSLocalizedString(cellInfo[kCellTitle], nil);
+    NSString *cellAccessoryType = cellInfo[kCellAccessoryType];
+    NSString *cellThumbnail = cellInfo[kCellThumbnail];
+    
+    result.titleLabel.text = cellTitle;
+    if ([cellAccessoryType isEqualToString:kCellAccessoryTypeSwitch]) {
+        [result createSwitch];
+    }
+    
+    if (cellThumbnail) {
+        
     }
     return result;
 }
@@ -140,13 +131,16 @@
 
 @interface WTSettingGroupTableView ()
 
+@property (nonatomic, strong) NSMutableArray *cellInfoArray;
 @property (nonatomic, strong) NSMutableArray *cellArray;
+@property (nonatomic, assign) BOOL supportMultiSelection;
+@property (nonatomic, copy) NSString *userDefaultKey;
 
 @end
 
 @implementation WTSettingGroupTableView
 
-+ (WTSettingGroupTableView *)createGroupTableView {
++ (WTSettingGroupTableView *)createGroupTableView:(NSDictionary *)tableViewInfo {
     WTSettingGroupTableView *result = nil;
     NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"WTSettingCells" owner:self options:nil];
     for (UIView *view in views) {
@@ -156,7 +150,17 @@
         }
     }
     
+    NSString *headerTitle = NSLocalizedString(tableViewInfo[kTableViewSectionHeader], nil);
+    result.headerLabel.text = headerTitle;
+    
     result.bgImageView.image = [result.bgImageView.image resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
+    result.supportMultiSelection = [tableViewInfo[kTableViewSupportsMultiSelection] boolValue];
+    result.userDefaultKey = tableViewInfo[kUserDefaultKey];
+    
+    NSArray *contentArray = tableViewInfo[kTableViewContent];
+    for (NSDictionary *cellDict in contentArray) {
+        [result addCell:cellDict];
+    }
     
     return result;
 }
@@ -166,6 +170,13 @@
         _cellArray = [NSMutableArray array];
     }
     return _cellArray;
+}
+
+- (NSMutableArray *)cellInfoArray {
+    if (_cellInfoArray == nil) {
+        _cellInfoArray = [NSMutableArray array];
+    }
+    return _cellInfoArray;
 }
 
 - (void)addCell:(NSDictionary *)cellInfo {
@@ -181,25 +192,76 @@
     }
     
     [cell.cellButton setTitle:cellTitle forState:UIControlStateNormal];
+    [cell.cellButton addTarget:self action:@selector(didClickCellButton:) forControlEvents:UIControlEventTouchUpInside];
     
+    [self.cellInfoArray addObject:cellInfo];
     [self.cellArray addObject:cell];
     
     [self addSubview:cell];
     
     [self configureTableView];
+    
+    NSUInteger cellIndex = cell.cellButton.tag;
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSInteger value = [userDefault integerForKey:self.userDefaultKey];
+    NSInteger itemValue = 1 << cellIndex;
+    if (self.supportMultiSelection) {
+        cell.checkmarkImageView.hidden = !(value & itemValue);
+    } else {
+        cell.checkmarkImageView.hidden = !(value == itemValue);
+    }
 }
 
 - (void)configureTableView {
-    [self resetHeight:40 + 5 + 44 * self.cellArray.count];
+    [self resetHeight:40 + 5 + 44 * self.cellInfoArray.count];
     
     for (int index = 0; index < self.cellArray.count; index++) {
         WTSettingGroupCell *cell = self.cellArray[index];
         cell.separatorImageView.hidden = NO;
         [cell resetOriginY:40 + index * 44];
+        cell.cellButton.tag = index;
         
     }
     WTSettingGroupCell *lastCell = self.cellArray.lastObject;
     lastCell.separatorImageView.hidden = YES;
+}
+
+#pragma mark - Actions
+
+- (void)didClickCellButton:(UIButton *)sender {
+    NSUInteger cellIndex = sender.tag;
+    //NSDictionary *cellInfo = self.cellInfoArray[cellIndex];
+    
+    if (self.supportMultiSelection) {
+        WTSettingGroupCell *selectCell = self.cellArray[cellIndex];
+        selectCell.checkmarkImageView.hidden = !selectCell.checkmarkImageView.hidden;
+        
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        NSInteger result = [userDefault integerForKey:self.userDefaultKey];
+        // Convention
+        NSInteger itemValue = 1 << cellIndex;
+        if (selectCell.checkmarkImageView.hidden)
+            result &=  ~itemValue;
+        else
+            result |= itemValue;
+        [userDefault setInteger:result forKey:self.userDefaultKey];
+        [userDefault synchronize];
+        NSLog(@"%d, %d", itemValue, result);
+    } else {
+        for (WTSettingGroupCell *cell in self.cellArray) {
+            cell.checkmarkImageView.hidden = YES;
+        }
+        WTSettingGroupCell *selectCell = self.cellArray[cellIndex];
+        selectCell.checkmarkImageView.hidden = NO;
+        
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        // Convention
+        NSInteger itemValue = 1 << cellIndex;
+        [userDefault setInteger:itemValue forKey:self.userDefaultKey];
+        [userDefault synchronize];
+        
+        NSLog(@"%d", itemValue);
+    }
 }
 
 @end
