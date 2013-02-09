@@ -63,7 +63,7 @@
 				<key>CellAccessoryType</key>
 				<string>CellAccessoryTypeCheckmark</string>
 				<key>CellThumbnail</key>
-				<string>WTSortByPublishDateIcon</string>
+				<string>WTPublishDateIcon</string>
 			</dict>
 			<dict>
 				<key>CellTitle</key>
@@ -71,7 +71,7 @@
 				<key>CellAccessoryType</key>
 				<string>CellAccessoryTypeCheckmark</string>
 				<key>CellThumbnail</key>
-				<string>WTSortByPopularityIcon</string>
+				<string>WTPopularityIcon</string>
 			</dict>
 		</array>
 	</dict>

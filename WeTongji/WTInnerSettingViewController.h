@@ -27,3 +27,25 @@
 - (void)createSwitch;
 
 @end
+
+@interface WTSettingGroupTableView : UIView
+
+@property (nonatomic, strong) IBOutlet UILabel *headerLabel;
+@property (nonatomic, strong) IBOutlet UIImageView *bgImageView;
+
+- (void)addCell:(NSDictionary *)cellInfo;
+
++ (WTSettingGroupTableView *)createGroupTableView;
+
+@end
+
+@interface WTSettingGroupCell : UIView
+
+@property (nonatomic, strong) IBOutlet UIImageView *checkmarkImageView;
+@property (nonatomic, strong) IBOutlet UIImageView *thumbnailImageView;
+@property (nonatomic, strong) IBOutlet UIButton *cellButton;
+@property (nonatomic, strong) IBOutlet UIImageView *separatorImageView;
+
++ (WTSettingGroupCell *)createGroupCell;
+
+@end

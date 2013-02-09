@@ -29,6 +29,16 @@
 		E10C423016AB051A0084337C /* WTSwitchCover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E10C422A16AB051A0084337C /* WTSwitchCover@2x.png */; };
 		E10C423116AB051A0084337C /* WTSwitchHandler.png in Resources */ = {isa = PBXBuildFile; fileRef = E10C422B16AB051A0084337C /* WTSwitchHandler.png */; };
 		E10C423216AB051A0084337C /* WTSwitchHandler@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E10C422C16AB051A0084337C /* WTSwitchHandler@2x.png */; };
+		E1132E6416C6304A004CB808 /* WTInnerModalGroupTableViewBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E6216C6304A004CB808 /* WTInnerModalGroupTableViewBg.png */; };
+		E1132E6516C6304A004CB808 /* WTInnerModalGroupTableViewBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E6316C6304A004CB808 /* WTInnerModalGroupTableViewBg@2x.png */; };
+		E1132E6D16C632F6004CB808 /* WTEventIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E6716C632F6004CB808 /* WTEventIcon.png */; };
+		E1132E6E16C632F6004CB808 /* WTEventIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E6816C632F6004CB808 /* WTEventIcon@2x.png */; };
+		E1132E6F16C632F6004CB808 /* WTPopularityIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E6916C632F6004CB808 /* WTPopularityIcon.png */; };
+		E1132E7016C632F6004CB808 /* WTPopularityIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E6A16C632F6004CB808 /* WTPopularityIcon@2x.png */; };
+		E1132E7116C632F6004CB808 /* WTPublishDateIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E6B16C632F6004CB808 /* WTPublishDateIcon.png */; };
+		E1132E7216C632F6004CB808 /* WTPublishDateIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E6C16C632F6004CB808 /* WTPublishDateIcon@2x.png */; };
+		E1132E7516C63308004CB808 /* WTCheckmarkIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E7316C63308004CB808 /* WTCheckmarkIcon.png */; };
+		E1132E7616C63308004CB808 /* WTCheckmarkIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E7416C63308004CB808 /* WTCheckmarkIcon@2x.png */; };
 		E11702FC1650F82A00D82F4A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11702FB1650F82A00D82F4A /* SystemConfiguration.framework */; };
 		E11702FE1650F83F00D82F4A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */; };
 		E1170316165156A400D82F4A /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1170315165156A400D82F4A /* icon@2x.png */; };
@@ -110,8 +120,8 @@
 		E14FA6901680C546008A8D33 /* WTNotificationRing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA68E1680C546008A8D33 /* WTNotificationRing@2x.png */; };
 		E14FA6991680DEDB008A8D33 /* WTInnerModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E14FA6971680DEDB008A8D33 /* WTInnerModalViewController.m */; };
 		E14FA69A1680DEDB008A8D33 /* WTInnerSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6981680DEDB008A8D33 /* WTInnerSettingViewController.xib */; };
-		E14FA69D1680DF63008A8D33 /* WTModalViewBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA69B1680DF62008A8D33 /* WTModalViewBg.png */; };
-		E14FA69E1680DF63008A8D33 /* WTModalViewBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA69C1680DF63008A8D33 /* WTModalViewBg@2x.png */; };
+		E14FA69D1680DF63008A8D33 /* WTInnerModalViewBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA69B1680DF62008A8D33 /* WTInnerModalViewBg.png */; };
+		E14FA69E1680DF63008A8D33 /* WTInnerModalViewBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14FA69C1680DF63008A8D33 /* WTInnerModalViewBg@2x.png */; };
 		E14FA6A11680E067008A8D33 /* UIImage+ScreenShoot.m in Sources */ = {isa = PBXBuildFile; fileRef = E14FA6A01680E067008A8D33 /* UIImage+ScreenShoot.m */; };
 		E14FA6A91681EBC5008A8D33 /* WTActivityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E14FA6A71681EBC2008A8D33 /* WTActivityDetailViewController.m */; };
 		E14FA6AA1681EBC5008A8D33 /* WTActivityDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14FA6A81681EBC3008A8D33 /* WTActivityDetailViewController.xib */; };
@@ -283,6 +293,16 @@
 		E10C422A16AB051A0084337C /* WTSwitchCover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTSwitchCover@2x.png"; sourceTree = "<group>"; };
 		E10C422B16AB051A0084337C /* WTSwitchHandler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTSwitchHandler.png; sourceTree = "<group>"; };
 		E10C422C16AB051A0084337C /* WTSwitchHandler@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTSwitchHandler@2x.png"; sourceTree = "<group>"; };
+		E1132E6216C6304A004CB808 /* WTInnerModalGroupTableViewBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTInnerModalGroupTableViewBg.png; sourceTree = "<group>"; };
+		E1132E6316C6304A004CB808 /* WTInnerModalGroupTableViewBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTInnerModalGroupTableViewBg@2x.png"; sourceTree = "<group>"; };
+		E1132E6716C632F6004CB808 /* WTEventIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTEventIcon.png; sourceTree = "<group>"; };
+		E1132E6816C632F6004CB808 /* WTEventIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTEventIcon@2x.png"; sourceTree = "<group>"; };
+		E1132E6916C632F6004CB808 /* WTPopularityIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTPopularityIcon.png; sourceTree = "<group>"; };
+		E1132E6A16C632F6004CB808 /* WTPopularityIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTPopularityIcon@2x.png"; sourceTree = "<group>"; };
+		E1132E6B16C632F6004CB808 /* WTPublishDateIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTPublishDateIcon.png; sourceTree = "<group>"; };
+		E1132E6C16C632F6004CB808 /* WTPublishDateIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTPublishDateIcon@2x.png"; sourceTree = "<group>"; };
+		E1132E7316C63308004CB808 /* WTCheckmarkIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTCheckmarkIcon.png; sourceTree = "<group>"; };
+		E1132E7416C63308004CB808 /* WTCheckmarkIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTCheckmarkIcon@2x.png"; sourceTree = "<group>"; };
 		E11702FB1650F82A00D82F4A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E1170315165156A400D82F4A /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../../icon@2x.png"; sourceTree = "<group>"; };
@@ -386,8 +406,8 @@
 		E14FA6961680DEDB008A8D33 /* WTInnerModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTInnerModalViewController.h; sourceTree = "<group>"; };
 		E14FA6971680DEDB008A8D33 /* WTInnerModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTInnerModalViewController.m; sourceTree = "<group>"; };
 		E14FA6981680DEDB008A8D33 /* WTInnerSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTInnerSettingViewController.xib; sourceTree = "<group>"; };
-		E14FA69B1680DF62008A8D33 /* WTModalViewBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTModalViewBg.png; sourceTree = "<group>"; };
-		E14FA69C1680DF63008A8D33 /* WTModalViewBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTModalViewBg@2x.png"; sourceTree = "<group>"; };
+		E14FA69B1680DF62008A8D33 /* WTInnerModalViewBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTInnerModalViewBg.png; sourceTree = "<group>"; };
+		E14FA69C1680DF63008A8D33 /* WTInnerModalViewBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTInnerModalViewBg@2x.png"; sourceTree = "<group>"; };
 		E14FA69F1680E067008A8D33 /* UIImage+ScreenShoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ScreenShoot.h"; sourceTree = "<group>"; };
 		E14FA6A01680E067008A8D33 /* UIImage+ScreenShoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ScreenShoot.m"; sourceTree = "<group>"; };
 		E14FA6A71681EBC2008A8D33 /* WTActivityDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTActivityDetailViewController.m; sourceTree = "<group>"; };
@@ -620,9 +640,25 @@
 			name = Switch;
 			sourceTree = "<group>";
 		};
+		E1132E6616C632EA004CB808 /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+				E1132E7316C63308004CB808 /* WTCheckmarkIcon.png */,
+				E1132E7416C63308004CB808 /* WTCheckmarkIcon@2x.png */,
+				E1132E6716C632F6004CB808 /* WTEventIcon.png */,
+				E1132E6816C632F6004CB808 /* WTEventIcon@2x.png */,
+				E1132E6916C632F6004CB808 /* WTPopularityIcon.png */,
+				E1132E6A16C632F6004CB808 /* WTPopularityIcon@2x.png */,
+				E1132E6B16C632F6004CB808 /* WTPublishDateIcon.png */,
+				E1132E6C16C632F6004CB808 /* WTPublishDateIcon@2x.png */,
+			);
+			name = Icon;
+			sourceTree = "<group>";
+		};
 		E117035A1651EF3E00D82F4A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E1132E6616C632EA004CB808 /* Icon */,
 				E1528D6916C5531900BD2B42 /* Config */,
 				E10C422616AB05110084337C /* Switch */,
 				039E37D9169701AE00178F1C /* Now */,
@@ -633,7 +669,6 @@
 				E1D373A61693473E0012E30A /* Other */,
 				E1AEA9861691AF56007DFA4C /* Shadow */,
 				E18821BB1680058000A41F47 /* TabBar */,
-				E1C033CB16691E75004738EF /* WTDistrictBuildingMap.plist */,
 			);
 			name = Resources;
 			path = WeTongji/Resources;
@@ -836,6 +871,7 @@
 		E1528D6916C5531900BD2B42 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				E1C033CB16691E75004738EF /* WTDistrictBuildingMap.plist */,
 				E1528D6A16C5533C00BD2B42 /* WTNewsSettingConfig.plist */,
 			);
 			name = Config;
@@ -1034,8 +1070,8 @@
 				E1D374661694C9B60012E30A /* WTLargePosterCover@2x.png */,
 				E14FA6C316820285008A8D33 /* WTLikeButtonFlagBg.png */,
 				E14FA6C416820286008A8D33 /* WTLikeButtonFlagBg@2x.png */,
-				E14FA69B1680DF62008A8D33 /* WTModalViewBg.png */,
-				E14FA69C1680DF63008A8D33 /* WTModalViewBg@2x.png */,
+				E14FA69B1680DF62008A8D33 /* WTInnerModalViewBg.png */,
+				E14FA69C1680DF63008A8D33 /* WTInnerModalViewBg@2x.png */,
 				E13B0E4A169F4F5500A45079 /* WTNavigationBarBackButtonLogo.png */,
 				E13B0E4B169F4F5500A45079 /* WTNavigationBarBackButtonLogo@2x.png */,
 				E1D373A2169346F20012E30A /* WTPanelNowIcon.png */,
@@ -1049,6 +1085,8 @@
 				E1B8928916917D15009D901C /* WTTestBanner1.png */,
 				E1B89297169184E0009D901C /* WTTestBanner2.png */,
 				E1B89296169184E0009D901C /* WTTestBanner3.png */,
+				E1132E6216C6304A004CB808 /* WTInnerModalGroupTableViewBg.png */,
+				E1132E6316C6304A004CB808 /* WTInnerModalGroupTableViewBg@2x.png */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -1297,8 +1335,8 @@
 				E14FA68F1680C546008A8D33 /* WTNotificationRing.png in Resources */,
 				E14FA6901680C546008A8D33 /* WTNotificationRing@2x.png in Resources */,
 				E14FA69A1680DEDB008A8D33 /* WTInnerSettingViewController.xib in Resources */,
-				E14FA69D1680DF63008A8D33 /* WTModalViewBg.png in Resources */,
-				E14FA69E1680DF63008A8D33 /* WTModalViewBg@2x.png in Resources */,
+				E14FA69D1680DF63008A8D33 /* WTInnerModalViewBg.png in Resources */,
+				E14FA69E1680DF63008A8D33 /* WTInnerModalViewBg@2x.png in Resources */,
 				E14FA6AA1681EBC5008A8D33 /* WTActivityDetailViewController.xib in Resources */,
 				E14FA6AD1681EC23008A8D33 /* WTNavigationBarBackButton.png in Resources */,
 				E14FA6AE1681EC23008A8D33 /* WTNavigationBarBackButton@2x.png in Resources */,
@@ -1392,6 +1430,16 @@
 				E1526F4E16C59B6200AF8A4C /* WTSettingCells.xib in Resources */,
 				E177EB6416C59F1A0044A697 /* WTInnerModalSeparator.png in Resources */,
 				E177EB6516C59F1A0044A697 /* WTInnerModalSeparator@2x.png in Resources */,
+				E1132E6416C6304A004CB808 /* WTInnerModalGroupTableViewBg.png in Resources */,
+				E1132E6516C6304A004CB808 /* WTInnerModalGroupTableViewBg@2x.png in Resources */,
+				E1132E6D16C632F6004CB808 /* WTEventIcon.png in Resources */,
+				E1132E6E16C632F6004CB808 /* WTEventIcon@2x.png in Resources */,
+				E1132E6F16C632F6004CB808 /* WTPopularityIcon.png in Resources */,
+				E1132E7016C632F6004CB808 /* WTPopularityIcon@2x.png in Resources */,
+				E1132E7116C632F6004CB808 /* WTPublishDateIcon.png in Resources */,
+				E1132E7216C632F6004CB808 /* WTPublishDateIcon@2x.png in Resources */,
+				E1132E7516C63308004CB808 /* WTCheckmarkIcon.png in Resources */,
+				E1132E7616C63308004CB808 /* WTCheckmarkIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

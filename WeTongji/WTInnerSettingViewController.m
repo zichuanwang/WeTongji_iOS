@@ -64,7 +64,7 @@
         if ([tableViewType isEqualToString:kTableViewTypePlain]) {
             NSArray *contentArray = dict[kTableViewContent];
             for (NSDictionary *cellDict in contentArray) {
-                NSString *cellTitle = cellDict[kCellTitle];
+                NSString *cellTitle = NSLocalizedString(cellDict[kCellTitle], nil);
                 NSString *cellAccessoryType = cellDict[kCellAccessoryType];
                 NSString *cellThumbnail = cellDict[kCellThumbnail];
                 
@@ -83,16 +83,28 @@
                 }
             }
         } else if ([tableViewType isEqualToString:kTableViewTypeGroup]) {
+            WTSettingGroupTableView *tableView = [WTSettingGroupTableView createGroupTableView];
+            
+            NSString *headerTitle = NSLocalizedString(dict[kTableViewSectionHeader], nil);
+            tableView.headerLabel.text = headerTitle;
+            
+            NSArray *contentArray = dict[kTableViewContent];
+            for (NSDictionary *cellDict in contentArray) {
+                [tableView addCell:cellDict];
+            }
+            
+            [tableView resetOriginY:originY];
+            originY += tableView.frame.size.height;
+            [self.scrollView addSubview:tableView];
+            
+        } else if ([tableViewType isEqualToString:kTableViewTypeSeparator]) {
             UIImageView *separatorImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTInnerModalSeparator"]];
             [separatorImageView resetOrigin:CGPointMake(0, originY)];
             [self.scrollView addSubview:separatorImageView];
-            
-        } else if ([tableViewType isEqualToString:kTableViewTypeSeparator]) {
-            
         }
     }
     
-    [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, originY)];
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, originY + 20)];
 }
 
 @end
@@ -105,7 +117,6 @@
     for (UIView *view in views) {
         if ([view isKindOfClass:[WTSettingPlainCell class]]) {
             result = (WTSettingPlainCell *)view;
-            [result resetOriginX:0];
             break;
         }
     }
@@ -123,6 +134,89 @@
 
 - (void)switchDidChange:(WTSwitch *)sender {
     
+}
+
+@end
+
+@interface WTSettingGroupTableView ()
+
+@property (nonatomic, strong) NSMutableArray *cellArray;
+
+@end
+
+@implementation WTSettingGroupTableView
+
++ (WTSettingGroupTableView *)createGroupTableView {
+    WTSettingGroupTableView *result = nil;
+    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"WTSettingCells" owner:self options:nil];
+    for (UIView *view in views) {
+        if ([view isKindOfClass:[WTSettingGroupTableView class]]) {
+            result = (WTSettingGroupTableView *)view;
+            break;
+        }
+    }
+    
+    result.bgImageView.image = [result.bgImageView.image resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
+    
+    return result;
+}
+
+- (NSMutableArray *)cellArray {
+    if (_cellArray == nil) {
+        _cellArray = [NSMutableArray array];
+    }
+    return _cellArray;
+}
+
+- (void)addCell:(NSDictionary *)cellInfo {
+    NSString *cellTitle = NSLocalizedString(cellInfo[kCellTitle], nil);
+    //NSString *cellAccessoryType = cellInfo[kCellAccessoryType];
+    NSString *cellThumbnail = cellInfo[kCellThumbnail];
+    
+    WTSettingGroupCell *cell = [WTSettingGroupCell createGroupCell];
+    
+    if (cellThumbnail) {
+        cellTitle = [NSString stringWithFormat:@"      %@", cellTitle];
+        cell.thumbnailImageView.image = [UIImage imageNamed:cellThumbnail];
+    }
+    
+    [cell.cellButton setTitle:cellTitle forState:UIControlStateNormal];
+    
+    [self.cellArray addObject:cell];
+    
+    [self addSubview:cell];
+    
+    [self configureTableView];
+}
+
+- (void)configureTableView {
+    [self resetHeight:40 + 5 + 44 * self.cellArray.count];
+    
+    for (int index = 0; index < self.cellArray.count; index++) {
+        WTSettingGroupCell *cell = self.cellArray[index];
+        cell.separatorImageView.hidden = NO;
+        [cell resetOriginY:40 + index * 44];
+        
+    }
+    WTSettingGroupCell *lastCell = self.cellArray.lastObject;
+    lastCell.separatorImageView.hidden = YES;
+}
+
+@end
+
+@implementation WTSettingGroupCell
+
++ (WTSettingGroupCell *)createGroupCell {
+    WTSettingGroupCell *result = nil;
+    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"WTSettingCells" owner:self options:nil];
+    for (UIView *view in views) {
+        if ([view isKindOfClass:[WTSettingGroupCell class]]) {
+            result = (WTSettingGroupCell *)view;
+            break;
+        }
+    }
+    
+    return result;
 }
 
 @end
