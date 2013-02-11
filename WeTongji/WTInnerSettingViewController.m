@@ -78,12 +78,13 @@
             
         } else if ([tableViewType isEqualToString:kTableViewTypeSeparator]) {
             UIImageView *separatorImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTInnerModalSeparator"]];
+            originY += 10;
             [separatorImageView resetOrigin:CGPointMake(0, originY)];
             [self.scrollView addSubview:separatorImageView];
         }
     }
     
-    [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, originY + 20)];
+    [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, originY)];
 }
 
 @end
