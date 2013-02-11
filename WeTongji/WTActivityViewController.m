@@ -11,8 +11,11 @@
 #import "WTResourceFactory.h"
 #import "WTActivityCell.h"
 #import "Activity+Addition.h"
+#import "WTActivitySettingViewController.h"
 
 @interface WTActivityViewController ()
+
+@property (nonatomic, readonly) UIButton *filterButton;
 
 @end
 
@@ -34,6 +37,8 @@
     [self configureNavigationBar];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
     
+    self.tableView.scrollsToTop = NO;
+    
     [self loadData];
 }
 
@@ -41,6 +46,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Properties
+
+- (UIButton *)filterButton {
+    return (UIButton *)self.navigationItem.rightBarButtonItem.customView.subviews.lastObject;
 }
 
 #pragma mark - Data load methods
@@ -78,7 +89,17 @@
 }
 
 - (void)didClickFilterButton:(UIButton *)sender {
-    sender.selected = !sender.selected;
+    WTRootNavigationController *nav = (WTRootNavigationController *)self.navigationController;
+    
+    if (sender.selected) {
+        sender.selected = NO;
+        
+        WTActivitySettingViewController *vc = [[WTActivitySettingViewController alloc] init];
+        [nav showInnerModalViewController:vc sourceViewController:self disableNavBarType:WTDisableNavBarTypeLeft];
+        
+    } else {
+        [nav hideInnerModalViewController];
+    }
 }
 
 #pragma mark - CoreDataTableViewController methods
@@ -110,6 +131,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     NSLog(@"select");
+}
+
+#pragma mark - WTRootNavigationControllerDelegate
+
+- (void)didHideInnderModalViewController {
+    self.filterButton.selected = YES;
 }
 
 @end

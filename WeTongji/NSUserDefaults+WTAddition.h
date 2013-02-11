@@ -14,13 +14,28 @@ typedef enum {
 } NewsOrderMethod;
 
 typedef enum {
+    ActivityOrderByPublishDate  = 1 << 0,
+    ActivityOrderByPopularity   = 1 << 1,
+    ActivityOrderByStartDate    = 1 << 2,
+} ActivityOrderMethod;
+
+typedef enum {
     NewsShowTypeCampusUpdate        = 1 << 0,
     NewsShowTypeCollegeNotification = 1 << 1,
     NewsShowTypeAssociationNews     = 1 << 2,
     NewsShowTypeLocalRecommandation = 1 << 3,
 } NewsShowTypes;
 
+typedef enum {
+    ActivityShowTypeAcademics       = 1 << 0,
+    ActivityShowTypeEntertainment   = 1 << 1,
+    ActivityShowTypeEnterprise      = 1 << 2,
+    ActivityShowTypeCompetition     = 1 << 3,
+} ActivityShowTypes;
+
 #define NewsShowTypesAll (NewsShowTypeCampusUpdate + NewsShowTypeCollegeNotification + NewsShowTypeAssociationNews + NewsShowTypeLocalRecommandation)
+
+#define ActivityShowTypesAll (ActivityShowTypeAcademics + ActivityShowTypeEntertainment + ActivityShowTypeEnterprise + ActivityShowTypeCompetition)
 
 @interface NSUserDefaults (WTAddition)
 

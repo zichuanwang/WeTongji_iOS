@@ -18,6 +18,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *offLabel;
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) IBOutlet UIButton *handlerButton;
+@property (nonatomic, getter = isOn) BOOL on;
 
 @property (nonatomic, weak) id<WTSwitchDelegate> delegate;
 

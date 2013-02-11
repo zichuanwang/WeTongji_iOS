@@ -178,6 +178,8 @@
 		E188223916803E1400A41F47 /* WTInfoPanelBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E188223716803E1400A41F47 /* WTInfoPanelBg@2x.png */; };
 		E188223C1680461E00A41F47 /* WTInfoPanelDivier@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E188223A1680461D00A41F47 /* WTInfoPanelDivier@2x.png */; };
 		E188223D1680461E00A41F47 /* WTInfoPanelDivier.png in Resources */ = {isa = PBXBuildFile; fileRef = E188223B1680461E00A41F47 /* WTInfoPanelDivier.png */; };
+		E191D91216C72E7100384CF6 /* WTActivitySettingConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E191D91116C72E7100384CF6 /* WTActivitySettingConfig.plist */; };
+		E191D91516C78F2E00384CF6 /* WTActivitySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E191D91416C78F2E00384CF6 /* WTActivitySettingViewController.m */; };
 		E199053516B7CDCE00F2C787 /* WTGrayPanel.png in Resources */ = {isa = PBXBuildFile; fileRef = E199053316B7CDCE00F2C787 /* WTGrayPanel.png */; };
 		E199053616B7CDCE00F2C787 /* WTGrayPanel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E199053416B7CDCE00F2C787 /* WTGrayPanel@2x.png */; };
 		E1AEA9891691AFBC007DFA4C /* WTTopShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AEA9871691AFBB007DFA4C /* WTTopShadow.png */; };
@@ -485,6 +487,9 @@
 		E188223716803E1400A41F47 /* WTInfoPanelBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTInfoPanelBg@2x.png"; sourceTree = "<group>"; };
 		E188223A1680461D00A41F47 /* WTInfoPanelDivier@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTInfoPanelDivier@2x.png"; sourceTree = "<group>"; };
 		E188223B1680461E00A41F47 /* WTInfoPanelDivier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTInfoPanelDivier.png; sourceTree = "<group>"; };
+		E191D91116C72E7100384CF6 /* WTActivitySettingConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WTActivitySettingConfig.plist; sourceTree = "<group>"; };
+		E191D91316C78F2E00384CF6 /* WTActivitySettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTActivitySettingViewController.h; sourceTree = "<group>"; };
+		E191D91416C78F2E00384CF6 /* WTActivitySettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTActivitySettingViewController.m; sourceTree = "<group>"; };
 		E199053316B7CDCE00F2C787 /* WTGrayPanel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTGrayPanel.png; sourceTree = "<group>"; };
 		E199053416B7CDCE00F2C787 /* WTGrayPanel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTGrayPanel@2x.png"; sourceTree = "<group>"; };
 		E1AEA9871691AFBB007DFA4C /* WTTopShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTopShadow.png; sourceTree = "<group>"; };
@@ -859,6 +864,8 @@
 		E14FA6951680DEB1008A8D33 /* InnerModal */ = {
 			isa = PBXGroup;
 			children = (
+				E191D91316C78F2E00384CF6 /* WTActivitySettingViewController.h */,
+				E191D91416C78F2E00384CF6 /* WTActivitySettingViewController.m */,
 				E14FA6961680DEDB008A8D33 /* WTInnerModalViewController.h */,
 				E14FA6971680DEDB008A8D33 /* WTInnerModalViewController.m */,
 				E1528D6F16C561C100BD2B42 /* WTInnerSettingViewController.h */,
@@ -874,6 +881,7 @@
 		E1528D6916C5531900BD2B42 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				E191D91116C72E7100384CF6 /* WTActivitySettingConfig.plist */,
 				E1C033CB16691E75004738EF /* WTDistrictBuildingMap.plist */,
 				E1528D6A16C5533C00BD2B42 /* WTNewsSettingConfig.plist */,
 			);
@@ -1445,6 +1453,7 @@
 				E1132E7216C632F6004CB808 /* WTPublishDateIcon@2x.png in Resources */,
 				E1132E7516C63308004CB808 /* WTCheckmarkIcon.png in Resources */,
 				E1132E7616C63308004CB808 /* WTCheckmarkIcon@2x.png in Resources */,
+				E191D91216C72E7100384CF6 /* WTActivitySettingConfig.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1535,6 +1544,7 @@
 				E1528D6E16C5608E00BD2B42 /* WTNewsSettingViewController.m in Sources */,
 				E1528D7116C561C100BD2B42 /* WTInnerSettingViewController.m in Sources */,
 				E1132E7916C65823004CB808 /* NSUserDefaults+WTAddition.m in Sources */,
+				E191D91516C78F2E00384CF6 /* WTActivitySettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

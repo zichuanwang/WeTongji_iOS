@@ -7,7 +7,8 @@
 //
 
 #import "WTCoreDataTableViewController.h"
+#import "WTRootNavigationController.h"
 
-@interface WTActivityViewController : WTCoreDataTableViewController
+@interface WTActivityViewController : WTCoreDataTableViewController <WTRootNavigationControllerDelegate>
 
 @end

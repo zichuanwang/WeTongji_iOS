@@ -88,6 +88,12 @@
 
 @end
 
+@interface WTSettingPlainCell ()
+
+@property (nonatomic, copy) NSString *userDefaultKey;
+
+@end
+
 @implementation WTSettingPlainCell
 
 + (WTSettingPlainCell *)createPlainCell:(NSDictionary *)cellInfo {
@@ -102,15 +108,21 @@
     NSString *cellTitle = NSLocalizedString(cellInfo[kCellTitle], nil);
     NSString *cellAccessoryType = cellInfo[kCellAccessoryType];
     NSString *cellThumbnail = cellInfo[kCellThumbnail];
+    result.userDefaultKey = cellInfo[kUserDefaultKey];
     
     result.titleLabel.text = cellTitle;
     if ([cellAccessoryType isEqualToString:kCellAccessoryTypeSwitch]) {
         [result createSwitch];
+        
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        BOOL value = [userDefault boolForKey:result.userDefaultKey];
+        result.selectSwitch.on = value;
     }
     
     if (cellThumbnail) {
         
     }
+    
     return result;
 }
 
@@ -124,7 +136,9 @@
 #pragma mark - WTSwitchDelegate
 
 - (void)switchDidChange:(WTSwitch *)sender {
-    
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setBool:self.selectSwitch.isOn forKey:self.userDefaultKey];
+    [userDefault synchronize];
 }
 
 @end
