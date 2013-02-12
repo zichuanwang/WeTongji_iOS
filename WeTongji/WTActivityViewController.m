@@ -42,6 +42,10 @@
     [self loadData];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [self.tableView resetHeight:self.view.frame.size.height];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
