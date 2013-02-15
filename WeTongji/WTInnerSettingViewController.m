@@ -87,6 +87,13 @@
     [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, originY)];
 }
 
+#pragma mark - WTWaterflowDecoratorDataSource
+
+- (UIScrollView *)waterflowScrollView {
+    return self.scrollView;
+}
+
+
 @end
 
 @interface WTSettingPlainCell ()

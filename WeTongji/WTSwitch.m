@@ -31,7 +31,7 @@
     self.offLabel.text = NSLocalizedString(@"OFF", nil);
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapView:)];
-    // [self addGestureRecognizer:tap];
+    [self addGestureRecognizer:tap];
 }
 
 #pragma mark - Properties
@@ -43,9 +43,9 @@
 - (void)setOn:(BOOL)on {
     _switchState = !on;
     if (on)
-        self.scrollView.contentOffset = CGPointMake(0, 0);
+        self.scrollView.contentOffset = CGPointMake(0, self.scrollView.frame.size.height);
     else {
-        self.scrollView.contentOffset = CGPointMake(50, 0);
+        self.scrollView.contentOffset = CGPointMake(50, self.scrollView.frame.size.height);
         [self.scrollView.handlerButton resetCenterX:64 - self.scrollView.contentOffset.x];
     }
 }
@@ -59,7 +59,7 @@
     NSLog(@"%@", NSStringFromCGPoint(location));
     if (location.x < 50) {
         [UIView animateWithDuration:0.25f animations:^{
-            self.scrollView.contentOffset = CGPointMake(50, 0);
+            self.scrollView.contentOffset = CGPointMake(50, self.scrollView.frame.size.height);
         } completion:^(BOOL finished) {
             //_switchState = 1;
             [self.delegate switchDidChange:self];
@@ -67,7 +67,7 @@
         }];
     } else if (location.x > 78) {
         [UIView animateWithDuration:0.25f animations:^{
-            self.scrollView.contentOffset = CGPointMake(0, 0);
+            self.scrollView.contentOffset = CGPointMake(0, self.scrollView.frame.size.height);
         } completion:^(BOOL finished) {
             //_switchState = 0;
             [self.delegate switchDidChange:self];
@@ -75,7 +75,7 @@
         }];
     } else {
         [UIView animateWithDuration:0.25f animations:^{
-            self.scrollView.contentOffset = _switchState ? CGPointMake(0, 0) : CGPointMake(50, 0);
+            self.scrollView.contentOffset = _switchState ? CGPointMake(0, self.scrollView.frame.size.height) : CGPointMake(50, self.scrollView.frame.size.height);
         } completion:^(BOOL finished) {
             //_switchState = !_switchState;
             [self.delegate switchDidChange:self];

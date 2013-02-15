@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WTInnerModalViewController : UIViewController
+@protocol WTWaterflowDecoratorDataSource <NSObject>
+
+- (UIImageView *)waterflowBackgroundViewA;
+- (UIImageView *)waterflowBackgroundViewB;
+- (UIScrollView *)waterflowScrollView;
+
+@end
+
+@interface WTInnerModalViewController : UIViewController <WTWaterflowDecoratorDataSource, UIScrollViewDelegate>
 
 @end
