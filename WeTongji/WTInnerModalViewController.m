@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTInnerModalViewBg"]];
+    self.view.backgroundColor = [UIColor blackColor];
     
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     [self.view resetHeight:screenSize.height - 20 - 44 - 41];

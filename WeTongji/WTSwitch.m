@@ -9,6 +9,12 @@
 #import "WTSwitch.h"
 #import <QuartzCore/QuartzCore.h>
 
+@interface WTSwitch ()
+
+@property (nonatomic, assign) BOOL touchingHandler;
+
+@end
+
 @implementation WTSwitch
 
 + (WTSwitch *)createSwitchWithDelegate:(id<WTSwitchDelegate>)delegate {
@@ -32,13 +38,20 @@
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
     UIView *result = [super hitTest:point withEvent:event];
     if (result == self.handlerButton) {
-        self.handlerButton.highlighted = YES;
+        self.touchingHandler = YES;
         result = self.scrollView;
     }
     return result;
 }
 
 #pragma mark - Properties
+
+- (void)setTouchingHandler:(BOOL)touchingHandler {
+    _touchingHandler = touchingHandler;
+    if (touchingHandler == NO) {
+        self.handlerButton.highlighted = NO;
+    }
+}
 
 - (BOOL)isOn {
     return (_switchState == 0);
@@ -57,7 +70,7 @@
 #pragma mark - Gesture handler
 
 - (void)didTapView:(UITapGestureRecognizer *)gesture {
-    self.handlerButton.highlighted = NO;
+    self.touchingHandler = NO;
     
     CGPoint location = [gesture locationInView:self.scrollView];
     NSLog(@"%@", NSStringFromCGPoint(location));
@@ -91,19 +104,23 @@
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (self.touchingHandler) {
+        self.handlerButton.highlighted = YES;
+    }
+    
     [self.handlerButton resetCenterX:64 - scrollView.contentOffset.x];
     
     _switchState = (scrollView.contentOffset.x >= 50);
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    self.handlerButton.highlighted = NO;
+    self.touchingHandler = NO;
     [self.delegate switchDidChange:self];
     NSLog(@"contentOffset:%f, switch state :%d", scrollView.contentOffset.x, _switchState);
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    self.handlerButton.highlighted = NO;
+    self.touchingHandler = NO;
     [self.delegate switchDidChange:self];
     NSLog(@"contentOffset:%f, switch state :%d", scrollView.contentOffset.x, _switchState);
 }
