@@ -11,8 +11,6 @@
 
 @interface WTSwitch ()
 
-@property (nonatomic, assign) BOOL touchingHandler;
-
 @end
 
 @implementation WTSwitch
@@ -26,32 +24,17 @@
 - (void)awakeFromNib {
     self.scrollView.layer.masksToBounds = YES;
     self.scrollView.layer.cornerRadius = 14.0f;
-    self.scrollView.contentSize = CGSizeMake(128, self.scrollView.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(128, self.scrollView.frame.size.height * 3);
+    self.scrollView.contentOffset = CGPointMake(0, self.scrollView.frame.size.height);
     
     self.onLabel.text = NSLocalizedString(@"ON", nil);
     self.offLabel.text = NSLocalizedString(@"OFF", nil);
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapView:)];
-    [self addGestureRecognizer:tap];
-}
-
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-    UIView *result = [super hitTest:point withEvent:event];
-    if (result == self.handlerButton) {
-        self.touchingHandler = YES;
-        result = self.scrollView;
-    }
-    return result;
+    // [self addGestureRecognizer:tap];
 }
 
 #pragma mark - Properties
-
-- (void)setTouchingHandler:(BOOL)touchingHandler {
-    _touchingHandler = touchingHandler;
-    if (touchingHandler == NO) {
-        self.handlerButton.highlighted = NO;
-    }
-}
 
 - (BOOL)isOn {
     return (_switchState == 0);
@@ -63,14 +46,14 @@
         self.scrollView.contentOffset = CGPointMake(0, 0);
     else {
         self.scrollView.contentOffset = CGPointMake(50, 0);
-        [self.handlerButton resetCenterX:64 - self.scrollView.contentOffset.x];
+        [self.scrollView.handlerButton resetCenterX:64 - self.scrollView.contentOffset.x];
     }
 }
 
 #pragma mark - Gesture handler
 
 - (void)didTapView:(UITapGestureRecognizer *)gesture {
-    self.touchingHandler = NO;
+    self.scrollView.handlerButton.highlighted = NO;
     
     CGPoint location = [gesture locationInView:self.scrollView];
     NSLog(@"%@", NSStringFromCGPoint(location));
@@ -104,25 +87,58 @@
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (self.touchingHandler) {
-        self.handlerButton.highlighted = YES;
-    }
-    
-    [self.handlerButton resetCenterX:64 - scrollView.contentOffset.x];
+    self.scrollView.contentOffset = CGPointMake(scrollView.contentOffset.x, self.scrollView.frame.size.height);
+    [self.scrollView.handlerButton resetCenterX:64 - scrollView.contentOffset.x];
     
     _switchState = (scrollView.contentOffset.x >= 50);
+    
+    if (self.scrollView.dragging && !self.scrollView.isDecelerating) {
+        NSLog(@"dragging not decelerating, highlight");
+        self.scrollView.handlerButton.highlighted = YES;
+    }
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    self.touchingHandler = NO;
+    self.scrollView.handlerButton.highlighted = NO;
+    NSLog(@"end dragging, not highlight");
     [self.delegate switchDidChange:self];
-    NSLog(@"contentOffset:%f, switch state :%d", scrollView.contentOffset.x, _switchState);
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    self.touchingHandler = NO;
+    self.scrollView.handlerButton.highlighted = NO;
+    NSLog(@"end decelerating, not highlight");
     [self.delegate switchDidChange:self];
-    NSLog(@"contentOffset:%f, switch state :%d", scrollView.contentOffset.x, _switchState);
+}
+
+@end
+
+@implementation WTSwitchScrollView
+
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    if ([self pointInside:point withEvent:event]) {
+        // NSLog(@"inside point %@", NSStringFromCGPoint(point));
+        // self.handlerButton.highlighted = YES;
+        return self;
+    }
+    else {
+        // NSLog(@"outside point %@", NSStringFromCGPoint(point));
+        return [super hitTest:point withEvent:event];
+    }
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSLog(@"touchesBegan");
+    self.handlerButton.highlighted = YES;
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSLog(@"touchesEnded");
+    self.handlerButton.highlighted = NO;
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSLog(@"touchesCancelled");
+    self.handlerButton.highlighted = NO;
 }
 
 @end
