@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@interface WTSwitchScrollView : UIScrollView
+
+@property (nonatomic, strong) IBOutlet UIButton *handlerButton;
+
+@end
+
 @protocol WTSwitchDelegate;
 
 @interface WTSwitch : UIView <UIScrollViewDelegate> {
@@ -16,8 +22,9 @@
 
 @property (nonatomic, strong) IBOutlet UILabel *onLabel;
 @property (nonatomic, strong) IBOutlet UILabel *offLabel;
-@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
-@property (nonatomic, strong) IBOutlet UIButton *handlerButton;
+@property (nonatomic, strong) IBOutlet WTSwitchScrollView *scrollView;
+@property (nonatomic, strong) IBOutlet UIView *scrollContainerView;
+@property (nonatomic, getter = isOn) BOOL on;
 
 @property (nonatomic, weak) id<WTSwitchDelegate> delegate;
 

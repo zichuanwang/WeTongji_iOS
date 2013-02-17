@@ -37,7 +37,13 @@
     [self configureNavigationBar];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
     
+    self.tableView.scrollsToTop = NO;
+    
     [self loadData];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self.tableView resetHeight:self.view.frame.size.height];
 }
 
 - (void)didReceiveMemoryWarning

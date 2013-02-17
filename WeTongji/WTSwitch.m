@@ -9,6 +9,10 @@
 #import "WTSwitch.h"
 #import <QuartzCore/QuartzCore.h>
 
+@interface WTSwitch ()
+
+@end
+
 @implementation WTSwitch
 
 + (WTSwitch *)createSwitchWithDelegate:(id<WTSwitchDelegate>)delegate {
@@ -20,7 +24,8 @@
 - (void)awakeFromNib {
     self.scrollView.layer.masksToBounds = YES;
     self.scrollView.layer.cornerRadius = 14.0f;
-    self.scrollView.contentSize = CGSizeMake(128, self.scrollView.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(128, self.scrollView.frame.size.height * 3);
+    self.scrollView.contentOffset = CGPointMake(0, self.scrollView.frame.size.height);
     
     self.onLabel.text = NSLocalizedString(@"ON", nil);
     self.offLabel.text = NSLocalizedString(@"OFF", nil);
@@ -29,41 +34,51 @@
     [self addGestureRecognizer:tap];
 }
 
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-    UIView *result = [super hitTest:point withEvent:event];
-    if (result == self.handlerButton) {
-        self.handlerButton.highlighted = YES;
-        result = self.scrollView;
+#pragma mark - Properties
+
+- (BOOL)isOn {
+    return (_switchState == 0);
+}
+
+- (void)setOn:(BOOL)on {
+    _switchState = !on;
+    if (on)
+        self.scrollView.contentOffset = CGPointMake(0, self.scrollView.frame.size.height);
+    else {
+        self.scrollView.contentOffset = CGPointMake(50, self.scrollView.frame.size.height);
+        [self.scrollView.handlerButton resetCenterX:64 - self.scrollView.contentOffset.x];
     }
-    return result;
 }
 
 #pragma mark - Gesture handler
 
 - (void)didTapView:(UITapGestureRecognizer *)gesture {
-    self.handlerButton.highlighted = NO;
+    self.scrollView.handlerButton.highlighted = NO;
     
     CGPoint location = [gesture locationInView:self.scrollView];
     NSLog(@"%@", NSStringFromCGPoint(location));
     if (location.x < 50) {
         [UIView animateWithDuration:0.25f animations:^{
-            self.scrollView.contentOffset = CGPointMake(64, 0);
+            self.scrollView.contentOffset = CGPointMake(50, self.scrollView.frame.size.height);
         } completion:^(BOOL finished) {
             //_switchState = 1;
+            [self.delegate switchDidChange:self];
             NSLog(@"3 switch state :%d", _switchState);
         }];
     } else if (location.x > 78) {
         [UIView animateWithDuration:0.25f animations:^{
-            self.scrollView.contentOffset = CGPointMake(0, 0);
+            self.scrollView.contentOffset = CGPointMake(0, self.scrollView.frame.size.height);
         } completion:^(BOOL finished) {
             //_switchState = 0;
+            [self.delegate switchDidChange:self];
             NSLog(@"2 switch state :%d", _switchState);
         }];
     } else {
         [UIView animateWithDuration:0.25f animations:^{
-            self.scrollView.contentOffset = _switchState ? CGPointMake(0, 0) : CGPointMake(64, 0);
+            self.scrollView.contentOffset = _switchState ? CGPointMake(0, self.scrollView.frame.size.height) : CGPointMake(50, self.scrollView.frame.size.height);
         } completion:^(BOOL finished) {
             //_switchState = !_switchState;
+            [self.delegate switchDidChange:self];
             NSLog(@"1 switch state :%d", _switchState);
         }];
     }
@@ -72,21 +87,58 @@
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self.handlerButton resetCenterX:64 - scrollView.contentOffset.x];
+    self.scrollView.contentOffset = CGPointMake(scrollView.contentOffset.x, self.scrollView.frame.size.height);
+    [self.scrollView.handlerButton resetCenterX:64 - scrollView.contentOffset.x];
     
     _switchState = (scrollView.contentOffset.x >= 50);
+    
+    if (self.scrollView.dragging && !self.scrollView.isDecelerating) {
+        NSLog(@"dragging not decelerating, highlight");
+        self.scrollView.handlerButton.highlighted = YES;
+    }
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    self.handlerButton.highlighted = NO;
-    
-    NSLog(@"contentOffset:%f, switch state :%d", scrollView.contentOffset.x, _switchState);
+    self.scrollView.handlerButton.highlighted = NO;
+    NSLog(@"end dragging, not highlight");
+    [self.delegate switchDidChange:self];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    self.scrollView.handlerButton.highlighted = NO;
+    NSLog(@"end decelerating, not highlight");
+    [self.delegate switchDidChange:self];
+}
+
+@end
+
+@implementation WTSwitchScrollView
+
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    if ([self pointInside:point withEvent:event]) {
+        // NSLog(@"inside point %@", NSStringFromCGPoint(point));
+        // self.handlerButton.highlighted = YES;
+        return self;
+    }
+    else {
+        // NSLog(@"outside point %@", NSStringFromCGPoint(point));
+        return [super hitTest:point withEvent:event];
+    }
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSLog(@"touchesBegan");
+    self.handlerButton.highlighted = YES;
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSLog(@"touchesEnded");
     self.handlerButton.highlighted = NO;
-        
-    NSLog(@"contentOffset:%f, switch state :%d", scrollView.contentOffset.x, _switchState);
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    NSLog(@"touchesCancelled");
+    self.handlerButton.highlighted = NO;
 }
 
 @end
