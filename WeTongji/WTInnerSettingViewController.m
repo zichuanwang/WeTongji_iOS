@@ -59,6 +59,7 @@
 #pragma mark - UI methods
 
 - (void)configureScrollView {
+    self.scrollView.alwaysBounceVertical = YES;
     CGFloat originY = 0;
     for (NSDictionary *dict in self.settingConfig) {
         NSString *tableViewType = dict[kTableViewType];
