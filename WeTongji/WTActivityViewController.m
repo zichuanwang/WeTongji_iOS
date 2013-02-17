@@ -11,6 +11,7 @@
 #import "WTResourceFactory.h"
 #import "WTActivityCell.h"
 #import "Activity+Addition.h"
+#import "WTActivityDetailViewController.h"
 
 @interface WTActivityViewController ()
 
@@ -87,7 +88,7 @@
     WTActivityCell *activityCell = (WTActivityCell *)cell;
     
     Activity *activity = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [activityCell configureCellWithIndexPath:indexPath title:activity.title time:activity.begin location:activity.location imageURL:activity.image];//TODO
+    [activityCell configureCellWithIndexPath:indexPath title:activity.title time:activity.begin location:activity.location imageURL:activity.image];//TODO time
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {
@@ -109,7 +110,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    NSLog(@"select");
+    
+    Activity *activity = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    WTActivityDetailViewController *detailVC = [[WTActivityDetailViewController alloc] initWithActivityIdentifier:activity.identifier];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 @end

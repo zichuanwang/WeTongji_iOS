@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WTActivityDetailViewController : UIViewController
+@interface WTActivityDetailViewController : UIViewController <UIScrollViewDelegate>
+
+- (id)initWithActivityIdentifier:(NSString *)activityIdentifier;
 
 @end
