@@ -79,7 +79,7 @@
             
         } else if ([tableViewType isEqualToString:kTableViewTypeSeparator]) {
             UIImageView *separatorImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTInnerModalSeparator"]];
-            originY += 10;
+            originY += 6;
             [separatorImageView resetOrigin:CGPointMake(0, originY)];
             [self.scrollView addSubview:separatorImageView];
         }

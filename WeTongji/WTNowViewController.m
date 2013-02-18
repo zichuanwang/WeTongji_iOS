@@ -47,13 +47,7 @@
 #pragma mark - UI methods
 
 - (void)configureTableView {
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 5)];
-    headerView.backgroundColor = [UIColor clearColor];
-    self.tableView.tableHeaderView = headerView;
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 5)];
-    footerView.backgroundColor = [UIColor clearColor];
-    self.tableView.tableFooterView = footerView;
-    
+    self.tableView.alwaysBounceVertical = YES;
     self.tableView.scrollsToTop = NO;
 }
 
