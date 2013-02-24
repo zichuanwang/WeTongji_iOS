@@ -76,7 +76,9 @@
     [self configureBanner];
     [self configureBottomView];
     
-    self.scrollView.contentSize = CGSizeMake(320.0, 259.0+self.bottomView.frame.size.height);
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
+    
+    self.scrollView.contentSize = CGSizeMake(320.0, self.bottomView.frame.origin.y+self.bottomView.frame.size.height);
 }
 
 - (void)didReceiveMemoryWarning
@@ -171,7 +173,6 @@
 
 - (void)configureBottomView {
     self.organizerLabel.text = self.activity.organizer;
-    self.bottomView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
     
     [self configureAboutView];
     
