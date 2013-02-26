@@ -5,11 +5,6 @@
 //  Created by 王 紫川 on 12-12-19.
 //  Copyright (c) 2012年 Tongji Apple Club. All rights reserved.
 //
-//未完成：
-//  1）Label中字符串太长无法显示完全该如何处理？
-//  2）about中的link是否要处理？
-//  3）user的friendCount, participate等信息暂时无法获取
-//  4）location indicator应该是水蓝色的
 
 #import "WTActivityDetailViewController.h"
 #import "WTResourceFactory.h"
@@ -20,23 +15,26 @@
 @interface WTActivityDetailViewController ()
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
-@property (nonatomic, weak) IBOutlet UIView *briefView;
-@property (nonatomic, weak) IBOutlet UIView *bottomView;
-@property (nonatomic, weak) IBOutlet UIView *aboutContainerView;
+
+@property (nonatomic, weak) IBOutlet UIView *briefIntroductionView;
 @property (nonatomic, weak) IBOutlet UILabel *activityTitleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *activityTimeLabel;
-@property (nonatomic, weak) IBOutlet UILabel *activityLocationLabel;
-@property (nonatomic, weak) IBOutlet UILabel *organizerLabel;
-@property (nonatomic, weak) IBOutlet UILabel *activityDescription;
-
+@property (nonatomic, weak) IBOutlet UIButton *activityLocationButton;
 @property (nonatomic, strong) UIButton *friendCountButton;
 @property (nonatomic, strong) UIButton *participateButton;
+@property (nonatomic, strong) UIButton *inviteButton;
+
+@property (nonatomic, weak) IBOutlet UIView *detailDescriptionView;
+@property (nonatomic, weak) IBOutlet UILabel *organizerDisplayLabel;
+@property (nonatomic, weak) IBOutlet UIButton *organizerButton;
+@property (nonatomic, weak) IBOutlet UIView *activityDescriptionContainerView;
+@property (nonatomic, weak) IBOutlet UILabel *activityDescriptionDisplayLabel;
+@property (nonatomic, weak) IBOutlet UILabel *activityDescriptionLabel;
+
 @property (nonatomic, strong) WTBannerView *bannerView;
 
-@property (nonatomic, strong) NSString *activityIdentifier;
+@property (nonatomic, strong) NSString *backBarButtonText;
 @property (nonatomic, strong) Activity *activity;
-@property (nonatomic, assign) int friendCount;
-@property (nonatomic, assign) BOOL participated;
 
 - (IBAction)didClickOrganizerIndicator;
 - (IBAction)didClickLocationIndicator;
@@ -54,31 +52,20 @@
     return self;
 }
 
-- (id)initWithActivityIdentifier:(NSString *)activityIdentifier {
-    self = [super init];
-    if (self) {
-        self.activityIdentifier = activityIdentifier;
-        self.activity = [Activity activityWithID:activityIdentifier];
-        
-        //TODO
-        self.friendCount = 3;
-        self.participated = YES;
-    }
-    return self;
++ (WTActivityDetailViewController *)createActivityDetailViewControllerWithActivity:(Activity *)activity
+                                                                 backBarButtonText:(NSString *)backBarButtonText {
+    WTActivityDetailViewController *result = [[WTActivityDetailViewController alloc] init];
+    result.activity = activity;
+    result.backBarButtonText = backBarButtonText;
+    
+    return result;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self configureNavigationBar];
-    [self configureActivityBriefView];
-    [self configureBanner];
-    [self configureBottomView];
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
-    
-    self.scrollView.contentSize = CGSizeMake(320.0, self.bottomView.frame.origin.y+self.bottomView.frame.size.height);
+    [self configureUI];
 }
 
 - (void)didReceiveMemoryWarning
@@ -89,12 +76,32 @@
 
 #pragma mark - UI methods
 
-- (void)configureNavigationBar {
-    // back button
-    UIBarButtonItem *backBarButtonItem = [WTResourceFactory createBackBarButtonWithText:@"10:00" target:self action:@selector(didClickBackButton:)];
+- (void)configureUI {
+    [self configureRootViewBackgroundColor];
+    [self configureNavigationBar];
+    [self configureBriefIntroductionView];
+    [self configureBannerView];
+    [self configureDetailDescriptionView];
+    [self configureScrollView];
+}
+
+- (void)configureRootViewBackgroundColor {
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
+}
+
+- (void)configureScrollView {
+    self.scrollView.alwaysBounceVertical = YES;
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, self.detailDescriptionView.frame.origin.y + self.detailDescriptionView.frame.size.height);
+}
+
+#pragma mark Configure navigation bar
+
+- (void)configureNavigationBarBackButton {
+    UIBarButtonItem *backBarButtonItem = [WTResourceFactory createBackBarButtonWithText:self.backBarButtonText target:self action:@selector(didClickBackButton:)];
     self.navigationItem.leftBarButtonItem = backBarButtonItem;
-    
-    // right buttons
+}
+
+- (void)configureNavigationBarRightButtons {
     UIButton *commentButton = [[UIButton alloc] init];
     UIImage *commentImage = [UIImage imageNamed:@"WTCommentButton"];
     [commentButton setBackgroundImage:commentImage forState:UIControlStateNormal];
@@ -105,17 +112,17 @@
     [moreButton resetSize:moreImage.size];
     [moreButton setBackgroundImage:moreImage forState:UIControlStateNormal];
     
-    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 160, 44)];
-    if (toolbar.subviews.count > 0)
-        [(toolbar.subviews)[0] removeFromSuperview];
-    
-    NSMutableArray *buttons = [[NSMutableArray alloc] initWithCapacity:5];
-    
     UIBarButtonItem *barCommentButton = [[UIBarButtonItem alloc] initWithCustomView:commentButton];
     UIBarButtonItem *barMoreButton = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
     
     WTLikeButtonView *likeButtonContainerView = [WTLikeButtonView createLikeButtonViewWithTarget:self action:@selector(didClickLikeButton:)];
     UIBarButtonItem *barLikeButton = [[UIBarButtonItem alloc] initWithCustomView:likeButtonContainerView];
+    
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 160, 44)];
+    if (toolbar.subviews.count > 0)
+        [(toolbar.subviews)[0] removeFromSuperview];
+    
+    NSMutableArray *buttons = [[NSMutableArray alloc] initWithCapacity:5];
     
     [buttons addObject:barCommentButton];
     [buttons addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
@@ -128,88 +135,132 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:toolbar];
 }
 
-- (void)configureBanner {
+- (void)configureNavigationBar {
+    [self configureNavigationBarBackButton];
+    [self configureNavigationBarRightButtons];
+}
+
+#pragma mark Configure banner view
+
+- (void)configureBannerView {
     self.bannerView = [[[NSBundle mainBundle] loadNibNamed:@"WTBannerView" owner:self options:nil] lastObject];
-    [self.bannerView resetOrigin:CGPointMake(0.0, 129.0)];
+    [self.bannerView resetOrigin:CGPointMake(0, self.briefIntroductionView.frame.origin.y + self.briefIntroductionView.frame.size.height)];
     [self.scrollView addSubview:self.bannerView];
 }
 
-- (void)configureActivityBriefView {
+#pragma mark Configure brief introduction view
+
+- (void)configureActivityTitleAndTimeLabels {
     self.activityTitleLabel.text = self.activity.title;
     self.activityTimeLabel.text = self.activity.begin;
-    self.activityLocationLabel.text = self.activity.location;
+}
+
+- (void)configureActivityLocationButton {
+    [self.activityLocationButton setTitle:self.activity.location forState:UIControlStateNormal];
+    CGFloat locationButtonHeight = self.activityLocationButton.frame.size.height;
+    CGFloat locationButtonCenterY = self.activityLocationButton.center.y;
+    CGFloat locationButtonRightBoundX = self.activityLocationButton.frame.origin.x + self.activityLocationButton.frame.size
+    .width;
+    [self.activityLocationButton sizeToFit];
     
-    UIButton *inviteButton = [WTResourceFactory createFocusButtonWithText:@"Invite"];
-    [inviteButton resetOrigin:CGPointMake(9.0, 83.0)];
-    [inviteButton resetWidth:85.0];
-    [inviteButton addTarget:self action:@selector(didClickInviteButton:) forControlEvents:UIControlEventTouchUpInside];
-    [self.briefView addSubview:inviteButton];
+    CGFloat maxLocationButtonWidth = 282.0f;
+    if (self.activityLocationButton.frame.size.width > maxLocationButtonWidth) {
+        [self.activityLocationButton resetWidth:maxLocationButtonWidth];
+    }
     
-    UIEdgeInsets insets = UIEdgeInsetsMake(0.0, 5.0, 0.0, 5.0);
-    UIImage *resizableSelectImage = [[UIImage imageNamed:@"WTSelectButton"] resizableImageWithCapInsets:insets];
+    [self.activityLocationButton resetHeight:locationButtonHeight];
+    [self.activityLocationButton resetCenterY:locationButtonCenterY];
+    [self.activityLocationButton resetOriginX:locationButtonRightBoundX - self.activityLocationButton.frame.size.width];
+}
+
+#define MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH    85.0f
+#define MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y 83.0f
+
+- (void)configureInviteButton {
+    self.inviteButton = [WTResourceFactory createFocusButtonWithText:NSLocalizedString(@"Invite", nil)];
     
-    self.friendCountButton = [WTResourceFactory createNormalButtonWithText:@"placeholder"];
-    [self.friendCountButton resetWidth:85.0];
-    [self.friendCountButton resetOrigin:CGPointMake(129.0, 83.0)];
+    if (self.inviteButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
+        [self.inviteButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];
+    
+    [self.inviteButton resetOrigin:CGPointMake(9.0, MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y)];
+    self.inviteButton.autoresizingMask = !UIViewAutoresizingFlexibleLeftMargin | !UIViewAutoresizingFlexibleBottomMargin;
+    
+    [self.inviteButton addTarget:self action:@selector(didClickInviteButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.briefIntroductionView addSubview:self.inviteButton];
+}
+
+- (void)configureParticipateButton {
+    self.participateButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Participate", nil) selectText:NSLocalizedString(@"Participated", nil)];
+    
+    if (self.participateButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
+        [self.participateButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];
+    
+    [self.participateButton resetOrigin:CGPointMake(306.0f - self.participateButton.frame.size.width, MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y)];
+    self.participateButton.autoresizingMask = !UIViewAutoresizingFlexibleRightMargin | !UIViewAutoresizingFlexibleBottomMargin;
+    
+    [self.participateButton addTarget:self action:@selector(didClickParticipateButton:) forControlEvents:UIControlEventTouchUpInside];    
+    [self.briefIntroductionView addSubview:self.participateButton];
+}
+
+- (void)configureFriendCountButton {
+    NSString *friendCountString = [NSString stringWithFormat:@"%d Friends", 3];
+    self.friendCountButton = [WTResourceFactory createNormalButtonWithText:friendCountString];
+    if (self.friendCountButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
+        [self.friendCountButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];
+    
+    [self.friendCountButton resetOrigin:CGPointMake(self.participateButton.frame.origin.x - 8 - self.friendCountButton.frame.size.width, MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y)];
+    self.participateButton.autoresizingMask = !UIViewAutoresizingFlexibleRightMargin | !UIViewAutoresizingFlexibleBottomMargin;
+    
     [self.friendCountButton addTarget:self action:@selector(didClickFriendCountButton:) forControlEvents:UIControlEventTouchUpInside];
-    [self.friendCountButton setBackgroundImage:resizableSelectImage forState:UIControlStateSelected];
-    [self.friendCountButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-    [self.friendCountButton setTitleShadowColor:[UIColor lightGrayColor] forState:UIControlStateSelected];
-    [self.briefView addSubview:self.friendCountButton];
-    
-    self.participateButton = [WTResourceFactory createNormalButtonWithText:@"Participate"];
-    [self.participateButton resetOrigin:CGPointMake(222.0, 83.0)];
-    [self.participateButton resetWidth:85.0];
-    [self.participateButton addTarget:self action:@selector(didClickParticipateButton:) forControlEvents:UIControlEventTouchUpInside];
-    [self.participateButton setBackgroundImage:resizableSelectImage forState:UIControlStateSelected];
-    [self.participateButton setTitle:@"Participated" forState:UIControlStateSelected];
-    [self.participateButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-    [self.participateButton setTitleShadowColor:[UIColor lightGrayColor] forState:UIControlStateSelected];
-    [self.briefView addSubview:self.participateButton];
-    
-    [self updateFriendCountUI];
-    [self updateParticipatedUI];
+    [self.briefIntroductionView addSubview:self.friendCountButton];
 }
 
-- (void)configureBottomView {
-    self.organizerLabel.text = self.activity.organizer;
+- (void)configureBriefIntroductionView {
+    [self configureActivityTitleAndTimeLabels];
+    [self configureActivityLocationButton];
     
-    [self configureAboutView];
-    
-    [self.bottomView resetHeight:180.0+self.aboutContainerView.frame.size.height];
+    [self configureInviteButton];
+    [self configureParticipateButton];
+    [self configureFriendCountButton];
 }
 
-- (void)configureAboutView {
-    self.activityDescription.text = self.activity.activityDescription;
-    self.activityDescription.numberOfLines = 0;
-    [self.activityDescription sizeToFit];
+#pragma mark Configure detail description view
+
+- (void)configureOrganizerDisplayLabelAndButton {
+    self.organizerDisplayLabel.text = NSLocalizedString(@"Organizer", nil);
+    [self.organizerButton setTitle:self.activity.organizer forState:UIControlStateNormal];
+}
+
+- (void)configureDetailDescriptionView {
     
-    float activityDescriptionLabelHeight = self.activityDescription.frame.size.height;
+    [self configureOrganizerDisplayLabelAndButton];
+    [self configureActivityDescriptionView];
+    
+    [self.detailDescriptionView resetOriginY:self.bannerView.frame.origin.y + self.bannerView.frame.size.height];
+    [self.detailDescriptionView resetHeight:self.activityDescriptionContainerView.frame.origin.y + self.activityDescriptionContainerView.frame.size.height];
+}
+
+- (void)configureActivityDescriptionView {
+    self.activityDescriptionDisplayLabel.text = NSLocalizedString(@"About", nil);
+    
+    self.activityDescriptionLabel.text = self.activity.activityDescription;
+    self.activityDescriptionLabel.numberOfLines = 0;
+    [self.activityDescriptionLabel sizeToFit];
+    
+    CGFloat activityDescriptionLabelHeight = self.activityDescriptionLabel.frame.size.height;
     
     UIImage *roundCornerPanel = [UIImage imageNamed:@"WTRoundCornerPanelBg"];
     UIEdgeInsets insets = UIEdgeInsetsMake(50.0, 50.0, 50.0, 50.0);
     UIImage *resizableRoundCornerPanel = [roundCornerPanel resizableImageWithCapInsets:insets];
     UIImageView *aboutImageContainer = [[UIImageView alloc] initWithImage:resizableRoundCornerPanel];
-    [aboutImageContainer resetSize:CGSizeMake(292.0, 80.0+activityDescriptionLabelHeight)];
+    [aboutImageContainer resetSize:CGSizeMake(292.0, 80.0 + activityDescriptionLabelHeight)];
     [aboutImageContainer resetOrigin:CGPointZero];
     
-    [self.aboutContainerView addSubview:aboutImageContainer];
-    [self.aboutContainerView resetHeight:aboutImageContainer.frame.size.height];
-    self.aboutContainerView.backgroundColor = [UIColor clearColor];
+    [self.activityDescriptionContainerView addSubview:aboutImageContainer];
+    [self.activityDescriptionContainerView resetHeight:aboutImageContainer.frame.size.height];
+    self.activityDescriptionContainerView.backgroundColor = [UIColor clearColor];
 
-    [self.aboutContainerView sendSubviewToBack:aboutImageContainer];
-}
-
-- (void)updateFriendCountUI {
-    [self.friendCountButton setTitle:[NSString stringWithFormat:@"%d Friends", self.friendCount] forState:UIControlStateNormal];
-}
-
-- (void)updateParticipatedUI {
-    if (self.participated) {
-        self.participateButton.selected = YES;
-    } else {
-        self.participateButton.selected = NO;
-    }
+    [self.activityDescriptionContainerView sendSubviewToBack:aboutImageContainer];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -239,10 +290,8 @@
 }
 
 - (void)didClickParticipateButton:(UIButton *)sender {
-    self.participated = !self.participated;
-    [self updateParticipatedUI];
-    // TODO
-    // Communicate with server
+    self.participateButton.selected = !self.participateButton.selected;
+    // TODO:
 }
 
 - (void)didClickOrganizerIndicator {

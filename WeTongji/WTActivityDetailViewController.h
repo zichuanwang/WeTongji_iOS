@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class Activity;
+
 @interface WTActivityDetailViewController : UIViewController <UIScrollViewDelegate>
 
-- (id)initWithActivityIdentifier:(NSString *)activityIdentifier;
++ (WTActivityDetailViewController *)createActivityDetailViewControllerWithActivity:(Activity *)activity
+                                                                 backBarButtonText:(NSString *)backBarButtonText;
 
 @end

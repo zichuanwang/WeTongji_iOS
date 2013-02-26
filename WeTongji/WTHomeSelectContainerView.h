@@ -21,7 +21,7 @@ typedef enum {
 @interface WTHomeSelectContainerView : UIView
 
 @property (nonatomic, weak) IBOutlet UILabel *categoryLabel;
-@property (nonatomic, weak) IBOutlet UILabel *seeAllLabel;
+@property (nonatomic, weak) IBOutlet UIButton *seeAllButton;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic, weak) id <WTHomeSelectContainerViewDelegate> delegate;

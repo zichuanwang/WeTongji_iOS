@@ -27,7 +27,7 @@
 }
 
 - (void)didMoveToSuperview {
-    self.seeAllLabel.text = NSLocalizedString(@"See All", nil);
+    [self configureSeeAllButton];
     [self configureScrollView];
 }
 
@@ -96,6 +96,18 @@
 }
 
 #pragma mark - UI methods
+
+- (void)configureSeeAllButton {
+    [self.seeAllButton setTitle:NSLocalizedString(@"See All", nil) forState:UIControlStateNormal];
+    CGFloat seeAllButtonHeight = self.seeAllButton.frame.size.height;
+    CGFloat seeAllButtonCenterY = self.seeAllButton.center.y;
+    CGFloat seeAllButtonRightBoundX = self.seeAllButton.frame.origin.x + self.seeAllButton.frame.size
+    .width;
+    [self.seeAllButton sizeToFit];
+    [self.seeAllButton resetHeight:seeAllButtonHeight];
+    [self.seeAllButton resetCenterY:seeAllButtonCenterY];
+    [self.seeAllButton resetOriginX:seeAllButtonRightBoundX - self.seeAllButton.frame.size.width];
+}
 
 - (void)configureScrollView {
     for(NSUInteger i = 0; i < [self numberOfItemViewsInScrollView]; i++) {

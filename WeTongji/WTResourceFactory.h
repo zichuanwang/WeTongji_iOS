@@ -10,6 +10,9 @@
 
 @interface WTResourceFactory : NSObject
 
++ (UIButton *)createNormalButtonWithText:(NSString *)text
+                              selectText:(NSString *)selectText;
+
 + (UIButton *)createNormalButtonWithText:(NSString *)text;
 
 + (UIButton *)createFocusButtonWithText:(NSString *)text;

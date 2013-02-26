@@ -137,7 +137,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     Activity *activity = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    WTActivityDetailViewController *detailVC = [[WTActivityDetailViewController alloc] initWithActivityIdentifier:activity.identifier];
+    WTActivityDetailViewController *detailVC = [WTActivityDetailViewController createActivityDetailViewControllerWithActivity:activity backBarButtonText:NSLocalizedString(@"Activities", nil)];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
