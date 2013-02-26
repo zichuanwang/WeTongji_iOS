@@ -140,20 +140,7 @@
     [self configureNavigationBarRightButtons];
 }
 
-#pragma mark Configure banner view
-
-- (void)configureBannerView {
-    self.bannerView = [[[NSBundle mainBundle] loadNibNamed:@"WTBannerView" owner:self options:nil] lastObject];
-    [self.bannerView resetOrigin:CGPointMake(0, self.briefIntroductionView.frame.origin.y + self.briefIntroductionView.frame.size.height)];
-    [self.scrollView addSubview:self.bannerView];
-}
-
 #pragma mark Configure brief introduction view
-
-- (void)configureActivityTitleAndTimeLabels {
-    self.activityTitleLabel.text = self.activity.title;
-    self.activityTimeLabel.text = self.activity.begin;
-}
 
 - (void)configureActivityLocationButton {
     [self.activityLocationButton setTitle:self.activity.location forState:UIControlStateNormal];
@@ -183,7 +170,7 @@
         [self.inviteButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];
     
     [self.inviteButton resetOrigin:CGPointMake(9.0, MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y)];
-    self.inviteButton.autoresizingMask = !UIViewAutoresizingFlexibleLeftMargin | !UIViewAutoresizingFlexibleBottomMargin;
+    self.inviteButton.autoresizingMask |= UIViewAutoresizingFlexibleTopMargin;
     
     [self.inviteButton addTarget:self action:@selector(didClickInviteButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.briefIntroductionView addSubview:self.inviteButton];
@@ -196,7 +183,7 @@
         [self.participateButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];
     
     [self.participateButton resetOrigin:CGPointMake(306.0f - self.participateButton.frame.size.width, MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y)];
-    self.participateButton.autoresizingMask = !UIViewAutoresizingFlexibleRightMargin | !UIViewAutoresizingFlexibleBottomMargin;
+    self.participateButton.autoresizingMask |= UIViewAutoresizingFlexibleTopMargin;
     
     [self.participateButton addTarget:self action:@selector(didClickParticipateButton:) forControlEvents:UIControlEventTouchUpInside];    
     [self.briefIntroductionView addSubview:self.participateButton];
@@ -209,19 +196,46 @@
         [self.friendCountButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];
     
     [self.friendCountButton resetOrigin:CGPointMake(self.participateButton.frame.origin.x - 8 - self.friendCountButton.frame.size.width, MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y)];
-    self.participateButton.autoresizingMask = !UIViewAutoresizingFlexibleRightMargin | !UIViewAutoresizingFlexibleBottomMargin;
+    self.friendCountButton.autoresizingMask |= UIViewAutoresizingFlexibleTopMargin;
     
     [self.friendCountButton addTarget:self action:@selector(didClickFriendCountButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.briefIntroductionView addSubview:self.friendCountButton];
 }
 
+- (void)configureActivityTimeLabel {
+    self.activityTimeLabel.text = self.activity.begin;
+}
+
+- (void)configureActivityTitleLabelAndCalculateBriefIntroductionViewHeight {
+    self.activityTitleLabel.text = self.activity.title;
+    
+    CGFloat titleLabelOriginalHeight = self.activityTitleLabel.frame.size.height;
+    [self.activityTitleLabel sizeToFit];
+    [self.briefIntroductionView resetHeight:self.briefIntroductionView.frame.size.height + self.activityTitleLabel.frame.size.height - titleLabelOriginalHeight];
+}
+
+- (void)configureBriefIntroductionViewBackgroundColor {
+    self.briefIntroductionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTGrayPanel"]];
+}
+
 - (void)configureBriefIntroductionView {
-    [self configureActivityTitleAndTimeLabels];
+    [self configureBriefIntroductionViewBackgroundColor];
     [self configureActivityLocationButton];
     
     [self configureInviteButton];
     [self configureParticipateButton];
     [self configureFriendCountButton];
+    
+    [self configureActivityTimeLabel];
+    [self configureActivityTitleLabelAndCalculateBriefIntroductionViewHeight];
+}
+
+#pragma mark Configure banner view
+
+- (void)configureBannerView {
+    self.bannerView = [[[NSBundle mainBundle] loadNibNamed:@"WTBannerView" owner:self options:nil] lastObject];
+    [self.bannerView resetOrigin:CGPointMake(0, self.briefIntroductionView.frame.origin.y + self.briefIntroductionView.frame.size.height)];
+    [self.scrollView addSubview:self.bannerView];
 }
 
 #pragma mark Configure detail description view
