@@ -8,6 +8,7 @@
 
 #import "Activity+Addition.h"
 #import "WTCoreDataManager.h"
+#import "NSString+WTAddition.h"
 
 @implementation Activity (Addition)
 
@@ -60,5 +61,17 @@
 //    self.publish_day = [NSString yearMonthDayConvertFromDate:self.publish_date];
 }
 
+#pragma mark - Properties
+
+- (NSString *)beginTimeString {
+    NSDate *beginDate = [self.begin convertToDate];
+    return [NSString yearMonthDayWeekTimeConvertFromDate:beginDate];
+}
+
+- (NSString *)beginToEndTimeString {
+    NSDate *beginDate = [self.begin convertToDate];
+    NSDate *endDate = [self.end convertToDate];
+    return [NSString timeConvertFromBeginDate:beginDate endDate:endDate];
+}
 
 @end

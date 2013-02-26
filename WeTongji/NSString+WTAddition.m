@@ -145,13 +145,4 @@
     return result;
 }
 
-+ (NSString *)standardDateStringCovertFromDate:(NSDate *)date {
-    NSDateFormatter *form = [[NSDateFormatter alloc] init];
-    [form setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ssZ"];
-    NSMutableString *result = [NSMutableString stringWithString:[form stringFromDate:date]];
-    [result insertString:@":" atIndex:result.length - 2];
-    NSLog(@"standard:%@", result);
-    return result;
-}
-
 @end

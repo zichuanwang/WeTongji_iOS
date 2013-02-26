@@ -10,6 +10,9 @@
 
 @interface Activity (Addition)
 
+@property (nonatomic, readonly) NSString *beginTimeString;
+@property (nonatomic, readonly) NSString *beginToEndTimeString;
+
 + (Activity *)insertActivity:(NSDictionary *)dict;
 + (Activity *)activityWithID:(NSString *)activityID;
 

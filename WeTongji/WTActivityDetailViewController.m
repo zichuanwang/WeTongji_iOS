@@ -203,7 +203,7 @@
 }
 
 - (void)configureActivityTimeLabel {
-    self.activityTimeLabel.text = self.activity.begin;
+    self.activityTimeLabel.text = self.activity.beginToEndTimeString;
 }
 
 - (void)configureActivityTitleLabelAndCalculateBriefIntroductionViewHeight {

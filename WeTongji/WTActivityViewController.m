@@ -113,7 +113,7 @@
     WTActivityCell *activityCell = (WTActivityCell *)cell;
     
     Activity *activity = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [activityCell configureCellWithIndexPath:indexPath title:activity.title time:activity.begin location:activity.location imageURL:activity.image];//TODO time
+    [activityCell configureCellWithIndexPath:indexPath title:activity.title time:activity.beginTimeString location:activity.location imageURL:activity.image];//TODO time
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {
