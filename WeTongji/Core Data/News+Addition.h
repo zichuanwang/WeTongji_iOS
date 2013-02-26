@@ -12,5 +12,6 @@
 
 + (News *)insertNews:(NSDictionary *)dict;
 + (News *)newsWithID:(NSString *)newsID;
++ (void)clearAllNews;
 
 @end

@@ -58,6 +58,7 @@
     WTClient * client = [WTClient sharedClient];
     WTRequest * request = [WTRequest requestWithSuccessBlock:^(id responseData) {
         WTLOG(@"Get news: %@", responseData);
+        [News clearAllNews];
         NSDictionary *resultDict = (NSDictionary *)responseData;
         NSArray *resultArray = resultDict[@"SchoolNews"];
         for(NSDictionary *dict in resultArray)

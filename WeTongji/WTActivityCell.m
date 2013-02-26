@@ -7,6 +7,7 @@
 //
 
 #import "WTActivityCell.h"
+#import "WTCommonConstant.h"
 #import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
 
 @interface WTActivityCell ()
@@ -17,34 +18,18 @@
 
 @implementation WTActivityCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath title:(NSString *)title time:(NSString *)time location:(NSString *)location imageURL:(NSString *)imageURL {
     if (indexPath.row % 2) {
-        self.containerView.backgroundColor = [UIColor colorWithRed:221.0f / 255 green:221.0f / 255 blue:221.0f / 255 alpha:1.0f];
+        self.containerView.backgroundColor = WTCellBackgroundColor1;
     } else {
-        self.containerView.backgroundColor = [UIColor colorWithRed:232.0f / 255 green:232.0f / 255 blue:232.0f / 255 alpha:1.0f];
+        self.containerView.backgroundColor = WTCellBackgroundColor2;
     }
     self.titleLabel.text = title;
     self.timeLabel.text = time;
     self.locationLabel.text = location;
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURL]];
     [self.posterImageView setImageWithURLRequest:request
-                          placeholderImage:[UIImage imageNamed:@"Default"]
+                          placeholderImage:nil
                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                         self.posterImageView.image = image;
                                    }

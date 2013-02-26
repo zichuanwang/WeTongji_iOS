@@ -46,6 +46,17 @@
     return result;
 }
 
++ (void)clearAllNews {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
+    [request setEntity:[NSEntityDescription entityForName:@"News" inManagedObjectContext:context]];
+    NSArray *allNews = [context executeFetchRequest:request error:NULL];
+
+    for(News *item in allNews) {
+        [context deleteObject:item];
+    }
+}
+
 - (void)awakeFromFetch {
     [super awakeFromFetch];
     self.publish_day = [NSString yearMonthDayConvertFromDate:self.publish_date];
