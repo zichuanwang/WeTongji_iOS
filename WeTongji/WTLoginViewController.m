@@ -10,6 +10,7 @@
 #import "WTRootNavigationController.h"
 #import "UIApplication+WTAddition.h"
 #import "WTResourceFactory.h"
+#import <WeTongjiSDK/WeTongjiSDK.h>
 
 @interface WTLoginViewController ()
 
@@ -82,8 +83,7 @@
 #pragma mark - Actions
 
 - (void)didClickCancelButton:(UIButton *)sender {
-    UIViewController *rootVC = [UIApplication sharedApplication].rootTabBarController;
-    [rootVC dismissViewControllerAnimated:YES completion:nil];
+    [self dismissView];
 }
 
 - (void)didClickLoginButton:(UIButton *)sender {
@@ -96,6 +96,44 @@
     
     UIViewController *rootVC = [UIApplication sharedApplication].rootTabBarController;
     [rootVC presentViewController:nav animated:YES completion:nil];
+}
+
+#pragma mark - Logic methods
+
+- (void)dismissView {
+    UIViewController *rootVC = [UIApplication sharedApplication].rootTabBarController;
+    [rootVC dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)showLoginFailedAlertView:(NSError *)error {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登陆失败"
+                                                    message:[[error userInfo] objectForKey:@"errorDesc"]
+                                                   delegate:nil
+                                          cancelButtonTitle:@"好"
+                                          otherButtonTitles: nil];
+    [alert show];
+}
+
+- (void)login {
+    WTClient *client = [WTClient sharedClient];
+    WTRequest *request = [WTRequest requestWithSuccessBlock: ^(id responseData) {
+        
+        [responseData objectForKey:@"User"];
+        [self dismissView];
+    } failureBlock:^(NSError * error) {
+        [self showLoginFailedAlertView:error];
+    }];
+    [request login:self.accountTextField.text password:self.passwordTextField.text];
+    [client enqueueRequest:request];
+}
+
+#pragma mark - UITextViewDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if(textField == self.passwordTextField) {
+        [self login];
+    }
+    return NO;
 }
 
 @end

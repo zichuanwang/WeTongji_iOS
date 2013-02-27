@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WTLoginViewController : UIViewController
+@interface WTLoginViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet UIView      *loginPanelContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *loginPanelBgImageView;
