@@ -9,16 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "WTRootViewController.h"
 
-@interface WTSearchViewController : WTRootViewController <UIWebViewDelegate>
+@interface WTSearchViewController : WTRootViewController
 
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
-
-@property (nonatomic, weak) IBOutlet UILabel *label;
-
-@property (nonatomic, weak) IBOutlet UITextField *districtTextField;
-@property (nonatomic, weak) IBOutlet UITextField *buildingTextField;
-@property (nonatomic, weak) IBOutlet UITextField *roomTextField;
-
-- (IBAction)didClickRefreshButton:(UIButton *)sender;
 
 @end

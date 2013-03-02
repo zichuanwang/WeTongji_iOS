@@ -21,6 +21,8 @@
 		A1ADA9EB16AC655400E3A62E /* Activity+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ADA9EA16AC655400E3A62E /* Activity+Addition.m */; };
 		A1DD01CF169F244E009EBE02 /* WTNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DD01CD169F244E009EBE02 /* WTNewsViewController.m */; };
 		A1DD01D0169F244E009EBE02 /* WTNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1DD01CE169F244E009EBE02 /* WTNewsViewController.xib */; };
+		E10A8D0416E24525008B72E7 /* WTElectricityQueryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10A8D0316E24525008B72E7 /* WTElectricityQueryViewController.m */; };
+		E10A8D0616E24553008B72E7 /* WTElectricityQueryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10A8D0516E24553008B72E7 /* WTElectricityQueryViewController.xib */; };
 		E10C422316AB03410084337C /* WTSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = E10C422216AB03410084337C /* WTSwitch.m */; };
 		E10C422516AB03550084337C /* WTSwitch.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10C422416AB03550084337C /* WTSwitch.xib */; };
 		E10C422D16AB051A0084337C /* WTSwitchBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E10C422716AB051A0084337C /* WTSwitchBg.png */; };
@@ -292,6 +294,9 @@
 		A1DD01CC169F244E009EBE02 /* WTNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNewsViewController.h; sourceTree = "<group>"; };
 		A1DD01CD169F244E009EBE02 /* WTNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNewsViewController.m; sourceTree = "<group>"; };
 		A1DD01CE169F244E009EBE02 /* WTNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNewsViewController.xib; sourceTree = "<group>"; };
+		E10A8D0216E24525008B72E7 /* WTElectricityQueryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTElectricityQueryViewController.h; sourceTree = "<group>"; };
+		E10A8D0316E24525008B72E7 /* WTElectricityQueryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTElectricityQueryViewController.m; sourceTree = "<group>"; };
+		E10A8D0516E24553008B72E7 /* WTElectricityQueryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTElectricityQueryViewController.xib; sourceTree = "<group>"; };
 		E10C422016A90EAC0084337C /* WTActivityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTActivityDetailViewController.h; sourceTree = "<group>"; };
 		E10C422116AB03410084337C /* WTSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSwitch.h; sourceTree = "<group>"; };
 		E10C422216AB03410084337C /* WTSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSwitch.m; sourceTree = "<group>"; };
@@ -648,6 +653,16 @@
 			name = News;
 			sourceTree = "<group>";
 		};
+		E10A8D0116E244EE008B72E7 /* ElectricityQuery */ = {
+			isa = PBXGroup;
+			children = (
+				E10A8D0216E24525008B72E7 /* WTElectricityQueryViewController.h */,
+				E10A8D0316E24525008B72E7 /* WTElectricityQueryViewController.m */,
+				E10A8D0516E24553008B72E7 /* WTElectricityQueryViewController.xib */,
+			);
+			name = ElectricityQuery;
+			sourceTree = "<group>";
+		};
 		E10C422616AB05110084337C /* Switch */ = {
 			isa = PBXGroup;
 			children = (
@@ -698,6 +713,7 @@
 		E117038E1651EFD900D82F4A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E10A8D0116E244EE008B72E7 /* ElectricityQuery */,
 				E1250C0A16859A1D00802808 /* Activity */,
 				E1D3741316942E350012E30A /* Billboard */,
 				E18821E716800E7B00A41F47 /* Home */,
@@ -1480,6 +1496,7 @@
 				E1767A4D16D14D2700E58CCC /* WTBlueMoreIndicator@2x.png in Resources */,
 				E1767A4E16D14D2700E58CCC /* WTNotificationMoreIndicator.png in Resources */,
 				E1767A4F16D14D2700E58CCC /* WTNotificationMoreIndicator@2x.png in Resources */,
+				E10A8D0616E24553008B72E7 /* WTElectricityQueryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1571,6 +1588,7 @@
 				E1528D7116C561C100BD2B42 /* WTInnerSettingViewController.m in Sources */,
 				E1132E7916C65823004CB808 /* NSUserDefaults+WTAddition.m in Sources */,
 				E191D91516C78F2E00384CF6 /* WTActivitySettingViewController.m in Sources */,
+				E10A8D0416E24525008B72E7 /* WTElectricityQueryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
