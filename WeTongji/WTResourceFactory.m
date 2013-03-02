@@ -8,6 +8,9 @@
 
 #import "WTResourceFactory.h"
 
+#define BUTTON_WIDTH_INCREMENT      30.0f
+#define MIN_BACK_BAR_BUTTON_WIDTH   59.0f
+
 @implementation WTResourceFactory
 
 + (UIBarButtonItem *)createFilterBarButtonWithTarget:(id)target
@@ -78,7 +81,7 @@
     text = [NSString stringWithFormat:@"  %@", text];
     [button setTitle:text forState:UIControlStateNormal];
     
-    UIEdgeInsets insets = UIEdgeInsetsMake(0.0, 8.0, 0.0, 6.0);
+    UIEdgeInsets insets = UIEdgeInsetsMake(0.0, 14.0, 0.0, 6.0);
     UIImage *image = [[UIImage imageNamed:@"WTNavigationBarBackButton"] resizableImageWithCapInsets:insets];
     [button setBackgroundImage:image forState:UIControlStateNormal];
     
@@ -91,9 +94,8 @@
     button.titleLabel.font = [UIFont boldSystemFontOfSize:12];
     button.titleLabel.shadowOffset = CGSizeMake(0, 1);
     
-    CGFloat titleLabelWidth = [text sizeWithFont:button.titleLabel.font].width;
-    CGFloat minTitleLabelWidth = 59;
-    titleLabelWidth = titleLabelWidth < minTitleLabelWidth ? minTitleLabelWidth : titleLabelWidth;
+    CGFloat titleLabelWidth = [text sizeWithFont:button.titleLabel.font].width + BUTTON_WIDTH_INCREMENT;
+    titleLabelWidth = titleLabelWidth < MIN_BACK_BAR_BUTTON_WIDTH ? MIN_BACK_BAR_BUTTON_WIDTH : titleLabelWidth;
     [button resetSize:CGSizeMake(titleLabelWidth, image.size.height)];
     
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
@@ -203,7 +205,7 @@
         titleLabelWidth = titleLabelWidth < selectTextWidth ? selectTextWidth : titleLabelWidth;
     }
     
-    [button resetSize:CGSizeMake(titleLabelWidth + 30, normalImage.size.height)];
+    [button resetSize:CGSizeMake(titleLabelWidth + BUTTON_WIDTH_INCREMENT, normalImage.size.height)];
     
     return button;
 }
