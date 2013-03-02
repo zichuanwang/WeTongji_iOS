@@ -163,6 +163,12 @@
 #pragma mark - Actions 
 
 - (void)didClickTabBarButton:(UIButton *)button {
+    if (self.selectedIndex == button.tag) {
+        if ([self.selectedViewController isKindOfClass:[UINavigationController class]])
+            [(UINavigationController *)self.selectedViewController popToRootViewControllerAnimated:YES];
+        return;
+    }
+    
     self.selectedIndex = button.tag;
     
     // |button.tag == 4| 时似乎系统有bug，用下面的方法折衷
@@ -172,11 +178,9 @@
     
     for (UIButton* btn in self.buttonArray) {
         btn.selected = NO;
-        btn.userInteractionEnabled = YES;
     }
     
     button.selected = YES;
-    button.userInteractionEnabled = NO;
 }
 
 @end
