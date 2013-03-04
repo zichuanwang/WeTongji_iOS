@@ -44,7 +44,7 @@
     
 }
 
-- (NSString *)customCellClassName {
+- (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
     return nil;
 }
 
@@ -101,14 +101,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *name = [self customCellClassName];
+    NSString *name = [self customCellClassNameAtIndexPath:indexPath];
     
     NSString *cellIdentifier = name ? name : @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
         if (name) {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:[self customCellClassName] owner:self options:nil];
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:[self customCellClassNameAtIndexPath:indexPath] owner:self options:nil];
             cell = nib[0];
         }
         else {

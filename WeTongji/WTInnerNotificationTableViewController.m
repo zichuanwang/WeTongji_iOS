@@ -10,6 +10,7 @@
 #import "WTWaterflowDecorator.h"
 #import "WTNotificationCell.h"
 #import "WTResourceFactory.h"
+#import "Notification+Addition.h"
 
 @interface WTInnerNotificationTableViewController ()
 
@@ -33,6 +34,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.tableView.alwaysBounceVertical = YES;
+    
+    [Notification createTestFriendInvitationNotifications];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -62,7 +65,8 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 130.0f;
+    Notification *notification = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    return [notification cellHeight];
 }
 
 #pragma mark - Properties
@@ -81,14 +85,15 @@
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {
-    [request setEntity:[NSEntityDescription entityForName:@"News" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
+    [request setEntity:[NSEntityDescription entityForName:@"Notification" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
-    NSSortDescriptor *sortByPublishTime = [[NSSortDescriptor alloc] initWithKey:@"publish_date" ascending:NO];
+    NSSortDescriptor *sortByPublishTime = [[NSSortDescriptor alloc] initWithKey:@"send_time" ascending:NO];
     [request setSortDescriptors:@[sortByPublishTime]];
 }
 
-- (NSString *)customCellClassName {
-    return @"WTNotificationFriendInvitationCell";
+- (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
+    Notification *notification = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    return [notification customCellClassName];
 }
 
 #pragma mark - WTWaterflowDecoratorDataSource

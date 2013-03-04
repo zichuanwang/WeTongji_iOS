@@ -7,6 +7,7 @@
 //
 
 #import "WTNotificationFriendInvitationCell.h"
+#import "FriendInvitationNotification.h"
 
 @interface WTNotificationFriendInvitationCell()
 
@@ -28,6 +29,26 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+#pragma mark - Actions
+
+- (IBAction)didClickAcceptButton:(UIButton *)sender {
+    
+}
+
+- (IBAction)didClickIgnoreButton:(UIButton *)sender {
+    
+}
+
+#pragma mark - Methods to overwrite
+
++ (CGFloat)cellHeightWithNotificationObject:(FriendInvitationNotification *)notification {
+    if (notification.accepted.boolValue) {
+        return 76;
+    } else {
+        return 130;
+    }
 }
 
 @end

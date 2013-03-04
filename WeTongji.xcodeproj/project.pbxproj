@@ -45,6 +45,13 @@
 		E10A8D3C16E4522C008B72E7 /* WTWaterflowDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = E10A8D3B16E4522B008B72E7 /* WTWaterflowDecorator.m */; };
 		E10A8D3F16E48874008B72E7 /* WTNotificationCellButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E10A8D3D16E48874008B72E7 /* WTNotificationCellButton.png */; };
 		E10A8D4016E48874008B72E7 /* WTNotificationCellButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E10A8D3E16E48874008B72E7 /* WTNotificationCellButton@2x.png */; };
+		E10A8D4316E4ECC8008B72E7 /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = E10A8D4216E4ECC8008B72E7 /* UIView+Animation.m */; };
+		E10A8D4616E4EFB9008B72E7 /* ActivityInvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E10A8D4516E4EFB9008B72E7 /* ActivityInvitationNotification.m */; };
+		E10A8D4C16E4EFBA008B72E7 /* FriendInvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E10A8D4B16E4EFBA008B72E7 /* FriendInvitationNotification.m */; };
+		E10A8D5216E4EFE3008B72E7 /* Notification+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E10A8D5116E4EFE3008B72E7 /* Notification+Addition.m */; };
+		E10A8D5B16E500DA008B72E7 /* InvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E10A8D5A16E500DA008B72E7 /* InvitationNotification.m */; };
+		E10A8D6116E505B0008B72E7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E10A8D6016E505B0008B72E7 /* User.m */; };
+		E10A8D6416E5073E008B72E7 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = E10A8D6316E5073E008B72E7 /* Notification.m */; };
 		E10C422316AB03410084337C /* WTSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = E10C422216AB03410084337C /* WTSwitch.m */; };
 		E10C422516AB03550084337C /* WTSwitch.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10C422416AB03550084337C /* WTSwitch.xib */; };
 		E10C422D16AB051A0084337C /* WTSwitchBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E10C422716AB051A0084337C /* WTSwitchBg.png */; };
@@ -119,7 +126,6 @@
 		E13B0EA516A45F4B00A45079 /* WTDebugTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0EA416A45F4B00A45079 /* WTDebugTool.m */; };
 		E13B0EAD16A4665600A45079 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0EAC16A4665600A45079 /* Event.m */; };
 		E13B0EB316A4665A00A45079 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0EB216A4665A00A45079 /* Image.m */; };
-		E13B0EB916A4666900A45079 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0EB816A4666800A45079 /* User.m */; };
 		E13B0EBC16A4666A00A45079 /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0EBB16A4666A00A45079 /* Organization.m */; };
 		E13B0EBF16A4666C00A45079 /* Star.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0EBE16A4666C00A45079 /* Star.m */; };
 		E13B0EC216A4666D00A45079 /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0EC116A4666D00A45079 /* Object.m */; };
@@ -348,6 +354,20 @@
 		E10A8D3B16E4522B008B72E7 /* WTWaterflowDecorator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTWaterflowDecorator.m; sourceTree = "<group>"; };
 		E10A8D3D16E48874008B72E7 /* WTNotificationCellButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNotificationCellButton.png; sourceTree = "<group>"; };
 		E10A8D3E16E48874008B72E7 /* WTNotificationCellButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNotificationCellButton@2x.png"; sourceTree = "<group>"; };
+		E10A8D4116E4ECC8008B72E7 /* UIView+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Animation.h"; sourceTree = "<group>"; };
+		E10A8D4216E4ECC8008B72E7 /* UIView+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animation.m"; sourceTree = "<group>"; };
+		E10A8D4416E4EFB9008B72E7 /* ActivityInvitationNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityInvitationNotification.h; sourceTree = "<group>"; };
+		E10A8D4516E4EFB9008B72E7 /* ActivityInvitationNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityInvitationNotification.m; sourceTree = "<group>"; };
+		E10A8D4A16E4EFBA008B72E7 /* FriendInvitationNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendInvitationNotification.h; sourceTree = "<group>"; };
+		E10A8D4B16E4EFBA008B72E7 /* FriendInvitationNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendInvitationNotification.m; sourceTree = "<group>"; };
+		E10A8D5016E4EFE3008B72E7 /* Notification+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Notification+Addition.h"; sourceTree = "<group>"; };
+		E10A8D5116E4EFE3008B72E7 /* Notification+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Notification+Addition.m"; sourceTree = "<group>"; };
+		E10A8D5916E500DA008B72E7 /* InvitationNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationNotification.h; sourceTree = "<group>"; };
+		E10A8D5A16E500DA008B72E7 /* InvitationNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationNotification.m; sourceTree = "<group>"; };
+		E10A8D5F16E505AF008B72E7 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		E10A8D6016E505B0008B72E7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		E10A8D6216E5073E008B72E7 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
+		E10A8D6316E5073E008B72E7 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		E10C422016A90EAC0084337C /* WTActivityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTActivityDetailViewController.h; sourceTree = "<group>"; };
 		E10C422116AB03410084337C /* WTSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSwitch.h; sourceTree = "<group>"; };
 		E10C422216AB03410084337C /* WTSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSwitch.m; sourceTree = "<group>"; };
@@ -440,8 +460,6 @@
 		E13B0EAC16A4665600A45079 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		E13B0EB116A4665900A45079 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		E13B0EB216A4665A00A45079 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
-		E13B0EB716A4666800A45079 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		E13B0EB816A4666800A45079 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		E13B0EBA16A4666A00A45079 /* Organization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Organization.h; sourceTree = "<group>"; };
 		E13B0EBB16A4666A00A45079 /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Organization.m; sourceTree = "<group>"; };
 		E13B0EBD16A4666B00A45079 /* Star.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Star.h; sourceTree = "<group>"; };
@@ -1059,6 +1077,8 @@
 				E1132E7816C65823004CB808 /* NSUserDefaults+WTAddition.m */,
 				E10A8D3A16E4522B008B72E7 /* WTWaterflowDecorator.h */,
 				E10A8D3B16E4522B008B72E7 /* WTWaterflowDecorator.m */,
+				E10A8D4116E4ECC8008B72E7 /* UIView+Animation.h */,
+				E10A8D4216E4ECC8008B72E7 /* UIView+Animation.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1290,22 +1310,30 @@
 		E1D3743D1694C3D90012E30A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E1545B8416B319CC00FC1437 /* Activity.h */,
+				E1545B8516B319CC00FC1437 /* Activity.m */,
+				E10A8D4416E4EFB9008B72E7 /* ActivityInvitationNotification.h */,
+				E10A8D4516E4EFB9008B72E7 /* ActivityInvitationNotification.m */,
 				E13B0EAB16A4665600A45079 /* Event.h */,
 				E13B0EAC16A4665600A45079 /* Event.m */,
+				E10A8D4A16E4EFBA008B72E7 /* FriendInvitationNotification.h */,
+				E10A8D4B16E4EFBA008B72E7 /* FriendInvitationNotification.m */,
 				E13B0EB116A4665900A45079 /* Image.h */,
 				E13B0EB216A4665A00A45079 /* Image.m */,
-				E13B0EB716A4666800A45079 /* User.h */,
-				E13B0EB816A4666800A45079 /* User.m */,
+				E1545B8816B319CE00FC1437 /* News.h */,
+				E1545B8916B319CE00FC1437 /* News.m */,
+				E13B0EC016A4666C00A45079 /* Object.h */,
+				E13B0EC116A4666D00A45079 /* Object.m */,
 				E13B0EBA16A4666A00A45079 /* Organization.h */,
 				E13B0EBB16A4666A00A45079 /* Organization.m */,
 				E13B0EBD16A4666B00A45079 /* Star.h */,
 				E13B0EBE16A4666C00A45079 /* Star.m */,
-				E13B0EC016A4666C00A45079 /* Object.h */,
-				E13B0EC116A4666D00A45079 /* Object.m */,
-				E1545B8416B319CC00FC1437 /* Activity.h */,
-				E1545B8516B319CC00FC1437 /* Activity.m */,
-				E1545B8816B319CE00FC1437 /* News.h */,
-				E1545B8916B319CE00FC1437 /* News.m */,
+				E10A8D5916E500DA008B72E7 /* InvitationNotification.h */,
+				E10A8D5A16E500DA008B72E7 /* InvitationNotification.m */,
+				E10A8D5F16E505AF008B72E7 /* User.h */,
+				E10A8D6016E505B0008B72E7 /* User.m */,
+				E10A8D6216E5073E008B72E7 /* Notification.h */,
+				E10A8D6316E5073E008B72E7 /* Notification.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1319,6 +1347,8 @@
 				E13B0E7416A448C100A45079 /* News+Addition.m */,
 				A1ADA9E916AC655400E3A62E /* Activity+Addition.h */,
 				A1ADA9EA16AC655400E3A62E /* Activity+Addition.m */,
+				E10A8D5016E4EFE3008B72E7 /* Notification+Addition.h */,
+				E10A8D5116E4EFE3008B72E7 /* Notification+Addition.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1667,7 +1697,6 @@
 				E13B0EA516A45F4B00A45079 /* WTDebugTool.m in Sources */,
 				E13B0EAD16A4665600A45079 /* Event.m in Sources */,
 				E13B0EB316A4665A00A45079 /* Image.m in Sources */,
-				E13B0EB916A4666900A45079 /* User.m in Sources */,
 				E13B0EBC16A4666A00A45079 /* Organization.m in Sources */,
 				E13B0EBF16A4666C00A45079 /* Star.m in Sources */,
 				E13B0EC216A4666D00A45079 /* Object.m in Sources */,
@@ -1691,6 +1720,13 @@
 				E10A8D3116E3B424008B72E7 /* WTNotificationCell.m in Sources */,
 				E10A8D3516E3BD22008B72E7 /* WTInnerNotificationTableViewController.m in Sources */,
 				E10A8D3C16E4522C008B72E7 /* WTWaterflowDecorator.m in Sources */,
+				E10A8D4316E4ECC8008B72E7 /* UIView+Animation.m in Sources */,
+				E10A8D4616E4EFB9008B72E7 /* ActivityInvitationNotification.m in Sources */,
+				E10A8D4C16E4EFBA008B72E7 /* FriendInvitationNotification.m in Sources */,
+				E10A8D5216E4EFE3008B72E7 /* Notification+Addition.m in Sources */,
+				E10A8D5B16E500DA008B72E7 /* InvitationNotification.m in Sources */,
+				E10A8D6116E505B0008B72E7 /* User.m in Sources */,
+				E10A8D6416E5073E008B72E7 /* Notification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

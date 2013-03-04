@@ -50,6 +50,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UI methods
+
 - (void)configureNavigationBar {
     if ([self.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
         [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"WTNavigationBarBg"] forBarMetrics:UIBarMetricsDefault];
@@ -62,6 +64,8 @@
     [self.navigationBar insertSubview:shadowImageView atIndex:0];
     self.navigationBarShadowImageView = shadowImageView;
 }
+
+#pragma mark - Logic methods
 
 - (void)disableNavBar {
     switch (self.currentWTDisableNavBarType) {
@@ -185,6 +189,11 @@
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapScreenShootImageView:)];
         [_screenShootImageView addGestureRecognizer:tap];
+        
+        UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipeUpScreenShootImageView:)];
+        swipe.direction = UISwipeGestureRecognizerDirectionUp;
+        [_screenShootImageView addGestureRecognizer:swipe];
+        
         _screenShootImageView.userInteractionEnabled = YES;
     }
     return _screenShootImageView;
@@ -194,8 +203,10 @@
 
 - (void)didTapScreenShootImageView:(UIGestureRecognizer *)gestureRecognizer {
     [self hideInnerModalViewController];
-    WTNotificationBarButton *notificationButton = (WTNotificationBarButton *)self.topViewController.navigationItem.leftBarButtonItem;
-    notificationButton.selected = NO;
+}
+
+- (void)didSwipeUpScreenShootImageView:(UIGestureRecognizer *)gestureRecognizer {
+    [self hideInnerModalViewController];
 }
 
 @end

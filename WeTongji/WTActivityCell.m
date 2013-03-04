@@ -32,6 +32,7 @@
                           placeholderImage:nil
                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                         self.posterImageView.image = image;
+                                       [self.posterImageView fadeIn];
                                    }
                                    failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                        NSLog(@"The specified image: \"%@\" cannot be found on server", [[NSURL URLWithString:imageURL] lastPathComponent]);

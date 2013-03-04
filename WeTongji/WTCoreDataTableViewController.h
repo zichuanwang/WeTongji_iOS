@@ -24,7 +24,7 @@
 - (void)insertCellAtIndexPath:(NSIndexPath *)indexPath;
 - (void)deleteCellAtIndexPath:(NSIndexPath *)indexPath;
 
-- (NSString *)customCellClassName;
+- (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath;
 - (NSString *)customSectionNameKeyPath;
 
 @end

@@ -144,7 +144,7 @@
     [request setSortDescriptors:@[sortByPublishTime]];
 }
 
-- (NSString *)customCellClassName {
+- (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
     return @"WTNewsCell";
 }
 

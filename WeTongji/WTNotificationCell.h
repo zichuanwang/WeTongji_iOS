@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "OHAttributedLabel.h"
 
+@class Notification;
+
+@protocol WTNotificationCellDelegate <NSObject>
+
+- (void)cellHeightDidChange;
+
+@end
+
 @interface WTNotificationCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UIImageView *avatarImageView;

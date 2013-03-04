@@ -9,9 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "WTNotificationCell.h"
 
+@class FriendInvitationNotification;
+
 @interface WTNotificationFriendInvitationCell : WTNotificationCell
 
-@property (nonatomic, weak) UIButton *learnMoreButton;
-@property (nonatomic, weak) UIButton *ignoreButton;
+@property (nonatomic, weak) IBOutlet UIButton *acceptButton;
+@property (nonatomic, weak) IBOutlet UIButton *ignoreButton;
+
+- (IBAction)didClickAcceptButton:(UIButton *)sender;
+- (IBAction)didClickIgnoreButton:(UIButton *)sender;
+
++ (CGFloat)cellHeightWithNotificationObject:(FriendInvitationNotification *)notification;
 
 @end

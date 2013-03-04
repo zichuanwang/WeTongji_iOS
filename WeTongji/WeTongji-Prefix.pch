@@ -13,5 +13,6 @@
     #import <Foundation/Foundation.h>
     #import <WeTongjiSDK/WeTongjiSDK.h>
     #import "UIView+Resize.h"
+    #import "UIView+Animation.h"
     #import "WTDebugTool.h"
 #endif

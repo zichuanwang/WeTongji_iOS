@@ -10,4 +10,6 @@
 
 @interface User (Addition)
 
++ (NSArray *)createTestUsers;
+
 @end

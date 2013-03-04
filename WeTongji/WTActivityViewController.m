@@ -123,7 +123,7 @@
     [request setSortDescriptors:@[sortByBegin]];
 }
 
-- (NSString *)customCellClassName {
+- (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
     return @"WTActivityCell";
 }
 
