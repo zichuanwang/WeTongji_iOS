@@ -61,6 +61,10 @@
     [tableView bringSubviewToFront:cell];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 130.0f;
+}
+
 #pragma mark - Properties
 
 - (WTWaterflowDecorator *)waterflowDecorator {

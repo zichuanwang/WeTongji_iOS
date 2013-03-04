@@ -40,6 +40,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.tableViewController.view resetHeight:self.view.frame.size.height];
     [self.view addSubview:self.tableViewController.view];
 }
 
