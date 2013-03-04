@@ -7,6 +7,7 @@
 //
 
 #import "WTSearchViewController.h"
+#import <WeTongjiSDK/WeTongjiSDK.h>
 
 @interface WTSearchViewController ()
 
@@ -29,6 +30,8 @@
     // Do any additional setup after loading the view from its nib.
     [self.searchBar.subviews[0] removeFromSuperview];
     
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapView:)]];
+    
     [self configureNavigationBar];
 }
 
@@ -41,6 +44,25 @@
 #pragma mark - UI methods
 
 - (void)configureNavigationBar {
+}
+
+#pragma mark - Handle gesture recognizer
+
+- (void)didTapView:(UIGestureRecognizer*)gestureRecognizer {
+    [self.view endEditing:YES];
+}
+
+#pragma mark - UISearchBarDelegate
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    WTClient *client = [WTClient sharedClient];
+    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        WTLOG(@"Search user response:%@", responseObject);
+    } failureBlock:^(NSError *error) {
+        WTLOGERROR(@"Search user:%@", error.localizedDescription);
+    }];
+    [request search:searchBar.text];
+    [client enqueueRequest:request];
 }
 
 @end

@@ -8,8 +8,9 @@
 
 #import "WTInnerModalViewController.h"
 #import "WTSwitch.h"
+#import "WTWaterflowDecorator.h"
 
-@interface WTInnerSettingViewController : WTInnerModalViewController
+@interface WTInnerSettingViewController : WTInnerModalViewController <WTWaterflowDecoratorDataSource>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 

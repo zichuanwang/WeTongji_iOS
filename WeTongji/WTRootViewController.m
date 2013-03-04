@@ -7,7 +7,7 @@
 //
 
 #import "WTRootViewController.h"
-#import "WTInnerModalViewController.h"
+#import "WTInnerNotificationViewController.h"
 
 @interface WTRootViewController ()
 
@@ -62,7 +62,7 @@
     if (!sender.selected) {
         sender.selected = YES;
         
-        WTInnerModalViewController *vc = [[WTInnerModalViewController alloc] init];
+        WTInnerNotificationViewController *vc = [WTInnerNotificationViewController sharedViewController];
         [nav showInnerModalViewController:vc sourceViewController:self disableNavBarType:WTDisableNavBarTypeRight];
         [sender stopShine];
         

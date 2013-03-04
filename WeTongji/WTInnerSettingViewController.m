@@ -10,10 +10,12 @@
 #import "WTConfigLoader.h"
 #import "WTSwitch.h"
 #import "NSUserDefaults+WTAddition.h"
+#import "WTResourceFactory.h"
 
 @interface WTInnerSettingViewController ()
 
 @property (nonatomic, strong) NSArray *settingConfig;
+@property (nonatomic, strong) WTWaterflowDecorator *waterflowDecorator;
 
 @end
 
@@ -35,10 +37,24 @@
     [self configureScrollView];
 }
 
+- (void)viewWillLayoutSubviews {
+    [self.waterflowDecorator adjustWaterflowView];
+}
+
+- (void)viewDidLayoutSubviews {
+    [self.waterflowDecorator adjustWaterflowView];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.waterflowDecorator adjustWaterflowView];
 }
 
 #pragma mark - Methods to overwrite
@@ -48,6 +64,13 @@
 }
 
 #pragma mark - Properties
+
+- (WTWaterflowDecorator *)waterflowDecorator {
+    if (!_waterflowDecorator) {
+        _waterflowDecorator = [WTWaterflowDecorator createDecoratorWithDataSource:self];
+    }
+    return _waterflowDecorator;
+}
 
 - (NSArray *)settingConfig {
     if (_settingConfig == nil) {
@@ -94,6 +117,9 @@
     return self.scrollView;
 }
 
+- (NSString *)waterflowUnitImageName {
+    return @"WTInnerModalViewBg";
+}
 
 @end
 

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WTRootViewController.h"
 
-@interface WTSearchViewController : WTRootViewController
+@interface WTSearchViewController : WTRootViewController <UISearchBarDelegate>
 
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 
