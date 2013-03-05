@@ -81,7 +81,9 @@
 #pragma mark - CoreDataTableViewController methods
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    
+    Notification *notification = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    WTNotificationCell *notificationCell = (WTNotificationCell *)cell;
+    [notificationCell configureUIWithNotificaitonObject:notification];
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {

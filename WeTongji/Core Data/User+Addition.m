@@ -18,7 +18,7 @@
 + (NSArray *)createTestUsers {
     NSMutableArray *resultArray = [NSMutableArray array];
     
-    NSArray *testUserNameArray = @[@"杨俊哲", @"冯泽西", @"蔡思雨", @"周杰伦", @"王二狗"];
+    NSArray *testUserNameArray = @[@"试一个很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的名字", @"冯泽西", @"蔡思雨", @"周杰伦", @"王二狗"];
     
     for (int i = 0; i < 5; i++) {
         NSString *userID = [NSString stringWithFormat:@"%d", i];

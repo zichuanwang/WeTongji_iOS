@@ -25,4 +25,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *timeLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *notificationTypeIconImageView;
 
+- (void)configureUIWithNotificaitonObject:(Notification *)notification;
+
 @end

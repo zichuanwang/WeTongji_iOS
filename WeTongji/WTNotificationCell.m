@@ -38,4 +38,10 @@
     self.avatarContainerView.layer.cornerRadius = 6.0f;
 }
 
+#pragma mark - Methods to overwrite
+
+- (void)configureUIWithNotificaitonObject:(Notification *)notification {
+    
+}
+
 @end
