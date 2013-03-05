@@ -61,8 +61,8 @@
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Search user:%@", error.localizedDescription);
     }];
-    [request search:searchBar.text];
-    [client enqueueRequest:request];
+//    [request search:searchBar.text];
+//    [client enqueueRequest:request];
 }
 
 @end
