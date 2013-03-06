@@ -11,7 +11,6 @@
 
 @implementation Course
 
-@dynamic courseNO;
 @dynamic name;
 @dynamic hours;
 @dynamic point;

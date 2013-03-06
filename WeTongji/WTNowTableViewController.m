@@ -13,6 +13,7 @@
 #import "NSUserDefaults+WTAddition.h"
 #import "WTNowActivityCell.h"
 #import "WTNowCourseCell.h"
+#import "Event.h"
 
 @implementation WTNowTableViewController
 
@@ -66,14 +67,21 @@
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {
-//    [request setEntity:[NSEntityDescription entityForName:@"Activity" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
-//    
-//    NSSortDescriptor *sortByBegin = [[NSSortDescriptor alloc] initWithKey:@"begin" ascending:YES];
-//    [request setSortDescriptors:@[sortByBegin]];
+    [request setEntity:[NSEntityDescription entityForName:@"AbstractScheduleItem" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
+    
+    NSSortDescriptor *sortByBegin = [[NSSortDescriptor alloc] initWithKey:@"begin" ascending:YES];
+    [request setSortDescriptors:@[sortByBegin]];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
-    //return @"WTActivityCell";
+    
+    Event *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    if ([item isKindOfClass:[Activity class]]) {
+        return @"WTNowActivityCell";
+    } else if ([item isKindOfClass:[Course class]]){
+        return @"WTNowCourseCell";
+    }
+    return @"WTNowCourseCell";
 }
 
 - (NSString *)customSectionNameKeyPath {

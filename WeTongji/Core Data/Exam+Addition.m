@@ -25,12 +25,14 @@
         exam = [NSEntityDescription insertNewObjectForEntityForName:@"Exam"
                                              inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
     }
-    exam.examNO = examNo;
+    exam.identifier = examNo;
     exam.name = [NSString stringWithFormat:@"%@",dic[@"Name"]];
     exam.teacher = [NSString stringWithFormat:@"%@",dic[@"Teacher"]];
     exam.location = [NSString stringWithFormat:@"%@",dic[@"Location"]];
     exam.begin = [[NSString stringWithFormat:@"%@",dic[@"Begin"]] convertToDate];
+    exam.begin_time = exam.begin;
     exam.end = [[NSString stringWithFormat:@"%@",dic[@"End"]] convertToDate];
+    exam.end_time = exam.end;
     exam.point = dic[@"Point"];
     exam.required = dic[@"Required"];
     exam.hours = dic[@"Hours"];
@@ -41,9 +43,9 @@
 + (Exam *)examWithNo:(NSString *)examNO
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exam"];
-    request.predicate = [NSPredicate predicateWithFormat:@"examNO = %@",examNO];
+    request.predicate = [NSPredicate predicateWithFormat:@"identifier = %@",examNO];
     request.sortDescriptors = [NSArray arrayWithObject:
-                                [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+                                [NSSortDescriptor sortDescriptorWithKey:@"begin_time" ascending:YES]];
     
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     NSArray *matches = [context executeFetchRequest:request error:nil];

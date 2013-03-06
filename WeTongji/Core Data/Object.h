@@ -8,10 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "AbstractScheduleItem.h"
 
-
-@interface Object : AbstractScheduleItem
+@interface Object : NSManagedObject
 
 @property (nonatomic, retain) NSString * identifier;
 
