@@ -11,7 +11,6 @@
 
 @implementation Exam
 
-@dynamic examNO;
 @dynamic name;
 @dynamic teacher;
 @dynamic location;

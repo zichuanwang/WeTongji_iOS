@@ -8,12 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "AbstractScheduleItem.h"
+#import "Event.h"
 
+@interface Course : Event
 
-@interface Course : AbstractScheduleItem
-
-@property (nonatomic, retain) NSString * courseNO;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * hours;
 @property (nonatomic, retain) NSNumber * point;
