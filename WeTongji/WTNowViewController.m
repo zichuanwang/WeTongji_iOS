@@ -9,14 +9,17 @@
 #import "WTNowViewController.h"
 #import "WTResourceFactory.h"
 #import "WTNowBaseCell.h"
+#import "WTNowTableViewController.h"
 
 @interface WTNowViewController ()
 
+@property (nonatomic, strong) WTNowTableViewController *nowTableViewController;
 @property (nonatomic, strong) NSIndexPath *nowIndexPath;
 
 @end
 
 @implementation WTNowViewController
+@synthesize nowTableViewController = _nowTableViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,7 +37,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self.tableView resetHeight:self.view.frame.size.height];
+    [self.nowTableViewController.view resetHeight:self.view.frame.size.height];
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,11 +45,20 @@
     [super didReceiveMemoryWarning];
 }
 
+- (WTNowTableViewController *)nowTableViewController
+{
+    if (!_nowTableViewController) {
+        _nowTableViewController = [[WTNowTableViewController alloc] init];
+        [self.view addSubview:_nowTableViewController.view];
+    }
+    return _nowTableViewController;
+}
+
 #pragma mark - UI methods
 
 - (void)configureTableView {
-    self.tableView.alwaysBounceVertical = YES;
-    self.tableView.scrollsToTop = NO;
+    self.nowTableViewController.tableView.alwaysBounceVertical = YES;
+    self.nowTableViewController.tableView.scrollsToTop = NO;
 }
 
 - (void)configureNavigationBar {

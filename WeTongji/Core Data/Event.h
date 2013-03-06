@@ -10,7 +10,6 @@
 #import <CoreData/CoreData.h>
 #import "Object.h"
 
-
 @interface Event : Object
 
 @property (nonatomic, retain) NSDate * begin_time;

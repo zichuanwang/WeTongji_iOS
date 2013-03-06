@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "AbstractScheduleItem.h"
 
-
-@interface Exam : NSManagedObject
+@interface Exam : AbstractScheduleItem
 
 @property (nonatomic, retain) NSString * examNO;
 @property (nonatomic, retain) NSString * name;

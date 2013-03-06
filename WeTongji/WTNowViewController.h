@@ -13,6 +13,5 @@
 @property (nonatomic, weak) IBOutlet UIView *titleBgView;
 @property (nonatomic, weak) IBOutlet UILabel *timeLabel;
 @property (nonatomic, weak) IBOutlet UILabel *countLabel;
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 @end

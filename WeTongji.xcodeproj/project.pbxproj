@@ -14,6 +14,9 @@
 		039E380316970FF600178F1C /* WTNowActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 039E380216970FF600178F1C /* WTNowActivityCell.xib */; };
 		039E380E16971F8C00178F1C /* WTNowCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 039E380D16971F8C00178F1C /* WTNowCourseCell.xib */; };
 		039E38111697205000178F1C /* WTNowBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 039E38101697205000178F1C /* WTNowBaseCell.m */; };
+		03B3E06416E7784D008BB481 /* WTNowTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B3E06316E7784D008BB481 /* WTNowTableViewController.m */; };
+		03B3E06616E77957008BB481 /* WTNowTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03B3E06516E77957008BB481 /* WTNowTableViewController.xib */; };
+		03B3E06E16E7846D008BB481 /* AbstractScheduleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B3E06D16E7846D008BB481 /* AbstractScheduleItem.m */; };
 		03B7260B16E62B3D00093638 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B7260A16E62B3D00093638 /* Course.m */; };
 		03B7260E16E62B3E00093638 /* Exam.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B7260D16E62B3E00093638 /* Exam.m */; };
 		03B7261116E62CBD00093638 /* Exam+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B7261016E62CBD00093638 /* Exam+Addition.m */; };
@@ -315,6 +318,11 @@
 		039E380D16971F8C00178F1C /* WTNowCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNowCourseCell.xib; sourceTree = "<group>"; };
 		039E380F1697205000178F1C /* WTNowBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNowBaseCell.h; sourceTree = "<group>"; };
 		039E38101697205000178F1C /* WTNowBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNowBaseCell.m; sourceTree = "<group>"; };
+		03B3E06216E7784D008BB481 /* WTNowTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNowTableViewController.h; sourceTree = "<group>"; };
+		03B3E06316E7784D008BB481 /* WTNowTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNowTableViewController.m; sourceTree = "<group>"; };
+		03B3E06516E77957008BB481 /* WTNowTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNowTableViewController.xib; sourceTree = "<group>"; };
+		03B3E06C16E7846C008BB481 /* AbstractScheduleItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractScheduleItem.h; sourceTree = "<group>"; };
+		03B3E06D16E7846D008BB481 /* AbstractScheduleItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractScheduleItem.m; sourceTree = "<group>"; };
 		03B7260916E62B3D00093638 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
 		03B7260A16E62B3D00093638 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		03B7260C16E62B3D00093638 /* Exam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exam.h; sourceTree = "<group>"; };
@@ -1293,6 +1301,9 @@
 				E1D3742C169432D20012E30A /* WTNowViewController.h */,
 				E1D3742D169432D30012E30A /* WTNowViewController.m */,
 				E1D3742E169432D30012E30A /* WTNowViewController.xib */,
+				03B3E06216E7784D008BB481 /* WTNowTableViewController.h */,
+				03B3E06316E7784D008BB481 /* WTNowTableViewController.m */,
+				03B3E06516E77957008BB481 /* WTNowTableViewController.xib */,
 			);
 			name = Now;
 			sourceTree = "<group>";
@@ -1322,6 +1333,8 @@
 		E1D3743D1694C3D90012E30A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				03B3E06C16E7846C008BB481 /* AbstractScheduleItem.h */,
+				03B3E06D16E7846D008BB481 /* AbstractScheduleItem.m */,
 				03B7260C16E62B3D00093638 /* Exam.h */,
 				03B7260D16E62B3E00093638 /* Exam.m */,
 				03B7260916E62B3D00093638 /* Course.h */,
@@ -1642,6 +1655,7 @@
 				E10A8D3616E3BD22008B72E7 /* WTInnerNotificationTableViewController.xib in Resources */,
 				E10A8D3F16E48874008B72E7 /* WTNotificationCellButton.png in Resources */,
 				E10A8D4016E48874008B72E7 /* WTNotificationCellButton@2x.png in Resources */,
+				03B3E06616E77957008BB481 /* WTNowTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1751,6 +1765,8 @@
 				03B7260E16E62B3E00093638 /* Exam.m in Sources */,
 				03B7261116E62CBD00093638 /* Exam+Addition.m in Sources */,
 				03B7261516E6366300093638 /* Course+Addtion.m in Sources */,
+				03B3E06416E7784D008BB481 /* WTNowTableViewController.m in Sources */,
+				03B3E06E16E7846D008BB481 /* AbstractScheduleItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
