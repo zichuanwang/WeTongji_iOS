@@ -11,6 +11,8 @@
 @interface UIView (Animation)
 
 - (void)fadeIn;
+- (void)fadeInWithCompletion:(void (^)(void))completion;
 - (void)fadeOut;
+- (void)fadeOutWithCompletion:(void (^)(void))completion;
 
 @end

@@ -24,6 +24,8 @@
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *notificationContentLabel;
 @property (nonatomic, weak) IBOutlet UILabel *timeLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *notificationTypeIconImageView;
+@property (nonatomic, weak) id<WTNotificationCellDelegate> delegate;
+@property (nonatomic, weak) Notification *notification;
 
 - (void)configureUIWithNotificaitonObject:(Notification *)notification;
 

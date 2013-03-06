@@ -83,6 +83,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     Notification *notification = [self.fetchedResultsController objectAtIndexPath:indexPath];
     WTNotificationCell *notificationCell = (WTNotificationCell *)cell;
+    notificationCell.delegate = self;
     [notificationCell configureUIWithNotificaitonObject:notification];
 }
 
@@ -106,6 +107,13 @@
 
 - (UIScrollView *)waterflowScrollView {
     return self.tableView;
+}
+
+#pragma mark - WTNotificationCellDelegate
+
+- (void)cellHeightDidChange {
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
 }
 
 @end

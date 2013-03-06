@@ -83,7 +83,21 @@
 #pragma mark - Actions
 
 - (IBAction)didClickAcceptButton:(UIButton *)sender {
+    FriendInvitationNotification *friendInvitation = (FriendInvitationNotification *)self.notification;
+    friendInvitation.accepted = @(YES);
     
+    UIViewAutoresizing notificationContentLabelResizing = self.notificationContentLabel.autoresizingMask;
+    UIViewAutoresizing timeLabelResizing = self.timeLabel.autoresizingMask;
+    
+    self.notificationContentLabel.autoresizingMask = self.avatarContainerView.autoresizingMask;
+    self.timeLabel.autoresizingMask = self.avatarContainerView.autoresizingMask;
+    
+    [self.buttonContainerView fadeOutWithCompletion:^{
+        self.notificationContentLabel.autoresizingMask = notificationContentLabelResizing;
+        self.timeLabel.autoresizingMask = timeLabelResizing;
+    }];
+    
+    [self.delegate cellHeightDidChange];
 }
 
 - (IBAction)didClickIgnoreButton:(UIButton *)sender {
@@ -101,6 +115,7 @@
 
 - (void)configureUIWithNotificaitonObject:(Notification *)notification {
     if ([notification isMemberOfClass:[FriendInvitationNotification class]]) {
+        self.notification = notification;
         FriendInvitationNotification *friendInvitation = (FriendInvitationNotification *)notification;
         User *sender = friendInvitation.sender;
         [self configureNotificationMessageWithSenderName:sender.name];

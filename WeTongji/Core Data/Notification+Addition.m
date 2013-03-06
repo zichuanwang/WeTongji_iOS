@@ -31,10 +31,11 @@
             result = [NSEntityDescription insertNewObjectForEntityForName:@"FriendInvitationNotification" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
             result.identifier = notificationID;
             result.send_time = [NSDate date];
-            result.accepted = @(NO);
             result.sender = testUserArray[i];
         }
     
+        result.accepted = @(NO);
+        
         [resultArray addObject:result];
     }
     return resultArray;
