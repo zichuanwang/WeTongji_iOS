@@ -114,6 +114,7 @@
 - (void)cellHeightDidChange {
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
+    [self.tableView performSelector:@selector(reloadData) withObject:nil afterDelay:0.25f];
 }
 
 @end

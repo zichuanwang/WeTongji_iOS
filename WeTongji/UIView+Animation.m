@@ -17,7 +17,7 @@
 - (void)fadeInWithCompletion:(void (^)(void))completion {
     self.alpha = 0;
     self.userInteractionEnabled = NO;
-    [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationCurveEaseInOut animations:^{
+    [UIView animateWithDuration:0.25f delay:0 options:UIViewAnimationCurveEaseInOut animations:^{
         self.alpha = 1;
     } completion:^(BOOL finished) {
         self.userInteractionEnabled = YES;
@@ -35,7 +35,7 @@
 - (void)fadeOutWithCompletion:(void (^)(void))completion {
     self.alpha = 1;
     self.userInteractionEnabled = NO;
-    [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationCurveEaseInOut animations:^{
+    [UIView animateWithDuration:0.25f delay:0 options:UIViewAnimationCurveEaseInOut animations:^{
         self.alpha = 0;
     } completion:^(BOOL finished) {
         self.userInteractionEnabled = YES;
