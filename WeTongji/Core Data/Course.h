@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "AbstractNowItem.h"
+#import "Object.h"
 
-@interface Course : AbstractNowItem
+@interface Course : Object
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * hours;
+@property (nonatomic, retain) NSNumber * hours;
 @property (nonatomic, retain) NSNumber * point;
 @property (nonatomic, retain) NSString * teacher;
 @property (nonatomic, retain) NSString * weekType;

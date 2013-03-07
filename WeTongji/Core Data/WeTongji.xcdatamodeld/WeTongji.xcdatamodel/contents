@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="11G63" minimumToolsVersion="Xcode 4.5" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="AbstractNowItem" representedClassName="AbstractNowItem" parentEntity="Object" syncable="YES">
+    <entity name="AbstractNowItem" representedClassName="AbstractNowItem" isAbstract="YES" parentEntity="Object" syncable="YES">
         <attribute name="beginTime" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <entity name="Activity" representedClassName="Activity" parentEntity="AbstractNowItem" syncable="YES">
@@ -23,8 +23,8 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="ActivityInvitationNotification" representedClassName="ActivityInvitationNotification" parentEntity="InvitationNotification" syncable="YES"/>
-    <entity name="Course" representedClassName="Course" parentEntity="AbstractNowItem" syncable="YES">
-        <attribute name="hours" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="Course" representedClassName="Course" parentEntity="Object" syncable="YES">
+        <attribute name="hours" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="point" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -35,8 +35,18 @@
         <attribute name="weekDay" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="weekType" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="CourseInstance" representedClassName="CourseInstance" syncable="YES">
+    <entity name="CourseInstance" representedClassName="CourseInstance" parentEntity="AbstractNowItem" syncable="YES">
         <attribute name="courseAtDay" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="hours" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="point" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="required" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="sectionEnd" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="sectionStart" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="teacher" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weekDay" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weekType" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Event" representedClassName="Event" parentEntity="Object" syncable="YES">
         <attribute name="begin_time" optional="YES" attributeType="Date" syncable="YES"/>
@@ -106,9 +116,11 @@
         <relationship name="sent_notifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notification" inverseName="sender" inverseEntity="Notification" syncable="YES"/>
     </entity>
     <elements>
+        <element name="AbstractNowItem" positionX="160" positionY="192" width="128" height="60"/>
         <element name="Activity" positionX="160" positionY="192" width="128" height="300"/>
         <element name="ActivityInvitationNotification" positionX="160" positionY="192" width="128" height="45"/>
         <element name="Course" positionX="160" positionY="192" width="128" height="195"/>
+        <element name="CourseInstance" positionX="160" positionY="192" width="128" height="210"/>
         <element name="Event" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Exam" positionX="160" positionY="192" width="128" height="165"/>
         <element name="FriendInvitationNotification" positionX="160" positionY="192" width="128" height="45"/>
@@ -120,7 +132,5 @@
         <element name="Organization" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Star" positionX="160" positionY="192" width="128" height="75"/>
         <element name="User" positionX="160" positionY="192" width="128" height="315"/>
-        <element name="AbstractNowItem" positionX="160" positionY="192" width="128" height="60"/>
-        <element name="CourseInstance" positionX="160" positionY="192" width="128" height="60"/>
     </elements>
 </model>

@@ -12,5 +12,15 @@
 @implementation CourseInstance
 
 @dynamic courseAtDay;
+@dynamic sectionStart;
+@dynamic sectionEnd;
+@dynamic point;
+@dynamic weekType;
+@dynamic weekDay;
+@dynamic teacher;
+@dynamic name;
+@dynamic location;
+@dynamic hours;
+@dynamic required;
 
 @end

@@ -32,9 +32,9 @@
     exam.begin = [[NSString stringWithFormat:@"%@",dic[@"Begin"]] convertToDate];
     exam.beginTime = exam.begin;
     exam.end = [[NSString stringWithFormat:@"%@",dic[@"End"]] convertToDate];
-    exam.point = dic[@"Point"];
-    exam.required = dic[@"Required"];
-    exam.hours = dic[@"Hours"];
+    exam.point = (NSNumber *)dic[@"Point"];
+    exam.required = (NSNumber *)dic[@"Required"];
+    exam.hours = (NSNumber *)dic[@"Hours"];
 
     return exam;
 }
@@ -43,9 +43,6 @@
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exam"];
     request.predicate = [NSPredicate predicateWithFormat:@"identifier = %@",examNO];
-    request.sortDescriptors = [NSArray arrayWithObject:
-                                [NSSortDescriptor sortDescriptorWithKey:@"begin_time" ascending:YES]];
-    
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     NSArray *matches = [context executeFetchRequest:request error:nil];
     
