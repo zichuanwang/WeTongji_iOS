@@ -8,7 +8,7 @@
 
 #import "WTRootViewController.h"
 
-@interface WTNowViewController : WTRootViewController <UITableViewDataSource, UITableViewDelegate>
+@interface WTNowViewController : WTRootViewController
 
 @property (nonatomic, weak) IBOutlet UIView *titleBgView;
 @property (nonatomic, weak) IBOutlet UILabel *timeLabel;
