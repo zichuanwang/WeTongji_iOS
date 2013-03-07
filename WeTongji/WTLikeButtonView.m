@@ -24,6 +24,7 @@
     [likeButton setBackgroundImage:likeNormalImage forState:UIControlStateNormal];
     [likeButton setBackgroundImage:likeSelectImage forState:UIControlStateSelected];
     [likeButton resetSize:likeNormalImage.size];
+    likeButton.adjustsImageWhenHighlighted = NO;
     
     self.likeButton = likeButton;
     self.frame = likeButton.frame;

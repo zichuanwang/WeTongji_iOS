@@ -177,7 +177,7 @@
 }
 
 - (void)configureParticipateButton {
-    self.participateButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Participate", nil) selectText:NSLocalizedString(@"Participated", nil)];
+    self.participateButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Participate", nil)];
     
     if (self.participateButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
         [self.participateButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];
@@ -305,7 +305,13 @@
 
 - (void)didClickParticipateButton:(UIButton *)sender {
     self.participateButton.selected = !self.participateButton.selected;
-    // TODO:
+    BOOL participated = !self.participateButton.selected;
+    if (participated) {
+        [sender setTitle:NSLocalizedString(@"Participated", nil) forState:UIControlStateNormal];
+    } else {
+        [sender setTitle:NSLocalizedString(@"Participate", nil) forState:UIControlStateNormal];
+    }
+    
 }
 
 - (void)didClickOrganizerIndicator {

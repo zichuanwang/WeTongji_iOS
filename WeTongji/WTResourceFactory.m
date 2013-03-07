@@ -111,53 +111,66 @@
     return barBtnItem;
 }
 
-+ (UIButton *)createNormalButtonWithText:(NSString *)text
-                              selectText:(NSString *)selectText {
-    return [WTResourceFactory createButtonWithText:text
-                                        selectText:selectText
-                                       normalImage:[UIImage imageNamed:@"WTNormalButton"]
-                                    highlightImage:nil
-                                       selectImage:[UIImage imageNamed:@"WTSelectButton"]
-                                  normalTitleColor:[UIColor darkGrayColor]
-                                 normalShadowColor:[UIColor whiteColor]
-                               highlightTitleColor:[UIColor darkGrayColor]
-                              highlightShadowColor:[UIColor grayColor]
-                                  selectTitleColor:[UIColor whiteColor]
-                                 selectShadowColor:[UIColor grayColor]];
-}
-
 + (UIButton *)createNormalButtonWithText:(NSString *)text {
-    return [WTResourceFactory createNormalButtonWithText:text selectText:nil];
+    UIButton *button = [[UIButton alloc] init];
+    [WTResourceFactory configureNormalButton:button text:text];
+    button.selected = YES;
+    return button;
 }
 
 + (UIButton *)createFocusButtonWithText:(NSString *)text {
-    UIButton *result = [WTResourceFactory createButtonWithText:text
-                                                    selectText:nil
-                                                   normalImage:[UIImage imageNamed:@"WTSelectButton"]
-                                                highlightImage:nil
-                                                   selectImage:[UIImage imageNamed:@"WTFocusButton"]
-                                              normalTitleColor:[UIColor whiteColor]
-                                             normalShadowColor:[UIColor lightGrayColor]
-                                           highlightTitleColor:[UIColor grayColor]
-                                          highlightShadowColor:[UIColor darkGrayColor]
-                                              selectTitleColor:nil
-                                             selectShadowColor:nil];
-    result.selected = YES;
-    return result;
+    UIButton *button = [[UIButton alloc] init];
+    [WTResourceFactory configureFocusButton:button text:text];
+    button.selected = YES;
+    return button;
 }
 
-+ (UIButton *)createButtonWithText:(NSString *)text
-                        selectText:(NSString *)selectText
-                       normalImage:(UIImage *)normalImage
-                    highlightImage:(UIImage *)highlightImage
-                       selectImage:(UIImage *)selectImage
-                  normalTitleColor:(UIColor *)normalTitleColor
-                 normalShadowColor:(UIColor *)normalShadowColor
-               highlightTitleColor:(UIColor *)highlightTitleColor
-              highlightShadowColor:(UIColor *)highlightShadowColor
-                  selectTitleColor:(UIColor *)selectTitleColor
-                 selectShadowColor:(UIColor *)selectShadowColor {
-    UIButton *button = [[UIButton alloc] init];
++ (void)configureFocusButton:(UIButton *)button
+                        text:(NSString *)text {
+    [WTResourceFactory configureButton:button
+                                  text:text
+                            selectText:nil
+                           normalImage:[UIImage imageNamed:@"WTSelectButton"]
+                        highlightImage:[UIImage imageNamed:@"WTSelectButton"]
+                           selectImage:[UIImage imageNamed:@"WTFocusButton"]
+                      normalTitleColor:[UIColor whiteColor]
+                     normalShadowColor:[UIColor grayColor]
+                   highlightTitleColor:[UIColor whiteColor]
+                  highlightShadowColor:[UIColor grayColor]
+                      selectTitleColor:[UIColor whiteColor]
+                     selectShadowColor:[UIColor lightGrayColor]];
+}
+
++ (void)configureNormalButton:(UIButton *)button
+                         text:(NSString *)text {
+    [WTResourceFactory configureButton:button
+                                  text:text
+                            selectText:nil
+                           normalImage:[UIImage imageNamed:@"WTSelectButton"]
+                        highlightImage:[UIImage imageNamed:@"WTSelectButton"]
+                           selectImage:[UIImage imageNamed:@"WTNormalButton"]
+                      normalTitleColor:[UIColor whiteColor]
+                     normalShadowColor:[UIColor grayColor]
+                   highlightTitleColor:[UIColor whiteColor]
+                  highlightShadowColor:[UIColor grayColor]
+                      selectTitleColor:[UIColor darkGrayColor]
+                     selectShadowColor:[UIColor whiteColor]];
+}
+
++ (void)configureButton:(UIButton *)button
+                         text:(NSString *)text
+                   selectText:(NSString *)selectText
+                  normalImage:(UIImage *)normalImage
+               highlightImage:(UIImage *)highlightImage
+                  selectImage:(UIImage *)selectImage
+             normalTitleColor:(UIColor *)normalTitleColor
+            normalShadowColor:(UIColor *)normalShadowColor
+          highlightTitleColor:(UIColor *)highlightTitleColor
+         highlightShadowColor:(UIColor *)highlightShadowColor
+             selectTitleColor:(UIColor *)selectTitleColor
+            selectShadowColor:(UIColor *)selectShadowColor {
+    
+    button.adjustsImageWhenHighlighted = NO;
     
     UIEdgeInsets insets = UIEdgeInsetsMake(0.0, 5.0, 0.0, 5.0);
     if (normalImage) {
@@ -174,13 +187,13 @@
         UIImage *resizableSelectImage = [selectImage resizableImageWithCapInsets:insets];
         [button setBackgroundImage:resizableSelectImage forState:UIControlStateSelected];
     }
-        
+    
     if (normalTitleColor)
         [button setTitleColor:normalTitleColor forState:UIControlStateNormal];
     
     if (normalShadowColor)
         [button setTitleShadowColor:normalShadowColor forState:UIControlStateNormal];
-
+    
     if (highlightTitleColor)
         [button setTitleColor:highlightTitleColor forState:UIControlStateHighlighted];
     
@@ -192,7 +205,7 @@
     
     if (selectShadowColor)
         [button setTitleShadowColor:selectShadowColor forState:UIControlStateSelected];
-
+    
     [button setTitle:text forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont boldSystemFontOfSize:12];
     button.titleLabel.shadowOffset = CGSizeMake(0, 1);
@@ -206,8 +219,6 @@
     }
     
     [button resetSize:CGSizeMake(titleLabelWidth + BUTTON_WIDTH_INCREMENT, normalImage.size.height)];
-    
-    return button;
 }
 
 @end
