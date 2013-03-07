@@ -8,14 +8,24 @@
 
 #import "WTNowTableViewController.h"
 #import "Exam+Addition.h"
-#import "Course+Addtion.h"
+#import "CourseInstance+Addition.h"
 #import "Activity+Addition.h"
 #import "NSUserDefaults+WTAddition.h"
 #import "WTNowActivityCell.h"
 #import "WTNowCourseCell.h"
-#import "Event.h"
+#import "AbstractNowItem.h"
 
 @implementation WTNowTableViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
+    
+    self.tableView.scrollsToTop = NO;
+    
+    [self loadData];
+}
 
 - (void)viewDidUnload {
     [super viewDidUnload];
@@ -40,7 +50,7 @@
         
         NSArray *coursesArray = resultDict[@"CourseInstances"];
         for (NSDictionary *dict in coursesArray) {
-            [Course insertCourse:dict];
+            [CourseInstance insertCourseInstance:dict];
         }
         
         NSArray *examsArray = resultDict[@"Exams"];
@@ -60,25 +70,28 @@
 #pragma mark - CoreDataTableViewController methods
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-//    WTActivityCell *activityCell = (WTActivityCell *)cell;
-//    
-//    Activity *activity = [self.fetchedResultsController objectAtIndexPath:indexPath];
-//    [activityCell configureCellWithIndexPath:indexPath title:activity.title time:activity.beginTimeString location:activity.location imageURL:activity.image];//TODO time
+    AbstractNowItem *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    if ([item isKindOfClass:[Activity class]]) {
+        Activity *acitivity = (Activity *)item;
+        WTNowActivityCell *activityCell = (WTNowActivityCell *)cell;
+    } else if ([item isKindOfClass:[CourseInstance class]]){
+        CourseInstance *course = (CourseInstance *)item;
+        WTNowCourseCell *courseCell = (WTNowCourseCell *)cell;
+    }
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {
-    [request setEntity:[NSEntityDescription entityForName:@"AbstractScheduleItem" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
+    [request setEntity:[NSEntityDescription entityForName:@"AbstractNowItem" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
-    NSSortDescriptor *sortByBegin = [[NSSortDescriptor alloc] initWithKey:@"begin" ascending:YES];
-    [request setSortDescriptors:@[sortByBegin]];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"beginTime" ascending:YES]];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
     
-    Event *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    AbstractNowItem *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
     if ([item isKindOfClass:[Activity class]]) {
         return @"WTNowActivityCell";
-    } else if ([item isKindOfClass:[Course class]]){
+    } else if ([item isKindOfClass:[CourseInstance class]]){
         return @"WTNowCourseCell";
     }
     return @"WTNowCourseCell";
