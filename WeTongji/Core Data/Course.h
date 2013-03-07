@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "Event.h"
+#import "AbstractNowItem.h"
 
-@interface Course : Event
+@interface Course : AbstractNowItem
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * hours;

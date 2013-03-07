@@ -20,6 +20,8 @@
 		03B7260E16E62B3E00093638 /* Exam.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B7260D16E62B3E00093638 /* Exam.m */; };
 		03B7261116E62CBD00093638 /* Exam+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B7261016E62CBD00093638 /* Exam+Addition.m */; };
 		03B7261516E6366300093638 /* Course+Addtion.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B7261416E6366200093638 /* Course+Addtion.m */; };
+		03DF4EDD16E8C35200219F83 /* AbstractNowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF4EDC16E8C35200219F83 /* AbstractNowItem.m */; };
+		03DF4EE016E8C35200219F83 /* CourseInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DF4EDF16E8C35200219F83 /* CourseInstance.m */; };
 		A1ADA9DB16AC460500E3A62E /* WTActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ADA9D916AC460500E3A62E /* WTActivityViewController.m */; };
 		A1ADA9DC16AC460500E3A62E /* WTActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1ADA9DA16AC460500E3A62E /* WTActivityViewController.xib */; };
 		A1ADA9E016AC58E400E3A62E /* WTActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ADA9DF16AC58E400E3A62E /* WTActivityCell.m */; };
@@ -328,6 +330,10 @@
 		03B7261016E62CBD00093638 /* Exam+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Exam+Addition.m"; sourceTree = "<group>"; };
 		03B7261316E6366200093638 /* Course+Addtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Course+Addtion.h"; sourceTree = "<group>"; };
 		03B7261416E6366200093638 /* Course+Addtion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Course+Addtion.m"; sourceTree = "<group>"; };
+		03DF4EDB16E8C35200219F83 /* AbstractNowItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractNowItem.h; sourceTree = "<group>"; };
+		03DF4EDC16E8C35200219F83 /* AbstractNowItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractNowItem.m; sourceTree = "<group>"; };
+		03DF4EDE16E8C35200219F83 /* CourseInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseInstance.h; sourceTree = "<group>"; };
+		03DF4EDF16E8C35200219F83 /* CourseInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseInstance.m; sourceTree = "<group>"; };
 		A1ADA9D816AC460500E3A62E /* WTActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTActivityViewController.h; sourceTree = "<group>"; };
 		A1ADA9D916AC460500E3A62E /* WTActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTActivityViewController.m; sourceTree = "<group>"; };
 		A1ADA9DA16AC460500E3A62E /* WTActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTActivityViewController.xib; sourceTree = "<group>"; };
@@ -1330,6 +1336,10 @@
 		E1D3743D1694C3D90012E30A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				03DF4EDE16E8C35200219F83 /* CourseInstance.h */,
+				03DF4EDF16E8C35200219F83 /* CourseInstance.m */,
+				03DF4EDB16E8C35200219F83 /* AbstractNowItem.h */,
+				03DF4EDC16E8C35200219F83 /* AbstractNowItem.m */,
 				03B7260C16E62B3D00093638 /* Exam.h */,
 				03B7260D16E62B3E00093638 /* Exam.m */,
 				03B7260916E62B3D00093638 /* Course.h */,
@@ -1761,6 +1771,8 @@
 				03B7261116E62CBD00093638 /* Exam+Addition.m in Sources */,
 				03B7261516E6366300093638 /* Course+Addtion.m in Sources */,
 				03B3E06416E7784D008BB481 /* WTNowTableViewController.m in Sources */,
+				03DF4EDD16E8C35200219F83 /* AbstractNowItem.m in Sources */,
+				03DF4EE016E8C35200219F83 /* CourseInstance.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
