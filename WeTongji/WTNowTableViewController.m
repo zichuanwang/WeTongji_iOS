@@ -27,10 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
-    
     self.tableView.scrollsToTop = NO;
-    
     [self loadData];
 }
 
@@ -123,12 +122,10 @@
 
 - (void)configureRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"Event" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
-    
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"begin_time" ascending:YES]];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
-    
     Event *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
     if ([item isKindOfClass:[Activity class]]) {
         return @"WTNowActivityCell";
@@ -141,6 +138,5 @@
 - (NSString *)customSectionNameKeyPath {
     return nil;
 }
-
 
 @end
