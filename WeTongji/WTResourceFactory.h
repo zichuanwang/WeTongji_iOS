@@ -12,9 +12,6 @@
 
 + (UIButton *)createNormalButtonWithText:(NSString *)text;
 
-+ (void)configureNormalButton:(UIButton *)button
-                         text:(NSString *)text;
-
 + (UIButton *)createFocusButtonWithText:(NSString *)text;
 
 + (UIBarButtonItem *)createBackBarButtonWithText:(NSString *)text

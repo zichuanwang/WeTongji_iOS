@@ -12,6 +12,8 @@
 
 @interface WTSearchViewController ()
 
+@property (nonatomic, weak) UIButton *customSearchBarCancelButton;
+
 @end
 
 @implementation WTSearchViewController
@@ -44,28 +46,16 @@
 
 #pragma mark - UI methods
 
-- (void)configureSearchBarCancelButton {
-    for (UIView *subView in self.searchBar.subviews) {
-        //Find the button
-        if([subView isKindOfClass:[UIButton class]])
-        {
-            //Change its properties
-            UIButton *cancelButton = (UIButton *)subView;
-            cancelButton.titleLabel.text = @"Changed";
-            
-            [WTResourceFactory configureNormalButton:cancelButton text:NSLocalizedString(@"Cancel", nil)];
-        }
-    }
-}
-
-- (void)configureSearchBarBg:(BOOL)isShowCancelButton {
-    if (isShowCancelButton) {
+- (void)configureSearchBarBgWithControlState:(UIControlState)state {
+    if (state == UIControlStateSelected) {
         UIImage *selectBgImage = [[UIImage imageNamed:@"WTSearchBarSelectBg"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 30, 0, 30)];
         [self.searchBar setSearchFieldBackgroundImage:selectBgImage forState:UIControlStateNormal];
         
         UIImage *selectSearchIcon = [UIImage imageNamed:@"WTSearchBarSelectSearchIcon"];
         [self.searchBar setImage:selectSearchIcon forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
-    } else {
+        
+        
+    } else if (state == UIControlStateNormal) {
         UIImage *normalBgImage = [[UIImage imageNamed:@"WTSearchBarNormalBg"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 30, 0, 30)];
         [self.searchBar setSearchFieldBackgroundImage:normalBgImage forState:UIControlStateNormal];
         
@@ -81,31 +71,95 @@
     self.searchBar = searchBar;
     
     [searchBar.subviews[0] removeFromSuperview];
+    [self addCustomCancelButtonToSearchBar];
+    [self showCustomSearchBarCancelButton:NO animated:NO];
+    [self configureSearchBarBgWithControlState:UIControlStateNormal];
     
-    [self configureSearchBarBg:NO];
-    
-    UIView *searchBarContainerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 270.0f, 44.0F)];
+    UIView *searchBarContainerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 270.0f, 44.0f)];
     searchBarContainerView.backgroundColor = [UIColor clearColor];
     [searchBarContainerView addSubview:searchBar];
     
     UIBarButtonItem *searchBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:searchBarContainerView];
-    
     self.navigationItem.rightBarButtonItem = searchBarButtonItem;
-    
+}
+
+#define CUSTOM_SEARCH_BAR_CANCEL_BUTTNO_TAG 10000
+
+- (void)addCustomCancelButtonToSearchBar {
+    UIButton *customSearchBarCancelButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Cancel", nil)];
+    [customSearchBarCancelButton resetOriginY:1.0f];
+    [customSearchBarCancelButton resetOriginX:self.searchBar.frame.size.width - customSearchBarCancelButton.frame.size.width];
+    customSearchBarCancelButton.tag = CUSTOM_SEARCH_BAR_CANCEL_BUTTNO_TAG;
+    [customSearchBarCancelButton addTarget:self action:@selector(didClickCustomSearchBarCancelButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.searchBar addSubview:customSearchBarCancelButton];
+    self.customSearchBarCancelButton = customSearchBarCancelButton;
+}
+
+- (void)hideOriginalSearchBarCancelButton {
+    for (UIView *subView in self.searchBar.subviews) {
+        if([subView isKindOfClass:[UIButton class]] && subView.tag != CUSTOM_SEARCH_BAR_CANCEL_BUTTNO_TAG)
+        {
+            subView.hidden = YES;
+        }
+    }
+}
+
+- (void)showCustomSearchBarCancelButton:(BOOL)show animated:(BOOL)animated {
+    [self hideOriginalSearchBarCancelButton];
+    if (animated) {
+        CGFloat customCancelButtonOriginX = self.customSearchBarCancelButton.frame.origin.x;
+        CGFloat customCacnelButtonWidth = self.customSearchBarCancelButton.frame.size.width;
+        self.searchBar.userInteractionEnabled = NO;
+        
+        if (show) {
+            self.customSearchBarCancelButton.alpha = 0;
+            [self.customSearchBarCancelButton resetOriginX:customCancelButtonOriginX + customCacnelButtonWidth];
+        } else {
+            self.customSearchBarCancelButton.alpha = 1;
+        }
+        
+        [UIView animateWithDuration:0.25f animations:^{
+            if (show) {
+                [self.customSearchBarCancelButton resetOriginX:customCancelButtonOriginX];
+                self.customSearchBarCancelButton.alpha = 1;
+            } else {
+                [self.customSearchBarCancelButton resetOriginX:customCancelButtonOriginX + customCacnelButtonWidth];
+                self.customSearchBarCancelButton.alpha = 0;
+            }
+        } completion:^(BOOL finished) {
+            [self.customSearchBarCancelButton resetOriginX:customCancelButtonOriginX];
+            self.searchBar.userInteractionEnabled = YES;
+        }];
+    } else {
+        if (show) {
+            self.customSearchBarCancelButton.alpha = 1;
+        } else {
+            self.customSearchBarCancelButton.alpha = 0;
+        }
+    }
 }
 
 - (void)showSearchBarCancelButton:(BOOL)show {
-    [self configureSearchBarBg:show];
+    if (self.searchBar.showsCancelButton == show)
+        return;
+    
+    [self configureSearchBarBgWithControlState:show ? UIControlStateSelected : UIControlStateNormal];
     [self.searchBar setShowsCancelButton:show animated:YES];
-    if (show) {
-        // [self configureSearchBarCancelButton];
-    }
+    [self showCustomSearchBarCancelButton:show animated:YES];
+}
+
+#pragma mark - Actions
+
+- (void)didClickCustomSearchBarCancelButton:(UIButton *)sender {
+    self.searchBar.text = @"";
+    [self showSearchBarCancelButton:NO];
+    [self.searchBar resignFirstResponder];
 }
 
 #pragma mark - Handle gesture recognizer
 
 - (void)didTapView:(UIGestureRecognizer*)gestureRecognizer {
-    [self.view endEditing:YES];
+    [self.searchBar endEditing:YES];
 }
 
 #pragma mark - UISearchBarDelega
@@ -117,11 +171,6 @@
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
     NSLog(@"searchBarTextDidEndEditing");
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    [self showSearchBarCancelButton:NO];
-    [searchBar resignFirstResponder];
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
