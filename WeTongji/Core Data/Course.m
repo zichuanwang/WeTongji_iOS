@@ -2,7 +2,7 @@
 //  Course.m
 //  WeTongji
 //
-//  Created by 吴 wuziqi on 13-3-5.
+//  Created by 吴 wuziqi on 13-3-9.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -11,15 +11,16 @@
 
 @implementation Course
 
-@dynamic name;
+@dynamic courseAtDay;
 @dynamic hours;
-@dynamic point;
-@dynamic teacher;
-@dynamic weekType;
-@dynamic weekDay;
-@dynamic sectionStart;
-@dynamic sectionEnd;
-@dynamic required;
 @dynamic location;
+@dynamic name;
+@dynamic point;
+@dynamic required;
+@dynamic sectionEnd;
+@dynamic sectionStart;
+@dynamic teacher;
+@dynamic weekDay;
+@dynamic weekType;
 
 @end

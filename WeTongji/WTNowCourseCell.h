@@ -13,4 +13,7 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *courseNameLabel;
 
+- (void)configureCellWithTitle:(NSString *)title
+                          time:(NSString *)time
+                      location:(NSString *)location;
 @end

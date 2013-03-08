@@ -14,7 +14,6 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-
     }
     return self;
 }
@@ -26,6 +25,15 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+}
+
+- (void)configureCellWithTitle:(NSString *)title
+                          time:(NSString *)time
+                      location:(NSString *)location
+{
+    self.courseNameLabel.text = title;
+    self.whenLabel.text = time;
+    self.whereLabel.text = location;
 }
 
 @end
