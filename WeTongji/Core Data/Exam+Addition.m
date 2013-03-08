@@ -30,7 +30,7 @@
     exam.teacher = [NSString stringWithFormat:@"%@",dic[@"Teacher"]];
     exam.location = [NSString stringWithFormat:@"%@",dic[@"Location"]];
     exam.begin = [[NSString stringWithFormat:@"%@",dic[@"Begin"]] convertToDate];
-    exam.beginTime = exam.begin;
+    exam.begin_time = exam.begin;
     exam.end = [[NSString stringWithFormat:@"%@",dic[@"End"]] convertToDate];
     exam.point = (NSNumber *)dic[@"Point"];
     exam.required = (NSNumber *)dic[@"Required"];

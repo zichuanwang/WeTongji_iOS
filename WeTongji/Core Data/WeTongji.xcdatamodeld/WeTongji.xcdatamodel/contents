@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="11G63" minimumToolsVersion="Xcode 4.5" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="AbstractNowItem" representedClassName="AbstractNowItem" isAbstract="YES" parentEntity="Object" syncable="YES">
-        <attribute name="beginTime" optional="YES" attributeType="Date" syncable="YES"/>
-    </entity>
-    <entity name="Activity" representedClassName="Activity" parentEntity="AbstractNowItem" syncable="YES">
+    <entity name="Activity" representedClassName="Activity" parentEntity="Event" syncable="YES">
         <attribute name="activityDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="begin" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="canFavorite" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -35,7 +32,7 @@
         <attribute name="weekDay" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="weekType" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="CourseInstance" representedClassName="CourseInstance" parentEntity="AbstractNowItem" syncable="YES">
+    <entity name="CourseInstance" representedClassName="CourseInstance" parentEntity="Event" syncable="YES">
         <attribute name="courseAtDay" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="hours" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
@@ -48,13 +45,13 @@
         <attribute name="weekDay" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="weekType" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Event" representedClassName="Event" parentEntity="Object" syncable="YES">
+    <entity name="Event" representedClassName="Event" isAbstract="YES" parentEntity="Object" syncable="YES">
         <attribute name="begin_time" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="end_time" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="what" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="where" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Exam" representedClassName="Exam" parentEntity="AbstractNowItem" syncable="YES">
+    <entity name="Exam" representedClassName="Exam" parentEntity="Event" syncable="YES">
         <attribute name="begin" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="end" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="hours" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -84,7 +81,7 @@
         <relationship name="owner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="received_notifications" inverseEntity="User" syncable="YES"/>
         <relationship name="sender" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="sent_notifications" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="Object" representedClassName="Object" syncable="YES">
+    <entity name="Object" representedClassName="Object" isAbstract="YES" syncable="YES">
         <attribute name="identifier" attributeType="String" indexed="YES" syncable="YES"/>
     </entity>
     <entity name="Organization" representedClassName="Organization" parentEntity="Object" syncable="YES">
@@ -116,7 +113,6 @@
         <relationship name="sent_notifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notification" inverseName="sender" inverseEntity="Notification" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AbstractNowItem" positionX="160" positionY="192" width="128" height="60"/>
         <element name="Activity" positionX="160" positionY="192" width="128" height="300"/>
         <element name="ActivityInvitationNotification" positionX="160" positionY="192" width="128" height="45"/>
         <element name="Course" positionX="160" positionY="192" width="128" height="195"/>

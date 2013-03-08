@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "AbstractNowItem.h"
+#import "Event.h"
 
 
-@interface CourseInstance : AbstractNowItem
+@interface CourseInstance : Event
 
 @property (nonatomic, retain) NSDate * courseAtDay;
 @property (nonatomic, retain) NSNumber * sectionStart;

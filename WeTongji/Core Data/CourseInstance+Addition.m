@@ -41,7 +41,7 @@
     course.required = [NSString stringWithFormat:@"%@", dic[@"Required"]];
     course.location = [NSString stringWithFormat:@"%@",dic[@"Location"]];
     course.courseAtDay = courseDay;
-    course.beginTime = [courseDay dateByAddingTimeInterval:[CourseInstance getDayTimeIntervalFromSection:course.sectionStart]];
+    course.begin_time = [courseDay dateByAddingTimeInterval:[CourseInstance getDayTimeIntervalFromSection:course.sectionStart]];
     
     return course;
 }

@@ -14,4 +14,8 @@
 @property (nonatomic, weak) IBOutlet UIImageView *posterImageView;
 @property (nonatomic, weak) IBOutlet UILabel *activityNameLabel;
 
+- (void)configureCellWithtitle:(NSString *)title
+                          time:(NSString *)time
+                      location:(NSString *)location
+                      imageURL:(NSString *)imageURL;
 @end

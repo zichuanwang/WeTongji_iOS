@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "AbstractNowItem.h"
+#import "Event.h"
 
 
-@interface Activity : AbstractNowItem
+@interface Activity : Event
 
 @property (nonatomic, retain) NSString * activityDescription;
 @property (nonatomic, retain) NSString * begin;

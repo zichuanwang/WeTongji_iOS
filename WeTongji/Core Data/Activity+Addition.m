@@ -26,7 +26,7 @@
     
     result.identifier = activityID;
     result.begin = [NSString stringWithFormat:@"%@", dict[@"Begin"]];
-    result.beginTime = [result.begin convertToDate];
+    result.begin_time = [result.begin convertToDate];
     result.end = [NSString stringWithFormat:@"%@", dict[@"End"]];
     result.location = [NSString stringWithFormat:@"%@", dict[@"Location"]];
     result.organizer = [NSString stringWithFormat:@"%@", dict[@"Organizer"]];

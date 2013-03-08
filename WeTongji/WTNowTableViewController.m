@@ -13,7 +13,7 @@
 #import "NSUserDefaults+WTAddition.h"
 #import "WTNowActivityCell.h"
 #import "WTNowCourseCell.h"
-#import "AbstractNowItem.h"
+#import "Event.h"
 
 @implementation WTNowTableViewController
 
@@ -70,25 +70,32 @@
 #pragma mark - CoreDataTableViewController methods
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    AbstractNowItem *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Event *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
     if ([item isKindOfClass:[Activity class]]) {
         Activity *acitivity = (Activity *)item;
         WTNowActivityCell *activityCell = (WTNowActivityCell *)cell;
+        
+        [activityCell configureCellWithtitle:acitivity.title
+                                         time:acitivity.beginTimeString
+                                     location:acitivity.location
+                                     imageURL:acitivity.image];
+        
     } else if ([item isKindOfClass:[CourseInstance class]]){
         CourseInstance *course = (CourseInstance *)item;
         WTNowCourseCell *courseCell = (WTNowCourseCell *)cell;
+        
     }
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {
-    [request setEntity:[NSEntityDescription entityForName:@"AbstractNowItem" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
+    [request setEntity:[NSEntityDescription entityForName:@"Event" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"beginTime" ascending:YES]];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"begin_time" ascending:YES]];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
     
-    AbstractNowItem *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Event *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
     if ([item isKindOfClass:[Activity class]]) {
         return @"WTNowActivityCell";
     } else if ([item isKindOfClass:[CourseInstance class]]){
