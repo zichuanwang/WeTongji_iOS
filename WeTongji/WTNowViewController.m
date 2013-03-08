@@ -38,6 +38,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [self.nowTableViewController.view resetHeight:self.view.frame.size.height];
+    [self.nowTableViewController viewDidAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning

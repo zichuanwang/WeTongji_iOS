@@ -8,11 +8,38 @@
 
 #import "User+Addition.h"
 #import "WTCoreDataManager.h"
+#import "NSString+WTAddition.h"
 
 @implementation User (Addition)
 
-+ (User *)insertUser:(NSDictionary *)infoDict inManagedObjectContext:(NSManagedObjectContext *)context {
-    return nil;
++ (User *)insertUser:(NSDictionary *)dict {
+    NSString *userID = [NSString stringWithFormat:@"%@", dict[@"UID"]];
+    
+    if (!userID || [userID isEqualToString:@""]) {
+        return nil;
+    }
+    
+    User *result = [User userWithID:userID];
+    if (!result) {
+        result = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
+        
+        result.identifier = userID;
+    }
+    
+    result.avatar_link = [NSString stringWithFormat:@"%@", dict[@"Avatar"]];
+    result.birthday = [[NSString stringWithFormat:@"%@", dict[@"Birthday"]] convertToDate];
+    result.department = [NSString stringWithFormat:@"%@", dict[@"Department"]];
+    result.name = [NSString stringWithFormat:@"%@", dict[@"Name"]];
+    result.email_address = [NSString stringWithFormat:@"%@", dict[@"Email"]];
+    result.gender = [NSString stringWithFormat:@"%@", dict[@"Gender"]];
+    result.major = [NSString stringWithFormat:@"%@", dict[@"Major"]];
+    result.student_number = [NSString stringWithFormat:@"%@", dict[@"NO"]];
+    result.phone_number = [NSString stringWithFormat:@"%@", dict[@"Phone"]];
+    result.study_plan = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@", dict[@"Plan"]] integerValue]];
+    result.sina_weibo_name = [NSString stringWithFormat:@"%@", dict[@"SinaWeibo"]];
+    result.enroll_year = [NSString stringWithFormat:@"%@", dict[@"Year"]];
+    
+    return result;
 }
 
 + (NSArray *)createTestUsers {
