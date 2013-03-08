@@ -10,6 +10,7 @@
 @interface Exam (Addition)
 
 + (Exam *)insertExam:(NSDictionary *)dic;
+
 + (Exam *)examWithNo:(NSString *)examNO;
 
 @end

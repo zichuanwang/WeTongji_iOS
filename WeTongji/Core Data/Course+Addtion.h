@@ -11,6 +11,7 @@
 @interface Course (Addtion)
 
 + (Course *)insertCourse:(NSDictionary *)dic;
+
 + (Course *)courseWithCourseNO:(NSString *)courseNO;
 
 @end

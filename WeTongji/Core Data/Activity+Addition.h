@@ -14,6 +14,7 @@
 @property (nonatomic, readonly) NSString *beginToEndTimeString;
 
 + (Activity *)insertActivity:(NSDictionary *)dict;
+
 + (Activity *)activityWithID:(NSString *)activityID;
 
 @end

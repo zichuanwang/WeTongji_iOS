@@ -10,6 +10,8 @@
 
 @interface User (Addition)
 
++ (User *)insertUser:(NSDictionary *)dict;
+
 + (NSArray *)createTestUsers;
 
 @end

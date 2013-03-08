@@ -11,6 +11,7 @@
 #import "WTNotificationCell.h"
 #import "WTResourceFactory.h"
 #import "Notification+Addition.h"
+#import <WeTongjiSDK/WeTongjiSDK.h>
 
 @interface WTInnerNotificationTableViewController ()
 
@@ -34,8 +35,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.tableView.alwaysBounceVertical = YES;
-    
-    [Notification createTestFriendInvitationNotifications];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self loadMoreData];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -50,6 +53,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Logic methods
+
+- (void)loadMoreData {
+    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        WTLOG(@"notification list:%@", responseObject);
+    } failureBlock:^(NSError *error) {
+        WTLOGERROR(@"get notification list");
+    }];
+    [request getNotificationList];
+    [[WTClient sharedClient] enqueueRequest:request];
 }
 
 #pragma mark - UIScrollViewDelegate

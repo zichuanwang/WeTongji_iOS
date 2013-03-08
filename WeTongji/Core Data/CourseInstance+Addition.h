@@ -9,6 +9,8 @@
 #import "CourseInstance.h"
 
 @interface CourseInstance (Addition)
+
 + (CourseInstance *)insertCourseInstance:(NSDictionary *)dic;
+
 + (CourseInstance *)courseInstanceAtDay:(NSDate *)date;
 @end

@@ -9,6 +9,7 @@
 #import "WTSearchViewController.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import "WTResourceFactory.h"
+#import "User+Addition.h"
 
 @interface WTSearchViewController ()
 
@@ -36,7 +37,6 @@
     
     [self configureNavigationBar];
 }
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -176,7 +176,10 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     WTClient *client = [WTClient sharedClient];
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
-        WTLOG(@"Search user response:%@", responseObject);
+        NSDictionary *responseDict = responseObject;
+        // TODO: 实际应该为Array
+        NSDictionary *searchResultUserDict = responseDict[@"User"];
+        User *result = [User insertUser:searchResultUserDict];
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Search user:%@", error.localizedDescription);
     }];
