@@ -8,7 +8,7 @@
 
 #import "WTNowTableViewController.h"
 #import "Exam+Addition.h"
-#import "CourseInstance+Addition.h"
+#import "Course+Addition.h"
 #import "Activity+Addition.h"
 #import "NSUserDefaults+WTAddition.h"
 #import "NSString+WTAddition.h"
@@ -16,6 +16,11 @@
 #import "WTNowCourseCell.h"
 #import "Event.h"
 
+@interface WTNowTableViewController()
+
+- (Event *)getNowEvent;
+
+@end
 
 @implementation WTNowTableViewController
 
@@ -39,6 +44,16 @@
 
 #pragma mark - Private Method
 
+- (Event *)getNowEvent
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
+    request.predicate = [NSPredicate predicateWithFormat:@"begin_time >= %@", [NSDate date]];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"begin_time" ascending:YES]];
+    NSArray *matches = [[WTCoreDataManager sharedManager].managedObjectContext executeFetchRequest:request error:nil];
+    
+    return [matches objectAtIndex:0];
+}
+
 - (void)loadData {
     WTClient * client = [WTClient sharedClient];
     WTRequest * request = [WTRequest requestWithSuccessBlock:^(id responseData) {
@@ -46,14 +61,13 @@
         NSDictionary *resultDict = (NSDictionary *)responseData;
         
         NSArray *activitiesArray = resultDict[@"Activities"];
-        NSLog(@"Count is %d",[activitiesArray count]);
         for (NSDictionary *dict in activitiesArray) {
             [Activity insertActivity:dict];
         }
         
         NSArray *coursesArray = resultDict[@"CourseInstances"];
         for (NSDictionary *dict in coursesArray) {
-            [CourseInstance insertCourseInstance:dict];
+            [Course insertCourse:dict];
         }
         
         NSArray *examsArray = resultDict[@"Exams"];
@@ -75,7 +89,6 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     Event *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
     if ([item isKindOfClass:[Activity class]]) {
         Activity *acitivity = (Activity *)item;
         WTNowActivityCell *activityCell = (WTNowActivityCell *)cell;
@@ -85,11 +98,26 @@
                                      location:acitivity.location
                                      imageURL:acitivity.image];
         
-    } else if ([item isKindOfClass:[CourseInstance class]]){
-        CourseInstance *course = (CourseInstance *)item;
+    } else if ([item isKindOfClass:[Course class]]){
+        Course *course = (Course *)item;
         WTNowCourseCell *courseCell = (WTNowCourseCell *)cell;
         
         [courseCell configureCellWithTitle:course.name time:course.courseBeginToEndTime location:course.location];
+    }
+    
+    Event *nowEvent = [self getNowEvent];
+    switch ([item.begin_time compare:nowEvent.begin_time]) {
+        case NSOrderedSame:
+            [(WTNowBaseCell *)cell updateCellStatus:WTNowBaseCellTypeNow];
+            break;
+        case NSOrderedAscending:
+            [(WTNowBaseCell *)cell updateCellStatus:WTNowBaseCellTypePast];
+            break;
+        case NSOrderedDescending:
+            [(WTNowBaseCell *)cell updateCellStatus:WTNowBaseCellTypeNormal];
+            break;
+        default:
+            break;
     }
 }
 
@@ -104,7 +132,7 @@
     Event *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
     if ([item isKindOfClass:[Activity class]]) {
         return @"WTNowActivityCell";
-    } else if ([item isKindOfClass:[CourseInstance class]]){
+    } else if ([item isKindOfClass:[Course class]]){
         return @"WTNowCourseCell";
     }
     return @"WTNowCourseCell";

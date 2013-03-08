@@ -20,19 +20,7 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="ActivityInvitationNotification" representedClassName="ActivityInvitationNotification" parentEntity="InvitationNotification" syncable="YES"/>
-    <entity name="Course" representedClassName="Course" parentEntity="Object" syncable="YES">
-        <attribute name="hours" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="point" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="required" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="sectionEnd" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="sectionStart" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="teacher" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="weekDay" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="weekType" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="CourseInstance" representedClassName="CourseInstance" parentEntity="Event" syncable="YES">
+    <entity name="Course" representedClassName="Course" parentEntity="Event" syncable="YES">
         <attribute name="courseAtDay" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="hours" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
@@ -115,8 +103,7 @@
     <elements>
         <element name="Activity" positionX="160" positionY="192" width="128" height="300"/>
         <element name="ActivityInvitationNotification" positionX="160" positionY="192" width="128" height="45"/>
-        <element name="Course" positionX="160" positionY="192" width="128" height="195"/>
-        <element name="CourseInstance" positionX="160" positionY="192" width="128" height="210"/>
+        <element name="Course" positionX="160" positionY="192" width="128" height="210"/>
         <element name="Event" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Exam" positionX="160" positionY="192" width="128" height="165"/>
         <element name="FriendInvitationNotification" positionX="160" positionY="192" width="128" height="45"/>

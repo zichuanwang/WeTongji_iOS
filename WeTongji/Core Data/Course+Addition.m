@@ -6,7 +6,7 @@
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
-#import "CourseInstance+Addition.h"
+#import "Course+Addition.h"
 #import "NSString+WTAddition.h"
 #import "WTCoreDataManager.h"
 
@@ -14,8 +14,8 @@
 #define HOUR_TIME_INTERVAL (60 * 60)
 #define MINUTE_TIME_INTERVAL 60
 
-@implementation CourseInstance (Addition)
-+ (CourseInstance *)insertCourseInstance:(NSDictionary *)dic
+@implementation Course (Addition)
++ (Course *)insertCourse:(NSDictionary *)dic
 {
     NSString *courseNO = [NSString stringWithFormat:@"%@", dic[@"NO"]];
     
@@ -24,9 +24,9 @@
     }
     
     NSDate *courseDay = [[NSString stringWithFormat:@"%@",dic[@"Day"]] convertToDate];
-    CourseInstance *course = [CourseInstance courseInstanceAtDay:courseDay];
+    Course *course = [Course courseScheduleAtDay:courseDay];
     if (!course) {
-        course = [NSEntityDescription insertNewObjectForEntityForName:@"CourseInstance"
+        course = [NSEntityDescription insertNewObjectForEntityForName:@"Course"
                                                inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
     }
     course.identifier = courseNO;
@@ -42,16 +42,16 @@
     course.location = [NSString stringWithFormat:@"%@",dic[@"Location"]];
     course.courseAtDay = courseDay;
     course.begin_time = [courseDay dateByAddingTimeInterval:
-                         [CourseInstance getDayTimeIntervalFromSection:course.sectionStart.intValue]];
+                         [Course getDayTimeIntervalFromSection:course.sectionStart.intValue]];
     course.end_time = [courseDay dateByAddingTimeInterval:
-                       [CourseInstance getDayTimeIntervalFromSection:course.sectionEnd.intValue]];
+                       [Course getDayTimeIntervalFromSection:course.sectionEnd.intValue]];
     
     return course;
 }
 
-+ (CourseInstance *)courseInstanceAtDay:(NSDate *)date
++ (Course *)courseScheduleAtDay:(NSDate *)date
 {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"CourseInstance"];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Course"];
     request.predicate = [NSPredicate predicateWithFormat:@"courseAtDay = %@",date];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     NSArray *matches = [context executeFetchRequest:request error:nil];
