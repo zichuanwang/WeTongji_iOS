@@ -41,7 +41,10 @@
     course.required = [NSString stringWithFormat:@"%@", dic[@"Required"]];
     course.location = [NSString stringWithFormat:@"%@",dic[@"Location"]];
     course.courseAtDay = courseDay;
-    course.begin_time = [courseDay dateByAddingTimeInterval:[CourseInstance getDayTimeIntervalFromSection:course.sectionStart]];
+    course.begin_time = [courseDay dateByAddingTimeInterval:
+                         [CourseInstance getDayTimeIntervalFromSection:course.sectionStart.intValue]];
+    course.end_time = [courseDay dateByAddingTimeInterval:
+                       [CourseInstance getDayTimeIntervalFromSection:course.sectionEnd.intValue]];
     
     return course;
 }
@@ -95,6 +98,12 @@
             break;
     }
     return result;
+}
+
+- (NSString *)courseBeginToEndTime
+{
+    return [NSString stringWithFormat:@"%@-%@",
+            [NSString timeConvertFromDate:self.begin_time],[NSString timeConvertFromDate:self.end_time]];
 }
 
 @end

@@ -9,6 +9,9 @@
 #import "CourseInstance.h"
 
 @interface CourseInstance (Addition)
+
+@property (nonatomic, readonly) NSString *courseBeginToEndTime;
+
 + (CourseInstance *)insertCourseInstance:(NSDictionary *)dic;
 + (CourseInstance *)courseInstanceAtDay:(NSDate *)date;
 @end

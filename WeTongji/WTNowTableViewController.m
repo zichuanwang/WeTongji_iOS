@@ -11,9 +11,11 @@
 #import "CourseInstance+Addition.h"
 #import "Activity+Addition.h"
 #import "NSUserDefaults+WTAddition.h"
+#import "NSString+WTAddition.h"
 #import "WTNowActivityCell.h"
 #import "WTNowCourseCell.h"
 #import "Event.h"
+
 
 @implementation WTNowTableViewController
 
@@ -44,6 +46,7 @@
         NSDictionary *resultDict = (NSDictionary *)responseData;
         
         NSArray *activitiesArray = resultDict[@"Activities"];
+        NSLog(@"Count is %d",[activitiesArray count]);
         for (NSDictionary *dict in activitiesArray) {
             [Activity insertActivity:dict];
         }
@@ -61,7 +64,8 @@
         WTLOGERROR(@"Get NowData Error:%@", error.localizedDescription);
     }];    
      // Test Data
-    NSDate *beginDay = [NSDate date];
+    NSString *begin = @"2013-02-25T00:00:00+08:00";
+    NSDate *beginDay = [begin convertToDate];
     NSDate *endDay = [beginDay dateByAddingTimeInterval:60 * 60 * 24 * 7 * 20];
     [request getScheduleWithBeginDate:beginDay endDate:endDay];
     [client enqueueRequest:request];
@@ -71,12 +75,13 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     Event *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
     if ([item isKindOfClass:[Activity class]]) {
         Activity *acitivity = (Activity *)item;
         WTNowActivityCell *activityCell = (WTNowActivityCell *)cell;
         
         [activityCell configureCellWithtitle:acitivity.title
-                                         time:acitivity.beginTimeString
+                                         time:acitivity.beginToEndTimeString
                                      location:acitivity.location
                                      imageURL:acitivity.image];
         
@@ -84,6 +89,7 @@
         CourseInstance *course = (CourseInstance *)item;
         WTNowCourseCell *courseCell = (WTNowCourseCell *)cell;
         
+        [courseCell configureCellWithTitle:course.name time:course.courseBeginToEndTime location:course.location];
     }
 }
 
