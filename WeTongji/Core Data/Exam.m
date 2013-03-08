@@ -2,7 +2,7 @@
 //  Exam.m
 //  WeTongji
 //
-//  Created by 吴 wuziqi on 13-3-5.
+//  Created by 吴 wuziqi on 13-3-9.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -11,13 +11,13 @@
 
 @implementation Exam
 
-@dynamic name;
-@dynamic teacher;
-@dynamic location;
 @dynamic begin;
 @dynamic end;
+@dynamic hours;
+@dynamic location;
+@dynamic name;
 @dynamic point;
 @dynamic required;
-@dynamic hours;
+@dynamic teacher;
 
 @end

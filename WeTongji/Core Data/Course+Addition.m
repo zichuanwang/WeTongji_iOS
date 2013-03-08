@@ -34,17 +34,17 @@
     course.point = [NSNumber numberWithFloat: [[NSString stringWithFormat:@"%@",dic[@"Point"]] floatValue]];
     course.name = [NSString stringWithFormat:@"%@",dic[@"Name"]];
     course.teacher = [NSString stringWithFormat:@"%@",dic[@"Teacher"]];
-    course.weekType = [NSString stringWithFormat:@"%@",dic[@"WeekType"]];
-    course.weekDay = [NSString stringWithFormat:@"%@",dic[@"WeekDay"]];
-    course.sectionStart = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@",dic[@"SectionStart"]] intValue]];
-    course.sectionEnd = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@",dic[@"SectionEnd"]] intValue]];
+    course.week_type = [NSString stringWithFormat:@"%@",dic[@"WeekType"]];
+    course.week_day = [NSString stringWithFormat:@"%@",dic[@"WeekDay"]];
+    course.section_start = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@",dic[@"SectionStart"]] intValue]];
+    course.section_end = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@",dic[@"SectionEnd"]] intValue]];
     course.required = [NSString stringWithFormat:@"%@", dic[@"Required"]];
     course.location = [NSString stringWithFormat:@"%@",dic[@"Location"]];
-    course.courseAtDay = courseDay;
+    course.course_day = courseDay;
     course.begin_time = [courseDay dateByAddingTimeInterval:
-                         [Course getDayTimeIntervalFromSection:course.sectionStart.intValue]];
+                         [Course getDayTimeIntervalFromSection:course.section_start.intValue]];
     course.end_time = [courseDay dateByAddingTimeInterval:
-                       [Course getDayTimeIntervalFromSection:course.sectionEnd.intValue]];
+                       [Course getDayTimeIntervalFromSection:course.section_end.intValue]];
     
     return course;
 }
@@ -52,7 +52,7 @@
 + (Course *)courseScheduleAtDay:(NSDate *)date
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Course"];
-    request.predicate = [NSPredicate predicateWithFormat:@"courseAtDay = %@",date];
+    request.predicate = [NSPredicate predicateWithFormat:@"course_day = %@",date];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     NSArray *matches = [context executeFetchRequest:request error:nil];
     return [matches lastObject];

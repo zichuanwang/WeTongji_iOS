@@ -257,7 +257,7 @@
 - (void)configureActivityDescriptionView {
     self.activityDescriptionDisplayLabel.text = NSLocalizedString(@"About", nil);
     
-    self.activityDescriptionLabel.text = self.activity.activityDescription;
+    self.activityDescriptionLabel.text = self.activity.activity_description;
     self.activityDescriptionLabel.numberOfLines = 0;
     [self.activityDescriptionLabel sizeToFit];
     

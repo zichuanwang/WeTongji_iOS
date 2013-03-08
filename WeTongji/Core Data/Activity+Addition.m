@@ -31,16 +31,16 @@
     result.location = [NSString stringWithFormat:@"%@", dict[@"Location"]];
     result.organizer = [NSString stringWithFormat:@"%@", dict[@"Organizer"]];
     result.title = [NSString stringWithFormat:@"%@", dict[@"Title"]];
-    result.canFavorite = (NSNumber *)dict[@"CanFavorite"];
-    result.canSchedule = (NSNumber *)dict[@"CanSchedule"];
-    result.canLike = (NSNumber *)dict[@"CanLike"];
-    result.channelId = (NSNumber *)dict[@"Channel_Id"];
-    result.createdAt = [NSString stringWithFormat:@"%@", dict[@"CreatedAt"]];
-    result.activityDescription = [NSString stringWithFormat:@"%@", dict[@"Description"]];
+    result.can_favorite = (NSNumber *)dict[@"CanFavorite"];
+    result.can_schedule = (NSNumber *)dict[@"CanSchedule"];
+    result.can_like = (NSNumber *)dict[@"CanLike"];
+    result.channel_Id = (NSNumber *)dict[@"Channel_Id"];
+    result.created_at = [NSString stringWithFormat:@"%@", dict[@"CreatedAt"]];
+    result.activity_description = [NSString stringWithFormat:@"%@", dict[@"Description"]];
     result.favorite = (NSNumber *)dict[@"Favorite"];
     result.image = [NSString stringWithFormat:@"%@", dict[@"Image"]];
     result.like = (NSNumber *)dict[@"Like"];
-    result.organizerAvatar = [NSString stringWithFormat:@"%@", dict[@"OrganizerAvatar"]];
+    result.organizer_avatar = [NSString stringWithFormat:@"%@", dict[@"OrganizerAvatar"]];
     result.schedule = (NSNumber *)dict[@"Schedule"];
     result.status = [NSString stringWithFormat:@"%@", dict[@"Status"]];
     

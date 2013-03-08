@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="11G63" minimumToolsVersion="Xcode 4.5" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Activity" representedClassName="Activity" parentEntity="Event" syncable="YES">
-        <attribute name="activityDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="activity_description" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="begin" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="canFavorite" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="canLike" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="canSchedule" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="channelId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="createdAt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="can_favorite" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="can_like" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="can_schedule" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="channel_Id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="end" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="favorite" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="like" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="organizer" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="organizerAvatar" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="organizer_avatar" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="schedule" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="ActivityInvitationNotification" representedClassName="ActivityInvitationNotification" parentEntity="InvitationNotification" syncable="YES"/>
     <entity name="Course" representedClassName="Course" parentEntity="Event" syncable="YES">
-        <attribute name="courseAtDay" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="course_day" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="hours" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="point" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="required" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="sectionEnd" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="sectionStart" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="section_end" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="section_start" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="teacher" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="weekDay" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="weekType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="week_day" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="week_type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Event" representedClassName="Event" isAbstract="YES" parentEntity="Object" syncable="YES">
         <attribute name="begin_time" optional="YES" attributeType="Date" syncable="YES"/>

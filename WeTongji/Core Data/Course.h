@@ -13,16 +13,16 @@
 
 @interface Course : Event
 
-@property (nonatomic, retain) NSDate * courseAtDay;
+@property (nonatomic, retain) NSDate * course_day;
 @property (nonatomic, retain) NSNumber * hours;
 @property (nonatomic, retain) NSString * location;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * point;
 @property (nonatomic, retain) NSString * required;
-@property (nonatomic, retain) NSNumber * sectionEnd;
-@property (nonatomic, retain) NSNumber * sectionStart;
+@property (nonatomic, retain) NSNumber * section_end;
+@property (nonatomic, retain) NSNumber * section_start;
 @property (nonatomic, retain) NSString * teacher;
-@property (nonatomic, retain) NSString * weekDay;
-@property (nonatomic, retain) NSString * weekType;
+@property (nonatomic, retain) NSString * week_day;
+@property (nonatomic, retain) NSString * week_type;
 
 @end

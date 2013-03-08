@@ -11,16 +11,16 @@
 
 @implementation Course
 
-@dynamic courseAtDay;
+@dynamic course_day;
 @dynamic hours;
 @dynamic location;
 @dynamic name;
 @dynamic point;
 @dynamic required;
-@dynamic sectionEnd;
-@dynamic sectionStart;
+@dynamic section_end;
+@dynamic section_start;
 @dynamic teacher;
-@dynamic weekDay;
-@dynamic weekType;
+@dynamic week_day;
+@dynamic week_type;
 
 @end
