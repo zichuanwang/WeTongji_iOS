@@ -37,7 +37,6 @@
     self.activityNameLabel.text = title;
     self.whenLabel.text = time;
     self.whereLabel.text = location;
-    self.friendsCountLabel.text = count;
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURL]];
     [self.posterImageView setImageWithURLRequest:request
