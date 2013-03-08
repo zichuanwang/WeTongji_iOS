@@ -30,15 +30,15 @@
                                                inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
     }
     course.identifier = courseNO;
-    course.hours = (NSNumber *)dic[@"Hours"];
-    course.point = (NSNumber *)dic[@"Point"];
+    course.hours = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@",dic[@"Hours"]] intValue]];
+    course.point = [NSNumber numberWithFloat: [[NSString stringWithFormat:@"%@",dic[@"Point"]] floatValue]];
     course.name = [NSString stringWithFormat:@"%@",dic[@"Name"]];
     course.teacher = [NSString stringWithFormat:@"%@",dic[@"Teacher"]];
     course.weekType = [NSString stringWithFormat:@"%@",dic[@"WeekType"]];
     course.weekDay = [NSString stringWithFormat:@"%@",dic[@"WeekDay"]];
-    course.sectionStart = (NSNumber *)dic[@"SectionStart"];
-    course.sectionEnd = (NSNumber *)dic[@"SectionEnd"];
-    course.required = (NSNumber *)dic[@"Required"];
+    course.sectionStart = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@",dic[@"SectionStart"]] intValue]];
+    course.sectionEnd = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@",dic[@"SectionEnd"]] intValue]];
+    course.required = [NSString stringWithFormat:@"%@", dic[@"Required"]];
     course.location = [NSString stringWithFormat:@"%@",dic[@"Location"]];
     course.courseAtDay = courseDay;
     course.beginTime = [courseDay dateByAddingTimeInterval:[CourseInstance getDayTimeIntervalFromSection:course.sectionStart]];
@@ -48,7 +48,7 @@
 
 + (CourseInstance *)courseInstanceAtDay:(NSDate *)date
 {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"CourseInstace"];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"CourseInstance"];
     request.predicate = [NSPredicate predicateWithFormat:@"courseAtDay = %@",date];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     NSArray *matches = [context executeFetchRequest:request error:nil];

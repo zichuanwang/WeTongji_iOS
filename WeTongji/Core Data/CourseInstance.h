@@ -23,6 +23,6 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * location;
 @property (nonatomic, retain) NSNumber * hours;
-@property (nonatomic, retain) NSNumber * required;
+@property (nonatomic, retain) NSString * required;
 
 @end
