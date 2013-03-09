@@ -16,13 +16,27 @@
 #import "WTNowCourseCell.h"
 #import "Event.h"
 
+#define kWeekTimeInterval (60 * 60 * 24 * 7)
+// Test Data
+static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
+
 @interface WTNowTableViewController()
 
+@property (nonatomic, assign) int weekBegin;
+@property (nonatomic, assign) int weekEnd;
+@property (nonatomic, readonly) NSDate *loadNowDataBeginDate;
+@property (nonatomic, readonly) NSDate *loadNowDataEndDate;
+
 - (Event *)getNowEvent;
+- (void)configureWeekDuration;
 
 @end
 
 @implementation WTNowTableViewController
+@synthesize weekBegin = _weekBegin;
+@synthesize weekEnd = _weekEnd;
+@synthesize loadNowDataBeginDate = _loadNowDataBeginDate;
+@synthesize loadNowDataEndDate = _loadNowDataEndDate;
 
 - (void)viewDidLoad
 {
@@ -37,10 +51,34 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [self configureWeekDuration];
     [self loadData];
 }
 
+#pragma mark - Override Getter Method
+
+- (NSDate *)loadNowDataBeginDate
+{
+    _loadNowDataBeginDate = [[semesterBeginTime convertToDate] dateByAddingTimeInterval:self.weekBegin * kWeekTimeInterval];
+    NSLog(@"Load Start From is %@", _loadNowDataBeginDate);
+    return _loadNowDataBeginDate;
+}
+
+- (NSDate *)loadNowDataEndDate
+{
+    _loadNowDataEndDate = [[semesterBeginTime convertToDate] dateByAddingTimeInterval:self.weekEnd * kWeekTimeInterval];
+    NSLog(@"Load End From is %@", _loadNowDataEndDate);
+    return _loadNowDataEndDate;
+}
+
 #pragma mark - Private Method
+
+- (void)configureWeekDuration
+{
+    NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:[semesterBeginTime convertToDate]];
+    self.weekBegin = interval / kWeekTimeInterval; 
+    self.weekEnd = self.weekBegin + 1;
+}
 
 - (Event *)getNowEvent
 {
@@ -48,7 +86,7 @@
     request.predicate = [NSPredicate predicateWithFormat:@"begin_time >= %@", [NSDate date]];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"begin_time" ascending:YES]];
     NSArray *matches = [[WTCoreDataManager sharedManager].managedObjectContext executeFetchRequest:request error:nil];
-    
+
     return [matches objectAtIndex:0];
 }
 
@@ -75,11 +113,7 @@
     } failureBlock:^(NSError * error) {
         WTLOGERROR(@"Get NowData Error:%@", error.localizedDescription);
     }];    
-     // Test Data
-    NSString *begin = @"2013-02-25T00:00:00+08:00";
-    NSDate *beginDay = [begin convertToDate];
-    NSDate *endDay = [beginDay dateByAddingTimeInterval:60 * 60 * 24 * 7 * 20];
-    [request getScheduleWithBeginDate:beginDay endDate:endDay];
+    [request getScheduleWithBeginDate:self.loadNowDataBeginDate endDate:self.loadNowDataEndDate];
     [client enqueueRequest:request];
 }
 
@@ -104,6 +138,7 @@
     }
     
     Event *nowEvent = [self getNowEvent];
+    NSLog(@"Item is %@",item.begin_time);
     switch ([item.begin_time compare:nowEvent.begin_time]) {
         case NSOrderedSame:
             [(WTNowBaseCell *)cell updateCellStatus:WTNowBaseCellTypeNow];
