@@ -13,5 +13,5 @@
 @property (nonatomic, readonly) NSString *courseBeginToEndTime;
 
 + (Course *)insertCourse:(NSDictionary *)dic;
-+ (Course *)courseScheduleAtDay:(NSDate *)date;
++ (Course *)courseScheduleAtDay:(NSDate *)date withCourseID:(NSString *)courseID;
 @end

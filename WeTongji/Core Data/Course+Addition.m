@@ -24,7 +24,7 @@
     }
     
     NSDate *courseDay = [[NSString stringWithFormat:@"%@",dic[@"Day"]] convertToDate];
-    Course *course = [Course courseScheduleAtDay:courseDay];
+    Course *course = [Course courseScheduleAtDay:courseDay withCourseID:courseNO];
     if (!course) {
         course = [NSEntityDescription insertNewObjectForEntityForName:@"Course"
                                                inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
@@ -49,10 +49,10 @@
     return course;
 }
 
-+ (Course *)courseScheduleAtDay:(NSDate *)date
++ (Course *)courseScheduleAtDay:(NSDate *)date withCourseID:(NSString *)courseID
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Course"];
-    request.predicate = [NSPredicate predicateWithFormat:@"course_day = %@",date];
+    request.predicate = [NSPredicate predicateWithFormat:@"course_day = %@ AND identifier = %@", date, courseID];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     NSArray *matches = [context executeFetchRequest:request error:nil];
     return [matches lastObject];

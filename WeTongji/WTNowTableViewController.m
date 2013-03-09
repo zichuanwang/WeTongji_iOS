@@ -17,6 +17,8 @@
 #import "Event.h"
 
 #define kWeekTimeInterval (60 * 60 * 24 * 7)
+#define kDragDownToLoadMoreDataOffset 50
+#define kDragUpToLoadMoreDataOffset 350
 // Test Data
 static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 
@@ -138,7 +140,6 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     }
     
     Event *nowEvent = [self getNowEvent];
-    NSLog(@"Item is %@",item.begin_time);
     switch ([item.begin_time compare:nowEvent.begin_time]) {
         case NSOrderedSame:
             [(WTNowBaseCell *)cell updateCellStatus:WTNowBaseCellTypeNow];
@@ -172,5 +173,21 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 - (NSString *)customSectionNameKeyPath {
     return nil;
 }
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (scrollView.contentOffset.y < - kDragDownToLoadMoreDataOffset) {
+        self.weekBegin --;
+        [self loadData];
+    } else if (scrollView.contentOffset.y + kDragUpToLoadMoreDataOffset >= scrollView.contentSize.height) {
+        self.weekEnd ++;
+        [self loadData];
+    }
+    
+    NSLog(@"contentHeight is %f",scrollView.contentSize.height);
+    NSLog(@"contentOffsetY is %f",scrollView.contentOffset.y);
+}
+
 
 @end
