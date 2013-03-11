@@ -8,8 +8,10 @@
 
 #import "WTNotificationFriendInvitationCell.h"
 #import "FriendInvitationNotification.h"
+#import "Notification+Addition.h"
 #import "WTCommonConstant.h"
 #import "User.h"
+#import <WeTongjiSDK/WeTongjiSDK.h>
 
 #define FI_CELL_FULL_HEIGHT                     120.0f
 #define FI_CELL_BUTTON_CONTAINER_VIEW_HEIGHT    50.0f
@@ -80,12 +82,9 @@
     return resultHeight;
 }
 
-#pragma mark - Actions
+#pragma mark - UI methods
 
-- (IBAction)didClickAcceptButton:(UIButton *)sender {
-    FriendInvitationNotification *friendInvitation = (FriendInvitationNotification *)self.notification;
-    friendInvitation.accepted = @(YES);
-    
+- (void)hideButtons {
     UIViewAutoresizing notificationContentLabelResizing = self.notificationContentLabel.autoresizingMask;
     UIViewAutoresizing timeLabelResizing = self.timeLabel.autoresizingMask;
     
@@ -96,12 +95,40 @@
         self.notificationContentLabel.autoresizingMask = notificationContentLabelResizing;
         self.timeLabel.autoresizingMask = timeLabelResizing;
     }];
+}
+
+- (void)showAcceptIcon {
     
-    [self.delegate cellHeightDidChange];
+}
+
+#pragma mark - Actions
+
+- (IBAction)didClickAcceptButton:(UIButton *)sender {
+    FriendInvitationNotification *friendInvitation = (FriendInvitationNotification *)self.notification;
+    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        NSLog(@"Accept friend invitation:%@", responseObject);
+        friendInvitation.accepted = @(YES);
+        [self hideButtons];
+        [self showAcceptIcon];
+        [self.delegate cellHeightDidChange];
+    } failureBlock:^(NSError *error) {
+        WTLOGERROR(@"Accept friend invitation:%@", error.localizedDescription);
+    }];
+    [request acceptFriendInvitation:friendInvitation.identifier];
+    [[WTClient sharedClient] enqueueRequest:request];
 }
 
 - (IBAction)didClickIgnoreButton:(UIButton *)sender {
-    
+    FriendInvitationNotification *friendInvitation = (FriendInvitationNotification *)self.notification;
+    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        NSLog(@"Accept friend invitation:%@", responseObject);
+        [Notification deleteNotificationWithID:friendInvitation.identifier];
+    } failureBlock:^(NSError *error) {
+        WTLOGERROR(@"Reject friend invitation:%@", error.localizedDescription);
+    }];
+    [request ignoreFriendInvitation:friendInvitation.identifier];
+    [[WTClient sharedClient] enqueueRequest:request];
+
 }
 
 #pragma mark - UI methods

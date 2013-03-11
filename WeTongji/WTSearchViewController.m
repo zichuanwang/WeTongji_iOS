@@ -15,6 +15,8 @@
 
 @property (nonatomic, weak) UIButton *customSearchBarCancelButton;
 
+@property (nonatomic, assign) BOOL shouldSearchBarBecomeFirstResponder;
+
 @end
 
 @implementation WTSearchViewController
@@ -148,12 +150,33 @@
     [self showCustomSearchBarCancelButton:show animated:YES];
 }
 
+#pragma mark - WTRootNavigationControllerDelegate
+
+- (void)didHideInnderModalViewController {
+    [super didHideInnderModalViewController];
+    
+    if (self.shouldSearchBarBecomeFirstResponder) {
+        self.shouldSearchBarBecomeFirstResponder = NO;
+        [self.searchBar becomeFirstResponder];
+    }
+}
+
 #pragma mark - Actions
 
 - (void)didClickCustomSearchBarCancelButton:(UIButton *)sender {
     self.searchBar.text = @"";
     [self showSearchBarCancelButton:NO];
     [self.searchBar resignFirstResponder];
+}
+
+- (void)didClickNotificationButton:(WTNotificationBarButton *)sender {
+    if (!sender.selected) {
+        if (self.searchBar.isFirstResponder) {
+            self.shouldSearchBarBecomeFirstResponder = YES;
+            [self.searchBar resignFirstResponder];
+        }
+    }
+    [super didClickNotificationButton:sender];
 }
 
 #pragma mark - Handle gesture recognizer
@@ -174,17 +197,29 @@
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    WTClient *client = [WTClient sharedClient];
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        WTLOG(@"Search user result:%@", responseObject);
         NSDictionary *responseDict = responseObject;
         // TODO: 实际应该为Array
         NSDictionary *searchResultUserDict = responseDict[@"User"];
         User *result = [User insertUser:searchResultUserDict];
+        WTLOG(@"Search user:%@", searchResultUserDict);
+        [self inviteFriend:result];
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Search user:%@", error.localizedDescription);
     }];
     [request search:searchBar.text];
-    [client enqueueRequest:request];
+    [[WTClient sharedClient] enqueueRequest:request];
+}
+
+- (void)inviteFriend:(User *)user {
+    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        WTLOG(@"Invite friend:%@", responseObject);
+    } failureBlock:^(NSError *error) {
+        WTLOGERROR(@"Invite friend:%@", error.localizedDescription);
+    }];
+    [request inviteFriend:user.identifier];
+    [[WTClient sharedClient] enqueueRequest:request];
 }
 
 @end

@@ -52,6 +52,23 @@
     return result;
 }
 
++ (void)deleteNotificationWithID:(NSString *)notificationID {
+    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"News" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier == %@", notificationID];
+    [fetchRequest setPredicate:predicate];
+    
+    NSArray *items = [context executeFetchRequest:fetchRequest error:NULL];
+    
+    for (NSManagedObject *managedObject in items) {
+        [context deleteObject:managedObject];
+    }
+}
+
 - (NSString *)customCellClassName {
     if ([self isMemberOfClass:[FriendInvitationNotification class]]) {
         return @"WTNotificationFriendInvitationCell";

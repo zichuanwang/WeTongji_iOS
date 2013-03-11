@@ -10,6 +10,7 @@
 #import "WTActivityDetailViewController.h"
 #import "WTLoginViewController.h"
 #import "WTElectricityQueryViewController.h"
+#import "WTFriendListViewController.h"
 
 @interface WTMeViewController ()
 
@@ -56,6 +57,10 @@
 
 - (IBAction)didClickElectricityQueryButton:(UIButton *)sender {
     [WTElectricityQueryViewController show];
+}
+
+- (IBAction)didClickFriendListButton:(UIButton *)sender {
+    [WTFriendListViewController show];
 }
 
 @end

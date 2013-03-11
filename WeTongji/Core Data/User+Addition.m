@@ -37,7 +37,7 @@
     result.phone_number = [NSString stringWithFormat:@"%@", dict[@"Phone"]];
     result.study_plan = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@", dict[@"Plan"]] integerValue]];
     result.sina_weibo_name = [NSString stringWithFormat:@"%@", dict[@"SinaWeibo"]];
-    result.enroll_year = [NSString stringWithFormat:@"%@", dict[@"Year"]];
+    result.enroll_year = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@", dict[@"Year"]] integerValue]];
     
     return result;
 }

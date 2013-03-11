@@ -98,12 +98,12 @@
     [rootVC presentViewController:nav animated:YES completion:nil];
 }
 
-#pragma mark - Logic methods
-
 - (void)dismissView {
     UIViewController *rootVC = [UIApplication sharedApplication].rootTabBarController;
     [rootVC dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - Logic methods
 
 - (void)showLoginFailedAlertView:(NSError *)error {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录失败"
@@ -117,7 +117,6 @@
 - (void)login {
     WTClient *client = [WTClient sharedClient];
     WTRequest *request = [WTRequest requestWithSuccessBlock: ^(id responseData) {
-        
         [responseData objectForKey:@"User"];
         [self dismissView];
     } failureBlock:^(NSError * error) {

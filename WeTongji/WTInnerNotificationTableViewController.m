@@ -61,7 +61,7 @@
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"notification list:%@", responseObject);
     } failureBlock:^(NSError *error) {
-        WTLOGERROR(@"get notification list");
+        WTLOGERROR(@"Get notification list:%@", error.localizedDescription);
     }];
     [request getNotificationList];
     [[WTClient sharedClient] enqueueRequest:request];

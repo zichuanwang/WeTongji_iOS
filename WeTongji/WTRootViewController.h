@@ -14,4 +14,8 @@
 
 @property (nonatomic, strong) WTNotificationBarButton *notificationButton;
 
+- (void)didHideInnderModalViewController;
+
+- (void)didClickNotificationButton:(WTNotificationBarButton *)sender;
+
 @end

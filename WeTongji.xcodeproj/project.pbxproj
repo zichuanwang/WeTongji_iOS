@@ -195,8 +195,16 @@
 		E1767A4D16D14D2700E58CCC /* WTBlueMoreIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4716D14D2700E58CCC /* WTBlueMoreIndicator@2x.png */; };
 		E1767A4E16D14D2700E58CCC /* WTNotificationMoreIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4816D14D2700E58CCC /* WTNotificationMoreIndicator.png */; };
 		E1767A4F16D14D2700E58CCC /* WTNotificationMoreIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4916D14D2700E58CCC /* WTNotificationMoreIndicator@2x.png */; };
+		E177E62316EDE0170029130F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E177E62216EDE0170029130F /* Security.framework */; };
+		E177E63216EE11720029130F /* WTFriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E177E63016EE11720029130F /* WTFriendListViewController.m */; };
+		E177E63316EE11720029130F /* WTFriendListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E177E63116EE11720029130F /* WTFriendListViewController.xib */; };
+		E177E63716EE172C0029130F /* WTFriendListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E177E63516EE172C0029130F /* WTFriendListCell.m */; };
+		E177E63816EE172C0029130F /* WTFriendListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E177E63616EE172C0029130F /* WTFriendListCell.xib */; };
+		E177E64216EE35B60029130F /* public_key.der in Resources */ = {isa = PBXBuildFile; fileRef = E177E64016EE35AD0029130F /* public_key.der */; };
 		E177EB6416C59F1A0044A697 /* WTInnerModalSeparator.png in Resources */ = {isa = PBXBuildFile; fileRef = E177EB6216C59F1A0044A697 /* WTInnerModalSeparator.png */; };
 		E177EB6516C59F1A0044A697 /* WTInnerModalSeparator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E177EB6316C59F1A0044A697 /* WTInnerModalSeparator@2x.png */; };
+		E187E92E16EA614C00599F47 /* WTSearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E187E92C16EA614C00599F47 /* WTSearchResultTableViewController.m */; };
+		E187E92F16EA614C00599F47 /* WTSearchResultTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E187E92D16EA614C00599F47 /* WTSearchResultTableViewController.xib */; };
 		E18821C51680059600A41F47 /* WTCornerBottomLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = E18821BD1680059600A41F47 /* WTCornerBottomLeft.png */; };
 		E18821C61680059600A41F47 /* WTCornerBottomLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E18821BE1680059600A41F47 /* WTCornerBottomLeft@2x.png */; };
 		E18821C71680059600A41F47 /* WTCornerBottomRight.png in Resources */ = {isa = PBXBuildFile; fileRef = E18821BF1680059600A41F47 /* WTCornerBottomRight.png */; };
@@ -563,9 +571,20 @@
 		E1767A4716D14D2700E58CCC /* WTBlueMoreIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTBlueMoreIndicator@2x.png"; sourceTree = "<group>"; };
 		E1767A4816D14D2700E58CCC /* WTNotificationMoreIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNotificationMoreIndicator.png; sourceTree = "<group>"; };
 		E1767A4916D14D2700E58CCC /* WTNotificationMoreIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNotificationMoreIndicator@2x.png"; sourceTree = "<group>"; };
+		E177E62216EDE0170029130F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E177E62F16EE11720029130F /* WTFriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTFriendListViewController.h; sourceTree = "<group>"; };
+		E177E63016EE11720029130F /* WTFriendListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTFriendListViewController.m; sourceTree = "<group>"; };
+		E177E63116EE11720029130F /* WTFriendListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTFriendListViewController.xib; sourceTree = "<group>"; };
+		E177E63416EE172C0029130F /* WTFriendListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTFriendListCell.h; sourceTree = "<group>"; };
+		E177E63516EE172C0029130F /* WTFriendListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTFriendListCell.m; sourceTree = "<group>"; };
+		E177E63616EE172C0029130F /* WTFriendListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTFriendListCell.xib; sourceTree = "<group>"; };
+		E177E64016EE35AD0029130F /* public_key.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = public_key.der; sourceTree = "<group>"; };
 		E177EB6216C59F1A0044A697 /* WTInnerModalSeparator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTInnerModalSeparator.png; sourceTree = "<group>"; };
 		E177EB6316C59F1A0044A697 /* WTInnerModalSeparator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTInnerModalSeparator@2x.png"; sourceTree = "<group>"; };
 		E181D83316DCE4FB00EA911C /* WTCommonConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCommonConstant.h; sourceTree = "<group>"; };
+		E187E92B16EA614C00599F47 /* WTSearchResultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSearchResultTableViewController.h; sourceTree = "<group>"; };
+		E187E92C16EA614C00599F47 /* WTSearchResultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSearchResultTableViewController.m; sourceTree = "<group>"; };
+		E187E92D16EA614C00599F47 /* WTSearchResultTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSearchResultTableViewController.xib; sourceTree = "<group>"; };
 		E18821BD1680059600A41F47 /* WTCornerBottomLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTCornerBottomLeft.png; sourceTree = "<group>"; };
 		E18821BE1680059600A41F47 /* WTCornerBottomLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTCornerBottomLeft@2x.png"; sourceTree = "<group>"; };
 		E18821BF1680059600A41F47 /* WTCornerBottomRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTCornerBottomRight.png; sourceTree = "<group>"; };
@@ -702,6 +721,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E177E62316EDE0170029130F /* Security.framework in Frameworks */,
 				E14F96521696FD660048414D /* QuartzCore.framework in Frameworks */,
 				E1D374721694CB170012E30A /* CoreData.framework in Frameworks */,
 				E1D373CF169350AF0012E30A /* CoreText.framework in Frameworks */,
@@ -808,6 +828,7 @@
 		E117035A1651EF3E00D82F4A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E177E62D16EE07230029130F /* Keys */,
 				E1132E6616C632EA004CB808 /* Icon */,
 				E1528D6916C5531900BD2B42 /* Config */,
 				E10C422616AB05110084337C /* Switch */,
@@ -830,6 +851,7 @@
 				E1250C0A16859A1D00802808 /* Activity */,
 				E1D3741316942E350012E30A /* Billboard */,
 				E10A8D0116E244EE008B72E7 /* ElectricityQuery */,
+				E177E62E16EE114D0029130F /* Friends */,
 				E18821E716800E7B00A41F47 /* Home */,
 				E14FA6951680DEB1008A8D33 /* InnerModal */,
 				E1882222168025D200A41F47 /* Login */,
@@ -878,6 +900,7 @@
 		E125549216491530006D42F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E177E62216EDE0170029130F /* Security.framework */,
 				E14F96511696FD660048414D /* QuartzCore.framework */,
 				E1D374711694CB140012E30A /* CoreData.framework */,
 				E1D373F116935DD30012E30A /* libOHAttributedLabel.a */,
@@ -1010,22 +1033,10 @@
 		E14FA6951680DEB1008A8D33 /* InnerModal */ = {
 			isa = PBXGroup;
 			children = (
-				E191D91316C78F2E00384CF6 /* WTActivitySettingViewController.h */,
-				E191D91416C78F2E00384CF6 /* WTActivitySettingViewController.m */,
+				E187E93116EA6E1200599F47 /* Notification */,
+				E187E93016EA6E0300599F47 /* Setting */,
 				E14FA6961680DEDB008A8D33 /* WTInnerModalViewController.h */,
 				E14FA6971680DEDB008A8D33 /* WTInnerModalViewController.m */,
-				E1528D6F16C561C100BD2B42 /* WTInnerSettingViewController.h */,
-				E1528D7016C561C100BD2B42 /* WTInnerSettingViewController.m */,
-				E14FA6981680DEDB008A8D33 /* WTInnerSettingViewController.xib */,
-				E1528D6C16C5608E00BD2B42 /* WTNewsSettingViewController.h */,
-				E1528D6D16C5608E00BD2B42 /* WTNewsSettingViewController.m */,
-				E1526F4D16C59B6200AF8A4C /* WTSettingCells.xib */,
-				E10A8D0716E24D47008B72E7 /* WTInnerNotificationViewController.h */,
-				E10A8D0816E24D47008B72E7 /* WTInnerNotificationViewController.m */,
-				E10A8D0916E24D47008B72E7 /* WTInnerNotificationViewController.xib */,
-				E10A8D3216E3BD1F008B72E7 /* WTInnerNotificationTableViewController.h */,
-				E10A8D3316E3BD21008B72E7 /* WTInnerNotificationTableViewController.m */,
-				E10A8D3416E3BD22008B72E7 /* WTInnerNotificationTableViewController.xib */,
 			);
 			name = InnerModal;
 			sourceTree = "<group>";
@@ -1038,6 +1049,52 @@
 				E1528D6A16C5533C00BD2B42 /* WTNewsSettingConfig.plist */,
 			);
 			name = Config;
+			sourceTree = "<group>";
+		};
+		E177E62D16EE07230029130F /* Keys */ = {
+			isa = PBXGroup;
+			children = (
+				E177E64016EE35AD0029130F /* public_key.der */,
+			);
+			name = Keys;
+			sourceTree = "<group>";
+		};
+		E177E62E16EE114D0029130F /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				E177E62F16EE11720029130F /* WTFriendListViewController.h */,
+				E177E63016EE11720029130F /* WTFriendListViewController.m */,
+				E177E63116EE11720029130F /* WTFriendListViewController.xib */,
+			);
+			name = Friends;
+			sourceTree = "<group>";
+		};
+		E187E93016EA6E0300599F47 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				E191D91316C78F2E00384CF6 /* WTActivitySettingViewController.h */,
+				E191D91416C78F2E00384CF6 /* WTActivitySettingViewController.m */,
+				E1528D6F16C561C100BD2B42 /* WTInnerSettingViewController.h */,
+				E1528D7016C561C100BD2B42 /* WTInnerSettingViewController.m */,
+				E14FA6981680DEDB008A8D33 /* WTInnerSettingViewController.xib */,
+				E1528D6C16C5608E00BD2B42 /* WTNewsSettingViewController.h */,
+				E1528D6D16C5608E00BD2B42 /* WTNewsSettingViewController.m */,
+				E1526F4D16C59B6200AF8A4C /* WTSettingCells.xib */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		E187E93116EA6E1200599F47 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				E10A8D0716E24D47008B72E7 /* WTInnerNotificationViewController.h */,
+				E10A8D0816E24D47008B72E7 /* WTInnerNotificationViewController.m */,
+				E10A8D0916E24D47008B72E7 /* WTInnerNotificationViewController.xib */,
+				E10A8D3216E3BD1F008B72E7 /* WTInnerNotificationTableViewController.h */,
+				E10A8D3316E3BD21008B72E7 /* WTInnerNotificationTableViewController.m */,
+				E10A8D3416E3BD22008B72E7 /* WTInnerNotificationTableViewController.xib */,
+			);
+			name = Notification;
 			sourceTree = "<group>";
 		};
 		E18821BB1680058000A41F47 /* TabBar */ = {
@@ -1210,6 +1267,9 @@
 				E1C53DD116523DCE0011C8A1 /* WTSearchViewController.xib */,
 				E1D37431169433890012E30A /* WTSearchNavigationController.h */,
 				E1D37432169433890012E30A /* WTSearchNavigationController.m */,
+				E187E92B16EA614C00599F47 /* WTSearchResultTableViewController.h */,
+				E187E92C16EA614C00599F47 /* WTSearchResultTableViewController.m */,
+				E187E92D16EA614C00599F47 /* WTSearchResultTableViewController.xib */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -1276,6 +1336,9 @@
 				A1ADA9DE16AC58E300E3A62E /* WTActivityCell.h */,
 				A1ADA9DF16AC58E400E3A62E /* WTActivityCell.m */,
 				A1ADA9E416AC5AE400E3A62E /* WTActivityCell.xib */,
+				E177E63416EE172C0029130F /* WTFriendListCell.h */,
+				E177E63516EE172C0029130F /* WTFriendListCell.m */,
+				E177E63616EE172C0029130F /* WTFriendListCell.xib */,
 				E13B0E4F16A2E16C00A45079 /* WTNewsCell.h */,
 				E13B0E5016A2E16C00A45079 /* WTNewsCell.m */,
 				E13B0E5216A2E18800A45079 /* WTNewsCell.xib */,
@@ -1683,6 +1746,9 @@
 				E140EDA716E90B48004E2DA9 /* WTSearchBarSelectSearchIcon@2x.png in Resources */,
 				E140EDAA16E90B53004E2DA9 /* WTSearchBarSelectBg.png in Resources */,
 				E140EDAB16E90B53004E2DA9 /* WTSearchBarSelectBg@2x.png in Resources */,
+				E187E92F16EA614C00599F47 /* WTSearchResultTableViewController.xib in Resources */,
+				E177E63316EE11720029130F /* WTFriendListViewController.xib in Resources */,
+				E177E64216EE35B60029130F /* public_key.der in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1691,6 +1757,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E12554D016491532006D42F5 /* InfoPlist.strings in Resources */,
+				E177E63816EE172C0029130F /* WTFriendListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1793,6 +1860,8 @@
 				033D2D2C16EA4CFB007242D0 /* Activity.m in Sources */,
 				033D2D2F16EA4CFB007242D0 /* Exam.m in Sources */,
 				033D2D3216EA4CFC007242D0 /* Course.m in Sources */,
+				E187E92E16EA614C00599F47 /* WTSearchResultTableViewController.m in Sources */,
+				E177E63216EE11720029130F /* WTFriendListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1801,6 +1870,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E12554D316491532006D42F5 /* WeTongjiTests.m in Sources */,
+				E177E63716EE172C0029130F /* WTFriendListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
