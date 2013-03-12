@@ -28,6 +28,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 @property (nonatomic, assign) int weekEnd;
 @property (nonatomic, readonly) NSDate *loadNowDataBeginDate;
 @property (nonatomic, readonly) NSDate *loadNowDataEndDate;
+@property (nonatomic, strong) WTPullTableHeaderView *pullTableHeaderView;
 
 - (Event *)getNowEvent;
 - (void)configureWeekDuration;
@@ -39,6 +40,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 @synthesize weekEnd = _weekEnd;
 @synthesize loadNowDataBeginDate = _loadNowDataBeginDate;
 @synthesize loadNowDataEndDate = _loadNowDataEndDate;
+@synthesize pullTableHeaderView = _pullTableHeaderView;
 
 - (void)viewDidLoad
 {
@@ -46,6 +48,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
     self.tableView.scrollsToTop = NO;
+    [self.tableView addSubview:self.pullTableHeaderView];
 }
 
 - (void)viewDidUnload {
@@ -71,6 +74,17 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     _loadNowDataEndDate = [[semesterBeginTime convertToDate] dateByAddingTimeInterval:self.weekEnd * kWeekTimeInterval];
     NSLog(@"Load End From is %@", _loadNowDataEndDate);
     return _loadNowDataEndDate;
+}
+
+- (WTPullTableHeaderView *)pullTableHeaderView
+{
+    if (_pullTableHeaderView == nil) {
+        _pullTableHeaderView = [[[NSBundle mainBundle] loadNibNamed:@"WTPullTableHeaderView" owner:self options:nil] objectAtIndex:0];
+        [_pullTableHeaderView resetOriginY:-_pullTableHeaderView.bounds.size.height];
+        _pullTableHeaderView.delegate = self;
+    }
+    
+    return _pullTableHeaderView;
 }
 
 #pragma mark - Private Method
@@ -112,8 +126,11 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
         for (NSDictionary *dict in examsArray) {
             [Exam insertExam:dict];
         }
+        
+        [self.pullTableHeaderView pullTableHeaderViewDidFinishingLoading:self.tableView];
     } failureBlock:^(NSError * error) {
         WTLOGERROR(@"Get NowData Error:%@", error.localizedDescription);
+        [self.pullTableHeaderView pullTableHeaderViewDidFinishingLoading:self.tableView];
     }];    
     [request getScheduleWithBeginDate:self.loadNowDataBeginDate endDate:self.loadNowDataEndDate];
     [client enqueueRequest:request];
@@ -177,17 +194,22 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    if (scrollView.contentOffset.y < - kDragDownToLoadMoreDataOffset) {
-        self.weekBegin --;
-        [self loadData];
-    } else if (scrollView.contentOffset.y + kDragUpToLoadMoreDataOffset >= scrollView.contentSize.height) {
-        self.weekEnd ++;
-        [self loadData];
-    }
-    
-    NSLog(@"contentHeight is %f",scrollView.contentSize.height);
-    NSLog(@"contentOffsetY is %f",scrollView.contentOffset.y);
+//    if (scrollView.contentOffset.y < - kDragDownToLoadMoreDataOffset) {
+//        self.weekBegin --;
+//        [self loadData];
+//    } else if (scrollView.contentOffset.y + kDragUpToLoadMoreDataOffset >= scrollView.contentSize.height) {
+//        self.weekEnd ++;
+//        [self loadData];
+//    }
+    [self.pullTableHeaderView pullTableHeaderViewDidEndDragging:scrollView];
 }
 
+#pragma mark - WTPullTableHeaderViewDelegate
+
+- (void)pullToLoadData
+{
+    self.weekBegin --;
+    [self loadData];
+}
 
 @end

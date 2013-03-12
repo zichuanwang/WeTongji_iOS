@@ -7,7 +7,8 @@
 //
 
 #import "WTCoreDataTableViewController.h"
+#import "WTPullTableHeaderView.h"
 
-@interface WTNowTableViewController : WTCoreDataTableViewController
+@interface WTNowTableViewController : WTCoreDataTableViewController<WTPullTableHeaderViewDelegate>
 
 @end

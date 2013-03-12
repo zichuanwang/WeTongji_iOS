@@ -18,6 +18,8 @@
 		039E380316970FF600178F1C /* WTNowActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 039E380216970FF600178F1C /* WTNowActivityCell.xib */; };
 		039E380E16971F8C00178F1C /* WTNowCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 039E380D16971F8C00178F1C /* WTNowCourseCell.xib */; };
 		039E38111697205000178F1C /* WTNowBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 039E38101697205000178F1C /* WTNowBaseCell.m */; };
+		03A3455016EF579800F6893E /* WTPullTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A3454F16EF579800F6893E /* WTPullTableHeaderView.m */; };
+		03A3455216EF5ED400F6893E /* WTPullTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03A3455116EF5ED400F6893E /* WTPullTableHeaderView.xib */; };
 		03B3E06416E7784D008BB481 /* WTNowTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B3E06316E7784D008BB481 /* WTNowTableViewController.m */; };
 		03B3E06616E77957008BB481 /* WTNowTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03B3E06516E77957008BB481 /* WTNowTableViewController.xib */; };
 		03B7261116E62CBD00093638 /* Exam+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B7261016E62CBD00093638 /* Exam+Addition.m */; };
@@ -341,6 +343,9 @@
 		039E380D16971F8C00178F1C /* WTNowCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNowCourseCell.xib; sourceTree = "<group>"; };
 		039E380F1697205000178F1C /* WTNowBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNowBaseCell.h; sourceTree = "<group>"; };
 		039E38101697205000178F1C /* WTNowBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNowBaseCell.m; sourceTree = "<group>"; };
+		03A3454E16EF579800F6893E /* WTPullTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTPullTableHeaderView.h; sourceTree = "<group>"; };
+		03A3454F16EF579800F6893E /* WTPullTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTPullTableHeaderView.m; sourceTree = "<group>"; };
+		03A3455116EF5ED400F6893E /* WTPullTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTPullTableHeaderView.xib; sourceTree = "<group>"; };
 		03B3E06216E7784D008BB481 /* WTNowTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNowTableViewController.h; sourceTree = "<group>"; };
 		03B3E06316E7784D008BB481 /* WTNowTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNowTableViewController.m; sourceTree = "<group>"; };
 		03B3E06516E77957008BB481 /* WTNowTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNowTableViewController.xib; sourceTree = "<group>"; };
@@ -1026,6 +1031,9 @@
 				E10C422116AB03410084337C /* WTSwitch.h */,
 				E10C422216AB03410084337C /* WTSwitch.m */,
 				E10C422416AB03550084337C /* WTSwitch.xib */,
+				03A3454E16EF579800F6893E /* WTPullTableHeaderView.h */,
+				03A3454F16EF579800F6893E /* WTPullTableHeaderView.m */,
+				03A3455116EF5ED400F6893E /* WTPullTableHeaderView.xib */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -1749,6 +1757,7 @@
 				E187E92F16EA614C00599F47 /* WTSearchResultTableViewController.xib in Resources */,
 				E177E63316EE11720029130F /* WTFriendListViewController.xib in Resources */,
 				E177E64216EE35B60029130F /* public_key.der in Resources */,
+				03A3455216EF5ED400F6893E /* WTPullTableHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1862,6 +1871,7 @@
 				033D2D3216EA4CFC007242D0 /* Course.m in Sources */,
 				E187E92E16EA614C00599F47 /* WTSearchResultTableViewController.m in Sources */,
 				E177E63216EE11720029130F /* WTFriendListViewController.m in Sources */,
+				03A3455016EF579800F6893E /* WTPullTableHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
