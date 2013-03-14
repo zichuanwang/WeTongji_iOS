@@ -175,7 +175,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    [self.tableViewDecorator scrollViewDidScroll];
+    [self.tableViewDecorator scrollViewDidChangeContentOffset];
 }
 
 #pragma mark - WTDragToLoadDatasource
