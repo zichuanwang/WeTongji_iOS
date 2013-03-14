@@ -12,10 +12,12 @@
 #import "News+Addition.h"
 #import "WTNewsCell.h"
 #import "WTNewsSettingViewController.h"
+#import "WTDragToLoadDecorator.h"
 
-@interface WTNewsViewController ()
+@interface WTNewsViewController () <WTDragToLoadDecoratorDelegate, WTDragToLoadDecoratorDataSource>
 
 @property (nonatomic, readonly) UIButton *filterButton;
+@property (nonatomic, strong) WTDragToLoadDecorator *dragToLoadDecorator;
 
 @end
 
@@ -35,11 +37,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self configureNavigationBar];
+    
+    [self configureTableView];
+        
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
     
-    self.tableView.scrollsToTop = NO;
-    
-    [self loadData];
+    self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -63,8 +66,11 @@
         NSArray *resultArray = resultDict[@"SchoolNews"];
         for(NSDictionary *dict in resultArray)
             [News insertNews:dict];
+        
+        [self.dragToLoadDecorator hideTopView:YES];
     } failureBlock:^(NSError * error) {
         WTLOGERROR(@"Get news:%@", error.localizedDescription);
+        [self.dragToLoadDecorator hideTopView:NO];
     }];
     [request getNewsInTypes:nil sortMethod:nil page:0];
     [client enqueueRequest:request];
@@ -77,6 +83,12 @@
 }
 
 #pragma mark - UI methods
+
+- (void)configureTableView {
+    self.tableView.alwaysBounceVertical = YES;
+    
+    self.tableView.scrollsToTop = NO;
+}
 
 - (void)configureNavigationBar {
     self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"News", nil)];
@@ -107,7 +119,13 @@
     }
 }
 
-#pragma mark - UITableView delegates
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.dragToLoadDecorator scrollViewDidScroll];
+}
+
+#pragma mark - UITableViewDelegate
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIImageView *bgImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 25)];
@@ -156,6 +174,21 @@
 
 - (void)didHideInnderModalViewController {
     self.filterButton.selected = YES;
+}
+
+#pragma mark - WTDragToLoadDecoratorDataSource
+
+- (UIScrollView *)dragToLoadScrollView {
+    return self.tableView;
+}
+
+#pragma mark - WTDragToLoadDecoratorDelegate
+
+- (void)dragToLoadDecoratorDidDragUp {
+}
+
+- (void)dragToLoadDecoratorDidDragDown {
+    [self loadData];
 }
 
 @end

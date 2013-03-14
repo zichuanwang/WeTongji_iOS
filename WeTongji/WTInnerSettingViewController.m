@@ -11,8 +11,9 @@
 #import "WTSwitch.h"
 #import "NSUserDefaults+WTAddition.h"
 #import "WTResourceFactory.h"
+#import "WTWaterflowDecorator.h"
 
-@interface WTInnerSettingViewController ()
+@interface WTInnerSettingViewController () <WTWaterflowDecoratorDataSource>
 
 @property (nonatomic, strong) NSArray *settingConfig;
 @property (nonatomic, strong) WTWaterflowDecorator *waterflowDecorator;

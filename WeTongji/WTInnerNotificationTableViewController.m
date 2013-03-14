@@ -13,7 +13,7 @@
 #import "Notification+Addition.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
 
-@interface WTInnerNotificationTableViewController ()
+@interface WTInnerNotificationTableViewController () <WTWaterflowDecoratorDataSource>
 
 @property (nonatomic, strong) WTWaterflowDecorator *waterflowDecorator;
 

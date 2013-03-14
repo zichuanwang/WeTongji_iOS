@@ -207,6 +207,8 @@
         [self inviteFriend:result];
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Search user:%@", error.localizedDescription);
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"搜索失败" message:error.localizedDescription delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil];
+        [alertView show];
     }];
     [request search:searchBar.text];
     [[WTClient sharedClient] enqueueRequest:request];
@@ -215,8 +217,12 @@
 - (void)inviteFriend:(User *)user {
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Invite friend:%@", responseObject);
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"添加好友" message:[NSString stringWithFormat:@"已经添加 %@ 为好友。", user.name] delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil];
+        [alertView show];
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Invite friend:%@", error.localizedDescription);
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"添加好友失败" message:error.localizedDescription delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil];
+        [alertView show];
     }];
     [request inviteFriend:user.identifier];
     [[WTClient sharedClient] enqueueRequest:request];

@@ -19,7 +19,7 @@
 
 @property (nonatomic, weak) id<WTWaterflowDecoratorDataSource> dataSource;
 
-+ (WTWaterflowDecorator *)createDecoratorWithDataSource:(id<WTWaterflowDecoratorDataSource>) dataSource;
++ (WTWaterflowDecorator *)createDecoratorWithDataSource:(id<WTWaterflowDecoratorDataSource>)dataSource;
 
 // Call this method in your UIViewController's |viewWillLayoutSubviews|,
 // |viewDidLayoutSubviews| and |scrollViewDidScroll:|.
