@@ -30,11 +30,17 @@
 + (WTDragToLoadDecorator *)createDecoratorWithDataSource:(id<WTDragToLoadDecoratorDataSource>)dataSource
                                                 delegate:(id<WTDragToLoadDecoratorDelegate>)delegate;
 
-- (void)hideTopView:(BOOL)loadSucceeded;
+- (void)topViewLoadFinished:(BOOL)loadSucceeded;
 
-- (void)hideBottomView:(BOOL)loadSucceeded;
+- (void)bottomViewLoadFinished:(BOOL)loadSucceeded;
 
-- (void)scrollViewDidScroll;
+- (void)setTopViewDisabled:(BOOL)disabled;
+
+- (void)setBottomViewDisabled:(BOOL)disabled;
+
+- (void)scrollViewDidChangeContentOffset;
+
+- (void)scrollViewDidChangeContentSize;
 
 @end
 

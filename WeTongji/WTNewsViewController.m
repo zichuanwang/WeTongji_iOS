@@ -43,10 +43,13 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
     
     self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
+    [self.dragToLoadDecorator setBottomViewDisabled:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidDisappear:animated];
     [self.tableView resetHeight:self.view.frame.size.height];
+    [self.dragToLoadDecorator scrollViewDidChangeContentSize];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,10 +70,11 @@
         for(NSDictionary *dict in resultArray)
             [News insertNews:dict];
         
-        [self.dragToLoadDecorator hideTopView:YES];
+        [self.dragToLoadDecorator topViewLoadFinished:YES];
     } failureBlock:^(NSError * error) {
         WTLOGERROR(@"Get news:%@", error.localizedDescription);
-        [self.dragToLoadDecorator hideTopView:NO];
+        [self.dragToLoadDecorator topViewLoadFinished:NO];
+        [self.dragToLoadDecorator setBottomViewDisabled:NO];
     }];
     [request getNewsInTypes:nil sortMethod:nil page:0];
     [client enqueueRequest:request];
@@ -122,7 +126,7 @@
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self.dragToLoadDecorator scrollViewDidScroll];
+    [self.dragToLoadDecorator scrollViewDidChangeContentOffset];
 }
 
 #pragma mark - UITableViewDelegate
