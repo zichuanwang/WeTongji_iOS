@@ -8,9 +8,8 @@
 
 #import "WTInnerNotificationViewController.h"
 #import "WTCoreDataTableViewController.h"
-#import "WTWaterflowDecorator.h"
 #import "WTNotificationCell.h"
 
-@interface WTInnerNotificationTableViewController : WTCoreDataTableViewController <WTWaterflowDecoratorDataSource, WTNotificationCellDelegate>
+@interface WTInnerNotificationTableViewController : WTCoreDataTableViewController <WTNotificationCellDelegate>
 
 @end

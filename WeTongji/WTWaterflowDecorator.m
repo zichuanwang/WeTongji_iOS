@@ -17,7 +17,7 @@
 
 @implementation WTWaterflowDecorator
 
-+ (WTWaterflowDecorator *)createDecoratorWithDataSource:(id<WTWaterflowDecoratorDataSource>) dataSource {
++ (WTWaterflowDecorator *)createDecoratorWithDataSource:(id<WTWaterflowDecoratorDataSource>)dataSource {
     WTWaterflowDecorator *result = [[WTWaterflowDecorator alloc] init];
     result.dataSource = dataSource;
     return result;
