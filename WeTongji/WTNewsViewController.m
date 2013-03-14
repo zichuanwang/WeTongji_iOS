@@ -18,6 +18,7 @@
 
 @property (nonatomic, readonly) UIButton *filterButton;
 @property (nonatomic, strong) WTDragToLoadDecorator *dragToLoadDecorator;
+@property (nonatomic, assign) NSInteger nextPage;
 
 @end
 
@@ -28,6 +29,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.nextPage = 2;
     }
     return self;
 }
@@ -43,7 +45,7 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
     
     self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
-    [self.dragToLoadDecorator setBottomViewDisabled:YES];
+    // [self.dragToLoadDecorator setBottomViewDisabled:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -60,23 +62,37 @@
 
 #pragma mark - Data load methods
 
-- (void)loadData {
+- (void)clearAllData {
+    [News clearAllNews];
+}
+
+- (void)loadMoreDataWithSuccessBlock:(void (^)(void))success
+                        failureBlock:(void (^)(void))failure {
     WTClient * client = [WTClient sharedClient];
     WTRequest * request = [WTRequest requestWithSuccessBlock:^(id responseData) {
         WTLOG(@"Get news: %@", responseData);
-        [News clearAllNews];
+        
+        if (success)
+            success();
+        
         NSDictionary *resultDict = (NSDictionary *)responseData;
         NSArray *resultArray = resultDict[@"SchoolNews"];
         for(NSDictionary *dict in resultArray)
             [News insertNews:dict];
         
-        [self.dragToLoadDecorator topViewLoadFinished:YES];
+        NSString *nextPage = resultDict[@"NextPager"];
+        self.nextPage = nextPage.integerValue;
+        
+        if (self.nextPage == 0) {
+            [self.dragToLoadDecorator setBottomViewDisabled:YES];
+        }
     } failureBlock:^(NSError * error) {
         WTLOGERROR(@"Get news:%@", error.localizedDescription);
-        [self.dragToLoadDecorator topViewLoadFinished:NO];
-        [self.dragToLoadDecorator setBottomViewDisabled:NO];
+        
+        if (failure)
+            failure();
     }];
-    [request getNewsInTypes:nil sortMethod:nil page:0];
+    [request getNewsInTypes:nil sortMethod:nil page:self.nextPage];
     [client enqueueRequest:request];
 }
 
@@ -126,6 +142,9 @@
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    // TODO: Move this line to a more appropriate place
+    [self.dragToLoadDecorator scrollViewDidChangeContentSize];
+    
     [self.dragToLoadDecorator scrollViewDidChangeContentOffset];
 }
 
@@ -189,10 +208,22 @@
 #pragma mark - WTDragToLoadDecoratorDelegate
 
 - (void)dragToLoadDecoratorDidDragUp {
+    [self loadMoreDataWithSuccessBlock:^{
+        [self.dragToLoadDecorator bottomViewLoadFinished:YES];
+    } failureBlock:^{
+        [self.dragToLoadDecorator bottomViewLoadFinished:NO];
+    }];
 }
 
 - (void)dragToLoadDecoratorDidDragDown {
-    [self loadData];
+    self.nextPage = 1;
+    [self loadMoreDataWithSuccessBlock:^{
+        [self clearAllData];
+        [self.dragToLoadDecorator topViewLoadFinished:YES];
+        [self.dragToLoadDecorator setBottomViewDisabled:NO];
+    } failureBlock:^{
+        [self.dragToLoadDecorator topViewLoadFinished:NO];
+    }];
 }
 
 @end

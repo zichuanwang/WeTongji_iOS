@@ -71,10 +71,19 @@ typedef enum {
 
 - (void)bottomViewLoadFinished:(BOOL)loadSucceeded {
     if (self.bottomViewState == BottomViewStateLoading) {
-        [UIView animateWithDuration:0.25f animations:^{
+        if (!loadSucceeded) {
+            [UIView animateWithDuration:0.25f animations:^{
+                self.bottomViewState = BottomViewStateNormal;
+            }];
+        } else {
+            // Trick, add the temp contentSize.height to make smooth animation
+            UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
+            CGSize contentSize = scrollView.contentSize;
+            contentSize.height += self.bottomView.frame.size.height;
+            scrollView.contentSize = contentSize;
+            
             self.bottomViewState = BottomViewStateNormal;
-        }];
-        
+        }
         [self.bottomView.activityIndicator stopAnimating];
     }
 }
@@ -177,7 +186,7 @@ typedef enum {
 			break;
             
 		case BottomViewStateNormal: {
-            self.topView.hidden = NO;
+            self.bottomView.hidden = NO;
             inset.bottom = self.scrollViewOriginalContentInset.bottom;
             scrollView.contentInset = inset;
         }
@@ -185,18 +194,19 @@ typedef enum {
             
 		case BottomViewStateLoading: {            
             inset.bottom = self.bottomView.frame.size.height + self.scrollViewOriginalContentInset.bottom;
-            CGPoint contentOffset = scrollView.contentOffset;
-            contentOffset.y =  scrollView.contentSize.height - scrollView.frame.size.height + inset.bottom;
-            [UIView animateWithDuration:0.25f animations:^{
-                scrollView.contentInset = inset;
-                scrollView.contentOffset = contentOffset;
-            }];
+            scrollView.contentInset = inset;
+            
+            CGRect scrollViewFrame = scrollView.frame;
+            scrollViewFrame.origin.y = scrollView.contentSize.height - scrollView.frame.size.height;
+            [scrollView scrollRectToVisible:scrollViewFrame animated:YES];
             
             [self.bottomView.activityIndicator startAnimating];
         }
 			break;
             
         case BottomViewStateDisabled: {
+            inset.bottom = self.scrollViewOriginalContentInset.bottom;
+            scrollView.contentInset = inset;
             self.bottomView.hidden = YES;
         }
             break;

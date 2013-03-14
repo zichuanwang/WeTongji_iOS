@@ -929,11 +929,11 @@
 		E125549916491530006D42F5 /* WeTongji */ = {
 			isa = PBXGroup;
 			children = (
-				E1A5815F16F0F8C000551149 /* Decorators */,
 				E18821CE1680077C00A41F47 /* Categories */,
 				E1D3743C1694C3B90012E30A /* Core Data */,
 				E1D373F916936B5B0012E30A /* CustomCells */,
 				E14FA67D1680B9BB008A8D33 /* CustomViews */,
+				E1A5815F16F0F8C000551149 /* Decorators */,
 				E125549A16491530006D42F5 /* Supporting Files */,
 				E18821CD1680077000A41F47 /* Tools */,
 				E117038E1651EFD900D82F4A /* ViewControllers */,
