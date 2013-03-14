@@ -9,12 +9,17 @@
 #import "WTPullTableHeaderView.h"
 #define kPullOffsetToRefresh 80
 
+@interface WTPullTableHeaderView()
+
+- (void)changeStateToLoad:(UIScrollView *)scollView;;
+- (void)changeStateToNormal:(UIScrollView *)scrollView;
+@end
+
 @implementation WTPullTableHeaderView
 
 @synthesize updatedTimeLabel = _updatedTimeLabel;
 @synthesize informationLabel = _informationLabel;
 @synthesize indicatorView = _indicatorView;
-
 @synthesize state = _state;
 
 - (id)initWithFrame:(CGRect)frame
@@ -42,6 +47,27 @@
 
 #pragma mark - Private Method
 
+- (void)changeStateToLoad:(UIScrollView *)scrollView;
+{
+    [UIView animateWithDuration:0.25f animations:^{
+        scrollView.contentInset = UIEdgeInsetsMake(kPullOffsetToRefresh, 0.0f, 0.0f, 0.0f);
+    } completion:^(BOOL finished) {
+        [self.indicatorView startAnimating];
+        self.state = WTPullTableHeaderViewStateLoad;
+        [self.delegate pullToLoadData];
+    }];
+}
+
+- (void)changeStateToNormal:(UIScrollView *)scrollView
+{
+    [UIView animateWithDuration:0.25f animations:^{
+        scrollView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
+    } completion:^(BOOL finished) {
+        [self.indicatorView stopAnimating];
+        self.state = WTPullTableHeaderViewStateNormal;
+    }];
+}
+
 - (void)refreshUpdatedTime
 {
     NSDateFormatter *formatter = nil;
@@ -58,43 +84,32 @@
     self.updatedTimeLabel.text = [formatter stringFromDate:[NSDate date]];
 }
 
-- (void)updateStateFrom:(WTPullTableHeaderViewState)oldState to:(WTPullTableHeaderViewState)newState
-{
-    if (oldState == WTPullTableHeaderViewStateNormal && newState == WTPullTableHeaderViewStatePull) {
-        // Ziqi:Do Nothing
-    } else if (oldState == WTPullTableHeaderViewStatePull && newState == WTPullTableHeaderViewStateLoad) {
-        [self.indicatorView startAnimating];
-    } else if (oldState == WTPullTableHeaderViewStateLoad && newState == WTPullTableHeaderViewStateNormal) {
-        [self.indicatorView stopAnimating];
-    } else if (oldState == WTPullTableHeaderViewStatePull && newState == WTPullTableHeaderViewStateNormal) {
-        // Ziqi:Do nothing
-    }
-    
-    self.state = newState;
-}
-
 #pragma mark - Public 
+
+- (void)pullTableHeaderViewDidScroll:(UIScrollView *)scrollView
+{
+    if (self.state == WTPullTableHeaderViewStateLoad) {
+        return ;
+    } else if (scrollView.isDragging) {
+        if (scrollView.contentOffset.y <= - kPullOffsetToRefresh) {
+            self.state = WTPullTableHeaderViewStatePull;
+        } else if (scrollView.contentOffset.y > -kPullOffsetToRefresh && scrollView.contentOffset.y <= 0) {
+            self.state = WTPullTableHeaderViewStateNormal;
+        }
+    }
+}
 
 - (void)pullTableHeaderViewDidEndDragging:(UIScrollView *)scrollView
 {
-    if (scrollView.contentOffset.y < - kPullOffsetToRefresh) {
-        [UIView animateWithDuration:0.25f animations:^{
-            scrollView.contentInset = UIEdgeInsetsMake(kPullOffsetToRefresh, 0.0f, 0.0f, 0.0f);
-        } completion:^(BOOL finished) {
-            [self updateStateFrom:self.state to:WTPullTableHeaderViewStateLoad];
-            [self.delegate pullToLoadData];
-        }];
+    if (scrollView.contentOffset.y <= - kPullOffsetToRefresh && self.state != WTPullTableHeaderViewStateLoad) {
+        [self changeStateToLoad:scrollView];
     } 
 }
 
 - (void)pullTableHeaderViewDidFinishingLoading:(UIScrollView *)scrollView
 {
-    NSLog(@"Did Finishing Loading");
-    [UIView animateWithDuration:0.25f animations:^{
-        scrollView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
-    } completion:^(BOOL finished) {
-        [self updateStateFrom:self.state to:WTPullTableHeaderViewStateNormal];
-    }];
+    NSLog(@"Did Finish Loading");
+    [self changeStateToNormal:scrollView];
 }
 
 @end
