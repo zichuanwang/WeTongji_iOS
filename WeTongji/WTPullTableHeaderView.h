@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 typedef enum {
-    WTPullTableHeaderViewStatePull = 1 << 0,
-    WTPullTableHeaderViewStateNormal = 1 << 1,
+    WTPullTableHeaderViewStateNormal = 1 << 0,
+    WTPullTableHeaderViewStatePull = 1 << 1,
     WTPullTableHeaderViewStateLoad = 1 << 2
 } WTPullTableHeaderViewState;
 
@@ -32,5 +32,6 @@ typedef enum {
 
 - (void)pullTableHeaderViewDidEndDragging:(UIScrollView *)scrollView;
 - (void)pullTableHeaderViewDidFinishingLoading:(UIScrollView *)scrollView;
+- (void)pullTableHeaderViewDidScroll:(UIScrollView *)scrollView;
 
 @end

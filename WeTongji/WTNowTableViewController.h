@@ -7,8 +7,8 @@
 //
 
 #import "WTCoreDataTableViewController.h"
-#import "WTPullTableHeaderView.h"
+#import "WTDragToLoadDecorator.h"
 
-@interface WTNowTableViewController : WTCoreDataTableViewController<WTPullTableHeaderViewDelegate>
+@interface WTNowTableViewController : WTCoreDataTableViewController<WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
 @end
