@@ -46,9 +46,13 @@ typedef enum {
 }
 
 - (void)updateTopViewUpdateTimeLabel:(BOOL)useStoredValue {
+    if (![self.dataSource respondsToSelector:@selector(userDefaultKey)])
+        return;
+    
     NSString *customUserDefaultKey = [self.dataSource userDefaultKey];
     if (!customUserDefaultKey)
         return;
+    
     NSString *storedValueKey = [NSString stringWithFormat:@"%@%@", customUserDefaultKey, @"TopViewUpdateTime"];
     NSString *updateTimeString = nil;
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
