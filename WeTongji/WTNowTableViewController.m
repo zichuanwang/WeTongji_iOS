@@ -25,6 +25,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 
 @property (nonatomic, assign) int weekBegin;
 @property (nonatomic, assign) int weekEnd;
+@property (nonatomic, assign) BOOL isTableViewFirstLoad;
 @property (nonatomic, strong) WTDragToLoadDecorator *tableViewDecorator;
 
 - (Event *)getNowEvent;
@@ -200,6 +201,16 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 
 - (NSString *)customSectionNameKeyPath {
     return nil;
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    [super controllerDidChangeContent:controller];
+    if (!self.isTableViewFirstLoad) {
+        [self.tableView reloadData];
+        [self scrollToNow:NO];
+        self.isTableViewFirstLoad = TRUE;
+    }
 }
 
 #pragma mark - UIScrollViewDelegate
