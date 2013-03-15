@@ -7,6 +7,7 @@
 //
 
 #import "WTDragToLoadDecorator.h"
+#import "NSString+WTAddition.h"
 
 typedef enum {
     TopViewStateNormal = 0,
@@ -36,6 +37,34 @@ typedef enum {
 
 @implementation WTDragToLoadDecorator
 
+#pragma mark - UI methods
+
+- (void)resetBottomViewOriginY {
+    UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
+    CGFloat bottomViewOriginY = scrollView.contentSize.height + self.scrollViewOriginalContentInset.bottom;
+    [self.bottomView resetOriginY:bottomViewOriginY];
+}
+
+- (void)updateTopViewUpdateTimeLabel:(BOOL)useStoredValue {
+    NSString *storedValueKey = [NSString stringWithFormat:@"%@%@", [self.dataSource userDefaultKey], @"TopViewUpdateTime"];
+    NSString *updateTimeString = nil;
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    
+    if (useStoredValue) {
+        NSString *storedValue = [standardUserDefaults stringForKey:storedValueKey];
+        if (storedValue) {
+            updateTimeString = storedValue;
+        } else {
+            updateTimeString = NSLocalizedString(@"Unknown", nil);
+        }
+    } else {
+        updateTimeString = [NSString yearMonthDayTimeConvertFromDate:[NSDate date]];
+        [standardUserDefaults setObject:updateTimeString forKey:storedValueKey];
+        [standardUserDefaults synchronize];
+    }
+    self.topView.updateTimeLabel.text = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Last update", nil), updateTimeString];
+}
+
 #pragma mark - Public methods
 
 + (WTDragToLoadDecorator *)createDecoratorWithDataSource:(id<WTDragToLoadDecoratorDataSource>)dataSource
@@ -47,9 +76,12 @@ typedef enum {
     UIScrollView *scrollView = [dataSource dragToLoadScrollView];
     result.scrollViewOriginalContentInset = scrollView.contentInset;
     
+    // Configure top view
     [result.topView resetOriginY:0.0f - result.topView.frame.size.height - result.scrollViewOriginalContentInset.top];
     [scrollView addSubview:result.topView];
+    [result updateTopViewUpdateTimeLabel:YES];
     
+    // Configure bottom view
     [result.bottomView resetOriginY:scrollView.frame.size.height];
     [scrollView addSubview:result.bottomView];
     
@@ -66,6 +98,10 @@ typedef enum {
         }];
         
         [self.topView.activityIndicator stopAnimating];
+        
+        if (loadSucceeded) {
+            [self updateTopViewUpdateTimeLabel:NO];
+        }
     }
 }
 
@@ -89,7 +125,12 @@ typedef enum {
 }
 
 - (void)scrollViewDidChangeContentSize {
-    [self resetBottomViewOriginY];
+    UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
+    if (scrollView.contentSize.height == 0) {
+        [self setBottomViewDisabled:YES];
+    } else {
+        [self resetBottomViewOriginY];
+    }
 }
 
 - (void)scrollViewDidChangeContentOffset {
@@ -216,12 +257,6 @@ typedef enum {
 }
 
 #pragma mark - Logic methods
-
-- (void)resetBottomViewOriginY {
-    UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
-    CGFloat bottomViewOriginY = scrollView.contentSize.height + self.scrollViewOriginalContentInset.bottom;
-    [self.bottomView resetOriginY:bottomViewOriginY];
-}
 
 - (void)updateTopViewState {
     TopViewState state = self.topViewState;

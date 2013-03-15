@@ -12,6 +12,9 @@
 
 - (UIScrollView *)dragToLoadScrollView;
 
+@optional
+- (NSString *)userDefaultKey;
+
 @end
 
 @protocol WTDragToLoadDecoratorDelegate <NSObject>

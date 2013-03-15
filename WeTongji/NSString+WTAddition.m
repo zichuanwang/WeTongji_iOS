@@ -25,7 +25,7 @@
 
 + (NSString *)yearMonthDayConvertFromDate:(NSDate *)date {
     NSDateFormatter *form = [[NSDateFormatter alloc] init];
-    [form setDateFormat:@"yyyy年M月d日"];
+    [form setDateFormat:@"yyyy.MM.dd"];
     NSString *result = [form stringFromDate:date];
     return result;
 }
@@ -34,25 +34,25 @@
     NSString *weekdayStr = nil;
     switch (weekday) {
         case 1:
-            weekdayStr = @"周日";
+            weekdayStr = NSLocalizedString(@"Sun", nil);
             break;
         case 2:
-            weekdayStr = @"周一";
+            weekdayStr = NSLocalizedString(@"Mon", nil);;
             break;
         case 3:
-            weekdayStr = @"周二";
+            weekdayStr = NSLocalizedString(@"Tue", nil);
             break;
         case 4:
-            weekdayStr = @"周三";
+            weekdayStr = NSLocalizedString(@"Wed", nil);
             break;
         case 5:
-            weekdayStr = @"周四";
+            weekdayStr = NSLocalizedString(@"Thu", nil);
             break;
         case 6:
-            weekdayStr = @"周五";
+            weekdayStr = NSLocalizedString(@"Fri", nil);
             break;
         case 7:
-            weekdayStr = @"周六";
+            weekdayStr = NSLocalizedString(@"Sat", nil);
             break;
             
         default:
@@ -71,14 +71,20 @@
     int weekday = [comps weekday];
     
     NSString *weekdayStr = [NSString weekDayConvertFromInteger:weekday];
-    result = [NSString stringWithFormat:@"%@(%@)", result, weekdayStr];
+    result = [NSString stringWithFormat:@"%@ %@", result, weekdayStr];
     
+    return result;
+}
+
++ (NSString *)yearMonthDayTimeConvertFromDate:(NSDate *)date {
+    NSString *result = [NSString yearMonthDayConvertFromDate:date];
+    result = [NSString stringWithFormat:@"%@ %@", result, [NSString timeConvertFromDate:date]];
     return result;
 }
 
 + (NSString *)yearMonthDayWeekTimeConvertFromDate:(NSDate *)date {
     NSString *result = [NSString yearMonthDayWeekConvertFromDate:date];
-    result = [NSString stringWithFormat:@"%@%@", result, [NSString timeConvertFromDate:date]];
+    result = [NSString stringWithFormat:@"%@ %@", result, [NSString timeConvertFromDate:date]];
     return result;
 }
 
@@ -105,27 +111,6 @@
             break;
         }
     }
-    return result;
-}
-
-- (NSNumber *)weekDayStringCovertToNumber {
-    NSNumber *result = nil;
-    NSInteger weekDay = -1;
-    if([self isEqualToString:@"星期一"]) 
-        weekDay = 0;
-    else if([self isEqualToString:@"星期二"])
-        weekDay = 1;
-    else if([self isEqualToString:@"星期三"])
-        weekDay = 2;
-    else if([self isEqualToString:@"星期四"])
-        weekDay = 3;
-    else if([self isEqualToString:@"星期五"])
-        weekDay = 4;
-    else if([self isEqualToString:@"星期六"])
-        weekDay = 5;
-    else if([self isEqualToString:@"星期日"])
-        weekDay = 6;
-    result = [NSNumber numberWithInteger:weekDay];
     return result;
 }
 

@@ -14,12 +14,13 @@
 + (NSString *)yearMonthDayConvertFromDate:(NSDate *)date;
 + (NSString *)yearMonthDayWeekConvertFromDate:(NSDate *)date;
 + (NSString *)yearMonthDayWeekTimeConvertFromDate:(NSDate *)date;
++ (NSString *)yearMonthDayTimeConvertFromDate:(NSDate *)date;
+
 + (NSString *)timeConvertFromDate:(NSDate *)date;
 + (NSString *)timeConvertFromBeginDate:(NSDate *)begin endDate:(NSDate *)end;
 + (NSString *)weekDayConvertFromInteger:(NSInteger)weekday;
 
 - (BOOL)isSuitableForPassword;
-- (NSNumber *)weekDayStringCovertToNumber;
 + (NSString *)getTodayBeginDayFormatString;
 + (NSString *)getTomorrowBeginDayFormatString;
 - (BOOL)isGifURL;

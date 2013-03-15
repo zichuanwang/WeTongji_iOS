@@ -205,6 +205,10 @@
     return self.tableView;
 }
 
+- (NSString *)userDefaultKey {
+    return @"WTNewsController";
+}
+
 #pragma mark - WTDragToLoadDecoratorDelegate
 
 - (void)dragToLoadDecoratorDidDragUp {

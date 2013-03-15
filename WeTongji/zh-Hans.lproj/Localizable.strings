@@ -33,3 +33,14 @@
 "Pull to refresh" = "下拉以刷新";
 "Release to refresh" = "松开以刷新";
 "Loading" = "加载中";
+"Last update" = "上次更新";
+"Unknown" = "未知";
+
+"Sun" = "周日";
+"Mon" = "周一";
+"Tue" = "周二";
+"Wed" = "周三";
+"Thu" = "周四";
+"Fri" = "周五";
+"Sat" = "周六";
+
