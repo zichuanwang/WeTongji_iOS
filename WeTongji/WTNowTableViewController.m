@@ -81,7 +81,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
    return [[semesterBeginTime convertToDate] dateByAddingTimeInterval:week * kWeekTimeInterval];
 }
 
-- (WTDragToLoadDecorator *)decorator
+- (WTDragToLoadDecorator *)tableViewDecorator
 {
     if (_tableViewDecorator == nil) {
         _tableViewDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
@@ -137,7 +137,6 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
         if (success) {
             success();
         }
-        
     } failureBlock:^(NSError * error) {
         WTLOGERROR(@"Get NowData Error:%@", error.localizedDescription);
         if (failure) {
