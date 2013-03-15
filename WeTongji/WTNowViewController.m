@@ -32,12 +32,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self configureNavigationBar];
     [self configureTableView];
+    [self.nowTableViewController.view resetHeight:self.view.frame.size.height];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self.nowTableViewController.view resetHeight:self.view.frame.size.height];
     [self.nowTableViewController viewDidAppear:animated];
 }
 
@@ -57,6 +58,11 @@
 
 #pragma mark - UI methods
 
+- (void)scrollToNow
+{
+    [self.nowTableViewController scrollToNow:YES];
+}
+
 - (void)configureTableView {
     self.nowTableViewController.tableView.alwaysBounceVertical = YES;
     self.nowTableViewController.tableView.scrollsToTop = NO;
@@ -69,7 +75,7 @@
     
     self.navigationItem.rightBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:NSLocalizedString(@"Now", nil)
                                                                                        target:self
-                                                                                       action:nil];
+                                                                                       action:@selector(scrollToNow)];
 }
 
 @end

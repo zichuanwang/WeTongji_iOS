@@ -7,8 +7,9 @@
 //
 
 #import "WTCoreDataTableViewController.h"
-#import "WTDragToLoadDecorator.h"
 
-@interface WTNowTableViewController : WTCoreDataTableViewController<WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
+@interface WTNowTableViewController : WTCoreDataTableViewController
+
+- (void)scrollToNow:(BOOL)animated;
 
 @end

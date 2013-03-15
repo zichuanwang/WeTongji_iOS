@@ -15,12 +15,14 @@
 #import "WTNowActivityCell.h"
 #import "WTNowCourseCell.h"
 #import "Event.h"
+#import "WTDragToLoadDecorator.h"
 
 #define kWeekTimeInterval (60 * 60 * 24 * 7)
 // Test Data
 static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 
-@interface WTNowTableViewController()
+@interface WTNowTableViewController()<WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
+
 @property (nonatomic, assign) int weekBegin;
 @property (nonatomic, assign) int weekEnd;
 @property (nonatomic, strong) WTDragToLoadDecorator *tableViewDecorator;
@@ -50,7 +52,26 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 
 - (void)viewDidAppear:(BOOL)animated {
     [self configureWeekDuration];
-    [self loadDataFrom:[self convertToDate:self.weekBegin] to:[self convertToDate:self.weekEnd]];
+    [self.tableViewDecorator scrollViewDidChangeContentSize];
+    
+    [self loadDataFrom:[self convertToDate:self.weekBegin]
+                    to:[self convertToDate:self.weekEnd]
+          successBlock:^{ 
+              [self.tableViewDecorator topViewLoadFinished:YES];
+              [self.tableViewDecorator setBottomViewDisabled:NO];
+          }
+          failureBlock:^{
+              [self.tableViewDecorator topViewLoadFinished:NO]; 
+          }];
+}
+
+- (void)scrollToNow:(BOOL)animated
+{
+    Event *nowEvent = [self getNowEvent];
+    if (nowEvent != NULL) {
+        NSIndexPath *indexPath = [self.fetchedResultsController indexPathForObject:nowEvent];
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:animated];
+    }
 }
 
 #pragma mark - Override Getter Method
@@ -88,7 +109,10 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     return [matches objectAtIndex:0];
 }
 
-- (void)loadDataFrom:(NSDate *)fromDate to:(NSDate *)toDate
+- (void)loadDataFrom:(NSDate *)fromDate
+                  to:(NSDate *)toDate
+        successBlock:(void (^)(void))success
+        failureBlock:(void (^)(void))failure
 {
     WTClient * client = [WTClient sharedClient];
     WTRequest * request = [WTRequest requestWithSuccessBlock:^(id responseData) {
@@ -109,8 +133,16 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
         for (NSDictionary *dict in examsArray) {
             [Exam insertExam:dict];
         }
+        
+        if (success) {
+            success();
+        }
+        
     } failureBlock:^(NSError * error) {
         WTLOGERROR(@"Get NowData Error:%@", error.localizedDescription);
+        if (failure) {
+            failure();
+        }
     }];    
     [request getScheduleWithBeginDate:fromDate endDate:toDate];
     [client enqueueRequest:request];
@@ -175,6 +207,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    [self.tableViewDecorator scrollViewDidChangeContentSize];
     [self.tableViewDecorator scrollViewDidChangeContentOffset];
 }
 
@@ -190,12 +223,25 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 - (void)dragToLoadDecoratorDidDragDown
 {
     self.weekBegin --;
-    [self loadDataFrom:[self convertToDate:self.weekBegin] to:[self convertToDate: self.weekBegin + 1]];
+    [self loadDataFrom:[self convertToDate:self.weekBegin]
+                    to:[self convertToDate: self.weekBegin + 1]
+          successBlock:^{
+              [self.tableViewDecorator topViewLoadFinished:YES];
+              [self.tableViewDecorator setBottomViewDisabled:NO];
+          } failureBlock:^{
+              [self.tableViewDecorator topViewLoadFinished:NO];   
+          }];
 }
 
 - (void)dragToLoadDecoratorDidDragUp
 {
     self.weekEnd ++;
-    [self loadDataFrom:[self convertToDate:self.weekEnd - 1] to:[self convertToDate: self.weekEnd]];
+    [self loadDataFrom:[self convertToDate:self.weekEnd - 1]
+                    to:[self convertToDate:self.weekEnd]
+          successBlock:^{
+              [self.tableViewDecorator bottomViewLoadFinished:YES];
+          } failureBlock:^{
+              [self.tableViewDecorator bottomViewLoadFinished:NO];
+          }];
 }
 @end
