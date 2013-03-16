@@ -18,7 +18,6 @@ typedef enum {
 
 typedef enum {
     BottomViewStateNormal = 0,
-    BottomViewStateReady,
 	BottomViewStateLoading,
     BottomViewStateDisabled,
 } BottomViewState;
@@ -100,24 +99,27 @@ typedef enum {
 
 - (void)topViewLoadFinished:(BOOL)loadSucceeded {
     if (self.topViewState == TopViewStateLoading) {
-        [UIView animateWithDuration:0.25f animations:^{
-            self.topViewState = TopViewStateNormal;
-        }];
-        
-        [self.topView.activityIndicator stopAnimating];
-        
         if (loadSucceeded) {
             [self updateTopViewUpdateTimeLabel:NO];
         }
+        
+        [self.topView.activityIndicator stopAnimating];
+        self.topViewState = TopViewStateNormal;
     }
 }
 
 - (void)bottomViewLoadFinished:(BOOL)loadSucceeded {
     if (self.bottomViewState == BottomViewStateLoading) {
         if (!loadSucceeded) {
-            [UIView animateWithDuration:0.25f animations:^{
-                self.bottomViewState = BottomViewStateNormal;
-            }];
+            UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
+            if (!scrollView.dragging && scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.size.height + self.scrollViewOriginalContentInset.bottom) {
+                
+                [UIView animateWithDuration:0.25f animations:^{
+                    self.bottomViewState = BottomViewStateDisabled;
+                } completion:^(BOOL finished) {
+                    self.bottomViewState = BottomViewStateNormal;
+                }];
+            }
         } else {
             // Trick, add the temp contentSize.height to make smooth animation
             UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
@@ -127,6 +129,7 @@ typedef enum {
             
             self.bottomViewState = BottomViewStateNormal;
         }
+        
         [self.bottomView.activityIndicator stopAnimating];
     }
 }
@@ -227,26 +230,17 @@ typedef enum {
     UIEdgeInsets inset = scrollView.contentInset;
     
 	switch (bottomViewState) {
-		case BottomViewStateReady: {
-            inset.bottom = self.scrollViewOriginalContentInset.bottom;
-            scrollView.contentInset = inset;
-        }
-			break;
             
 		case BottomViewStateNormal: {
             self.bottomView.hidden = NO;
-            inset.bottom = self.scrollViewOriginalContentInset.bottom;
+            inset.bottom = self.scrollViewOriginalContentInset.bottom + self.bottomView.frame.size.height;
             scrollView.contentInset = inset;
         }
 			break;
             
 		case BottomViewStateLoading: {            
-            inset.bottom = self.bottomView.frame.size.height + self.scrollViewOriginalContentInset.bottom;
+            inset.bottom = self.scrollViewOriginalContentInset.bottom + self.bottomView.frame.size.height;
             scrollView.contentInset = inset;
-            
-            CGRect scrollViewFrame = scrollView.frame;
-            scrollViewFrame.origin.y = scrollView.contentSize.height - scrollView.frame.size.height;
-            [scrollView scrollRectToVisible:scrollViewFrame animated:YES];
             
             [self.bottomView.activityIndicator startAnimating];
         }
@@ -304,19 +298,12 @@ typedef enum {
         return;
     
     if (scrollView.isDragging) {
-        if (state == BottomViewStateReady) {
-            if (scrollView.contentOffset.y + scrollView.frame.size.height <= scrollView.contentSize.height + self.scrollViewOriginalContentInset.bottom) {
-                self.bottomViewState = BottomViewStateNormal;
+        BOOL isBottomViewShown = scrollView.contentOffset.y > scrollView.contentSize.height + self.scrollViewOriginalContentInset.bottom - scrollView.frame.size.height;
+        if (state == BottomViewStateNormal) {
+            if (isBottomViewShown) {
+                self.bottomViewState = BottomViewStateLoading;
+                [self.delegate dragToLoadDecoratorDidDragUp];
             }
-        } else if (state == BottomViewStateNormal) {
-            if (scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height + self.scrollViewOriginalContentInset.bottom) {
-                self.bottomViewState = BottomViewStateReady;
-            }
-        }
-    } else {
-        if (state == BottomViewStateReady) {
-            self.bottomViewState = BottomViewStateLoading;
-            [self.delegate dragToLoadDecoratorDidDragUp];
         }
     }
 }

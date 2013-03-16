@@ -61,13 +61,19 @@
     UIButton *button = [[UIButton alloc] init];
     
     UIEdgeInsets insets = UIEdgeInsetsMake(0.0, 8.0, 0.0, 6.0);
-    UIImage *image = [[UIImage imageNamed:@"WTNavigationBarBackButton"] resizableImageWithCapInsets:insets];
-    [button setBackgroundImage:image forState:UIControlStateNormal];
+    UIImage *barBarNormalButtonImage = [[UIImage imageNamed:@"WTNavigationBarBackNormalButton"] resizableImageWithCapInsets:insets];
+    [button setBackgroundImage:barBarNormalButtonImage forState:UIControlStateNormal];
     
-    UIImage *backBarButtonLogoImage = [UIImage imageNamed:@"WTNavigationBarBackButtonLogo"];
-    [button setImage:backBarButtonLogoImage forState:UIControlStateNormal];
+    UIImage *barBarHighlightButtonImage = [[UIImage imageNamed:@"WTNavigationBarBackHighlightButton"] resizableImageWithCapInsets:insets];
+    [button setBackgroundImage:barBarHighlightButtonImage forState:UIControlStateHighlighted];
     
-    [button resetSize:backBarButtonLogoImage.size];
+    UIImage *backBarNormalButtonLogoImage = [UIImage imageNamed:@"WTNavigationBarBackNormalButtonLogo"];
+    [button setImage:backBarNormalButtonLogoImage forState:UIControlStateNormal];
+    
+    UIImage *backBarHighlightButtonLogoImage = [UIImage imageNamed:@"WTNavigationBarBackHighlightButtonLogo"];
+    [button setImage:backBarHighlightButtonLogoImage forState:UIControlStateHighlighted];
+    
+    [button resetSize:backBarNormalButtonLogoImage.size];
     
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     
@@ -82,13 +88,16 @@
     [button setTitle:text forState:UIControlStateNormal];
     
     UIEdgeInsets insets = UIEdgeInsetsMake(0.0, 14.0, 0.0, 6.0);
-    UIImage *image = [[UIImage imageNamed:@"WTNavigationBarBackButton"] resizableImageWithCapInsets:insets];
-    [button setBackgroundImage:image forState:UIControlStateNormal];
+    UIImage *barBarNormalButtonImage = [[UIImage imageNamed:@"WTNavigationBarBackNormalButton"] resizableImageWithCapInsets:insets];
+    [button setBackgroundImage:barBarNormalButtonImage forState:UIControlStateNormal];
+    
+    UIImage *barBarHighlightButtonImage = [[UIImage imageNamed:@"WTNavigationBarBackHighlightButton"] resizableImageWithCapInsets:insets];
+    [button setBackgroundImage:barBarHighlightButtonImage forState:UIControlStateHighlighted];
     
     [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     [button setTitleShadowColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
-    [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [button setTitleShadowColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     
     button.titleLabel.font = [UIFont boldSystemFontOfSize:12];
@@ -96,7 +105,7 @@
     
     CGFloat titleLabelWidth = [text sizeWithFont:button.titleLabel.font].width + BUTTON_WIDTH_INCREMENT;
     titleLabelWidth = titleLabelWidth < MIN_BACK_BAR_BUTTON_WIDTH ? MIN_BACK_BAR_BUTTON_WIDTH : titleLabelWidth;
-    [button resetSize:CGSizeMake(titleLabelWidth, image.size.height)];
+    [button resetSize:CGSizeMake(titleLabelWidth, barBarNormalButtonImage.size.height)];
     
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     

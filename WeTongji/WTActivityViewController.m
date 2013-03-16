@@ -62,15 +62,15 @@
 #pragma mark - Data load methods
 
 - (void)loadData {
-    WTClient * client = [WTClient sharedClient];
-    WTRequest * request = [WTRequest requestWithSuccessBlock:^(id responseData) {
+    WTClient *client = [WTClient sharedClient];
+    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseData) {
         WTLOG(@"Get Activities: %@", responseData);
         NSDictionary *resultDict = (NSDictionary *)responseData;
         NSArray *resultArray = resultDict[@"Activities"];
         for (NSDictionary *dict in resultArray) {
             [Activity insertActivity:dict];
         }
-    } failureBlock:^(NSError * error) {
+    } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Get activity:%@", error.localizedDescription);
     }];
     [request getActivitiesInChannel:nil inSort:nil Expired:NO nextPage:0];

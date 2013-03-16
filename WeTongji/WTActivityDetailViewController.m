@@ -11,6 +11,7 @@
 #import "WTLikeButtonView.h"
 #import "WTBannerView.h"
 #import "Activity+Addition.h"
+#import <WeTongjiSDK/WeTongjiSDK.h>
 
 @interface WTActivityDetailViewController ()
 
@@ -116,6 +117,8 @@
     UIBarButtonItem *barMoreButton = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
     
     WTLikeButtonView *likeButtonContainerView = [WTLikeButtonView createLikeButtonViewWithTarget:self action:@selector(didClickLikeButton:)];
+    likeButtonContainerView.likeButton.selected = self.activity.like.boolValue;
+    
     UIBarButtonItem *barLikeButton = [[UIBarButtonItem alloc] initWithCustomView:likeButtonContainerView];
     
     UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 160, 44)];
@@ -293,6 +296,15 @@
 
 - (void)didClickLikeButton:(UIButton *)sender {
     sender.selected = !sender.selected;
+    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        WTLOG(@"Set activitiy liked:%d succeeded", sender.selected);
+        self.activity.like = @(sender.selected);
+    } failureBlock:^(NSError *error) {
+        WTLOGERROR(@"Set activitiy liked:%d", sender.selected);
+        sender.selected = !sender.selected;
+    }];
+    [request setActivitiyLiked:sender.selected activityID:self.activity.identifier];
+    [[WTClient sharedClient] enqueueRequest:request];
 }
 
 - (void)didClickInviteButton:(UIButton *)sender {
@@ -311,7 +323,6 @@
     } else {
         [sender setTitle:NSLocalizedString(@"Participate", nil) forState:UIControlStateNormal];
     }
-    
 }
 
 - (void)didClickOrganizerIndicator {
