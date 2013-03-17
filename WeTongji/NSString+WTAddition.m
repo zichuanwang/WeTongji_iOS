@@ -25,7 +25,16 @@
 
 + (NSString *)yearMonthDayConvertFromDate:(NSDate *)date {
     NSDateFormatter *form = [[NSDateFormatter alloc] init];
-    [form setDateFormat:@"yyyy.MM.dd"];
+    
+    NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    if ([language isEqualToString:@"en"]) {
+        [form setDateFormat:@"MM/dd/yyyy"];
+    } else if ([language isEqualToString:@"zh-Hans"]) {
+        [form setDateFormat:@"yyyy年MM月dd日"];
+    } else {
+        [form setDateFormat:@"yyyy.MM.dd"];
+    }
+    
     NSString *result = [form stringFromDate:date];
     return result;
 }

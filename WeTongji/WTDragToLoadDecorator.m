@@ -119,6 +119,9 @@ typedef enum {
                 } completion:^(BOOL finished) {
                     self.bottomViewState = BottomViewStateNormal;
                 }];
+                
+            } else {
+                self.bottomViewState = BottomViewStateNormal;
             }
         } else {
             // Trick, add the temp contentSize.height to make smooth animation
