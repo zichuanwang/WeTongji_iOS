@@ -138,6 +138,8 @@
 
 - (void)hideInnerModalViewController {
     self.view.userInteractionEnabled = NO;
+    [self.sourceViewController willHideInnderModalViewController];
+    
     [UIView animateWithDuration:0.3 animations:^{
         [self.innerModalViewController.view resetOriginY:-self.innerModalViewController.view.frame.size.height];
         [self.screenShootContainerView resetOriginYByOffset:-self.innerModalViewController.view.frame.size.height];

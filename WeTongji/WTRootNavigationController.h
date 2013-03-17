@@ -28,6 +28,9 @@ typedef enum {
 
 @protocol WTRootNavigationControllerDelegate <NSObject>
 
+@optional
 - (void)didHideInnderModalViewController;
+
+- (void)willHideInnderModalViewController;
 
 @end

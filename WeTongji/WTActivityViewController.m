@@ -215,6 +215,11 @@
     self.filterButton.selected = YES;
 }
 
+- (void)willHideInnderModalViewController {
+    self.fetchedResultsController = nil;
+    [self.tableView reloadData];
+}
+
 #pragma mark - WTDragToLoadDecoratorDataSource
 
 - (UIScrollView *)dragToLoadScrollView {
