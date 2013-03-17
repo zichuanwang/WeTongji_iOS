@@ -138,7 +138,8 @@
 
 - (void)hideInnerModalViewController {
     self.view.userInteractionEnabled = NO;
-    [self.sourceViewController willHideInnderModalViewController];
+    if ([self.sourceViewController respondsToSelector:@selector(willHideInnderModalViewController)])
+        [self.sourceViewController willHideInnderModalViewController];
     
     [UIView animateWithDuration:0.3 animations:^{
         [self.innerModalViewController.view resetOriginY:-self.innerModalViewController.view.frame.size.height];
@@ -149,7 +150,8 @@
         [self enableNavBar];
         self.currentWTDisableNavBarType = WTDisableNavBarTypeNone;
         
-        [self.sourceViewController didHideInnderModalViewController];
+        if ([self.sourceViewController respondsToSelector:@selector(didHideInnderModalViewController)])
+            [self.sourceViewController didHideInnderModalViewController];
         self.sourceViewController = nil;
         
         [self.innerModalViewController.view removeFromSuperview];

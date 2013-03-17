@@ -15,6 +15,7 @@
 #import "WTActivitySettingViewController.h"
 #import "NSUserDefaults+WTAddition.h"
 #import "WTDragToLoadDecorator.h"
+#import "NSString+WTAddition.h"
 
 @interface WTActivityViewController () <WTDragToLoadDecoratorDelegate, WTDragToLoadDecoratorDataSource>
 
@@ -155,7 +156,15 @@
     WTActivityCell *activityCell = (WTActivityCell *)cell;
     
     Activity *activity = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [activityCell configureCellWithIndexPath:indexPath title:activity.title time:activity.beginTimeString location:activity.where imageURL:activity.image];
+    
+    NSString *timeString = nil;
+    ActivityOrderMethod orderMethod = [[NSUserDefaults standardUserDefaults] getActivityOrderMethod];
+    if (orderMethod == ActivityOrderByPublishDate)
+        timeString = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Published at", nil), [NSString yearMonthDayWeekTimeConvertFromDate:activity.created_at]];
+    else
+        timeString = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Start time", nil), [NSString yearMonthDayWeekTimeConvertFromDate:activity.begin_time]];
+    
+    [activityCell configureCellWithIndexPath:indexPath title:activity.title time:timeString location:activity.where imageURL:activity.image];
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {

@@ -15,6 +15,8 @@
 
 @interface WTActivityDetailViewController ()
 
+@property (nonatomic, weak) WTLikeButtonView *likeButtonContainerView;
+
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic, weak) IBOutlet UIView *briefIntroductionView;
@@ -117,7 +119,9 @@
     UIBarButtonItem *barMoreButton = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
     
     WTLikeButtonView *likeButtonContainerView = [WTLikeButtonView createLikeButtonViewWithTarget:self action:@selector(didClickLikeButton:)];
-    likeButtonContainerView.likeButton.selected = self.activity.like_count.boolValue;
+    likeButtonContainerView.likeButton.selected = !self.activity.can_like.boolValue;
+    [likeButtonContainerView setLikeCount:self.activity.like_count.integerValue];
+    self.likeButtonContainerView = likeButtonContainerView;
     
     UIBarButtonItem *barLikeButton = [[UIBarButtonItem alloc] initWithCustomView:likeButtonContainerView];
     
@@ -298,9 +302,11 @@
     sender.selected = !sender.selected;
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Set activitiy liked:%d succeeded", sender.selected);
+        self.activity.like_count = @(self.activity.like_count.integerValue + (sender.selected ? 1 : (-1)));
+        [self.likeButtonContainerView setLikeCount:self.activity.like_count.integerValue];
         self.activity.can_like = @(!sender.selected);
     } failureBlock:^(NSError *error) {
-        WTLOGERROR(@"Set activitiy liked:%d", sender.selected);
+        WTLOGERROR(@"Set activitiy liked:%d, reason:%@", sender.selected, error.localizedDescription);
         sender.selected = !sender.selected;
     }];
     [request setActivitiyLiked:sender.selected activityID:self.activity.identifier];

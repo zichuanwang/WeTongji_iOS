@@ -8,6 +8,12 @@
 
 #import "WTLikeButtonView.h"
 
+@interface WTLikeButtonView ()
+
+@property (nonatomic, strong) UILabel *likeCountLabel;
+
+@end
+
 @implementation WTLikeButtonView
 
 + (WTLikeButtonView *)createLikeButtonViewWithTarget:(id)target action:(SEL)action {
@@ -15,6 +21,14 @@
     [result configureLikeButton];
     [result.likeButton addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     return result;
+}
+
+- (void)setLikeCount:(NSUInteger)likeCount {
+    self.likeCountLabel.text = [NSString stringWithFormat:@"%d", likeCount];
+}
+
+- (NSUInteger)getLikeCount {
+    return self.likeCountLabel.text.integerValue;
 }
 
 - (void)configureLikeButton {
@@ -31,24 +45,24 @@
     
     UIImageView *likeFlagBg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTLikeButtonFlagBg"]];
     
-    UILabel *friendCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(1, 0, likeButton.frame.size.width, 20)];
-    friendCountLabel.textAlignment = UITextAlignmentCenter;
-    friendCountLabel.font = [UIFont boldSystemFontOfSize:12];
-    friendCountLabel.backgroundColor = [UIColor clearColor];
-    friendCountLabel.textColor = [UIColor colorWithRed:150 / 255.0f green:150 / 255.0f blue:150 / 255.0f alpha:1];
-    friendCountLabel.shadowColor = [UIColor whiteColor];
-    friendCountLabel.shadowOffset = CGSizeMake(0, 1);
-    friendCountLabel.text = @"53";
+    UILabel *likeCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, likeButton.frame.size.width, 20)];
+    likeCountLabel.textAlignment = UITextAlignmentCenter;
+    likeCountLabel.font = [UIFont boldSystemFontOfSize:12];
+    likeCountLabel.backgroundColor = [UIColor clearColor];
+    likeCountLabel.textColor = [UIColor colorWithRed:150 / 255.0f green:150 / 255.0f blue:150 / 255.0f alpha:1];
+    likeCountLabel.shadowColor = [UIColor whiteColor];
+    likeCountLabel.shadowOffset = CGSizeMake(0, 1);
+    likeCountLabel.text = @"53";
     
-    self.friendCountLabel = friendCountLabel;
+    self.likeCountLabel = likeCountLabel;
 
     [likeButton resetOriginY:0];
     [likeFlagBg resetOriginY:0];
     [likeFlagBg resetCenterX:likeButton.frame.size.width / 2];
-    [friendCountLabel resetOriginY:likeFlagBg.frame.size.height - 38];
+    [likeCountLabel resetOriginY:likeFlagBg.frame.size.height - 38];
     [self addSubview:likeFlagBg];
     [self addSubview:likeButton];
-    [self addSubview:friendCountLabel];
+    [self addSubview:likeCountLabel];
 }
 
 @end
