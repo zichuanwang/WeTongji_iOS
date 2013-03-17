@@ -32,6 +32,8 @@ typedef enum {
 
 @property (nonatomic, assign) UIEdgeInsets scrollViewOriginalContentInset;
 
+@property (nonatomic, assign) BOOL alreadyObservingDragToLoadScrollView;
+
 @end
 
 @implementation WTDragToLoadDecorator
@@ -73,6 +75,42 @@ typedef enum {
 
 #pragma mark - Public methods
 
+static int kDragToLoadDecoratorObservingContext;
+
+- (void)startObservingChangesInDragToLoadScrollView {
+    if (self.alreadyObservingDragToLoadScrollView)
+        return;
+    self.alreadyObservingDragToLoadScrollView = YES;
+    
+    UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
+    [scrollView addObserver:self forKeyPath:@"contentSize" options:0 context:&kDragToLoadDecoratorObservingContext];
+    [scrollView addObserver:self forKeyPath:@"contentOffset" options:0 context:&kDragToLoadDecoratorObservingContext];
+}
+
+- (void)stopObservingChangesInDragToLoadScrollView {
+    if (!self.alreadyObservingDragToLoadScrollView)
+        return;
+    self.alreadyObservingDragToLoadScrollView = NO;
+    
+    UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
+    [scrollView removeObserver:self forKeyPath:@"contentSize" context:&kDragToLoadDecoratorObservingContext];
+    [scrollView removeObserver:self forKeyPath:@"contentOffset" context:&kDragToLoadDecoratorObservingContext];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if (context == &kDragToLoadDecoratorObservingContext) {
+        
+        if ([keyPath isEqualToString:@"contentSize"]) {
+            [self scrollViewContentSizeDidChange];
+        } else if ([keyPath isEqualToString:@"contentOffset"]) {
+            [self scrollViewContentOffsetDidChange];
+        }
+        
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
+
 + (WTDragToLoadDecorator *)createDecoratorWithDataSource:(id<WTDragToLoadDecoratorDataSource>)dataSource
                                                delegate:(id<WTDragToLoadDecoratorDelegate>)delegate {
     WTDragToLoadDecorator *result = [[WTDragToLoadDecorator alloc] init];
@@ -103,8 +141,11 @@ typedef enum {
             [self updateTopViewUpdateTimeLabel:NO];
         }
         
+        [UIView animateWithDuration:0.25f animations:^{
+            self.topViewState = TopViewStateNormal;
+        }];
+        
         [self.topView.activityIndicator stopAnimating];
-        self.topViewState = TopViewStateNormal;
     }
 }
 
@@ -135,20 +176,6 @@ typedef enum {
         
         [self.bottomView.activityIndicator stopAnimating];
     }
-}
-
-- (void)scrollViewDidChangeContentSize {
-    UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
-    if (scrollView.contentSize.height == 0) {
-        [self setBottomViewDisabled:YES];
-    } else {
-        [self resetBottomViewOriginY];
-    }
-}
-
-- (void)scrollViewDidChangeContentOffset {
-    [self updateTopViewState];
-    [self updateBottomViewState];
 }
 
 - (void)setTopViewDisabled:(BOOL)disabled {
@@ -246,6 +273,7 @@ typedef enum {
             scrollView.contentInset = inset;
             
             [self.bottomView.activityIndicator startAnimating];
+            [self.delegate dragToLoadDecoratorDidDragUp];
         }
 			break;
             
@@ -261,6 +289,22 @@ typedef enum {
 }
 
 #pragma mark - Logic methods
+
+- (void)scrollViewContentSizeDidChange {
+    UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
+    if (scrollView.contentSize.height == 0) {
+        [self setBottomViewDisabled:YES];
+    } else if (scrollView.contentSize.height < scrollView.frame.size.height) {
+        self.bottomViewState = BottomViewStateLoading;
+    } else {
+        [self resetBottomViewOriginY];
+    }
+}
+
+- (void)scrollViewContentOffsetDidChange {
+    [self updateTopViewState];
+    [self updateBottomViewState];
+}
 
 - (void)updateTopViewState {
     TopViewState state = self.topViewState;
@@ -305,7 +349,6 @@ typedef enum {
         if (state == BottomViewStateNormal) {
             if (isBottomViewShown) {
                 self.bottomViewState = BottomViewStateLoading;
-                [self.delegate dragToLoadDecoratorDidDragUp];
             }
         }
     }

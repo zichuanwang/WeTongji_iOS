@@ -45,13 +45,19 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
     
     self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
-    // [self.dragToLoadDecorator setBottomViewDisabled:YES];
+    
+    [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [super viewDidDisappear:animated];
+    [super viewDidAppear:animated];
     [self.tableView resetHeight:self.view.frame.size.height];
-    [self.dragToLoadDecorator scrollViewDidChangeContentSize];
+    [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.dragToLoadDecorator stopObservingChangesInDragToLoadScrollView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -137,15 +143,6 @@
     } else {
         [nav hideInnerModalViewController];
     }
-}
-
-#pragma mark - UIScrollViewDelegate
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    // TODO: Move this line to a more appropriate place
-    [self.dragToLoadDecorator scrollViewDidChangeContentSize];
-    
-    [self.dragToLoadDecorator scrollViewDidChangeContentOffset];
 }
 
 #pragma mark - UITableViewDelegate

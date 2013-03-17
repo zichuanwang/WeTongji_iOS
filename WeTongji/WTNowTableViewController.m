@@ -28,16 +28,9 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 @property (nonatomic, assign) BOOL isTableViewFirstLoad;
 @property (nonatomic, strong) WTDragToLoadDecorator *tableViewDecorator;
 
-- (Event *)getNowEvent;
-- (void)configureWeekDuration;
-- (void)loadDataFrom:(NSDate *)fromDate to:(NSDate *)toDate;
 @end
 
 @implementation WTNowTableViewController
-
-@synthesize weekBegin = _weekBegin;
-@synthesize weekEnd = _weekEnd;
-@synthesize tableViewDecorator = _tableViewDecorator;
 
 - (void)viewDidLoad
 {
@@ -45,15 +38,14 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
     self.tableView.scrollsToTop = NO;
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
+    
+    [self.tableViewDecorator startObservingChangesInDragToLoadScrollView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self configureWeekDuration];
-    [self.tableViewDecorator scrollViewDidChangeContentSize];
+    [self.tableViewDecorator startObservingChangesInDragToLoadScrollView];
     
     [self loadDataFrom:[self convertToDate:self.weekBegin]
                     to:[self convertToDate:self.weekEnd]
@@ -64,6 +56,11 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
           failureBlock:^{
               [self.tableViewDecorator topViewLoadFinished:NO]; 
           }];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.tableViewDecorator stopObservingChangesInDragToLoadScrollView];
 }
 
 - (void)scrollToNow:(BOOL)animated
@@ -211,14 +208,6 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
         [self scrollToNow:NO];
         self.isTableViewFirstLoad = TRUE;
     }
-}
-
-#pragma mark - UIScrollViewDelegate
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    [self.tableViewDecorator scrollViewDidChangeContentSize];
-    [self.tableViewDecorator scrollViewDidChangeContentOffset];
 }
 
 #pragma mark - WTDragToLoadDatasource

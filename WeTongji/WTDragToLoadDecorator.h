@@ -41,9 +41,12 @@
 
 - (void)setBottomViewDisabled:(BOOL)disabled;
 
-- (void)scrollViewDidChangeContentOffset;
+// Call this method in your UIViewController's |viewDidLoad| and
+// |viewDidAppear:animated:|.
+- (void)startObservingChangesInDragToLoadScrollView;
 
-- (void)scrollViewDidChangeContentSize;
+// Call this method in your UIViewController's |viewDidDisappear:animated:|.
+- (void)stopObservingChangesInDragToLoadScrollView;
 
 @end
 
