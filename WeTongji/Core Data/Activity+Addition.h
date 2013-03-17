@@ -17,4 +17,6 @@
 
 + (Activity *)activityWithID:(NSString *)activityID;
 
++ (void)clearAllActivites;
+
 @end

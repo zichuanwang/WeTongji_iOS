@@ -22,27 +22,22 @@
     Activity *result = [Activity activityWithID:activityID];
     if (!result) {
         result = [NSEntityDescription insertNewObjectForEntityForName:@"Activity" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
+        result.identifier = activityID;
     }
     
-    result.identifier = activityID;
-    result.begin = [NSString stringWithFormat:@"%@", dict[@"Begin"]];
-    result.begin_time = [result.begin convertToDate];
-    result.end = [NSString stringWithFormat:@"%@", dict[@"End"]];
-    result.location = [NSString stringWithFormat:@"%@", dict[@"Location"]];
+    result.begin_time = [[NSString stringWithFormat:@"%@", dict[@"Begin"]] convertToDate];
+    result.end_time = [[NSString stringWithFormat:@"%@", dict[@"End"]] convertToDate];
+    result.where = [NSString stringWithFormat:@"%@", dict[@"Location"]];
     result.organizer = [NSString stringWithFormat:@"%@", dict[@"Organizer"]];
     result.title = [NSString stringWithFormat:@"%@", dict[@"Title"]];
-    result.can_favorite = (NSNumber *)dict[@"CanFavorite"];
-    result.can_schedule = (NSNumber *)dict[@"CanSchedule"];
-    result.can_like = (NSNumber *)dict[@"CanLike"];
-    result.channel_Id = (NSNumber *)dict[@"Channel_Id"];
-    result.created_at = [NSString stringWithFormat:@"%@", dict[@"CreatedAt"]];
-    result.activity_description = [NSString stringWithFormat:@"%@", dict[@"Description"]];
-    result.favorite = (NSNumber *)dict[@"Favorite"];
+    result.can_schedule = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"CanSchedule"]]).boolValue);
+    result.can_like = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"CanLike"]]).boolValue);
+    result.activity_type = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"Channel_Id"]]).integerValue);
+    result.created_at = [[NSString stringWithFormat:@"%@", dict[@"CreatedAt"]] convertToDate];
+    result.content = [NSString stringWithFormat:@"%@", dict[@"Description"]];
     result.image = [NSString stringWithFormat:@"%@", dict[@"Image"]];
-    result.like = (NSNumber *)dict[@"Like"];
+    result.like_count = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"Like"]]).integerValue);
     result.organizer_avatar = [NSString stringWithFormat:@"%@", dict[@"OrganizerAvatar"]];
-    result.schedule = (NSNumber *)dict[@"Schedule"];
-    result.status = [NSString stringWithFormat:@"%@", dict[@"Status"]];
     
     return result;
 }
@@ -58,6 +53,17 @@
     return result;
 }
 
++ (void)clearAllActivites {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
+    [request setEntity:[NSEntityDescription entityForName:@"Activity" inManagedObjectContext:context]];
+    NSArray *allActivities = [context executeFetchRequest:request error:NULL];
+    
+    for(Activity *item in allActivities) {
+        [context deleteObject:item];
+    }
+}
+
 - (void)awakeFromFetch {
 //    self.publish_day = [NSString yearMonthDayConvertFromDate:self.publish_date];
 }
@@ -65,14 +71,11 @@
 #pragma mark - Properties
 
 - (NSString *)beginTimeString {
-    NSDate *beginDate = [self.begin convertToDate];
-    return [NSString yearMonthDayWeekTimeConvertFromDate:beginDate];
+    return [NSString yearMonthDayWeekTimeConvertFromDate:self.begin_time];
 }
 
 - (NSString *)beginToEndTimeString {
-    NSDate *beginDate = [self.begin convertToDate];
-    NSDate *endDate = [self.end convertToDate];
-    return [NSString timeConvertFromBeginDate:beginDate endDate:endDate];
+    return [NSString timeConvertFromBeginDate:self.begin_time endDate:self.end_time];
 }
 
 @end

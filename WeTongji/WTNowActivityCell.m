@@ -46,7 +46,7 @@
                                              [self.posterImageView fadeIn];
                                          }
                                          failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                             WTLOGERROR(@"The specified image: \"%@\" cannot be found on server", [[NSURL URLWithString:imageURL] lastPathComponent]);
+
                                          }];
 }
 

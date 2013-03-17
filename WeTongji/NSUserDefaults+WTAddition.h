@@ -24,6 +24,7 @@ typedef enum {
     NewsShowTypeCollegeNotification = 1 << 1,
     NewsShowTypeAssociationNews     = 1 << 2,
     NewsShowTypeLocalRecommandation = 1 << 3,
+    NewsShowTypesCount              = 4
 } NewsShowTypes;
 
 typedef enum {
@@ -31,6 +32,7 @@ typedef enum {
     ActivityShowTypeEntertainment   = 1 << 1,
     ActivityShowTypeEnterprise      = 1 << 2,
     ActivityShowTypeCompetition     = 1 << 3,
+    ActivityShowTypesCount          = 4
 } ActivityShowTypes;
 
 #define NewsShowTypesAll (NewsShowTypeCampusUpdate + NewsShowTypeCollegeNotification + NewsShowTypeAssociationNews + NewsShowTypeLocalRecommandation)
@@ -39,13 +41,13 @@ typedef enum {
 
 @interface NSUserDefaults (WTAddition)
 
-- (NewsOrderMethod)getNewsOrderMethod;
-- (void)setNewsOrderMethod:(NewsOrderMethod)method;
+// 返回一个数组, 数组中的元素按|ActivityShowTypes|排列, 类型均为包含一个BOOL类型数据的NSNumber
+- (NSArray *)getActivityShowTypesArray;
 
-// 返回一个数组, 数组中的元素按 NewsShowType 排列, 类型均为包含一个BOOL类型数据的NSNumber
-// - (NSArray *)getNewsShowTypes;
+- (ActivityOrderMethod)getActivityOrderMethod;
 
-- (void)addNewsShowTypes:(NewsShowTypes)type;
-- (void)removeNewsShowTypes:(NewsShowTypes)type;
+- (BOOL)getActivityHidePastProperty;
+
+- (BOOL)getActivitySmartOrderProperty;
 
 @end

@@ -256,7 +256,7 @@
     NSInteger value = [userDefault integerForKey:self.userDefaultKey];
     NSInteger itemValue = 1 << cellIndex;
     if (self.supportMultiSelection) {
-        cell.checkmarkImageView.hidden = !(value & itemValue);
+        cell.checkmarkImageView.hidden = ((value & itemValue) == 0);
     } else {
         cell.checkmarkImageView.hidden = !(value == itemValue);
     }

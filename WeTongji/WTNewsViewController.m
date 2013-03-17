@@ -12,12 +12,15 @@
 #import "News+Addition.h"
 #import "WTNewsCell.h"
 #import "WTNewsSettingViewController.h"
+#import "NSUserDefaults+WTAddition.h"
 #import "WTDragToLoadDecorator.h"
 
 @interface WTNewsViewController () <WTDragToLoadDecoratorDelegate, WTDragToLoadDecoratorDataSource>
 
 @property (nonatomic, readonly) UIButton *filterButton;
+
 @property (nonatomic, strong) WTDragToLoadDecorator *dragToLoadDecorator;
+
 @property (nonatomic, assign) NSInteger nextPage;
 
 @end
@@ -74,7 +77,6 @@
 
 - (void)loadMoreDataWithSuccessBlock:(void (^)(void))success
                         failureBlock:(void (^)(void))failure {
-    WTClient * client = [WTClient sharedClient];
     WTRequest * request = [WTRequest requestWithSuccessBlock:^(id responseData) {
         WTLOG(@"Get news: %@", responseData);
         
@@ -83,8 +85,9 @@
         
         NSDictionary *resultDict = (NSDictionary *)responseData;
         NSArray *resultArray = resultDict[@"SchoolNews"];
-        for(NSDictionary *dict in resultArray)
+        for(NSDictionary *dict in resultArray) {
             [News insertNews:dict];
+        }
         
         NSString *nextPage = resultDict[@"NextPager"];
         self.nextPage = nextPage.integerValue;
@@ -99,7 +102,7 @@
             failure();
     }];
     [request getNewsInTypes:nil sortMethod:nil page:self.nextPage];
-    [client enqueueRequest:request];
+    [[WTClient sharedClient] enqueueRequest:request];
 }
 
 #pragma mark - Properties

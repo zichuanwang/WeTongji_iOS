@@ -10,14 +10,14 @@
 #import "NSString+WTAddition.h"
 
 typedef enum {
-    TopViewStateNormal = 0,
+    TopViewStateNormal = 1,
 	TopViewStateReady,
 	TopViewStateLoading,
     TopViewStateDisabled,
 } TopViewState;
 
 typedef enum {
-    BottomViewStateNormal = 0,
+    BottomViewStateNormal = 1,
 	BottomViewStateLoading,
     BottomViewStateDisabled,
 } BottomViewState;
@@ -211,6 +211,9 @@ static int kDragToLoadDecoratorObservingContext;
 }
 
 - (void)setTopViewState:(TopViewState)topViewState {
+    if (_topViewState == topViewState)
+        return;
+    
     _topViewState = topViewState;
     
     UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
@@ -254,6 +257,9 @@ static int kDragToLoadDecoratorObservingContext;
 }
 
 - (void)setBottomViewState:(BottomViewState)bottomViewState {
+    if (_bottomViewState == bottomViewState)
+        return;
+    
     _bottomViewState = bottomViewState;
     
     UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
@@ -295,7 +301,8 @@ static int kDragToLoadDecoratorObservingContext;
     if (scrollView.contentSize.height == 0) {
         [self setBottomViewDisabled:YES];
     } else if (scrollView.contentSize.height < scrollView.frame.size.height) {
-        self.bottomViewState = BottomViewStateLoading;
+        if (self.bottomViewState != BottomViewStateDisabled)
+            self.bottomViewState = BottomViewStateLoading;
     } else {
         [self resetBottomViewOriginY];
     }

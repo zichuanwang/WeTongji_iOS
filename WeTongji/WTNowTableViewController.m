@@ -155,7 +155,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
         
         [activityCell configureCellWithtitle:acitivity.title
                                          time:acitivity.beginToEndTimeString
-                                     location:acitivity.location
+                                     location:acitivity.where
                                      imageURL:acitivity.image];
         
     } else if ([item isKindOfClass:[Course class]]){

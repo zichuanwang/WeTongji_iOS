@@ -117,7 +117,7 @@
     UIBarButtonItem *barMoreButton = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
     
     WTLikeButtonView *likeButtonContainerView = [WTLikeButtonView createLikeButtonViewWithTarget:self action:@selector(didClickLikeButton:)];
-    likeButtonContainerView.likeButton.selected = self.activity.like.boolValue;
+    likeButtonContainerView.likeButton.selected = self.activity.like_count.boolValue;
     
     UIBarButtonItem *barLikeButton = [[UIBarButtonItem alloc] initWithCustomView:likeButtonContainerView];
     
@@ -146,7 +146,7 @@
 #pragma mark Configure brief introduction view
 
 - (void)configureActivityLocationButton {
-    [self.activityLocationButton setTitle:self.activity.location forState:UIControlStateNormal];
+    [self.activityLocationButton setTitle:self.activity.where forState:UIControlStateNormal];
     CGFloat locationButtonHeight = self.activityLocationButton.frame.size.height;
     CGFloat locationButtonCenterY = self.activityLocationButton.center.y;
     CGFloat locationButtonRightBoundX = self.activityLocationButton.frame.origin.x + self.activityLocationButton.frame.size
@@ -260,7 +260,7 @@
 - (void)configureActivityDescriptionView {
     self.activityDescriptionDisplayLabel.text = NSLocalizedString(@"About", nil);
     
-    self.activityDescriptionLabel.text = self.activity.activity_description;
+    self.activityDescriptionLabel.text = self.activity.content;
     self.activityDescriptionLabel.numberOfLines = 0;
     [self.activityDescriptionLabel sizeToFit];
     
@@ -298,7 +298,7 @@
     sender.selected = !sender.selected;
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Set activitiy liked:%d succeeded", sender.selected);
-        self.activity.like = @(sender.selected);
+        self.activity.can_like = @(!sender.selected);
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Set activitiy liked:%d", sender.selected);
         sender.selected = !sender.selected;

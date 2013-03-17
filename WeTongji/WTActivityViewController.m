@@ -13,10 +13,16 @@
 #import "Activity+Addition.h"
 #import "WTActivityDetailViewController.h"
 #import "WTActivitySettingViewController.h"
+#import "NSUserDefaults+WTAddition.h"
+#import "WTDragToLoadDecorator.h"
 
-@interface WTActivityViewController ()
+@interface WTActivityViewController () <WTDragToLoadDecoratorDelegate, WTDragToLoadDecoratorDataSource>
 
 @property (nonatomic, readonly) UIButton *filterButton;
+
+@property (nonatomic, strong) WTDragToLoadDecorator *dragToLoadDecorator;
+
+@property (nonatomic, assign) NSInteger nextPage;
 
 @end
 
@@ -27,6 +33,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.nextPage = 2;
     }
     return self;
 }
@@ -36,15 +43,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self configureNavigationBar];
+    
+    [self configureTableView];
+    
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
     
-    self.tableView.scrollsToTop = NO;
+    self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
     
-    [self loadData];
+    [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self.tableView resetHeight:self.view.frame.size.height];
+    [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.dragToLoadDecorator stopObservingChangesInDragToLoadScrollView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,20 +78,39 @@
 
 #pragma mark - Data load methods
 
-- (void)loadData {
-    WTClient *client = [WTClient sharedClient];
-    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseData) {
-        WTLOG(@"Get Activities: %@", responseData);
+- (void)clearAllData {
+    [Activity clearAllActivites];
+}
+
+- (void)loadMoreDataWithSuccessBlock:(void (^)(void))success
+                        failureBlock:(void (^)(void))failure {
+    WTRequest * request = [WTRequest requestWithSuccessBlock:^(id responseData) {
+        WTLOG(@"Get activities: %@", responseData);
+        
+        if (success)
+            success();
+        
         NSDictionary *resultDict = (NSDictionary *)responseData;
         NSArray *resultArray = resultDict[@"Activities"];
         for (NSDictionary *dict in resultArray) {
             [Activity insertActivity:dict];
         }
-    } failureBlock:^(NSError *error) {
-        WTLOGERROR(@"Get activity:%@", error.localizedDescription);
+        
+        NSString *nextPage = resultDict[@"NextPager"];
+        self.nextPage = nextPage.integerValue;
+        
+        if (self.nextPage == 0) {
+            [self.dragToLoadDecorator setBottomViewDisabled:YES];
+        }
+    } failureBlock:^(NSError * error) {
+        WTLOGERROR(@"Get activities:%@", error.localizedDescription);
+        
+        if (failure)
+            failure();
     }];
-    [request getActivitiesInChannel:nil inSort:nil Expired:NO nextPage:0];
-    [client enqueueRequest:request];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [request getActivitiesInTypes:[userDefaults getActivityShowTypesArray] orderMethod:[userDefaults getActivityOrderMethod] smartOrder:[userDefaults getActivitySmartOrderProperty] showExpire:![userDefaults getActivityHidePastProperty] page:self.nextPage];
+    [[WTClient sharedClient] enqueueRequest:request];
 }
 
 #pragma mark - UI methods
@@ -85,6 +121,12 @@
                                                                                           action:@selector(didClickBackButton:)];
     self.navigationItem.rightBarButtonItem = [WTResourceFactory createFilterBarButtonWithTarget:self
                                                                                          action:@selector(didClickFilterButton:)];
+}
+
+- (void)configureTableView {
+    self.tableView.alwaysBounceVertical = YES;
+    
+    self.tableView.scrollsToTop = NO;
 }
 
 #pragma mark - Actions
@@ -113,14 +155,40 @@
     WTActivityCell *activityCell = (WTActivityCell *)cell;
     
     Activity *activity = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [activityCell configureCellWithIndexPath:indexPath title:activity.title time:activity.beginTimeString location:activity.location imageURL:activity.image];//TODO time
+    [activityCell configureCellWithIndexPath:indexPath title:activity.title time:activity.beginTimeString location:activity.where imageURL:activity.image];
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"Activity" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
-
-    NSSortDescriptor *sortByBegin = [[NSSortDescriptor alloc] initWithKey:@"begin" ascending:YES];
-    [request setSortDescriptors:@[sortByBegin]];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    ActivityOrderMethod orderMethod = [userDefaults getActivityOrderMethod];
+    BOOL smartOrder = [userDefaults getActivitySmartOrderProperty];
+    BOOL showExpire = ![userDefaults getActivityHidePastProperty];
+    BOOL orderByAsc = ![WTRequest shouldActivityOrderByDesc:orderMethod smartOrder:smartOrder showExpire:showExpire];
+    NSArray *descriptors = nil;
+    
+    switch (orderMethod) {
+        case ActivityOrderByPublishDate:
+        {
+            descriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"created_at" ascending:orderByAsc]];
+        }
+            break;
+        case ActivityOrderByPopularity:
+        {
+            descriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"like_count" ascending:orderByAsc]];
+        }
+            break;
+        case ActivityOrderByStartDate:
+        {
+            descriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"begin_time" ascending:orderByAsc]];
+        }
+            break;
+        default:
+            break;
+    }
+    
+    [request setSortDescriptors:descriptors];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
@@ -145,6 +213,37 @@
 
 - (void)didHideInnderModalViewController {
     self.filterButton.selected = YES;
+}
+
+#pragma mark - WTDragToLoadDecoratorDataSource
+
+- (UIScrollView *)dragToLoadScrollView {
+    return self.tableView;
+}
+
+- (NSString *)userDefaultKey {
+    return @"WTActivityController";
+}
+
+#pragma mark - WTDragToLoadDecoratorDelegate
+
+- (void)dragToLoadDecoratorDidDragUp {
+    [self loadMoreDataWithSuccessBlock:^{
+        [self.dragToLoadDecorator bottomViewLoadFinished:YES];
+    } failureBlock:^{
+        [self.dragToLoadDecorator bottomViewLoadFinished:NO];
+    }];
+}
+
+- (void)dragToLoadDecoratorDidDragDown {
+    self.nextPage = 1;
+    [self loadMoreDataWithSuccessBlock:^{
+        [self clearAllData];
+        [self.dragToLoadDecorator topViewLoadFinished:YES];
+        [self.dragToLoadDecorator setBottomViewDisabled:NO];
+    } failureBlock:^{
+        [self.dragToLoadDecorator topViewLoadFinished:NO];
+    }];
 }
 
 @end
