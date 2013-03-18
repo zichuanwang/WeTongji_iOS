@@ -102,9 +102,13 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
     request.predicate = [NSPredicate predicateWithFormat:@"begin_time >= %@", [NSDate date]];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"begin_time" ascending:YES]];
+    
     NSArray *matches = [[WTCoreDataManager sharedManager].managedObjectContext executeFetchRequest:request error:nil];
-
-    return [matches objectAtIndex:0];
+    if ([matches count] == 0) {
+        return nil;
+    } else {
+        return [matches objectAtIndex:0];
+    }
 }
 
 - (void)loadDataFrom:(NSDate *)fromDate
