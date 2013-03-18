@@ -94,7 +94,8 @@
         NSDictionary *resultDict = (NSDictionary *)responseData;
         NSArray *resultArray = resultDict[@"Activities"];
         for (NSDictionary *dict in resultArray) {
-            [Activity insertActivity:dict];
+            Activity *activity = [Activity insertActivity:dict];
+            NSLog(@"activity like_count:%d, created_at:%@, begin_time:%@", activity.like_count.integerValue, [NSString yearMonthDayConvertFromDate:activity.created_at], [NSString yearMonthDayConvertFromDate:activity.begin_time]);
         }
         
         NSString *nextPage = resultDict[@"NextPager"];
@@ -176,21 +177,22 @@
     BOOL showExpire = ![userDefaults getActivityHidePastProperty];
     BOOL orderByAsc = ![WTRequest shouldActivityOrderByDesc:orderMethod smartOrder:smartOrder showExpire:showExpire];
     NSArray *descriptors = nil;
+    NSSortDescriptor *updateTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"update_time" ascending:YES];
     
     switch (orderMethod) {
         case ActivityOrderByPublishDate:
         {
-            descriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"created_at" ascending:orderByAsc]];
+            descriptors = [NSArray arrayWithObjects:[[NSSortDescriptor alloc] initWithKey:@"created_at" ascending:orderByAsc], updateTimeDescriptor, nil];
         }
             break;
         case ActivityOrderByPopularity:
         {
-            descriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"like_count" ascending:orderByAsc]];
+            descriptors = [NSArray arrayWithObjects:[[NSSortDescriptor alloc] initWithKey:@"like_count" ascending:orderByAsc], updateTimeDescriptor, nil];
         }
             break;
         case ActivityOrderByStartDate:
         {
-            descriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"begin_time" ascending:orderByAsc]];
+            descriptors = [NSArray arrayWithObjects:[[NSSortDescriptor alloc] initWithKey:@"begin_time" ascending:orderByAsc], updateTimeDescriptor, nil];
         }
             break;
         default:

@@ -78,6 +78,10 @@ typedef enum {
 static int kDragToLoadDecoratorObservingContext;
 
 - (void)startObservingChangesInDragToLoadScrollView {
+    
+    // Force update
+    [self scrollViewContentSizeDidChange];
+    
     if (self.alreadyObservingDragToLoadScrollView)
         return;
     self.alreadyObservingDragToLoadScrollView = YES;

@@ -121,6 +121,7 @@
 		E12554D016491532006D42F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E12554CE16491532006D42F5 /* InfoPlist.strings */; };
 		E12554D316491532006D42F5 /* WeTongjiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E12554D216491532006D42F5 /* WeTongjiTests.m */; };
 		E1384A4416F6333B003119D2 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = E1384A4316F6333B003119D2 /* Activity.m */; };
+		E1384A4716F77F47003119D2 /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E1384A4616F77F47003119D2 /* Object.m */; };
 		E13B0E4C169F4F5500A45079 /* WTNavigationBarBackNormalButtonLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0E4A169F4F5500A45079 /* WTNavigationBarBackNormalButtonLogo.png */; };
 		E13B0E4D169F4F5500A45079 /* WTNavigationBarBackNormalButtonLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0E4B169F4F5500A45079 /* WTNavigationBarBackNormalButtonLogo@2x.png */; };
 		E13B0E5116A2E16C00A45079 /* WTNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0E5016A2E16C00A45079 /* WTNewsCell.m */; };
@@ -137,7 +138,6 @@
 		E13B0EB316A4665A00A45079 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0EB216A4665A00A45079 /* Image.m */; };
 		E13B0EBC16A4666A00A45079 /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0EBB16A4666A00A45079 /* Organization.m */; };
 		E13B0EBF16A4666C00A45079 /* Star.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0EBE16A4666C00A45079 /* Star.m */; };
-		E13B0EC216A4666D00A45079 /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0EC116A4666D00A45079 /* Object.m */; };
 		E13B0EC516A468B800A45079 /* WTTableViewSectionBgUnit.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0EC316A468B800A45079 /* WTTableViewSectionBgUnit.png */; };
 		E13B0EC616A468B800A45079 /* WTTableViewSectionBgUnit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0EC416A468B800A45079 /* WTTableViewSectionBgUnit@2x.png */; };
 		E13B0ED316A4704900A45079 /* NSString+WTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0ED216A4704900A45079 /* NSString+WTAddition.m */; };
@@ -483,6 +483,8 @@
 		E12554D216491532006D42F5 /* WeTongjiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeTongjiTests.m; sourceTree = "<group>"; };
 		E1384A4216F6333B003119D2 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
 		E1384A4316F6333B003119D2 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
+		E1384A4516F77F47003119D2 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
+		E1384A4616F77F47003119D2 /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
 		E13B0E4A169F4F5500A45079 /* WTNavigationBarBackNormalButtonLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNavigationBarBackNormalButtonLogo.png; sourceTree = "<group>"; };
 		E13B0E4B169F4F5500A45079 /* WTNavigationBarBackNormalButtonLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNavigationBarBackNormalButtonLogo@2x.png"; sourceTree = "<group>"; };
 		E13B0E4F16A2E16C00A45079 /* WTNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNewsCell.h; sourceTree = "<group>"; };
@@ -510,8 +512,6 @@
 		E13B0EBB16A4666A00A45079 /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Organization.m; sourceTree = "<group>"; };
 		E13B0EBD16A4666B00A45079 /* Star.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Star.h; sourceTree = "<group>"; };
 		E13B0EBE16A4666C00A45079 /* Star.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Star.m; sourceTree = "<group>"; };
-		E13B0EC016A4666C00A45079 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
-		E13B0EC116A4666D00A45079 /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
 		E13B0EC316A468B800A45079 /* WTTableViewSectionBgUnit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTableViewSectionBgUnit.png; sourceTree = "<group>"; };
 		E13B0EC416A468B800A45079 /* WTTableViewSectionBgUnit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTableViewSectionBgUnit@2x.png"; sourceTree = "<group>"; };
 		E13B0ED116A4704900A45079 /* NSString+WTAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WTAddition.h"; sourceTree = "<group>"; };
@@ -1473,14 +1473,14 @@
 				E1545B8916B319CE00FC1437 /* News.m */,
 				E10A8D6216E5073E008B72E7 /* Notification.h */,
 				E10A8D6316E5073E008B72E7 /* Notification.m */,
-				E13B0EC016A4666C00A45079 /* Object.h */,
-				E13B0EC116A4666D00A45079 /* Object.m */,
 				E13B0EBA16A4666A00A45079 /* Organization.h */,
 				E13B0EBB16A4666A00A45079 /* Organization.m */,
 				E13B0EBD16A4666B00A45079 /* Star.h */,
 				E13B0EBE16A4666C00A45079 /* Star.m */,
 				E10A8D5F16E505AF008B72E7 /* User.h */,
 				E10A8D6016E505B0008B72E7 /* User.m */,
+				E1384A4516F77F47003119D2 /* Object.h */,
+				E1384A4616F77F47003119D2 /* Object.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1869,7 +1869,6 @@
 				E13B0EB316A4665A00A45079 /* Image.m in Sources */,
 				E13B0EBC16A4666A00A45079 /* Organization.m in Sources */,
 				E13B0EBF16A4666C00A45079 /* Star.m in Sources */,
-				E13B0EC216A4666D00A45079 /* Object.m in Sources */,
 				E13B0ED316A4704900A45079 /* NSString+WTAddition.m in Sources */,
 				E10C422316AB03410084337C /* WTSwitch.m in Sources */,
 				A1ADA9DB16AC460500E3A62E /* WTActivityViewController.m in Sources */,
@@ -1906,6 +1905,7 @@
 				03A3455016EF579800F6893E /* WTPullTableHeaderView.m in Sources */,
 				E1A5816216F0F8EB00551149 /* WTDragToLoadDecorator.m in Sources */,
 				E1384A4416F6333B003119D2 /* Activity.m in Sources */,
+				E1384A4716F77F47003119D2 /* Object.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -64,6 +64,7 @@
     </entity>
     <entity name="Object" representedClassName="Object" isAbstract="YES" syncable="YES">
         <attribute name="identifier" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="update_time" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <entity name="Organization" representedClassName="Organization" parentEntity="Object" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
@@ -104,7 +105,7 @@
         <element name="InvitationNotification" positionX="160" positionY="192" width="128" height="60"/>
         <element name="News" positionX="160" positionY="192" width="128" height="120"/>
         <element name="Notification" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="Object" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="Object" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Organization" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Star" positionX="160" positionY="192" width="128" height="75"/>
         <element name="User" positionX="160" positionY="192" width="128" height="315"/>

@@ -25,6 +25,7 @@
         result.identifier = activityID;
     }
     
+    result.update_time = [NSDate date];
     result.begin_time = [[NSString stringWithFormat:@"%@", dict[@"Begin"]] convertToDate];
     result.end_time = [[NSString stringWithFormat:@"%@", dict[@"End"]] convertToDate];
     result.where = [NSString stringWithFormat:@"%@", dict[@"Location"]];

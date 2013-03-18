@@ -22,9 +22,10 @@
     News *result = [News newsWithID:newsID];
     if (!result) {
         result = [NSEntityDescription insertNewObjectForEntityForName:@"News" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
+        result.identifier = newsID;
     }
     
-    result.identifier = newsID;
+    result.update_time = [NSDate date];
     result.title = [NSString stringWithFormat:@"%@", dict[@"Title"]];
     result.content = [NSString stringWithFormat:@"%@", dict[@"Context"]];
     result.summary = [NSString stringWithFormat:@"%@", dict[@"Summary"]];
