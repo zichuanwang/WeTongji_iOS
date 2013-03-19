@@ -25,7 +25,6 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 
 @property (nonatomic, assign) int weekBegin;
 @property (nonatomic, assign) int weekEnd;
-@property (nonatomic, assign) BOOL isTableViewFirstLoaded;
 @property (nonatomic, strong) WTDragToLoadDecorator *tableViewDecorator;
 
 @end
@@ -47,16 +46,15 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     [self configureWeekDuration];
     [self.tableViewDecorator startObservingChangesInDragToLoadScrollView];
     
-//    [self loadDataFrom:[self convertToDate:self.weekBegin]
-//                    to:[self convertToDate:self.weekEnd]
-//          successBlock:^{
-//              [self clearAllData];
-//              [self.tableViewDecorator topViewLoadFinished:YES];
-//              [self.tableViewDecorator setBottomViewDisabled:NO];
-//          }
-//          failureBlock:^{
-//              [self.tableViewDecorator topViewLoadFinished:NO]; 
-//          }];
+    [self loadDataFrom:[self convertToDate:self.weekBegin]
+                    to:[self convertToDate:self.weekBegin + 1]
+          successBlock:^{
+              [self clearAllData];
+              [self.tableViewDecorator topViewLoadFinished:YES];
+              [self.tableViewDecorator setBottomViewDisabled:NO];
+          } failureBlock:^{
+              [self.tableViewDecorator topViewLoadFinished:NO];
+          }];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -178,7 +176,8 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     }
     
     Event *nowEvent = [self getNowEvent];
-    switch ([item.begin_time compare:nowEvent.begin_time]) {
+    NSDate *nowTime = nowEvent == nil ? [NSDate date] : nowEvent.begin_time;
+    switch ([item.begin_time compare:nowTime]) {
         case NSOrderedSame:
             [(WTNowBaseCell *)cell updateCellStatus:WTNowBaseCellTypeNow];
             break;
@@ -223,12 +222,8 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 {
     self.weekBegin --;
     [self loadDataFrom:[self convertToDate:self.weekBegin]
-                    to:[self convertToDate: self.weekBegin + 1]
+                    to:[self convertToDate:self.weekBegin + 1]
           successBlock:^{
-              if (!self.isTableViewFirstLoaded) {
-                  [self clearAllData];
-                  self.isTableViewFirstLoaded = TRUE;
-              }
               [self.tableViewDecorator topViewLoadFinished:YES];
               [self.tableViewDecorator setBottomViewDisabled:NO];
           } failureBlock:^{
