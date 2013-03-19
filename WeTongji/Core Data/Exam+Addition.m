@@ -29,6 +29,7 @@
     exam.name = [NSString stringWithFormat:@"%@",dic[@"Name"]];
     exam.teacher = [NSString stringWithFormat:@"%@",dic[@"Teacher"]];
     exam.location = [NSString stringWithFormat:@"%@",dic[@"Location"]];
+    exam.where = exam.location;
     exam.begin = [[NSString stringWithFormat:@"%@",dic[@"Begin"]] convertToDate];
     exam.begin_time = exam.begin;
     exam.end = [[NSString stringWithFormat:@"%@",dic[@"End"]] convertToDate];
@@ -47,6 +48,18 @@
     NSArray *matches = [context executeFetchRequest:request error:nil];
     
     return [matches lastObject];
+}
+
++ (void)clearAllExams
+{
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
+    [request setEntity:[NSEntityDescription entityForName:@"Exam" inManagedObjectContext:context]];
+    NSArray *allCourses = [context executeFetchRequest:request error:NULL];
+    
+    for(Exam *exam in allCourses) {
+        [context deleteObject:exam];
+    }
 }
 
 @end

@@ -14,4 +14,6 @@
 
 + (Course *)insertCourse:(NSDictionary *)dic;
 + (Course *)courseScheduleAtDay:(NSDate *)date withCourseID:(NSString *)courseID;
+
++ (void)clearAllCourses;
 @end

@@ -40,6 +40,7 @@
     course.section_end = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@",dic[@"SectionEnd"]] intValue]];
     course.required = [NSString stringWithFormat:@"%@", dic[@"Required"]];
     course.location = [NSString stringWithFormat:@"%@",dic[@"Location"]];
+    course.where = course.location;
     course.course_day = courseDay;
     course.begin_time = [courseDay dateByAddingTimeInterval:
                          [Course getDayTimeIntervalFromSection:course.section_start.intValue]];
@@ -56,6 +57,18 @@
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     NSArray *matches = [context executeFetchRequest:request error:nil];
     return [matches lastObject];
+}
+
++ (void)clearAllCourses
+{
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
+    [request setEntity:[NSEntityDescription entityForName:@"Course" inManagedObjectContext:context]];
+    NSArray *allCourses = [context executeFetchRequest:request error:NULL];
+    
+    for(Course *course in allCourses) {
+        [context deleteObject:course];
+    }
 }
 
 + (NSTimeInterval)getDayTimeIntervalFromSection:(NSInteger)section {

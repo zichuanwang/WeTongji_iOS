@@ -25,7 +25,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 
 @property (nonatomic, assign) int weekBegin;
 @property (nonatomic, assign) int weekEnd;
-@property (nonatomic, assign) BOOL isTableViewFirstLoad;
+@property (nonatomic, assign) BOOL isTableViewFirstLoaded;
 @property (nonatomic, strong) WTDragToLoadDecorator *tableViewDecorator;
 
 @end
@@ -68,7 +68,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     Event *nowEvent = [self getNowEvent];
     if (nowEvent != NULL) {
         NSIndexPath *indexPath = [self.fetchedResultsController indexPathForObject:nowEvent];
-        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:animated];
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:animated];
     }
 }
 
@@ -89,6 +89,13 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 }
 
 #pragma mark - Private Method
+
+- (void)clearAllData
+{
+    [Course clearAllCourses];
+    [Exam clearAllExams];
+    [Activity clearAllActivites];
+}
 
 - (void)configureWeekDuration
 {
@@ -155,6 +162,8 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     Event *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
     if ([item isKindOfClass:[Activity class]]) {
         Activity *acitivity = (Activity *)item;
+        NSLog(@"Item is %@",acitivity);
+        NSLog(@"Activity is %@",cell);
         WTNowActivityCell *activityCell = (WTNowActivityCell *)cell;
         
         [activityCell configureCellWithtitle:acitivity.title
@@ -166,7 +175,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
         Course *course = (Course *)item;
         WTNowCourseCell *courseCell = (WTNowCourseCell *)cell;
         
-        [courseCell configureCellWithTitle:course.name time:course.courseBeginToEndTime location:course.location];
+        [courseCell configureCellWithTitle:course.name time:course.courseBeginToEndTime location:course.where];
     }
     
     Event *nowEvent = [self getNowEvent];
@@ -207,10 +216,9 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [super controllerDidChangeContent:controller];
-    if (!self.isTableViewFirstLoad) {
-        [self.tableView reloadData];
+    if (!self.isTableViewFirstLoaded) {
         [self scrollToNow:NO];
-        self.isTableViewFirstLoad = TRUE;
+        self.isTableViewFirstLoaded = TRUE;
     }
 }
 
@@ -229,6 +237,9 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     [self loadDataFrom:[self convertToDate:self.weekBegin]
                     to:[self convertToDate: self.weekBegin + 1]
           successBlock:^{
+              if (!self.isTableViewFirstLoaded) {
+                  [self clearAllData];
+              }
               [self.tableViewDecorator topViewLoadFinished:YES];
               [self.tableViewDecorator setBottomViewDisabled:NO];
           } failureBlock:^{
