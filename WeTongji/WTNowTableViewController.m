@@ -47,15 +47,16 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     [self configureWeekDuration];
     [self.tableViewDecorator startObservingChangesInDragToLoadScrollView];
     
-    [self loadDataFrom:[self convertToDate:self.weekBegin]
-                    to:[self convertToDate:self.weekEnd]
-          successBlock:^{ 
-              [self.tableViewDecorator topViewLoadFinished:YES];
-              [self.tableViewDecorator setBottomViewDisabled:NO];
-          }
-          failureBlock:^{
-              [self.tableViewDecorator topViewLoadFinished:NO]; 
-          }];
+//    [self loadDataFrom:[self convertToDate:self.weekBegin]
+//                    to:[self convertToDate:self.weekEnd]
+//          successBlock:^{
+//              [self clearAllData];
+//              [self.tableViewDecorator topViewLoadFinished:YES];
+//              [self.tableViewDecorator setBottomViewDisabled:NO];
+//          }
+//          failureBlock:^{
+//              [self.tableViewDecorator topViewLoadFinished:NO]; 
+//          }];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -126,8 +127,12 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     WTClient * client = [WTClient sharedClient];
     WTRequest * request = [WTRequest requestWithSuccessBlock:^(id responseData) {
         WTLOG(@"Get Now Data Success: %@", responseData);
-        NSDictionary *resultDict = (NSDictionary *)responseData;
         
+        if (success) {
+            success();
+        }
+        
+        NSDictionary *resultDict = (NSDictionary *)responseData;
         NSArray *activitiesArray = resultDict[@"Activities"];
         for (NSDictionary *dict in activitiesArray) {
             [Activity insertActivity:dict];
@@ -141,10 +146,6 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
         NSArray *examsArray = resultDict[@"Exams"];
         for (NSDictionary *dict in examsArray) {
             [Exam insertExam:dict];
-        }
-        
-        if (success) {
-            success();
         }
     } failureBlock:^(NSError * error) {
         WTLOGERROR(@"Get NowData Error:%@", error.localizedDescription);
@@ -162,8 +163,6 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     Event *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
     if ([item isKindOfClass:[Activity class]]) {
         Activity *acitivity = (Activity *)item;
-        NSLog(@"Item is %@",acitivity);
-        NSLog(@"Activity is %@",cell);
         WTNowActivityCell *activityCell = (WTNowActivityCell *)cell;
         
         [activityCell configureCellWithtitle:acitivity.title
@@ -205,21 +204,10 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
         return @"WTNowActivityCell";
     } else if ([item isKindOfClass:[Course class]]){
         return @"WTNowCourseCell";
+    } else if ([item isKindOfClass:[Exam class]]) {
+        return @"WTNowCourseCell";
     }
-    return @"WTNowCourseCell";
-}
-
-- (NSString *)customSectionNameKeyPath {
-    return nil;
-}
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
-    [super controllerDidChangeContent:controller];
-    if (!self.isTableViewFirstLoaded) {
-        [self scrollToNow:NO];
-        self.isTableViewFirstLoaded = TRUE;
-    }
+    return @"WTNowActivityCell";
 }
 
 #pragma mark - WTDragToLoadDatasource
@@ -239,6 +227,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
           successBlock:^{
               if (!self.isTableViewFirstLoaded) {
                   [self clearAllData];
+                  self.isTableViewFirstLoaded = TRUE;
               }
               [self.tableViewDecorator topViewLoadFinished:YES];
               [self.tableViewDecorator setBottomViewDisabled:NO];
