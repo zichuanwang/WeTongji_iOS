@@ -11,6 +11,8 @@
 #import "UIApplication+WTAddition.h"
 #import "WTResourceFactory.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
+#import "User+Addition.h"
+#import "WTCoreDataManager.h"
 
 @interface WTLoginViewController ()
 
@@ -114,10 +116,17 @@
     [alert show];
 }
 
+- (void)configureFlurryUserData:(User *)user {
+    [Flurry setGender:user.gender];
+    [Flurry setUserID:user.student_number];
+}
+
 - (void)login {
     WTClient *client = [WTClient sharedClient];
     WTRequest *request = [WTRequest requestWithSuccessBlock: ^(id responseData) {
-        [responseData objectForKey:@"User"];
+        User *user = [User insertUser:[responseData objectForKey:@"User"]];
+        [WTCoreDataManager sharedManager].currentUser = user;
+        [self configureFlurryUserData:user];
         [self dismissView];
     } failureBlock:^(NSError * error) {
         [self showLoginFailedAlertView:error];

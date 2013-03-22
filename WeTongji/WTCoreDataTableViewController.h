@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WTCoreDataViewController.h"
+#import "WTCoreDataManager.h"
 
-@interface WTCoreDataTableViewController : WTCoreDataViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate> {
+@interface WTCoreDataTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate> {
     BOOL _noAnimationFlag;
 }
 

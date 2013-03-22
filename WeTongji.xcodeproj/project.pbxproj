@@ -106,6 +106,7 @@
 		E11703851651EF4800D82F4A /* WTTabBarButtonPowerSearchHl.png in Resources */ = {isa = PBXBuildFile; fileRef = E117036F1651EF4700D82F4A /* WTTabBarButtonPowerSearchHl.png */; };
 		E11703861651EF4800D82F4A /* WTTabBarButtonPowerSearchHl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E11703701651EF4700D82F4A /* WTTabBarButtonPowerSearchHl@2x.png */; };
 		E11703991651F35B00D82F4A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E11703981651F35A00D82F4A /* MainWindow.xib */; };
+		E11A7F4C16FC08050068C074 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E11A7F4B16FC08050068C074 /* libFlurry.a */; };
 		E125549416491530006D42F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549316491530006D42F5 /* UIKit.framework */; };
 		E125549616491530006D42F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549516491530006D42F5 /* Foundation.framework */; };
 		E125549816491530006D42F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549716491530006D42F5 /* CoreGraphics.framework */; };
@@ -128,7 +129,6 @@
 		E13B0E5316A2E18800A45079 /* WTNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E13B0E5216A2E18800A45079 /* WTNewsCell.xib */; };
 		E13B0E5616A2F31100A45079 /* WTFilterLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0E5416A2F31100A45079 /* WTFilterLogo.png */; };
 		E13B0E5716A2F31100A45079 /* WTFilterLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0E5516A2F31100A45079 /* WTFilterLogo@2x.png */; };
-		E13B0E5A16A3028900A45079 /* WTCoreDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0E5916A3028900A45079 /* WTCoreDataViewController.m */; };
 		E13B0E5D16A302A500A45079 /* WTCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0E5C16A302A500A45079 /* WTCoreDataTableViewController.m */; };
 		E13B0E6A16A3078300A45079 /* WTCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0E6916A3078300A45079 /* WTCoreDataManager.m */; };
 		E13B0E6D16A4476000A45079 /* User+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0E6C16A4476000A45079 /* User+Addition.m */; };
@@ -462,6 +462,8 @@
 		E11703701651EF4700D82F4A /* WTTabBarButtonPowerSearchHl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTabBarButtonPowerSearchHl@2x.png"; sourceTree = "<group>"; };
 		E117038F1651F07800D82F4A /* WTRootTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTRootTabBarController.h; sourceTree = "<group>"; };
 		E11703981651F35A00D82F4A /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		E11A7F4B16FC08050068C074 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
+		E11A7F4D16FC084E0068C074 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		E125548F16491530006D42F5 /* WeTongji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeTongji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E125549316491530006D42F5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E125549516491530006D42F5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -492,8 +494,6 @@
 		E13B0E5216A2E18800A45079 /* WTNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNewsCell.xib; sourceTree = "<group>"; };
 		E13B0E5416A2F31100A45079 /* WTFilterLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTFilterLogo.png; sourceTree = "<group>"; };
 		E13B0E5516A2F31100A45079 /* WTFilterLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTFilterLogo@2x.png"; sourceTree = "<group>"; };
-		E13B0E5816A3028900A45079 /* WTCoreDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCoreDataViewController.h; sourceTree = "<group>"; };
-		E13B0E5916A3028900A45079 /* WTCoreDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCoreDataViewController.m; sourceTree = "<group>"; };
 		E13B0E5B16A302A500A45079 /* WTCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCoreDataTableViewController.h; sourceTree = "<group>"; };
 		E13B0E5C16A302A500A45079 /* WTCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCoreDataTableViewController.m; sourceTree = "<group>"; };
 		E13B0E6816A3078200A45079 /* WTCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCoreDataManager.h; sourceTree = "<group>"; };
@@ -750,6 +750,7 @@
 				E125549616491530006D42F5 /* Foundation.framework in Frameworks */,
 				E125549816491530006D42F5 /* CoreGraphics.framework in Frameworks */,
 				E1D373F216935DD30012E30A /* libOHAttributedLabel.a in Frameworks */,
+				E11A7F4C16FC08050068C074 /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -918,6 +919,7 @@
 		E125549216491530006D42F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E11A7F4B16FC08050068C074 /* libFlurry.a */,
 				E177E62216EDE0170029130F /* Security.framework */,
 				E14F96511696FD660048414D /* QuartzCore.framework */,
 				E1D374711694CB140012E30A /* CoreData.framework */,
@@ -952,6 +954,7 @@
 		E125549A16491530006D42F5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E11A7F4D16FC084E0068C074 /* Flurry.h */,
 				E125549C16491530006D42F5 /* InfoPlist.strings */,
 				E188221E1680252A00A41F47 /* Localizable.strings */,
 				E125549F16491530006D42F5 /* main.m */,
@@ -1250,11 +1253,11 @@
 		E1A5815F16F0F8C000551149 /* Decorators */ = {
 			isa = PBXGroup;
 			children = (
-				E10A8D3A16E4522B008B72E7 /* WTWaterflowDecorator.h */,
-				E10A8D3B16E4522B008B72E7 /* WTWaterflowDecorator.m */,
 				E1A5816016F0F8EB00551149 /* WTDragToLoadDecorator.h */,
 				E1A5816116F0F8EB00551149 /* WTDragToLoadDecorator.m */,
 				E1A5816316F0FA6700551149 /* WTDragToLoadDecorator.xib */,
+				E10A8D3A16E4522B008B72E7 /* WTWaterflowDecorator.h */,
+				E10A8D3B16E4522B008B72E7 /* WTWaterflowDecorator.m */,
 			);
 			name = Decorators;
 			sourceTree = "<group>";
@@ -1285,8 +1288,6 @@
 				E18821D716800BF200A41F47 /* WTRootTabBarController.m */,
 				E1D3741C16942F4C0012E30A /* WTRootViewController.h */,
 				E1D3741D16942F4C0012E30A /* WTRootViewController.m */,
-				E13B0E5816A3028900A45079 /* WTCoreDataViewController.h */,
-				E13B0E5916A3028900A45079 /* WTCoreDataViewController.m */,
 				E13B0E5B16A302A500A45079 /* WTCoreDataTableViewController.h */,
 				E13B0E5C16A302A500A45079 /* WTCoreDataTableViewController.m */,
 			);
@@ -1859,7 +1860,6 @@
 				039E38111697205000178F1C /* WTNowBaseCell.m in Sources */,
 				A1DD01CF169F244E009EBE02 /* WTNewsViewController.m in Sources */,
 				E13B0E5116A2E16C00A45079 /* WTNewsCell.m in Sources */,
-				E13B0E5A16A3028900A45079 /* WTCoreDataViewController.m in Sources */,
 				E13B0E5D16A302A500A45079 /* WTCoreDataTableViewController.m in Sources */,
 				E13B0E6A16A3078300A45079 /* WTCoreDataManager.m in Sources */,
 				E13B0E6D16A4476000A45079 /* User+Addition.m in Sources */,
@@ -2035,6 +2035,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/WeTongji-haxzmecxsluyiegvzukrqyecviwx/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -2062,6 +2063,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/WeTongji-haxzmecxsluyiegvzukrqyecviwx/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-framework",

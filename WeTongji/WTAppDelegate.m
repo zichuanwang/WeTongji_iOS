@@ -10,12 +10,19 @@
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import "WTCoreDataManager.h"
 
+#define FLURRY_API_KEY @"SMBC9798JNZG6WQ7FDRJ"
+
 @implementation WTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     [self.window makeKeyAndVisible];
+    
+    [Flurry setDebugLogEnabled:YES];
+    [Flurry setAppVersion:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
+    [Flurry setShowErrorInLogEnabled:YES];
+    [Flurry startSession:FLURRY_API_KEY];
         
     return YES;
 }

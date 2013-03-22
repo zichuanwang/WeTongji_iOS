@@ -117,11 +117,15 @@
     
     switch (containerView.category) {
         case WTHomeSelectContainerViewCategoryNews:
+            [Flurry logEvent:@"Check All News" timed:YES];
             [self.navigationController pushViewController:[[WTNewsViewController alloc] init] animated:YES];
             break;
             
         case WTHomeSelectContainerViewCategoryActivity:
+        {
+            [Flurry logEvent:@"Check All Activities" timed:YES];
             [self.navigationController pushViewController:[[WTActivityViewController alloc] init] animated:YES];
+        }
             break;
             
         case WTHomeSelectContainerViewCategoryFeatured:
