@@ -22,6 +22,8 @@ typedef enum {
     BottomViewStateDisabled,
 } BottomViewState;
 
+#define SET_BOTTOM_VIEW_STATE_DISABLED_DELAY_SEC 1
+
 @interface WTDragToLoadDecorator ()
 
 @property (nonatomic, strong) WTDragToLoadDecoratorTopView *topView;
@@ -33,6 +35,8 @@ typedef enum {
 @property (nonatomic, assign) UIEdgeInsets scrollViewOriginalContentInset;
 
 @property (nonatomic, assign) BOOL alreadyObservingDragToLoadScrollView;
+
+@property (nonatomic, assign) BOOL delayBottomViewDisable;
 
 @end
 
@@ -78,10 +82,6 @@ typedef enum {
 static int kDragToLoadDecoratorObservingContext;
 
 - (void)startObservingChangesInDragToLoadScrollView {
-    
-    // Force update
-    [self scrollViewContentSizeDidChange];
-    
     if (self.alreadyObservingDragToLoadScrollView)
         return;
     self.alreadyObservingDragToLoadScrollView = YES;
@@ -160,7 +160,9 @@ static int kDragToLoadDecoratorObservingContext;
             if (!scrollView.dragging && scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.size.height + self.scrollViewOriginalContentInset.bottom) {
                 
                 [UIView animateWithDuration:0.25f animations:^{
-                    self.bottomViewState = BottomViewStateDisabled;
+                    UIEdgeInsets inset = scrollView.contentInset;
+                    inset.bottom = self.scrollViewOriginalContentInset.bottom;
+                    scrollView.contentInset = inset;
                 } completion:^(BOOL finished) {
                     self.bottomViewState = BottomViewStateNormal;
                 }];
@@ -168,17 +170,14 @@ static int kDragToLoadDecoratorObservingContext;
             } else {
                 self.bottomViewState = BottomViewStateNormal;
             }
-        } else {
-            // Trick, add the temp contentSize.height to make smooth animation
-            UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
-            CGSize contentSize = scrollView.contentSize;
-            contentSize.height += self.bottomView.frame.size.height;
-            scrollView.contentSize = contentSize;
+            [self.bottomView.activityIndicator stopAnimating];
             
-            self.bottomViewState = BottomViewStateNormal;
+        } else {
+            if (!self.delayBottomViewDisable) {
+                self.bottomViewState = BottomViewStateNormal;
+                [self.bottomView.activityIndicator stopAnimating];
+            }
         }
-        
-        [self.bottomView.activityIndicator stopAnimating];
     }
 }
 
@@ -192,10 +191,26 @@ static int kDragToLoadDecoratorObservingContext;
 
 - (void)setBottomViewDisabled:(BOOL)disabled {
     if (disabled) {
-        self.bottomViewState = BottomViewStateDisabled;
+        self.delayBottomViewDisable = YES;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, SET_BOTTOM_VIEW_STATE_DISABLED_DELAY_SEC * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
+            if (self.delayBottomViewDisable) {
+                self.bottomViewState = BottomViewStateDisabled;
+                self.delayBottomViewDisable = NO;
+            }
+        });
+
     } else {
         self.bottomViewState = BottomViewStateNormal;
     }
+}
+
+- (void)setTopViewLoading {
+    self.topViewState = TopViewStateLoading;
+    [self.delegate dragToLoadDecoratorDidDragDown];
+}
+
+- (void)scrollViewDidLoadNewCell {
+    [self.bottomView resetOriginYByOffset:self.bottomView.frame.size.height];
 }
 
 #pragma mark - Properties
@@ -242,7 +257,7 @@ static int kDragToLoadDecoratorObservingContext;
 		case TopViewStateLoading: {
             self.topView.dragStatusLabel.text = NSLocalizedString(@"Loading", nil);
             
-            inset.top = 60.0f + self.scrollViewOriginalContentInset.top;
+            inset.top = self.topView.frame.size.height + self.scrollViewOriginalContentInset.top;
             [UIView animateWithDuration:0.25f animations:^{
                 scrollView.contentInset = inset;
             }];
@@ -289,8 +304,11 @@ static int kDragToLoadDecoratorObservingContext;
             
         case BottomViewStateDisabled: {
             inset.bottom = self.scrollViewOriginalContentInset.bottom;
-            scrollView.contentInset = inset;
-            self.bottomView.hidden = YES;
+            [UIView animateWithDuration:0.25f animations:^{
+                scrollView.contentInset = inset;
+            } completion:^(BOOL finished) {
+                self.bottomView.hidden = YES;
+            }];
         }
             break;
 		default:
@@ -303,7 +321,7 @@ static int kDragToLoadDecoratorObservingContext;
 - (void)scrollViewContentSizeDidChange {
     UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
     if (scrollView.contentSize.height == 0) {
-        [self setBottomViewDisabled:YES];
+        self.bottomViewState = BottomViewStateDisabled;
     } else if (scrollView.contentSize.height < scrollView.frame.size.height) {
         if (self.bottomViewState != BottomViewStateDisabled)
             self.bottomViewState = BottomViewStateLoading;
@@ -342,8 +360,7 @@ static int kDragToLoadDecoratorObservingContext;
         }
     } else {
         if (state == TopViewStateReady) {
-            self.topViewState = TopViewStateLoading;
-            [self.delegate dragToLoadDecoratorDidDragDown];
+            [self setTopViewLoading];
         }
     }
 }
@@ -355,12 +372,10 @@ static int kDragToLoadDecoratorObservingContext;
     if (state == BottomViewStateDisabled)
         return;
     
-    if (scrollView.isDragging) {
-        BOOL isBottomViewShown = scrollView.contentOffset.y > scrollView.contentSize.height + self.scrollViewOriginalContentInset.bottom - scrollView.frame.size.height;
-        if (state == BottomViewStateNormal) {
-            if (isBottomViewShown) {
-                self.bottomViewState = BottomViewStateLoading;
-            }
+    BOOL isBottomViewShown = scrollView.contentOffset.y > scrollView.contentSize.height + self.scrollViewOriginalContentInset.bottom - scrollView.frame.size.height;
+    if (state == BottomViewStateNormal) {
+        if (isBottomViewShown) {
+            self.bottomViewState = BottomViewStateLoading;
         }
     }
 }

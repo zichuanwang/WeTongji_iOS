@@ -19,9 +19,9 @@
     // Override point for customization after application launch.
     [self.window makeKeyAndVisible];
     
-    [Flurry setDebugLogEnabled:YES];
+    //[Flurry setDebugLogEnabled:YES];
+    //[Flurry setShowErrorInLogEnabled:YES];
     [Flurry setAppVersion:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
-    [Flurry setShowErrorInLogEnabled:YES];
     [Flurry startSession:FLURRY_API_KEY];
         
     return YES;

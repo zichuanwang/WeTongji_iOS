@@ -80,21 +80,24 @@
     WTRequest * request = [WTRequest requestWithSuccessBlock:^(id responseData) {
         WTLOG(@"Get news: %@", responseData);
         
-        if (success)
-            success();
-        
-        NSDictionary *resultDict = (NSDictionary *)responseData;
-        NSArray *resultArray = resultDict[@"SchoolNews"];
-        for(NSDictionary *dict in resultArray) {
-            [News insertNews:dict];
-        }
-        
+         NSDictionary *resultDict = (NSDictionary *)responseData;
         NSString *nextPage = resultDict[@"NextPager"];
         self.nextPage = nextPage.integerValue;
         
         if (self.nextPage == 0) {
             [self.dragToLoadDecorator setBottomViewDisabled:YES];
+        } else {
+            [self.dragToLoadDecorator setBottomViewDisabled:NO];
         }
+        
+        if (success)
+            success();
+        
+        NSArray *resultArray = resultDict[@"SchoolNews"];
+        for(NSDictionary *dict in resultArray) {
+            [News insertNews:dict];
+        }
+        
     } failureBlock:^(NSError * error) {
         WTLOGERROR(@"Get news:%@", error.localizedDescription);
         
@@ -178,6 +181,11 @@
     [newsCell configureCellWithIndexPath:indexPath category:NSLocalizedString(@"Campus Update", nil) summary:news.title];
 }
 
+- (void)insertCellAtIndexPath:(NSIndexPath *)indexPath {
+    [super insertCellAtIndexPath:indexPath];
+    [self.dragToLoadDecorator scrollViewDidLoadNewCell];
+}
+
 - (void)configureRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"News" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
@@ -191,6 +199,12 @@
 
 - (NSString *)customSectionNameKeyPath {
     return @"publish_day";
+}
+
+- (void)fetchedResultsControllerDidPerformFetch:(NSFetchedResultsController *)aFetchedResultsController {
+    if ([aFetchedResultsController.sections.lastObject numberOfObjects] == 0) {
+        [self.dragToLoadDecorator setTopViewLoading];
+    }
 }
 
 #pragma mark - WTRootNavigationControllerDelegate
@@ -224,7 +238,6 @@
     [self loadMoreDataWithSuccessBlock:^{
         [self clearAllData];
         [self.dragToLoadDecorator topViewLoadFinished:YES];
-        [self.dragToLoadDecorator setBottomViewDisabled:NO];
     } failureBlock:^{
         [self.dragToLoadDecorator topViewLoadFinished:NO];
     }];

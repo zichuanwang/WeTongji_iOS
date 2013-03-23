@@ -39,7 +39,10 @@
 
 - (void)setTopViewDisabled:(BOOL)disabled;
 
+// Call this method before |bottomViewLoadFinished:|.
 - (void)setBottomViewDisabled:(BOOL)disabled;
+
+- (void)setTopViewLoading;
 
 // Call this method in your UIViewController's |viewDidLoad| and
 // |viewDidAppear:animated:|.
@@ -47,6 +50,8 @@
 
 // Call this method in your UIViewController's |viewDidDisappear:animated:|.
 - (void)stopObservingChangesInDragToLoadScrollView;
+
+- (void)scrollViewDidLoadNewCell;
 
 @end
 

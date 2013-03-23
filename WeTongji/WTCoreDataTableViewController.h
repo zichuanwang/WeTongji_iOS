@@ -27,4 +27,6 @@
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath;
 - (NSString *)customSectionNameKeyPath;
 
+- (void)fetchedResultsControllerDidPerformFetch:(NSFetchedResultsController *)aFetchedResultsController;
+
 @end

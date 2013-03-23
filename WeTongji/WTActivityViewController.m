@@ -88,22 +88,24 @@
     WTRequest * request = [WTRequest requestWithSuccessBlock:^(id responseData) {
         WTLOG(@"Get activities: %@", responseData);
         
-        if (success)
-            success();
-        
         NSDictionary *resultDict = (NSDictionary *)responseData;
-        NSArray *resultArray = resultDict[@"Activities"];
-        for (NSDictionary *dict in resultArray) {
-            Activity *activity = [Activity insertActivity:dict];
-            NSLog(@"activity like_count:%d, created_at:%@, begin_time:%@", activity.like_count.integerValue, [NSString yearMonthDayConvertFromDate:activity.created_at], [NSString yearMonthDayConvertFromDate:activity.begin_time]);
-        }
-        
         NSString *nextPage = resultDict[@"NextPager"];
         self.nextPage = nextPage.integerValue;
         
         if (self.nextPage == 0) {
             [self.dragToLoadDecorator setBottomViewDisabled:YES];
+        } else {
+            [self.dragToLoadDecorator setBottomViewDisabled:NO];
         }
+        
+        if (success)
+            success();
+        
+        NSArray *resultArray = resultDict[@"Activities"];
+        for (NSDictionary *dict in resultArray) {
+            [Activity insertActivity:dict];
+        }
+        
     } failureBlock:^(NSError * error) {
         WTLOGERROR(@"Get activities:%@", error.localizedDescription);
         
@@ -168,6 +170,11 @@
     [activityCell configureCellWithIndexPath:indexPath title:activity.title time:timeString location:activity.where imageURL:activity.image];
 }
 
+- (void)insertCellAtIndexPath:(NSIndexPath *)indexPath {
+    [super insertCellAtIndexPath:indexPath];
+    [self.dragToLoadDecorator scrollViewDidLoadNewCell];
+}
+
 - (void)configureRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"Activity" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
@@ -208,6 +215,12 @@
 
 - (NSString *)customSectionNameKeyPath {
     return nil;
+}
+
+- (void)fetchedResultsControllerDidPerformFetch:(NSFetchedResultsController *)aFetchedResultsController {
+    if ([aFetchedResultsController.sections.lastObject numberOfObjects] == 0) {
+        [self.dragToLoadDecorator setTopViewLoading];
+    }
 }
 
 #pragma mark - TableViewDelegate
@@ -256,7 +269,6 @@
     [self loadMoreDataWithSuccessBlock:^{
         [self clearAllData];
         [self.dragToLoadDecorator topViewLoadFinished:YES];
-        [self.dragToLoadDecorator setBottomViewDisabled:NO];
     } failureBlock:^{
         [self.dragToLoadDecorator topViewLoadFinished:NO];
     }];

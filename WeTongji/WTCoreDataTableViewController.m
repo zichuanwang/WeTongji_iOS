@@ -36,6 +36,7 @@
 }
 
 #pragma mark - Methods to overwrite
+
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     
 }
@@ -67,6 +68,10 @@
         [self.tableView beginUpdates];
 }
 
+- (void)fetchedResultsControllerDidPerformFetch:(NSFetchedResultsController *)aFetchedResultsController {
+    
+}
+
 #pragma mark - NSFetchedResultsControllerDelegate
 
 - (NSFetchedResultsController *)fetchedResultsController
@@ -80,23 +85,29 @@
     
     [self configureRequest:fetchRequest];
     
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext sectionNameKeyPath:[self customSectionNameKeyPath] cacheName:nil];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc]
+                                                             initWithFetchRequest:fetchRequest
+                                                             managedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext
+                                                             sectionNameKeyPath:[self customSectionNameKeyPath]
+                                                             cacheName:nil];
     aFetchedResultsController.delegate = self;
-    self.fetchedResultsController = aFetchedResultsController;
+    _fetchedResultsController = aFetchedResultsController;
     
-	[self.fetchedResultsController performFetch:NULL];
+	[_fetchedResultsController performFetch:NULL];
+    
+    [self fetchedResultsControllerDidPerformFetch:_fetchedResultsController];
     
     return _fetchedResultsController;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [[self.fetchedResultsController sections] count];
+    return self.fetchedResultsController.sections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[self.fetchedResultsController sections][section] numberOfObjects];
+    return [self.fetchedResultsController.sections[section] numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
