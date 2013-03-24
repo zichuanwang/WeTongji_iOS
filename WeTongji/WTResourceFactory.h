@@ -34,4 +34,7 @@
 + (UIBarButtonItem *)createFilterBarButtonWithTarget:(id)target
                                               action:(SEL)action;
 
++ (void)configureFilterBarButton:(UIBarButtonItem *)barButton
+                        modified:(BOOL)modified;
+
 @end

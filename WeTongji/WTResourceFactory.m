@@ -15,12 +15,27 @@
 
 + (UIBarButtonItem *)createFilterBarButtonWithTarget:(id)target
                                               action:(SEL)action {
-    UIButton *button = [WTResourceFactory createFocusButtonWithText:@""];
+    UIButton *button = [WTResourceFactory createNormalButtonWithText:@""];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-    UIImage *filterLogoImage = [UIImage imageNamed:@"WTFilterLogo"];
-    [button setImage:filterLogoImage forState:UIControlStateNormal];
-    [button resetWidth:filterLogoImage.size.width];
+    UIImage *filterNormalIconImage = [UIImage imageNamed:@"WTFilterSelectIcon"];
+    [button setImage:filterNormalIconImage forState:UIControlStateNormal];
+    UIImage *filterSelectIconImage = [UIImage imageNamed:@"WTFilterNormalIcon"];
+    [button setImage:filterSelectIconImage forState:UIControlStateSelected];
+    
+    [button resetWidth:filterNormalIconImage.size.width];
     return [WTResourceFactory createBarButtonWithButton:button];
+}
+
++ (void)configureFilterBarButton:(UIBarButtonItem *)barButton
+                        modified:(BOOL)modified {
+    UIButton *filterButton = barButton.customView.subviews.lastObject;
+    UIImage *normalBgImage = nil;
+    if (modified) {
+        normalBgImage = [UIImage imageNamed:@"WTFocusButton"];
+    } else {
+        normalBgImage = [UIImage imageNamed:@"WTSelectButton"];
+    }
+    [filterButton setBackgroundImage:normalBgImage forState:UIControlStateNormal];
 }
 
 + (UIView *)createNavigationBarTitleViewWithText:(NSString *)text {
@@ -67,10 +82,10 @@
     UIImage *barBarHighlightButtonImage = [[UIImage imageNamed:@"WTNavigationBarBackHighlightButton"] resizableImageWithCapInsets:insets];
     [button setBackgroundImage:barBarHighlightButtonImage forState:UIControlStateHighlighted];
     
-    UIImage *backBarNormalButtonLogoImage = [UIImage imageNamed:@"WTNavigationBarBackNormalButtonLogo"];
+    UIImage *backBarNormalButtonLogoImage = [UIImage imageNamed:@"WTNavigationBarBackNormalButtonIcon"];
     [button setImage:backBarNormalButtonLogoImage forState:UIControlStateNormal];
     
-    UIImage *backBarHighlightButtonLogoImage = [UIImage imageNamed:@"WTNavigationBarBackHighlightButtonLogo"];
+    UIImage *backBarHighlightButtonLogoImage = [UIImage imageNamed:@"WTNavigationBarBackHighlightButtonIcon"];
     [button setImage:backBarHighlightButtonLogoImage forState:UIControlStateHighlighted];
     
     [button resetSize:backBarNormalButtonLogoImage.size];

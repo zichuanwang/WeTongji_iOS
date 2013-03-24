@@ -89,7 +89,7 @@
 }
 
 - (void)configureRootViewBackgroundColor {
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
 }
 
 - (void)configureScrollView {

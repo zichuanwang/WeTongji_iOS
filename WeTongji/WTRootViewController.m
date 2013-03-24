@@ -40,7 +40,7 @@
 #pragma mark - UI methods
 
 - (void)configureUI {
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBackgroundUnit"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
     self.navigationItem.leftBarButtonItem = self.notificationButton;
 }
 
