@@ -242,6 +242,7 @@
 		E191D91516C78F2E00384CF6 /* WTActivitySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E191D91416C78F2E00384CF6 /* WTActivitySettingViewController.m */; };
 		E19832DA16FEF60900AB83E8 /* WTFilterNormalIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E19832D816FEF60900AB83E8 /* WTFilterNormalIcon.png */; };
 		E19832DB16FEF60900AB83E8 /* WTFilterNormalIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E19832D916FEF60900AB83E8 /* WTFilterNormalIcon@2x.png */; };
+		E19832DE16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E19832DD16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.m */; };
 		E199053516B7CDCE00F2C787 /* WTGrayPanel.png in Resources */ = {isa = PBXBuildFile; fileRef = E199053316B7CDCE00F2C787 /* WTGrayPanel.png */; };
 		E199053616B7CDCE00F2C787 /* WTGrayPanel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E199053416B7CDCE00F2C787 /* WTGrayPanel@2x.png */; };
 		E1A5816216F0F8EB00551149 /* WTDragToLoadDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A5816116F0F8EB00551149 /* WTDragToLoadDecorator.m */; };
@@ -644,6 +645,8 @@
 		E191D91416C78F2E00384CF6 /* WTActivitySettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTActivitySettingViewController.m; sourceTree = "<group>"; };
 		E19832D816FEF60900AB83E8 /* WTFilterNormalIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTFilterNormalIcon.png; sourceTree = "<group>"; };
 		E19832D916FEF60900AB83E8 /* WTFilterNormalIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTFilterNormalIcon@2x.png"; sourceTree = "<group>"; };
+		E19832DC16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+WTAddition.h"; sourceTree = "<group>"; };
+		E19832DD16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+WTAddition.m"; sourceTree = "<group>"; };
 		E199053316B7CDCE00F2C787 /* WTGrayPanel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTGrayPanel.png; sourceTree = "<group>"; };
 		E199053416B7CDCE00F2C787 /* WTGrayPanel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTGrayPanel@2x.png"; sourceTree = "<group>"; };
 		E1A5816016F0F8EB00551149 /* WTDragToLoadDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTDragToLoadDecorator.h; sourceTree = "<group>"; };
@@ -1201,18 +1204,20 @@
 		E18821CE1680077C00A41F47 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				E19832DC16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.h */,
+				E19832DD16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.m */,
 				E13B0ED116A4704900A45079 /* NSString+WTAddition.h */,
 				E13B0ED216A4704900A45079 /* NSString+WTAddition.m */,
-				E18821CF168007B800A41F47 /* UIView+Resize.h */,
-				E18821D0168007B800A41F47 /* UIView+Resize.m */,
+				E1132E7716C65823004CB808 /* NSUserDefaults+WTAddition.h */,
+				E1132E7816C65823004CB808 /* NSUserDefaults+WTAddition.m */,
 				E18822281680271A00A41F47 /* UIApplication+WTAddition.h */,
 				E18822291680271A00A41F47 /* UIApplication+WTAddition.m */,
 				E14FA69F1680E067008A8D33 /* UIImage+ScreenShoot.h */,
 				E14FA6A01680E067008A8D33 /* UIImage+ScreenShoot.m */,
-				E1132E7716C65823004CB808 /* NSUserDefaults+WTAddition.h */,
-				E1132E7816C65823004CB808 /* NSUserDefaults+WTAddition.m */,
 				E10A8D4116E4ECC8008B72E7 /* UIView+Animation.h */,
 				E10A8D4216E4ECC8008B72E7 /* UIView+Animation.m */,
+				E18821CF168007B800A41F47 /* UIView+Resize.h */,
+				E18821D0168007B800A41F47 /* UIView+Resize.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1922,6 +1927,7 @@
 				E1A5816216F0F8EB00551149 /* WTDragToLoadDecorator.m in Sources */,
 				E1384A4416F6333B003119D2 /* Activity.m in Sources */,
 				E1384A4716F77F47003119D2 /* Object.m in Sources */,
+				E19832DE16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,18 +12,20 @@
 #import "NSUserDefaults+WTAddition.h"
 #import "WTResourceFactory.h"
 #import "WTWaterflowDecorator.h"
+#import "NSNotificationCenter+WTAddition.h"
 
 @interface WTInnerSettingViewController () <WTWaterflowDecoratorDataSource>
 
 @property (nonatomic, strong) NSArray *settingConfig;
 @property (nonatomic, strong) WTWaterflowDecorator *waterflowDecorator;
 
+@property (nonatomic, strong) NSMutableArray *innerSettingItems;
+
 @end
 
 @implementation WTInnerSettingViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -31,11 +33,20 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self configureScrollView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [NSNotificationCenter registerInnerSettingItemDidModifyNotificationWithSelector:@selector(settingItemDidModify) target:self];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -46,8 +57,7 @@
     [self.waterflowDecorator adjustWaterflowView];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -73,6 +83,13 @@
     return _waterflowDecorator;
 }
 
+- (NSMutableArray *)innerSettingItems {
+    if (!_innerSettingItems) {
+        _innerSettingItems = [NSMutableArray array];
+    }
+    return _innerSettingItems;
+}
+
 - (NSArray *)settingConfig {
     if (_settingConfig == nil) {
         _settingConfig = [self loadSettingConfig];
@@ -94,12 +111,14 @@
                 [plainCell resetOriginY:originY];
                 originY += plainCell.frame.size.height;
                 [self.scrollView addSubview:plainCell];
+                [self.innerSettingItems addObject:plainCell];
             }
         } else if ([tableViewType isEqualToString:kTableViewTypeGroup]) {
             WTSettingGroupTableView *tableView = [WTSettingGroupTableView createGroupTableView:dict];
             [tableView resetOriginY:originY];
             originY += tableView.frame.size.height;
             [self.scrollView addSubview:tableView];
+            [self.innerSettingItems addObject:tableView];
             
         } else if ([tableViewType isEqualToString:kTableViewTypeSeparator]) {
             UIImageView *separatorImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTInnerModalSeparator"]];
@@ -122,11 +141,32 @@
     return @"WTInnerModalViewBg";
 }
 
+#pragma mark - Notification handler
+
+- (void)settingItemDidModify {
+    NSLog(@"count:%d", self.innerSettingItems.count);
+    for (id<WTInnerSettingItem> item in self.innerSettingItems) {
+        NSLog(@"%d", [item isDirty]);
+        if ([item isDirty]) {
+            [WTResourceFactory configureFilterBarButton:self.callBarButtonItem modified:YES];
+            return;
+        }
+    }
+    [WTResourceFactory configureFilterBarButton:self.callBarButtonItem modified:NO];
+}
+
+#pragma mark - WTRootNavigationControllerDelegate
+
+- (void)didHideInnderModalViewController {
+    [WTResourceFactory configureFilterBarButton:self.callBarButtonItem modified:NO];
+}
+
 @end
 
 @interface WTSettingPlainCell ()
 
 @property (nonatomic, copy) NSString *userDefaultKey;
+@property (nonatomic, assign) BOOL dirty;
 
 @end
 
@@ -169,12 +209,24 @@
     [self addSubview:self.selectSwitch];
 }
 
+#pragma mark - WTInnerSettingItem
+
+- (BOOL)isDirty {
+    return self.dirty;
+}
+
 #pragma mark - WTSwitchDelegate
 
 - (void)switchDidChange:(WTSwitch *)sender {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setBool:self.selectSwitch.isOn forKey:self.userDefaultKey];
-    [userDefault synchronize];
+    if ([userDefault boolForKey:self.userDefaultKey] != self.selectSwitch.isOn) {
+        
+        [userDefault setBool:self.selectSwitch.isOn forKey:self.userDefaultKey];
+        [userDefault synchronize];
+        
+        self.dirty = !self.dirty;
+        [NSNotificationCenter postInnerSettingItemDidModifyNotification];
+    }
 }
 
 @end
@@ -208,6 +260,7 @@
     result.userDefaultKey = tableViewInfo[kUserDefaultKey];
     
     NSArray *contentArray = tableViewInfo[kTableViewContent];
+    
     for (NSDictionary *cellDict in contentArray) {
         [result addCell:cellDict];
     }
@@ -276,6 +329,16 @@
     lastCell.separatorImageView.hidden = YES;
 }
 
+#pragma mark - WTInnerSettingItem
+
+- (BOOL)isDirty {
+    for (WTSettingGroupCell *cell in self.cellArray) {
+        if ([cell isDirty])
+            return YES;
+    }
+    return NO;
+}
+
 #pragma mark - Actions
 
 - (void)didClickCellButton:(UIButton *)sender {
@@ -285,6 +348,7 @@
     if (self.supportMultiSelection) {
         WTSettingGroupCell *selectCell = self.cellArray[cellIndex];
         selectCell.checkmarkImageView.hidden = !selectCell.checkmarkImageView.hidden;
+        selectCell.dirty = !selectCell.dirty;
         
         NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
         NSInteger result = [userDefault integerForKey:self.userDefaultKey];
@@ -299,10 +363,15 @@
         NSLog(@"%d, %d", itemValue, result);
     } else {
         for (WTSettingGroupCell *cell in self.cellArray) {
-            cell.checkmarkImageView.hidden = YES;
+            if (!cell.checkmarkImageView.hidden) {
+                cell.dirty = !cell.dirty;
+                cell.checkmarkImageView.hidden = YES;
+                break;
+            }
         }
         WTSettingGroupCell *selectCell = self.cellArray[cellIndex];
         selectCell.checkmarkImageView.hidden = NO;
+        selectCell.dirty = !selectCell.dirty;
         
         NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
         // Convention
@@ -312,7 +381,12 @@
         
         NSLog(@"%d", itemValue);
     }
+    [NSNotificationCenter postInnerSettingItemDidModifyNotification];
 }
+
+@end
+
+@interface WTSettingGroupCell ()
 
 @end
 
@@ -329,6 +403,12 @@
     }
     
     return result;
+}
+
+#pragma mark - WTInnerSettingItem
+
+- (BOOL)isDirty {
+    return self.dirty;
 }
 
 @end

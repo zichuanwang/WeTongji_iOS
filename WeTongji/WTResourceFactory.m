@@ -36,6 +36,7 @@
         normalBgImage = [UIImage imageNamed:@"WTSelectButton"];
     }
     [filterButton setBackgroundImage:normalBgImage forState:UIControlStateNormal];
+    [filterButton setBackgroundImage:normalBgImage forState:UIControlStateHighlighted];
 }
 
 + (UIView *)createNavigationBarTitleViewWithText:(NSString *)text {

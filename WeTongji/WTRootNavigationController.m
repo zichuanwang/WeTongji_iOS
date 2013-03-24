@@ -11,10 +11,11 @@
 #import "UIApplication+WTAddition.h"
 #import "UIImage+ScreenShoot.h"
 #import "WTNotificationBarButton.h"
+#import "WTInnerModalViewController.h"
 
 @interface WTRootNavigationController ()
 
-@property (nonatomic, strong) UIViewController *innerModalViewController;
+@property (nonatomic, strong) WTInnerModalViewController *innerModalViewController;
 @property (nonatomic, strong) UIViewController<WTRootNavigationControllerDelegate> *sourceViewController;
 
 @property (nonatomic, strong) UIImageView *screenShootImageView;
@@ -67,6 +68,25 @@
 
 #pragma mark - Logic methods
 
+- (void)configureInnerModalCallBarButtonItem {
+    switch (self.currentWTDisableNavBarType) {
+        case WTDisableNavBarTypeLeft:
+        {
+            self.innerModalViewController.callBarButtonItem = self.sourceViewController.navigationItem.rightBarButtonItem;
+        }
+            break;
+            
+        case WTDisableNavBarTypeRight:
+        {
+            self.innerModalViewController.callBarButtonItem = self.sourceViewController.navigationItem.leftBarButtonItem;
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
 - (void)disableNavBar {
     switch (self.currentWTDisableNavBarType) {
         case WTDisableNavBarTypeLeft:
@@ -107,7 +127,7 @@
 
 #pragma mark - Public methods
 
-- (void)showInnerModalViewController:(UIViewController *)innerController
+- (void)showInnerModalViewController:(WTInnerModalViewController *)innerController
                 sourceViewController:(UIViewController<WTRootNavigationControllerDelegate> *)sourceController
                    disableNavBarType:(WTDisableNavBarType)type {
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
@@ -125,6 +145,7 @@
     
     self.currentWTDisableNavBarType = type;
     [self disableNavBar];
+    [self configureInnerModalCallBarButtonItem];
     
     self.view.userInteractionEnabled = NO;
     
@@ -140,6 +161,8 @@
     self.view.userInteractionEnabled = NO;
     if ([self.sourceViewController respondsToSelector:@selector(willHideInnderModalViewController)])
         [self.sourceViewController willHideInnderModalViewController];
+    if ([self.innerModalViewController respondsToSelector:@selector(willHideInnderModalViewController)])
+        [self.innerModalViewController willHideInnderModalViewController];
     
     [UIView animateWithDuration:0.3 animations:^{
         [self.innerModalViewController.view resetOriginY:-self.innerModalViewController.view.frame.size.height];
@@ -154,6 +177,8 @@
             [self.sourceViewController didHideInnderModalViewController];
         self.sourceViewController = nil;
         
+        if ([self.innerModalViewController respondsToSelector:@selector(didHideInnderModalViewController)])
+            [self.innerModalViewController didHideInnderModalViewController];
         [self.innerModalViewController.view removeFromSuperview];
         self.innerModalViewController = nil;
         

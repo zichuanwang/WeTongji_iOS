@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WTRootNavigationController.h"
 
-@interface WTInnerModalViewController : UIViewController
+@interface WTInnerModalViewController : UIViewController <WTRootNavigationControllerDelegate>
+
+@property (nonatomic, weak) UIBarButtonItem *callBarButtonItem;
 
 @end

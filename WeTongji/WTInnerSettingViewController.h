@@ -9,6 +9,12 @@
 #import "WTInnerModalViewController.h"
 #import "WTSwitch.h"
 
+@protocol WTInnerSettingItem <NSObject>
+
+- (BOOL)isDirty;
+
+@end
+
 @interface WTInnerSettingViewController : WTInnerModalViewController
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
@@ -17,7 +23,7 @@
 
 @end
 
-@interface WTSettingPlainCell : UIView <WTSwitchDelegate>
+@interface WTSettingPlainCell : UIView <WTSwitchDelegate, WTInnerSettingItem>
 
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) WTSwitch *selectSwitch;
@@ -26,7 +32,7 @@
 
 @end
 
-@interface WTSettingGroupTableView : UIView
+@interface WTSettingGroupTableView : UIView <WTInnerSettingItem>
 
 @property (nonatomic, strong) IBOutlet UILabel *headerLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *bgImageView;
@@ -35,12 +41,14 @@
 
 @end
 
-@interface WTSettingGroupCell : UIView
+@interface WTSettingGroupCell : UIView <WTInnerSettingItem>
 
 @property (nonatomic, strong) IBOutlet UIImageView *checkmarkImageView;
 @property (nonatomic, strong) IBOutlet UIImageView *thumbnailImageView;
 @property (nonatomic, strong) IBOutlet UIButton *cellButton;
 @property (nonatomic, strong) IBOutlet UIImageView *separatorImageView;
+
+@property (nonatomic, assign) BOOL dirty;
 
 + (WTSettingGroupCell *)createGroupCell;
 

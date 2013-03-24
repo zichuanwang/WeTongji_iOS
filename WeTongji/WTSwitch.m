@@ -56,14 +56,12 @@
     self.scrollView.handlerButton.highlighted = NO;
     
     CGPoint location = [gesture locationInView:self.scrollView];
-    NSLog(@"%@", NSStringFromCGPoint(location));
     if (location.x < 50) {
         [UIView animateWithDuration:0.25f animations:^{
             self.scrollView.contentOffset = CGPointMake(50, self.scrollView.frame.size.height);
         } completion:^(BOOL finished) {
             //_switchState = 1;
             [self.delegate switchDidChange:self];
-            NSLog(@"3 switch state :%d", _switchState);
         }];
     } else if (location.x > 78) {
         [UIView animateWithDuration:0.25f animations:^{
@@ -71,7 +69,6 @@
         } completion:^(BOOL finished) {
             //_switchState = 0;
             [self.delegate switchDidChange:self];
-            NSLog(@"2 switch state :%d", _switchState);
         }];
     } else {
         [UIView animateWithDuration:0.25f animations:^{
@@ -79,7 +76,6 @@
         } completion:^(BOOL finished) {
             //_switchState = !_switchState;
             [self.delegate switchDidChange:self];
-            NSLog(@"1 switch state :%d", _switchState);
         }];
     }
 }
@@ -93,20 +89,20 @@
     _switchState = (scrollView.contentOffset.x >= 50);
     
     if (self.scrollView.dragging && !self.scrollView.isDecelerating) {
-        NSLog(@"dragging not decelerating, highlight");
+        // NSLog(@"dragging not decelerating, highlight");
         self.scrollView.handlerButton.highlighted = YES;
     }
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     self.scrollView.handlerButton.highlighted = NO;
-    NSLog(@"end dragging, not highlight");
+    // NSLog(@"end dragging, not highlight");
     [self.delegate switchDidChange:self];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     self.scrollView.handlerButton.highlighted = NO;
-    NSLog(@"end decelerating, not highlight");
+    // NSLog(@"end decelerating, not highlight");
     [self.delegate switchDidChange:self];
 }
 
@@ -127,17 +123,17 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSLog(@"touchesBegan");
+    // NSLog(@"touchesBegan");
     self.handlerButton.highlighted = YES;
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSLog(@"touchesEnded");
+    // NSLog(@"touchesEnded");
     self.handlerButton.highlighted = NO;
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSLog(@"touchesCancelled");
+    // NSLog(@"touchesCancelled");
     self.handlerButton.highlighted = NO;
 }
 

@@ -16,9 +16,11 @@ typedef enum {
 
 @protocol WTRootNavigationControllerDelegate;
 
+@class WTInnerModalViewController;
+
 @interface WTRootNavigationController : UINavigationController
 
-- (void)showInnerModalViewController:(UIViewController *)innerController
+- (void)showInnerModalViewController:(WTInnerModalViewController *)innerController
                 sourceViewController:(UIViewController<WTRootNavigationControllerDelegate> *)sourceController
                    disableNavBarType:(WTDisableNavBarType)type;
 
@@ -29,6 +31,7 @@ typedef enum {
 @protocol WTRootNavigationControllerDelegate <NSObject>
 
 @optional
+
 - (void)didHideInnderModalViewController;
 
 - (void)willHideInnderModalViewController;
