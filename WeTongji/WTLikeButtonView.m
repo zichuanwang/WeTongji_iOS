@@ -46,8 +46,8 @@
     UIImageView *likeFlagBg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTLikeButtonFlagBg"]];
     
     UILabel *likeCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, likeButton.frame.size.width, 20)];
-    likeCountLabel.textAlignment = UITextAlignmentCenter;
-    likeCountLabel.font = [UIFont boldSystemFontOfSize:12];
+    likeCountLabel.textAlignment = NSTextAlignmentCenter;
+    likeCountLabel.font = [UIFont boldSystemFontOfSize:10];
     likeCountLabel.backgroundColor = [UIColor clearColor];
     likeCountLabel.textColor = [UIColor colorWithRed:150 / 255.0f green:150 / 255.0f blue:150 / 255.0f alpha:1];
     likeCountLabel.shadowColor = [UIColor whiteColor];
@@ -56,7 +56,7 @@
     
     self.likeCountLabel = likeCountLabel;
 
-    [likeButton resetOriginY:0];
+    [likeButton resetOriginY:1];
     [likeFlagBg resetOriginY:0];
     [likeFlagBg resetCenterX:likeButton.frame.size.width / 2];
     [likeCountLabel resetOriginY:likeFlagBg.frame.size.height - 38];

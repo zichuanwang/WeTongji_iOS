@@ -11,16 +11,12 @@
 
 @implementation UIApplication (WTAddition)
 
-+ (void)initialize {
-    [UIApplication showTopCorner];
-}
-
 + (void)showTopCorner {
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     UIImageView *topLeftCornerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTCornerTopLeft"]];
     UIImageView *topRightCornerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTCornerTopRight"]];
-    [topLeftCornerImageView resetOrigin:CGPointMake(0, 0)];
-    [topRightCornerImageView resetOrigin:CGPointMake(screenSize.width - topRightCornerImageView.frame.size.width, 0)];
+    [topLeftCornerImageView resetOrigin:CGPointMake(0, 20)];
+    [topRightCornerImageView resetOrigin:CGPointMake(screenSize.width - topRightCornerImageView.frame.size.width, 20)];
     
     UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
     [keyWindow addSubview:topLeftCornerImageView];

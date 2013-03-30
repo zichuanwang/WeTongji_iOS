@@ -166,12 +166,12 @@ c3RhaW5hYmlsaXR5A</string>
 										<reference key="NSSuperview" ref="515144097"/>
 										<reference key="NSNextKeyView" ref="980200675"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
-										<int key="IBUIContentMode">2</int>
+										<int key="IBUIContentMode">4</int>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-										<object class="NSCustomResource" key="IBUIImage" id="1016579779">
+										<object class="NSCustomResource" key="IBUIImage">
 											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">TestAvatar1.png</string>
+											<string key="NSResourceName">WTGrayPlaceholderImage.jpg</string>
 										</object>
 									</object>
 								</array>
@@ -364,7 +364,10 @@ c3RhaW5hYmlsaXR5A</string>
 										<int key="IBUIContentMode">2</int>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-										<reference key="IBUIImage" ref="1016579779"/>
+										<object class="NSCustomResource" key="IBUIImage">
+											<string key="NSClassName">NSImage</string>
+											<string key="NSResourceName">TestAvatar1.png</string>
+										</object>
 									</object>
 								</array>
 								<string key="NSFrameSize">{40, 53}</string>
@@ -757,6 +760,7 @@ c3RhaW5hYmlsaXR5A</string>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="TestAvatar1.png">{500, 500}</string>
 			<string key="WTAvatarCover.png">{54, 54}</string>
+			<string key="WTGrayPlaceholderImage.jpg">{320, 320}</string>
 			<string key="WTRoundCornerPanelBg.png">{300, 106}</string>
 			<string key="WTSmallPosterCover.png">{44, 60}</string>
 		</dictionary>

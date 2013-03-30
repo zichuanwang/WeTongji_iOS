@@ -204,8 +204,9 @@ static int kDragToLoadDecoratorObservingContext;
     }
 }
 
-- (void)setTopViewLoading {
-    self.topViewState = TopViewStateLoading;
+- (void)setTopViewLoading:(BOOL)animated {
+    if (animated)
+        self.topViewState = TopViewStateLoading;
     [self.delegate dragToLoadDecoratorDidDragDown];
 }
 
@@ -360,7 +361,7 @@ static int kDragToLoadDecoratorObservingContext;
         }
     } else {
         if (state == TopViewStateReady) {
-            [self setTopViewLoading];
+            [self setTopViewLoading:YES];
         }
     }
 }

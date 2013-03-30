@@ -240,6 +240,12 @@
 		E188223D1680461E00A41F47 /* WTInfoPanelDivier.png in Resources */ = {isa = PBXBuildFile; fileRef = E188223B1680461E00A41F47 /* WTInfoPanelDivier.png */; };
 		E191D91216C72E7100384CF6 /* WTActivitySettingConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E191D91116C72E7100384CF6 /* WTActivitySettingConfig.plist */; };
 		E191D91516C78F2E00384CF6 /* WTActivitySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E191D91416C78F2E00384CF6 /* WTActivitySettingViewController.m */; };
+		E19589A91706BFD30040E669 /* WTBluePlaceholderImage@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E19589A51706BFD30040E669 /* WTBluePlaceholderImage@2x.jpg */; };
+		E19589AA1706BFD30040E669 /* WTBluePlaceholderImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E19589A61706BFD30040E669 /* WTBluePlaceholderImage.jpg */; };
+		E19589AB1706BFD30040E669 /* WTGrayPlaceholderImage@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E19589A71706BFD30040E669 /* WTGrayPlaceholderImage@2x.jpg */; };
+		E19589AC1706BFD30040E669 /* WTGrayPlaceholderImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E19589A81706BFD30040E669 /* WTGrayPlaceholderImage.jpg */; };
+		E19589AF1706CE580040E669 /* WTAvatarSmallCover.png in Resources */ = {isa = PBXBuildFile; fileRef = E19589AD1706CE580040E669 /* WTAvatarSmallCover.png */; };
+		E19589B01706CE580040E669 /* WTAvatarSmallCover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E19589AE1706CE580040E669 /* WTAvatarSmallCover@2x.png */; };
 		E19832DA16FEF60900AB83E8 /* WTFilterNormalIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E19832D816FEF60900AB83E8 /* WTFilterNormalIcon.png */; };
 		E19832DB16FEF60900AB83E8 /* WTFilterNormalIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E19832D916FEF60900AB83E8 /* WTFilterNormalIcon@2x.png */; };
 		E19832DE16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E19832DD16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.m */; };
@@ -643,6 +649,12 @@
 		E191D91116C72E7100384CF6 /* WTActivitySettingConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WTActivitySettingConfig.plist; sourceTree = "<group>"; };
 		E191D91316C78F2E00384CF6 /* WTActivitySettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTActivitySettingViewController.h; sourceTree = "<group>"; };
 		E191D91416C78F2E00384CF6 /* WTActivitySettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTActivitySettingViewController.m; sourceTree = "<group>"; };
+		E19589A51706BFD30040E669 /* WTBluePlaceholderImage@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "WTBluePlaceholderImage@2x.jpg"; sourceTree = "<group>"; };
+		E19589A61706BFD30040E669 /* WTBluePlaceholderImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WTBluePlaceholderImage.jpg; sourceTree = "<group>"; };
+		E19589A71706BFD30040E669 /* WTGrayPlaceholderImage@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "WTGrayPlaceholderImage@2x.jpg"; sourceTree = "<group>"; };
+		E19589A81706BFD30040E669 /* WTGrayPlaceholderImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WTGrayPlaceholderImage.jpg; sourceTree = "<group>"; };
+		E19589AD1706CE580040E669 /* WTAvatarSmallCover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTAvatarSmallCover.png; sourceTree = "<group>"; };
+		E19589AE1706CE580040E669 /* WTAvatarSmallCover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTAvatarSmallCover@2x.png"; sourceTree = "<group>"; };
 		E19832D816FEF60900AB83E8 /* WTFilterNormalIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTFilterNormalIcon.png; sourceTree = "<group>"; };
 		E19832D916FEF60900AB83E8 /* WTFilterNormalIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTFilterNormalIcon@2x.png"; sourceTree = "<group>"; };
 		E19832DC16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+WTAddition.h"; sourceTree = "<group>"; };
@@ -1361,14 +1373,20 @@
 				E14F964E1696FCF40048414D /* TestAvatar1.png */,
 				E1D374611694C9B60012E30A /* WTAvatarCover.png */,
 				E1D374621694C9B60012E30A /* WTAvatarCover@2x.png */,
+				E19589AD1706CE580040E669 /* WTAvatarSmallCover.png */,
+				E19589AE1706CE580040E669 /* WTAvatarSmallCover@2x.png */,
 				E1D374631694C9B60012E30A /* WTBannerCover.png */,
 				E1D374641694C9B60012E30A /* WTBannerCover@2x.png */,
 				E1767A4416D14D2700E58CCC /* WTBlackMoreIndicator.png */,
 				E1767A4516D14D2700E58CCC /* WTBlackMoreIndicator@2x.png */,
 				E1767A4616D14D2700E58CCC /* WTBlueMoreIndicator.png */,
 				E1767A4716D14D2700E58CCC /* WTBlueMoreIndicator@2x.png */,
+				E19589A61706BFD30040E669 /* WTBluePlaceholderImage.jpg */,
+				E19589A51706BFD30040E669 /* WTBluePlaceholderImage@2x.jpg */,
 				E1D3740616936D560012E30A /* WTDarkGrayMoreIndicator.png */,
 				E1D3740716936D560012E30A /* WTDarkGrayMoreIndicator@2x.png */,
+				E19589A81706BFD30040E669 /* WTGrayPlaceholderImage.jpg */,
+				E19589A71706BFD30040E669 /* WTGrayPlaceholderImage@2x.jpg */,
 				E177EB6216C59F1A0044A697 /* WTInnerModalSeparator.png */,
 				E177EB6316C59F1A0044A697 /* WTInnerModalSeparator@2x.png */,
 				E1D374651694C9B60012E30A /* WTLargePosterCover.png */,
@@ -1813,6 +1831,12 @@
 				E1F02F5016F38B6E00699C81 /* WTNavigationBarBackHighlightButton@2x.png in Resources */,
 				E19832DA16FEF60900AB83E8 /* WTFilterNormalIcon.png in Resources */,
 				E19832DB16FEF60900AB83E8 /* WTFilterNormalIcon@2x.png in Resources */,
+				E19589A91706BFD30040E669 /* WTBluePlaceholderImage@2x.jpg in Resources */,
+				E19589AA1706BFD30040E669 /* WTBluePlaceholderImage.jpg in Resources */,
+				E19589AB1706BFD30040E669 /* WTGrayPlaceholderImage@2x.jpg in Resources */,
+				E19589AC1706BFD30040E669 /* WTGrayPlaceholderImage.jpg in Resources */,
+				E19589AF1706CE580040E669 /* WTAvatarSmallCover.png in Resources */,
+				E19589B01706CE580040E669 /* WTAvatarSmallCover@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import "WTAppDelegate.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import "WTCoreDataManager.h"
+#import "UIApplication+WTAddition.h"
 
 #define FLURRY_API_KEY @"SMBC9798JNZG6WQ7FDRJ"
 
@@ -23,6 +24,8 @@
     //[Flurry setShowErrorInLogEnabled:YES];
     [Flurry setAppVersion:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
     [Flurry startSession:FLURRY_API_KEY];
+    
+    [UIApplication showTopCorner];
         
     return YES;
 }

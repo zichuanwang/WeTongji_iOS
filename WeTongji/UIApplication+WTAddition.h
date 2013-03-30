@@ -13,4 +13,6 @@
 
 @property (nonatomic, readonly) WTRootTabBarController *rootTabBarController;
 
++ (void)showTopCorner;
+
 @end

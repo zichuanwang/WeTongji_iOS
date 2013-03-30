@@ -7,10 +7,12 @@
 //
 
 #import "WTBannerView.h"
+#import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
 
 @interface WTBannerView()
 
 @property (nonatomic, strong) NSMutableArray *bannerContainerViewArray;
+@property (nonatomic, assign) NSUInteger bannerCount;
 
 @end
 
@@ -24,22 +26,58 @@
     return self;
 }
 
-- (void)didMoveToSuperview {
-    [self configureTestBanner];
-}
-
 #pragma mark - Public methods
 
-- (void)setImage:(UIImage *)image
-       titleText:(NSString *)title
-organizationName:(NSString *)organization
-         atIndex:(NSUInteger)index {
-    if (index >= self.bannerCount)
-        return;
++ (WTBannerView *)createBannerView {
+    return [[[NSBundle mainBundle] loadNibNamed:@"WTBannerView" owner:self options:nil] lastObject];
+}
+
+- (void)addContainerViewWithImage:(UIImage *)image
+                        titleText:(NSString *)title
+                 organizationName:(NSString *)organization
+                            style:(WTBannerContainerViewStyle)style
+                          atIndex:(NSUInteger)index {
+    [self addContainerViewWithTitleText:title
+                       organizationName:organization
+                                  style:style
+                                atIndex:index];
+    
+    WTBannerContainerView *containerView = self.bannerContainerViewArray[index];
+    containerView.imageView.image = image;
+}
+
+- (void)addContainerViewWithImageURL:(NSString *)imageURLString
+                           titleText:(NSString *)title
+                    organizationName:(NSString *)organization
+                               style:(WTBannerContainerViewStyle)style
+                             atIndex:(NSUInteger)index {
+    [self addContainerViewWithTitleText:title
+                       organizationName:organization
+                                  style:style
+                                atIndex:index];
+    
+    WTBannerContainerView *containerView = self.bannerContainerViewArray[index];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURLString]];
+    [containerView.imageView setImageWithURLRequest:request
+                                placeholderImage:nil
+                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                             containerView.imageView.image = image;
+                                             [containerView.imageView fadeIn];
+                                         }
+                                         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                             
+                                         }];
+}
+
+- (void)addContainerViewWithTitleText:(NSString *)title
+                     organizationName:(NSString *)organization
+                                style:(WTBannerContainerViewStyle)style
+                              atIndex:(NSUInteger)index {
+    self.bannerCount = self.bannerCount + 1;
     WTBannerContainerView *containerView = self.bannerContainerViewArray[index];
     containerView.titleLabel.text = title;
     containerView.organizationNameLabel.text = organization;
-    containerView.imageView.image = image;
+    containerView.style = style;
 }
 
 #pragma mark - Properties
@@ -89,13 +127,17 @@ organizationName:(NSString *)organization
 }
 
 - (void)configureTestBanner {
-    self.bannerCount = 3;
     NSArray *orgNameArray = @[@"WeTongji Dev Team", @"Tongji Apple Club", @"Apple Inc."];
     NSArray *titleArray = @[@"WeTongji 3.0 Coming Soon", @"Enroll 2012", @"WWDC 2011"];
-    for(int i = 0; i < self.bannerCount; i++) {
+    for(int i = 0; i < orgNameArray.count; i++) {
         NSString *imageName = [NSString stringWithFormat:@"WTTestBanner%d", i + 1];
         UIImage *image = [UIImage imageNamed:imageName];
-        [self setImage:image titleText:titleArray[i] organizationName:orgNameArray[i] atIndex:i];
+        
+        [self addContainerViewWithImage:image
+                              titleText:titleArray[i]
+                       organizationName:orgNameArray[i]
+                                  style:WTBannerContainerViewStyleBlue
+                                atIndex:i];
     }
 }
 
@@ -108,13 +150,31 @@ organizationName:(NSString *)organization
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (decelerate == NO) {
-        if (scrollView == self.bannerScrollView)
+        if (scrollView == self.bannerScrollView) {
             [self updateBannerScrollView];
+        }
     }
 }
 
 @end
 
 @implementation WTBannerContainerView
+
+- (void)setStyle:(WTBannerContainerViewStyle)style {
+    switch (style) {
+        case WTBannerContainerViewStyleBlue:
+        {
+            self.labelContainerView.hidden = NO;
+        }
+            break;
+        case WTBannerContainerViewStyleClear:
+        {
+            self.labelContainerView.hidden = YES;
+        }
+            break;
+        default:
+            break;
+    }
+}
 
 @end

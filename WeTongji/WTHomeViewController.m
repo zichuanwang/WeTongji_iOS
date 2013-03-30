@@ -80,7 +80,8 @@
 }
 
 - (void)configureBanner {
-    self.bannerView = [[[NSBundle mainBundle] loadNibNamed:@"WTBannerView" owner:self options:nil] lastObject];
+    self.bannerView = [WTBannerView createBannerView];
+    [self.bannerView configureTestBanner];
     [self.bannerView resetOrigin:CGPointZero];
     [self.scrollView addSubview:self.bannerView];
 }

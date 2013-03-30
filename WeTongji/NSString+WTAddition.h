@@ -23,6 +23,6 @@
 - (BOOL)isSuitableForPassword;
 + (NSString *)getTodayBeginDayFormatString;
 + (NSString *)getTomorrowBeginDayFormatString;
-- (BOOL)isGifURL;
+- (BOOL)isGIFURL;
 
 @end

@@ -42,7 +42,7 @@
 // Call this method before |bottomViewLoadFinished:|.
 - (void)setBottomViewDisabled:(BOOL)disabled;
 
-- (void)setTopViewLoading;
+- (void)setTopViewLoading:(BOOL)animated;
 
 // Call this method in your UIViewController's |viewDidLoad| and
 // |viewDidAppear:animated:|.

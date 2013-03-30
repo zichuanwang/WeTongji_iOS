@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "WTCoreDataTableViewController.h"
 #import "WTRootNavigationController.h"
+#import "WTInnerSettingViewController.h"
 
-@interface WTNewsViewController : WTCoreDataTableViewController <WTRootNavigationControllerDelegate>
+@interface WTNewsViewController : WTCoreDataTableViewController <WTRootNavigationControllerDelegate, WTInnerSettingViewControllerDelegate>
 
 @end

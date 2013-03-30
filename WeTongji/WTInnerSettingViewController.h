@@ -9,6 +9,15 @@
 #import "WTInnerModalViewController.h"
 #import "WTSwitch.h"
 
+@class WTInnerSettingViewController;
+
+@protocol WTInnerSettingViewControllerDelegate <NSObject>
+
+- (void)innerSettingViewController:(WTInnerSettingViewController *)controller
+                  didFinishSetting:(BOOL)modified;
+
+@end
+
 @protocol WTInnerSettingItem <NSObject>
 
 - (BOOL)isDirty;
@@ -18,6 +27,8 @@
 @interface WTInnerSettingViewController : WTInnerModalViewController
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+
+@property (nonatomic, weak) id<WTInnerSettingViewControllerDelegate> delegate;
 
 - (NSArray *)loadSettingConfig;
 

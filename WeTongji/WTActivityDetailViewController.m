@@ -12,6 +12,8 @@
 #import "WTBannerView.h"
 #import "Activity+Addition.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
+#import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface WTActivityDetailViewController ()
 
@@ -189,7 +191,7 @@
     if (self.participateButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
         [self.participateButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];
     
-    [self.participateButton resetOrigin:CGPointMake(306.0f - self.participateButton.frame.size.width, MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y)];
+    [self.participateButton resetOrigin:CGPointMake(311.0f - self.participateButton.frame.size.width, MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y)];
     self.participateButton.autoresizingMask |= UIViewAutoresizingFlexibleTopMargin;
     
     [self.participateButton addTarget:self action:@selector(didClickParticipateButton:) forControlEvents:UIControlEventTouchUpInside];    
@@ -240,9 +242,14 @@
 #pragma mark Configure banner view
 
 - (void)configureBannerView {
-    self.bannerView = [[[NSBundle mainBundle] loadNibNamed:@"WTBannerView" owner:self options:nil] lastObject];
+    self.bannerView = [WTBannerView createBannerView];
     [self.bannerView resetOrigin:CGPointMake(0, self.briefIntroductionView.frame.origin.y + self.briefIntroductionView.frame.size.height)];
-    [self.scrollView addSubview:self.bannerView];
+    [self.bannerView addContainerViewWithImageURL:self.activity.image
+                                        titleText:self.activity.title
+                                 organizationName:self.activity.organizer
+                                            style:WTBannerContainerViewStyleClear
+                                          atIndex:0];
+    [self.scrollView insertSubview:self.bannerView belowSubview:self.briefIntroductionView];
 }
 
 #pragma mark Configure detail description view
@@ -256,6 +263,7 @@
     
     [self configureOrganizerDisplayLabelAndButton];
     [self configureActivityDescriptionView];
+    [self configureOrganizerAvatar];
     
     [self.detailDescriptionView resetOriginY:self.bannerView.frame.origin.y + self.bannerView.frame.size.height];
     [self.detailDescriptionView resetHeight:self.activityDescriptionContainerView.frame.origin.y + self.activityDescriptionContainerView.frame.size.height];
@@ -282,6 +290,22 @@
     self.activityDescriptionContainerView.backgroundColor = [UIColor clearColor];
 
     [self.activityDescriptionContainerView sendSubviewToBack:aboutImageContainer];
+}
+
+- (void)configureOrganizerAvatar {
+    self.organizerAvatarContainerView.layer.masksToBounds = YES;
+    self.organizerAvatarContainerView.layer.cornerRadius = 3.0f;
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.activity.organizer_avatar]];
+    [self.organizerAvatarImageView setImageWithURLRequest:request
+                                         placeholderImage:nil
+                                                  success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                                      self.organizerAvatarImageView.image = image;
+                                                      [self.organizerAvatarImageView fadeIn];
+                                                  }
+                                                  failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                      
+                                                  }];
 }
 
 #pragma mark - UIScrollViewDelegate

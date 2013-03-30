@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSArray *settingConfig;
 @property (nonatomic, strong) WTWaterflowDecorator *waterflowDecorator;
 
+@property (nonatomic, assign) BOOL dirty;
+
 @property (nonatomic, strong) NSMutableArray *innerSettingItems;
 
 @end
@@ -149,16 +151,19 @@
         NSLog(@"%d", [item isDirty]);
         if ([item isDirty]) {
             [WTResourceFactory configureFilterBarButton:self.callBarButtonItem modified:YES];
+            self.dirty = YES;
             return;
         }
     }
     [WTResourceFactory configureFilterBarButton:self.callBarButtonItem modified:NO];
+    self.dirty = NO;
 }
 
 #pragma mark - WTRootNavigationControllerDelegate
 
 - (void)didHideInnderModalViewController {
     [WTResourceFactory configureFilterBarButton:self.callBarButtonItem modified:NO];
+    [self.delegate innerSettingViewController:self didFinishSetting:self.dirty];
 }
 
 @end

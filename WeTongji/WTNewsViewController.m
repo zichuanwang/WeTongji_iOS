@@ -144,6 +144,7 @@
         sender.selected = NO;
         
         WTNewsSettingViewController *vc = [[WTNewsSettingViewController alloc] init];
+        vc.delegate = self;
         [nav showInnerModalViewController:vc sourceViewController:self disableNavBarType:WTDisableNavBarTypeLeft];
         
     } else {
@@ -203,7 +204,7 @@
 
 - (void)fetchedResultsControllerDidPerformFetch:(NSFetchedResultsController *)aFetchedResultsController {
     if ([aFetchedResultsController.sections.lastObject numberOfObjects] == 0) {
-        [self.dragToLoadDecorator setTopViewLoading];
+        [self.dragToLoadDecorator setTopViewLoading:YES];
     }
 }
 
@@ -211,6 +212,17 @@
 
 - (void)didHideInnderModalViewController {
     self.filterButton.selected = YES;
+}
+
+#pragma mark - WTInnerSettingViewControllerDelegate
+
+- (void)innerSettingViewController:(WTInnerSettingViewController *)controller
+                  didFinishSetting:(BOOL)modified {
+    if (modified) {
+        self.fetchedResultsController = nil;
+        [self.tableView reloadData];
+        [self.dragToLoadDecorator setTopViewLoading:NO];
+    }
 }
 
 #pragma mark - WTDragToLoadDecoratorDataSource
