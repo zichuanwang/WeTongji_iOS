@@ -206,6 +206,9 @@ static int kDragToLoadDecoratorObservingContext;
 }
 
 - (void)setTopViewLoading:(BOOL)animated {
+    if (self.topViewState == TopViewStateLoading)
+        return;
+    
     if (animated) {
         [UIView animateWithDuration:0.25f animations:^{
             self.topViewState = TopViewStateLoading;
@@ -213,6 +216,9 @@ static int kDragToLoadDecoratorObservingContext;
     } else {
         self.topViewState = TopViewStateLoading;
     }
+    
+    [self.topView startLoadingAnimation];
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 300 * NSEC_PER_MSEC), dispatch_get_current_queue(), ^{
         [self.delegate dragToLoadDecoratorDidDragDown];
     });
@@ -268,9 +274,6 @@ static int kDragToLoadDecoratorObservingContext;
             
             inset.top = self.topView.frame.size.height + self.scrollViewOriginalContentInset.top;
             scrollView.contentInset = inset;
-            [self.topView configureCloudAndDropletHeightWithRatio:1.0f];
-            
-            [self.topView startLoadingAnimation];
         }
 			break;
             
@@ -343,7 +346,7 @@ static int kDragToLoadDecoratorObservingContext;
     [self updateBottomViewState];
 }
 
-#define WTTopViewThresholdOffsetY   (-self.topView.frame.size.height - 5.0f)
+#define WTTopViewThresholdOffsetY   (-self.topView.frame.size.height - 20.0f)
 
 - (void)updateTopViewState {
     TopViewState state = self.topViewState;
@@ -356,11 +359,11 @@ static int kDragToLoadDecoratorObservingContext;
     CGFloat scrollViewRealContentOffsetY = scrollView.contentOffset.y + self.scrollViewOriginalContentInset.top;
     if (scrollView.isDragging) {
         if (state == TopViewStateNormal) {
+            [self.topView configureCloudAndDropletHeightWithRatio:scrollView.contentOffset.y / WTTopViewThresholdOffsetY];
             if (scrollViewRealContentOffsetY < WTTopViewThresholdOffsetY) {
                 [self setTopViewLoading:YES];
                 [self killScroll];
             }
-            [self.topView configureCloudAndDropletHeightWithRatio:scrollView.contentOffset.y / WTTopViewThresholdOffsetY];
         } else if (state == TopViewStateLoading) {
             if (scrollViewRealContentOffsetY >= 0) {
                 scrollView.contentInset = self.scrollViewOriginalContentInset;
@@ -407,7 +410,7 @@ static int kDragToLoadDecoratorObservingContext;
 #define WTDragToLoadCloudDistanceY      (WTDragToLoadCloudEndOriginY - WTDragToLoadCloudStartOriginY)
 
 #define WTDragToLoadCloudStartScale     1.0f
-#define WTDragToLoadCloudEndScale       0.5f
+#define WTDragToLoadCloudEndScale       0.7f
 #define WTDragToLoadCloudScaleChange    (WTDragToLoadCloudEndScale - WTDragToLoadCloudStartScale)
 
 #define WTDragToLoadDropletAnimationStartOriginY    18.0f
@@ -511,16 +514,6 @@ static int kDragToLoadDecoratorObservingContext;
     ratio = ratio < 0 ? 0 : ratio;
     
     float scaleRatio = ratio;
-    scaleRatio = scaleRatio > 3 ? 3 : scaleRatio;
-    if (scaleRatio > 3) {
-        scaleRatio = 0.95 + (ratio - 3) / 20; // 0.95 - 1.0
-    } else if (ratio > 2) {
-        scaleRatio = 0.75 + (ratio - 2) / 5; // 0.75 - 0.95
-    } else if (ratio > 1) {
-        scaleRatio = 0.5 + (ratio - 1) / 4; // 0.5 - 0.75
-    } else {
-        scaleRatio = ratio / 2; // 0 - 0.5
-    }
     
     CGFloat cloudScale = WTDragToLoadCloudStartScale + WTDragToLoadCloudScaleChange * scaleRatio;
     self.cloudImageView.transform = CGAffineTransformMakeScale(cloudScale, cloudScale);
