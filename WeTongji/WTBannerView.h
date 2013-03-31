@@ -52,10 +52,8 @@ typedef enum {
 @property (nonatomic, weak) IBOutlet UIView *labelContainerView;
 @property (nonatomic, assign) WTBannerContainerViewStyle style;
 
-@property (nonatomic, assign) CGFloat organizationNameLabelOriginY;
-@property (nonatomic, assign) CGFloat titleLabelOriginY;
-
-@property (nonatomic, assign) CGFloat formerOrganizationNameLabelOriginY;
-@property (nonatomic, assign) CGFloat formerTitleLabelOriginY;
+- (void)configureBannerContainerViewHeight:(CGFloat)height
+                              enlargeRatio:(float)enlargeRatio
+                               isEnlarging:(BOOL)isEnlarging;
 
 @end

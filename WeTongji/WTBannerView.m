@@ -67,25 +67,10 @@
         
     for (int i = 0; i < self.bannerContainerViewArray.count; i++) {
         WTBannerContainerView *containerView = self.bannerContainerViewArray[i];
-        [containerView resetHeight:bannerViewSize.height];
-        [containerView.imageView resetHeight:bannerViewSize.height];
-        [containerView.labelContainerView resetHeight:bannerViewSize.height];
-        
-        [containerView.titleLabel resetCenterX:containerView.labelContainerView.frame.size.width / 2];
-        [containerView.organizationNameLabel resetCenterX:containerView.labelContainerView.frame.size.width / 2];
         [containerView resetOriginX:containerView.frame.size.width * i];
-        
-        CGFloat titleLabelOriginY = containerView.titleLabelOriginY * enlargeRatio;
-        CGFloat organizationNameLabelOriginY = containerView.organizationNameLabelOriginY * enlargeRatio;
-        
-        titleLabelOriginY = isEnlarging ? MAX(titleLabelOriginY, containerView.formerTitleLabelOriginY) : MIN(titleLabelOriginY, containerView.formerTitleLabelOriginY);
-        organizationNameLabelOriginY = isEnlarging ? MAX(organizationNameLabelOriginY, containerView.formerOrganizationNameLabelOriginY) : MIN(organizationNameLabelOriginY, containerView.formerOrganizationNameLabelOriginY);
-                
-        [containerView.titleLabel resetOriginY:titleLabelOriginY];
-        [containerView.organizationNameLabel resetOriginY:organizationNameLabelOriginY];
-        
-        containerView.formerTitleLabelOriginY = titleLabelOriginY;
-        containerView.formerOrganizationNameLabelOriginY = organizationNameLabelOriginY;
+        [containerView configureBannerContainerViewHeight:bannerViewSize.height
+                                             enlargeRatio:enlargeRatio
+                                              isEnlarging:isEnlarging];
     }
 }
 
@@ -215,11 +200,46 @@
 
 @end
 
+@interface WTBannerContainerView ()
+
+@property (nonatomic, assign) CGFloat organizationNameLabelOriginY;
+@property (nonatomic, assign) CGFloat titleLabelOriginY;
+
+@property (nonatomic, assign) CGFloat formerOrganizationNameLabelOriginY;
+@property (nonatomic, assign) CGFloat formerTitleLabelOriginY;
+
+@end
+
 @implementation WTBannerContainerView
 
 - (void)awakeFromNib {
     self.organizationNameLabelOriginY = self.organizationNameLabel.frame.origin.y;
     self.titleLabelOriginY = self.titleLabel.frame.origin.y;
+}
+
+- (void)configureBannerContainerViewHeight:(CGFloat)height
+                              enlargeRatio:(float)enlargeRatio
+                               isEnlarging:(BOOL)isEnlarging {
+    
+    [self resetHeight:height];
+    [self.imageView resetHeight:height];
+    [self.labelContainerView resetHeight:height];
+    
+    [self.titleLabel resetCenterX:self.labelContainerView.frame.size.width / 2];
+    [self.organizationNameLabel resetCenterX:self.labelContainerView.frame.size.width / 2];
+    
+    
+    CGFloat titleLabelOriginY = self.titleLabelOriginY * enlargeRatio;
+    CGFloat organizationNameLabelOriginY = self.organizationNameLabelOriginY * enlargeRatio;
+    
+    titleLabelOriginY = isEnlarging ? MAX(titleLabelOriginY, self.formerTitleLabelOriginY) : MIN(titleLabelOriginY, self.formerTitleLabelOriginY);
+    organizationNameLabelOriginY = isEnlarging ? MAX(organizationNameLabelOriginY, self.formerOrganizationNameLabelOriginY) : MIN(organizationNameLabelOriginY, self.formerOrganizationNameLabelOriginY);
+    
+    [self.titleLabel resetOriginY:titleLabelOriginY];
+    [self.organizationNameLabel resetOriginY:organizationNameLabelOriginY];
+    
+    self.formerTitleLabelOriginY = titleLabelOriginY;
+    self.formerOrganizationNameLabelOriginY = organizationNameLabelOriginY;
 }
 
 - (void)setStyle:(WTBannerContainerViewStyle)style {
