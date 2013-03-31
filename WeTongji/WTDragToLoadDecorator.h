@@ -57,11 +57,16 @@
 
 @interface WTDragToLoadDecoratorTopView : UIView
 
-@property (nonatomic, weak) IBOutlet UILabel *dragStatusLabel;
-@property (nonatomic, weak) IBOutlet UILabel *updateTimeLabel;
-@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, weak) IBOutlet UIImageView *cloudImageView;
+@property (nonatomic, weak) IBOutlet UIImageView *dropletImageView;
 
 + (WTDragToLoadDecoratorTopView *)createTopView;
+
+- (void)startLoadingAnimation;
+
+- (void)stopLoadingAnimation;
+
+- (void)configureCloudAndDropletHeightWithRatio:(float)ratio;
 
 @end
 

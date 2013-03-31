@@ -31,6 +31,11 @@
         _topPlaceholderImageView = [[UIImageView alloc] initWithImage:placeholderImage];
         [_topPlaceholderImageView setAutoresizingMask:UIViewAutoresizingNone];
         [_topPlaceholderImageView resetOriginY:-_topPlaceholderImageView.frame.size.height];
+        
+        UIImageView *shadowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTScrollViewPlaceholderShadow"]];
+        [shadowImageView resetOriginY:_topPlaceholderImageView.frame.size.height - shadowImageView.frame.size.height];
+        [shadowImageView resetWidth:320.0f];
+        [_topPlaceholderImageView addSubview:shadowImageView];
     }
     return _topPlaceholderImageView;
 }

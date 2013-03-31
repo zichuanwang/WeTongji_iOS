@@ -28,11 +28,11 @@
     
     NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
     if ([language isEqualToString:@"en"]) {
-        [form setDateFormat:@"MM/dd/yyyy"];
+        [form setDateFormat:@"M/d/yyyy"];
     } else if ([language isEqualToString:@"zh-Hans"]) {
-        [form setDateFormat:@"yyyy年MM月dd日"];
+        [form setDateFormat:@"yyyy/M/d"];
     } else {
-        [form setDateFormat:@"yyyy.MM.dd"];
+        [form setDateFormat:@"yyyy/M/d"];
     }
     
     NSString *result = [form stringFromDate:date];

@@ -219,9 +219,11 @@
 }
 
 - (void)fetchedResultsControllerDidPerformFetch:(NSFetchedResultsController *)aFetchedResultsController {
-    if ([aFetchedResultsController.sections.lastObject numberOfObjects] == 0) {
-        [self.dragToLoadDecorator setTopViewLoading:YES];
-    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 300 * NSEC_PER_MSEC), dispatch_get_current_queue(), ^{
+        if ([aFetchedResultsController.sections.lastObject numberOfObjects] == 0) {
+            [self.dragToLoadDecorator setTopViewLoading:YES];
+        }
+    });
 }
 
 #pragma mark - UITableViewDelegate
