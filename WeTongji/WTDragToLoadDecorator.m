@@ -355,14 +355,10 @@ static int kDragToLoadDecoratorObservingContext;
     
     CGFloat scrollViewRealContentOffsetY = scrollView.contentOffset.y + self.scrollViewOriginalContentInset.top;
     if (scrollView.isDragging) {
-        if (state == TopViewStateReady) {
-            if (scrollViewRealContentOffsetY > WTTopViewThresholdOffsetY && scrollViewRealContentOffsetY < 0.0f) {
-                self.topViewState = TopViewStateNormal;
-            }
-            [self.topView configureCloudAndDropletHeightWithRatio:scrollView.contentOffset.y / WTTopViewThresholdOffsetY];
-        } else if (state == TopViewStateNormal) {
+        if (state == TopViewStateNormal) {
             if (scrollViewRealContentOffsetY < WTTopViewThresholdOffsetY) {
-                self.topViewState = TopViewStateReady;
+                [self setTopViewLoading:YES];
+                [self killScroll];
             }
             [self.topView configureCloudAndDropletHeightWithRatio:scrollView.contentOffset.y / WTTopViewThresholdOffsetY];
         } else if (state == TopViewStateLoading) {
@@ -372,11 +368,13 @@ static int kDragToLoadDecoratorObservingContext;
                 scrollView.contentInset = UIEdgeInsetsMake(MIN(-scrollViewRealContentOffsetY, topViewHeight) + self.scrollViewOriginalContentInset.top, 0, 0, self.scrollViewOriginalContentInset.bottom);
             }
         }
-    } else {
-        if (state == TopViewStateReady) {
-            [self setTopViewLoading:YES];
-        }
     }
+}
+
+- (void)killScroll {
+    UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
+    scrollView.scrollEnabled = NO;
+    scrollView.scrollEnabled = YES;
 }
 
 - (void)updateBottomViewState {
