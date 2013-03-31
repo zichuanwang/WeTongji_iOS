@@ -13,6 +13,9 @@
 @implementation User (Addition)
 
 + (User *)insertUser:(NSDictionary *)dict {
+    if (![dict isKindOfClass:[NSDictionary class]])
+        return nil;
+    
     NSString *userID = [NSString stringWithFormat:@"%@", dict[@"UID"]];
     
     if (!userID || [userID isEqualToString:@""]) {
@@ -39,6 +42,16 @@
     result.sina_weibo_name = [NSString stringWithFormat:@"%@", dict[@"SinaWeibo"]];
     result.enroll_year = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@", dict[@"Year"]] integerValue]];
     
+    return result;
+}
+
++ (User *)createTestUserWithName:(NSString *)name {
+    User *result = [User userWithID:name];
+    if (!result) {
+        result = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
+        result.identifier = name;
+    }
+    result.name = name;
     return result;
 }
 

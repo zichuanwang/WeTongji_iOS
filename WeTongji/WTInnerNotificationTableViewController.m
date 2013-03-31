@@ -38,6 +38,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [self viewDidDisappear:animated];
     [self loadMoreData];
 }
 
@@ -49,8 +50,7 @@
     [self.waterflowDecorator adjustWaterflowView];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -60,6 +60,7 @@
 - (void)loadMoreData {
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"notification list:%@", responseObject);
+        [Notification insertNotifications:responseObject];
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Get notification list:%@", error.localizedDescription);
     }];
@@ -75,13 +76,13 @@
 
 #pragma mark - UITableViewDelegate
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView bringSubviewToFront:cell];
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     Notification *notification = [self.fetchedResultsController objectAtIndexPath:indexPath];
     return [notification cellHeight];
+}
+
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView bringSubviewToFront:cell];
 }
 
 #pragma mark - Properties
@@ -100,6 +101,8 @@
     WTNotificationCell *notificationCell = (WTNotificationCell *)cell;
     notificationCell.delegate = self;
     [notificationCell configureUIWithNotificaitonObject:notification];
+    
+    [self.tableView bringSubviewToFront:cell];
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {
@@ -112,6 +115,11 @@
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
     Notification *notification = [self.fetchedResultsController objectAtIndexPath:indexPath];
     return [notification customCellClassName];
+}
+
+- (void)deleteCellAtIndexPath:(NSIndexPath *)indexPath {
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath]
+                          withRowAnimation:UITableViewRowAnimationRight];
 }
 
 #pragma mark - WTWaterflowDecoratorDataSource

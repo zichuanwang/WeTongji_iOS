@@ -12,6 +12,7 @@
 #import "ActivityInvitationNotification.h"
 #import "User+Addition.h"
 #import "WTNotificationFriendInvitationCell.h"
+#import "NSString+WTAddition.h"
 
 @implementation Notification (Addition)
 
@@ -41,6 +42,40 @@
     return resultArray;
 }
 
++ (void)insertNotifications:(NSDictionary *)dict {
+    NSArray *friendInvitationArray = dict[@"FriendInvites"];
+    for (NSDictionary *friendInvitationDict in friendInvitationArray) {
+        [Notification insertFriendInvitationNotification:friendInvitationDict];
+    }
+}
+
++ (FriendInvitationNotification *)insertFriendInvitationNotification:(NSDictionary *)dict {
+    NSString *notificationID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
+    
+    if (!notificationID || [notificationID isEqualToString:@""]) {
+        return nil;
+    }
+    
+    FriendInvitationNotification *result = (FriendInvitationNotification *)[Notification notificationWithID:notificationID];
+    if (!result) {
+        result = [NSEntityDescription insertNewObjectForEntityForName:@"FriendInvitationNotification" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
+        result.identifier = notificationID;
+    }
+    
+    result.send_time = [[NSString stringWithFormat:@"%@", dict[@"SentAt"]] convertToDate];
+    NSString *senderName = [NSString stringWithFormat:@"%@", dict[@"From"]];
+    result.sender = [User createTestUserWithName:senderName];
+    
+    NSString *acceptDateString = [NSString stringWithFormat:@"%@", dict[@"AcceptedAt"]];
+    if ([acceptDateString isEqualToString:@"<null>"]) {
+        result.accepted = @(NO);
+    } else {
+        result.accepted = @(YES);
+    }
+    
+    return result;
+}
+
 + (Notification *)notificationWithID:(NSString *)activityID {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
@@ -56,7 +91,7 @@
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"News" inManagedObjectContext:context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Notification" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier == %@", notificationID];

@@ -258,6 +258,7 @@
 		E19589C91707F6FE0040E669 /* WTDragToLoadCloud.png in Resources */ = {isa = PBXBuildFile; fileRef = E19589C51707F6FE0040E669 /* WTDragToLoadCloud.png */; };
 		E19589CC17081B570040E669 /* WTScrollViewPlaceholderShadowUnit.png in Resources */ = {isa = PBXBuildFile; fileRef = E19589CA17081B560040E669 /* WTScrollViewPlaceholderShadowUnit.png */; };
 		E19589CD17081B570040E669 /* WTScrollViewPlaceholderShadowUnit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E19589CB17081B570040E669 /* WTScrollViewPlaceholderShadowUnit@2x.png */; };
+		E19589D31708528A0040E669 /* WTWaterflowTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E19589D2170852880040E669 /* WTWaterflowTableView.m */; };
 		E19832DA16FEF60900AB83E8 /* WTFilterNormalIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E19832D816FEF60900AB83E8 /* WTFilterNormalIcon.png */; };
 		E19832DB16FEF60900AB83E8 /* WTFilterNormalIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E19832D916FEF60900AB83E8 /* WTFilterNormalIcon@2x.png */; };
 		E19832DE16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E19832DD16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.m */; };
@@ -681,6 +682,8 @@
 		E19589C51707F6FE0040E669 /* WTDragToLoadCloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTDragToLoadCloud.png; sourceTree = "<group>"; };
 		E19589CA17081B560040E669 /* WTScrollViewPlaceholderShadowUnit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTScrollViewPlaceholderShadowUnit.png; sourceTree = "<group>"; };
 		E19589CB17081B570040E669 /* WTScrollViewPlaceholderShadowUnit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTScrollViewPlaceholderShadowUnit@2x.png"; sourceTree = "<group>"; };
+		E19589D1170852870040E669 /* WTWaterflowTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTWaterflowTableView.h; sourceTree = "<group>"; };
+		E19589D2170852880040E669 /* WTWaterflowTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTWaterflowTableView.m; sourceTree = "<group>"; };
 		E19832D816FEF60900AB83E8 /* WTFilterNormalIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTFilterNormalIcon.png; sourceTree = "<group>"; };
 		E19832D916FEF60900AB83E8 /* WTFilterNormalIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTFilterNormalIcon@2x.png"; sourceTree = "<group>"; };
 		E19832DC16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+WTAddition.h"; sourceTree = "<group>"; };
@@ -1115,6 +1118,8 @@
 				E19589BC170748A70040E669 /* WTScrollView.m */,
 				E19589BE170748BF0040E669 /* WTTableView.h */,
 				E19589BF170748C00040E669 /* WTTableView.m */,
+				E19589D1170852870040E669 /* WTWaterflowTableView.h */,
+				E19589D2170852880040E669 /* WTWaterflowTableView.m */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -2020,6 +2025,7 @@
 				E19832DE16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.m in Sources */,
 				E19589BD170748A80040E669 /* WTScrollView.m in Sources */,
 				E19589C0170748C10040E669 /* WTTableView.m in Sources */,
+				E19589D31708528A0040E669 /* WTWaterflowTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,7 @@
 #import "WTCommonConstant.h"
 #import "User.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
+#import "NSString+WTAddition.h"
 
 #define FI_CELL_FULL_HEIGHT                     120.0f
 #define FI_CELL_BUTTON_CONTAINER_VIEW_HEIGHT    50.0f
@@ -84,17 +85,26 @@
 
 #pragma mark - UI methods
 
-- (void)hideButtons {
-    UIViewAutoresizing notificationContentLabelResizing = self.notificationContentLabel.autoresizingMask;
-    UIViewAutoresizing timeLabelResizing = self.timeLabel.autoresizingMask;
-    
-    self.notificationContentLabel.autoresizingMask = self.avatarContainerView.autoresizingMask;
-    self.timeLabel.autoresizingMask = self.avatarContainerView.autoresizingMask;
-    
-    [self.buttonContainerView fadeOutWithCompletion:^{
-        self.notificationContentLabel.autoresizingMask = notificationContentLabelResizing;
-        self.timeLabel.autoresizingMask = timeLabelResizing;
-    }];
+- (void)hideButtons:(BOOL)animated {
+    if (animated) {
+        UIViewAutoresizing notificationContentLabelResizing = self.notificationContentLabel.autoresizingMask;
+        UIViewAutoresizing timeLabelResizing = self.timeLabel.autoresizingMask;
+        
+        self.notificationContentLabel.autoresizingMask = self.avatarContainerView.autoresizingMask;
+        self.timeLabel.autoresizingMask = self.avatarContainerView.autoresizingMask;
+        
+        [self.buttonContainerView fadeOutWithCompletion:^{
+            self.notificationContentLabel.autoresizingMask = notificationContentLabelResizing;
+            self.timeLabel.autoresizingMask = timeLabelResizing;
+        }];
+    }
+    else {
+        self.buttonContainerView.alpha = 0;
+    }
+}
+
+- (void)showButtons {
+    self.buttonContainerView.alpha = 1;
 }
 
 - (void)showAcceptIcon {
@@ -105,10 +115,18 @@
 
 - (IBAction)didClickAcceptButton:(UIButton *)sender {
     FriendInvitationNotification *friendInvitation = (FriendInvitationNotification *)self.notification;
+    
+    // Test code:
+    friendInvitation.accepted = @(YES);
+    [self hideButtons:YES];
+    [self showAcceptIcon];
+    [self.delegate cellHeightDidChange];
+    return;
+    
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         NSLog(@"Accept friend invitation:%@", responseObject);
         friendInvitation.accepted = @(YES);
-        [self hideButtons];
+        [self hideButtons:YES];
         [self showAcceptIcon];
         [self.delegate cellHeightDidChange];
     } failureBlock:^(NSError *error) {
@@ -120,6 +138,11 @@
 
 - (IBAction)didClickIgnoreButton:(UIButton *)sender {
     FriendInvitationNotification *friendInvitation = (FriendInvitationNotification *)self.notification;
+    
+    // Test code:
+    [Notification deleteNotificationWithID:friendInvitation.identifier];
+    return;
+    
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         NSLog(@"Accept friend invitation:%@", responseObject);
         [Notification deleteNotificationWithID:friendInvitation.identifier];
@@ -128,7 +151,6 @@
     }];
     [request ignoreFriendInvitation:friendInvitation.identifier];
     [[WTClient sharedClient] enqueueRequest:request];
-
 }
 
 #pragma mark - UI methods
@@ -146,6 +168,17 @@
         FriendInvitationNotification *friendInvitation = (FriendInvitationNotification *)notification;
         User *sender = friendInvitation.sender;
         [self configureNotificationMessageWithSenderName:sender.name];
+        
+        NSLog(@"shit:%@", [NSString yearMonthDayWeekTimeConvertFromDate:notification.send_time]);
+        self.timeLabel.text = [NSString yearMonthDayWeekTimeConvertFromDate:notification.send_time];
+        
+        if (friendInvitation.accepted.boolValue) {
+            [self.timeLabel resetOriginY:self.frame.size.height - 13.0f - self.timeLabel.frame.size.height];
+            [self hideButtons:NO];
+        } else {
+            [self.timeLabel resetOriginY:self.frame.size.height - 63.0f - self.timeLabel.frame.size.height];
+            [self showButtons];
+        }
         
         [self resetHeight:[WTNotificationFriendInvitationCell cellHeightWithNotificationObject:friendInvitation]];
     }

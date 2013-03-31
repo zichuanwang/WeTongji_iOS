@@ -18,4 +18,6 @@
 
 - (CGFloat)cellHeight;
 
++ (void)insertNotifications:(NSDictionary *)dict;
+
 @end
