@@ -13,6 +13,7 @@
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
                           category:(NSString *)category
+                             title:(NSString *)title
                            summary:(NSString *)summary {
     if (indexPath.row % 2) {
         self.containerView.backgroundColor = WTCellBackgroundColor1;
@@ -20,19 +21,29 @@
         self.containerView.backgroundColor = WTCellBackgroundColor2;
     }
     self.categoryLabel.text = category;
+    self.titleLabel.text = title;
     self.summaryLabel.text = summary;
-    
-    [self.summaryLabel resetFrameWithOrigin:CGPointMake(14, 34) size:CGSizeMake(270, 30)];
-    
-    CGFloat summaryLabelOriginalWidth = self.summaryLabel.frame.size.width;
-    CGFloat summaryLabelRealWidth = [self.summaryLabel.text sizeWithFont:self.summaryLabel.font].width;
+        
+    CGFloat titleLabelOriginalWidth = self.titleLabel.frame.size.width;
+    CGFloat titleLabelRealWidth = [self.titleLabel.text sizeWithFont:self.titleLabel.font].width;
+    CGFloat singleLineTitleLabelHeight = [@"Test" sizeWithFont:self.titleLabel.font].height;
     CGFloat singleLineSummaryLabelHeight = [@"Test" sizeWithFont:self.summaryLabel.font].height;
     
-    if(summaryLabelRealWidth > summaryLabelOriginalWidth) {
-        NSUInteger maxLineNumber = 2;
-        [self.summaryLabel resetSize:CGSizeMake(summaryLabelOriginalWidth, singleLineSummaryLabelHeight * maxLineNumber)];
-        [self.summaryLabel resetCenterY:(self.categoryLabel.frame.size.height + self.categoryLabel.frame.origin.y + self.frame.size.height) / 2 - 2];
+    if(titleLabelRealWidth > titleLabelOriginalWidth) {
+        // 显示两行新闻标题
+        [self.titleLabel resetHeight:singleLineTitleLabelHeight * 2];
+        
+        // 显示一行简介
+        [self.summaryLabel resetHeight:singleLineSummaryLabelHeight];
+    } else {
+        // 显示一行新闻标题
+        [self.titleLabel resetHeight:singleLineTitleLabelHeight];
+        
+        // 显示两行简介
+        [self.summaryLabel resetHeight:singleLineSummaryLabelHeight * 2];
     }
+    
+    [self.summaryLabel resetOriginY:self.frame.size.height - self.summaryLabel.frame.size.height - 10.0f];
 }
 
 @end

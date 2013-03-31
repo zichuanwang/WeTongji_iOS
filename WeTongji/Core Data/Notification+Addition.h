@@ -20,4 +20,6 @@
 
 + (void)insertNotifications:(NSDictionary *)dict;
 
++ (void)clearAllNotifications;
+
 @end

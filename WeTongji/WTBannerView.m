@@ -14,6 +14,12 @@
 @property (nonatomic, strong) NSMutableArray *bannerContainerViewArray;
 @property (nonatomic, assign) NSUInteger bannerCount;
 
+@property (nonatomic, assign) CGFloat originalBottomY;
+
+@property (nonatomic, assign) CGFloat formerEnlargeRatio;
+
+@property (nonatomic, assign) CGFloat pageControlOriginY;
+
 @end
 
 @implementation WTBannerView
@@ -26,10 +32,61 @@
     return self;
 }
 
+- (void)didMoveToSuperview {
+    self.originalBottomY = self.frame.origin.y + self.frame.size.height;
+    self.pageControlOriginY = self.bannerPageControl.frame.origin.y;
+}
+
 #pragma mark - Public methods
 
 + (WTBannerView *)createBannerView {
     return [[[NSBundle mainBundle] loadNibNamed:@"WTBannerView" owner:self options:nil] lastObject];
+}
+
+- (void)configureBannerViewHeight:(CGFloat)height {
+    if (height < BANNER_VIEW_ORIGINAL_HIEHGT)
+        return;
+    
+    CGFloat enlargeRatio = height / BANNER_VIEW_ORIGINAL_HIEHGT;
+    BOOL isEnlarging = enlargeRatio > self.formerEnlargeRatio;
+    self.formerEnlargeRatio = enlargeRatio;
+    
+    CGSize bannerViewSize = CGSizeMake(floorf(enlargeRatio * BANNER_VIEW_ORIGINAL_WIDTH), height);
+
+    [self resetSize:bannerViewSize];
+    [self resetOriginY:self.originalBottomY - bannerViewSize.height];
+    [self resetCenterX:BANNER_VIEW_ORIGINAL_WIDTH / 2];
+    
+    [self.bannerPageControl resetCenterX:self.frame.size.width / 2];
+    [self.bannerPageControl resetOriginY:bannerViewSize.height - BANNER_VIEW_ORIGINAL_HIEHGT + self.pageControlOriginY];
+    [self.bottomShadowImageView resetOriginY:bannerViewSize.height];
+        
+    self.bannerScrollView.contentSize = CGSizeMake(self.bannerScrollView.frame.size.width * self.bannerCount, bannerViewSize.height);
+    self.bannerScrollView.contentOffset = CGPointMake(self.frame.size.width * self.bannerPageControl.currentPage, 0);
+    [self.bannerScrollView resetHeight:bannerViewSize.height];
+        
+    for (int i = 0; i < self.bannerContainerViewArray.count; i++) {
+        WTBannerContainerView *containerView = self.bannerContainerViewArray[i];
+        [containerView resetHeight:bannerViewSize.height];
+        [containerView.imageView resetHeight:bannerViewSize.height];
+        [containerView.labelContainerView resetHeight:bannerViewSize.height];
+        
+        [containerView.titleLabel resetCenterX:containerView.labelContainerView.frame.size.width / 2];
+        [containerView.organizationNameLabel resetCenterX:containerView.labelContainerView.frame.size.width / 2];
+        [containerView resetOriginX:containerView.frame.size.width * i];
+        
+        CGFloat titleLabelOriginY = containerView.titleLabelOriginY * enlargeRatio;
+        CGFloat organizationNameLabelOriginY = containerView.organizationNameLabelOriginY * enlargeRatio;
+        
+        titleLabelOriginY = isEnlarging ? MAX(titleLabelOriginY, containerView.formerTitleLabelOriginY) : MIN(titleLabelOriginY, containerView.formerTitleLabelOriginY);
+        organizationNameLabelOriginY = isEnlarging ? MAX(organizationNameLabelOriginY, containerView.formerOrganizationNameLabelOriginY) : MIN(organizationNameLabelOriginY, containerView.formerOrganizationNameLabelOriginY);
+                
+        [containerView.titleLabel resetOriginY:titleLabelOriginY];
+        [containerView.organizationNameLabel resetOriginY:organizationNameLabelOriginY];
+        
+        containerView.formerTitleLabelOriginY = titleLabelOriginY;
+        containerView.formerOrganizationNameLabelOriginY = organizationNameLabelOriginY;
+    }
 }
 
 - (void)addContainerViewWithImage:(UIImage *)image
@@ -159,6 +216,11 @@
 @end
 
 @implementation WTBannerContainerView
+
+- (void)awakeFromNib {
+    self.organizationNameLabelOriginY = self.organizationNameLabel.frame.origin.y;
+    self.titleLabelOriginY = self.titleLabel.frame.origin.y;
+}
 
 - (void)setStyle:(WTBannerContainerViewStyle)style {
     switch (style) {

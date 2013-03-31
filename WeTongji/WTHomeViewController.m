@@ -99,10 +99,23 @@
 
 #pragma mark - UIScrollViewDelegate
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat scrollViewOffsetY = scrollView.contentOffset.y;
+    scrollViewOffsetY = scrollViewOffsetY < 0 ? 0 : scrollViewOffsetY;
+    [self.bannerView configureBannerViewHeight:-scrollView.contentOffset.y + BANNER_VIEW_ORIGINAL_HIEHGT];
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    self.bannerView.userInteractionEnabled = NO;
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (!decelerate)
+        self.bannerView.userInteractionEnabled = YES;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    self.bannerView.userInteractionEnabled = YES;
 }
 
 #pragma mark - Actions

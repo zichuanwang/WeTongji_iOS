@@ -123,4 +123,15 @@
     }
 }
 
++ (void)clearAllNotifications {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
+    [request setEntity:[NSEntityDescription entityForName:@"Notification" inManagedObjectContext:context]];
+    NSArray *allNotifications = [context executeFetchRequest:request error:NULL];
+    
+    for(Notification *item in allNotifications) {
+        [context deleteObject:item];
+    }
+}
+
 @end

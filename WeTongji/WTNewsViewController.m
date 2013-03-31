@@ -155,16 +155,16 @@
 #pragma mark - UITableViewDelegate
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIImageView *bgImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 25)];
+    UIImageView *bgImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 24)];
     bgImageView.image = [UIImage imageNamed:@"WTTableViewSectionBgUnit"];
     
     NSString *sectionName = [[[self.fetchedResultsController sections] objectAtIndex:section] name];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, tableView.bounds.size.width, 24)];
     label.text = sectionName;
-    label.font = [UIFont boldSystemFontOfSize:14.0f];
-    label.textColor = [UIColor whiteColor];
-    label.shadowColor = [UIColor grayColor];
-    label.shadowOffset = CGSizeMake(0, 1.0f);
+    label.font = [UIFont boldSystemFontOfSize:12.0f];
+    label.textColor = [UIColor colorWithRed:131.0f / 255 green:131.0f / 255 blue:131.0f / 255 alpha:1.0f];
+    // label.shadowColor = [UIColor grayColor];
+    // label.shadowOffset = CGSizeMake(0, 1.0f);
     label.backgroundColor = [UIColor clearColor];
     
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 24)];
@@ -179,7 +179,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     WTNewsCell *newsCell = (WTNewsCell *)cell;
     News *news = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [newsCell configureCellWithIndexPath:indexPath category:NSLocalizedString(@"Campus Update", nil) summary:news.title];
+    [newsCell configureCellWithIndexPath:indexPath category:NSLocalizedString(@"Campus Update", nil) title:news.title summary:news.content];
 }
 
 - (void)insertCellAtIndexPath:(NSIndexPath *)indexPath {

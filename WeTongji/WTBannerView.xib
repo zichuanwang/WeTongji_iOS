@@ -39,7 +39,7 @@
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIImageView" id="671192856">
 						<reference key="NSNextResponder" ref="893876447"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">266</int>
 						<string key="NSFrame">{{0, 130}, {320, 4}}</string>
 						<reference key="NSSuperview" ref="893876447"/>
 						<reference key="NSWindow"/>
@@ -52,9 +52,9 @@
 							<string key="NSResourceName">WTBottomShadow.png</string>
 						</object>
 					</object>
-					<object class="IBUIImageView" id="1024292861">
+					<object class="IBUIImageView" id="47177925">
 						<reference key="NSNextResponder" ref="893876447"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{320, 130}</string>
 						<reference key="NSSuperview" ref="893876447"/>
 						<reference key="NSWindow"/>
@@ -71,7 +71,7 @@
 					</object>
 					<object class="IBUIScrollView" id="635336847">
 						<reference key="NSNextResponder" ref="893876447"/>
-						<int key="NSvFlags">268</int>
+						<int key="NSvFlags">274</int>
 						<array class="NSMutableArray" key="NSSubviews">
 							<object class="IBUIImageView" id="558647899">
 								<reference key="NSNextResponder" ref="635336847"/>
@@ -109,12 +109,11 @@
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="558647899"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
-						<object class="NSColor" key="IBUIBackgroundColor" id="794404587">
+						<object class="NSColor" key="IBUIBackgroundColor" id="227524680">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MCAwAA</bytes>
 						</object>
 						<bool key="IBUIClipsSubviews">YES</bool>
-						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<bool key="IBUIPagingEnabled">YES</bool>
 						<bool key="IBUIShowsHorizontalScrollIndicator">NO</bool>
@@ -127,7 +126,6 @@
 						<string key="NSFrame">{{141, 98}, {38, 36}}</string>
 						<reference key="NSSuperview" ref="893876447"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -139,9 +137,9 @@
 				<string key="NSFrameSize">{320, 130}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="1024292861"/>
+				<reference key="NSNextKeyView" ref="47177925"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
-				<reference key="IBUIBackgroundColor" ref="794404587"/>
+				<reference key="IBUIBackgroundColor" ref="227524680"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 		</array>
@@ -181,6 +179,14 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">bottomShadowImageView</string>
+						<reference key="source" ref="893876447"/>
+						<reference key="destination" ref="671192856"/>
+					</object>
+					<int key="connectionID">23</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="635336847"/>
 						<reference key="destination" ref="893876447"/>
@@ -214,7 +220,7 @@
 							<reference ref="564983056"/>
 							<reference ref="635336847"/>
 							<reference ref="671192856"/>
-							<reference ref="1024292861"/>
+							<reference ref="47177925"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -249,7 +255,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">22</int>
-						<reference key="object" ref="1024292861"/>
+						<reference key="object" ref="47177925"/>
 						<reference key="parent" ref="893876447"/>
 					</object>
 				</array>
@@ -271,7 +277,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">22</int>
+			<int key="maxID">23</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -281,6 +287,7 @@
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="bannerPageControl">UIPageControl</string>
 						<string key="bannerScrollView">UIScrollView</string>
+						<string key="bottomShadowImageView">UIImageView</string>
 						<string key="leftShadowImageView">UIImageView</string>
 						<string key="rightShadowImageView">UIImageView</string>
 					</dictionary>
@@ -292,6 +299,10 @@
 						<object class="IBToOneOutletInfo" key="bannerScrollView">
 							<string key="name">bannerScrollView</string>
 							<string key="candidateClassName">UIScrollView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="bottomShadowImageView">
+							<string key="name">bottomShadowImageView</string>
+							<string key="candidateClassName">UIImageView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="leftShadowImageView">
 							<string key="name">leftShadowImageView</string>

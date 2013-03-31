@@ -12,6 +12,7 @@
 #import "WTResourceFactory.h"
 #import "Notification+Addition.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
+#import "NSString+WTAddition.h"
 
 @interface WTInnerNotificationTableViewController () <WTWaterflowDecoratorDataSource>
 
@@ -60,6 +61,7 @@
 - (void)loadMoreData {
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"notification list:%@", responseObject);
+        [Notification clearAllNotifications];
         [Notification insertNotifications:responseObject];
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Get notification list:%@", error.localizedDescription);
@@ -103,6 +105,8 @@
     [notificationCell configureUIWithNotificaitonObject:notification];
     
     [self.tableView bringSubviewToFront:cell];
+    
+    NSLog(@"row:%d, noti_id:%@, date:%@", indexPath.row, notification.identifier, [NSString yearMonthDayTimeConvertFromDate:notification.send_time]);
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {
@@ -115,11 +119,6 @@
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
     Notification *notification = [self.fetchedResultsController objectAtIndexPath:indexPath];
     return [notification customCellClassName];
-}
-
-- (void)deleteCellAtIndexPath:(NSIndexPath *)indexPath {
-    [self.tableView deleteRowsAtIndexPaths:@[indexPath]
-                          withRowAnimation:UITableViewRowAnimationRight];
 }
 
 #pragma mark - WTWaterflowDecoratorDataSource
