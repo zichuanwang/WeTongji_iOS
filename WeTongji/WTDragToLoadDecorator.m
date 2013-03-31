@@ -207,6 +207,10 @@ static int kDragToLoadDecoratorObservingContext;
 
 - (void)setTopViewLoading:(BOOL)animated {
     if (animated) {
+        [UIView animateWithDuration:0.25f animations:^{
+            self.topViewState = TopViewStateLoading;
+        }];
+    } else {
         self.topViewState = TopViewStateLoading;
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 300 * NSEC_PER_MSEC), dispatch_get_current_queue(), ^{
@@ -263,10 +267,8 @@ static int kDragToLoadDecoratorObservingContext;
             // self.topView.dragStatusLabel.text = NSLocalizedString(@"Loading", nil);
             
             inset.top = self.topView.frame.size.height + self.scrollViewOriginalContentInset.top;
-            [UIView animateWithDuration:0.25f animations:^{
-                scrollView.contentInset = inset;
-                [self.topView configureCloudAndDropletHeightWithRatio:1.0f];
-            }];
+            scrollView.contentInset = inset;
+            [self.topView configureCloudAndDropletHeightWithRatio:1.0f];
             
             [self.topView startLoadingAnimation];
         }

@@ -34,15 +34,14 @@
 			</object>
 			<object class="IBUIView" id="191373211">
 				<reference key="NSNextResponder"/>
-				<int key="NSvFlags">292</int>
+				<int key="NSvFlags">293</int>
 				<array class="NSMutableArray" key="NSSubviews">
-					<object class="IBUIImageView" id="557090708">
+					<object class="IBUIImageView" id="993978244">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">-2147483379</int>
 						<string key="NSFrame">{{152, 20}, {16, 20}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -51,13 +50,13 @@
 							<string key="NSResourceName">WTDragToLoadDroplet.png</string>
 						</object>
 					</object>
-					<object class="IBUIImageView" id="345863809">
+					<object class="IBUIImageView" id="293442648">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">264</int>
 						<string key="NSFrame">{{139, 27}, {43, 34}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="557090708"/>
+						<reference key="NSNextKeyView" ref="993978244"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -70,7 +69,7 @@
 				<string key="NSFrameSize">{320, 60}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="345863809"/>
+				<reference key="NSNextKeyView" ref="293442648"/>
 				<object class="NSColor" key="IBUIBackgroundColor" id="54523715">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MCAwAA</bytes>
@@ -88,7 +87,6 @@
 						<string key="NSFrame">{{150, 20}, {20, 20}}</string>
 						<reference key="NSSuperview" ref="17893201"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -111,7 +109,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">dropletImageView</string>
 						<reference key="source" ref="191373211"/>
-						<reference key="destination" ref="557090708"/>
+						<reference key="destination" ref="993978244"/>
 					</object>
 					<int key="connectionID">16</int>
 				</object>
@@ -119,7 +117,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">cloudImageView</string>
 						<reference key="source" ref="191373211"/>
-						<reference key="destination" ref="345863809"/>
+						<reference key="destination" ref="293442648"/>
 					</object>
 					<int key="connectionID">17</int>
 				</object>
@@ -144,8 +142,8 @@
 						<int key="objectID">1</int>
 						<reference key="object" ref="191373211"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="557090708"/>
-							<reference ref="345863809"/>
+							<reference ref="993978244"/>
+							<reference ref="293442648"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -175,12 +173,12 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">14</int>
-						<reference key="object" ref="345863809"/>
+						<reference key="object" ref="293442648"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">15</int>
-						<reference key="object" ref="557090708"/>
+						<reference key="object" ref="993978244"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</array>
