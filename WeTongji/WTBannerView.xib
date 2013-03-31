@@ -52,7 +52,7 @@
 							<string key="NSResourceName">WTBottomShadow.png</string>
 						</object>
 					</object>
-					<object class="IBUIImageView" id="1026690350">
+					<object class="IBUIImageView" id="1024292861">
 						<reference key="NSNextResponder" ref="893876447"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrameSize">{320, 130}</string>
@@ -109,7 +109,7 @@
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="558647899"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
-						<object class="NSColor" key="IBUIBackgroundColor" id="535589797">
+						<object class="NSColor" key="IBUIBackgroundColor" id="794404587">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MCAwAA</bytes>
 						</object>
@@ -133,14 +133,15 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
+						<bool key="IBUIHidesForSinglePage">YES</bool>
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 130}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="1026690350"/>
+				<reference key="NSNextKeyView" ref="1024292861"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
-				<reference key="IBUIBackgroundColor" ref="535589797"/>
+				<reference key="IBUIBackgroundColor" ref="794404587"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 		</array>
@@ -213,7 +214,7 @@
 							<reference ref="564983056"/>
 							<reference ref="635336847"/>
 							<reference ref="671192856"/>
-							<reference ref="1026690350"/>
+							<reference ref="1024292861"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -248,7 +249,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">22</int>
-						<reference key="object" ref="1026690350"/>
+						<reference key="object" ref="1024292861"/>
 						<reference key="parent" ref="893876447"/>
 					</object>
 				</array>
