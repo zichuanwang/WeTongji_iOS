@@ -368,7 +368,7 @@ static int kDragToLoadDecoratorObservingContext;
             if (scrollViewRealContentOffsetY >= 0) {
                 scrollView.contentInset = self.scrollViewOriginalContentInset;
             } else {
-                scrollView.contentInset = UIEdgeInsetsMake(MIN(-scrollViewRealContentOffsetY, topViewHeight) + self.scrollViewOriginalContentInset.top, 0, 0, self.scrollViewOriginalContentInset.bottom);
+                scrollView.contentInset = UIEdgeInsetsMake(MIN(-scrollViewRealContentOffsetY, topViewHeight) + self.scrollViewOriginalContentInset.top, 0, self.scrollViewOriginalContentInset.bottom, 0);
             }
         }
     }

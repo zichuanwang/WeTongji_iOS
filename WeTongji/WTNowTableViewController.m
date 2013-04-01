@@ -201,15 +201,13 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 
 #pragma mark - WTDragToLoadDatasource
 
-- (UIScrollView *)dragToLoadScrollView
-{
+- (UIScrollView *)dragToLoadScrollView {
     return self.tableView;
 }
 
 #pragma mark - WTDragToLoadDelegate
 
-- (void)dragToLoadDecoratorDidDragDown
-{
+- (void)dragToLoadDecoratorDidDragDown {
     self.weekBegin --;
     [self loadDataFrom:[self convertToDate:self.weekBegin]
                     to:[self convertToDate:self.weekBegin + 1]
@@ -221,8 +219,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
           }];
 }
 
-- (void)dragToLoadDecoratorDidDragUp
-{
+- (void)dragToLoadDecoratorDidDragUp {
     self.weekEnd ++;
     [self loadDataFrom:[self convertToDate:self.weekEnd - 1]
                     to:[self convertToDate:self.weekEnd]
@@ -232,4 +229,5 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
               [self.tableViewDecorator bottomViewLoadFinished:NO];
           }];
 }
+
 @end
