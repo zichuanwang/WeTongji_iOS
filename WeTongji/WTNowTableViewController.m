@@ -45,16 +45,6 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     [super viewDidAppear:animated];
     [self configureWeekDuration];
     [self.tableViewDecorator startObservingChangesInDragToLoadScrollView];
-    
-    [self loadDataFrom:[self convertToDate:self.weekBegin]
-                    to:[self convertToDate:self.weekBegin + 1]
-          successBlock:^{
-              [self clearAllData];
-              [self.tableViewDecorator topViewLoadFinished:YES];
-              [self.tableViewDecorator setBottomViewDisabled:NO];
-          } failureBlock:^{
-              [self.tableViewDecorator topViewLoadFinished:NO];
-          }];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
