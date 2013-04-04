@@ -211,11 +211,14 @@ static int kDragToLoadDecoratorObservingContext;
     
     if (animated) {
         [UIView animateWithDuration:0.25f animations:^{
-            self.topViewState = TopViewStateLoading;
+            UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
+            UIEdgeInsets inset = scrollView.contentInset;
+            inset.top = self.topView.frame.size.height + self.scrollViewOriginalContentInset.top;
+            scrollView.contentInset = inset;
         }];
-    } else {
-        self.topViewState = TopViewStateLoading;
     }
+    
+    self.topViewState = TopViewStateLoading;
     
     [self.topView startLoadingAnimation];
     
@@ -272,8 +275,7 @@ static int kDragToLoadDecoratorObservingContext;
 		case TopViewStateLoading: {
             // self.topView.dragStatusLabel.text = NSLocalizedString(@"Loading", nil);
             
-            inset.top = self.topView.frame.size.height + self.scrollViewOriginalContentInset.top;
-            scrollView.contentInset = inset;
+            [self.topView configureCloudAndDropletHeightWithRatio:1.0f];
         }
 			break;
             
