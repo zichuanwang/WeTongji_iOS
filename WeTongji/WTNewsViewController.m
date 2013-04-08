@@ -7,7 +7,6 @@
 //
 
 #import "WTNewsViewController.h"
-#import "OHAttributedLabel.h"
 #import "WTResourceFactory.h"
 #import "News+Addition.h"
 #import "WTNewsCell.h"
@@ -156,7 +155,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIImageView *bgImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 24)];
-    bgImageView.image = [UIImage imageNamed:@"WTTableViewSectionBgUnit"];
+    bgImageView.image = [UIImage imageNamed:@"WTTableViewSectionBg"];
     
     NSString *sectionName = [[[self.fetchedResultsController sections] objectAtIndex:section] name];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, tableView.bounds.size.width, 24)];

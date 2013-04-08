@@ -8,14 +8,15 @@
 
 #import "WTHomeViewController.h"
 #import "WTBannerView.h"
-#import "OHAttributedLabel.h"
 #import "UIApplication+WTAddition.h"
 #import "WTNewsViewController.h"
 #import "WTActivityViewController.h"
+#import "Event+Addition.h"
 
 @interface WTHomeViewController ()
 
 @property (nonatomic, strong) WTBannerView *bannerView;
+@property (nonatomic, strong) WTHomeNowContainerView *nowContainerView;
 
 @end
 
@@ -36,7 +37,7 @@
     // Do any additional setup after loading the view from its nib.
     [self configureNavigationBar];
     [self configureBanner];
-    [self configureNowPanel];
+    [self configureNowView];
     
     [self configureNewsSelect];
     [self configureFeaturedSelect];
@@ -91,10 +92,12 @@
     self.navigationItem.titleView = logoImageView;
 }
 
-- (void)configureNowPanel {
-    NSMutableAttributedString *text = [self.nowPanelFriendLabel.attributedText mutableCopy];
-    [text setTextBold:YES range:NSMakeRange(0, 1)];
-    self.nowPanelFriendLabel.attributedText = text;
+- (void)configureNowView {
+    WTHomeNowContainerView *nowContainerView = [WTHomeNowContainerView createHomeNowContainerView];
+    [self.scrollView insertSubview:nowContainerView belowSubview:self.bannerView];
+    [nowContainerView resetOriginY:self.bannerView.frame.size.height];
+    [nowContainerView configureNowContainerViewWithEvents:[Event getTodayEvents]];
+    self.nowContainerView = nowContainerView;
 }
 
 #pragma mark - UIScrollViewDelegate

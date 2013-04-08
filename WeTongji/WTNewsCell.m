@@ -11,6 +11,8 @@
 
 @implementation WTNewsCell
 
+#define NEWS_TITLE_SUMMARY_LABEL_MARGIN 4.0f
+
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
                           category:(NSString *)category
                              title:(NSString *)title
@@ -43,7 +45,7 @@
         [self.summaryLabel resetHeight:singleLineSummaryLabelHeight * 2];
     }
     
-    [self.summaryLabel resetOriginY:self.frame.size.height - self.summaryLabel.frame.size.height - 10.0f];
+    [self.summaryLabel resetOriginY:self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height + NEWS_TITLE_SUMMARY_LABEL_MARGIN];
 }
 
 @end

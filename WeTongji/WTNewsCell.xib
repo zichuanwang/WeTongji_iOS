@@ -43,12 +43,12 @@
 						<array class="NSMutableArray" key="NSSubviews">
 							<object class="IBUIView" id="1014921692">
 								<reference key="NSNextResponder" ref="522128745"/>
-								<int key="NSvFlags">274</int>
+								<int key="NSvFlags">292</int>
 								<array class="NSMutableArray" key="NSSubviews">
 									<object class="IBUILabel" id="1061917353">
 										<reference key="NSNextResponder" ref="1014921692"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{14, 10}, {112, 12}}</string>
+										<string key="NSFrame">{{14, 12}, {112, 12}}</string>
 										<reference key="NSSuperview" ref="1014921692"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="275779684"/>
@@ -84,7 +84,7 @@
 									<object class="IBUILabel" id="275779684">
 										<reference key="NSNextResponder" ref="1014921692"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{14, 32}, {270, 20}}</string>
+										<string key="NSFrame">{{14, 30}, {270, 20}}</string>
 										<reference key="NSSuperview" ref="1014921692"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="679569808"/>
@@ -110,11 +110,11 @@
 										<int key="IBUINumberOfLines">0</int>
 										<int key="IBUILineBreakMode">5</int>
 										<object class="IBUIFontDescription" key="IBUIFontDescription">
-											<int key="type">1</int>
+											<int key="type">2</int>
 											<double key="pointSize">17</double>
 										</object>
 										<object class="NSFont" key="IBUIFont">
-											<string key="NSName">Helvetica</string>
+											<string key="NSName">Helvetica-Bold</string>
 											<double key="NSSize">17</double>
 											<int key="NSfFlags">16</int>
 										</object>
@@ -124,7 +124,7 @@
 									<object class="IBUILabel" id="679569808">
 										<reference key="NSNextResponder" ref="1014921692"/>
 										<int key="NSvFlags">268</int>
-										<string key="NSFrame">{{14, 81}, {270, 14}}</string>
+										<string key="NSFrame">{{14, 77}, {270, 14}}</string>
 										<reference key="NSSuperview" ref="1014921692"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="351519292"/>

@@ -36,7 +36,20 @@
 "Last update" = "上次更新";
 "Unknown" = "未知";
 "Published at" = "发表于";
+"Show" = "显示";
+"Order by" = "排序";
 "Start time" = "开始时间";
+"Smart Order" = "智能排序";
+"Hide Past Activities" = "隐藏过期活动";
+
+"Academics" = "学术讲座";
+"Entertainment" = "文娱活动";
+"Enterprise" = "企业招聘";
+"Competition" = "校园赛事";
+
+"Publish Date" = "发布日期";
+"Popularity" = "受欢迎度";
+"Activity Start Date" = "开始日期";
 
 "Sun" = "周日";
 "Mon" = "周一";
