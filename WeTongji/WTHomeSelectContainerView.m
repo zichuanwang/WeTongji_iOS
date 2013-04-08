@@ -31,7 +31,8 @@
     [self configureScrollView];
 }
 
-+ (WTHomeSelectContainerView *)createHomeSelectContainerViewWithCategory:(WTHomeSelectContainerViewCategory)category itemInfoArray:(NSArray *)array {
++ (WTHomeSelectContainerView *)createHomeSelectContainerViewWithCategory:(WTHomeSelectContainerViewCategory)category
+                                                           itemInfoArray:(NSArray *)array {
     WTHomeSelectContainerView *result = [[[NSBundle mainBundle] loadNibNamed:@"WTHomeSelectContainerView" owner:self options:nil] lastObject];
     result.category = category;
     switch (category) {
@@ -57,6 +58,7 @@
         result.itemInfoArray = [[NSMutableArray alloc] initWithArray:array];
     else
         result.itemInfoArray = [NSMutableArray array];
+    
     return result;
 }
 
@@ -127,7 +129,7 @@
         itemView.center = CGPointMake(self.scrollView.frame.size.width * (i + 0.5f), self.scrollView.frame.size.height / 2);
     }
     
-    self.scrollView.contentOffset = CGPointMake(0, 0);
+    self.scrollView.contentOffset = CGPointMake(-self.scrollView.contentInset.left, 0);
 }
 
 #pragma mark - Actions
