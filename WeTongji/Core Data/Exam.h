@@ -2,24 +2,16 @@
 //  Exam.h
 //  WeTongji
 //
-//  Created by 吴 wuziqi on 13-3-9.
+//  Created by 王 紫川 on 13-4-8.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "Event.h"
+#import "Course.h"
 
 
-@interface Exam : Event
+@interface Exam : Course
 
-@property (nonatomic, retain) NSDate * begin;
-@property (nonatomic, retain) NSDate * end;
-@property (nonatomic, retain) NSNumber * hours;
-@property (nonatomic, retain) NSString * location;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * point;
-@property (nonatomic, retain) NSNumber * required;
-@property (nonatomic, retain) NSString * teacher;
 
 @end

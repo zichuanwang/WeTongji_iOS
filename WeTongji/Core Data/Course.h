@@ -2,7 +2,7 @@
 //  Course.h
 //  WeTongji
 //
-//  Created by 吴 wuziqi on 13-3-9.
+//  Created by 王 紫川 on 13-4-8.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -15,8 +15,6 @@
 
 @property (nonatomic, retain) NSDate * course_day;
 @property (nonatomic, retain) NSNumber * hours;
-@property (nonatomic, retain) NSString * location;
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * point;
 @property (nonatomic, retain) NSString * required;
 @property (nonatomic, retain) NSNumber * section_end;

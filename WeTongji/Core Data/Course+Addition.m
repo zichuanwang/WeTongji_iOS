@@ -15,37 +15,38 @@
 #define MINUTE_TIME_INTERVAL 60
 
 @implementation Course (Addition)
-+ (Course *)insertCourse:(NSDictionary *)dic
-{
-    NSString *courseNO = [NSString stringWithFormat:@"%@", dic[@"NO"]];
++ (Course *)insertCourse:(NSDictionary *)dict {
+    NSString *courseID = [NSString stringWithFormat:@"%@", dict[@"NO"]];
     
-    if (!courseNO || [courseNO isEqualToString:@""]) {
+    if (!courseID || [courseID isEqualToString:@""]) {
         return nil;
     }
     
-    NSDate *courseDay = [[NSString stringWithFormat:@"%@",dic[@"Day"]] convertToDate];
-    Course *course = [Course courseScheduleAtDay:courseDay withCourseID:courseNO];
+    NSDate *courseDay = [[NSString stringWithFormat:@"%@", dict[@"Day"]] convertToDate];
+    Course *course = [Course courseScheduleAtDay:courseDay withCourseID:courseID];
     if (!course) {
         course = [NSEntityDescription insertNewObjectForEntityForName:@"Course"
                                                inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
+        course.identifier = courseID;
     }
-    course.identifier = courseNO;
-    course.hours = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@",dic[@"Hours"]] intValue]];
-    course.point = [NSNumber numberWithFloat: [[NSString stringWithFormat:@"%@",dic[@"Point"]] floatValue]];
-    course.name = [NSString stringWithFormat:@"%@",dic[@"Name"]];
-    course.teacher = [NSString stringWithFormat:@"%@",dic[@"Teacher"]];
-    course.week_type = [NSString stringWithFormat:@"%@",dic[@"WeekType"]];
-    course.week_day = [NSString stringWithFormat:@"%@",dic[@"WeekDay"]];
-    course.section_start = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@",dic[@"SectionStart"]] intValue]];
-    course.section_end = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@",dic[@"SectionEnd"]] intValue]];
-    course.required = [NSString stringWithFormat:@"%@", dic[@"Required"]];
-    course.location = [NSString stringWithFormat:@"%@",dic[@"Location"]];
-    course.where = course.location;
+
+    course.what = [NSString stringWithFormat:@"%@", dict[@"Name"]];
+    course.teacher = [NSString stringWithFormat:@"%@", dict[@"Teacher"]];
+    course.where = [NSString stringWithFormat:@"%@", dict[@"Location"]];
     course.course_day = courseDay;
     course.begin_time = [courseDay dateByAddingTimeInterval:
                          [Course getDayTimeIntervalFromSection:course.section_start.intValue]];
     course.end_time = [courseDay dateByAddingTimeInterval:
                        [Course getDayTimeIntervalFromSection:course.section_end.intValue]];
+    
+    course.hours = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"Hours"]] intValue]];
+    course.point = [NSNumber numberWithFloat: [[NSString stringWithFormat:@"%@", dict[@"Point"]] floatValue]];
+    course.required = [NSString stringWithFormat:@"%@", dict[@"Required"]];
+    
+    course.week_type = [NSString stringWithFormat:@"%@", dict[@"WeekType"]];
+    course.week_day = [NSString stringWithFormat:@"%@", dict[@"WeekDay"]];
+    course.section_start = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"SectionStart"]] intValue]];
+    course.section_end = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"SectionEnd"]] intValue]];
     
     return course;
 }

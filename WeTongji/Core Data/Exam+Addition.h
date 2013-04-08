@@ -7,10 +7,12 @@
 //
 
 #import "Exam.h"
+#import "Course+Addition.h"
+
 @interface Exam (Addition)
 
-+ (Exam *)insertExam:(NSDictionary *)dic;
-+ (Exam *)examWithNo:(NSString *)examNO;
++ (Exam *)insertExam:(NSDictionary *)dict;
++ (Exam *)examWithID:(NSString *)examID;
 + (void)clearAllExams;
 
 @end

@@ -7,11 +7,9 @@
 //
 
 #import "Activity.h"
+#import "Event+Addition.h"
 
 @interface Activity (Addition)
-
-@property (nonatomic, readonly) NSString *beginTimeString;
-@property (nonatomic, readonly) NSString *beginToEndTimeString;
 
 + (Activity *)insertActivity:(NSDictionary *)dict;
 

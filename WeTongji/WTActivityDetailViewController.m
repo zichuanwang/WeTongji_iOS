@@ -216,7 +216,7 @@
 }
 
 - (void)configureActivityTitleLabelAndCalculateBriefIntroductionViewHeight {
-    self.activityTitleLabel.text = self.activity.title;
+    self.activityTitleLabel.text = self.activity.what;
     
     CGFloat titleLabelOriginalHeight = self.activityTitleLabel.frame.size.height;
     [self.activityTitleLabel sizeToFit];
@@ -245,7 +245,7 @@
     self.bannerView = [WTBannerView createBannerView];
     [self.bannerView resetOrigin:CGPointMake(0, self.briefIntroductionView.frame.origin.y + self.briefIntroductionView.frame.size.height)];
     [self.bannerView addContainerViewWithImageURL:self.activity.image
-                                        titleText:self.activity.title
+                                        titleText:self.activity.what
                                  organizationName:self.activity.organizer
                                             style:WTBannerContainerViewStyleClear
                                           atIndex:0];

@@ -153,7 +153,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
         Activity *acitivity = (Activity *)item;
         WTNowActivityCell *activityCell = (WTNowActivityCell *)cell;
         
-        [activityCell configureCellWithtitle:acitivity.title
+        [activityCell configureCellWithtitle:acitivity.what
                                          time:acitivity.beginToEndTimeString
                                      location:acitivity.where
                                      imageURL:acitivity.image];
@@ -162,7 +162,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
         Course *course = (Course *)item;
         WTNowCourseCell *courseCell = (WTNowCourseCell *)cell;
         
-        [courseCell configureCellWithTitle:course.name time:course.courseBeginToEndTime location:course.where];
+        [courseCell configureCellWithTitle:course.what time:course.courseBeginToEndTime location:course.where];
     }
     
     Event *nowEvent = [self getNowEvent];

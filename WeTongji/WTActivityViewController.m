@@ -168,7 +168,10 @@
     else
         timeString = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Start time", nil), [NSString yearMonthDayWeekTimeConvertFromDate:activity.begin_time]];
     
-    [activityCell configureCellWithIndexPath:indexPath title:activity.title time:timeString location:activity.where imageURL:activity.image];
+    [activityCell configureCellWithIndexPath:indexPath title:activity.what
+                                        time:timeString
+                                    location:activity.where
+                                    imageURL:activity.image];
 }
 
 - (void)insertCellAtIndexPath:(NSIndexPath *)indexPath {

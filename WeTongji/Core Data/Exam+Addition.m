@@ -12,46 +12,42 @@
 
 @implementation Exam (Addition)
 
-+ (Exam *)insertExam:(NSDictionary *)dic
-{
-    NSString *examNo = [NSString stringWithFormat:@"%@",dic[@"NO"]];
++ (Exam *)insertExam:(NSDictionary *)dict {
+    NSString *examID = [NSString stringWithFormat:@"%@", dict[@"NO"]];
     
-    if (!examNo || [examNo isEqualToString:@""]) {
+    if (!examID || [examID isEqualToString:@""]) {
         return nil;
     }
     
-    Exam *exam = [Exam examWithNo:examNo];
+    Exam *exam = [Exam examWithID:examID];
     if (!exam) {
         exam = [NSEntityDescription insertNewObjectForEntityForName:@"Exam"
                                              inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
+        exam.identifier = examID;
     }
-    exam.identifier = examNo;
-    exam.name = [NSString stringWithFormat:@"%@",dic[@"Name"]];
-    exam.teacher = [NSString stringWithFormat:@"%@",dic[@"Teacher"]];
-    exam.location = [NSString stringWithFormat:@"%@",dic[@"Location"]];
-    exam.where = exam.location;
-    exam.begin = [[NSString stringWithFormat:@"%@",dic[@"Begin"]] convertToDate];
-    exam.begin_time = exam.begin;
-    exam.end = [[NSString stringWithFormat:@"%@",dic[@"End"]] convertToDate];
-    exam.point = (NSNumber *)dic[@"Point"];
-    exam.required = (NSNumber *)dic[@"Required"];
-    exam.hours = (NSNumber *)dic[@"Hours"];
+    exam.what = [NSString stringWithFormat:@"%@", dict[@"Name"]];
+    exam.teacher = [NSString stringWithFormat:@"%@", dict[@"Teacher"]];
+    exam.where = [NSString stringWithFormat:@"%@", dict[@"Location"]];
+    exam.begin_time = [[NSString stringWithFormat:@"%@", dict[@"Begin"]] convertToDate];
+    exam.end_time = [[NSString stringWithFormat:@"%@", dict[@"End"]] convertToDate];
+    
+    exam.hours = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"Hours"]] intValue]];
+    exam.point = [NSNumber numberWithFloat: [[NSString stringWithFormat:@"%@", dict[@"Point"]] floatValue]];
+    exam.required = [NSString stringWithFormat:@"%@", dict[@"Required"]];
 
     return exam;
 }
 
-+ (Exam *)examWithNo:(NSString *)examNO
-{
++ (Exam *)examWithID:(NSString *)examID {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Exam"];
-    request.predicate = [NSPredicate predicateWithFormat:@"identifier = %@",examNO];
+    request.predicate = [NSPredicate predicateWithFormat:@"identifier = %@", examID];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     NSArray *matches = [context executeFetchRequest:request error:nil];
     
     return [matches lastObject];
 }
 
-+ (void)clearAllExams
-{
++ (void)clearAllExams {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     [request setEntity:[NSEntityDescription entityForName:@"Exam" inManagedObjectContext:context]];

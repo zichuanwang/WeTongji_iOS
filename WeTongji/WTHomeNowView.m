@@ -19,20 +19,13 @@
 
 @implementation WTHomeNowContainerView
 
-- (id)init {
-    self = [super init];
-    if (self) {
-        self.itemViewArray = [NSMutableArray arrayWithCapacity:2];
-    }
-    return self;
-}
-
 + (WTHomeNowContainerView *)createHomeNowContainerView {
     WTHomeNowContainerView *result = nil;
     NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"WTHomeNowView" owner:nil options:nil];
     for (UIView *view in views) {
         if ([view isKindOfClass:[WTHomeNowContainerView class]]) {
             result = (WTHomeNowContainerView *)view;
+            result.itemViewArray = [NSMutableArray arrayWithCapacity:2];
             break;
         }
     }
@@ -51,6 +44,7 @@
     
     if (!events) {
         WTHomeNowEmptyItemView *emptyItemView = [WTHomeNowEmptyItemView createNowEmptyItemView];
+        [self.itemViewArray addObject:emptyItemView];
         [self.scrollView addSubview:emptyItemView];
         
         self.switchContainerView.hidden = YES;

@@ -7,6 +7,7 @@
 //
 
 #import "Event+Addition.h"
+#import "NSString+WTAddition.h"
 #import "WTCoreDataManager.h"
 
 @implementation Event (Addition)
@@ -33,6 +34,16 @@
         result = [NSArray arrayWithObjects:allEvents[0], allEvents[1], nil];
     }
     return result;
+}
+
+#pragma mark - Properties
+
+- (NSString *)beginTimeString {
+    return [NSString yearMonthDayWeekTimeConvertFromDate:self.begin_time];
+}
+
+- (NSString *)beginToEndTimeString {
+    return [NSString timeConvertFromBeginDate:self.begin_time endDate:self.end_time];
 }
 
 @end

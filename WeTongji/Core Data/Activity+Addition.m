@@ -30,7 +30,7 @@
     result.end_time = [[NSString stringWithFormat:@"%@", dict[@"End"]] convertToDate];
     result.where = [NSString stringWithFormat:@"%@", dict[@"Location"]];
     result.organizer = [NSString stringWithFormat:@"%@", dict[@"Organizer"]];
-    result.title = [NSString stringWithFormat:@"%@", dict[@"Title"]];
+    result.what = [NSString stringWithFormat:@"%@", dict[@"Title"]];
     result.can_schedule = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"CanSchedule"]]).boolValue);
     result.can_like = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"CanLike"]]).boolValue);
     result.activity_type = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"Channel_Id"]]).integerValue);
@@ -66,17 +66,6 @@
 }
 
 - (void)awakeFromFetch {
-//    self.publish_day = [NSString yearMonthDayConvertFromDate:self.publish_date];
-}
-
-#pragma mark - Properties
-
-- (NSString *)beginTimeString {
-    return [NSString yearMonthDayWeekTimeConvertFromDate:self.begin_time];
-}
-
-- (NSString *)beginToEndTimeString {
-    return [NSString timeConvertFromBeginDate:self.begin_time endDate:self.end_time];
 }
 
 @end

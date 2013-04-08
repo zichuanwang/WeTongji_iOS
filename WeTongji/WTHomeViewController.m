@@ -48,7 +48,9 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self.scrollView resetHeight:self.view.frame.size.height];
+    [self updateNowView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -96,8 +98,12 @@
     WTHomeNowContainerView *nowContainerView = [WTHomeNowContainerView createHomeNowContainerView];
     [self.scrollView insertSubview:nowContainerView belowSubview:self.bannerView];
     [nowContainerView resetOriginY:self.bannerView.frame.size.height];
-    [nowContainerView configureNowContainerViewWithEvents:[Event getTodayEvents]];
     self.nowContainerView = nowContainerView;
+    [self updateNowView];
+}
+
+- (void)updateNowView {
+    [self.nowContainerView configureNowContainerViewWithEvents:[Event getTodayEvents]];
 }
 
 #pragma mark - UIScrollViewDelegate
