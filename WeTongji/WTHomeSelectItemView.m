@@ -10,11 +10,18 @@
 #import "WTHomeSelectItemView.h"
 #import "WTResourceFactory.h"
 #import "WTLikeButtonView.h"
+#import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
+
+typedef enum {
+    WTHomeSelectItemStyleNormal,
+    WTHomeSelectItemStyleWithImage,
+} WTHomeSelectItemStyle;
 
 @interface WTHomeSelectItemView()
 
 @property (nonatomic, strong) UIButton *showAllButton;
 @property (nonatomic, strong) WTLikeButtonView *likeButtonView;
+@property (nonatomic, assign) WTHomeSelectItemStyle itemStyle;
 
 @end
 
@@ -40,8 +47,10 @@
 
 - (void)didMoveToSuperview {    
     if ([self isMemberOfClass:[WTHomeSelectStarView class]]) {
+        [self createLikeButtonView];
         [self addSubview:self.likeButtonView];
     } else { // WTHomeSelectNewsView, WTHomeSelectActivityView
+        [self createShowAllButton];
         [self addSubview:self.showAllButton];
     }
 }
@@ -58,35 +67,80 @@
 
 #pragma mark - Properties
 
-- (UIButton *)showAllButton {
-    if (_showAllButton == nil) {
-        _showAllButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Show All", nil)];
-        [_showAllButton resetOrigin:CGPointMake(self.frame.size.width - _showAllButton.frame.size.width - 8, -3)];
-        [_showAllButton addTarget:self action:@selector(didClickShowAllButon:) forControlEvents:UIControlEventTouchUpInside];
+- (void)createShowAllButton {
+    UIButton *showAllButton = nil;
+    switch (self.itemStyle) {
+        case WTHomeSelectItemStyleNormal: {
+            showAllButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Show All", nil)];
+        }
+            break;
+         
+        case WTHomeSelectItemStyleWithImage: {
+            showAllButton = [WTResourceFactory createTranslucentButtonWithText:NSLocalizedString(@"Show All", nil)];
+        }
+            break;
+        default:
+            break;
     }
-    return _showAllButton;
+    
+    [showAllButton resetOrigin:CGPointMake(self.frame.size.width - showAllButton.frame.size.width - 8, -3)];
+    [showAllButton addTarget:self action:@selector(didClickShowAllButon:) forControlEvents:UIControlEventTouchUpInside];
+    self.showAllButton = showAllButton;
 }
 
-- (WTLikeButtonView *)likeButtonView {
-    if (_likeButtonView == nil) {
-        _likeButtonView = [WTLikeButtonView createLikeButtonViewWithTarget:self action:@selector(didClickLikeButton:)];
-        [_likeButtonView resetOrigin:CGPointMake(240, -1)];
-    }
-    return _likeButtonView;
+- (void)createLikeButtonView {
+    WTLikeButtonView *likeButtonView = [WTLikeButtonView createLikeButtonViewWithTarget:self action:@selector(didClickLikeButton:)];
+    [likeButtonView resetOrigin:CGPointMake(240, -1)];
+    self.likeButtonView = likeButtonView;
 }
 
 @end
 
 @implementation WTHomeSelectNewsView
 
-+ (WTHomeSelectNewsView *)createHomeSelectNewsView {
++ (WTHomeSelectNewsView *)createHomeSelectNewsView:(News *)news {
     NSArray *viewArray = [[NSBundle mainBundle] loadNibNamed:@"WTHomeSelectItemView" owner:self options:nil];
     WTHomeSelectNewsView *result = nil;
     for(UIView *view in viewArray) {
         if ([view isKindOfClass:[WTHomeSelectNewsView class]])
             result = (WTHomeSelectNewsView *)view;
     }
+    
+    [result configureViewWithNews:news];
     return result;
+}
+
+- (void)configureViewWithNews:(News *)news {
+    NSArray *newsImageArray = news.image_array;
+    self.itemStyle = (newsImageArray.count == 0) ? WTHomeSelectItemStyleNormal : WTHomeSelectItemStyleWithImage;
+    if (self.itemStyle == WTHomeSelectItemStyleWithImage) {
+        self.bgImageContainerView.hidden = NO;
+        self.subCategoryLabel.shadowColor = [UIColor blackColor];
+        self.newsSummaryLabel.textColor = [UIColor whiteColor];
+        self.newsSummaryLabel.shadowColor = [UIColor blackColor];
+        [self configureBgImageView:newsImageArray[0]];
+    } else {
+        self.bgImageContainerView.hidden = YES;
+        self.subCategoryLabel.shadowColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.6f];
+        self.newsSummaryLabel.textColor = [UIColor colorWithRed:55 / 255.0f green:55 / 255.0f blue:55 / 255.0f alpha:1.0f];
+        self.newsSummaryLabel.shadowColor = [UIColor clearColor];
+    }
+}
+
+- (void)configureBgImageView:(NSString *)imageURL {
+    self.bgImageContainerView.layer.masksToBounds = YES;
+    self.bgImageContainerView.layer.cornerRadius = 9.0f;
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURL]];
+    [self.bgImageView setImageWithURLRequest:request
+                            placeholderImage:nil
+                                     success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                         self.bgImageView.image = image;
+                                         [self.bgImageView fadeIn];
+                                     }
+                                     failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                         
+                                     }];
 }
 
 @end
@@ -113,7 +167,7 @@
 
 @implementation WTHomeSelectActivityView
 
-+ (WTHomeSelectActivityView *)createHomeSelectActivityView {
++ (WTHomeSelectActivityView *)createHomeSelectActivityView:(Activity *)activity {
     NSArray *viewArray = [[NSBundle mainBundle] loadNibNamed:@"WTHomeSelectItemView" owner:self options:nil];
     WTHomeSelectActivityView *result = nil;
     for(UIView *view in viewArray) {

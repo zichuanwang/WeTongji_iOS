@@ -12,6 +12,38 @@
 
 @implementation News (Addition)
 
++ (NSArray *)createTestNewsArray {
+    NSMutableArray *resultArray = [NSMutableArray array];
+    for (int i = 0; i < 3; i++) {
+        NSString *newsID = [NSString stringWithFormat:@"%d", i];
+        News *result = [News newsWithID:newsID];
+        if (!result) {
+            result = [NSEntityDescription insertNewObjectForEntityForName:@"News" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
+            result.identifier = newsID;
+        }
+        switch (i) {
+            case 0: {
+                result.image_array = [NSArray arrayWithObject:@"http://pic11.nipic.com/20101129/1951702_194641008006_2.jpg"];
+                result.title = @"测试新闻";
+            }
+                break;
+            case 1: {
+                result.title = @"测试新闻2";
+            }
+                break;
+            case 2: {
+                result.title = @"测试新闻3";
+            }
+                break;
+                
+            default:
+                break;
+        }
+        [resultArray addObject:result];
+    }
+    return resultArray;
+}
+
 + (News *)insertNews:(NSDictionary *)dict {
     NSString *newsID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
@@ -30,6 +62,11 @@
     result.content = [NSString stringWithFormat:@"%@", dict[@"Context"]];
     result.summary = [NSString stringWithFormat:@"%@", dict[@"Summary"]];
     result.publish_date = [[NSString stringWithFormat:@"%@", [dict objectForKey:@"CreatedAt"]] convertToDate];
+    result.can_like = @([[NSString stringWithFormat:@"%@", dict[@"CanLike"]] boolValue]);
+    result.like_count = @([[NSString stringWithFormat:@"%@", dict[@"Like"]] integerValue]);
+    
+    NSArray *imageArray = dict[@"Images"];
+    result.image_array = imageArray;
     
     result.publish_day = [NSString yearMonthDayConvertFromDate:result.publish_date];
     

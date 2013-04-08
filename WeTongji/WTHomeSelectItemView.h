@@ -7,18 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "News.h"
+#import "Activity.h"
 
 @interface WTHomeSelectItemView : UIView
 
 @property (nonatomic, weak) IBOutlet UILabel *subCategoryLabel;
+@property (nonatomic, weak) IBOutlet UIView *bgImageContainerView;
+@property (nonatomic, weak) IBOutlet UIImageView *bgImageView;
 
 @end
 
 @interface WTHomeSelectNewsView : WTHomeSelectItemView
 
 @property (nonatomic, weak) IBOutlet UILabel *newsTitleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *newsSummaryLabel;
 
-+ (WTHomeSelectNewsView *)createHomeSelectNewsView;
++ (WTHomeSelectNewsView *)createHomeSelectNewsView:(News *)news;
 
 @end
 
@@ -40,6 +45,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *timeLabel;
 
-+ (WTHomeSelectActivityView *)createHomeSelectActivityView;
++ (WTHomeSelectActivityView *)createHomeSelectActivityView:(Activity *)activity;
 
 @end

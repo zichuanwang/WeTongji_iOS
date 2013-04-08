@@ -68,23 +68,20 @@
     return self.itemInfoArray.count;
 }
 
-- (WTHomeSelectItemView *)itemViewAtIndex:(NSUInteger)index {
+- (WTHomeSelectItemView *)createItemViewAtIndex:(NSUInteger)index {
     if (index >= self.itemViewArray.count) {
         WTHomeSelectItemView *itemView = nil;
         switch (self.category) {
-            case WTHomeSelectContainerViewCategoryNews:
-            {
-                itemView = [WTHomeSelectNewsView createHomeSelectNewsView];
+            case WTHomeSelectContainerViewCategoryNews: {
+                itemView = [WTHomeSelectNewsView createHomeSelectNewsView:self.itemInfoArray[index]];
             }
                 break;
-            case WTHomeSelectContainerViewCategoryFeatured:
-            {
+            case WTHomeSelectContainerViewCategoryFeatured: {
                 itemView = [WTHomeSelectStarView createHomeSelectStarView];
             }
                 break;
-            case WTHomeSelectContainerViewCategoryActivity:
-            {
-                itemView = [WTHomeSelectActivityView createHomeSelectActivityView];
+            case WTHomeSelectContainerViewCategoryActivity: {
+                itemView = [WTHomeSelectActivityView createHomeSelectActivityView:self.itemInfoArray[index]];
             }
                 break;
             default:
@@ -113,7 +110,7 @@
 
 - (void)configureScrollView {
     for(NSUInteger i = 0; i < [self numberOfItemViewsInScrollView]; i++) {
-        WTHomeSelectItemView *itemView = [self itemViewAtIndex:i];
+        WTHomeSelectItemView *itemView = [self createItemViewAtIndex:i];
         [self.scrollView addSubview:itemView];
     }
     [self layoutScrollView];
@@ -124,7 +121,7 @@
     self.scrollView.contentSize = CGSizeMake(scrollViewContentWidth, self.scrollView.frame.size.height);
     
     for(NSUInteger i = 0; i < [self numberOfItemViewsInScrollView]; i++) {
-        WTHomeSelectItemView *itemView = [self itemViewAtIndex:i];
+        WTHomeSelectItemView *itemView = [self createItemViewAtIndex:i];
         
         itemView.center = CGPointMake(self.scrollView.frame.size.width * (i + 0.5f), self.scrollView.frame.size.height / 2);
     }

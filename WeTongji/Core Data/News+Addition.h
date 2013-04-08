@@ -10,6 +10,8 @@
 
 @interface News (Addition)
 
++ (NSArray *)createTestNewsArray;
+
 + (News *)insertNews:(NSDictionary *)dict;
 
 + (News *)newsWithID:(NSString *)newsID;

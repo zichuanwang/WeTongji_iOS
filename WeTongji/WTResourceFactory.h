@@ -14,6 +14,8 @@
 
 + (UIButton *)createFocusButtonWithText:(NSString *)text;
 
++ (UIButton *)createTranslucentButtonWithText:(NSString *)text;
+
 + (UIBarButtonItem *)createBackBarButtonWithText:(NSString *)text
                                    target:(id)target
                                    action:(SEL)action;

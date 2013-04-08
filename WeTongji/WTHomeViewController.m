@@ -13,7 +13,8 @@
 #import "WTActivityViewController.h"
 #import "Event+Addition.h"
 #import "WTActivityDetailViewController.h"
-#import "Activity.h"
+#import "Activity+Addition.h"
+#import "News+Addition.h"
 
 @interface WTHomeViewController ()
 
@@ -64,7 +65,7 @@
 #pragma mark - UI methods
 
 - (void)configureNewsSelect {
-    WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryNews itemInfoArray:@[@"", @"", @""]];
+    WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryNews itemInfoArray:[News createTestNewsArray]];
     containerView.delegate = self;
     [containerView resetOrigin:CGPointMake(0, 240)];
     [self.scrollView addSubview:containerView];

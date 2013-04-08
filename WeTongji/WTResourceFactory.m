@@ -143,6 +143,13 @@
     return button;
 }
 
++ (UIButton *)createTranslucentButtonWithText:(NSString *)text {
+    UIButton *button = [[UIButton alloc] init];
+    [WTResourceFactory configureTranslucentButton:button text:text];
+    button.selected = YES;
+    return button;
+}
+
 + (UIButton *)createFocusButtonWithText:(NSString *)text {
     UIButton *button = [[UIButton alloc] init];
     [WTResourceFactory configureFocusButton:button text:text];
@@ -180,6 +187,22 @@
                   highlightShadowColor:[UIColor grayColor]
                       selectTitleColor:[UIColor darkGrayColor]
                      selectShadowColor:[UIColor whiteColor]];
+}
+
++ (void)configureTranslucentButton:(UIButton *)button
+                              text:(NSString *)text {
+    [WTResourceFactory configureButton:button
+                                  text:text
+                            selectText:nil
+                           normalImage:[UIImage imageNamed:@"WTTranslucentButton"]
+                        highlightImage:[UIImage imageNamed:@"WTTranslucentButton"]
+                           selectImage:[UIImage imageNamed:@"WTTranslucentButton"]
+                      normalTitleColor:[UIColor whiteColor]
+                     normalShadowColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3f]
+                   highlightTitleColor:[UIColor whiteColor]
+                  highlightShadowColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3f]
+                      selectTitleColor:[UIColor whiteColor]
+                     selectShadowColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3f]];
 }
 
 + (void)configureButton:(UIButton *)button
