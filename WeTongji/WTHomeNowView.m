@@ -14,34 +14,39 @@
 @interface WTHomeNowContainerView ()
 
 @property (nonatomic, strong) NSMutableArray *itemViewArray;
+@property (nonatomic, strong) NSMutableArray *eventArray;
 
 @end
 
 @implementation WTHomeNowContainerView
 
-+ (WTHomeNowContainerView *)createHomeNowContainerView {
++ (WTHomeNowContainerView *)createHomeNowContainerViewWithDelegate:(id<WTHomeNowContainerViewDelegate>)delegate {
     WTHomeNowContainerView *result = nil;
     NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"WTHomeNowView" owner:nil options:nil];
     for (UIView *view in views) {
         if ([view isKindOfClass:[WTHomeNowContainerView class]]) {
             result = (WTHomeNowContainerView *)view;
             result.itemViewArray = [NSMutableArray arrayWithCapacity:2];
+            result.eventArray = [NSMutableArray arrayWithCapacity:2];
             result.scrollView.contentSize = CGSizeMake(640.0f, result.scrollView.frame.size.height);
+            
+            result.delegate = delegate;
             break;
         }
     }
     return result;
 }
 
-- (void)clearItemViews {
+- (void)clearItemViewsAndEvents {
     for (UIView *view in self.itemViewArray) {
         [view removeFromSuperview];
     }
     [self.itemViewArray removeAllObjects];
+    [self.eventArray removeAllObjects];
 }
 
 - (void)configureNowContainerViewWithEvents:(NSArray *)events {
-    [self clearItemViews];
+    [self clearItemViewsAndEvents];
     
     if (!events) {
         WTHomeNowEmptyItemView *emptyItemView = [WTHomeNowEmptyItemView createNowEmptyItemView];
@@ -54,6 +59,7 @@
     self.switchContainerView.hidden = NO;
     
     NSUInteger eventIndex = 0;
+    
     for (Event *event in events) {
         WTHomeNowItemView *itemView = [WTHomeNowItemView createNowItemViewWithEvent:event];
         [self.itemViewArray addObject:itemView];
@@ -61,6 +67,11 @@
         
         [itemView resetOriginX:320.0f * eventIndex];
         [self.scrollView insertSubview:itemView belowSubview:self.switchContainerView];
+        
+        itemView.bgButton.tag = eventIndex;
+        [itemView.bgButton addTarget:self action:@selector(didClickItemView:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self.eventArray addObject:event];
         
         eventIndex++;
     }
@@ -93,6 +104,10 @@
     } else {
         [self showFirstItemAnimation];
     }
+}
+
+- (void)didClickItemView:(UIButton *)sender {
+    [self.delegate homeNowContainerViewDidSelectEvent:self.eventArray[sender.tag]];
 }
 
 @end

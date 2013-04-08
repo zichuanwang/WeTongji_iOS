@@ -102,7 +102,11 @@
 #pragma mark Configure navigation bar
 
 - (void)configureNavigationBarBackButton {
-    UIBarButtonItem *backBarButtonItem = [WTResourceFactory createBackBarButtonWithText:self.backBarButtonText target:self action:@selector(didClickBackButton:)];
+    UIBarButtonItem *backBarButtonItem = nil;
+    if (self.backBarButtonText)
+        backBarButtonItem = [WTResourceFactory createBackBarButtonWithText:self.backBarButtonText target:self action:@selector(didClickBackButton:)];
+    else
+        backBarButtonItem = [WTResourceFactory createLogoBackBarButtonWithTarget:self action:@selector(didClickBackButton:)];
     self.navigationItem.leftBarButtonItem = backBarButtonItem;
 }
 

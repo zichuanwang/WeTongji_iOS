@@ -11,7 +11,7 @@
 #import "WTHomeSelectContainerView.h"
 #import "WTHomeNowView.h"
 
-@interface WTHomeViewController : WTRootViewController <UIScrollViewDelegate, WTHomeSelectContainerViewDelegate>
+@interface WTHomeViewController : WTRootViewController <UIScrollViewDelegate, WTHomeSelectContainerViewDelegate, WTHomeNowContainerViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 

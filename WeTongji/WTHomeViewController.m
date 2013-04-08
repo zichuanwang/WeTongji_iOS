@@ -12,6 +12,8 @@
 #import "WTNewsViewController.h"
 #import "WTActivityViewController.h"
 #import "Event+Addition.h"
+#import "WTActivityDetailViewController.h"
+#import "Activity.h"
 
 @interface WTHomeViewController ()
 
@@ -95,7 +97,7 @@
 }
 
 - (void)configureNowView {
-    WTHomeNowContainerView *nowContainerView = [WTHomeNowContainerView createHomeNowContainerView];
+    WTHomeNowContainerView *nowContainerView = [WTHomeNowContainerView createHomeNowContainerViewWithDelegate:self];
     [self.scrollView insertSubview:nowContainerView belowSubview:self.bannerView];
     [nowContainerView resetOriginY:self.bannerView.frame.size.height];
     self.nowContainerView = nowContainerView;
@@ -157,6 +159,15 @@
             
         default:
             break;
+    }
+}
+
+#pragma mark - WTHomeNowContainerViewDelegate
+
+- (void)homeNowContainerViewDidSelectEvent:(Event *)event {
+    if ([event isKindOfClass:[Activity class]]) {
+        WTActivityDetailViewController *vc = [WTActivityDetailViewController createActivityDetailViewControllerWithActivity:(Activity *)event backBarButtonText:nil];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

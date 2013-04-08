@@ -10,6 +10,8 @@
 
 @class OHAttributedLabel;
 
+@protocol WTHomeNowContainerViewDelegate;
+
 @interface WTHomeNowContainerView : UIView
 
 @property (nonatomic, weak) IBOutlet UIButton *switchItemButton;
@@ -17,8 +19,9 @@
 @property (nonatomic, weak) IBOutlet UIImageView *switchMoreIndicator;
 @property (nonatomic, weak) IBOutlet UIImageView *switchMoreReverseIndicator;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, weak) id<WTHomeNowContainerViewDelegate> delegate;
 
-+ (WTHomeNowContainerView *)createHomeNowContainerView;
++ (WTHomeNowContainerView *)createHomeNowContainerViewWithDelegate:(id<WTHomeNowContainerViewDelegate>)delegate;
 
 - (void)configureNowContainerViewWithEvents:(NSArray *)events;
 
@@ -28,12 +31,19 @@
 
 @class Event;
 
+@protocol WTHomeNowContainerViewDelegate <NSObject>
+
+- (void)homeNowContainerViewDidSelectEvent:(Event *)event;
+
+@end
+
 @interface WTHomeNowItemView : UIView
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *timeLabel;
 @property (nonatomic, weak) IBOutlet UILabel *placeLabel;
 @property (nonatomic, weak) IBOutlet UILabel *nowOrLaterLabel;
+@property (nonatomic, weak) IBOutlet UIButton *bgButton;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *friendCountLabel;
 
 + (WTHomeNowItemView *)createNowItemViewWithEvent:(Event *)event;
