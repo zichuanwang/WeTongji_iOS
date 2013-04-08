@@ -22,6 +22,8 @@
 
 - (void)configureNowContainerViewWithEvents:(NSArray *)events;
 
+- (IBAction)didClickSwitchItemButton:(UIButton *)sender;
+
 @end
 
 @class Event;

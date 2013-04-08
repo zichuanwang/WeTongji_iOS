@@ -26,6 +26,7 @@
         if ([view isKindOfClass:[WTHomeNowContainerView class]]) {
             result = (WTHomeNowContainerView *)view;
             result.itemViewArray = [NSMutableArray arrayWithCapacity:2];
+            result.scrollView.contentSize = CGSizeMake(640.0f, result.scrollView.frame.size.height);
             break;
         }
     }
@@ -62,6 +63,35 @@
         [self.scrollView insertSubview:itemView belowSubview:self.switchContainerView];
         
         eventIndex++;
+    }
+}
+
+#pragma mark - Animations
+
+- (void)showSecondItemAnimation {
+    [UIView animateWithDuration:0.5f animations:^{
+        self.switchMoreIndicator.alpha = 0;
+        self.switchMoreReverseIndicator.alpha = 1;
+        self.scrollView.contentOffset = CGPointMake(self.scrollView.frame.size.width - self.switchContainerView.frame.size
+                                                    .width, 0);
+    }];
+}
+
+- (void)showFirstItemAnimation {
+    [UIView animateWithDuration:0.5f animations:^{
+        self.switchMoreIndicator.alpha = 1;
+        self.switchMoreReverseIndicator.alpha = 0;
+        self.scrollView.contentOffset = CGPointZero;
+    }];
+}
+
+#pragma mark - Actions
+
+- (IBAction)didClickSwitchItemButton:(UIButton *)sender {
+    if (self.scrollView.contentOffset.x == 0) {
+        [self showSecondItemAnimation];
+    } else {
+        [self showFirstItemAnimation];
     }
 }
 
