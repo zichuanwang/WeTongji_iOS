@@ -149,15 +149,16 @@
 					<object class="IBUIImageView" id="735731078">
 						<reference key="NSNextResponder" ref="720995386"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 110}, {320, 2}}</string>
+						<string key="NSFrame">{{0, 110}, {320, 1}}</string>
 						<reference key="NSSuperview" ref="720995386"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">WTPanelShadow.png</string>
+							<string key="NSResourceName">WTPanelBottomShadowUnit.png</string>
 						</object>
 					</object>
 				</array>
@@ -166,13 +167,7 @@
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="475099553"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
-				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">3</int>
-					<bytes key="NSWhite">MQA</bytes>
-					<object class="NSColorSpace" key="NSCustomColorSpace">
-						<int key="NSID">2</int>
-					</object>
-				</object>
+				<reference key="IBUIBackgroundColor" ref="270894606"/>
 				<bool key="IBUIClipsSubviews">YES</bool>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
@@ -214,6 +209,7 @@
 						<string key="NSFrame">{{0, 40}, {320, 30}}</string>
 						<reference key="NSSuperview" ref="20030498"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -230,11 +226,11 @@
 						<string key="IBUIShadowOffset">{0, 1}</string>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<int key="IBUITextAlignment">1</int>
-						<object class="IBUIFontDescription" key="IBUIFontDescription" id="1023153843">
+						<object class="IBUIFontDescription" key="IBUIFontDescription">
 							<int key="type">1</int>
 							<double key="pointSize">17</double>
 						</object>
-						<object class="NSFont" key="IBUIFont" id="407794268">
+						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">Helvetica</string>
 							<double key="NSSize">17</double>
 							<int key="NSfFlags">16</int>
@@ -393,6 +389,7 @@
 						<string key="NSFrame">{{14, 84}, {266, 20}}</string>
 						<reference key="NSSuperview" ref="900881984"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -431,8 +428,15 @@
 						<reference key="IBUIShadowColor" ref="882720422"/>
 						<string key="IBUIShadowOffset">{0, 1}</string>
 						<int key="IBUIBaselineAdjustment">0</int>
-						<reference key="IBUIFontDescription" ref="1023153843"/>
-						<reference key="IBUIFont" ref="407794268"/>
+						<object class="IBUIFontDescription" key="IBUIFontDescription">
+							<int key="type">2</int>
+							<double key="pointSize">17</double>
+						</object>
+						<object class="NSFont" key="IBUIFont">
+							<string key="NSName">Helvetica-Bold</string>
+							<double key="NSSize">17</double>
+							<int key="NSfFlags">16</int>
+						</object>
 						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 					</object>
 				</array>
@@ -728,25 +732,6 @@
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
-					<string key="className">OHAttributedLabel</string>
-					<string key="superclassName">UILabel</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">delegate</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">delegate</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">delegate</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OHAttributedLabel.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
 					<string key="className">WTHomeNowContainerView</string>
 					<string key="superclassName">UIView</string>
 					<object class="NSMutableDictionary" key="actions">
@@ -868,11 +853,11 @@
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="WTDarkGrayMoreIndicator.png">{10, 16}</string>
 			<string key="WTDarkGrayMoreReverseIndicator@2x.png">{20, 32}</string>
+			<string key="WTPanelBottomShadowUnit.png">{1, 1}</string>
 			<string key="WTPanelMoreHighlightButton.png">{32, 110}</string>
 			<string key="WTPanelMoreNormalButton.png">{32, 110}</string>
 			<string key="WTPanelNormalButton.png">{320, 110}</string>
 			<string key="WTPanelNowIcon.png">{22, 22}</string>
-			<string key="WTPanelShadow.png">{320, 2}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>

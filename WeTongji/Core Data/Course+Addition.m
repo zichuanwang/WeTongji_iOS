@@ -31,9 +31,13 @@
     }
 
     course.what = [NSString stringWithFormat:@"%@", dict[@"Name"]];
-    course.teacher = [NSString stringWithFormat:@"%@", dict[@"Teacher"]];
     course.where = [NSString stringWithFormat:@"%@", dict[@"Location"]];
+    
+    course.teacher = [NSString stringWithFormat:@"%@", dict[@"Teacher"]];
+    
     course.course_day = courseDay;
+    course.section_start = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"SectionStart"]] intValue]];
+    course.section_end = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"SectionEnd"]] intValue]];
     course.begin_time = [courseDay dateByAddingTimeInterval:
                          [Course getDayTimeIntervalFromSection:course.section_start.intValue]];
     course.end_time = [courseDay dateByAddingTimeInterval:
@@ -45,8 +49,6 @@
     
     course.week_type = [NSString stringWithFormat:@"%@", dict[@"WeekType"]];
     course.week_day = [NSString stringWithFormat:@"%@", dict[@"WeekDay"]];
-    course.section_start = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"SectionStart"]] intValue]];
-    course.section_end = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"SectionEnd"]] intValue]];
     
     return course;
 }

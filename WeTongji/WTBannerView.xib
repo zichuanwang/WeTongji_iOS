@@ -40,7 +40,7 @@
 					<object class="IBUIImageView" id="671192856">
 						<reference key="NSNextResponder" ref="893876447"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{0, 130}, {320, 4}}</string>
+						<string key="NSFrame">{{0, 130}, {320, 2}}</string>
 						<reference key="NSSuperview" ref="893876447"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="564983056"/>
@@ -49,7 +49,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">WTBottomShadow.png</string>
+							<string key="NSResourceName">WTBottomShadowUnit.png</string>
 						</object>
 					</object>
 					<object class="IBUIImageView" id="47177925">
@@ -126,6 +126,7 @@
 						<string key="NSFrame">{{141, 98}, {38, 36}}</string>
 						<reference key="NSSuperview" ref="893876447"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -329,7 +330,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="WTBottomShadow.png">{320, 4}</string>
+			<string key="WTBottomShadowUnit.png">{1, 2}</string>
 			<string key="WTGrayPlaceholderImage.jpg">{320, 320}</string>
 			<string key="WTLeftShadow.png">{4, 130}</string>
 			<string key="WTRightShadow.png">{4, 130}</string>
