@@ -13,6 +13,10 @@
 @implementation Event (Addition)
 
 + (NSArray *)getTodayEvents {
+    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
+    if (!currentUser)
+        return nil;
+    
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     request.entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:context];
@@ -23,7 +27,7 @@
     NSDate *lastMidnight = [[NSCalendar currentCalendar] dateFromComponents:todayComponents];
     NSDate *nextMidnight = [[NSCalendar currentCalendar] dateByAddingComponents:oneDay toDate:lastMidnight options:NSWrapCalendarComponents];
     
-    // request.predicate = [NSPredicate predicateWithFormat:@"(SELF in %@) AND (%@ >= %@) AND (%@ <= %@)", [WTCoreDataManager sharedManager].currentUser, begin_time, lastMidnight, end_time, nextMidnight];
+    // request.predicate = [NSPredicate predicateWithFormat:@"(SELF in %@) AND (%@ >= %@) AND (%@ <= %@)", currentUser, begin_time, lastMidnight, end_time, nextMidnight];
     
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"begin_time" ascending:YES]];
     

@@ -45,6 +45,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *nowOrLaterLabel;
 @property (nonatomic, weak) IBOutlet UIButton *bgButton;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *friendCountLabel;
+@property (nonatomic, weak) IBOutlet UIView *shadowCoverView;
 
 + (WTHomeNowItemView *)createNowItemViewWithEvent:(Event *)event;
 

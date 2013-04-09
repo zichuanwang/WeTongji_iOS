@@ -53,10 +53,15 @@
         [self.itemViewArray addObject:emptyItemView];
         [self.scrollView addSubview:emptyItemView];
         
-        self.switchContainerView.hidden = YES;
+        self.switchContainerView.alpha = 0;
         return;
+    } else if (events.count == 1) {
+        self.switchContainerView.alpha = 0.5f;
+        self.switchContainerView.userInteractionEnabled = NO;
+    } else {
+        self.switchContainerView.alpha = 1.0f;
+        self.switchContainerView.userInteractionEnabled = YES;
     }
-    self.switchContainerView.hidden = NO;
     
     NSUInteger eventIndex = 0;
     
@@ -80,19 +85,40 @@
 #pragma mark - Animations
 
 - (void)showSecondItemAnimation {
+    self.userInteractionEnabled = NO;
+    WTHomeNowItemView *firstView = self.itemViewArray[0];
+    WTHomeNowItemView *secondView = self.itemViewArray[1];
+    firstView.shadowCoverView.alpha = 0;
+    secondView.shadowCoverView.alpha = 1;
     [UIView animateWithDuration:0.5f animations:^{
         self.switchMoreIndicator.alpha = 0;
         self.switchMoreReverseIndicator.alpha = 1;
         self.scrollView.contentOffset = CGPointMake(self.scrollView.frame.size.width - self.switchContainerView.frame.size
                                                     .width, 0);
+        
+        
+        firstView.shadowCoverView.alpha = 1;
+        secondView.shadowCoverView.alpha = 0;
+    } completion:^(BOOL finished) {
+        self.userInteractionEnabled = YES;
     }];
 }
 
 - (void)showFirstItemAnimation {
+    self.userInteractionEnabled = NO;
+    WTHomeNowItemView *firstView = self.itemViewArray[0];
+    WTHomeNowItemView *secondView = self.itemViewArray[1];
+    firstView.shadowCoverView.alpha = 1;
+    secondView.shadowCoverView.alpha = 0;
     [UIView animateWithDuration:0.5f animations:^{
         self.switchMoreIndicator.alpha = 1;
         self.switchMoreReverseIndicator.alpha = 0;
         self.scrollView.contentOffset = CGPointZero;
+        
+        firstView.shadowCoverView.alpha = 0;
+        secondView.shadowCoverView.alpha = 1;
+    } completion:^(BOOL finished) {
+        self.userInteractionEnabled = YES;
     }];
 }
 

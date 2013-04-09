@@ -20,6 +20,7 @@
 
 @property (nonatomic, strong) WTBannerContainerView *bannerContainerView;
 @property (nonatomic, strong) WTHomeNowContainerView *nowContainerView;
+@property (nonatomic, strong) NSMutableArray *homwSelectViewArray;
 
 @end
 
@@ -41,12 +42,9 @@
     [self configureNavigationBar];
     [self configureBanner];
     [self configureNowView];
+    [self configureHomeSelectViews];
     
-    [self configureNewsSelect];
-    [self configureFeaturedSelect];
-    [self configureActivitySelect];
     
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, 670);
     self.scrollView.scrollsToTop = NO;
 }
 
@@ -54,6 +52,8 @@
     [super viewWillAppear:animated];
     [self.scrollView resetHeight:self.view.frame.size.height];
     [self updateNowView];
+    [self updateHomeSelectViews];
+    [self updateScrollView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,26 +62,62 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Properties
+
+- (NSMutableArray *)homwSelectViewArray {
+    if (!_homwSelectViewArray) {
+        _homwSelectViewArray = [NSMutableArray arrayWithCapacity:3];
+    }
+    return _homwSelectViewArray;
+}
+
 #pragma mark - UI methods
+
+- (void)configureScrollView {
+    self.scrollView.alwaysBounceVertical = YES;
+    [self updateScrollView];
+}
+
+- (void)updateScrollView {
+    UIView *bottomView = self.homwSelectViewArray.lastObject;
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, bottomView.frame.origin.y + bottomView.frame.size.height);
+}
+
+- (void)configureHomeSelectViews {
+    [self configureNewsSelect];
+    [self configureFeaturedSelect];
+    [self configureActivitySelect];
+    [self updateHomeSelectViews];
+    [self configureScrollView];
+}
+
+- (void)updateHomeSelectViews {
+    NSInteger index = 0;
+    for (UIView *homeSelectContainerView in self.homwSelectViewArray) {
+        [homeSelectContainerView resetOrigin:CGPointMake(0, self.nowContainerView.frame.size
+                                               .height + self.nowContainerView.frame.origin.y + homeSelectContainerView.frame.size.height * index)];
+        index++;
+    }
+}
 
 - (void)configureNewsSelect {
     WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryNews itemInfoArray:[News createTestNewsArray]];
     containerView.delegate = self;
-    [containerView resetOrigin:CGPointMake(0, 240)];
+    [self.homwSelectViewArray addObject:containerView];
     [self.scrollView addSubview:containerView];
 }
 
 - (void)configureFeaturedSelect {
     WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryFeatured itemInfoArray:@[@"", @"", @""]];
     containerView.delegate = self;
-    [containerView resetOrigin:CGPointMake(0, 380)];
+    [self.homwSelectViewArray addObject:containerView];
     [self.scrollView addSubview:containerView];
 }
 
 - (void)configureActivitySelect {
     WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryActivity itemInfoArray:@[@"", @"", @""]];
     containerView.delegate = self;
-    [containerView resetOrigin:CGPointMake(0, 520)];
+    [self.homwSelectViewArray addObject:containerView];
     [self.scrollView addSubview:containerView];
 }
 
@@ -106,7 +142,13 @@
 }
 
 - (void)updateNowView {
-    [self.nowContainerView configureNowContainerViewWithEvents:[Event getTodayEvents]];
+    NSArray *events = [Event getTodayEvents];
+    [self.nowContainerView configureNowContainerViewWithEvents:events];
+    if (!events) {
+        [self.nowContainerView resetOriginY:self.bannerContainerView.frame.size.height - self.nowContainerView.frame.size.height];
+    } else {
+        [self.nowContainerView resetOriginY:self.bannerContainerView.frame.size.height];
+    }
 }
 
 #pragma mark - UIScrollViewDelegate

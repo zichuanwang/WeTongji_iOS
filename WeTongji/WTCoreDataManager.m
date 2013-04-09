@@ -7,6 +7,8 @@
 //
 
 #import "WTCoreDataManager.h"
+#import "User+Addition.h"
+#import <WeTongjiSDK/NSUserDefaults+WTSDKAddition.h>
 
 @interface WTCoreDataManager()
 
@@ -28,6 +30,15 @@
     });
     
     return manager;
+}
+
+#pragma mark - Properties
+
+- (User *)currentUser {
+    if (!_currentUser) {
+        _currentUser = [User userWithID:[NSUserDefaults getCurrentUserID]];
+    }
+    return _currentUser;
 }
 
 #pragma mark - Core Data methods

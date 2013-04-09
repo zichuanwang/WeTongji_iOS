@@ -12,6 +12,8 @@
 
 + (User *)insertUser:(NSDictionary *)dict;
 
++ (User *)userWithID:(NSString *)userID;
+
 + (NSArray *)createTestUsers;
 
 + (User *)createTestUserWithName:(NSString *)name;
