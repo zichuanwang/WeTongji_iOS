@@ -90,7 +90,7 @@ typedef enum {
 
 - (void)createLikeButtonView {
     WTLikeButtonView *likeButtonView = [WTLikeButtonView createLikeButtonViewWithTarget:self action:@selector(didClickLikeButton:)];
-    [likeButtonView resetOrigin:CGPointMake(240, -1)];
+    [likeButtonView resetOrigin:CGPointMake(242.0f, -1.0f)];
     self.likeButtonView = likeButtonView;
 }
 
