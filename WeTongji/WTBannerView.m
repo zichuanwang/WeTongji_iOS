@@ -1,5 +1,5 @@
 //
-//  WTBannerView.m
+//  WTBannerContainerView.m
 //  WeTongji
 //
 //  Created by 王 紫川 on 13-1-1.
@@ -9,10 +9,10 @@
 #import "WTBannerView.h"
 #import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
 
-@interface WTBannerView()
+@interface WTBannerContainerView()
 
-@property (nonatomic, strong) NSMutableArray *bannerContainerViewArray;
-@property (nonatomic, assign) NSUInteger bannerCount;
+@property (nonatomic, strong) NSMutableArray *bannerItemViewArray;
+@property (nonatomic, assign) NSUInteger bannerItemCount;
 
 @property (nonatomic, assign) CGFloat originalBottomY;
 
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation WTBannerView
+@implementation WTBannerContainerView
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
@@ -39,11 +39,11 @@
 
 #pragma mark - Public methods
 
-+ (WTBannerView *)createBannerView {
-    return [[[NSBundle mainBundle] loadNibNamed:@"WTBannerView" owner:self options:nil] lastObject];
++ (WTBannerContainerView *)createBannerContainerView {
+    return [[[NSBundle mainBundle] loadNibNamed:@"WTBannerContainerView" owner:self options:nil] lastObject];
 }
 
-- (void)configureBannerViewHeight:(CGFloat)height {
+- (void)configureBannerContainerViewHeight:(CGFloat)height {
     if (height < BANNER_VIEW_ORIGINAL_HIEHGT)
         return;
     
@@ -61,44 +61,44 @@
     [self.bannerPageControl resetOriginY:bannerViewSize.height - BANNER_VIEW_ORIGINAL_HIEHGT + self.pageControlOriginY];
     [self.bottomShadowImageView resetOriginY:bannerViewSize.height];
         
-    self.bannerScrollView.contentSize = CGSizeMake(self.bannerScrollView.frame.size.width * self.bannerCount, bannerViewSize.height);
+    self.bannerScrollView.contentSize = CGSizeMake(self.bannerScrollView.frame.size.width * self.bannerItemCount, bannerViewSize.height);
     self.bannerScrollView.contentOffset = CGPointMake(self.frame.size.width * self.bannerPageControl.currentPage, 0);
     [self.bannerScrollView resetHeight:bannerViewSize.height];
         
-    for (int i = 0; i < self.bannerContainerViewArray.count; i++) {
-        WTBannerContainerView *containerView = self.bannerContainerViewArray[i];
+    for (int i = 0; i < self.bannerItemViewArray.count; i++) {
+        WTBannerItemView *containerView = self.bannerItemViewArray[i];
         [containerView resetOriginX:containerView.frame.size.width * i];
-        [containerView configureBannerContainerViewHeight:bannerViewSize.height
-                                             enlargeRatio:enlargeRatio
-                                              isEnlarging:isEnlarging];
+        [containerView configureBannerItemViewHeight:bannerViewSize.height
+                                        enlargeRatio:enlargeRatio
+                                         isEnlarging:isEnlarging];
     }
 }
 
-- (void)addContainerViewWithImage:(UIImage *)image
-                        titleText:(NSString *)title
-                 organizationName:(NSString *)organization
-                            style:(WTBannerContainerViewStyle)style
-                          atIndex:(NSUInteger)index {
-    [self addContainerViewWithTitleText:title
-                       organizationName:organization
-                                  style:style
-                                atIndex:index];
+- (void)addItemViewWithImage:(UIImage *)image
+                   titleText:(NSString *)title
+            organizationName:(NSString *)organization
+                       style:(WTBannerItemViewStyle)style
+                     atIndex:(NSUInteger)index {
+    [self addItemViewWithTitleText:title
+                  organizationName:organization
+                             style:style
+                           atIndex:index];
     
-    WTBannerContainerView *containerView = self.bannerContainerViewArray[index];
+    WTBannerItemView *containerView = self.bannerItemViewArray[index];
     containerView.imageView.image = image;
 }
 
-- (void)addContainerViewWithImageURL:(NSString *)imageURLString
-                           titleText:(NSString *)title
-                    organizationName:(NSString *)organization
-                               style:(WTBannerContainerViewStyle)style
-                             atIndex:(NSUInteger)index {
-    [self addContainerViewWithTitleText:title
-                       organizationName:organization
-                                  style:style
-                                atIndex:index];
+- (void)addItemViewWithImageURL:(NSString *)imageURLString
+                      titleText:(NSString *)title
+               organizationName:(NSString *)organization
+                          style:(WTBannerItemViewStyle)style
+                        atIndex:(NSUInteger)index {
+    [self addItemViewWithTitleText:title
+                  organizationName:organization
+                             style:style
+                           atIndex:index];
     
-    WTBannerContainerView *containerView = self.bannerContainerViewArray[index];
+    WTBannerItemView *containerView = self.bannerItemViewArray[index];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURLString]];
     [containerView.imageView setImageWithURLRequest:request
                                 placeholderImage:nil
@@ -111,53 +111,53 @@
                                          }];
 }
 
-- (void)addContainerViewWithTitleText:(NSString *)title
-                     organizationName:(NSString *)organization
-                                style:(WTBannerContainerViewStyle)style
-                              atIndex:(NSUInteger)index {
-    self.bannerCount = self.bannerCount + 1;
-    WTBannerContainerView *containerView = self.bannerContainerViewArray[index];
-    containerView.titleLabel.text = title;
-    containerView.organizationNameLabel.text = organization;
-    containerView.style = style;
+- (void)addItemViewWithTitleText:(NSString *)title
+                organizationName:(NSString *)organization
+                           style:(WTBannerItemViewStyle)style
+                         atIndex:(NSUInteger)index {
+    self.bannerItemCount = self.bannerItemCount + 1;
+    WTBannerItemView *itemView = self.bannerItemViewArray[index];
+    itemView.titleLabel.text = title;
+    itemView.organizationNameLabel.text = organization;
+    itemView.style = style;
 }
 
 #pragma mark - Properties
 
-- (NSMutableArray *)bannerContainerViewArray {
-    if (_bannerContainerViewArray == nil) {
-        _bannerContainerViewArray = [[NSMutableArray alloc] init];
+- (NSMutableArray *)bannerItemViewArray {
+    if (_bannerItemViewArray == nil) {
+        _bannerItemViewArray = [[NSMutableArray alloc] init];
     }
-    return _bannerContainerViewArray;
+    return _bannerItemViewArray;
 }
 
-- (void)setBannerCount:(NSUInteger)bannerCount {
-    if (bannerCount > _bannerCount) {
-        for(NSUInteger i = _bannerCount; i < bannerCount; i++) {
-            WTBannerContainerView *containerView = [self createBannerContainerViewAtIndex:i];
-            [self.bannerContainerViewArray addObject:containerView];
-            [self.bannerScrollView addSubview:containerView];
+- (void)setBannerItemCount:(NSUInteger)bannerItemCount {
+    if (bannerItemCount > _bannerItemCount) {
+        for(NSUInteger i = _bannerItemCount; i < bannerItemCount; i++) {
+            WTBannerItemView *itemView = [self createBannerItemViewAtIndex:i];
+            [self.bannerItemViewArray addObject:itemView];
+            [self.bannerScrollView addSubview:itemView];
         }
-    } else if (bannerCount < _bannerCount) {
-        for(NSUInteger i = bannerCount; i < _bannerCount; i++) {
-            WTBannerContainerView *containerView = [self createBannerContainerViewAtIndex:i];
-            [containerView removeFromSuperview];
-            [self.bannerContainerViewArray removeObjectAtIndex:i];
+    } else if (bannerItemCount < _bannerItemCount) {
+        for(NSUInteger i = bannerItemCount; i < _bannerItemCount; i++) {
+            WTBannerItemView *itemView = self.bannerItemViewArray[i];
+            [itemView removeFromSuperview];
+            [self.bannerItemViewArray removeObjectAtIndex:i];
         }
     } else
         return;
     
-    _bannerCount = bannerCount;
-    self.bannerPageControl.numberOfPages = bannerCount;
-    self.bannerScrollView.contentSize = CGSizeMake(self.bannerScrollView.frame.size.width * bannerCount, self.bannerScrollView.frame.size.height);
+    _bannerItemCount = bannerItemCount;
+    self.bannerPageControl.numberOfPages = bannerItemCount;
+    self.bannerScrollView.contentSize = CGSizeMake(self.bannerScrollView.frame.size.width * bannerItemCount, self.bannerScrollView.frame.size.height);
     
     [self.rightShadowImageView resetOrigin:CGPointMake(self.bannerScrollView.contentSize.width, 0)];
 }
 
 #pragma mark - UI methods
 
-- (WTBannerContainerView *)createBannerContainerViewAtIndex:(NSUInteger)index {
-    WTBannerContainerView *result = [[[NSBundle mainBundle] loadNibNamed:@"WTBannerContainerView" owner:self options:nil] lastObject];
+- (WTBannerItemView *)createBannerItemViewAtIndex:(NSUInteger)index {
+    WTBannerItemView *result = [[[NSBundle mainBundle] loadNibNamed:@"WTBannerItemView" owner:self options:nil] lastObject];
     [result resetOrigin:CGPointMake(self.bannerScrollView.frame.size.width * index, 0)];
     result.backgroundColor = [UIColor clearColor];
     return result;
@@ -175,11 +175,11 @@
         NSString *imageName = [NSString stringWithFormat:@"WTTestBanner%d", i + 1];
         UIImage *image = [UIImage imageNamed:imageName];
         
-        [self addContainerViewWithImage:image
-                              titleText:titleArray[i]
-                       organizationName:orgNameArray[i]
-                                  style:WTBannerContainerViewStyleBlue
-                                atIndex:i];
+        [self addItemViewWithImage:image
+                         titleText:titleArray[i]
+                  organizationName:orgNameArray[i]
+                             style:WTBannerItemViewStyleBlue
+                           atIndex:i];
     }
 }
 
@@ -200,7 +200,7 @@
 
 @end
 
-@interface WTBannerContainerView ()
+@interface WTBannerItemView ()
 
 @property (nonatomic, assign) CGFloat organizationNameLabelOriginY;
 @property (nonatomic, assign) CGFloat titleLabelOriginY;
@@ -210,16 +210,16 @@
 
 @end
 
-@implementation WTBannerContainerView
+@implementation WTBannerItemView
 
 - (void)awakeFromNib {
     self.organizationNameLabelOriginY = self.organizationNameLabel.frame.origin.y;
     self.titleLabelOriginY = self.titleLabel.frame.origin.y;
 }
 
-- (void)configureBannerContainerViewHeight:(CGFloat)height
-                              enlargeRatio:(float)enlargeRatio
-                               isEnlarging:(BOOL)isEnlarging {
+- (void)configureBannerItemViewHeight:(CGFloat)height
+                         enlargeRatio:(float)enlargeRatio
+                          isEnlarging:(BOOL)isEnlarging {
     
     [self resetHeight:height];
     [self.imageView resetHeight:height];
@@ -242,14 +242,14 @@
     self.formerOrganizationNameLabelOriginY = organizationNameLabelOriginY;
 }
 
-- (void)setStyle:(WTBannerContainerViewStyle)style {
+- (void)setStyle:(WTBannerItemViewStyle)style {
     switch (style) {
-        case WTBannerContainerViewStyleBlue:
+        case WTBannerItemViewStyleBlue:
         {
             self.labelContainerView.hidden = NO;
         }
             break;
-        case WTBannerContainerViewStyleClear:
+        case WTBannerItemViewStyleClear:
         {
             self.labelContainerView.hidden = YES;
         }

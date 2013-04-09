@@ -1,5 +1,5 @@
 //
-//  WTBannerView.h
+//  WTBannerContainerView.h
 //  WeTongji
 //
 //  Created by 王 紫川 on 13-1-1.
@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 
 typedef enum {
-    WTBannerContainerViewStyleBlue,
-    WTBannerContainerViewStyleClear,
-} WTBannerContainerViewStyle;
+    WTBannerItemViewStyleBlue,
+    WTBannerItemViewStyleClear,
+} WTBannerItemViewStyle;
 
 #define BANNER_VIEW_ORIGINAL_HIEHGT     130.0f
 #define BANNER_VIEW_ORIGINAL_WIDTH      320.0f
 
-@interface WTBannerView : UIView <UIScrollViewDelegate>
+@interface WTBannerContainerView : UIView <UIScrollViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *bannerScrollView;
 @property (nonatomic, weak) IBOutlet UIPageControl *bannerPageControl;
@@ -24,36 +24,36 @@ typedef enum {
 @property (nonatomic, weak) IBOutlet UIImageView *rightShadowImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *bottomShadowImageView;
 
-+ (WTBannerView *)createBannerView;
++ (WTBannerContainerView *)createBannerContainerView;
 
-- (void)addContainerViewWithImageURL:(NSString *)imageURLString
-                           titleText:(NSString *)title
-                    organizationName:(NSString *)organization
-                               style:(WTBannerContainerViewStyle)style
-                             atIndex:(NSUInteger)index;
+- (void)addItemViewWithImageURL:(NSString *)imageURLString
+                      titleText:(NSString *)title
+               organizationName:(NSString *)organization
+                          style:(WTBannerItemViewStyle)style
+                        atIndex:(NSUInteger)index;
 
-- (void)addContainerViewWithImage:(UIImage *)image
-                        titleText:(NSString *)title
-                 organizationName:(NSString *)organization
-                            style:(WTBannerContainerViewStyle)style
-                          atIndex:(NSUInteger)index;
+- (void)addItemViewWithImage:(UIImage *)image
+                   titleText:(NSString *)title
+            organizationName:(NSString *)organization
+                       style:(WTBannerItemViewStyle)style
+                     atIndex:(NSUInteger)index;
 
 - (void)configureTestBanner;
 
-- (void)configureBannerViewHeight:(CGFloat)height;
+- (void)configureBannerContainerViewHeight:(CGFloat)height;
 
 @end
 
-@interface WTBannerContainerView : UIView
+@interface WTBannerItemView : UIView
 
 @property (nonatomic, weak) IBOutlet UILabel *organizationNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UIView *labelContainerView;
-@property (nonatomic, assign) WTBannerContainerViewStyle style;
+@property (nonatomic, assign) WTBannerItemViewStyle style;
 
-- (void)configureBannerContainerViewHeight:(CGFloat)height
-                              enlargeRatio:(float)enlargeRatio
-                               isEnlarging:(BOOL)isEnlarging;
+- (void)configureBannerItemViewHeight:(CGFloat)height
+                         enlargeRatio:(float)enlargeRatio
+                          isEnlarging:(BOOL)isEnlarging;
 
 @end

@@ -18,7 +18,7 @@
 
 @interface WTHomeViewController ()
 
-@property (nonatomic, strong) WTBannerView *bannerView;
+@property (nonatomic, strong) WTBannerContainerView *bannerContainerView;
 @property (nonatomic, strong) WTHomeNowContainerView *nowContainerView;
 
 @end
@@ -86,10 +86,10 @@
 }
 
 - (void)configureBanner {
-    self.bannerView = [WTBannerView createBannerView];
-    [self.bannerView configureTestBanner];
-    [self.bannerView resetOrigin:CGPointZero];
-    [self.scrollView addSubview:self.bannerView];
+    self.bannerContainerView = [WTBannerContainerView createBannerContainerView];
+    [self.bannerContainerView configureTestBanner];
+    [self.bannerContainerView resetOrigin:CGPointZero];
+    [self.scrollView addSubview:self.bannerContainerView];
 }
 
 - (void)configureNavigationBar {
@@ -99,8 +99,8 @@
 
 - (void)configureNowView {
     WTHomeNowContainerView *nowContainerView = [WTHomeNowContainerView createHomeNowContainerViewWithDelegate:self];
-    [self.scrollView insertSubview:nowContainerView belowSubview:self.bannerView];
-    [nowContainerView resetOriginY:self.bannerView.frame.size.height];
+    [self.scrollView insertSubview:nowContainerView belowSubview:self.bannerContainerView];
+    [nowContainerView resetOriginY:self.bannerContainerView.frame.size.height];
     self.nowContainerView = nowContainerView;
     [self updateNowView];
 }
@@ -114,20 +114,20 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat scrollViewOffsetY = scrollView.contentOffset.y;
     scrollViewOffsetY = scrollViewOffsetY < 0 ? 0 : scrollViewOffsetY;
-    [self.bannerView configureBannerViewHeight:-scrollView.contentOffset.y + BANNER_VIEW_ORIGINAL_HIEHGT];
+    [self.bannerContainerView configureBannerContainerViewHeight:-scrollView.contentOffset.y + BANNER_VIEW_ORIGINAL_HIEHGT];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    self.bannerView.userInteractionEnabled = NO;
+    self.bannerContainerView.userInteractionEnabled = NO;
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (!decelerate)
-        self.bannerView.userInteractionEnabled = YES;
+        self.bannerContainerView.userInteractionEnabled = YES;
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    self.bannerView.userInteractionEnabled = YES;
+    self.bannerContainerView.userInteractionEnabled = YES;
 }
 
 #pragma mark - Actions

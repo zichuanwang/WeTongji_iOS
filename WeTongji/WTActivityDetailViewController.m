@@ -36,7 +36,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *activityDescriptionDisplayLabel;
 @property (nonatomic, weak) IBOutlet UILabel *activityDescriptionLabel;
 
-@property (nonatomic, strong) WTBannerView *bannerView;
+@property (nonatomic, strong) WTBannerContainerView *bannerView;
 
 @property (nonatomic, strong) NSString *backBarButtonText;
 @property (nonatomic, strong) Activity *activity;
@@ -246,13 +246,13 @@
 #pragma mark Configure banner view
 
 - (void)configureBannerView {
-    self.bannerView = [WTBannerView createBannerView];
+    self.bannerView = [WTBannerContainerView createBannerContainerView];
     [self.bannerView resetOrigin:CGPointMake(0, self.briefIntroductionView.frame.origin.y + self.briefIntroductionView.frame.size.height)];
-    [self.bannerView addContainerViewWithImageURL:self.activity.image
-                                        titleText:self.activity.what
-                                 organizationName:self.activity.organizer
-                                            style:WTBannerContainerViewStyleClear
-                                          atIndex:0];
+    [self.bannerView addItemViewWithImageURL:self.activity.image
+                                   titleText:self.activity.what
+                            organizationName:self.activity.organizer
+                                       style:WTBannerItemViewStyleClear
+                                     atIndex:0];
     [self.scrollView insertSubview:self.bannerView belowSubview:self.briefIntroductionView];
 }
 
