@@ -28,8 +28,8 @@
     exam.what = [NSString stringWithFormat:@"%@", dict[@"Name"]];
     exam.teacher = [NSString stringWithFormat:@"%@", dict[@"Teacher"]];
     exam.where = [NSString stringWithFormat:@"%@", dict[@"Location"]];
-    exam.begin_time = [[NSString stringWithFormat:@"%@", dict[@"Begin"]] convertToDate];
-    exam.end_time = [[NSString stringWithFormat:@"%@", dict[@"End"]] convertToDate];
+    exam.beginTime = [[NSString stringWithFormat:@"%@", dict[@"Begin"]] convertToDate];
+    exam.endTime = [[NSString stringWithFormat:@"%@", dict[@"End"]] convertToDate];
     
     exam.hours = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"Hours"]] intValue]];
     exam.point = [NSNumber numberWithFloat: [[NSString stringWithFormat:@"%@", dict[@"Point"]] floatValue]];

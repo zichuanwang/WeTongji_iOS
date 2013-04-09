@@ -155,7 +155,7 @@
 
 - (void)configureNowItemViewWithEvent:(Event *)event {
     [self configureFriendCountLabel:@(23)];
-    [self configureEventTitle:event.what place:event.where time:event.begin_time];
+    [self configureEventTitle:event.what place:event.where time:event.beginTime];
 }
 
 - (void)configureEventTitle:(NSString *)title

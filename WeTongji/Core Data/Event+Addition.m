@@ -27,9 +27,9 @@
     NSDate *lastMidnight = [[NSCalendar currentCalendar] dateFromComponents:todayComponents];
     NSDate *nextMidnight = [[NSCalendar currentCalendar] dateByAddingComponents:oneDay toDate:lastMidnight options:NSWrapCalendarComponents];
     
-    // request.predicate = [NSPredicate predicateWithFormat:@"(SELF in %@) AND (%@ >= %@) AND (%@ <= %@)", currentUser, begin_time, lastMidnight, end_time, nextMidnight];
+    // request.predicate = [NSPredicate predicateWithFormat:@"(SELF in %@) AND (%@ >= %@) AND (%@ <= %@)", currentUser, beginTime, lastMidnight, endTime, nextMidnight];
     
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"begin_time" ascending:YES]];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"beginTime" ascending:YES]];
     
     NSArray *allEvents = [context executeFetchRequest:request error:NULL];
     // TODO:test
@@ -43,11 +43,11 @@
 #pragma mark - Properties
 
 - (NSString *)beginTimeString {
-    return [NSString yearMonthDayWeekTimeConvertFromDate:self.begin_time];
+    return [NSString yearMonthDayWeekTimeConvertFromDate:self.beginTime];
 }
 
 - (NSString *)beginToEndTimeString {
-    return [NSString timeConvertFromBeginDate:self.begin_time endDate:self.end_time];
+    return [NSString timeConvertFromBeginDate:self.beginTime endDate:self.endTime];
 }
 
 @end

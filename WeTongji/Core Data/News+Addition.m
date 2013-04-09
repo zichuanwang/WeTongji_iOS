@@ -23,7 +23,7 @@
         }
         switch (i) {
             case 0: {
-                result.image_array = [NSArray arrayWithObject:@"http://pic11.nipic.com/20101129/1951702_194641008006_2.jpg"];
+                result.imageArray = [NSArray arrayWithObject:@"http://pic11.nipic.com/20101129/1951702_194641008006_2.jpg"];
                 result.title = @"测试新闻";
             }
                 break;
@@ -57,18 +57,18 @@
         result.identifier = newsID;
     }
     
-    result.update_time = [NSDate date];
+    result.updateTime = [NSDate date];
     result.title = [NSString stringWithFormat:@"%@", dict[@"Title"]];
     result.content = [NSString stringWithFormat:@"%@", dict[@"Context"]];
     result.summary = [NSString stringWithFormat:@"%@", dict[@"Summary"]];
-    result.publish_date = [[NSString stringWithFormat:@"%@", [dict objectForKey:@"CreatedAt"]] convertToDate];
-    result.can_like = @([[NSString stringWithFormat:@"%@", dict[@"CanLike"]] boolValue]);
-    result.like_count = @([[NSString stringWithFormat:@"%@", dict[@"Like"]] integerValue]);
+    result.publishDate = [[NSString stringWithFormat:@"%@", [dict objectForKey:@"CreatedAt"]] convertToDate];
+    result.canLike = @([[NSString stringWithFormat:@"%@", dict[@"CanLike"]] boolValue]);
+    result.likeCount = @([[NSString stringWithFormat:@"%@", dict[@"Like"]] integerValue]);
     
     NSArray *imageArray = dict[@"Images"];
-    result.image_array = imageArray;
+    result.imageArray = imageArray;
     
-    result.publish_day = [NSString yearMonthDayConvertFromDate:result.publish_date];
+    result.publishDay = [NSString yearMonthDayConvertFromDate:result.publishDate];
     
     return result;
 }
@@ -97,7 +97,7 @@
 
 - (void)awakeFromFetch {
     [super awakeFromFetch];
-    self.publish_day = [NSString yearMonthDayConvertFromDate:self.publish_date];
+    self.publishDay = [NSString yearMonthDayConvertFromDate:self.publishDate];
 }
 
 @end

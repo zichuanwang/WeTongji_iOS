@@ -35,20 +35,20 @@
     
     course.teacher = [NSString stringWithFormat:@"%@", dict[@"Teacher"]];
     
-    course.course_day = courseDay;
-    course.section_start = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"SectionStart"]] intValue]];
-    course.section_end = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"SectionEnd"]] intValue]];
-    course.begin_time = [courseDay dateByAddingTimeInterval:
-                         [Course getDayTimeIntervalFromSection:course.section_start.intValue]];
-    course.end_time = [courseDay dateByAddingTimeInterval:
-                       [Course getDayTimeIntervalFromSection:course.section_end.intValue]];
+    course.courseDay = courseDay;
+    course.sectionStart = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"SectionStart"]] intValue]];
+    course.sectionEnd = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"SectionEnd"]] intValue]];
+    course.beginTime = [courseDay dateByAddingTimeInterval:
+                         [Course getDayTimeIntervalFromSection:course.sectionStart.intValue]];
+    course.endTime = [courseDay dateByAddingTimeInterval:
+                       [Course getDayTimeIntervalFromSection:course.sectionEnd.intValue]];
     
     course.hours = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"Hours"]] intValue]];
     course.point = [NSNumber numberWithFloat: [[NSString stringWithFormat:@"%@", dict[@"Point"]] floatValue]];
     course.required = [NSString stringWithFormat:@"%@", dict[@"Required"]];
     
-    course.week_type = [NSString stringWithFormat:@"%@", dict[@"WeekType"]];
-    course.week_day = [NSString stringWithFormat:@"%@", dict[@"WeekDay"]];
+    course.weekType = [NSString stringWithFormat:@"%@", dict[@"WeekType"]];
+    course.weekDay = [NSString stringWithFormat:@"%@", dict[@"WeekDay"]];
     
     return course;
 }
@@ -56,7 +56,7 @@
 + (Course *)courseScheduleAtDay:(NSDate *)date withCourseID:(NSString *)courseID
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Course"];
-    request.predicate = [NSPredicate predicateWithFormat:@"course_day = %@ AND identifier = %@", date, courseID];
+    request.predicate = [NSPredicate predicateWithFormat:@"courseDay = %@ AND identifier = %@", date, courseID];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     NSArray *matches = [context executeFetchRequest:request error:nil];
     return [matches lastObject];
@@ -119,7 +119,7 @@
 - (NSString *)courseBeginToEndTime
 {
     return [NSString stringWithFormat:@"%@-%@",
-            [NSString timeConvertFromDate:self.begin_time],[NSString timeConvertFromDate:self.end_time]];
+            [NSString timeConvertFromDate:self.beginTime],[NSString timeConvertFromDate:self.endTime]];
 }
 
 @end

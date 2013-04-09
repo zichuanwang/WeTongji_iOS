@@ -31,7 +31,7 @@
         if (!result) {
             result = [NSEntityDescription insertNewObjectForEntityForName:@"FriendInvitationNotification" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
             result.identifier = notificationID;
-            result.send_time = [NSDate date];
+            result.sendTime = [NSDate date];
             result.sender = testUserArray[i];
         }
     
@@ -62,7 +62,7 @@
         result.identifier = notificationID;
     }
     
-    result.send_time = [[NSString stringWithFormat:@"%@", dict[@"SentAt"]] convertToDate];
+    result.sendTime = [[NSString stringWithFormat:@"%@", dict[@"SentAt"]] convertToDate];
     NSString *senderName = [NSString stringWithFormat:@"%@", dict[@"From"]];
     result.sender = [User createTestUserWithName:senderName];
     

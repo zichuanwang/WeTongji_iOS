@@ -106,7 +106,7 @@
     
     [self.tableView bringSubviewToFront:cell];
     
-    NSLog(@"row:%d, noti_id:%@, date:%@", indexPath.row, notification.identifier, [NSString yearMonthDayTimeConvertFromDate:notification.send_time]);
+    NSLog(@"row:%d, noti_id:%@, date:%@", indexPath.row, notification.identifier, [NSString yearMonthDayTimeConvertFromDate:notification.sendTime]);
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {

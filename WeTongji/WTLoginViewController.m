@@ -118,7 +118,7 @@
 
 - (void)configureFlurryUserData:(User *)user {
     [Flurry setGender:user.gender];
-    [Flurry setUserID:user.student_number];
+    [Flurry setUserID:user.studentNumber];
 }
 
 - (void)login {

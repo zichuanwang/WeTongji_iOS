@@ -189,7 +189,7 @@
 - (void)configureRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"News" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
-    NSSortDescriptor *sortByPublishTime = [[NSSortDescriptor alloc] initWithKey:@"publish_date" ascending:NO];
+    NSSortDescriptor *sortByPublishTime = [[NSSortDescriptor alloc] initWithKey:@"publishDate" ascending:NO];
     [request setSortDescriptors:@[sortByPublishTime]];
 }
 
@@ -198,7 +198,7 @@
 }
 
 - (NSString *)customSectionNameKeyPath {
-    return @"publish_day";
+    return @"publishDay";
 }
 
 - (void)fetchedResultsControllerDidPerformFetch:(NSFetchedResultsController *)aFetchedResultsController {

@@ -2,7 +2,7 @@
 //  Notification.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-3-5.
+//  Created by 王 紫川 on 13-4-10.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -14,8 +14,8 @@
 
 @interface Notification : Object
 
-@property (nonatomic, retain) NSDate * send_time;
-@property (nonatomic, retain) User *sender;
+@property (nonatomic, retain) NSDate * sendTime;
 @property (nonatomic, retain) User *owner;
+@property (nonatomic, retain) User *sender;
 
 @end

@@ -15,17 +15,15 @@
 #import "WTNowActivityCell.h"
 #import "WTNowCourseCell.h"
 #import "Event.h"
-#import "WTDragToLoadDecorator.h"
 
 #define kWeekTimeInterval (60 * 60 * 24 * 7)
 // Test Data
 static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 
-@interface WTNowTableViewController()<WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
+@interface WTNowTableViewController()
 
 @property (nonatomic, assign) int weekBegin;
 @property (nonatomic, assign) int weekEnd;
-@property (nonatomic, strong) WTDragToLoadDecorator *tableViewDecorator;
 
 @end
 
@@ -38,18 +36,15 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
     self.tableView.scrollsToTop = NO;
     
-    [self.tableViewDecorator startObservingChangesInDragToLoadScrollView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self configureWeekDuration];
-    [self.tableViewDecorator startObservingChangesInDragToLoadScrollView];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    [self.tableViewDecorator stopObservingChangesInDragToLoadScrollView];
 }
 
 - (void)scrollToNow:(BOOL)animated
@@ -63,41 +58,28 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 
 #pragma mark - Override Getter Method
 
-- (NSDate *)convertToDate:(int)week
-{
+- (NSDate *)convertToDate:(int)week {
    return [[semesterBeginTime convertToDate] dateByAddingTimeInterval:week * kWeekTimeInterval];
-}
-
-- (WTDragToLoadDecorator *)tableViewDecorator
-{
-    if (_tableViewDecorator == nil) {
-        _tableViewDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
-    }
-    
-    return _tableViewDecorator;
 }
 
 #pragma mark - Private Method
 
-- (void)clearAllData
-{
+- (void)clearAllData {
     [Course clearAllCourses];
     [Exam clearAllExams];
     [Activity clearAllActivites];
 }
 
-- (void)configureWeekDuration
-{
+- (void)configureWeekDuration {
     NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:[semesterBeginTime convertToDate]];
     self.weekBegin = interval / kWeekTimeInterval; 
     self.weekEnd = self.weekBegin + 1;
 }
 
-- (Event *)getNowEvent
-{
+- (Event *)getNowEvent {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
-    request.predicate = [NSPredicate predicateWithFormat:@"begin_time >= %@", [NSDate date]];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"begin_time" ascending:YES]];
+    request.predicate = [NSPredicate predicateWithFormat:@"beginTime >= %@", [NSDate date]];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"beginTime" ascending:YES]];
     
     NSArray *matches = [[WTCoreDataManager sharedManager].managedObjectContext executeFetchRequest:request error:nil];
     if ([matches count] == 0) {
@@ -110,8 +92,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 - (void)loadDataFrom:(NSDate *)fromDate
                   to:(NSDate *)toDate
         successBlock:(void (^)(void))success
-        failureBlock:(void (^)(void))failure
-{
+        failureBlock:(void (^)(void))failure {
     WTClient * client = [WTClient sharedClient];
     WTRequest * request = [WTRequest requestWithSuccessBlock:^(id responseData) {
         WTLOG(@"Get Now Data Success: %@", responseData);
@@ -166,8 +147,8 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     }
     
     Event *nowEvent = [self getNowEvent];
-    NSDate *nowTime = nowEvent == nil ? [NSDate date] : nowEvent.begin_time;
-    switch ([item.begin_time compare:nowTime]) {
+    NSDate *nowTime = nowEvent == nil ? [NSDate date] : nowEvent.beginTime;
+    switch ([item.beginTime compare:nowTime]) {
         case NSOrderedSame:
             [(WTNowBaseCell *)cell updateCellStatus:WTNowBaseCellTypeNow];
             break;
@@ -184,7 +165,8 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 
 - (void)configureRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"Event" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"begin_time" ascending:YES]];
+    request.predicate = [NSPredicate predicateWithFormat:@"SELF in %@", [WTCoreDataManager sharedManager].currentUser.scheduledEvents];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"beginTime" ascending:YES]];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
@@ -205,29 +187,29 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     return self.tableView;
 }
 
-#pragma mark - WTDragToLoadDelegate
-
-- (void)dragToLoadDecoratorDidDragDown {
-    self.weekBegin --;
-    [self loadDataFrom:[self convertToDate:self.weekBegin]
-                    to:[self convertToDate:self.weekBegin + 1]
-          successBlock:^{
-              [self.tableViewDecorator topViewLoadFinished:YES];
-              [self.tableViewDecorator setBottomViewDisabled:NO];
-          } failureBlock:^{
-              [self.tableViewDecorator topViewLoadFinished:NO];   
-          }];
-}
-
-- (void)dragToLoadDecoratorDidDragUp {
-    self.weekEnd ++;
-    [self loadDataFrom:[self convertToDate:self.weekEnd - 1]
-                    to:[self convertToDate:self.weekEnd]
-          successBlock:^{
-              [self.tableViewDecorator bottomViewLoadFinished:YES];
-          } failureBlock:^{
-              [self.tableViewDecorator bottomViewLoadFinished:NO];
-          }];
-}
+//#pragma mark - WTDragToLoadDelegate
+//
+//- (void)dragToLoadDecoratorDidDragDown {
+//    self.weekBegin --;
+//    [self loadDataFrom:[self convertToDate:self.weekBegin]
+//                    to:[self convertToDate:self.weekBegin + 1]
+//          successBlock:^{
+//              [self.tableViewDecorator topViewLoadFinished:YES];
+//              [self.tableViewDecorator setBottomViewDisabled:NO];
+//          } failureBlock:^{
+//              [self.tableViewDecorator topViewLoadFinished:NO];   
+//          }];
+//}
+//
+//- (void)dragToLoadDecoratorDidDragUp {
+//    self.weekEnd ++;
+//    [self loadDataFrom:[self convertToDate:self.weekEnd - 1]
+//                    to:[self convertToDate:self.weekEnd]
+//          successBlock:^{
+//              [self.tableViewDecorator bottomViewLoadFinished:YES];
+//          } failureBlock:^{
+//              [self.tableViewDecorator bottomViewLoadFinished:NO];
+//          }];
+//}
 
 @end

@@ -111,7 +111,7 @@ typedef enum {
 }
 
 - (void)configureViewWithNews:(News *)news {
-    NSArray *newsImageArray = news.image_array;
+    NSArray *newsImageArray = news.imageArray;
     self.itemStyle = (newsImageArray.count == 0) ? WTHomeSelectItemStyleNormal : WTHomeSelectItemStyleWithImage;
     if (self.itemStyle == WTHomeSelectItemStyleWithImage) {
         self.bgImageContainerView.hidden = NO;

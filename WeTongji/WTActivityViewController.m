@@ -164,9 +164,9 @@
     NSString *timeString = nil;
     ActivityOrderMethod orderMethod = [[NSUserDefaults standardUserDefaults] getActivityOrderMethod];
     if (orderMethod == ActivityOrderByPublishDate)
-        timeString = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Published at", nil), [NSString yearMonthDayWeekTimeConvertFromDate:activity.created_at]];
+        timeString = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Published at", nil), [NSString yearMonthDayWeekTimeConvertFromDate:activity.createdAt]];
     else
-        timeString = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Start time", nil), [NSString yearMonthDayWeekTimeConvertFromDate:activity.begin_time]];
+        timeString = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Start time", nil), [NSString yearMonthDayWeekTimeConvertFromDate:activity.beginTime]];
     
     [activityCell configureCellWithIndexPath:indexPath title:activity.what
                                         time:timeString
@@ -188,22 +188,22 @@
     BOOL showExpire = ![userDefaults getActivityHidePastProperty];
     BOOL orderByAsc = ![WTRequest shouldActivityOrderByDesc:orderMethod smartOrder:smartOrder showExpire:showExpire];
     NSArray *descriptors = nil;
-    NSSortDescriptor *updateTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"update_time" ascending:YES];
+    NSSortDescriptor *updateTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updateTime" ascending:YES];
     
     switch (orderMethod) {
         case ActivityOrderByPublishDate:
         {
-            descriptors = [NSArray arrayWithObjects:[[NSSortDescriptor alloc] initWithKey:@"created_at" ascending:orderByAsc], updateTimeDescriptor, nil];
+            descriptors = [NSArray arrayWithObjects:[[NSSortDescriptor alloc] initWithKey:@"createdAt" ascending:orderByAsc], updateTimeDescriptor, nil];
         }
             break;
         case ActivityOrderByPopularity:
         {
-            descriptors = [NSArray arrayWithObjects:[[NSSortDescriptor alloc] initWithKey:@"like_count" ascending:orderByAsc], updateTimeDescriptor, nil];
+            descriptors = [NSArray arrayWithObjects:[[NSSortDescriptor alloc] initWithKey:@"likeCount" ascending:orderByAsc], updateTimeDescriptor, nil];
         }
             break;
         case ActivityOrderByStartDate:
         {
-            descriptors = [NSArray arrayWithObjects:[[NSSortDescriptor alloc] initWithKey:@"begin_time" ascending:orderByAsc], updateTimeDescriptor, nil];
+            descriptors = [NSArray arrayWithObjects:[[NSSortDescriptor alloc] initWithKey:@"beginTime" ascending:orderByAsc], updateTimeDescriptor, nil];
         }
             break;
         default:

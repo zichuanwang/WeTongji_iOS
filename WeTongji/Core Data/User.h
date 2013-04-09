@@ -2,7 +2,7 @@
 //  User.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-3-5.
+//  Created by 王 紫川 on 13-4-10.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -10,40 +10,46 @@
 #import <CoreData/CoreData.h>
 #import "Object.h"
 
-@class Notification;
+@class Event, Notification;
 
 @interface User : Object
 
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * student_number;
-@property (nonatomic, retain) NSString * major;
-@property (nonatomic, retain) NSNumber * study_plan;
-@property (nonatomic, retain) NSString * qq_account;
-@property (nonatomic, retain) NSNumber * enroll_year;
-@property (nonatomic, retain) NSString * department;
-@property (nonatomic, retain) NSString * avatar_link;
-@property (nonatomic, retain) NSString * birth_place;
+@property (nonatomic, retain) NSString * avatar;
+@property (nonatomic, retain) NSString * birthPlace;
 @property (nonatomic, retain) NSDate * birthday;
-@property (nonatomic, retain) NSString * email_address;
+@property (nonatomic, retain) NSString * department;
+@property (nonatomic, retain) NSString * emailAddress;
+@property (nonatomic, retain) NSNumber * enrollYear;
 @property (nonatomic, retain) NSString * gender;
-@property (nonatomic, retain) NSDate * login_time;
-@property (nonatomic, retain) NSString * phone_number;
-@property (nonatomic, retain) NSString * sina_weibo_name;
-@property (nonatomic, retain) NSString * wechat_account;
-@property (nonatomic, retain) NSSet *sent_notifications;
-@property (nonatomic, retain) NSSet *received_notifications;
+@property (nonatomic, retain) NSDate * loginTime;
+@property (nonatomic, retain) NSString * major;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * phoneNumber;
+@property (nonatomic, retain) NSString * qqAccount;
+@property (nonatomic, retain) NSString * sinaWeiboName;
+@property (nonatomic, retain) NSString * studentNumber;
+@property (nonatomic, retain) NSNumber * studyPlan;
+@property (nonatomic, retain) NSString * wechatAccount;
+@property (nonatomic, retain) NSSet *receivedNotifications;
+@property (nonatomic, retain) NSSet *sentNotifications;
+@property (nonatomic, retain) NSSet *scheduledEvents;
 @end
 
 @interface User (CoreDataGeneratedAccessors)
 
-- (void)addSent_notificationsObject:(Notification *)value;
-- (void)removeSent_notificationsObject:(Notification *)value;
-- (void)addSent_notifications:(NSSet *)values;
-- (void)removeSent_notifications:(NSSet *)values;
+- (void)addReceivedNotificationsObject:(Notification *)value;
+- (void)removeReceivedNotificationsObject:(Notification *)value;
+- (void)addReceivedNotifications:(NSSet *)values;
+- (void)removeReceivedNotifications:(NSSet *)values;
 
-- (void)addReceived_notificationsObject:(Notification *)value;
-- (void)removeReceived_notificationsObject:(Notification *)value;
-- (void)addReceived_notifications:(NSSet *)values;
-- (void)removeReceived_notifications:(NSSet *)values;
+- (void)addSentNotificationsObject:(Notification *)value;
+- (void)removeSentNotificationsObject:(Notification *)value;
+- (void)addSentNotifications:(NSSet *)values;
+- (void)removeSentNotifications:(NSSet *)values;
+
+- (void)addScheduledEventsObject:(Event *)value;
+- (void)removeScheduledEventsObject:(Event *)value;
+- (void)addScheduledEvents:(NSSet *)values;
+- (void)removeScheduledEvents:(NSSet *)values;
 
 @end

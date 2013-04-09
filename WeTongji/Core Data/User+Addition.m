@@ -29,18 +29,18 @@
         result.identifier = userID;
     }
     
-    result.avatar_link = [NSString stringWithFormat:@"%@", dict[@"Avatar"]];
+    result.avatar = [NSString stringWithFormat:@"%@", dict[@"Avatar"]];
     result.birthday = [[NSString stringWithFormat:@"%@", dict[@"Birthday"]] convertToDate];
     result.department = [NSString stringWithFormat:@"%@", dict[@"Department"]];
     result.name = [NSString stringWithFormat:@"%@", dict[@"Name"]];
-    result.email_address = [NSString stringWithFormat:@"%@", dict[@"Email"]];
+    result.emailAddress = [NSString stringWithFormat:@"%@", dict[@"Email"]];
     result.gender = [NSString stringWithFormat:@"%@", dict[@"Gender"]];
     result.major = [NSString stringWithFormat:@"%@", dict[@"Major"]];
-    result.student_number = [NSString stringWithFormat:@"%@", dict[@"NO"]];
-    result.phone_number = [NSString stringWithFormat:@"%@", dict[@"Phone"]];
-    result.study_plan = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@", dict[@"Plan"]] integerValue]];
-    result.sina_weibo_name = [NSString stringWithFormat:@"%@", dict[@"SinaWeibo"]];
-    result.enroll_year = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@", dict[@"Year"]] integerValue]];
+    result.studentNumber = [NSString stringWithFormat:@"%@", dict[@"NO"]];
+    result.phoneNumber = [NSString stringWithFormat:@"%@", dict[@"Phone"]];
+    result.studyPlan = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@", dict[@"Plan"]] integerValue]];
+    result.sinaWeiboName = [NSString stringWithFormat:@"%@", dict[@"SinaWeibo"]];
+    result.enrollYear = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@", dict[@"Year"]] integerValue]];
     
     return result;
 }

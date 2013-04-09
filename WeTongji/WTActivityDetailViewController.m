@@ -15,6 +15,7 @@
 #import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
 #import <QuartzCore/QuartzCore.h>
 #import "NSString+WTAddition.h"
+#import "WTCoreDataManager.h"
 
 @interface WTActivityDetailViewController ()
 
@@ -126,8 +127,8 @@
     UIBarButtonItem *barMoreButton = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
     
     WTLikeButtonView *likeButtonContainerView = [WTLikeButtonView createLikeButtonViewWithTarget:self action:@selector(didClickLikeButton:)];
-    likeButtonContainerView.likeButton.selected = !self.activity.can_like.boolValue;
-    [likeButtonContainerView setLikeCount:self.activity.like_count.integerValue];
+    likeButtonContainerView.likeButton.selected = !self.activity.canLike.boolValue;
+    [likeButtonContainerView setLikeCount:self.activity.likeCount.integerValue];
     self.likeButtonContainerView = likeButtonContainerView;
     
     UIBarButtonItem *barLikeButton = [[UIBarButtonItem alloc] initWithCustomView:likeButtonContainerView];
@@ -198,6 +199,8 @@
     
     [self.participateButton resetOrigin:CGPointMake(311.0f - self.participateButton.frame.size.width, MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y)];
     self.participateButton.autoresizingMask |= UIViewAutoresizingFlexibleTopMargin;
+    
+    [self configureParticipateButtonStatus:!self.activity.canSchedule.boolValue];
     
     [self.participateButton addTarget:self action:@selector(didClickParticipateButton:) forControlEvents:UIControlEventTouchUpInside];    
     [self.briefIntroductionView addSubview:self.participateButton];
@@ -307,7 +310,7 @@
     self.organizerAvatarContainerView.layer.masksToBounds = YES;
     self.organizerAvatarContainerView.layer.cornerRadius = 3.0f;
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.activity.organizer_avatar]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.activity.organizerAvatar]];
     [self.organizerAvatarImageView setImageWithURLRequest:request
                                          placeholderImage:nil
                                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
@@ -317,6 +320,17 @@
                                                   failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                                       
                                                   }];
+}
+
+#pragma mark - Configure button status methods
+
+- (void)configureParticipateButtonStatus:(BOOL)participated {
+    self.participateButton.selected = !participated;
+    if (participated) {
+        [self.participateButton setTitle:NSLocalizedString(@"Participated", nil) forState:UIControlStateNormal];
+    } else {
+        [self.participateButton setTitle:NSLocalizedString(@"Participate", nil) forState:UIControlStateNormal];
+    }
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -337,9 +351,9 @@
     sender.selected = !sender.selected;
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Set activitiy liked:%d succeeded", sender.selected);
-        self.activity.like_count = @(self.activity.like_count.integerValue + (sender.selected ? 1 : (-1)));
-        [self.likeButtonContainerView setLikeCount:self.activity.like_count.integerValue];
-        self.activity.can_like = @(!sender.selected);
+        self.activity.likeCount = @(self.activity.likeCount.integerValue + (sender.selected ? 1 : (-1)));
+        [self.likeButtonContainerView setLikeCount:self.activity.likeCount.integerValue];
+        self.activity.canLike = @(!sender.selected);
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Set activitiy liked:%d, reason:%@", sender.selected, error.localizedDescription);
         sender.selected = !sender.selected;
@@ -357,13 +371,26 @@
 }
 
 - (void)didClickParticipateButton:(UIButton *)sender {
-    self.participateButton.selected = !self.participateButton.selected;
-    BOOL participated = !self.participateButton.selected;
-    if (participated) {
-        [sender setTitle:NSLocalizedString(@"Participated", nil) forState:UIControlStateNormal];
-    } else {
-        [sender setTitle:NSLocalizedString(@"Participate", nil) forState:UIControlStateNormal];
-    }
+    BOOL participated = self.participateButton.selected;
+    [self configureParticipateButtonStatus:participated];
+    
+    sender.userInteractionEnabled = NO;
+    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        WTLOG(@"Set activitiy scheduled:%d succeeded", participated);
+        sender.userInteractionEnabled = YES;
+        self.activity.canSchedule = @(!self.activity.canSchedule.boolValue);
+        
+        if (participated)
+            [[WTCoreDataManager sharedManager].currentUser addScheduledEventsObject:self.activity];
+        else
+            [[WTCoreDataManager sharedManager].currentUser removeScheduledEventsObject:self.activity];
+    } failureBlock:^(NSError *error) {
+        WTLOGERROR(@"Set activitiy scheduled:%d, reason:%@", participated, error.localizedDescription);
+        sender.userInteractionEnabled = YES;
+        [self configureParticipateButtonStatus:!participated];
+    }];
+    [request setActivityScheduled:participated activityID:self.activity.identifier];
+    [[WTClient sharedClient] enqueueRequest:request];
 }
 
 - (void)didClickOrganizerIndicator {
