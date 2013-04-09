@@ -24,5 +24,6 @@
 + (NSString *)getTodayBeginDayFormatString;
 + (NSString *)getTomorrowBeginDayFormatString;
 - (BOOL)isGIFURL;
+- (BOOL)isEmptyImageURL;
 
 @end

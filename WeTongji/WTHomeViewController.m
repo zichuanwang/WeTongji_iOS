@@ -149,7 +149,6 @@
     } else {
         [self.nowContainerView resetOriginY:self.bannerContainerView.frame.size.height];
     }
-    NSLog(@"!!!!%@", NSStringFromCGRect(self.nowContainerView.frame));
 }
 
 #pragma mark - UIScrollViewDelegate

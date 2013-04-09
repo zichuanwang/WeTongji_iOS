@@ -34,8 +34,8 @@
     NSArray *allEvents = [context executeFetchRequest:request error:NULL];
     // TODO:test
     NSArray *result = nil;
-    if (allEvents.count >= 2) {
-        result = [NSArray arrayWithObjects:allEvents[0], allEvents[1], nil];
+    if (allEvents.count >= 1) {
+        result = [NSArray arrayWithObjects:allEvents[0], nil];
     }
     return result;
 }

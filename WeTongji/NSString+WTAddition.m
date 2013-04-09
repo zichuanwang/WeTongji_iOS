@@ -139,4 +139,10 @@
     return result;
 }
 
+- (BOOL)isEmptyImageURL {
+    if (self.length < 11)
+        return true;
+    return [[self substringWithRange:NSMakeRange(self.length - 11, 11)] isEqualToString:@"missing.png"];
+}
+
 @end

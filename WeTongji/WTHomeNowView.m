@@ -56,7 +56,7 @@
         self.switchContainerView.alpha = 0;
         return;
     } else if (events.count == 1) {
-        self.switchContainerView.alpha = 0.5f;
+        self.switchContainerView.alpha = 0.2f;
         self.switchContainerView.userInteractionEnabled = NO;
     } else {
         self.switchContainerView.alpha = 1.0f;

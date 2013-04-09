@@ -14,6 +14,7 @@
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
 #import <QuartzCore/QuartzCore.h>
+#import "NSString+WTAddition.h"
 
 @interface WTActivityDetailViewController ()
 
@@ -246,14 +247,16 @@
 #pragma mark Configure banner view
 
 - (void)configureBannerView {
-    self.bannerView = [WTBannerContainerView createBannerContainerView];
-    [self.bannerView resetOrigin:CGPointMake(0, self.briefIntroductionView.frame.origin.y + self.briefIntroductionView.frame.size.height)];
-    [self.bannerView addItemViewWithImageURL:self.activity.image
-                                   titleText:self.activity.what
-                            organizationName:self.activity.organizer
-                                       style:WTBannerItemViewStyleClear
-                                     atIndex:0];
-    [self.scrollView insertSubview:self.bannerView belowSubview:self.briefIntroductionView];
+    if (![self.activity.image isEmptyImageURL]) {
+        self.bannerView = [WTBannerContainerView createBannerContainerView];
+        [self.bannerView resetOrigin:CGPointMake(0, self.briefIntroductionView.frame.origin.y + self.briefIntroductionView.frame.size.height)];
+        [self.bannerView addItemViewWithImageURL:self.activity.image
+                                       titleText:self.activity.what
+                                organizationName:self.activity.organizer
+                                           style:WTBannerItemViewStyleClear
+                                         atIndex:0];
+        [self.scrollView insertSubview:self.bannerView belowSubview:self.briefIntroductionView];
+    }
 }
 
 #pragma mark Configure detail description view
@@ -269,7 +272,11 @@
     [self configureActivityDescriptionView];
     [self configureOrganizerAvatar];
     
-    [self.detailDescriptionView resetOriginY:self.bannerView.frame.origin.y + self.bannerView.frame.size.height];
+    if (self.bannerView) {
+        [self.detailDescriptionView resetOriginY:self.bannerView.frame.origin.y + self.bannerView.frame.size.height];
+    } else {
+        [self.detailDescriptionView resetOriginY:self.briefIntroductionView.frame.size.height];
+    }
     [self.detailDescriptionView resetHeight:self.activityDescriptionContainerView.frame.origin.y + self.activityDescriptionContainerView.frame.size.height];
 }
 
