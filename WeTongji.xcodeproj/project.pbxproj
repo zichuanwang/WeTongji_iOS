@@ -121,6 +121,8 @@
 		E12554C816491532006D42F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549516491530006D42F5 /* Foundation.framework */; };
 		E12554D016491532006D42F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E12554CE16491532006D42F5 /* InfoPlist.strings */; };
 		E12554D316491532006D42F5 /* WeTongjiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E12554D216491532006D42F5 /* WeTongjiTests.m */; };
+		E13652CA1713FD8000ACA92D /* WTTranslucentHighlightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E13652C81713FD8000ACA92D /* WTTranslucentHighlightButton.png */; };
+		E13652CB1713FD8000ACA92D /* WTTranslucentHighlightButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13652C91713FD8000ACA92D /* WTTranslucentHighlightButton@2x.png */; };
 		E1384A4416F6333B003119D2 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = E1384A4316F6333B003119D2 /* Activity.m */; };
 		E1384A4716F77F47003119D2 /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E1384A4616F77F47003119D2 /* Object.m */; };
 		E13B0E4C169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0E4A169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon.png */; };
@@ -209,8 +211,8 @@
 		E17F9E6F1712D43100DC6AB6 /* WTDarkGrayMoreReverseIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = E17F9E6D1712D43100DC6AB6 /* WTDarkGrayMoreReverseIndicator.png */; };
 		E17F9E701712D43100DC6AB6 /* WTDarkGrayMoreReverseIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17F9E6E1712D43100DC6AB6 /* WTDarkGrayMoreReverseIndicator@2x.png */; };
 		E17F9E7617130D4800DC6AB6 /* Event+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E17F9E7517130D4800DC6AB6 /* Event+Addition.m */; };
-		E17F9E821713457F00DC6AB6 /* WTTranslucentButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E17F9E801713457F00DC6AB6 /* WTTranslucentButton.png */; };
-		E17F9E831713457F00DC6AB6 /* WTTranslucentButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17F9E811713457F00DC6AB6 /* WTTranslucentButton@2x.png */; };
+		E17F9E821713457F00DC6AB6 /* WTTranslucentNormalButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E17F9E801713457F00DC6AB6 /* WTTranslucentNormalButton.png */; };
+		E17F9E831713457F00DC6AB6 /* WTTranslucentNormalButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17F9E811713457F00DC6AB6 /* WTTranslucentNormalButton@2x.png */; };
 		E17F9E8917134BFD00DC6AB6 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = E17F9E8817134BFD00DC6AB6 /* News.m */; };
 		E17F9E8C1713547D00DC6AB6 /* WTRoundCornerPanelBgCover.png in Resources */ = {isa = PBXBuildFile; fileRef = E17F9E8A1713547D00DC6AB6 /* WTRoundCornerPanelBgCover.png */; };
 		E17F9E8D1713547D00DC6AB6 /* WTRoundCornerPanelBgCover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17F9E8B1713547D00DC6AB6 /* WTRoundCornerPanelBgCover@2x.png */; };
@@ -514,6 +516,8 @@
 		E12554CF16491532006D42F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E12554D116491532006D42F5 /* WeTongjiTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeTongjiTests.h; sourceTree = "<group>"; };
 		E12554D216491532006D42F5 /* WeTongjiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeTongjiTests.m; sourceTree = "<group>"; };
+		E13652C81713FD8000ACA92D /* WTTranslucentHighlightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTranslucentHighlightButton.png; sourceTree = "<group>"; };
+		E13652C91713FD8000ACA92D /* WTTranslucentHighlightButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTranslucentHighlightButton@2x.png"; sourceTree = "<group>"; };
 		E1384A4216F6333B003119D2 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
 		E1384A4316F6333B003119D2 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
 		E1384A4516F77F47003119D2 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
@@ -628,8 +632,8 @@
 		E17F9E6E1712D43100DC6AB6 /* WTDarkGrayMoreReverseIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTDarkGrayMoreReverseIndicator@2x.png"; sourceTree = "<group>"; };
 		E17F9E7417130D4800DC6AB6 /* Event+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+Addition.h"; sourceTree = "<group>"; };
 		E17F9E7517130D4800DC6AB6 /* Event+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+Addition.m"; sourceTree = "<group>"; };
-		E17F9E801713457F00DC6AB6 /* WTTranslucentButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTranslucentButton.png; sourceTree = "<group>"; };
-		E17F9E811713457F00DC6AB6 /* WTTranslucentButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTranslucentButton@2x.png"; sourceTree = "<group>"; };
+		E17F9E801713457F00DC6AB6 /* WTTranslucentNormalButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTranslucentNormalButton.png; sourceTree = "<group>"; };
+		E17F9E811713457F00DC6AB6 /* WTTranslucentNormalButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTranslucentNormalButton@2x.png"; sourceTree = "<group>"; };
 		E17F9E8717134BFD00DC6AB6 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
 		E17F9E8817134BFD00DC6AB6 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
 		E17F9E8A1713547D00DC6AB6 /* WTRoundCornerPanelBgCover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTRoundCornerPanelBgCover.png; sourceTree = "<group>"; };
@@ -1109,8 +1113,10 @@
 				E1D373971692F4EE0012E30A /* WTPanelNormalButton@2x.png */,
 				E14FA6751680A9F3008A8D33 /* WTSelectButton.png */,
 				E14FA6761680A9F3008A8D33 /* WTSelectButton@2x.png */,
-				E17F9E801713457F00DC6AB6 /* WTTranslucentButton.png */,
-				E17F9E811713457F00DC6AB6 /* WTTranslucentButton@2x.png */,
+				E17F9E801713457F00DC6AB6 /* WTTranslucentNormalButton.png */,
+				E17F9E811713457F00DC6AB6 /* WTTranslucentNormalButton@2x.png */,
+				E13652C81713FD8000ACA92D /* WTTranslucentHighlightButton.png */,
+				E13652C91713FD8000ACA92D /* WTTranslucentHighlightButton@2x.png */,
 			);
 			name = Button;
 			sourceTree = "<group>";
@@ -1990,10 +1996,12 @@
 				E17F9E6A1712A19E00DC6AB6 /* WTHomeNowView.xib in Resources */,
 				E17F9E6F1712D43100DC6AB6 /* WTDarkGrayMoreReverseIndicator.png in Resources */,
 				E17F9E701712D43100DC6AB6 /* WTDarkGrayMoreReverseIndicator@2x.png in Resources */,
-				E17F9E821713457F00DC6AB6 /* WTTranslucentButton.png in Resources */,
-				E17F9E831713457F00DC6AB6 /* WTTranslucentButton@2x.png in Resources */,
+				E17F9E821713457F00DC6AB6 /* WTTranslucentNormalButton.png in Resources */,
+				E17F9E831713457F00DC6AB6 /* WTTranslucentNormalButton@2x.png in Resources */,
 				E17F9E8C1713547D00DC6AB6 /* WTRoundCornerPanelBgCover.png in Resources */,
 				E17F9E8D1713547D00DC6AB6 /* WTRoundCornerPanelBgCover@2x.png in Resources */,
+				E13652CA1713FD8000ACA92D /* WTTranslucentHighlightButton.png in Resources */,
+				E13652CB1713FD8000ACA92D /* WTTranslucentHighlightButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -146,7 +146,6 @@
 + (UIButton *)createTranslucentButtonWithText:(NSString *)text {
     UIButton *button = [[UIButton alloc] init];
     [WTResourceFactory configureTranslucentButton:button text:text];
-    button.selected = YES;
     return button;
 }
 
@@ -194,15 +193,15 @@
     [WTResourceFactory configureButton:button
                                   text:text
                             selectText:nil
-                           normalImage:[UIImage imageNamed:@"WTTranslucentButton"]
-                        highlightImage:[UIImage imageNamed:@"WTTranslucentButton"]
-                           selectImage:[UIImage imageNamed:@"WTTranslucentButton"]
+                           normalImage:[UIImage imageNamed:@"WTTranslucentNormalButton"]
+                        highlightImage:[UIImage imageNamed:@"WTTranslucentHighlightButton"]
+                           selectImage:nil
                       normalTitleColor:[UIColor whiteColor]
                      normalShadowColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3f]
-                   highlightTitleColor:[UIColor whiteColor]
-                  highlightShadowColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3f]
-                      selectTitleColor:[UIColor whiteColor]
-                     selectShadowColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3f]];
+                   highlightTitleColor:[UIColor grayColor]
+                  highlightShadowColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5f]
+                      selectTitleColor:nil
+                     selectShadowColor:nil];
 }
 
 + (void)configureButton:(UIButton *)button
