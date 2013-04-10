@@ -116,10 +116,4 @@
     return result;
 }
 
-- (NSString *)courseBeginToEndTime
-{
-    return [NSString stringWithFormat:@"%@-%@",
-            [NSString timeConvertFromDate:self.beginTime],[NSString timeConvertFromDate:self.endTime]];
-}
-
 @end

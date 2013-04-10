@@ -140,7 +140,6 @@
 						<string key="NSFrame">{{14, 30}, {272, 60}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -324,7 +323,6 @@ c3RhaW5hYmlsaXR5A</string>
 						<string key="NSFrame">{{80, 60}, {200, 21}}</string>
 						<reference key="NSSuperview" ref="914823059"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -410,7 +408,6 @@ c3RhaW5hYmlsaXR5A</string>
 						<string key="NSFrame">{{130, 23.5}, {40, 53}}</string>
 						<reference key="NSSuperview" ref="409077615"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<reference key="IBUIBackgroundColor" ref="97112436"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -642,6 +639,14 @@ c3RhaW5hYmlsaXR5A</string>
 						<reference key="destination" ref="78283228"/>
 					</object>
 					<int key="connectionID">70</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">timeLabel</string>
+						<reference key="source" ref="409077615"/>
+						<reference key="destination" ref="385326585"/>
+					</object>
+					<int key="connectionID">71</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -887,7 +892,7 @@ c3RhaW5hYmlsaXR5A</string>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">70</int>
+			<int key="maxID">71</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

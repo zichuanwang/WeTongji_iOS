@@ -143,7 +143,9 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
         Course *course = (Course *)item;
         WTNowCourseCell *courseCell = (WTNowCourseCell *)cell;
         
-        [courseCell configureCellWithTitle:course.what time:course.courseBeginToEndTime location:course.where];
+        [courseCell configureCellWithTitle:course.what
+                                      time:course.beginTimeString
+                                  location:course.where];
     }
     
     Event *nowEvent = [self getNowEvent];

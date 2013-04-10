@@ -8,8 +8,7 @@
 
 #import "WTHomeNowView.h"
 #import "OHAttributedLabel.h"
-#import "Event.h"
-#import "NSString+WTAddition.h"
+#import "Event+Addition.h"
 
 @interface WTHomeNowContainerView ()
 
@@ -155,16 +154,15 @@
 
 - (void)configureNowItemViewWithEvent:(Event *)event {
     [self configureFriendCountLabel:@(23)];
-    [self configureEventTitle:event.what place:event.where beginTime:event.beginTime endTime:event.endTime];
+    [self configureEventTitle:event.what place:event.where time:event.beginToEndTimeString];
 }
 
 - (void)configureEventTitle:(NSString *)title
                       place:(NSString *)place
-                  beginTime:(NSDate *)beginTime
-                    endTime:(NSDate *)endTime {
+                       time:(NSString *)time {
     self.titleLabel.text = title;
     self.placeLabel.text = place;
-    self.timeLabel.text = [NSString timeConvertFromBeginDate:beginTime endDate:endTime];
+    self.timeLabel.text = time;
 }
 
 - (void)configureFriendCountLabel:(NSNumber *)count {

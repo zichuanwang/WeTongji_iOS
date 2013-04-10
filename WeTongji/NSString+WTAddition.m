@@ -110,6 +110,13 @@
     return timeStr;
 }
 
++ (NSString *)yearMonthDayWeekTimeConvertFromBeginDate:(NSDate *)begin
+                                               endDate:(NSDate *)end {
+    NSString *timeStr = [NSString yearMonthDayWeekTimeConvertFromDate:begin];
+    timeStr = [NSString stringWithFormat:@"%@ - %@", timeStr, [NSString timeConvertFromDate:end]];
+    return timeStr;
+}
+
 - (BOOL)isSuitableForPassword {
     BOOL result = YES;
     NSString *password = self;
@@ -143,6 +150,12 @@
     if (self.length < 11)
         return true;
     return [[self substringWithRange:NSMakeRange(self.length - 11, 11)] isEqualToString:@"missing.png"];
+}
+
+- (NSString *)clearAllBacklashR {
+    NSMutableString *mutableSelf = [NSMutableString stringWithString:self];
+    [mutableSelf replaceOccurrencesOfString:@"\r" withString:@"" options:0 range:NSMakeRange(0, mutableSelf.length)];
+    return mutableSelf;
 }
 
 @end

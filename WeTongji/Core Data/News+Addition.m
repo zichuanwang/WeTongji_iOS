@@ -41,7 +41,7 @@
     
     result.updateTime = [NSDate date];
     result.title = [NSString stringWithFormat:@"%@", dict[@"Title"]];
-    result.content = [NSString stringWithFormat:@"%@", dict[@"Context"]];
+    result.content = [[NSString stringWithFormat:@"%@", dict[@"Context"]] clearAllBacklashR];
     result.summary = [NSString stringWithFormat:@"%@", dict[@"Summary"]];
     result.publishDate = [[NSString stringWithFormat:@"%@", [dict objectForKey:@"CreatedAt"]] convertToDate];
     result.canLike = @([[NSString stringWithFormat:@"%@", dict[@"CanLike"]] boolValue]);

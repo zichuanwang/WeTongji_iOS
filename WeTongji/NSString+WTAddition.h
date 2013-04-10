@@ -15,6 +15,8 @@
 + (NSString *)yearMonthDayWeekConvertFromDate:(NSDate *)date;
 + (NSString *)yearMonthDayWeekTimeConvertFromDate:(NSDate *)date;
 + (NSString *)yearMonthDayTimeConvertFromDate:(NSDate *)date;
++ (NSString *)yearMonthDayWeekTimeConvertFromBeginDate:(NSDate *)begin
+                                               endDate:(NSDate *)end;
 
 + (NSString *)timeConvertFromDate:(NSDate *)date;
 + (NSString *)timeConvertFromBeginDate:(NSDate *)begin endDate:(NSDate *)end;
@@ -25,5 +27,6 @@
 + (NSString *)getTomorrowBeginDayFormatString;
 - (BOOL)isGIFURL;
 - (BOOL)isEmptyImageURL;
+- (NSString *)clearAllBacklashR;
 
 @end

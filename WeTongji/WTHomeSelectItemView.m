@@ -12,6 +12,7 @@
 #import "WTLikeButtonView.h"
 #import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
 #import "NSString+WTAddition.h"
+#import "Event+Addition.h"
 
 typedef enum {
     WTHomeSelectItemStyleNormal,
@@ -188,7 +189,7 @@ typedef enum {
 
 - (void)configureViewWithActivity:(Activity *)activity {
     self.titleLabel.text = activity.what;
-    self.timeLabel.text = [NSString timeConvertFromDate:activity.beginTime];
+    self.timeLabel.text = activity.beginTimeString;
     [self configurePosterImageView:activity.image];
 }
 

@@ -16,7 +16,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *organizerButton;
 @property (nonatomic, weak) IBOutlet UIView *contentContainerView;
 @property (nonatomic, weak) IBOutlet UILabel *aboutDisplayLabel;
-@property (nonatomic, weak) IBOutlet UILabel *contentLabel;
+@property (nonatomic, weak) IBOutlet OHAttributedLabel *contentLabel;
 @property (nonatomic, weak) IBOutlet UIView *organizerAvatarContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *organizerAvatarImageView;
 

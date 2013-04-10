@@ -46,24 +46,59 @@
 }
 
 - (void)configureContentView:(NSString *)content {
+    [self configureContentLabel:content];
+    [self configureContentViewBgImageView];
+}
+
+#define CONTENT_LABEL_LINE_SPACING          6.0f
+#define CONTENT_LABEL_DEFAULT_LINE_SPACING  3.0f
+
+- (void)configureContentLabel:(NSString *)content {
     self.aboutDisplayLabel.text = NSLocalizedString(@"About", nil);
     
-    // NSMutableAttributedString *contentAttributedString = [[NSMutableAttributedString alloc] initWithString:content];
-    self.contentLabel.text = content;
-    [self.contentLabel sizeToFit];
+    UILabel *tempContentLabel = [[UILabel alloc] initWithFrame:self.contentLabel.frame];
+    tempContentLabel.font = self.contentLabel.font;
+    tempContentLabel.numberOfLines = 0;
+    tempContentLabel.lineBreakMode = self.contentLabel.lineBreakMode;
     
-    CGFloat contentLabelHeight = self.contentLabel.frame.size.height;
+    tempContentLabel.text = @"Test";
+    [tempContentLabel sizeToFit];
+    CGFloat contentLabelSingleLineHeight = tempContentLabel.frame.size.height;
     
+    [tempContentLabel resetWidth:self.contentLabel.frame.size.width];
+    tempContentLabel.text = content;
+    [tempContentLabel sizeToFit];
+    CGFloat contentLabelHeight = tempContentLabel.frame.size.height;
+    
+    NSUInteger contentLines = contentLabelHeight / contentLabelSingleLineHeight;
+    contentLabelHeight += (contentLines - 1) * (CONTENT_LABEL_LINE_SPACING - CONTENT_LABEL_DEFAULT_LINE_SPACING);
+    
+    NSMutableAttributedString *contentAttributedString = [[NSMutableAttributedString alloc] initWithString:content];
+    
+    [contentAttributedString setAttributes:[self.contentLabel.attributedText attributesAtIndex:0 effectiveRange:NULL] range:NSMakeRange(0, contentAttributedString.length)];
+    
+    [contentAttributedString modifyParagraphStylesWithBlock:^(OHParagraphStyle *paragraphStyle) {
+        paragraphStyle.lineSpacing = CONTENT_LABEL_LINE_SPACING;
+    }];
+    
+    self.contentLabel.attributedText = contentAttributedString;
+    
+    [self.contentLabel resetHeight:contentLabelHeight];
+    
+    self.contentLabel.layer.borderColor = [UIColor blackColor].CGColor;
+    self.contentLabel.layer.borderWidth = 1.0f;
+}
+
+- (void)configureContentViewBgImageView {
     UIImage *roundCornerPanel = [UIImage imageNamed:@"WTRoundCornerPanelBg"];
     UIEdgeInsets insets = UIEdgeInsetsMake(50.0, 50.0, 50.0, 50.0);
     UIImage *resizableRoundCornerPanel = [roundCornerPanel resizableImageWithCapInsets:insets];
     UIImageView *aboutImageContainer = [[UIImageView alloc] initWithImage:resizableRoundCornerPanel];
-    [aboutImageContainer resetSize:CGSizeMake(292.0, 80.0 + contentLabelHeight)];
+    [aboutImageContainer resetSize:CGSizeMake(292.0, 54.0 + self.contentLabel.frame.size.height)];
     [aboutImageContainer resetOrigin:CGPointZero];
     
     [self.contentContainerView insertSubview:aboutImageContainer atIndex:0];
     [self.contentContainerView resetHeight:aboutImageContainer.frame.size.height];
-    self.contentContainerView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)configureOrganizerAvatar:(NSString *)avatarURL {

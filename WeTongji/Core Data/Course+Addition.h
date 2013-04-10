@@ -11,8 +11,6 @@
 
 @interface Course (Addition)
 
-@property (nonatomic, readonly) NSString *courseBeginToEndTime;
-
 + (Course *)insertCourse:(NSDictionary *)dict;
 + (Course *)courseScheduleAtDay:(NSDate *)date withCourseID:(NSString *)courseID;
 + (void)clearAllCourses;

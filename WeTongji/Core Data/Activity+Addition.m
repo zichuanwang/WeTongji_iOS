@@ -49,7 +49,7 @@
     result.canLike = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"CanLike"]]).boolValue);
     result.activityType = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"Channel_Id"]]).integerValue);
     result.createdAt = [[NSString stringWithFormat:@"%@", dict[@"CreatedAt"]] convertToDate];
-    result.content = [NSString stringWithFormat:@"%@", dict[@"Description"]];
+    result.content = [[NSString stringWithFormat:@"%@", dict[@"Description"]] clearAllBacklashR];
     result.image = [NSString stringWithFormat:@"%@", dict[@"Image"]];
     result.likeCount = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"Like"]]).integerValue);
     result.organizerAvatar = [NSString stringWithFormat:@"%@", dict[@"OrganizerAvatar"]];
