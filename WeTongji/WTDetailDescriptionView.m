@@ -40,6 +40,8 @@
 
 #pragma mark Configure detail description view
 
+#define CONTENT_LABEL_LINE_SPACING 6.0f
+
 - (void)configureOrganizerDisplayLabelAndButton:(NSString *)organizerName {
     self.organizerDisplayLabel.text = NSLocalizedString(@"Organizer", nil);
     [self.organizerButton setTitle:organizerName forState:UIControlStateNormal];
@@ -50,29 +52,10 @@
     [self configureContentViewBgImageView];
 }
 
-#define CONTENT_LABEL_LINE_SPACING          6.0f
-#define CONTENT_LABEL_DEFAULT_LINE_SPACING  3.0f
-
 - (void)configureContentLabel:(NSString *)content {
     self.aboutDisplayLabel.text = NSLocalizedString(@"About", nil);
     
-    UILabel *tempContentLabel = [[UILabel alloc] initWithFrame:self.contentLabel.frame];
-    tempContentLabel.font = self.contentLabel.font;
-    tempContentLabel.numberOfLines = 0;
-    tempContentLabel.lineBreakMode = self.contentLabel.lineBreakMode;
-    
-    tempContentLabel.text = @"Test";
-    [tempContentLabel sizeToFit];
-    CGFloat contentLabelSingleLineHeight = tempContentLabel.frame.size.height;
-    
-    [tempContentLabel resetWidth:self.contentLabel.frame.size.width];
-    tempContentLabel.text = content;
-    [tempContentLabel sizeToFit];
-    CGFloat contentLabelHeight = tempContentLabel.frame.size.height;
-    
-    NSUInteger contentLines = contentLabelHeight / contentLabelSingleLineHeight;
-    contentLabelHeight += (contentLines - 1) * (CONTENT_LABEL_LINE_SPACING - CONTENT_LABEL_DEFAULT_LINE_SPACING);
-    
+
     NSMutableAttributedString *contentAttributedString = [[NSMutableAttributedString alloc] initWithString:content];
     
     [contentAttributedString setAttributes:[self.contentLabel.attributedText attributesAtIndex:0 effectiveRange:NULL] range:NSMakeRange(0, contentAttributedString.length)];
@@ -83,10 +66,9 @@
     
     self.contentLabel.attributedText = contentAttributedString;
     
-    [self.contentLabel resetHeight:contentLabelHeight];
+    CGFloat contentLabelHeight = [contentAttributedString sizeConstrainedToSize:CGSizeMake(self.contentLabel.frame.size.width, 200000.0f)].height;
     
-    self.contentLabel.layer.borderColor = [UIColor blackColor].CGColor;
-    self.contentLabel.layer.borderWidth = 1.0f;
+    [self.contentLabel resetHeight:contentLabelHeight];
 }
 
 - (void)configureContentViewBgImageView {
@@ -94,7 +76,7 @@
     UIEdgeInsets insets = UIEdgeInsetsMake(50.0, 50.0, 50.0, 50.0);
     UIImage *resizableRoundCornerPanel = [roundCornerPanel resizableImageWithCapInsets:insets];
     UIImageView *aboutImageContainer = [[UIImageView alloc] initWithImage:resizableRoundCornerPanel];
-    [aboutImageContainer resetSize:CGSizeMake(292.0, 54.0 + self.contentLabel.frame.size.height)];
+    [aboutImageContainer resetSize:CGSizeMake(292.0, 60.0 + self.contentLabel.frame.size.height)];
     [aboutImageContainer resetOrigin:CGPointZero];
     
     [self.contentContainerView insertSubview:aboutImageContainer atIndex:0];

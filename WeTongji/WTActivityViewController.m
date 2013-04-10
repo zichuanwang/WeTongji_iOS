@@ -15,6 +15,7 @@
 #import "WTActivitySettingViewController.h"
 #import "NSUserDefaults+WTAddition.h"
 #import "WTDragToLoadDecorator.h"
+#import "NSString+WTAddition.h"
 
 @interface WTActivityViewController () <WTDragToLoadDecoratorDelegate, WTDragToLoadDecoratorDataSource>
 
@@ -163,7 +164,7 @@
     NSString *timeString = nil;
     ActivityOrderMethod orderMethod = [[NSUserDefaults standardUserDefaults] getActivityOrderMethod];
     if (orderMethod == ActivityOrderByPublishDate)
-        timeString = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Published at", nil), activity.beginTimeString];
+        timeString = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Published at", nil), [NSString yearMonthDayWeekTimeConvertFromDate:activity.createdAt]];
     else
         timeString = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Start time", nil), activity.beginTimeString];
     

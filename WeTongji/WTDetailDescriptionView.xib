@@ -487,6 +487,7 @@
 						<string key="aboutDisplayLabel">UILabel</string>
 						<string key="contentContainerView">UIView</string>
 						<string key="contentLabel">OHAttributedLabel</string>
+						<string key="contentTestLabel">UILabel</string>
 						<string key="organizerAvatarContainerView">UIView</string>
 						<string key="organizerAvatarImageView">UIImageView</string>
 						<string key="organizerButton">UIButton</string>
@@ -504,6 +505,10 @@
 						<object class="IBToOneOutletInfo" key="contentLabel">
 							<string key="name">contentLabel</string>
 							<string key="candidateClassName">OHAttributedLabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="contentTestLabel">
+							<string key="name">contentTestLabel</string>
+							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="organizerAvatarContainerView">
 							<string key="name">organizerAvatarContainerView</string>
