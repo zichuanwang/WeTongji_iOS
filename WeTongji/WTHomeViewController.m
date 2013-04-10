@@ -20,7 +20,7 @@
 
 @property (nonatomic, strong) WTBannerContainerView *bannerContainerView;
 @property (nonatomic, strong) WTHomeNowContainerView *nowContainerView;
-@property (nonatomic, strong) NSMutableArray *homwSelectViewArray;
+@property (nonatomic, strong) NSMutableArray *homeSelectViewArray;
 
 @end
 
@@ -64,11 +64,11 @@
 
 #pragma mark - Properties
 
-- (NSMutableArray *)homwSelectViewArray {
-    if (!_homwSelectViewArray) {
-        _homwSelectViewArray = [NSMutableArray arrayWithCapacity:3];
+- (NSMutableArray *)homeSelectViewArray {
+    if (!_homeSelectViewArray) {
+        _homeSelectViewArray = [NSMutableArray arrayWithCapacity:3];
     }
-    return _homwSelectViewArray;
+    return _homeSelectViewArray;
 }
 
 #pragma mark - UI methods
@@ -79,7 +79,7 @@
 }
 
 - (void)updateScrollView {
-    UIView *bottomView = self.homwSelectViewArray.lastObject;
+    UIView *bottomView = self.homeSelectViewArray.lastObject;
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, bottomView.frame.origin.y + bottomView.frame.size.height);
 }
 
@@ -93,31 +93,37 @@
 
 - (void)updateHomeSelectViews {
     NSInteger index = 0;
-    for (UIView *homeSelectContainerView in self.homwSelectViewArray) {
+    for (WTHomeSelectContainerView *homeSelectContainerView in self.homeSelectViewArray) {
         [homeSelectContainerView resetOrigin:CGPointMake(0, self.nowContainerView.frame.size
                                                .height + self.nowContainerView.frame.origin.y + homeSelectContainerView.frame.size.height * index)];
         index++;
     }
+    WTHomeSelectContainerView *newsSelectContainerView = self.homeSelectViewArray[0];
+    [newsSelectContainerView updateItemInfoArray:[News getHomeSelectNewsArray]];
+    WTHomeSelectContainerView *featuredSelectContainerView = self.homeSelectViewArray[1];
+    [featuredSelectContainerView updateItemInfoArray:@[@"", @"", @""]];
+    WTHomeSelectContainerView *activitySelectContainerView = self.homeSelectViewArray[2];
+    [activitySelectContainerView updateItemInfoArray:[Activity getHomeSelectActivityArray]];
 }
 
 - (void)configureNewsSelect {
-    WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryNews itemInfoArray:[News createTestNewsArray]];
+    WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryNews];
     containerView.delegate = self;
-    [self.homwSelectViewArray addObject:containerView];
+    [self.homeSelectViewArray addObject:containerView];
     [self.scrollView addSubview:containerView];
 }
 
 - (void)configureFeaturedSelect {
-    WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryFeatured itemInfoArray:@[@"", @"", @""]];
+    WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryFeatured];
     containerView.delegate = self;
-    [self.homwSelectViewArray addObject:containerView];
+    [self.homeSelectViewArray addObject:containerView];
     [self.scrollView addSubview:containerView];
 }
 
 - (void)configureActivitySelect {
-    WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryActivity itemInfoArray:@[@"", @"", @""]];
+    WTHomeSelectContainerView *containerView = [WTHomeSelectContainerView createHomeSelectContainerViewWithCategory:WTHomeSelectContainerViewCategoryActivity];
     containerView.delegate = self;
-    [self.homwSelectViewArray addObject:containerView];
+    [self.homeSelectViewArray addObject:containerView];
     [self.scrollView addSubview:containerView];
 }
 
@@ -141,13 +147,15 @@
     [self updateNowView];
 }
 
+#define BANNER_CONTAINER_VIEW_HEIGHT    130.0f
+
 - (void)updateNowView {
     NSArray *events = [Event getTodayEvents];
     [self.nowContainerView configureNowContainerViewWithEvents:events];
     if (!events) {
         [self.nowContainerView resetOriginY:self.bannerContainerView.frame.size.height - self.nowContainerView.frame.size.height];
     } else {
-        [self.nowContainerView resetOriginY:self.bannerContainerView.frame.size.height];
+        [self.nowContainerView resetOriginY:BANNER_CONTAINER_VIEW_HEIGHT];
     }
 }
 

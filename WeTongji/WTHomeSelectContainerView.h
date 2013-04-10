@@ -29,8 +29,9 @@ typedef enum {
 
 - (IBAction)didClickSeeAllButton:(UIButton *)sender;
 
-+ (WTHomeSelectContainerView *)createHomeSelectContainerViewWithCategory:(WTHomeSelectContainerViewCategory)category
-                                                           itemInfoArray:(NSArray *)array;
++ (WTHomeSelectContainerView *)createHomeSelectContainerViewWithCategory:(WTHomeSelectContainerViewCategory)category;
+
+- (void)updateItemInfoArray:(NSArray *)infoArray;
 
 @end
 

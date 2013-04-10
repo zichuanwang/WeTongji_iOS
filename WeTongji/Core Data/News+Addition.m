@@ -12,36 +12,18 @@
 
 @implementation News (Addition)
 
-+ (NSArray *)createTestNewsArray {
-    NSMutableArray *resultArray = [NSMutableArray array];
-    for (int i = 0; i < 3; i++) {
-        NSString *newsID = [NSString stringWithFormat:@"%d", i];
-        News *result = [News newsWithID:newsID];
-        if (!result) {
-            result = [NSEntityDescription insertNewObjectForEntityForName:@"News" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
-            result.identifier = newsID;
-        }
-        switch (i) {
-            case 0: {
-                result.imageArray = [NSArray arrayWithObject:@"http://pic11.nipic.com/20101129/1951702_194641008006_2.jpg"];
-                result.title = @"测试新闻";
-            }
-                break;
-            case 1: {
-                result.title = @"测试新闻2";
-            }
-                break;
-            case 2: {
-                result.title = @"测试新闻3";
-            }
-                break;
-                
-            default:
-                break;
-        }
-        [resultArray addObject:result];
-    }
-    return resultArray;
++ (NSArray *)getHomeSelectNewsArray {
+    NSMutableArray *result = [NSMutableArray array];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
+    request.entity = [NSEntityDescription entityForName:@"News" inManagedObjectContext:context];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"publishDate" ascending:NO]];
+    NSArray *allNews = [context executeFetchRequest:request error:NULL];
+    
+    result = [NSArray arrayWithArray:[allNews subarrayWithRange:NSMakeRange(0, MIN(4, allNews.count))]];
+    
+    return result;
 }
 
 + (News *)insertNews:(NSDictionary *)dict {

@@ -155,15 +155,16 @@
 
 - (void)configureNowItemViewWithEvent:(Event *)event {
     [self configureFriendCountLabel:@(23)];
-    [self configureEventTitle:event.what place:event.where time:event.beginTime];
+    [self configureEventTitle:event.what place:event.where beginTime:event.beginTime endTime:event.endTime];
 }
 
 - (void)configureEventTitle:(NSString *)title
                       place:(NSString *)place
-                       time:(NSDate *)time {
+                  beginTime:(NSDate *)beginTime
+                    endTime:(NSDate *)endTime {
     self.titleLabel.text = title;
     self.placeLabel.text = place;
-    self.timeLabel.text = [NSString timeConvertFromDate:time];
+    self.timeLabel.text = [NSString timeConvertFromBeginDate:beginTime endDate:endTime];
 }
 
 - (void)configureFriendCountLabel:(NSNumber *)count {

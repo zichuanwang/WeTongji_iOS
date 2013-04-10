@@ -11,6 +11,7 @@
 #import "WTResourceFactory.h"
 #import "WTLikeButtonView.h"
 #import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
+#import "NSString+WTAddition.h"
 
 typedef enum {
     WTHomeSelectItemStyleNormal,
@@ -107,24 +108,29 @@ typedef enum {
     }
     
     [result configureViewWithNews:news];
+    
     return result;
 }
 
 - (void)configureViewWithNews:(News *)news {
+    // Bg image
     NSArray *newsImageArray = news.imageArray;
     self.itemStyle = (newsImageArray.count == 0) ? WTHomeSelectItemStyleNormal : WTHomeSelectItemStyleWithImage;
     if (self.itemStyle == WTHomeSelectItemStyleWithImage) {
         self.bgImageContainerView.hidden = NO;
         self.subCategoryLabel.shadowColor = [UIColor blackColor];
-        self.newsSummaryLabel.textColor = [UIColor whiteColor];
-        self.newsSummaryLabel.shadowColor = [UIColor blackColor];
+        self.newsTitleLabel.textColor = [UIColor whiteColor];
+        self.newsTitleLabel.shadowColor = [UIColor blackColor];
         [self configureBgImageView:newsImageArray[0]];
     } else {
         self.bgImageContainerView.hidden = YES;
         self.subCategoryLabel.shadowColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.6f];
-        self.newsSummaryLabel.textColor = [UIColor colorWithRed:55 / 255.0f green:55 / 255.0f blue:55 / 255.0f alpha:1.0f];
-        self.newsSummaryLabel.shadowColor = [UIColor clearColor];
+        self.newsTitleLabel.textColor = [UIColor colorWithRed:55 / 255.0f green:55 / 255.0f blue:55 / 255.0f alpha:1.0f];
+        self.newsTitleLabel.shadowColor = [UIColor clearColor];
     }
+    
+    // Info
+    self.newsTitleLabel.text = news.title;
 }
 
 - (void)configureBgImageView:(NSString *)imageURL {
@@ -174,7 +180,29 @@ typedef enum {
         if ([view isKindOfClass:[WTHomeSelectActivityView class]])
             result = (WTHomeSelectActivityView *)view;
     }
+    
+    [result configureViewWithActivity:activity];
+    
     return result;
+}
+
+- (void)configureViewWithActivity:(Activity *)activity {
+    self.titleLabel.text = activity.what;
+    self.timeLabel.text = [NSString timeConvertFromDate:activity.beginTime];
+    [self configurePosterImageView:activity.image];
+}
+
+- (void)configurePosterImageView:(NSString *)imageURL {
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURL]];
+    [self.posterImageView setImageWithURLRequest:request
+                                placeholderImage:nil
+                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                             self.posterImageView.image = image;
+                                             [self.posterImageView fadeIn];
+                                         }
+                                         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                             
+                                         }];
 }
 
 @end

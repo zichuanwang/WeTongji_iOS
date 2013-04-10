@@ -31,8 +31,7 @@
     [self configureScrollView];
 }
 
-+ (WTHomeSelectContainerView *)createHomeSelectContainerViewWithCategory:(WTHomeSelectContainerViewCategory)category
-                                                           itemInfoArray:(NSArray *)array {
++ (WTHomeSelectContainerView *)createHomeSelectContainerViewWithCategory:(WTHomeSelectContainerViewCategory)category {
     WTHomeSelectContainerView *result = [[[NSBundle mainBundle] loadNibNamed:@"WTHomeSelectContainerView" owner:self options:nil] lastObject];
     result.category = category;
     switch (category) {
@@ -54,12 +53,16 @@
         default:
             break;
     }
-    if (array)
-        result.itemInfoArray = [[NSMutableArray alloc] initWithArray:array];
-    else
-        result.itemInfoArray = [NSMutableArray array];
+
+    result.itemInfoArray = [NSMutableArray array];
     
     return result;
+}
+
+- (void)updateItemInfoArray:(NSArray *)infoArray {
+    [self.itemInfoArray removeAllObjects];
+    [self.itemInfoArray addObjectsFromArray:infoArray];
+    [self configureScrollView];
 }
 
 #pragma mark - Logic methods
@@ -100,15 +103,22 @@
     [self.seeAllButton setTitle:NSLocalizedString(@"See All", nil) forState:UIControlStateNormal];
     CGFloat seeAllButtonHeight = self.seeAllButton.frame.size.height;
     CGFloat seeAllButtonCenterY = self.seeAllButton.center.y;
-    CGFloat seeAllButtonRightBoundX = self.seeAllButton.frame.origin.x + self.seeAllButton.frame.size
-    .width;
+    CGFloat seeAllButtonRightBoundX = self.seeAllButton.frame.origin.x + self.seeAllButton.frame.size.width;
     [self.seeAllButton sizeToFit];
     [self.seeAllButton resetHeight:seeAllButtonHeight];
     [self.seeAllButton resetCenterY:seeAllButtonCenterY];
     [self.seeAllButton resetOriginX:seeAllButtonRightBoundX - self.seeAllButton.frame.size.width];
 }
 
+- (void)clearItemViewArray {
+    for (UIView *view in self.itemViewArray) {
+        [view removeFromSuperview];
+    }
+    [self.itemViewArray removeAllObjects];
+}
+
 - (void)configureScrollView {
+    [self clearItemViewArray];
     for(NSUInteger i = 0; i < [self numberOfItemViewsInScrollView]; i++) {
         WTHomeSelectItemView *itemView = [self createItemViewAtIndex:i];
         [self.scrollView addSubview:itemView];

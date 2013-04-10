@@ -21,7 +21,6 @@
 @interface WTHomeSelectNewsView : WTHomeSelectItemView
 
 @property (nonatomic, weak) IBOutlet UILabel *newsTitleLabel;
-@property (nonatomic, weak) IBOutlet UILabel *newsSummaryLabel;
 
 + (WTHomeSelectNewsView *)createHomeSelectNewsView:(News *)news;
 
@@ -42,7 +41,7 @@
 
 @property (nonatomic, weak) IBOutlet UIImageView *posterImageView;
 @property (nonatomic, weak) IBOutlet UIView *posterContainerView;
-@property (nonatomic, weak) IBOutlet UILabel *nameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *timeLabel;
 
 + (WTHomeSelectActivityView *)createHomeSelectActivityView:(Activity *)activity;

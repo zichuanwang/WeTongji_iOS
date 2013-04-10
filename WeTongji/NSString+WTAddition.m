@@ -105,8 +105,8 @@
 }
 
 + (NSString *)timeConvertFromBeginDate:(NSDate *)begin endDate:(NSDate *)end {
-    NSString *timeStr = [NSString yearMonthDayWeekTimeConvertFromDate:begin];
-    timeStr = [NSString stringWithFormat:@"%@-%@", timeStr, [NSString timeConvertFromDate:end]];
+    NSString *timeStr = [NSString timeConvertFromDate:begin];
+    timeStr = [NSString stringWithFormat:@"%@ - %@", timeStr, [NSString timeConvertFromDate:end]];
     return timeStr;
 }
 

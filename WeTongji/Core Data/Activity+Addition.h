@@ -17,4 +17,6 @@
 
 + (void)clearAllActivites;
 
++ (NSArray *)getHomeSelectActivityArray;
+
 @end

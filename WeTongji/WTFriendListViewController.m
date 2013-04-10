@@ -30,6 +30,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self configureNavigationBar];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,6 +63,24 @@
 - (void)dismissView {
     UIViewController *rootVC = [UIApplication sharedApplication].rootTabBarController;
     [rootVC dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - CoreDataTableViewController methods
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+- (void)configureRequest:(NSFetchRequest *)request {
+    [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
+    
+    NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    
+    [request setSortDescriptors:[NSArray arrayWithObject:nameDescriptor]];
+}
+
+- (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
 }
 
 @end

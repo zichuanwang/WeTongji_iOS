@@ -174,11 +174,6 @@
                                     imageURL:activity.image];
 }
 
-- (void)insertCellAtIndexPath:(NSIndexPath *)indexPath {
-    [super insertCellAtIndexPath:indexPath];
-    [self.dragToLoadDecorator scrollViewDidLoadNewCell];
-}
-
 - (void)configureRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"Activity" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
