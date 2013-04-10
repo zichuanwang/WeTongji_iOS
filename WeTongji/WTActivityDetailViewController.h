@@ -12,9 +12,6 @@
 
 @interface WTActivityDetailViewController : UIViewController <UIScrollViewDelegate>
 
-@property (nonatomic, weak) IBOutlet UIView *organizerAvatarContainerView;
-@property (nonatomic, weak) IBOutlet UIImageView *organizerAvatarImageView;
-
 + (WTActivityDetailViewController *)createActivityDetailViewControllerWithActivity:(Activity *)activity
                                                                  backBarButtonText:(NSString *)backBarButtonText;
 

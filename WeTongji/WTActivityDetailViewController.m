@@ -13,9 +13,9 @@
 #import "Activity+Addition.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
-#import <QuartzCore/QuartzCore.h>
 #import "NSString+WTAddition.h"
 #import "WTCoreDataManager.h"
+#import "WTDetailDescriptionView.h"
 
 @interface WTActivityDetailViewController ()
 
@@ -31,14 +31,8 @@
 @property (nonatomic, strong) UIButton *participateButton;
 @property (nonatomic, strong) UIButton *inviteButton;
 
-@property (nonatomic, weak) IBOutlet UIView *detailDescriptionView;
-@property (nonatomic, weak) IBOutlet UILabel *organizerDisplayLabel;
-@property (nonatomic, weak) IBOutlet UIButton *organizerButton;
-@property (nonatomic, weak) IBOutlet UIView *activityDescriptionContainerView;
-@property (nonatomic, weak) IBOutlet UILabel *activityDescriptionDisplayLabel;
-@property (nonatomic, weak) IBOutlet UILabel *activityDescriptionLabel;
-
 @property (nonatomic, strong) WTBannerContainerView *bannerView;
+@property (nonatomic, strong) WTDetailDescriptionView *detailDescriptionView;
 
 @property (nonatomic, strong) NSString *backBarButtonText;
 @property (nonatomic, strong) Activity *activity;
@@ -258,68 +252,21 @@
                                 organizationName:self.activity.organizer
                                            style:WTBannerItemViewStyleClear
                                          atIndex:0];
-        [self.scrollView insertSubview:self.bannerView belowSubview:self.briefIntroductionView];
+        [self.scrollView insertSubview:self.bannerView atIndex:0];
     }
 }
 
-#pragma mark Configure detail description view
-
-- (void)configureOrganizerDisplayLabelAndButton {
-    self.organizerDisplayLabel.text = NSLocalizedString(@"Organizer", nil);
-    [self.organizerButton setTitle:self.activity.organizer forState:UIControlStateNormal];
-}
+#pragma mark Configure detail descriptioin view
 
 - (void)configureDetailDescriptionView {
-    
-    [self configureOrganizerDisplayLabelAndButton];
-    [self configureActivityDescriptionView];
-    [self configureOrganizerAvatar];
-    
+    self.detailDescriptionView = [WTDetailDescriptionView createDetailDescriptionView];
+    [self.detailDescriptionView configureViewWithManagedObject:self.activity];
     if (self.bannerView) {
         [self.detailDescriptionView resetOriginY:self.bannerView.frame.origin.y + self.bannerView.frame.size.height];
     } else {
         [self.detailDescriptionView resetOriginY:self.briefIntroductionView.frame.size.height];
     }
-    [self.detailDescriptionView resetHeight:self.activityDescriptionContainerView.frame.origin.y + self.activityDescriptionContainerView.frame.size.height];
-}
-
-- (void)configureActivityDescriptionView {
-    self.activityDescriptionDisplayLabel.text = NSLocalizedString(@"About", nil);
-    
-    self.activityDescriptionLabel.text = self.activity.content;
-    self.activityDescriptionLabel.numberOfLines = 0;
-    [self.activityDescriptionLabel sizeToFit];
-    
-    CGFloat activityDescriptionLabelHeight = self.activityDescriptionLabel.frame.size.height;
-    
-    UIImage *roundCornerPanel = [UIImage imageNamed:@"WTRoundCornerPanelBg"];
-    UIEdgeInsets insets = UIEdgeInsetsMake(50.0, 50.0, 50.0, 50.0);
-    UIImage *resizableRoundCornerPanel = [roundCornerPanel resizableImageWithCapInsets:insets];
-    UIImageView *aboutImageContainer = [[UIImageView alloc] initWithImage:resizableRoundCornerPanel];
-    [aboutImageContainer resetSize:CGSizeMake(292.0, 80.0 + activityDescriptionLabelHeight)];
-    [aboutImageContainer resetOrigin:CGPointZero];
-    
-    [self.activityDescriptionContainerView addSubview:aboutImageContainer];
-    [self.activityDescriptionContainerView resetHeight:aboutImageContainer.frame.size.height];
-    self.activityDescriptionContainerView.backgroundColor = [UIColor clearColor];
-
-    [self.activityDescriptionContainerView sendSubviewToBack:aboutImageContainer];
-}
-
-- (void)configureOrganizerAvatar {
-    self.organizerAvatarContainerView.layer.masksToBounds = YES;
-    self.organizerAvatarContainerView.layer.cornerRadius = 3.0f;
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.activity.organizerAvatar]];
-    [self.organizerAvatarImageView setImageWithURLRequest:request
-                                         placeholderImage:nil
-                                                  success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                                      self.organizerAvatarImageView.image = image;
-                                                      [self.organizerAvatarImageView fadeIn];
-                                                  }
-                                                  failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                                      
-                                                  }];
+    [self.scrollView insertSubview:self.detailDescriptionView atIndex:0];
 }
 
 #pragma mark - Configure button status methods
