@@ -112,7 +112,7 @@
 - (void)configureRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"Notification" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
-    NSSortDescriptor *sortByPublishTime = [[NSSortDescriptor alloc] initWithKey:@"send_time" ascending:NO];
+    NSSortDescriptor *sortByPublishTime = [[NSSortDescriptor alloc] initWithKey:@"sendTime" ascending:NO];
     [request setSortDescriptors:@[sortByPublishTime]];
 }
 
