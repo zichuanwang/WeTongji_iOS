@@ -282,11 +282,12 @@
 
 #pragma mark - UIScrollViewDelegate
 
-#define BRIEF_DESCRIPTION_VIEW_INDENT   80.0f
+#define BRIEF_DESCRIPTION_VIEW_BOTTOM_INDENT  50.0f
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView.contentOffset.y > BRIEF_DESCRIPTION_VIEW_INDENT) {
-        [self.briefIntroductionView resetOriginY:scrollView.contentOffset.y - BRIEF_DESCRIPTION_VIEW_INDENT];
+    CGFloat briefDescriptionViewTopIndent = self.briefIntroductionView.frame.size.height - BRIEF_DESCRIPTION_VIEW_BOTTOM_INDENT;
+    if (scrollView.contentOffset.y > briefDescriptionViewTopIndent) {
+        [self.briefIntroductionView resetOriginY:scrollView.contentOffset.y - briefDescriptionViewTopIndent];
     } else {
         [self.briefIntroductionView resetOriginY:0];
     }

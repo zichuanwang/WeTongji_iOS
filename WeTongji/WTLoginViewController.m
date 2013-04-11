@@ -37,6 +37,10 @@
     // Do any additional setup after loading the view from its nib.
     [self configureNavigationBar];
     [self configureLoginPanel];
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
+    
+    [self.signUpButton setTitle:NSLocalizedString(@"Sign Up", nil) forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,6 +94,10 @@
 
 - (void)didClickLoginButton:(UIButton *)sender {
     sender.selected = !sender.selected;
+}
+
+- (IBAction)didClickSignUpButton:(UIButton *)sender {
+    
 }
 
 + (void)show {

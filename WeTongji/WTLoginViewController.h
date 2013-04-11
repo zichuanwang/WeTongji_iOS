@@ -14,7 +14,10 @@
 @property (nonatomic, weak) IBOutlet UIImageView *loginPanelBgImageView;
 @property (nonatomic, weak) IBOutlet UITextField *accountTextField;
 @property (nonatomic, weak) IBOutlet UITextField *passwordTextField;
+@property (nonatomic, weak) IBOutlet UIButton    *signUpButton;
 
 + (void)show;
+
+- (IBAction)didClickSignUpButton:(UIButton *)sender;
 
 @end
