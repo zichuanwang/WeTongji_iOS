@@ -15,4 +15,9 @@
 + (void)registerInnerSettingItemDidModifyNotificationWithSelector:(SEL)aSelector
                                                            target:(id)aTarget;
 
++ (void)postCurrentUserDidChangeNotification;
+
++ (void)registerCurrentUserDidChangeNotificationWithSelector:(SEL)aSelector
+                                                      target:(id)aTarget;
+
 @end

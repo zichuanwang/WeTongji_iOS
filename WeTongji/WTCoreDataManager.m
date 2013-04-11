@@ -9,6 +9,7 @@
 #import "WTCoreDataManager.h"
 #import "User+Addition.h"
 #import <WeTongjiSDK/NSUserDefaults+WTSDKAddition.h>
+#import "NSNotificationCenter+WTAddition.h"
 
 @interface WTCoreDataManager()
 
@@ -19,6 +20,8 @@
 @end
 
 @implementation WTCoreDataManager
+
+@synthesize currentUser = _currentUser;
 
 #pragma mark - Constructors
 
@@ -39,6 +42,13 @@
         _currentUser = [User userWithID:[NSUserDefaults getCurrentUserID]];
     }
     return _currentUser;
+}
+
+- (void)setCurrentUser:(User *)currentUser {
+    if (![_currentUser.identifier isEqualToString:currentUser.identifier]) {
+        _currentUser = currentUser;
+        [NSNotificationCenter postCurrentUserDidChangeNotification];
+    }
 }
 
 #pragma mark - Core Data methods

@@ -15,6 +15,7 @@
 #import "WTNowActivityCell.h"
 #import "WTNowCourseCell.h"
 #import "Event.h"
+#import "NSNotificationCenter+WTAddition.h"
 
 #define kWeekTimeInterval (60 * 60 * 24 * 7)
 // Test Data
@@ -41,19 +42,23 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self configureWeekDuration];
+    [NSNotificationCenter registerCurrentUserDidChangeNotificationWithSelector:@selector(handleCurrentUserDidChangeNotification:)
+                                                                        target:self];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-}
-
-- (void)scrollToNow:(BOOL)animated
-{
+- (void)scrollToNow:(BOOL)animated {
     Event *nowEvent = [self getNowEvent];
     if (nowEvent != NULL) {
         NSIndexPath *indexPath = [self.fetchedResultsController indexPathForObject:nowEvent];
         [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:animated];
     }
+}
+
+#pragma mark - Notification handler
+
+- (void)handleCurrentUserDidChangeNotification:(NSNotification *)notification {
+    self.fetchedResultsController = nil;
+    [self.tableView reloadData];
 }
 
 #pragma mark - Override Getter Method
@@ -176,8 +181,6 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     if ([item isKindOfClass:[Activity class]]) {
         return @"WTNowActivityCell";
     } else if ([item isKindOfClass:[Course class]]){
-        return @"WTNowCourseCell";
-    } else if ([item isKindOfClass:[Exam class]]) {
         return @"WTNowCourseCell";
     }
     return @"WTNowActivityCell";

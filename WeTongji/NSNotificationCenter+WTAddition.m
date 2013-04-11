@@ -8,7 +8,8 @@
 
 #import "NSNotificationCenter+WTAddition.h"
 
-#define kWTInnerSettingItemDidModify @"WTInnerSettingItemDidModify"
+#define kWTInnerSettingItemDidModify    @"WTInnerSettingItemDidModify"
+#define kWTCurrentUserDidChange         @"WTCurrentUserDidChange"
 
 @implementation NSNotificationCenter (WTAddition)
 
@@ -21,6 +22,18 @@
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:aTarget selector:aSelector
                    name:kWTInnerSettingItemDidModify
+                 object:nil];
+}
+
++ (void)postCurrentUserDidChangeNotification {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kWTCurrentUserDidChange object:nil userInfo:nil];
+}
+
++ (void)registerCurrentUserDidChangeNotificationWithSelector:(SEL)aSelector
+                                                      target:(id)aTarget {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:aTarget selector:aSelector
+                   name:kWTCurrentUserDidChange
                  object:nil];
 }
 
