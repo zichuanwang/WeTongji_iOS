@@ -21,7 +21,6 @@
 "ON" = "开";
 "OFF" = "关";
 "Stars" = "每周之星";
-"Acadamics" = "学术讲座";
 "Campus Update" = "校园新闻";
 "Organizer" = "组织机构";
 "About" = "相关信息";
@@ -44,9 +43,9 @@
 "Today" = "今日";
 
 "Academics" = "学术讲座";
+"Competition" = "校园赛事";
 "Entertainment" = "文娱活动";
 "Enterprise" = "企业招聘";
-"Competition" = "校园赛事";
 
 "Publish Date" = "发布日期";
 "Popularity" = "受欢迎度";

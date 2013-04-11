@@ -55,6 +55,12 @@
 			</dict>
 			<dict>
 				<key>CellTitle</key>
+				<string>Competition</string>
+				<key>CellAccessoryType</key>
+				<string>CellAccessoryTypeCheckmark</string>
+			</dict>
+			<dict>
+				<key>CellTitle</key>
 				<string>Entertainment</string>
 				<key>CellAccessoryType</key>
 				<string>CellAccessoryTypeCheckmark</string>
@@ -62,12 +68,6 @@
 			<dict>
 				<key>CellTitle</key>
 				<string>Enterprise</string>
-				<key>CellAccessoryType</key>
-				<string>CellAccessoryTypeCheckmark</string>
-			</dict>
-			<dict>
-				<key>CellTitle</key>
-				<string>Competition</string>
 				<key>CellAccessoryType</key>
 				<string>CellAccessoryTypeCheckmark</string>
 			</dict>

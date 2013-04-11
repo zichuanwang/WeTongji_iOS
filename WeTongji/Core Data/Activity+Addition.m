@@ -86,4 +86,25 @@
 - (void)awakeFromFetch {
 }
 
+- (NSString *)activityTypeString {
+    NSString *result = nil;
+    switch (self.activityType.integerValue) {
+        case 1:
+            result = NSLocalizedString(@"Academics", nil);
+            break;
+        case 2:
+            result = NSLocalizedString(@"Competition", nil);
+            break;
+        case 3:
+            result = NSLocalizedString(@"Entertainment", nil);
+            break;
+        case 4:
+            result = NSLocalizedString(@"Enterprise", nil);
+            break;
+        default:
+            break;
+    }
+    return result;
+}
+
 @end

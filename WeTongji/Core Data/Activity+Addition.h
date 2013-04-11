@@ -11,6 +11,8 @@
 
 @interface Activity (Addition)
 
+@property (nonatomic, readonly) NSString *activityTypeString;
+
 + (Activity *)insertActivity:(NSDictionary *)dict;
 
 + (Activity *)activityWithID:(NSString *)activityID;

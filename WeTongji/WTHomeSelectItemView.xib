@@ -140,6 +140,7 @@
 						<string key="NSFrame">{{14, 30}, {272, 60}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -148,7 +149,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string type="base64-UTF8" key="IBUIText">VG9uZ2ppIERlbGVnYXRpb24gQXR0ZW5kZWQgMjAxMiBXb3JsZCANU3R1ZGVudCBTdW1taXQgZm9yIFN1
 c3RhaW5hYmlsaXR5A</string>
-						<object class="NSColor" key="IBUITextColor" id="302769227">
+						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC4zMzMzMzMzMzMzAA</bytes>
 						</object>
@@ -299,7 +300,7 @@ c3RhaW5hYmlsaXR5A</string>
 					<object class="IBUILabel" id="980200675">
 						<reference key="NSNextResponder" ref="914823059"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{80, 40}, {200, 21}}</string>
+						<string key="NSFrame">{{78, 40}, {200, 21}}</string>
 						<reference key="NSSuperview" ref="914823059"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="826865159"/>
@@ -310,7 +311,6 @@ c3RhaW5hYmlsaXR5A</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">Evan Fung</string>
-						<reference key="IBUITextColor" ref="302769227"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<reference key="IBUIFontDescription" ref="48649242"/>
@@ -320,9 +320,10 @@ c3RhaW5hYmlsaXR5A</string>
 					<object class="IBUILabel" id="826865159">
 						<reference key="NSNextResponder" ref="914823059"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{80, 60}, {200, 21}}</string>
+						<string key="NSFrame">{{78, 60}, {200, 21}}</string>
 						<reference key="NSSuperview" ref="914823059"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -385,7 +386,7 @@ c3RhaW5hYmlsaXR5A</string>
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Acedamics</string>
+						<string key="IBUIText">Academics</string>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MCAwLjY3ODQzMTM3MjUgMC4yODYyNzQ1MDk4AA</bytes>
@@ -408,6 +409,7 @@ c3RhaW5hYmlsaXR5A</string>
 						<string key="NSFrame">{{130, 23.5}, {40, 53}}</string>
 						<reference key="NSSuperview" ref="409077615"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<reference key="IBUIBackgroundColor" ref="97112436"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -517,7 +519,6 @@ c3RhaW5hYmlsaXR5A</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">GSMA's Design Challenge</string>
-						<reference key="IBUITextColor" ref="302769227"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<reference key="IBUIFontDescription" ref="48649242"/>
@@ -647,6 +648,14 @@ c3RhaW5hYmlsaXR5A</string>
 						<reference key="destination" ref="385326585"/>
 					</object>
 					<int key="connectionID">71</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">typeLabel</string>
+						<reference key="source" ref="409077615"/>
+						<reference key="destination" ref="252936503"/>
+					</object>
+					<int key="connectionID">72</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -892,7 +901,7 @@ c3RhaW5hYmlsaXR5A</string>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">71</int>
+			<int key="maxID">72</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -904,6 +913,7 @@ c3RhaW5hYmlsaXR5A</string>
 						<string key="posterImageView">UIImageView</string>
 						<string key="timeLabel">UILabel</string>
 						<string key="titleLabel">UILabel</string>
+						<string key="typeLabel">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="posterContainerView">
@@ -920,6 +930,10 @@ c3RhaW5hYmlsaXR5A</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="titleLabel">
 							<string key="name">titleLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="typeLabel">
+							<string key="name">typeLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
 					</dictionary>

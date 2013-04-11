@@ -146,23 +146,23 @@
 #pragma mark - Notification handler
 
 - (void)settingItemDidModify {
+    BOOL isActivitySettingDifferentFromDefaultValue = [[NSUserDefaults standardUserDefaults] isActivitySettingDifferentFromDefaultValue];
+    [WTResourceFactory configureFilterBarButton:self.callBarButtonItem modified:isActivitySettingDifferentFromDefaultValue];
+    
     NSLog(@"count:%d", self.innerSettingItems.count);
     for (id<WTInnerSettingItem> item in self.innerSettingItems) {
         NSLog(@"%d", [item isDirty]);
         if ([item isDirty]) {
-            [WTResourceFactory configureFilterBarButton:self.callBarButtonItem modified:YES];
             self.dirty = YES;
             return;
         }
     }
-    [WTResourceFactory configureFilterBarButton:self.callBarButtonItem modified:NO];
     self.dirty = NO;
 }
 
 #pragma mark - WTRootNavigationControllerDelegate
 
 - (void)didHideInnderModalViewController {
-    [WTResourceFactory configureFilterBarButton:self.callBarButtonItem modified:NO];
     [self.delegate innerSettingViewController:self didFinishSetting:self.dirty];
 }
 

@@ -43,6 +43,7 @@
 @property (nonatomic, weak) IBOutlet UIView *posterContainerView;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *timeLabel;
+@property (nonatomic, weak) IBOutlet UILabel *typeLabel;
 
 + (WTHomeSelectActivityView *)createHomeSelectActivityView:(Activity *)activity;
 

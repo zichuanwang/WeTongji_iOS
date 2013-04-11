@@ -125,6 +125,9 @@
                                                                                           action:@selector(didClickBackButton:)];
     self.navigationItem.rightBarButtonItem = [WTResourceFactory createFilterBarButtonWithTarget:self
                                                                                          action:@selector(didClickFilterButton:)];
+    
+    BOOL isActivitySettingDifferentFromDefaultValue = [[NSUserDefaults standardUserDefaults] isActivitySettingDifferentFromDefaultValue];
+    [WTResourceFactory configureFilterBarButton:self.navigationItem.rightBarButtonItem modified:isActivitySettingDifferentFromDefaultValue];
 }
 
 - (void)configureTableView {

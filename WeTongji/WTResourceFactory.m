@@ -19,6 +19,7 @@
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     UIImage *filterNormalIconImage = [UIImage imageNamed:@"WTFilterSelectIcon"];
     [button setImage:filterNormalIconImage forState:UIControlStateNormal];
+    [button setImage:filterNormalIconImage forState:UIControlStateHighlighted];
     UIImage *filterSelectIconImage = [UIImage imageNamed:@"WTFilterNormalIcon"];
     [button setImage:filterSelectIconImage forState:UIControlStateSelected];
     
@@ -30,13 +31,28 @@
                         modified:(BOOL)modified {
     UIButton *filterButton = barButton.customView.subviews.lastObject;
     UIImage *normalBgImage = nil;
+    UIImage *selectBgImage = nil;
+    UIImage *filterNormalIconImage = nil;
+    UIImage *filterSelectIconImage = nil;
+    
     if (modified) {
         normalBgImage = [UIImage imageNamed:@"WTFocusButton"];
+        selectBgImage = [UIImage imageNamed:@"WTFocusButton"];
+        filterNormalIconImage = [UIImage imageNamed:@"WTFilterSelectIcon"];
+        filterSelectIconImage = [UIImage imageNamed:@"WTFilterSelectIcon"];
     } else {
         normalBgImage = [UIImage imageNamed:@"WTSelectButton"];
+        selectBgImage = [UIImage imageNamed:@"WTNormalButton"];
+        filterNormalIconImage = [UIImage imageNamed:@"WTFilterSelectIcon"];
+        filterSelectIconImage = [UIImage imageNamed:@"WTFilterNormalIcon"];
     }
     [filterButton setBackgroundImage:normalBgImage forState:UIControlStateNormal];
     [filterButton setBackgroundImage:normalBgImage forState:UIControlStateHighlighted];
+    [filterButton setBackgroundImage:selectBgImage forState:UIControlStateSelected];
+    
+    [filterButton setImage:filterNormalIconImage forState:UIControlStateNormal];
+    [filterButton setImage:filterNormalIconImage forState:UIControlStateHighlighted];
+    [filterButton setImage:filterSelectIconImage forState:UIControlStateSelected];
 }
 
 + (UIView *)createNavigationBarTitleViewWithText:(NSString *)text {
@@ -165,11 +181,11 @@
                         highlightImage:[UIImage imageNamed:@"WTSelectButton"]
                            selectImage:[UIImage imageNamed:@"WTFocusButton"]
                       normalTitleColor:[UIColor whiteColor]
-                     normalShadowColor:[UIColor grayColor]
+                     normalShadowColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2f]
                    highlightTitleColor:[UIColor whiteColor]
-                  highlightShadowColor:[UIColor grayColor]
+                  highlightShadowColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2f]
                       selectTitleColor:[UIColor whiteColor]
-                     selectShadowColor:[UIColor lightGrayColor]];
+                     selectShadowColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.2f]];
 }
 
 + (void)configureNormalButton:(UIButton *)button

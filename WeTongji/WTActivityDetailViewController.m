@@ -282,10 +282,14 @@
 
 #pragma mark - UIScrollViewDelegate
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-}
+#define BRIEF_DESCRIPTION_VIEW_INDENT   80.0f
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.contentOffset.y > BRIEF_DESCRIPTION_VIEW_INDENT) {
+        [self.briefIntroductionView resetOriginY:scrollView.contentOffset.y - BRIEF_DESCRIPTION_VIEW_INDENT];
+    } else {
+        [self.briefIntroductionView resetOriginY:0];
+    }
 }
 
 #pragma mark - Actions

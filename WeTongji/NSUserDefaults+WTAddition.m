@@ -17,6 +17,11 @@
 #define kActivitySmartOrder     @"ActivitySmartOrder"
 #define kActivityHidePast       @"ActivityHidePast"
 
+#define ActivityDefaultOrderMethod  ActivityOrderByPublishDate
+#define ActivityDefaultShowTypes    ActivityShowTypesAll
+#define ActivityDefaultSmartOrder   YES
+#define ActivityDefaultHidePast     YES
+
 @implementation NSUserDefaults (WTAddition)
 
 + (void)initialize {
@@ -31,16 +36,16 @@
         [userDefaults setNewsSmartOrderProperty:YES];
     }
     if ([userDefaults objectForKey:kActivityOrderMethod] == nil) {
-        [userDefaults setActivityOrderMethod:ActivityOrderByPublishDate];
+        [userDefaults setActivityOrderMethod:ActivityDefaultOrderMethod];
     }
     if ([userDefaults objectForKey:kActivityShowTypes] == nil) {
-        [userDefaults setActivityShowTypes:ActivityShowTypesAll];
+        [userDefaults setActivityShowTypes:ActivityDefaultShowTypes];
     }
     if ([userDefaults objectForKey:kActivitySmartOrder] == nil) {
-        [userDefaults setActivitySmartOrderProperty:YES];
+        [userDefaults setActivitySmartOrderProperty:ActivityDefaultSmartOrder];
     }
     if ([userDefaults objectForKey:kActivityHidePast] == nil) {
-        [userDefaults setActivityHidePastProperty:YES];
+        [userDefaults setActivityHidePastProperty:ActivityDefaultHidePast];
     }
     
     [userDefaults synchronize];
@@ -95,6 +100,24 @@
 }
 
 #pragma mark - Activity
+
+- (BOOL)isActivitySettingDifferentFromDefaultValue {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([userDefaults getActivityOrderMethod] != ActivityDefaultOrderMethod)
+        return YES;
+    
+    if ([userDefaults getActivityShowTypes] != ActivityDefaultShowTypes)
+        return YES;
+    
+    if ([userDefaults getActivitySmartOrderProperty] != ActivityDefaultSmartOrder)
+        return YES;
+    
+    if ([userDefaults getActivityHidePastProperty] != ActivityDefaultHidePast)
+        return YES;
+    
+    return NO;
+}
 
 - (void)setActivityOrderMethod:(ActivityOrderMethod)method {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];

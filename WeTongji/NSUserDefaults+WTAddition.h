@@ -50,4 +50,6 @@ typedef enum {
 
 - (BOOL)getActivitySmartOrderProperty;
 
+- (BOOL)isActivitySettingDifferentFromDefaultValue;
+
 @end
