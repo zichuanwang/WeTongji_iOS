@@ -8,6 +8,7 @@
 
 #import "WTBillboardViewController.h"
 #import "WTResourceFactory.h"
+#import "UIApplication+WTAddition.h"
 
 @interface WTBillboardViewController ()
 
@@ -40,8 +41,22 @@
 #pragma mark - UI methods
 
 - (void)configureNavigationBar {
-        
     self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Billboard", nil)];
+    
+    self.navigationItem.rightBarButtonItem = [WTResourceFactory createNewPostButtonWithTarget:self action:@selector(didClickNewPostButton:)];
+}
+
+#pragma mark - Actions
+
+- (void)didClickNewPostButton:(UIButton *)sender {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Photo", nil), NSLocalizedString(@"Text", nil), NSLocalizedString(@"WeTongji Q&A", nil), nil];
+    [actionSheet showFromTabBar:[UIApplication sharedApplication].rootTabBarController.tabBar];
+}
+
+#pragma mark - UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSLog(@"button index%d", buttonIndex);
 }
 
 @end

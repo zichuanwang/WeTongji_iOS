@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "WTRootViewController.h"
 
-@interface WTBillboardViewController : WTRootViewController
+@interface WTBillboardViewController : WTRootViewController <UIActionSheetDelegate>
 
 @end

@@ -13,6 +13,20 @@
 
 @implementation WTResourceFactory
 
++ (UIBarButtonItem *)createNewPostButtonWithTarget:(id)target
+                                            action:(SEL)action {
+    UIButton *button = [WTResourceFactory createNormalButtonWithText:@""];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    UIImage *newPostNormalIconImage = [UIImage imageNamed:@"WTNewPostSelectIcon"];
+    [button setImage:newPostNormalIconImage forState:UIControlStateNormal];
+    [button setImage:newPostNormalIconImage forState:UIControlStateHighlighted];
+    UIImage *newPostSelectIconImage = [UIImage imageNamed:@"WTNewPostNormalIcon"];
+    [button setImage:newPostSelectIconImage forState:UIControlStateSelected];
+    
+    [button resetWidth:36.0f];
+    return [WTResourceFactory createBarButtonWithButton:button];
+}
+
 + (UIBarButtonItem *)createFilterBarButtonWithTarget:(id)target
                                               action:(SEL)action {
     UIButton *button = [WTResourceFactory createNormalButtonWithText:@""];

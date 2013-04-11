@@ -39,4 +39,7 @@
 + (void)configureFilterBarButton:(UIBarButtonItem *)barButton
                         modified:(BOOL)modified;
 
++ (UIBarButtonItem *)createNewPostButtonWithTarget:(id)target
+                                            action:(SEL)action;
+
 @end

@@ -209,6 +209,10 @@
 		E177E64216EE35B60029130F /* public_key.der in Resources */ = {isa = PBXBuildFile; fileRef = E177E64016EE35AD0029130F /* public_key.der */; };
 		E177EB6416C59F1A0044A697 /* WTInnerModalSeparator.png in Resources */ = {isa = PBXBuildFile; fileRef = E177EB6216C59F1A0044A697 /* WTInnerModalSeparator.png */; };
 		E177EB6516C59F1A0044A697 /* WTInnerModalSeparator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E177EB6316C59F1A0044A697 /* WTInnerModalSeparator@2x.png */; };
+		E17C664A1716C14400B91B25 /* WTNewPostNormalIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C66461716C14400B91B25 /* WTNewPostNormalIcon.png */; };
+		E17C664B1716C14400B91B25 /* WTNewPostNormalIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C66471716C14400B91B25 /* WTNewPostNormalIcon@2x.png */; };
+		E17C664C1716C14400B91B25 /* WTNewPostSelectIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C66481716C14400B91B25 /* WTNewPostSelectIcon.png */; };
+		E17C664D1716C14400B91B25 /* WTNewPostSelectIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C66491716C14400B91B25 /* WTNewPostSelectIcon@2x.png */; };
 		E17F9E681712A17300DC6AB6 /* WTHomeNowView.m in Sources */ = {isa = PBXBuildFile; fileRef = E17F9E671712A17300DC6AB6 /* WTHomeNowView.m */; };
 		E17F9E6A1712A19E00DC6AB6 /* WTHomeNowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17F9E691712A19E00DC6AB6 /* WTHomeNowView.xib */; };
 		E17F9E6F1712D43100DC6AB6 /* WTDarkGrayMoreReverseIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = E17F9E6D1712D43100DC6AB6 /* WTDarkGrayMoreReverseIndicator.png */; };
@@ -632,6 +636,10 @@
 		E177E64016EE35AD0029130F /* public_key.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = public_key.der; sourceTree = "<group>"; };
 		E177EB6216C59F1A0044A697 /* WTInnerModalSeparator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTInnerModalSeparator.png; sourceTree = "<group>"; };
 		E177EB6316C59F1A0044A697 /* WTInnerModalSeparator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTInnerModalSeparator@2x.png"; sourceTree = "<group>"; };
+		E17C66461716C14400B91B25 /* WTNewPostNormalIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNewPostNormalIcon.png; sourceTree = "<group>"; };
+		E17C66471716C14400B91B25 /* WTNewPostNormalIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNewPostNormalIcon@2x.png"; sourceTree = "<group>"; };
+		E17C66481716C14400B91B25 /* WTNewPostSelectIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNewPostSelectIcon.png; sourceTree = "<group>"; };
+		E17C66491716C14400B91B25 /* WTNewPostSelectIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNewPostSelectIcon@2x.png"; sourceTree = "<group>"; };
 		E17F9E661712A17300DC6AB6 /* WTHomeNowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTHomeNowView.h; sourceTree = "<group>"; };
 		E17F9E671712A17300DC6AB6 /* WTHomeNowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTHomeNowView.m; sourceTree = "<group>"; };
 		E17F9E691712A19E00DC6AB6 /* WTHomeNowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTHomeNowView.xib; sourceTree = "<group>"; };
@@ -903,6 +911,10 @@
 				E1F02F4A16F38B5900699C81 /* WTNavigationBarBackHighlightButtonIcon@2x.png */,
 				E13B0E4A169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon.png */,
 				E13B0E4B169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon@2x.png */,
+				E17C66461716C14400B91B25 /* WTNewPostNormalIcon.png */,
+				E17C66471716C14400B91B25 /* WTNewPostNormalIcon@2x.png */,
+				E17C66481716C14400B91B25 /* WTNewPostSelectIcon.png */,
+				E17C66491716C14400B91B25 /* WTNewPostSelectIcon@2x.png */,
 				E10A8D1616E33005008B72E7 /* WTNotificationAcceptIcon.png */,
 				E10A8D1716E33005008B72E7 /* WTNotificationAcceptIcon@2x.png */,
 				E10A8D1816E33005008B72E7 /* WTNotificationAddIcon.png */,
@@ -2019,6 +2031,10 @@
 				E13652CA1713FD8000ACA92D /* WTTranslucentHighlightButton.png in Resources */,
 				E13652CB1713FD8000ACA92D /* WTTranslucentHighlightButton@2x.png in Resources */,
 				E11825DF17154AD400B4B9BF /* WTDetailDescriptionView.xib in Resources */,
+				E17C664A1716C14400B91B25 /* WTNewPostNormalIcon.png in Resources */,
+				E17C664B1716C14400B91B25 /* WTNewPostNormalIcon@2x.png in Resources */,
+				E17C664C1716C14400B91B25 /* WTNewPostSelectIcon.png in Resources */,
+				E17C664D1716C14400B91B25 /* WTNewPostSelectIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
