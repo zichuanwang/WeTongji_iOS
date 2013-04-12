@@ -7,17 +7,16 @@
 */
 "Student No." = "学号";
 "Password" = "密码";
-"Not now" = "稍后";
-"Forgot?" = "忘了?";
+"Not now" = "暂不注册";
+"Forgot?" = "忘记密码";
 "Log In / Sign Up" = "登录 / 注册";
 "Sign Up" = "注册新用户";
 "See All" = "查看全部";
-"News" = "新闻";
+"News" = "资讯";
 "Featured" = "精选";
 "Activity" = "活动";
 "Activities" = "活动";
 "Show All" = "显示全部";
-"Billboard" = "公告牌";
 "Now" = "当前";
 "ON" = "开";
 "OFF" = "关";
@@ -42,6 +41,8 @@
 "Smart Order" = "智能排序";
 "Hide Past Activities" = "隐藏过期活动";
 "Today" = "今日";
+"Friend" = "个朋友";
+"Friends" = "个朋友";
 
 "Academics" = "学术讲座";
 "Competition" = "校园赛事";

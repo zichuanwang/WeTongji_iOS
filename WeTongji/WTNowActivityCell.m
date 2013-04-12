@@ -11,30 +11,31 @@
 
 @implementation WTNowActivityCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
+#define ACTIVITY_NAME_LABEL_WIDTH   210.0f
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
     }
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self.activityNameLabel sizeToFit];
 }
 
-- (void)configureCellWithtitle:(NSString *)title
+- (void)configureCellWithTitle:(NSString *)title
                           time:(NSString *)time
                       location:(NSString *)location
-                      imageURL:(NSString *)imageURL;
-{
+                      imageURL:(NSString *)imageURL {
     self.activityNameLabel.text = title;
+    [self.activityNameLabel resetWidth:ACTIVITY_NAME_LABEL_WIDTH];
+    [self.activityNameLabel sizeToFit];
+    
     self.whenLabel.text = time;
     self.whereLabel.text = location;
     

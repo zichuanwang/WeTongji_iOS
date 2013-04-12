@@ -14,6 +14,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *summaryLabel;
 @property (nonatomic, weak) IBOutlet UIView *containerView;
+@property (nonatomic, weak) IBOutlet UIImageView *topSeperatorImageView;
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
                           category:(NSString *)category

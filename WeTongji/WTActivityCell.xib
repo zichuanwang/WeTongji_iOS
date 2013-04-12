@@ -246,16 +246,28 @@
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-										<object class="NSCustomResource" key="IBUIImage">
+										<object class="NSCustomResource" key="IBUIImage" id="714880530">
 											<string key="NSClassName">NSImage</string>
 											<string key="NSResourceName">WTTableViewSeperatorUnit.png</string>
 										</object>
+									</object>
+									<object class="IBUIImageView" id="86238164">
+										<reference key="NSNextResponder" ref="663172755"/>
+										<int key="NSvFlags">292</int>
+										<string key="NSFrame">{{0, -1}, {320, 1}}</string>
+										<reference key="NSSuperview" ref="663172755"/>
+										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView" ref="466464176"/>
+										<string key="NSReuseIdentifierKey">_NS:9</string>
+										<bool key="IBUIUserInteractionEnabled">NO</bool>
+										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+										<reference key="IBUIImage" ref="714880530"/>
 									</object>
 								</array>
 								<string key="NSFrameSize">{320, 92}</string>
 								<reference key="NSSuperview" ref="377307527"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="466464176"/>
+								<reference key="NSNextKeyView" ref="86238164"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
@@ -332,6 +344,14 @@
 					</object>
 					<int key="connectionID">37</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">topSeperatorImageView</string>
+						<reference key="source" ref="544965585"/>
+						<reference key="destination" ref="86238164"/>
+					</object>
+					<int key="connectionID">54</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -369,6 +389,7 @@
 							<reference ref="160056677"/>
 							<reference ref="316699051"/>
 							<reference ref="466464176"/>
+							<reference ref="86238164"/>
 						</array>
 						<reference key="parent" ref="544965585"/>
 					</object>
@@ -425,6 +446,11 @@
 						<reference key="object" ref="818658125"/>
 						<reference key="parent" ref="522502750"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">53</int>
+						<reference key="object" ref="86238164"/>
+						<reference key="parent" ref="663172755"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -443,12 +469,13 @@
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="52.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="53.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">52</int>
+			<int key="maxID">54</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -461,6 +488,7 @@
 						<string key="posterImageView">UIImageView</string>
 						<string key="timeLabel">UILabel</string>
 						<string key="titleLabel">UILabel</string>
+						<string key="topSeperatorImageView">UIImageView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="containerView">
@@ -482,6 +510,10 @@
 						<object class="IBToOneOutletInfo" key="titleLabel">
 							<string key="name">titleLabel</string>
 							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="topSeperatorImageView">
+							<string key="name">topSeperatorImageView</string>
+							<string key="candidateClassName">UIImageView</string>
 						</object>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

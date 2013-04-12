@@ -24,6 +24,13 @@
     } else {
         self.containerView.backgroundColor = WTCellBackgroundColor2;
     }
+    
+    if (indexPath.row == 0) {
+        self.topSeperatorImageView.hidden = YES;
+    } else {
+        self.topSeperatorImageView.hidden = NO;
+    }
+    
     self.titleLabel.text = title;
     self.timeLabel.text = time;
     self.locationLabel.text = location;

@@ -37,6 +37,11 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
     self.tableView.scrollsToTop = NO;
     
+    // test
+    [self loadDataFrom:[self convertToDate:0] to:[self convertToDate:19] successBlock:^{
+        [self clearAllData];
+    } failureBlock:nil];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -98,7 +103,6 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
                   to:(NSDate *)toDate
         successBlock:(void (^)(void))success
         failureBlock:(void (^)(void))failure {
-    WTClient * client = [WTClient sharedClient];
     WTRequest * request = [WTRequest requestWithSuccessBlock:^(id responseData) {
         WTLOG(@"Get Now Data Success: %@", responseData);
         
@@ -106,20 +110,25 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
             success();
         }
         
+        User *currentUser = [WTCoreDataManager sharedManager].currentUser;
+        
         NSDictionary *resultDict = (NSDictionary *)responseData;
         NSArray *activitiesArray = resultDict[@"Activities"];
         for (NSDictionary *dict in activitiesArray) {
-            [Activity insertActivity:dict];
+            Activity *activity= [Activity insertActivity:dict];
+            [currentUser addScheduledEventsObject:activity];
         }
         
         NSArray *coursesArray = resultDict[@"CourseInstances"];
         for (NSDictionary *dict in coursesArray) {
-            [Course insertCourse:dict];
+            Course *course = [Course insertCourse:dict];
+            [currentUser addScheduledEventsObject:course];
         }
         
         NSArray *examsArray = resultDict[@"Exams"];
         for (NSDictionary *dict in examsArray) {
-            [Exam insertExam:dict];
+            Exam *exam = [Exam insertExam:dict];
+            [currentUser addScheduledEventsObject:exam];
         }
     } failureBlock:^(NSError * error) {
         WTLOGERROR(@"Get NowData Error:%@", error.localizedDescription);
@@ -128,7 +137,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
         }
     }];    
     [request getScheduleWithBeginDate:fromDate endDate:toDate];
-    [client enqueueRequest:request];
+    [[WTClient sharedClient] enqueueRequest:request];
 }
 
 #pragma mark - CoreDataTableViewController methods
@@ -139,7 +148,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
         Activity *acitivity = (Activity *)item;
         WTNowActivityCell *activityCell = (WTNowActivityCell *)cell;
         
-        [activityCell configureCellWithtitle:acitivity.what
+        [activityCell configureCellWithTitle:acitivity.what
                                          time:acitivity.beginToEndTimeString
                                      location:acitivity.where
                                      imageURL:acitivity.image];
@@ -183,7 +192,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     } else if ([item isKindOfClass:[Course class]]){
         return @"WTNowCourseCell";
     }
-    return @"WTNowActivityCell";
+    return nil;
 }
 
 #pragma mark - WTDragToLoadDatasource
