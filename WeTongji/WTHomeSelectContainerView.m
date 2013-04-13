@@ -90,6 +90,11 @@
             default:
                 break;
         }
+        
+        itemView.bgButton.tag = index;
+        
+        [itemView.bgButton addTarget:self action:@selector(didClickItemViewBgButton:) forControlEvents:UIControlEventTouchUpInside];
+        
         [self.itemViewArray addObject:itemView];
         return itemView;
     } else {
@@ -123,11 +128,12 @@
         WTHomeSelectItemView *itemView = [self createItemViewAtIndex:i];
         [self.scrollView addSubview:itemView];
     }
+    self.scrollView.alwaysBounceHorizontal = YES;
     [self layoutScrollView];
 }
 
 - (void)layoutScrollView {
-    CGFloat scrollViewContentWidth = [self numberOfItemViewsInScrollView] > 1 ? self.scrollView.frame.size.width * [self numberOfItemViewsInScrollView] : self.scrollView.frame.size.width + 1;
+    CGFloat scrollViewContentWidth = self.scrollView.frame.size.width * [self numberOfItemViewsInScrollView];
     self.scrollView.contentSize = CGSizeMake(scrollViewContentWidth, self.scrollView.frame.size.height);
     
     for(NSUInteger i = 0; i < [self numberOfItemViewsInScrollView]; i++) {
@@ -144,6 +150,12 @@
 - (void)didClickSeeAllButton:(UIButton *)sender {
     if ([self.delegate respondsToSelector:@selector(homeSelectContainerViewDidClickSeeAllButton:)]) {
         [self.delegate homeSelectContainerViewDidClickSeeAllButton:self];
+    }
+}
+
+- (void)didClickItemViewBgButton:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(homeSelectContainerView:didSelectModelObject:)]) {
+        [self.delegate homeSelectContainerView:self didSelectModelObject:self.itemInfoArray[sender.tag]];
     }
 }
 

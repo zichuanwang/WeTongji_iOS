@@ -183,6 +183,10 @@
     
     [self.inviteButton addTarget:self action:@selector(didClickInviteButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.briefIntroductionView addSubview:self.inviteButton];
+    
+    if (self.activity.canSchedule.boolValue) {
+        self.inviteButton.hidden = YES;
+    }
 }
 
 - (void)configureParticipateButton {

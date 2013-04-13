@@ -37,9 +37,14 @@ typedef enum {
 
 #pragma mark - WTHomeSelectContainerViewDelegate Protocol
 
+@class Object;
+
 @protocol WTHomeSelectContainerViewDelegate <NSObject>
 
 - (void)homeSelectContainerViewDidClickSeeAllButton:(WTHomeSelectContainerView *)containerView;
+
+- (void)homeSelectContainerView:(WTHomeSelectContainerView *)containerView
+           didSelectModelObject:(Object *)modelObject;
 
 @end
 

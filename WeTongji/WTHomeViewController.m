@@ -213,6 +213,16 @@
     }
 }
 
+- (void)homeSelectContainerView:(WTHomeSelectContainerView *)containerView
+           didSelectModelObject:(Object *)modelObject {
+    if ([modelObject isKindOfClass:[Activity class]]) {
+        WTActivityDetailViewController *vc = [WTActivityDetailViewController createActivityDetailViewControllerWithActivity:(Activity *)modelObject backBarButtonText:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([modelObject isKindOfClass:[News class]]) {
+        
+    }
+}
+
 #pragma mark - WTHomeNowContainerViewDelegate
 
 - (void)homeNowContainerViewDidSelectEvent:(Event *)event {

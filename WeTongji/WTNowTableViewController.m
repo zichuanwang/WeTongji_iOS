@@ -55,7 +55,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     Event *nowEvent = [self getNowEvent];
     if (nowEvent != NULL) {
         NSIndexPath *indexPath = [self.fetchedResultsController indexPathForObject:nowEvent];
-        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:animated];
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:animated];
     }
 }
 

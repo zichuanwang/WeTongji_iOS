@@ -15,6 +15,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *subCategoryLabel;
 @property (nonatomic, weak) IBOutlet UIView *bgImageContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *bgImageView;
+@property (nonatomic, weak) IBOutlet UIButton *bgButton;
 
 @end
 
