@@ -13,10 +13,14 @@
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import "User+Addition.h"
 #import "WTCoreDataManager.h"
+#import "WTLoginIntroViewController.h"
 
 @interface WTLoginViewController ()
 
 @property (nonatomic, strong) UIButton *forgetPasswordButton;
+@property (nonatomic, strong) UIButton *introButton;
+@property (nonatomic, strong) WTLoginIntroViewController *introViewController;
+@property (nonatomic, assign) BOOL showIntro;
 
 @end
 
@@ -40,7 +44,11 @@
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
     
-    [self.signUpButton setTitle:NSLocalizedString(@"Sign Up", nil) forState:UIControlStateNormal];
+    if (self.showIntro) {
+        self.introButton.selected = YES;
+        [self.view addSubview:self.introViewController.view];
+        self.introViewController.view.frame = self.view.frame;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,6 +58,13 @@
 }
 
 #pragma mark - Properties
+
+- (WTLoginIntroViewController *)introViewController {
+    if (!_introViewController) {
+        _introViewController = [[WTLoginIntroViewController alloc] init];
+    }
+    return _introViewController;
+}
 
 - (UIButton *)forgetPasswordButton {
     if (_forgetPasswordButton == nil) {
@@ -75,15 +90,48 @@
     self.passwordTextField.placeholder = NSLocalizedString(@"Password", nil);
     
     [self.loginPanelContainerView addSubview:self.forgetPasswordButton];
-    [self.accountTextField becomeFirstResponder];
+    
+    if (!self.showIntro)
+        [self.accountTextField becomeFirstResponder];
+    
+    [self.signUpButton setTitle:NSLocalizedString(@"Sign Up", nil) forState:UIControlStateNormal];
 }
 
 - (void)configureNavigationBar {
     UIBarButtonItem *cancalBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:NSLocalizedString(@"Not now", nil) target:self action:@selector(didClickCancelButton:)];
     self.navigationItem.leftBarButtonItem = cancalBarButtonItem;
     
-    UIBarButtonItem *loginBarButtonItem = [WTResourceFactory createFocusBarButtonWithText:NSLocalizedString(@"Log In / Sign Up", nil) target:self action:@selector(didClickLoginButton:)];
-    self.navigationItem.rightBarButtonItem = loginBarButtonItem;
+    UIButton *introButton = [WTResourceFactory createFocusButtonWithText:NSLocalizedString(@"Log In / Sign Up", nil)];
+    [introButton addTarget:self action:@selector(didClickIntroButton:) forControlEvents:UIControlEventTouchUpInside];
+    introButton.selected = NO;
+    self.introButton = introButton;
+    
+    UIBarButtonItem *introBarButtonItem = [WTResourceFactory createBarButtonWithButton:introButton];
+    self.navigationItem.rightBarButtonItem = introBarButtonItem;
+}
+
+#pragma mark - Animations
+
+- (void)showIntroViewAnimation {
+    self.introButton.userInteractionEnabled = NO;
+    [self.view addSubview:self.introViewController.view];
+    self.introViewController.view.frame = self.view.frame;
+    [self.introViewController.view resetOriginY:self.view.frame.size.height];
+    [UIView animateWithDuration:0.25 animations:^{
+        [self.introViewController.view resetOriginY:0];
+    } completion:^(BOOL finished) {
+        self.introButton.userInteractionEnabled = YES;
+    }];
+}
+
+- (void)hideIntroViewAnimation {
+    self.introButton.userInteractionEnabled = NO;
+    [UIView animateWithDuration:0.25 animations:^{
+        [self.introViewController.view resetOriginY:self.view.frame.size.height];
+    } completion:^(BOOL finished) {
+        [self.introViewController.view removeFromSuperview];
+        self.introButton.userInteractionEnabled = YES;
+    }];
 }
 
 #pragma mark - Actions
@@ -92,17 +140,29 @@
     [self dismissView];
 }
 
-- (void)didClickLoginButton:(UIButton *)sender {
+- (void)didClickIntroButton:(UIButton *)sender {
     sender.selected = !sender.selected;
+    
+    if (sender.selected) {
+        [self showIntroViewAnimation];
+        [self.view endEditing:YES];
+        
+        NSLog(@"self frame%@", NSStringFromCGRect(self.view.frame));
+        NSLog(@"intro frame:%@", NSStringFromCGRect(self.introViewController.view.frame));
+    } else {
+        [self hideIntroViewAnimation];
+        [self.accountTextField becomeFirstResponder];
+    }
 }
 
 - (IBAction)didClickSignUpButton:(UIButton *)sender {
     
 }
 
-+ (void)show {
++ (void)show:(BOOL)showIntro {
     WTLoginViewController *vc = [[WTLoginViewController alloc] init];
     WTRootNavigationController *nav = [[WTRootNavigationController alloc] initWithRootViewController:vc];
+    vc.showIntro = showIntro;
     
     UIViewController *rootVC = [UIApplication sharedApplication].rootTabBarController;
     [rootVC presentViewController:nav animated:YES completion:nil];

@@ -16,7 +16,7 @@
 @property (nonatomic, weak) IBOutlet UITextField *passwordTextField;
 @property (nonatomic, weak) IBOutlet UIButton    *signUpButton;
 
-+ (void)show;
++ (void)show:(BOOL)showIntro;
 
 - (IBAction)didClickSignUpButton:(UIButton *)sender;
 

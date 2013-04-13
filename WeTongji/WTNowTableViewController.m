@@ -34,7 +34,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 {
     [super viewDidLoad];
     
-    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
     self.tableView.scrollsToTop = NO;
     
     // test

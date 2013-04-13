@@ -42,4 +42,6 @@
 + (UIBarButtonItem *)createNewPostButtonWithTarget:(id)target
                                             action:(SEL)action;
 
++ (UIBarButtonItem *)createBarButtonWithButton:(UIButton *)button;
+
 @end

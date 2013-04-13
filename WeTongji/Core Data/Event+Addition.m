@@ -27,15 +27,15 @@
     NSDate *lastMidnight = [[NSCalendar currentCalendar] dateFromComponents:todayComponents];
     NSDate *nextMidnight = [[NSCalendar currentCalendar] dateByAddingComponents:oneDay toDate:lastMidnight options:NSWrapCalendarComponents];
     
-    // request.predicate = [NSPredicate predicateWithFormat:@"(SELF in %@) AND (%@ >= %@) AND (%@ <= %@)", currentUser, beginTime, lastMidnight, endTime, nextMidnight];
+    request.predicate = [NSPredicate predicateWithFormat:@"(SELF in %@) AND (beginTime >= %@) AND (endTime <= %@)", currentUser.scheduledEvents, lastMidnight, nextMidnight];
     
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"beginTime" ascending:YES]];
     
     NSArray *allEvents = [context executeFetchRequest:request error:NULL];
     // TODO:test
     NSArray *result = nil;
-    if (allEvents.count >= 1) {
-        result = [NSArray arrayWithObjects:allEvents[0], nil];
+    if (allEvents.count >= 2) {
+        result = [NSArray arrayWithObjects:allEvents[0], allEvents[1], nil];
     }
     return result;
 }

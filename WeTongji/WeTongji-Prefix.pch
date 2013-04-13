@@ -16,4 +16,5 @@
     #import "UIView+Animation.h"
     #import "WTDebugTool.h"
     #import "Flurry.h"
+    #import "WTErrorHandler.h"
 #endif

@@ -108,11 +108,15 @@
 
 - (void)configureNavigationBarRightButtons {
     UIButton *commentButton = [[UIButton alloc] init];
+    commentButton.showsTouchWhenHighlighted = YES;
+    commentButton.adjustsImageWhenHighlighted = NO;
     UIImage *commentImage = [UIImage imageNamed:@"WTCommentButton"];
     [commentButton setBackgroundImage:commentImage forState:UIControlStateNormal];
     [commentButton resetSize:commentImage.size];
     
     UIButton *moreButton = [[UIButton alloc] init];
+    moreButton.showsTouchWhenHighlighted = YES;
+    moreButton.adjustsImageWhenHighlighted = NO;
     UIImage *moreImage = [UIImage imageNamed:@"WTMoreButton"];
     [moreButton resetSize:moreImage.size];
     [moreButton setBackgroundImage:moreImage forState:UIControlStateNormal];
@@ -313,6 +317,8 @@
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Set activitiy liked:%d, reason:%@", sender.selected, error.localizedDescription);
         sender.selected = !sender.selected;
+        
+        [WTErrorHandler handleError:error];
     }];
     [request setActivitiyLiked:sender.selected activityID:self.activity.identifier];
     [[WTClient sharedClient] enqueueRequest:request];
@@ -344,6 +350,8 @@
         WTLOGERROR(@"Set activitiy scheduled:%d, reason:%@", participated, error.localizedDescription);
         sender.userInteractionEnabled = YES;
         [self configureParticipateButtonStatus:!participated];
+        
+        [WTErrorHandler handleError:error];
     }];
     [request setActivityScheduled:participated activityID:self.activity.identifier];
     [[WTClient sharedClient] enqueueRequest:request];
