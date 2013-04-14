@@ -16,7 +16,7 @@
 
 #define CROP_AVATAR_SIZE CGSizeMake(100, 100)
 
-@interface WTRegisterInfoViewController ()
+@interface WTRegisterInfoViewController () <OHAttributedLabelDelegate>
 
 @end
 
@@ -71,7 +71,19 @@
     [resultString setTextBold:YES range:NSMakeRange(self.agreementDisplayLabel.attributedText.length - 4, 4)];
     [resultString setTextIsUnderlined:YES range:NSMakeRange(self.agreementDisplayLabel.attributedText.length - 4, 4)];
     
+    NSRegularExpression* userRegex = [NSRegularExpression regularExpressionWithPattern:@"使用条款" options:0 error:nil];
+    [userRegex enumerateMatchesInString:self.agreementDisplayLabel.text
+                                options:0
+                                  range:NSMakeRange(0, self.agreementDisplayLabel.text.length)
+                             usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop) {
+         NSString* linkURLString = [NSString stringWithFormat:@"agreement:agreement"];
+         [resultString setLink:[NSURL URLWithString:linkURLString] range:match.range];
+     }];
+    
     self.agreementDisplayLabel.attributedText = resultString;
+    self.agreementDisplayLabel.delegate = self;
+    
+    self.agreementDisplayLabel.linkColor = self.accountDisplayLabel.textColor;
 }
 
 #pragma mark - Actions
@@ -105,7 +117,6 @@
     } else {
         WTRegisterVarifyViewController *vc = [[WTRegisterVarifyViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
-
     }
 }
 
@@ -151,6 +162,17 @@
     self.avatarContainerView.hidden = NO;
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - OHAttributedStringDelegate
+
+- (BOOL)attributedLabel:(OHAttributedLabel *)attributedLabel
+       shouldFollowLink:(NSTextCheckingResult *)linkInfo {
+	if ([linkInfo.URL.scheme isEqualToString:@"agreement"]) {
+        // TODO:
+    }
+    // Prevent the URL from opening in Safari, as we handled it here manually instead
+    return NO;
 }
 
 @end
