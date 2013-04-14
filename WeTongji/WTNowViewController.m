@@ -78,4 +78,14 @@
                                                                                        action:@selector(scrollToNow)];
 }
 
+#pragma mark - Actions
+
+- (IBAction)didClickPrevButton:(UIButton *)sender {
+    
+}
+
+- (IBAction)didClickNextButton:(UIButton *)sender {
+    
+}
+
 @end

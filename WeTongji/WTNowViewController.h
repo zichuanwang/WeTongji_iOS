@@ -11,7 +11,12 @@
 @interface WTNowViewController : WTRootViewController
 
 @property (nonatomic, weak) IBOutlet UIView *titleBgView;
+@property (nonatomic, weak) IBOutlet UILabel *weekDisplayLabel;
+@property (nonatomic, weak) IBOutlet UILabel *weekLabel;
 @property (nonatomic, weak) IBOutlet UILabel *timeLabel;
-@property (nonatomic, weak) IBOutlet UILabel *countLabel;
+@property (nonatomic, weak) IBOutlet UIView *weekContainerView;
+
+- (IBAction)didClickPrevButton:(UIButton *)sender;
+- (IBAction)didClickNextButton:(UIButton *)sender;
 
 @end
