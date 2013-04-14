@@ -9,8 +9,12 @@
 #import "WTBillboardViewController.h"
 #import "WTResourceFactory.h"
 #import "UIApplication+WTAddition.h"
+#import "WTBillboardTableViewController.h"
+#import "BillboardPost+Addition.h"
 
 @interface WTBillboardViewController ()
+
+@property (nonatomic, strong) WTBillboardTableViewController *tableViewController;
 
 @end
 
@@ -30,12 +34,26 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self configureNavigationBar];
+    
+    self.tableViewController.view.frame = self.view.frame;
+    [self.view addSubview:self.tableViewController.view];
+    
+    [BillboardPost createTestBillboardPosts];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Properties
+
+- (WTBillboardTableViewController *)tableViewController {
+    if (!_tableViewController) {
+        _tableViewController = [[WTBillboardTableViewController alloc] init];
+    }
+    return _tableViewController;
 }
 
 #pragma mark - UI methods

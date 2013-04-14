@@ -128,7 +128,7 @@
                                   delegate:self
                                   cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
                                   destructiveButtonTitle:nil
-                                  otherButtonTitles:NSLocalizedString(@"Photo Album", nil), NSLocalizedString(@"Camera", nil), nil];
+                                  otherButtonTitles:NSLocalizedString(@"Camera", nil), NSLocalizedString(@"Photo Album", nil), nil];
     [actionSheet showFromTabBar:[UIApplication sharedApplication].rootTabBarController.tabBar];
 }
 
@@ -143,9 +143,9 @@
     ipc.delegate = self;
     ipc.allowsEditing = YES;
     
-    if(buttonIndex == 0) {
+    if(buttonIndex == 1) {
         ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    } else if(buttonIndex == 1) {
+    } else if(buttonIndex == 0) {
         ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
     }
     

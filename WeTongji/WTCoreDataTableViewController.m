@@ -72,33 +72,7 @@
     
 }
 
-#pragma mark - NSFetchedResultsControllerDelegate
-
-- (NSFetchedResultsController *)fetchedResultsController
-{
-    if (_fetchedResultsController != nil)
-    {
-        return _fetchedResultsController;
-    }
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    
-    [self configureRequest:fetchRequest];
-    
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc]
-                                                             initWithFetchRequest:fetchRequest
-                                                             managedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext
-                                                             sectionNameKeyPath:[self customSectionNameKeyPath]
-                                                             cacheName:nil];
-    aFetchedResultsController.delegate = self;
-    _fetchedResultsController = aFetchedResultsController;
-    
-	[_fetchedResultsController performFetch:NULL];
-    
-    [self fetchedResultsControllerDidPerformFetch:_fetchedResultsController];
-    
-    return _fetchedResultsController;
-}
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -128,6 +102,34 @@
     }
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
+}
+
+#pragma mark - NSFetchedResultsControllerDelegate
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    if (_fetchedResultsController != nil)
+    {
+        return _fetchedResultsController;
+    }
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    [self configureRequest:fetchRequest];
+    
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc]
+                                                             initWithFetchRequest:fetchRequest
+                                                             managedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext
+                                                             sectionNameKeyPath:[self customSectionNameKeyPath]
+                                                             cacheName:nil];
+    aFetchedResultsController.delegate = self;
+    _fetchedResultsController = aFetchedResultsController;
+    
+	[_fetchedResultsController performFetch:NULL];
+    
+    [self fetchedResultsControllerDidPerformFetch:_fetchedResultsController];
+    
+    return _fetchedResultsController;
 }
 
 - (void)updateCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {

@@ -12,6 +12,12 @@
         <attribute name="organizerAvatar" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="ActivityInvitationNotification" representedClassName="ActivityInvitationNotification" parentEntity="InvitationNotification" syncable="YES"/>
+    <entity name="BillboardPost" representedClassName="BillboardPost" parentEntity="Object" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Course" representedClassName="Course" parentEntity="Event" syncable="YES">
         <attribute name="courseDay" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="hours" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -86,6 +92,7 @@
     <elements>
         <element name="Activity" positionX="160" positionY="192" width="128" height="180"/>
         <element name="ActivityInvitationNotification" positionX="160" positionY="192" width="128" height="45"/>
+        <element name="BillboardPost" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Course" positionX="160" positionY="192" width="128" height="180"/>
         <element name="Event" positionX="160" positionY="192" width="128" height="120"/>
         <element name="Exam" positionX="160" positionY="192" width="128" height="45"/>
