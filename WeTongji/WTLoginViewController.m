@@ -14,6 +14,7 @@
 #import "User+Addition.h"
 #import "WTCoreDataManager.h"
 #import "WTLoginIntroViewController.h"
+#import "WTRegisterInfoViewController.h"
 
 @interface WTLoginViewController ()
 
@@ -80,6 +81,8 @@
     }
     return _forgetPasswordButton;
 }
+
+#pragma UI methods
 
 - (void)configureLoginPanel {
     UIEdgeInsets insets = UIEdgeInsetsMake(6.0, 7.0, 8.0, 7.0);
@@ -156,7 +159,8 @@
 }
 
 - (IBAction)didClickSignUpButton:(UIButton *)sender {
-    
+    WTRegisterInfoViewController *vc = [[WTRegisterInfoViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 + (void)show:(BOOL)showIntro {
