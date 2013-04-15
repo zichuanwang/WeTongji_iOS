@@ -7,8 +7,7 @@
 //
 
 #import "WTNowBaseCell.h"
-#define kNowTimeLabelX 10
-#define kNowTimeLabelY 19
+#import "OHAttributedLabel.h"
 
 @implementation WTNowBaseCell
 

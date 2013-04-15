@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OHAttributedLabel.h"
+
+@class OHAttributedLabel;
 
 typedef enum {
     WTNowBaseCellTypePast,
