@@ -21,12 +21,11 @@
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     request.entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:context];
     
-    NSDateComponents *todayComponents = [[NSCalendar currentCalendar] components:NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit fromDate:[NSDate date]];
+    NSDateComponents *todayComponents = [[NSCalendar currentCalendar] components:NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSTimeZoneCalendarUnit fromDate:[NSDate date]];
     NSDateComponents *oneDay = [[NSDateComponents alloc] init];
     oneDay.day = 1;
     NSDate *lastMidnight = [[NSCalendar currentCalendar] dateFromComponents:todayComponents];
     NSDate *nextMidnight = [[NSCalendar currentCalendar] dateByAddingComponents:oneDay toDate:lastMidnight options:NSWrapCalendarComponents];
-    
     request.predicate = [NSPredicate predicateWithFormat:@"(SELF in %@) AND (beginTime >= %@) AND (endTime <= %@)", currentUser.scheduledEvents, lastMidnight, nextMidnight];
     
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"beginTime" ascending:YES]];
@@ -36,6 +35,8 @@
     NSArray *result = nil;
     if (allEvents.count >= 2) {
         result = [NSArray arrayWithObjects:allEvents[0], allEvents[1], nil];
+    } else if (allEvents.count == 1) {
+        result = [NSArray arrayWithObject:allEvents.lastObject];
     }
     return result;
 }
@@ -43,7 +44,7 @@
 #pragma mark - Properties
 
 - (BOOL)isEventStartToday {
-    NSDateComponents *todayComponents = [[NSCalendar currentCalendar] components:NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit fromDate:[NSDate date]];
+    NSDateComponents *todayComponents = [[NSCalendar currentCalendar] components:NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSTimeZoneCalendarUnit fromDate:[NSDate date]];
     NSDateComponents *oneDay = [[NSDateComponents alloc] init];
     oneDay.day = 1;
     NSDate *lastMidnight = [[NSCalendar currentCalendar] dateFromComponents:todayComponents];
