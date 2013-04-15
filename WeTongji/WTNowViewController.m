@@ -114,7 +114,7 @@
     // TODO: 判断超过19的情况
     NSIndexPath *targetIndexPath = [NSIndexPath indexPathForRow:currentWeekNumber - 1 inSection:0];
     
-    BOOL weekTableViewScrollAnimated = abs(currentWeekNumber - self.barTitleView.weekNumber) < 2;
+    BOOL weekTableViewScrollAnimated = abs(currentWeekNumber - self.barTitleView.weekNumber) < 2 && currentWeekNumber != self.barTitleView.weekNumber;
     weekTableViewScrollAnimated = weekTableViewScrollAnimated && animated;
     
     [self.tableView scrollToRowAtIndexPath:targetIndexPath atScrollPosition:UITableViewScrollPositionTop animated:weekTableViewScrollAnimated];
