@@ -94,6 +94,7 @@
         itemView.bgButton.tag = index;
         
         [itemView.bgButton addTarget:self action:@selector(didClickItemViewBgButton:) forControlEvents:UIControlEventTouchUpInside];
+        [itemView.bgCoverButton addTarget:self action:@selector(didClickItemViewBgButton:) forControlEvents:UIControlEventTouchUpInside];
         
         [self.itemViewArray addObject:itemView];
         return itemView;

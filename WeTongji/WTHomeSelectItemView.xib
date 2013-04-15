@@ -96,27 +96,45 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
-							<object class="IBUIImageView" id="762316672">
+							<object class="IBUIButton" id="512774888">
 								<reference key="NSNextResponder" ref="277502188"/>
-								<int key="NSvFlags">274</int>
+								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{0, -3}, {290, 106}}</string>
 								<reference key="NSSuperview" ref="277502188"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="349143880"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
-								<int key="IBUIContentMode">2</int>
-								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<object class="NSCustomResource" key="IBUIImage">
+								<int key="IBUIContentHorizontalAlignment">0</int>
+								<int key="IBUIContentVerticalAlignment">0</int>
+								<bool key="IBUIAdjustsImageWhenHighlighted">NO</bool>
+								<reference key="IBUINormalTitleColor" ref="945675429"/>
+								<reference key="IBUINormalTitleShadowColor" ref="876690234"/>
+								<object class="NSCustomResource" key="IBUIHighlightedImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">WTRoundCornerPanelBgHighlightCover.png</string>
+								</object>
+								<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage" id="170374300">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">WTRoundCornerPanelBgCover.png</string>
+								</object>
+								<reference key="IBUINormalBackgroundImage" ref="170374300"/>
+								<object class="IBUIFontDescription" key="IBUIFontDescription" id="23788397">
+									<int key="type">1</int>
+									<double key="pointSize">17</double>
+								</object>
+								<object class="NSFont" key="IBUIFont" id="258892849">
+									<string key="NSName">Helvetica</string>
+									<double key="NSSize">17</double>
+									<int key="NSfFlags">16</int>
 								</object>
 							</object>
 						</array>
 						<string key="NSFrame">{{5, 0}, {290, 101}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="762316672"/>
+						<reference key="NSNextKeyView" ref="512774888"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor" id="97112436">
 							<int key="NSColorSpace">3</int>
@@ -231,15 +249,8 @@ c3RhaW5hYmlsaXR5A</string>
 						<reference key="IBUINormalTitleShadowColor" ref="876690234"/>
 						<reference key="IBUIHighlightedBackgroundImage" ref="394538454"/>
 						<reference key="IBUINormalBackgroundImage" ref="945139838"/>
-						<object class="IBUIFontDescription" key="IBUIFontDescription">
-							<int key="type">1</int>
-							<double key="pointSize">17</double>
-						</object>
-						<object class="NSFont" key="IBUIFont">
-							<string key="NSName">Helvetica</string>
-							<double key="NSSize">17</double>
-							<int key="NSfFlags">16</int>
-						</object>
+						<reference key="IBUIFontDescription" ref="23788397"/>
+						<reference key="IBUIFont" ref="258892849"/>
 					</object>
 					<object class="IBUIView" id="1048858455">
 						<reference key="NSNextResponder" ref="914823059"/>
@@ -623,6 +634,14 @@ c3RhaW5hYmlsaXR5A</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">bgCoverButton</string>
+						<reference key="source" ref="191373211"/>
+						<reference key="destination" ref="512774888"/>
+					</object>
+					<int key="connectionID">81</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">nameLabel</string>
 						<reference key="source" ref="914823059"/>
 						<reference key="destination" ref="980200675"/>
@@ -891,18 +910,13 @@ c3RhaW5hYmlsaXR5A</string>
 						<reference key="object" ref="277502188"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="349143880"/>
-							<reference ref="762316672"/>
+							<reference ref="512774888"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">65</int>
 						<reference key="object" ref="349143880"/>
-						<reference key="parent" ref="277502188"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">68</int>
-						<reference key="object" ref="762316672"/>
 						<reference key="parent" ref="277502188"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -919,6 +933,11 @@ c3RhaW5hYmlsaXR5A</string>
 						<int key="objectID">76</int>
 						<reference key="object" ref="874702082"/>
 						<reference key="parent" ref="191373211"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">80</int>
+						<reference key="object" ref="512774888"/>
+						<reference key="parent" ref="277502188"/>
 					</object>
 				</array>
 			</object>
@@ -953,19 +972,20 @@ c3RhaW5hYmlsaXR5A</string>
 				<string key="60.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="64.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="65.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="68.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="74.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<real value="1" key="74.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="75.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<real value="1" key="75.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="76.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<real value="1" key="76.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<string key="80.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<real value="1" key="80.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">79</int>
+			<int key="maxID">81</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1011,6 +1031,7 @@ c3RhaW5hYmlsaXR5A</string>
 					<string key="superclassName">UIView</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="bgButton">UIButton</string>
+						<string key="bgCoverButton">UIButton</string>
 						<string key="bgImageContainerView">UIView</string>
 						<string key="bgImageView">UIImageView</string>
 						<string key="subCategoryLabel">UILabel</string>
@@ -1018,6 +1039,10 @@ c3RhaW5hYmlsaXR5A</string>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="bgButton">
 							<string key="name">bgButton</string>
+							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="bgCoverButton">
+							<string key="name">bgCoverButton</string>
 							<string key="candidateClassName">UIButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="bgImageContainerView">
@@ -1105,6 +1130,7 @@ c3RhaW5hYmlsaXR5A</string>
 			<string key="WTPosterPlaceholder.png">{46, 63}</string>
 			<string key="WTRoundCornerPanelBg.png">{300, 106}</string>
 			<string key="WTRoundCornerPanelBgCover.png">{290, 100}</string>
+			<string key="WTRoundCornerPanelBgHighlightCover.png">{290, 100}</string>
 			<string key="WTRoundCornerPanelHighlightBg.png">{300, 106}</string>
 			<string key="WTSmallPosterCover.png">{44, 60}</string>
 		</dictionary>
