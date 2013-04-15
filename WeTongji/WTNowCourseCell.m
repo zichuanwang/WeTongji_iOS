@@ -29,6 +29,20 @@
     [super awakeFromNib];
 }
 
+#pragma mark - UI methods
+
+- (void)setCellPast:(BOOL)past {
+    [super setCellPast:past];
+    
+    if (past) {
+        self.courseNameLabel.highlighted = YES;
+        self.courseNameLabel.shadowOffset = CGSizeZero;
+    } else {
+        self.courseNameLabel.highlighted = NO;
+        self.courseNameLabel.shadowOffset = CGSizeMake(0, 1);
+    }
+}
+
 - (void)configureCellWithTitle:(NSString *)title
                           time:(NSString *)time
                       location:(NSString *)location {

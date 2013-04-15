@@ -28,6 +28,22 @@
     [super awakeFromNib];
 }
 
+#pragma mark - UI methods
+
+- (void)setCellPast:(BOOL)past {
+    [super setCellPast:past];
+    
+    if (past) {
+        self.posterContainerView.alpha = 0.5f;
+        self.activityNameLabel.highlighted = YES;
+        self.activityNameLabel.shadowOffset = CGSizeZero;
+    } else {
+        self.posterContainerView.alpha = 1.0f;
+        self.activityNameLabel.highlighted = NO;
+        self.activityNameLabel.shadowOffset = CGSizeMake(0, 1);
+    }
+}
+
 - (void)configureCellWithTitle:(NSString *)title
                           time:(NSString *)time
                       location:(NSString *)location
@@ -38,6 +54,7 @@
     
     self.whenLabel.text = time;
     self.whereLabel.text = location;
+    self.posterPlaceholderImageView.alpha = 1.0f;
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURL]];
     [self.posterImageView setImageWithURLRequest:request
@@ -45,6 +62,7 @@
                                          success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                              self.posterImageView.image = image;
                                              [self.posterImageView fadeIn];
+                                             [self.posterPlaceholderImageView fadeOut];
                                          }
                                          failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
 

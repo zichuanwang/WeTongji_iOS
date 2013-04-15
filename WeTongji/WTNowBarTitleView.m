@@ -66,7 +66,6 @@
     [self.weekLabel sizeToFit];
     
     CGFloat weekLabelWidth = self.weekLabel.frame.size.width + WEEK_LABEL_ADD_WIDTH;
-    NSLog(@"!!!!%f", weekLabelWidth);
     [self.weekLabel resetWidth:weekLabelWidth];
     [self.weekLabel resetHeight:self.weekContainerView.frame.size.height];
     

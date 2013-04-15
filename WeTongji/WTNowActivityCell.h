@@ -11,6 +11,8 @@
 
 @interface WTNowActivityCell : WTNowBaseCell
 
+@property (nonatomic, weak) IBOutlet UIView *posterContainerView;
+@property (nonatomic, weak) IBOutlet UIImageView *posterPlaceholderImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *posterImageView;
 @property (nonatomic, weak) IBOutlet UILabel *activityNameLabel;
 

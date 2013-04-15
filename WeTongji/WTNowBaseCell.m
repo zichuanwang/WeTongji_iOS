@@ -29,18 +29,18 @@
 }
 
 - (void)awakeFromNib {
-    self.nowLabel.text = NSLocalizedString(@"Now", nil);
-    CGFloat nowLabelHeight = self.nowLabel.frame.size.height;
-    [self.nowLabel sizeToFit];
-    [self.nowLabel resetHeight:nowLabelHeight];
+    self.nowDisplayLabel.text = NSLocalizedString(@"Now", nil);
+    CGFloat nowDisplayLabelHeight = self.nowDisplayLabel.frame.size.height;
+    [self.nowDisplayLabel sizeToFit];
+    [self.nowDisplayLabel resetHeight:nowDisplayLabelHeight];
 }
 
 #pragma mark - UI methods
 
 - (void)showNowView {
     self.nowView.hidden = NO;
-    CGPoint nowLabelOrigin = [self.nowLabel convertPoint:self.nowLabel.frame.origin toView:self.nowView];
-    [self.whenLabel resetOriginX:nowLabelOrigin.x + self.nowLabel.frame.size.width + 20];
+    CGPoint nowDisplayLabelOrigin = [self.nowDisplayLabel convertPoint:self.nowDisplayLabel.frame.origin toView:self.nowView];
+    [self.whenLabel resetOriginX:nowDisplayLabelOrigin.x + self.nowDisplayLabel.frame.size.width + 20];
 }
 
 - (void)hideNowView {
@@ -48,13 +48,27 @@
     [self.whenLabel resetOriginX:self.nowView.frame.origin.x + 2];
 }
 
-- (void)updateCellStatus:(WTNowBaseCellType)type {
-    if (type == WTNowBaseCellTypePast) {
+- (void)setCellPast:(BOOL)past {
+    if (past) {
         self.bgImageView.image = [UIImage imageNamed:@"WTRoundCornerPanelCuppedBg"];
-        self.containerView.alpha = 0.5f;
+        self.whenLabel.highlighted = YES;
+        self.whenLabel.shadowOffset = CGSizeZero;
+        self.whereLabel.highlighted = YES;
+        self.whereLabel.shadowOffset = CGSizeZero;
     } else {
         self.bgImageView.image = [UIImage imageNamed:@"WTRoundCornerPanelBg"];
-        self.containerView.alpha = 1.0f;
+        self.whenLabel.highlighted = NO;
+        self.whenLabel.shadowOffset = CGSizeMake(0, 1);
+        self.whereLabel.highlighted = NO;
+        self.whereLabel.shadowOffset = CGSizeMake(0, 1);
+    }
+}
+
+- (void)updateCellStatus:(WTNowBaseCellType)type {
+    if (type == WTNowBaseCellTypePast) {
+        [self setCellPast:YES];
+    } else {
+        [self setCellPast:NO];
     }
         
     if (type == WTNowBaseCellTypeNow){

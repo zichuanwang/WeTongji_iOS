@@ -201,6 +201,8 @@
 		E14286A0171BE0B1006AB739 /* WTNowBarTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E142869F171BE0B1006AB739 /* WTNowBarTitleView.xib */; };
 		E14286A3171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover.png in Resources */ = {isa = PBXBuildFile; fileRef = E14286A1171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover.png */; };
 		E14286A4171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14286A2171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover@2x.png */; };
+		E14286A7171C5872006AB739 /* WTNowWeekCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E14286A6171C5871006AB739 /* WTNowWeekCell.m */; };
+		E14286A9171C5893006AB739 /* WTNowWeekCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14286A8171C5892006AB739 /* WTNowWeekCell.xib */; };
 		E14F964F1696FCF40048414D /* TestAvatar1.png in Resources */ = {isa = PBXBuildFile; fileRef = E14F964E1696FCF40048414D /* TestAvatar1.png */; };
 		E14F96521696FD660048414D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E14F96511696FD660048414D /* QuartzCore.framework */; };
 		E14F9E7717193383009AFABA /* WTErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E14F9E7617193383009AFABA /* WTErrorHandler.m */; };
@@ -685,6 +687,9 @@
 		E142869F171BE0B1006AB739 /* WTNowBarTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNowBarTitleView.xib; sourceTree = "<group>"; };
 		E14286A1171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTRoundCornerPanelBgHighlightCover.png; sourceTree = "<group>"; };
 		E14286A2171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTRoundCornerPanelBgHighlightCover@2x.png"; sourceTree = "<group>"; };
+		E14286A5171C5871006AB739 /* WTNowWeekCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNowWeekCell.h; sourceTree = "<group>"; };
+		E14286A6171C5871006AB739 /* WTNowWeekCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNowWeekCell.m; sourceTree = "<group>"; };
+		E14286A8171C5892006AB739 /* WTNowWeekCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNowWeekCell.xib; sourceTree = "<group>"; };
 		E14F964E1696FCF40048414D /* TestAvatar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TestAvatar1.png; sourceTree = "<group>"; };
 		E14F96511696FD660048414D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E14F9E7517193383009AFABA /* WTErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTErrorHandler.h; sourceTree = "<group>"; };
@@ -1823,6 +1828,9 @@
 				039E37FF16970FD000178F1C /* WTNowCourseCell.h */,
 				039E380016970FD000178F1C /* WTNowCourseCell.m */,
 				039E380D16971F8C00178F1C /* WTNowCourseCell.xib */,
+				E14286A5171C5871006AB739 /* WTNowWeekCell.h */,
+				E14286A6171C5871006AB739 /* WTNowWeekCell.m */,
+				E14286A8171C5892006AB739 /* WTNowWeekCell.xib */,
 			);
 			name = CustomCells;
 			sourceTree = "<group>";
@@ -2306,6 +2314,7 @@
 				E14286A0171BE0B1006AB739 /* WTNowBarTitleView.xib in Resources */,
 				E14286A3171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover.png in Resources */,
 				E14286A4171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover@2x.png in Resources */,
+				E14286A9171C5893006AB739 /* WTNowWeekCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2438,6 +2447,7 @@
 				E1428692171ADA14006AB739 /* BillboardPost+Addition.m in Sources */,
 				E1428699171AE05F006AB739 /* WTBillboardItemView.m in Sources */,
 				E142869D171BE086006AB739 /* WTNowBarTitleView.m in Sources */,
+				E14286A7171C5872006AB739 /* WTNowWeekCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

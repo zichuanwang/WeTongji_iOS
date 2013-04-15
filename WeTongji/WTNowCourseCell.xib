@@ -89,7 +89,10 @@
 											<int key="NSColorSpace">1</int>
 											<bytes key="NSRGB">MC4wNDcwNTg4MjM1MyAwLjc2MDc4NDMxMzcgMC43OTYwNzg0MzE0AA</bytes>
 										</object>
-										<nil key="IBUIHighlightedColor"/>
+										<object class="NSColor" key="IBUIHighlightedColor">
+											<int key="NSColorSpace">1</int>
+											<bytes key="NSRGB">MC42OTQxMTc2NDcxIDAuNjk0MTE3NjQ3MSAwLjY5NDExNzY0NzEAA</bytes>
+										</object>
 										<object class="NSColor" key="IBUIShadowColor" id="887121021">
 											<int key="NSColorSpace">3</int>
 											<bytes key="NSWhite">MQA</bytes>
@@ -124,7 +127,10 @@
 											<int key="NSColorSpace">3</int>
 											<bytes key="NSWhite">MC4zMzMzMzMzMzMzAA</bytes>
 										</object>
-										<nil key="IBUIHighlightedColor"/>
+										<object class="NSColor" key="IBUIHighlightedColor">
+											<int key="NSColorSpace">1</int>
+											<bytes key="NSRGB">MC42OTQxMTc2NDcxIDAuNjk0MTE3NjQ3MSAwLjY5NDExNzY0NzEAA</bytes>
+										</object>
 										<reference key="IBUIShadowColor" ref="887121021"/>
 										<string key="IBUIShadowOffset">{0, 1}</string>
 										<int key="IBUIBaselineAdjustment">0</int>
@@ -211,7 +217,10 @@
 											<int key="NSColorSpace">3</int>
 											<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
 										</object>
-										<nil key="IBUIHighlightedColor"/>
+										<object class="NSColor" key="IBUIHighlightedColor">
+											<int key="NSColorSpace">1</int>
+											<bytes key="NSRGB">MC42OTQxMTc2NDcxIDAuNjk0MTE3NjQ3MSAwLjY5NDExNzY0NzEAA</bytes>
+										</object>
 										<object class="NSColor" key="IBUIShadowColor">
 											<int key="NSColorSpace">1</int>
 											<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -228,7 +237,7 @@
 									<object class="IBUILabel" id="869727386">
 										<reference key="NSNextResponder" ref="105122889"/>
 										<int key="NSvFlags">289</int>
-										<string key="NSFrame">{{208, 8}, {90, 20}}</string>
+										<string key="NSFrame">{{208, 11}, {90, 10}}</string>
 										<reference key="NSSuperview" ref="105122889"/>
 										<reference key="NSNextKeyView" ref="417019503"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -294,14 +303,6 @@
 			<array class="NSMutableArray" key="connectionRecords">
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">nowLabel</string>
-						<reference key="source" ref="467294979"/>
-						<reference key="destination" ref="647104879"/>
-					</object>
-					<int key="connectionID">40</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">nowView</string>
 						<reference key="source" ref="467294979"/>
 						<reference key="destination" ref="42673059"/>
@@ -363,6 +364,14 @@
 						<reference key="destination" ref="207252609"/>
 					</object>
 					<int key="connectionID">48</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">nowDisplayLabel</string>
+						<reference key="source" ref="467294979"/>
+						<reference key="destination" ref="647104879"/>
+					</object>
+					<int key="connectionID">49</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -479,7 +488,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">48</int>
+			<int key="maxID">49</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
