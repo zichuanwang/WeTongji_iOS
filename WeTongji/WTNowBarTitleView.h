@@ -33,7 +33,6 @@
 
 @protocol WTNowBarTitleViewDelegate <NSObject>
 
-- (void)nowBarTitleViewDidClickPrevButton;
-- (void)nowBarTitleViewDidClickNextButton;
+- (void)nowBarTitleViewWeekNumberDidChange:(WTNowBarTitleView *)titleView;
 
 @end

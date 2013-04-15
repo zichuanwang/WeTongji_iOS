@@ -80,14 +80,14 @@
 - (IBAction)didClickPrevButton:(UIButton *)sender {
     if (self.weekNumber > MIN_WEEK_NUMBER) {
         self.weekNumber--;
-        [self.delegate nowBarTitleViewDidClickPrevButton];
+        [self.delegate nowBarTitleViewWeekNumberDidChange:self];
     }
 }
 
 - (IBAction)didClickNextButton:(UIButton *)sender {
     if (self.weekNumber < MAX_WEEK_NUMBER) {
         self.weekNumber++;
-        [self.delegate nowBarTitleViewDidClickNextButton];
+        [self.delegate nowBarTitleViewWeekNumberDidChange:self];
     }
 }
 

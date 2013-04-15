@@ -8,23 +8,20 @@
 
 #import "WTNowViewController.h"
 #import "WTResourceFactory.h"
-#import "WTNowBaseCell.h"
-#import "WTNowTableViewController.h"
 #import "WTCoreDataManager.h"
 #import "NSNotificationCenter+WTAddition.h"
 #import "WTLoginViewController.h"
 #import "WTNowBarTitleView.h"
+#import "WTNowWeekCell.h"
 
 @interface WTNowViewController () <WTNowBarTitleViewDelegate>
 
-@property (nonatomic, strong) WTNowTableViewController *nowTableViewController;
 @property (nonatomic, strong) NSIndexPath *nowIndexPath;
 @property (nonatomic, strong) WTNowBarTitleView *barTitleView;
 
 @end
 
 @implementation WTNowViewController
-@synthesize nowTableViewController = _nowTableViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,7 +35,7 @@
     [super viewDidLoad];
     
     [self configureNavigationBar];
-    [self configureTableViewController];
+    [self configureTableView];
     
     [NSNotificationCenter registerCurrentUserDidChangeNotificationWithSelector:@selector(handleCurrentUserDidChangeNotification:)
                                                                         target:self];
@@ -51,7 +48,6 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self.nowTableViewController viewDidAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,26 +66,23 @@
 #pragma mark - Notification handler
 
 - (void)handleCurrentUserDidChangeNotification:(NSNotification *)notification {    
-    if ([WTCoreDataManager sharedManager].currentUser) {
-        if (self.nowTableViewController) {
-            [self.nowTableViewController changeCurrentUser];
-        } else {
-            [self configureTableViewController];
-        }
-    } else {
-        [self.nowTableViewController.view removeFromSuperview];
-        self.nowTableViewController = nil;
-    }
+    [self.tableView reloadData];
 }
 
 #pragma mark - UI methods
 
-- (void)configureTableViewController {
-    if ([WTCoreDataManager sharedManager].currentUser) {
-        self.nowTableViewController = [[WTNowTableViewController alloc] init];
-        [self.nowTableViewController.view resetHeight:self.view.frame.size.height];
-        [self.view addSubview:self.nowTableViewController.view];
-    }
+
+- (void)configureTableView {
+    CGRect frame = self.tableView.frame;
+    self.tableView.transform = CGAffineTransformMakeRotation(-M_PI_2);
+    self.tableView.frame = frame;
+}
+
+- (void)configureCell:(WTNowWeekCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"table view frame:%@", NSStringFromCGRect(self.tableView.frame));
+    NSLog(@"cell frame%@", NSStringFromCGRect(cell.frame));
+    
+    [cell resetWidth:self.tableView.frame.size.height];
 }
 
 - (void)configureNavigationBar {
@@ -102,23 +95,54 @@
                                                                                        action:@selector(didClickNowButton:)];
 }
 
+- (void)updateTableView {
+    NSUInteger index = self.tableView.contentOffset.y / self.tableView.frame.size.width;
+    self.barTitleView.weekNumber = index + 1;
+}
+
 #pragma mark - Actions
 
 - (void)didClickNowButton:(UIButton *)sender {
-    if ([WTCoreDataManager sharedManager].currentUser)
-        [self.nowTableViewController scrollToNow];
-    else
+    if ([WTCoreDataManager sharedManager].currentUser) {
+        //[self.nowTableViewController scrollToNow];
+    } else {
         [WTLoginViewController show:NO];
+    }
 }
 
 #pragma mark - WTNowBarTitleViewDelegate
 
-- (void)nowBarTitleViewDidClickNextButton {
-    
+- (void)nowBarTitleViewWeekNumberDidChange:(WTNowBarTitleView *)titleView {
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:titleView.weekNumber - 1 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
-- (void)nowBarTitleViewDidClickPrevButton {
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 19;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *name = @"WTNowWeekCell";
     
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:name];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:name owner:self options:nil] lastObject];
+    }
+    [self configureCell:(WTNowWeekCell *)cell atIndexPath:indexPath];
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    [self updateTableView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (!decelerate) {
+        [self updateTableView];
+    }
 }
 
 @end

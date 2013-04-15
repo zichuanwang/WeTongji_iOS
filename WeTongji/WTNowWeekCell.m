@@ -7,6 +7,7 @@
 //
 
 #import "WTNowWeekCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation WTNowWeekCell
 
@@ -24,6 +25,12 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)awakeFromNib {
+    self.transform = CGAffineTransformMakeRotation(M_PI_2);
+    self.layer.borderColor = [UIColor blackColor].CGColor;
+    self.layer.borderWidth = 1.0f;
 }
 
 @end
