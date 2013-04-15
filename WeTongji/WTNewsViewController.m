@@ -201,8 +201,8 @@
     return @"publishDay";
 }
 
-- (void)fetchedResultsControllerDidPerformFetch:(NSFetchedResultsController *)aFetchedResultsController {
-    if ([aFetchedResultsController.sections.lastObject numberOfObjects] == 0) {
+- (void)fetchedResultsControllerDidPerformFetch {
+    if ([self.fetchedResultsController.sections.lastObject numberOfObjects] == 0) {
         [self.dragToLoadDecorator setTopViewLoading:YES];
     }
 }

@@ -10,4 +10,6 @@
 
 @interface WTNowWeekCell : UITableViewCell
 
+- (void)configureCellWithWeekNumber:(NSUInteger)weekNumber;
+
 @end

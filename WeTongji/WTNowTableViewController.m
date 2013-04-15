@@ -17,14 +17,11 @@
 #import "Event.h"
 #import "NSNotificationCenter+WTAddition.h"
 
-#define kWeekTimeInterval (60 * 60 * 24 * 7)
+#define WEEK_TIME_INTERVAL (60 * 60 * 24 * 7)
 // Test Data
 static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 
-@interface WTNowTableViewController()
-
-@property (nonatomic, assign) int weekBegin;
-@property (nonatomic, assign) int weekEnd;
+@interface WTNowTableViewController ()
 
 @end
 
@@ -33,20 +30,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self configureTableView];
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
-    
-    // test
-    [self loadDataFrom:[self convertToDate:0] to:[self convertToDate:19] successBlock:^{
-        [self clearAllData];
-    } failureBlock:nil];
-    
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self configureWeekDuration];
+    [self configureTableView];    
 }
 
 #pragma mark - Public methods
@@ -64,13 +48,21 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     [self.tableView reloadData];
 }
 
-#pragma mark - Override Getter Method
+#pragma mark - Properties
 
-- (NSDate *)convertToDate:(int)week {
-   return [[semesterBeginTime convertToDate] dateByAddingTimeInterval:week * kWeekTimeInterval];
+- (void)setWeekNumber:(NSUInteger)weekNumber {
+    if (_weekNumber != weekNumber) {
+        _weekNumber = weekNumber;
+        self.fetchedResultsController = nil;
+        [self.tableView reloadData];
+    }
 }
 
 #pragma mark - Logic Method
+
+- (NSDate *)convertWeekNumberToDate:(NSUInteger)weekNumber {
+    return [[semesterBeginTime convertToDate] dateByAddingTimeInterval:weekNumber * WEEK_TIME_INTERVAL];
+}
 
 - (void)clearAllData {
     [Course clearAllCourses];
@@ -78,11 +70,11 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     [Activity clearAllActivites];
 }
 
-- (void)configureWeekDuration {
-    NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:[semesterBeginTime convertToDate]];
-    self.weekBegin = interval / kWeekTimeInterval; 
-    self.weekEnd = self.weekBegin + 1;
-}
+//- (void)configureWeekDuration {
+//    NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:[semesterBeginTime convertToDate]];
+//    self.weekBegin = interval / WEEK_TIME_INTERVAL; 
+//    self.weekEnd = self.weekBegin + 1;
+//}
 
 - (Event *)getNowEvent {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
@@ -186,7 +178,9 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 
 - (void)configureRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"Event" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
-    request.predicate = [NSPredicate predicateWithFormat:@"SELF in %@", [WTCoreDataManager sharedManager].currentUser.scheduledEvents];
+    
+    request.predicate = [NSPredicate predicateWithFormat:@"(SELF in %@) AND (beginTime >= %@) AND (beginTime <= %@)", [WTCoreDataManager sharedManager].currentUser.scheduledEvents, [self convertWeekNumberToDate:self.weekNumber - 1], [self convertWeekNumberToDate:self.weekNumber]];
+    
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"beginTime" ascending:YES]];
 }
 
@@ -200,7 +194,20 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     return nil;
 }
 
-#pragma mark - WTDragToLoadDatasource
+- (void)fetchedResultsControllerDidPerformFetch {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 300 * NSEC_PER_MSEC), dispatch_get_current_queue(), ^{
+        if ([self.fetchedResultsController.sections.lastObject numberOfObjects] == 0) {
+            [self loadDataFrom:[self convertWeekNumberToDate:self.weekNumber - 1] to:[self convertWeekNumberToDate:self.weekNumber] successBlock:^{
+                
+            } failureBlock:^{
+                
+            }];
+            //[self.dragToLoadDecorator setTopViewLoading:YES];
+        }
+    });
+}
+
+#pragma mark - WTDragToLoadDataSource
 
 - (UIScrollView *)dragToLoadScrollView {
     return self.tableView;

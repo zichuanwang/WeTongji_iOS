@@ -79,15 +79,15 @@
 }
 
 - (void)configureCell:(WTNowWeekCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"table view frame:%@", NSStringFromCGRect(self.tableView.frame));
-    NSLog(@"cell frame%@", NSStringFromCGRect(cell.frame));
+    NSLog(@"index row:%d", indexPath.row);
     
     [cell resetWidth:self.tableView.frame.size.height];
+    [cell configureCellWithWeekNumber:indexPath.row + 1];
 }
 
 - (void)configureNavigationBar {
     self.navigationItem.titleView = self.barTitleView;
-    
+        
     self.navigationItem.leftBarButtonItem = self.notificationButton;
     
     self.navigationItem.rightBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:NSLocalizedString(@"Now", nil)
@@ -119,7 +119,10 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 19;
+    if ([WTCoreDataManager sharedManager].currentUser)
+        return 19;
+    else
+        return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

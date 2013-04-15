@@ -7,7 +7,14 @@
 //
 
 #import "WTNowWeekCell.h"
+#import "WTNowTableViewController.h"
 #import <QuartzCore/QuartzCore.h>
+
+@interface WTNowWeekCell ()
+
+@property (nonatomic, strong) WTNowTableViewController *tableViewController;
+
+@end
 
 @implementation WTNowWeekCell
 
@@ -28,9 +35,22 @@
 }
 
 - (void)awakeFromNib {
-    self.transform = CGAffineTransformMakeRotation(M_PI_2);
-    self.layer.borderColor = [UIColor blackColor].CGColor;
-    self.layer.borderWidth = 1.0f;
+    self.tableViewController.view.transform = CGAffineTransformMakeRotation(M_PI_2);
+    self.tableViewController.view.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+    [self addSubview:self.tableViewController.view];
+}
+
+- (void)configureCellWithWeekNumber:(NSUInteger)weekNumber {
+    self.tableViewController.weekNumber = weekNumber;
+}
+
+#pragma mark - Properties
+
+- (WTNowTableViewController *)tableViewController {
+    if (!_tableViewController) {
+        _tableViewController = [[WTNowTableViewController alloc] init];
+    }
+    return _tableViewController;
 }
 
 @end

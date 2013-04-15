@@ -68,7 +68,7 @@
         [self.tableView beginUpdates];
 }
 
-- (void)fetchedResultsControllerDidPerformFetch:(NSFetchedResultsController *)aFetchedResultsController {
+- (void)fetchedResultsControllerDidPerformFetch {
     
 }
 
@@ -127,7 +127,7 @@
     
 	[_fetchedResultsController performFetch:NULL];
     
-    [self fetchedResultsControllerDidPerformFetch:_fetchedResultsController];
+    [self fetchedResultsControllerDidPerformFetch];
     
     return _fetchedResultsController;
 }

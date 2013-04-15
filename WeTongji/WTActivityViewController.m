@@ -219,9 +219,9 @@
     return nil;
 }
 
-- (void)fetchedResultsControllerDidPerformFetch:(NSFetchedResultsController *)aFetchedResultsController {
+- (void)fetchedResultsControllerDidPerformFetch {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 300 * NSEC_PER_MSEC), dispatch_get_current_queue(), ^{
-        if ([aFetchedResultsController.sections.lastObject numberOfObjects] == 0) {
+        if ([self.fetchedResultsController.sections.lastObject numberOfObjects] == 0) {
             [self.dragToLoadDecorator setTopViewLoading:YES];
         }
     });

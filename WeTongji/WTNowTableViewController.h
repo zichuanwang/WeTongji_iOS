@@ -10,6 +10,8 @@
 
 @interface WTNowTableViewController : WTCoreDataTableViewController
 
+@property (nonatomic, assign) NSUInteger weekNumber;
+
 - (void)scrollToNow;
 
 - (void)changeCurrentUser;

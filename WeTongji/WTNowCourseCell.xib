@@ -257,6 +257,7 @@
 										<string key="IBUIShadowOffset">{0, 0}</string>
 										<int key="IBUIBaselineAdjustment">0</int>
 										<int key="IBUITextAlignment">2</int>
+										<int key="IBUILineBreakMode">1</int>
 										<object class="IBUIFontDescription" key="IBUIFontDescription">
 											<int key="type">1</int>
 											<double key="pointSize">12</double>
