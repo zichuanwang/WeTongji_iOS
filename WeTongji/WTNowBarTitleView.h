@@ -8,12 +8,30 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol WTNowBarTitleViewDelegate;
+
 @interface WTNowBarTitleView : UIView
 
-@property (nonatomic, weak) IBOutlet UIView *titleBgView;
 @property (nonatomic, weak) IBOutlet UILabel *weekDisplayLabel;
 @property (nonatomic, weak) IBOutlet UILabel *weekLabel;
 @property (nonatomic, weak) IBOutlet UILabel *timeLabel;
 @property (nonatomic, weak) IBOutlet UIView *weekContainerView;
+@property (nonatomic, weak) IBOutlet UIImageView *weekBgImageView;
+
+@property (nonatomic, assign) NSUInteger weekNumber;
+
+@property (nonatomic, weak) id<WTNowBarTitleViewDelegate> delegate;
+
+- (IBAction)didClickPrevButton:(UIButton *)sender;
+- (IBAction)didClickNextButton:(UIButton *)sender;
+
++ (WTNowBarTitleView *)createBarTitleViewWithDelegate:(id<WTNowBarTitleViewDelegate>)delegate;
+
+@end
+
+@protocol WTNowBarTitleViewDelegate <NSObject>
+
+- (void)nowBarTitleViewDidClickPrevButton;
+- (void)nowBarTitleViewDidClickNextButton;
 
 @end

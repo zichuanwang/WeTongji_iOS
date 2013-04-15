@@ -13,11 +13,13 @@
 #import "WTCoreDataManager.h"
 #import "NSNotificationCenter+WTAddition.h"
 #import "WTLoginViewController.h"
+#import "WTNowBarTitleView.h"
 
-@interface WTNowViewController ()
+@interface WTNowViewController () <WTNowBarTitleViewDelegate>
 
 @property (nonatomic, strong) WTNowTableViewController *nowTableViewController;
 @property (nonatomic, strong) NSIndexPath *nowIndexPath;
+@property (nonatomic, strong) WTNowBarTitleView *barTitleView;
 
 @end
 
@@ -44,6 +46,8 @@
     if (![WTCoreDataManager sharedManager].currentUser) {
         [WTLoginViewController show:NO];
     }
+    
+    self.barTitleView.weekNumber = 1;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -52,6 +56,15 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Properties
+
+- (WTNowBarTitleView *)barTitleView {
+    if (!_barTitleView) {
+        _barTitleView = [WTNowBarTitleView createBarTitleViewWithDelegate:self];
+    }
+    return _barTitleView;
 }
 
 #pragma mark - Notification handler
@@ -80,7 +93,7 @@
 }
 
 - (void)configureNavigationBar {
-    self.navigationItem.titleView = self.titleBgView;
+    self.navigationItem.titleView = self.barTitleView;
     
     self.navigationItem.leftBarButtonItem = self.notificationButton;
     
@@ -98,11 +111,13 @@
         [WTLoginViewController show:NO];
 }
 
-- (IBAction)didClickPrevButton:(UIButton *)sender {
+#pragma mark - WTNowBarTitleViewDelegate
+
+- (void)nowBarTitleViewDidClickNextButton {
     
 }
 
-- (IBAction)didClickNextButton:(UIButton *)sender {
+- (void)nowBarTitleViewDidClickPrevButton {
     
 }
 
