@@ -189,7 +189,7 @@
     [self.briefIntroductionView addSubview:self.inviteButton];
     
     if (self.activity.canSchedule.boolValue) {
-        self.inviteButton.hidden = YES;
+        self.inviteButton.alpha = 0;
     }
 }
 
@@ -343,11 +343,11 @@
         self.activity.canSchedule = @(!self.activity.canSchedule.boolValue);
         
         if (participated) {
-            self.inviteButton.hidden = NO;
+            [self.inviteButton fadeIn];
             [[WTCoreDataManager sharedManager].currentUser addScheduledEventsObject:self.activity];
         }
         else {
-            self.inviteButton.hidden = YES;
+            [self.inviteButton fadeOut];
             [[WTCoreDataManager sharedManager].currentUser removeScheduledEventsObject:self.activity];
         }
     } failureBlock:^(NSError *error) {
