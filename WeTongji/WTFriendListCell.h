@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WTNewsCell : UITableViewCell
+@interface WTFriendListCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *categoryLabel;
 @property (nonatomic, weak) IBOutlet UILabel *summaryLabel;

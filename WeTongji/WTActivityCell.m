@@ -7,7 +7,6 @@
 //
 
 #import "WTActivityCell.h"
-#import "WTCommonConstant.h"
 #import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
 
 @interface WTActivityCell ()

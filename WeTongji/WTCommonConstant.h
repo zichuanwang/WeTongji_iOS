@@ -15,4 +15,8 @@
 
 #define WTNotificationCellLightGrayColor [UIColor colorWithRed:177.0f / 255 green:177.0f / 255 blue:177.0f / 255 alpha:1.0f]
 
+#define semesterBeginTime   @"2013-02-25T00:00:00+08:00"
+
+#define WEEK_TIME_INTERVAL  (60 * 60 * 24 * 7)
+
 #endif

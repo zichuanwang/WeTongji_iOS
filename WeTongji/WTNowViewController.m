@@ -13,11 +13,14 @@
 #import "WTLoginViewController.h"
 #import "WTNowBarTitleView.h"
 #import "WTNowWeekCell.h"
+#import "NSString+WTAddition.h"
 
 @interface WTNowViewController () <WTNowBarTitleViewDelegate>
 
 @property (nonatomic, strong) NSIndexPath *nowIndexPath;
 @property (nonatomic, strong) WTNowBarTitleView *barTitleView;
+
+@property (nonatomic, assign) BOOL scrollToNow;
 
 @end
 
@@ -42,12 +45,17 @@
     
     if (![WTCoreDataManager sharedManager].currentUser) {
         [WTLoginViewController show:NO];
+    } else {
+        self.scrollToNow = YES;
     }
-    
-    self.barTitleView.weekNumber = 1;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
+    [self.tableView resetHeight:self.view.frame.size.height];
+    if (self.scrollToNow) {
+        self.scrollToNow = NO;
+        [self scrollToNow:NO];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -100,11 +108,31 @@
     self.barTitleView.weekNumber = index + 1;
 }
 
+- (void)scrollToNow:(BOOL)animated {
+    NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:[semesterBeginTime convertToDate]];
+    NSUInteger currentWeekNumber = interval / WEEK_TIME_INTERVAL + 1;
+    // TODO: 判断超过19的情况
+    NSIndexPath *targetIndexPath = [NSIndexPath indexPathForRow:currentWeekNumber - 1 inSection:0];
+    
+    BOOL weekTableViewScrollAnimated = abs(currentWeekNumber - self.barTitleView.weekNumber) < 2;
+    weekTableViewScrollAnimated = weekTableViewScrollAnimated && animated;
+    
+    [self.tableView scrollToRowAtIndexPath:targetIndexPath atScrollPosition:UITableViewScrollPositionTop animated:weekTableViewScrollAnimated];
+    
+    int64_t delay = weekTableViewScrollAnimated ? 300 * NSEC_PER_MSEC : 0;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delay), dispatch_get_current_queue(), ^{
+        self.barTitleView.weekNumber = currentWeekNumber;
+        WTNowWeekCell *weekCell = (WTNowWeekCell *)[self.tableView cellForRowAtIndexPath:targetIndexPath];
+        [weekCell scrollToNow:animated];
+    });
+}
+
 #pragma mark - Actions
 
 - (void)didClickNowButton:(UIButton *)sender {
     if ([WTCoreDataManager sharedManager].currentUser) {
-        //[self.nowTableViewController scrollToNow];
+        [self scrollToNow:YES];
     } else {
         [WTLoginViewController show:NO];
     }

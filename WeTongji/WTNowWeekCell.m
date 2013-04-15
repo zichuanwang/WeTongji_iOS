@@ -44,6 +44,10 @@
     self.tableViewController.weekNumber = weekNumber;
 }
 
+- (void)scrollToNow:(BOOL)animated {
+    [self.tableViewController scrollToNow:animated];
+}
+
 #pragma mark - Properties
 
 - (WTNowTableViewController *)tableViewController {

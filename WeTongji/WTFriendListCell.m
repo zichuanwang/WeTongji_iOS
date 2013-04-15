@@ -6,10 +6,9 @@
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
-#import "WTNewsCell.h"
-#import "WTCommonConstant.h"
+#import "WTFriendListCell.h"
 
-@implementation WTNewsCell
+@implementation WTFriendListCell
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
                           category:(NSString *)category

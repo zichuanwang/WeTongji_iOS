@@ -12,4 +12,6 @@
 
 - (void)configureCellWithWeekNumber:(NSUInteger)weekNumber;
 
+- (void)scrollToNow:(BOOL)animated;
+
 @end

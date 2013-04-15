@@ -9,7 +9,6 @@
 #import "WTNotificationFriendInvitationCell.h"
 #import "FriendInvitationNotification.h"
 #import "Notification+Addition.h"
-#import "WTCommonConstant.h"
 #import "User.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import "NSString+WTAddition.h"

@@ -12,7 +12,7 @@
 
 @property (nonatomic, assign) NSUInteger weekNumber;
 
-- (void)scrollToNow;
+- (void)scrollToNow:(BOOL)animated;
 
 - (void)changeCurrentUser;
 

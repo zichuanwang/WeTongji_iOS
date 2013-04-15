@@ -7,7 +7,6 @@
 //
 
 #import "WTNewsCell.h"
-#import "WTCommonConstant.h"
 
 @implementation WTNewsCell
 

@@ -17,10 +17,6 @@
 #import "Event.h"
 #import "NSNotificationCenter+WTAddition.h"
 
-#define WEEK_TIME_INTERVAL (60 * 60 * 24 * 7)
-// Test Data
-static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
-
 @interface WTNowTableViewController ()
 
 @end
@@ -35,11 +31,11 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 
 #pragma mark - Public methods
 
-- (void)scrollToNow {
+- (void)scrollToNow:(BOOL)animated {
     Event *nowEvent = [self getNowEvent];
-    if (nowEvent != NULL) {
+    if (nowEvent) {
         NSIndexPath *indexPath = [self.fetchedResultsController indexPathForObject:nowEvent];
-        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:animated];
     }
 }
 

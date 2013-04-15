@@ -35,9 +35,9 @@
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<array class="NSMutableArray" key="NSSubviews">
-					<object class="IBUITableView" id="511595819">
+					<object class="IBUITableView" id="793851497">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">274</int>
+						<int key="NSvFlags">293</int>
 						<string key="NSFrameSize">{320, 460}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -97,14 +97,14 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">tableView</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="511595819"/>
+						<reference key="destination" ref="793851497"/>
 					</object>
 					<int key="connectionID">25</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">dataSource</string>
-						<reference key="source" ref="511595819"/>
+						<reference key="source" ref="793851497"/>
 						<reference key="destination" ref="372490531"/>
 					</object>
 					<int key="connectionID">26</int>
@@ -112,7 +112,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">delegate</string>
-						<reference key="source" ref="511595819"/>
+						<reference key="source" ref="793851497"/>
 						<reference key="destination" ref="372490531"/>
 					</object>
 					<int key="connectionID">27</int>
@@ -130,7 +130,7 @@
 						<int key="objectID">1</int>
 						<reference key="object" ref="191373211"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="511595819"/>
+							<reference ref="793851497"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -147,7 +147,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">24</int>
-						<reference key="object" ref="511595819"/>
+						<reference key="object" ref="793851497"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</array>

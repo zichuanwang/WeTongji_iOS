@@ -17,4 +17,5 @@
     #import "WTDebugTool.h"
     #import "Flurry.h"
     #import "WTErrorHandler.h"
+    #import "WTCommonConstant.h"
 #endif
