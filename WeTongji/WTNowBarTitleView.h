@@ -17,6 +17,8 @@
 @property (nonatomic, weak) IBOutlet UILabel *timeLabel;
 @property (nonatomic, weak) IBOutlet UIView *weekContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *weekBgImageView;
+@property (nonatomic, weak) IBOutlet UIButton *prevButton;
+@property (nonatomic, weak) IBOutlet UIButton *nextButton;
 
 @property (nonatomic, assign) NSUInteger weekNumber;
 
