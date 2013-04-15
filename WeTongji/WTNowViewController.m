@@ -40,14 +40,14 @@
     
     [NSNotificationCenter registerCurrentUserDidChangeNotificationWithSelector:@selector(handleCurrentUserDidChangeNotification:)
                                                                         target:self];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [self.nowTableViewController viewDidAppear:animated];
     
     if (![WTCoreDataManager sharedManager].currentUser) {
         [WTLoginViewController show:NO];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self.nowTableViewController viewDidAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
