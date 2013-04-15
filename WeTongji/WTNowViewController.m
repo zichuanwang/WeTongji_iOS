@@ -10,6 +10,9 @@
 #import "WTResourceFactory.h"
 #import "WTNowBaseCell.h"
 #import "WTNowTableViewController.h"
+#import "WTCoreDataManager.h"
+#import "NSNotificationCenter+WTAddition.h"
+#import "WTLoginViewController.h"
 
 @interface WTNowViewController ()
 
@@ -29,56 +32,71 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     [self configureNavigationBar];
-    [self configureTableView];
-    [self.nowTableViewController.view resetHeight:self.view.frame.size.height];
+    [self configureTableViewController];
+    
+    [NSNotificationCenter registerCurrentUserDidChangeNotificationWithSelector:@selector(handleCurrentUserDidChangeNotification:)
+                                                                        target:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [self.nowTableViewController viewDidAppear:animated];
+    
+    if (![WTCoreDataManager sharedManager].currentUser) {
+        [WTLoginViewController show:NO];
+    }
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (WTNowTableViewController *)nowTableViewController
-{
-    if (!_nowTableViewController) {
-        _nowTableViewController = [[WTNowTableViewController alloc] init];
-        [self.view addSubview:_nowTableViewController.view];
+#pragma mark - Notification handler
+
+- (void)handleCurrentUserDidChangeNotification:(NSNotification *)notification {    
+    if ([WTCoreDataManager sharedManager].currentUser) {
+        if (self.nowTableViewController) {
+            [self.nowTableViewController changeCurrentUser];
+        } else {
+            [self configureTableViewController];
+        }
+    } else {
+        [self.nowTableViewController.view removeFromSuperview];
+        self.nowTableViewController = nil;
     }
-    return _nowTableViewController;
 }
 
 #pragma mark - UI methods
 
-- (void)scrollToNow
-{
-    [self.nowTableViewController scrollToNow:YES];
-}
-
-- (void)configureTableView {
-    self.nowTableViewController.tableView.alwaysBounceVertical = YES;
-    self.nowTableViewController.tableView.scrollsToTop = NO;
+- (void)configureTableViewController {
+    if ([WTCoreDataManager sharedManager].currentUser) {
+        self.nowTableViewController = [[WTNowTableViewController alloc] init];
+        [self.nowTableViewController.view resetHeight:self.view.frame.size.height];
+        [self.view addSubview:self.nowTableViewController.view];
+    }
 }
 
 - (void)configureNavigationBar {
-    self.navigationItem.leftBarButtonItem = self.notificationButton;
-    
     self.navigationItem.titleView = self.titleBgView;
+    
+    self.navigationItem.leftBarButtonItem = self.notificationButton;
     
     self.navigationItem.rightBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:NSLocalizedString(@"Now", nil)
                                                                                        target:self
-                                                                                       action:@selector(scrollToNow)];
+                                                                                       action:@selector(didClickNowButton:)];
 }
 
 #pragma mark - Actions
+
+- (void)didClickNowButton:(UIButton *)sender {
+    if ([WTCoreDataManager sharedManager].currentUser)
+        [self.nowTableViewController scrollToNow];
+    else
+        [WTLoginViewController show:NO];
+}
 
 - (IBAction)didClickPrevButton:(UIButton *)sender {
     

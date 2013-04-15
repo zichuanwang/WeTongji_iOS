@@ -11,6 +11,8 @@
 #import "WTLoginViewController.h"
 #import "WTElectricityQueryViewController.h"
 #import "WTFriendListViewController.h"
+#import "WTCoreDataManager.h"
+#import <WeTongjiSDK/WeTongjiSDK.h>
 
 @interface WTMeViewController ()
 
@@ -61,6 +63,11 @@
 
 - (IBAction)didClickFriendListButton:(UIButton *)sender {
     [WTFriendListViewController show];
+}
+
+- (IBAction)didClickLogoutButton:(UIButton *)sender {
+    [[WTClient sharedClient] logout];
+    [WTCoreDataManager sharedManager].currentUser = nil;
 }
 
 @end

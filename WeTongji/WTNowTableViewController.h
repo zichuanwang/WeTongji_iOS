@@ -10,6 +10,8 @@
 
 @interface WTNowTableViewController : WTCoreDataTableViewController
 
-- (void)scrollToNow:(BOOL)animated;
+- (void)scrollToNow;
+
+- (void)changeCurrentUser;
 
 @end

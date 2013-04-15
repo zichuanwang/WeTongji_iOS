@@ -342,10 +342,14 @@
         sender.userInteractionEnabled = YES;
         self.activity.canSchedule = @(!self.activity.canSchedule.boolValue);
         
-        if (participated)
+        if (participated) {
+            self.inviteButton.hidden = NO;
             [[WTCoreDataManager sharedManager].currentUser addScheduledEventsObject:self.activity];
-        else
+        }
+        else {
+            self.inviteButton.hidden = YES;
             [[WTCoreDataManager sharedManager].currentUser removeScheduledEventsObject:self.activity];
+        }
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Set activitiy scheduled:%d, reason:%@", participated, error.localizedDescription);
         sender.userInteractionEnabled = YES;

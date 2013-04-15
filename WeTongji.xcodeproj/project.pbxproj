@@ -197,6 +197,10 @@
 		E1428692171ADA14006AB739 /* BillboardPost+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E1428691171ADA14006AB739 /* BillboardPost+Addition.m */; };
 		E1428699171AE05F006AB739 /* WTBillboardItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1428695171AE05B006AB739 /* WTBillboardItemView.m */; };
 		E142869A171AE066006AB739 /* WTBillboardItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1428696171AE05B006AB739 /* WTBillboardItemView.xib */; };
+		E142869D171BE086006AB739 /* WTNowBarTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E142869C171BE085006AB739 /* WTNowBarTitleView.m */; };
+		E14286A0171BE0B1006AB739 /* WTNowBarTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E142869F171BE0B1006AB739 /* WTNowBarTitleView.xib */; };
+		E14286A3171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover.png in Resources */ = {isa = PBXBuildFile; fileRef = E14286A1171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover.png */; };
+		E14286A4171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14286A2171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover@2x.png */; };
 		E14F964F1696FCF40048414D /* TestAvatar1.png in Resources */ = {isa = PBXBuildFile; fileRef = E14F964E1696FCF40048414D /* TestAvatar1.png */; };
 		E14F96521696FD660048414D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E14F96511696FD660048414D /* QuartzCore.framework */; };
 		E14F9E7717193383009AFABA /* WTErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E14F9E7617193383009AFABA /* WTErrorHandler.m */; };
@@ -676,6 +680,11 @@
 		E1428694171AE05B006AB739 /* WTBillboardItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBillboardItemView.h; sourceTree = "<group>"; };
 		E1428695171AE05B006AB739 /* WTBillboardItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTBillboardItemView.m; sourceTree = "<group>"; };
 		E1428696171AE05B006AB739 /* WTBillboardItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTBillboardItemView.xib; sourceTree = "<group>"; };
+		E142869B171BE085006AB739 /* WTNowBarTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNowBarTitleView.h; sourceTree = "<group>"; };
+		E142869C171BE085006AB739 /* WTNowBarTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNowBarTitleView.m; sourceTree = "<group>"; };
+		E142869F171BE0B1006AB739 /* WTNowBarTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNowBarTitleView.xib; sourceTree = "<group>"; };
+		E14286A1171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTRoundCornerPanelBgHighlightCover.png; sourceTree = "<group>"; };
+		E14286A2171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTRoundCornerPanelBgHighlightCover@2x.png"; sourceTree = "<group>"; };
 		E14F964E1696FCF40048414D /* TestAvatar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TestAvatar1.png; sourceTree = "<group>"; };
 		E14F96511696FD660048414D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E14F9E7517193383009AFABA /* WTErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTErrorHandler.h; sourceTree = "<group>"; };
@@ -1247,6 +1256,16 @@
 			name = Billboard;
 			sourceTree = "<group>";
 		};
+		E142869E171BE090006AB739 /* Now */ = {
+			isa = PBXGroup;
+			children = (
+				E142869B171BE085006AB739 /* WTNowBarTitleView.h */,
+				E142869C171BE085006AB739 /* WTNowBarTitleView.m */,
+				E142869F171BE0B1006AB739 /* WTNowBarTitleView.xib */,
+			);
+			name = Now;
+			sourceTree = "<group>";
+		};
 		E14FA67C1680A9F7008A8D33 /* Button */ = {
 			isa = PBXGroup;
 			children = (
@@ -1309,6 +1328,7 @@
 		E14FA67D1680B9BB008A8D33 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				E142869E171BE090006AB739 /* Now */,
 				E1428693171AE02F006AB739 /* Billboard */,
 				E11825DA17154A8000B4B9BF /* Detail */,
 				E17F9E7317130C4100DC6AB6 /* Banner */,
@@ -1447,6 +1467,8 @@
 				E1D374661694C9B60012E30A /* WTLargePosterCover@2x.png */,
 				E17F9E8A1713547D00DC6AB6 /* WTRoundCornerPanelBgCover.png */,
 				E17F9E8B1713547D00DC6AB6 /* WTRoundCornerPanelBgCover@2x.png */,
+				E14286A1171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover.png */,
+				E14286A2171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover@2x.png */,
 				E1D374671694C9B60012E30A /* WTSmallPosterCover.png */,
 				E1D374681694C9B60012E30A /* WTSmallPosterCover@2x.png */,
 			);
@@ -2281,6 +2303,9 @@
 				E10C24FB171AC5600009C673 /* WTBillboardTableViewController.xib in Resources */,
 				E10C2500171AC73D0009C673 /* WTBillboardCell.xib in Resources */,
 				E142869A171AE066006AB739 /* WTBillboardItemView.xib in Resources */,
+				E14286A0171BE0B1006AB739 /* WTNowBarTitleView.xib in Resources */,
+				E14286A3171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover.png in Resources */,
+				E14286A4171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2412,6 +2437,7 @@
 				E142868F171AD597006AB739 /* BillboardPost.m in Sources */,
 				E1428692171ADA14006AB739 /* BillboardPost+Addition.m in Sources */,
 				E1428699171AE05F006AB739 /* WTBillboardItemView.m in Sources */,
+				E142869D171BE086006AB739 /* WTNowBarTitleView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

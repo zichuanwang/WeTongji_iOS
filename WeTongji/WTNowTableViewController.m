@@ -33,9 +33,9 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self configureTableView];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
-    self.tableView.scrollsToTop = NO;
     
     // test
     [self loadDataFrom:[self convertToDate:0] to:[self convertToDate:19] successBlock:^{
@@ -47,11 +47,11 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self configureWeekDuration];
-    [NSNotificationCenter registerCurrentUserDidChangeNotificationWithSelector:@selector(handleCurrentUserDidChangeNotification:)
-                                                                        target:self];
 }
 
-- (void)scrollToNow:(BOOL)animated {
+#pragma mark - Public methods
+
+- (void)scrollToNow {
     Event *nowEvent = [self getNowEvent];
     if (nowEvent != NULL) {
         NSIndexPath *indexPath = [self.fetchedResultsController indexPathForObject:nowEvent];
@@ -59,9 +59,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     }
 }
 
-#pragma mark - Notification handler
-
-- (void)handleCurrentUserDidChangeNotification:(NSNotification *)notification {
+- (void)changeCurrentUser {
     self.fetchedResultsController = nil;
     [self.tableView reloadData];
 }
@@ -72,7 +70,7 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
    return [[semesterBeginTime convertToDate] dateByAddingTimeInterval:week * kWeekTimeInterval];
 }
 
-#pragma mark - Private Method
+#pragma mark - Logic Method
 
 - (void)clearAllData {
     [Course clearAllCourses];
@@ -138,6 +136,13 @@ static NSString *semesterBeginTime = @"2013-02-25T00:00:00+08:00";
     }];    
     [request getScheduleWithBeginDate:fromDate endDate:toDate];
     [[WTClient sharedClient] enqueueRequest:request];
+}
+
+#pragma mark - UI methods
+
+- (void)configureTableView {
+    self.tableView.alwaysBounceVertical = YES;
+    self.tableView.scrollsToTop = NO;
 }
 
 #pragma mark - CoreDataTableViewController methods
