@@ -30,6 +30,7 @@
         <attribute name="weekType" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Event" representedClassName="Event" isAbstract="YES" parentEntity="Object" syncable="YES">
+        <attribute name="beginDay" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
         <attribute name="beginTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="endTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="what" optional="YES" attributeType="String" syncable="YES"/>
@@ -94,7 +95,7 @@
         <element name="ActivityInvitationNotification" positionX="160" positionY="192" width="128" height="45"/>
         <element name="BillboardPost" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Course" positionX="160" positionY="192" width="128" height="180"/>
-        <element name="Event" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Event" positionX="160" positionY="192" width="128" height="135"/>
         <element name="Exam" positionX="160" positionY="192" width="128" height="45"/>
         <element name="FriendInvitationNotification" positionX="160" positionY="192" width="128" height="45"/>
         <element name="InvitationNotification" positionX="160" positionY="192" width="128" height="60"/>

@@ -131,6 +131,37 @@
     self.tableView.scrollsToTop = NO;
 }
 
+#pragma mark - UITableViewDelegate
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTTableViewTopLineSectionBg"]];
+    
+    CGFloat sectionHeaderHeight = bgImageView.frame.size.height;
+    
+    Event *firstEventInSection = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
+    
+    UILabel *weekDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 0, tableView.bounds.size.width, sectionHeaderHeight)];
+    weekDayLabel.text = [NSString weekConvertFromDate:firstEventInSection.beginTime];
+    weekDayLabel.font = [UIFont boldSystemFontOfSize:12.0f];
+    weekDayLabel.textColor = [UIColor colorWithRed:131.0f / 255 green:131.0f / 255 blue:131.0f / 255 alpha:1.0f];
+    weekDayLabel.backgroundColor = [UIColor clearColor];
+    
+    UILabel *yearMonthDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width - 10.0f, sectionHeaderHeight)];
+    yearMonthDayLabel.textAlignment = NSTextAlignmentRight;
+    yearMonthDayLabel.text = [NSString yearMonthDayConvertFromDate:firstEventInSection.beginTime];
+    yearMonthDayLabel.font = [UIFont boldSystemFontOfSize:12.0f];
+    yearMonthDayLabel.textColor = [UIColor colorWithRed:131.0f / 255 green:131.0f / 255 blue:131.0f / 255 alpha:1.0f];
+    yearMonthDayLabel.backgroundColor = [UIColor clearColor];
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:bgImageView.frame];
+    [headerView addSubview:bgImageView];
+    [headerView addSubview:weekDayLabel];
+    [headerView addSubview:yearMonthDayLabel];
+    
+    return headerView;
+}
+
 #pragma mark - CoreDataTableViewController methods
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
@@ -181,6 +212,10 @@
         return @"WTNowCourseCell";
     }
     return nil;
+}
+
+- (NSString *)customSectionNameKeyPath {
+    return @"beginDay";
 }
 
 - (void)fetchedResultsControllerDidPerformFetch {

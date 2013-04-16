@@ -58,6 +58,8 @@
         [[WTCoreDataManager sharedManager].currentUser addScheduledEventsObject:result];
     }
     
+    result.beginDay = [NSString yearMonthDayConvertFromDate:result.beginTime];
+    
     return result;
 }
 
@@ -84,6 +86,7 @@
 }
 
 - (void)awakeFromFetch {
+    [super awakeFromFetch];
 }
 
 - (NSString *)activityTypeString {

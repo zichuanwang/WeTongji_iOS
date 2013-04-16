@@ -34,6 +34,8 @@
     exam.hours = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"Hours"]] intValue]];
     exam.point = [NSNumber numberWithFloat: [[NSString stringWithFormat:@"%@", dict[@"Point"]] floatValue]];
     exam.required = [NSString stringWithFormat:@"%@", dict[@"Required"]];
+    
+    exam.beginDay = [NSString yearMonthDayConvertFromDate:exam.beginTime];
 
     return exam;
 }

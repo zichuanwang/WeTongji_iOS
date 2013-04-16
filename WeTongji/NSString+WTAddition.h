@@ -14,6 +14,7 @@
 + (NSString *)yearMonthDayConvertFromDate:(NSDate *)date;
 + (NSString *)yearMonthDayWeekConvertFromDate:(NSDate *)date;
 + (NSString *)yearMonthDayWeekTimeConvertFromDate:(NSDate *)date;
++ (NSString *)weekConvertFromDate:(NSDate *)date;
 + (NSString *)yearMonthDayTimeConvertFromDate:(NSDate *)date;
 + (NSString *)yearMonthDayWeekTimeConvertFromBeginDate:(NSDate *)begin
                                                endDate:(NSDate *)end;

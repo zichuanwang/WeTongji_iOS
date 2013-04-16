@@ -50,6 +50,8 @@
     course.weekType = [NSString stringWithFormat:@"%@", dict[@"WeekType"]];
     course.weekDay = [NSString stringWithFormat:@"%@", dict[@"WeekDay"]];
     
+    course.beginDay = [NSString yearMonthDayConvertFromDate:course.beginTime];
+    
     return course;
 }
 

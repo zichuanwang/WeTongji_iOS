@@ -70,18 +70,19 @@
     return weekdayStr;
 }
 
-+ (NSString *)yearMonthDayWeekConvertFromDate:(NSDate *)date {
-    NSString *result = [NSString yearMonthDayConvertFromDate:date];
-    
++ (NSString *)weekConvertFromDate:(NSDate *)date {
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     NSInteger unitFlags = NSWeekdayCalendarUnit;
     comps = [calendar components:unitFlags fromDate:date];
     int weekday = [comps weekday];
     
-    NSString *weekdayStr = [NSString weekDayConvertFromInteger:weekday];
-    result = [NSString stringWithFormat:@"%@ %@", result, weekdayStr];
-    
+    return [NSString weekDayConvertFromInteger:weekday];
+}
+
++ (NSString *)yearMonthDayWeekConvertFromDate:(NSDate *)date {
+    NSString *result = [NSString yearMonthDayConvertFromDate:date];
+    result = [NSString stringWithFormat:@"%@ %@", result, [NSString weekConvertFromDate:date]];
     return result;
 }
 

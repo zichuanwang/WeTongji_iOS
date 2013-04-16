@@ -68,4 +68,9 @@
     }
 }
 
+- (void)awakeFromFetch {
+    [super awakeFromFetch];
+    self.beginDay = [NSString yearMonthDayConvertFromDate:self.beginTime];
+}
+
 @end
