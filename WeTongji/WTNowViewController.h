@@ -8,8 +8,12 @@
 
 #import "WTRootViewController.h"
 
+@class Event;
+
 @interface WTNowViewController : WTRootViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+
+- (void)showNowItemDetailViewWithEvent:(Event *)event;
 
 @end

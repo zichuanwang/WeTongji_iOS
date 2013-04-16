@@ -9,6 +9,8 @@
 #import "WTNowBaseCell.h"
 #import "OHAttributedLabel.h"
 #import "Event.h"
+#import "UIApplication+WTAddition.h"
+#import "WTNowViewController.h"
 
 @interface WTNowBaseCell ()
 
@@ -93,7 +95,8 @@
 #pragma mark - Actions
 
 - (IBAction)didClickBgButton:(UIButton *)sender {
-    
+    WTNowViewController *nowViewControler = [UIApplication sharedApplication].nowViewController;
+    [nowViewControler showNowItemDetailViewWithEvent:self.event];
 }
 
 @end

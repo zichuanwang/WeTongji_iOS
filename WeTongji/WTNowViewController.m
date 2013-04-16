@@ -14,6 +14,8 @@
 #import "WTNowBarTitleView.h"
 #import "WTNowWeekCell.h"
 #import "NSString+WTAddition.h"
+#import "Activity.h"
+#import "WTActivityDetailViewController.h"
 
 @interface WTNowViewController () <WTNowBarTitleViewDelegate>
 
@@ -60,6 +62,15 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Public methods
+
+- (void)showNowItemDetailViewWithEvent:(Event *)event {
+    if ([event isKindOfClass:[Activity class]]) {
+        WTActivityDetailViewController *vc = [WTActivityDetailViewController createActivityDetailViewControllerWithActivity:(Activity *)event backBarButtonText:NSLocalizedString(@"Schedule", nil)];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 #pragma mark - Properties
