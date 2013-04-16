@@ -37,7 +37,7 @@
 }
 
 - (void)awakeFromNib {
-    self.nowDisplayLabel.text = NSLocalizedString(@"Now", nil);
+    self.nowDisplayLabel.text = NSLocalizedString(@"Ongoing", nil);
     CGFloat nowDisplayLabelHeight = self.nowDisplayLabel.frame.size.height;
     [self.nowDisplayLabel sizeToFit];
     [self.nowDisplayLabel resetHeight:nowDisplayLabelHeight];
