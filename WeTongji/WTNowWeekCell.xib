@@ -59,6 +59,7 @@
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<reference key="IBUIContentView" ref="443195751"/>
+				<string key="IBUIReuseIdentifier">WTNowWeekCell</string>
 				<integer value="320" key="IBUIRowHeight"/>
 			</object>
 		</array>

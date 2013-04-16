@@ -60,7 +60,7 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<int key="IBUISelectionStyle">0</int>
 				<reference key="IBUIContentView" ref="377307527"/>
-				<string key="IBUIReuseIdentifier">WTActivityCell</string>
+				<string key="IBUIReuseIdentifier">WTBillboardCell</string>
 				<integer value="206" key="IBUIRowHeight"/>
 			</object>
 		</array>
