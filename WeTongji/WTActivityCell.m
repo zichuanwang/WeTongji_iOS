@@ -17,6 +17,20 @@
 
 @implementation WTActivityCell
 
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    self.titleLabel.highlighted = highlighted;
+    self.timeLabel.highlighted = highlighted;
+    self.locationLabel.highlighted = highlighted;
+    
+    CGSize labelShadowOffset = highlighted ? CGSizeZero : CGSizeMake(0, 1.0f);
+    self.titleLabel.shadowOffset = labelShadowOffset;
+    self.timeLabel.shadowOffset = labelShadowOffset;
+    self.locationLabel.shadowOffset = labelShadowOffset;
+    
+    self.highlightBgView.hidden = !highlighted;
+    self.disclosureImageView.highlighted = highlighted;
+}
+
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath title:(NSString *)title time:(NSString *)time location:(NSString *)location imageURL:(NSString *)imageURL {
     if (indexPath.row % 2) {
         self.containerView.backgroundColor = WTCellBackgroundColor1;

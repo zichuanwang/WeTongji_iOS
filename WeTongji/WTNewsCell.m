@@ -12,6 +12,20 @@
 
 #define NEWS_TITLE_SUMMARY_LABEL_MARGIN 4.0f
 
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    self.titleLabel.highlighted = highlighted;
+    self.categoryLabel.highlighted = highlighted;
+    self.summaryLabel.highlighted = highlighted;
+    
+    CGSize labelShadowOffset = highlighted ? CGSizeZero : CGSizeMake(0, 1.0f);
+    self.titleLabel.shadowOffset = labelShadowOffset;
+    self.categoryLabel.shadowOffset = labelShadowOffset;
+    self.summaryLabel.shadowOffset = labelShadowOffset;
+    
+    self.highlightBgView.hidden = !highlighted;
+    self.disclosureImageView.highlighted = highlighted;
+}
+
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
                           category:(NSString *)category
                              title:(NSString *)title
