@@ -47,11 +47,9 @@
 #pragma mark - Properties
 
 - (void)setWeekNumber:(NSUInteger)weekNumber {
-    if (_weekNumber != weekNumber) {
-        _weekNumber = weekNumber;
-        self.fetchedResultsController = nil;
-        [self.tableView reloadData];
-    }
+    _weekNumber = weekNumber;
+    self.fetchedResultsController = nil;
+    [self.tableView reloadData];
 }
 
 #pragma mark - Logic Method
@@ -155,20 +153,15 @@
                                   location:course.where];
     }
     
-    Event *nowEvent = [self getNowEvent];
-    NSDate *nowTime = nowEvent == nil ? [NSDate date] : nowEvent.beginTime;
-    switch ([item.beginTime compare:nowTime]) {
-        case NSOrderedSame:
-            [(WTNowBaseCell *)cell updateCellStatus:WTNowBaseCellTypeNow];
-            break;
-        case NSOrderedAscending:
-            [(WTNowBaseCell *)cell updateCellStatus:WTNowBaseCellTypePast];
-            break;
-        case NSOrderedDescending:
-            [(WTNowBaseCell *)cell updateCellStatus:WTNowBaseCellTypeNormal];
-            break;
-        default:
-            break;
+    NSDate *nowDate = [NSDate date];
+    WTNowBaseCell *nowCell = (WTNowBaseCell *)cell;
+    if ([nowDate compare:item.beginTime] == NSOrderedAscending) {
+        [nowCell updateCellStatus:WTNowBaseCellTypeNormal];
+
+    } else if ([nowDate compare:item.endTime] == NSOrderedDescending) {
+        [nowCell updateCellStatus:WTNowBaseCellTypePast];
+    } else {
+        [nowCell updateCellStatus:WTNowBaseCellTypeNow];
     }
 }
 
