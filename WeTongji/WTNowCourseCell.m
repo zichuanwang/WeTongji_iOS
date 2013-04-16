@@ -7,6 +7,7 @@
 //
 
 #import "WTNowCourseCell.h"
+#import "Event+Addition.h"
 
 @implementation WTNowCourseCell
 
@@ -43,15 +44,21 @@
     }
 }
 
-- (void)configureCellWithTitle:(NSString *)title
-                          time:(NSString *)time
-                      location:(NSString *)location {
-    self.courseNameLabel.text = title;
+- (void)configureCellWithEvent:(Event *)event {
+    [super configureCellWithEvent:event];
+    
+    self.courseNameLabel.text = event.what;
     [self.courseNameLabel resetWidth:COURSE_NAME_LABEL_WIDTH];
     [self.courseNameLabel sizeToFit];
     
-    self.whenLabel.text = time;
-    self.whereLabel.text = location;
+    self.whenLabel.text = event.beginToEndTimeString;
+    self.whereLabel.text = event.where;
+}
+
+- (void)configureCellWithTitle:(NSString *)title
+                          time:(NSString *)time
+                      location:(NSString *)location {
+   
 }
 
 @end

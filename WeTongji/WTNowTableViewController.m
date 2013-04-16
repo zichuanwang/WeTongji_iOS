@@ -166,26 +166,10 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     Event *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    if ([item isKindOfClass:[Activity class]]) {
-        Activity *acitivity = (Activity *)item;
-        WTNowActivityCell *activityCell = (WTNowActivityCell *)cell;
-        
-        [activityCell configureCellWithTitle:acitivity.what
-                                         time:acitivity.beginToEndTimeString
-                                     location:acitivity.where
-                                     imageURL:acitivity.image];
-        
-    } else if ([item isKindOfClass:[Course class]]){
-        Course *course = (Course *)item;
-        WTNowCourseCell *courseCell = (WTNowCourseCell *)cell;
-        
-        [courseCell configureCellWithTitle:course.what
-                                      time:course.beginToEndTimeString
-                                  location:course.where];
-    }
+    WTNowBaseCell *nowCell = (WTNowBaseCell *)cell;
+    [nowCell configureCellWithEvent:item];
     
     NSDate *nowDate = [NSDate date];
-    WTNowBaseCell *nowCell = (WTNowBaseCell *)cell;
     if ([nowDate compare:item.beginTime] == NSOrderedAscending) {
         [nowCell updateCellStatus:WTNowBaseCellTypeNormal];
 

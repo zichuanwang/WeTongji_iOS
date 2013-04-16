@@ -8,6 +8,13 @@
 
 #import "WTNowBaseCell.h"
 #import "OHAttributedLabel.h"
+#import "Event.h"
+
+@interface WTNowBaseCell ()
+
+@property (nonatomic, weak) Event *event;
+
+@end
 
 @implementation WTNowBaseCell
 
@@ -32,6 +39,10 @@
     CGFloat nowDisplayLabelHeight = self.nowDisplayLabel.frame.size.height;
     [self.nowDisplayLabel sizeToFit];
     [self.nowDisplayLabel resetHeight:nowDisplayLabelHeight];
+}
+
+- (void)configureCellWithEvent:(Event *)event {
+    self.event = event;
 }
 
 #pragma mark - UI methods
@@ -77,6 +88,12 @@
         [self hideNowView];
         self.ringImageView.hidden = YES;
     }
+}
+
+#pragma mark - Actions
+
+- (IBAction)didClickBgButton:(UIButton *)sender {
+    
 }
 
 @end

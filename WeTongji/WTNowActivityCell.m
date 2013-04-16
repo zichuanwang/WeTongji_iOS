@@ -8,6 +8,8 @@
 
 #import "WTNowActivityCell.h"
 #import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
+#import "Activity.h"
+#import "Event+Addition.h"
 
 @implementation WTNowActivityCell
 
@@ -44,20 +46,26 @@
     }
 }
 
-- (void)configureCellWithTitle:(NSString *)title
-                          time:(NSString *)time
-                      location:(NSString *)location
-                      imageURL:(NSString *)imageURL {
-    self.whenLabel.text = time;
+#define NOW_ACTIVITY_LABEL_WHERE_LABEL_MIN_ORIGIN_Y 76.0f
+
+- (void)configureCellWithEvent:(Event *)event {
+    [super configureCellWithEvent:event];
     
-    self.activityNameLabel.text = title;
+    Activity *activity = (Activity *)event;
+    self.whenLabel.text = activity.beginToEndTimeString;
+    
+    self.activityNameLabel.text = activity.what;
     [self.activityNameLabel resetWidth:ACTIVITY_NAME_LABEL_WIDTH];
     [self.activityNameLabel sizeToFit];
     
-    self.whereLabel.text = location;
+    self.whereLabel.text = activity.where;
+    [self.whereLabel resetOriginY:self.activityNameLabel.frame.origin.y + self.activityNameLabel.frame.size.height + 6.0f];
+    if (self.whereLabel.frame.origin.y < NOW_ACTIVITY_LABEL_WHERE_LABEL_MIN_ORIGIN_Y)
+        [self.whereLabel resetOriginY:NOW_ACTIVITY_LABEL_WHERE_LABEL_MIN_ORIGIN_Y];
+    
     self.posterPlaceholderImageView.alpha = 1.0f;
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURL]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:activity.image]];
     [self.posterImageView setImageWithURLRequest:request
                                 placeholderImage:nil
                                          success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
@@ -66,7 +74,7 @@
                                              [self.posterPlaceholderImageView fadeOut];
                                          }
                                          failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-
+                                             
                                          }];
 }
 

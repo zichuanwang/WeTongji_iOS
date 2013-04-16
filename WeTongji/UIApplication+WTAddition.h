@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "WTRootTabBarController.h"
 
+@class WTNowViewController;
+
 @interface UIApplication (WTAddition)
 
 @property (nonatomic, readonly) WTRootTabBarController *rootTabBarController;
+
+@property (nonatomic, readonly) WTNowViewController *nowViewController;
 
 + (void)showTopCorner;
 

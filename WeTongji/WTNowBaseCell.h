@@ -16,6 +16,8 @@ typedef enum {
     WTNowBaseCellTypeNow,
 } WTNowBaseCellType;
 
+@class Event;
+
 @interface WTNowBaseCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UIView *nowView;
@@ -26,9 +28,14 @@ typedef enum {
 @property (nonatomic, weak) IBOutlet UILabel *nowDisplayLabel;
 @property (nonatomic, weak) IBOutlet UIView *containerView;
 @property (nonatomic, weak) IBOutlet UIImageView *bgImageView;
+@property (nonatomic, weak) IBOutlet UIButton *bgButton;
+
+- (IBAction)didClickBgButton:(UIButton *)sender;
 
 - (void)updateCellStatus:(WTNowBaseCellType)type;
 
 - (void)setCellPast:(BOOL)past;
+
+- (void)configureCellWithEvent:(Event *)event;
 
 @end

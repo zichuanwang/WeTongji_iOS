@@ -8,6 +8,8 @@
 
 #import "UIApplication+WTAddition.h"
 #import "WTAppDelegate.h"
+#import "WTNowViewController.h"
+#import "WTNowNavigationController.h"
 
 @implementation UIApplication (WTAddition)
 
@@ -26,6 +28,14 @@
 - (WTRootTabBarController *)rootTabBarController {
     WTAppDelegate *appDelegate = (WTAppDelegate *)[[UIApplication sharedApplication] delegate];
     return (WTRootTabBarController *)appDelegate.window.rootViewController;
+}
+
+// TODO: 用此方法重新home的回调
+
+- (WTNowViewController *)nowViewController {
+    WTRootTabBarController *rootTabBarViewController = [UIApplication sharedApplication].rootTabBarController;
+    WTNowNavigationController *nowNavigationController = rootTabBarViewController.viewControllers[1];
+    return nowNavigationController.viewControllers[0];
 }
 
 @end
