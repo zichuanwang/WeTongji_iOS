@@ -10,7 +10,7 @@
 
 @interface Event (Addition)
 
-@property (nonatomic, readonly) NSString *beginTimeString;
+@property (nonatomic, readonly) NSString *yearMonthDayBeginToEndTimeString;
 @property (nonatomic, readonly) NSString *beginToEndTimeString;
 
 + (NSArray *)getTodayEvents;

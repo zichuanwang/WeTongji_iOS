@@ -164,12 +164,7 @@
     
     Activity *activity = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    NSString *timeString = nil;
-    ActivityOrderMethod orderMethod = [[NSUserDefaults standardUserDefaults] getActivityOrderMethod];
-    if (orderMethod == ActivityOrderByPublishDate)
-        timeString = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Published at", nil), [NSString yearMonthDayWeekTimeConvertFromDate:activity.createdAt]];
-    else
-        timeString = [NSString stringWithFormat:@"%@: %@", NSLocalizedString(@"Start time", nil), activity.beginTimeString];
+    NSString *timeString = activity.yearMonthDayBeginToEndTimeString;
     
     [activityCell configureCellWithIndexPath:indexPath title:activity.what
                                         time:timeString

@@ -222,7 +222,7 @@
 }
 
 - (void)configureActivityTimeLabel {
-    self.activityTimeLabel.text = self.activity.beginToEndTimeString;
+    self.activityTimeLabel.text = self.activity.yearMonthDayBeginToEndTimeString;
 }
 
 - (void)configureActivityTitleLabelAndCalculateBriefIntroductionViewHeight {

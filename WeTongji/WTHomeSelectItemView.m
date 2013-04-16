@@ -190,7 +190,7 @@ typedef enum {
 
 - (void)configureViewWithActivity:(Activity *)activity {
     self.titleLabel.text = activity.what;
-    self.timeLabel.text = activity.beginTimeString;
+    self.timeLabel.text = activity.yearMonthDayBeginToEndTimeString;
     self.typeLabel.text = activity.activityTypeString;
     [self configurePosterImageView:activity.image];
 }

@@ -52,20 +52,16 @@
     return ([self.beginTime compare:lastMidnight] == NSOrderedDescending && [self.endTime compare:nextMidnight] == NSOrderedAscending);
 }
 
-- (NSString *)beginTimeString {
-    if ([self isEventStartToday]) {
-        return [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Today", nil), [NSString timeConvertFromDate:self.beginTime]];
-    } else {
-        return [NSString yearMonthDayWeekTimeConvertFromDate:self.beginTime];
-    }
-}
-
-- (NSString *)beginToEndTimeString {
+- (NSString *)yearMonthDayBeginToEndTimeString {
     if ([self isEventStartToday]) {
         return [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Today", nil), [NSString timeConvertFromBeginDate:self.beginTime endDate:self.endTime]];
     } else {
         return [NSString yearMonthDayWeekTimeConvertFromBeginDate:self.beginTime endDate:self.endTime];
     }
+}
+
+- (NSString *)beginToEndTimeString {
+    return [NSString timeConvertFromBeginDate:self.beginTime endDate:self.endTime];
 }
 
 - (void)awakeFromFetch {

@@ -48,11 +48,12 @@
                           time:(NSString *)time
                       location:(NSString *)location
                       imageURL:(NSString *)imageURL {
+    self.whenLabel.text = time;
+    
     self.activityNameLabel.text = title;
     [self.activityNameLabel resetWidth:ACTIVITY_NAME_LABEL_WIDTH];
     [self.activityNameLabel sizeToFit];
     
-    self.whenLabel.text = time;
     self.whereLabel.text = location;
     self.posterPlaceholderImageView.alpha = 1.0f;
     

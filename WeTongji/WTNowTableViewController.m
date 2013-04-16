@@ -180,7 +180,7 @@
         WTNowCourseCell *courseCell = (WTNowCourseCell *)cell;
         
         [courseCell configureCellWithTitle:course.what
-                                      time:course.beginTimeString
+                                      time:course.beginToEndTimeString
                                   location:course.where];
     }
     
