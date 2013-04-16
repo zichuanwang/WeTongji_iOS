@@ -84,9 +84,9 @@
 }
 
 - (void)configureHomeSelectViews {
-    [self configureNewsSelect];
-    [self configureFeaturedSelect];
     [self configureActivitySelect];
+    [self configureFeaturedSelect];
+    [self configureNewsSelect];
     [self updateHomeSelectViews];
     [self configureScrollView];
 }
@@ -98,12 +98,15 @@
                                                .height + self.nowContainerView.frame.origin.y + homeSelectContainerView.frame.size.height * index)];
         index++;
     }
-    WTHomeSelectContainerView *newsSelectContainerView = self.homeSelectViewArray[0];
-    [newsSelectContainerView updateItemInfoArray:[News getHomeSelectNewsArray]];
+    WTHomeSelectContainerView *activitySelectContainerView = self.homeSelectViewArray[0];
+    [activitySelectContainerView updateItemInfoArray:[Activity getHomeSelectActivityArray]];
+    
     WTHomeSelectContainerView *featuredSelectContainerView = self.homeSelectViewArray[1];
     [featuredSelectContainerView updateItemInfoArray:@[@"", @"", @""]];
-    WTHomeSelectContainerView *activitySelectContainerView = self.homeSelectViewArray[2];
-    [activitySelectContainerView updateItemInfoArray:[Activity getHomeSelectActivityArray]];
+    
+    WTHomeSelectContainerView *newsSelectContainerView = self.homeSelectViewArray[2];
+    [newsSelectContainerView updateItemInfoArray:[News getHomeSelectNewsArray]];
+    
 }
 
 - (void)configureNewsSelect {
