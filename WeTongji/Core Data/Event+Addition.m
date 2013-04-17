@@ -26,7 +26,7 @@
     oneDay.day = 1;
     NSDate *lastMidnight = [[NSCalendar currentCalendar] dateFromComponents:todayComponents];
     NSDate *nextMidnight = [[NSCalendar currentCalendar] dateByAddingComponents:oneDay toDate:lastMidnight options:NSWrapCalendarComponents];
-    request.predicate = [NSPredicate predicateWithFormat:@"(SELF in %@) AND (beginTime >= %@) AND (endTime <= %@)", currentUser.scheduledEvents, lastMidnight, nextMidnight];
+    request.predicate = [NSPredicate predicateWithFormat:@"(SELF in %@) AND (endTime >= %@) AND (endTime <= %@)", currentUser.scheduledEvents, [NSDate date], nextMidnight];
     
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"beginTime" ascending:YES]];
     

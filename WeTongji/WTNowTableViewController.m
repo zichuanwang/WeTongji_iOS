@@ -72,7 +72,7 @@
 
 - (Event *)getNowEvent {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
-    request.predicate = [NSPredicate predicateWithFormat:@"beginTime >= %@", [NSDate date]];
+    request.predicate = [NSPredicate predicateWithFormat:@"endTime >= %@", [NSDate date]];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"beginTime" ascending:YES]];
     
     NSArray *matches = [[WTCoreDataManager sharedManager].managedObjectContext executeFetchRequest:request error:nil];
