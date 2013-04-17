@@ -223,7 +223,8 @@ static int kDragToLoadDecoratorObservingContext;
     [self.topView startLoadingAnimation];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 300 * NSEC_PER_MSEC), dispatch_get_current_queue(), ^{
-        [self.delegate dragToLoadDecoratorDidDragDown];
+        if ([self.delegate respondsToSelector:@selector(dragToLoadDecoratorDidDragDown)])
+            [self.delegate dragToLoadDecoratorDidDragDown];
     });
 }
 
@@ -311,7 +312,8 @@ static int kDragToLoadDecoratorObservingContext;
             scrollView.contentInset = inset;
             
             [self.bottomView.activityIndicator startAnimating];
-            [self.delegate dragToLoadDecoratorDidDragUp];
+            if ([self.delegate respondsToSelector:@selector(dragToLoadDecoratorDidDragUp)])
+                [self.delegate dragToLoadDecoratorDidDragUp];
         }
 			break;
             

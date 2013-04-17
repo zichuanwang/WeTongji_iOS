@@ -15,4 +15,7 @@
 
 + (NSArray *)getTodayEvents;
 
++ (void)clearCurrentUserScheduledEventsFrom:(NSDate *)beginDate
+                                         to:(NSDate *)endDate;
+
 @end

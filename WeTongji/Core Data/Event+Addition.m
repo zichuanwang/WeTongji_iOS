@@ -41,6 +41,29 @@
     return result;
 }
 
+- (void)awakeFromFetch {
+    [super awakeFromFetch];
+    self.beginDay = [NSString yearMonthDayConvertFromDate:self.beginTime];
+}
+
++ (void)clearCurrentUserScheduledEventsFrom:(NSDate *)beginDate
+                                         to:(NSDate *)endDate {
+    
+    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
+    if (!currentUser)
+        return;
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
+    [request setEntity:[NSEntityDescription entityForName:@"Event" inManagedObjectContext:context]];
+    request.predicate = [NSPredicate predicateWithFormat:@"(SELF in %@) AND (beginTime >= %@) AND (beginTime <= %@)", currentUser.scheduledEvents, beginDate, endDate];
+    NSArray *results = [context executeFetchRequest:request error:NULL];
+    
+    for(Event *item in results) {
+        [context deleteObject:item];
+    }
+}
+
 #pragma mark - Properties
 
 - (BOOL)isEventStartToday {
@@ -62,11 +85,6 @@
 
 - (NSString *)beginToEndTimeString {
     return [NSString timeConvertFromBeginDate:self.beginTime endDate:self.endTime];
-}
-
-- (void)awakeFromFetch {
-    [super awakeFromFetch];
-    self.beginDay = [NSString yearMonthDayConvertFromDate:self.beginTime];
 }
 
 @end

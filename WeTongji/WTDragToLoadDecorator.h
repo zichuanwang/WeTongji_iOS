@@ -19,9 +19,10 @@
 
 @protocol WTDragToLoadDecoratorDelegate <NSObject>
 
-- (void)dragToLoadDecoratorDidDragUp;
-
 - (void)dragToLoadDecoratorDidDragDown;
+
+@optional
+- (void)dragToLoadDecoratorDidDragUp;
 
 @end
 
