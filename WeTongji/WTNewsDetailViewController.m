@@ -9,9 +9,13 @@
 #import "WTNewsDetailViewController.h"
 #import "News.h"
 #import "WTLikeButtonView.h"
+#import "WTNewsBriefIntroductionView.h"
+#import "OHAttributedLabel.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface WTNewsDetailViewController ()
 
+@property (nonatomic, strong) WTNewsBriefIntroductionView *briefIntroductionView;
 @property (nonatomic, strong) News *news;
 
 @end
@@ -52,8 +56,11 @@
 #pragma mark - UI methods
 
 - (void)configureUI {
-    [self configureScrollView];
     [self configureBriefIntroductionView];
+    [self configureContentLabel];
+    [self configureScrollView];
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
 }
 
 - (void)configureScrollView {
@@ -61,28 +68,14 @@
     // TODO:
     //self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, 0);
 }
-
-- (void)configureBriefIntroductionViewBackgroundColor {
-    self.briefIntroductionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTGrayPanel"]];
-}
-
-- (void)configurePublisherButton {
-    
-}
-
-- (void)configureNewsPublishTimeLabel {
-    
-}
-
-- (void)configureNewsTitleLabelAndCalculateBriefIntroductionViewHeight {
-    
-}
-
 - (void)configureBriefIntroductionView {
-    [self configureBriefIntroductionViewBackgroundColor];
-    [self configurePublisherButton];
-    [self configureNewsPublishTimeLabel];
-    [self configureNewsTitleLabelAndCalculateBriefIntroductionViewHeight];
+    self.briefIntroductionView = [WTNewsBriefIntroductionView createNewsBriefIntroductionViewWithNews:self.news];
+    [self.scrollView addSubview:self.briefIntroductionView];
+    [self.view sendSubviewToBack:self.briefIntroductionView];
+}
+
+- (void)configureContentLabel {
+    [self.contentLabelContainerView resetOriginY:self.briefIntroductionView.frame.size.height];
 }
 
 #pragma mark - Actions

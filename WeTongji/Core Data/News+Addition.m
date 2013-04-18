@@ -46,6 +46,10 @@
     result.publishDate = [[NSString stringWithFormat:@"%@", [dict objectForKey:@"CreatedAt"]] convertToDate];
     result.canLike = @([[NSString stringWithFormat:@"%@", dict[@"CanLike"]] boolValue]);
     result.likeCount = @([[NSString stringWithFormat:@"%@", dict[@"Like"]] integerValue]);
+    result.readCount = @([[NSString stringWithFormat:@"%@", dict[@"Read"]] integerValue]);
+    result.organizer = [NSString stringWithFormat:@"%@", dict[@"Organizer"]];
+    result.organizerAvatar = [NSString stringWithFormat:@"%@", dict[@"OrganizerAvatar"]];
+    result.source = [NSString stringWithFormat:@"%@", dict[@"Source"]];
     
     NSArray *imageArray = dict[@"Images"];
     result.imageArray = imageArray;
@@ -80,6 +84,10 @@
 - (void)awakeFromFetch {
     [super awakeFromFetch];
     self.publishDay = [NSString yearMonthDayConvertFromDate:self.publishDate];
+}
+
+- (NSString *)yearMonthDayTimePublishTimeString {
+    return [NSString yearMonthDayTimeConvertFromDate:self.publishDate];
 }
 
 @end

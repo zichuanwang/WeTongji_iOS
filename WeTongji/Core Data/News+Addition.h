@@ -10,6 +10,8 @@
 
 @interface News (Addition)
 
+@property (nonatomic, readonly) NSString *yearMonthDayTimePublishTimeString;
+
 + (NSArray *)getHomeSelectNewsArray;
 
 + (News *)insertNews:(NSDictionary *)dict;

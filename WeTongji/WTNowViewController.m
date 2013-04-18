@@ -99,6 +99,15 @@
 
 - (void)handleCurrentUserDidChangeNotification:(NSNotification *)notification {    
     [self.tableView reloadData];
+    self.scrollToNow = YES;
+}
+
+#pragma mark - Logic methods
+
+- (NSUInteger)currentWeekNumber {
+    NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:[semesterBeginTime convertToDate]];
+    NSUInteger currentWeekNumber = interval / WEEK_TIME_INTERVAL + 1;
+    return currentWeekNumber;
 }
 
 #pragma mark - UI methods
@@ -130,11 +139,14 @@
 - (void)updateTableView {
     NSUInteger index = self.tableView.contentOffset.y / self.tableView.frame.size.width;
     self.barTitleView.weekNumber = index + 1;
+    
+    if ([self currentWeekNumber] == self.barTitleView.weekNumber) {
+        [self scrollToNow:YES];
+    }
 }
 
 - (void)scrollToNow:(BOOL)animated {
-    NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:[semesterBeginTime convertToDate]];
-    NSUInteger currentWeekNumber = interval / WEEK_TIME_INTERVAL + 1;
+    NSUInteger currentWeekNumber = [self currentWeekNumber];
     // TODO: 判断超过19的情况
     NSIndexPath *targetIndexPath = [NSIndexPath indexPathForRow:currentWeekNumber - 1 inSection:0];
     

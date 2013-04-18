@@ -15,10 +15,7 @@
 @interface WTNewsDetailViewController : WTDetailViewController
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
-@property (nonatomic, weak) IBOutlet UIView *briefIntroductionView;
-@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
-@property (nonatomic, weak) IBOutlet UILabel *publishTimeLabel;
-@property (nonatomic, weak) IBOutlet UIButton *publisherButton;
+@property (nonatomic, weak) IBOutlet UIView *contentLabelContainerView;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *contentLabel;
 
 + (WTNewsDetailViewController *)createNewsDetailViewControllerWithNews:(News *)news

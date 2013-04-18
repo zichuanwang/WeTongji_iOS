@@ -2,7 +2,7 @@
 //  News.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-4-10.
+//  Created by 王 紫川 on 13-4-19.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -21,5 +21,9 @@
 @property (nonatomic, retain) NSString * publishDay;
 @property (nonatomic, retain) NSString * summary;
 @property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSNumber * readCount;
+@property (nonatomic, retain) NSString * organizer;
+@property (nonatomic, retain) NSString * organizerAvatar;
+@property (nonatomic, retain) NSString * source;
 
 @end
