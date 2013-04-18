@@ -100,6 +100,8 @@
     [self.contentLabel resetHeight:contentLabelHeight];
     
     [self.contentLabelContainerView resetHeight:contentLabelHeight + self.contentLabel.frame.origin.y * 2];
+    
+    self.contentLabel.automaticallyAddLinksForType = 0;
 }
 
 - (void)configureLikeButton {

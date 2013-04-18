@@ -69,6 +69,8 @@
     CGFloat contentLabelHeight = [contentAttributedString sizeConstrainedToSize:CGSizeMake(self.contentLabel.frame.size.width, 200000.0f)].height;
     
     [self.contentLabel resetHeight:contentLabelHeight];
+    
+    self.contentLabel.automaticallyAddLinksForType = 0;
 }
 
 - (void)configureContentViewBgImageView {
