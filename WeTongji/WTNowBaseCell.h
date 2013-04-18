@@ -27,7 +27,6 @@ typedef enum {
 @property (nonatomic, weak) IBOutlet UIImageView *ringImageView;
 @property (nonatomic, weak) IBOutlet UILabel *nowDisplayLabel;
 @property (nonatomic, weak) IBOutlet UIView *containerView;
-@property (nonatomic, weak) IBOutlet UIImageView *bgImageView;
 @property (nonatomic, weak) IBOutlet UIButton *bgButton;
 
 - (IBAction)didClickBgButton:(UIButton *)sender;

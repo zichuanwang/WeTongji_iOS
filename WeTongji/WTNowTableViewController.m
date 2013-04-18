@@ -128,6 +128,7 @@
         if (failure) {
             failure();
         }
+        [WTErrorHandler handleError:error];
     }];    
     [request getScheduleWithBeginDate:fromDate endDate:toDate];
     [[WTClient sharedClient] enqueueRequest:request];

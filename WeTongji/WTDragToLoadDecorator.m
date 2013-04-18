@@ -276,7 +276,7 @@ static int kDragToLoadDecoratorObservingContext;
 		case TopViewStateLoading: {
             // self.topView.dragStatusLabel.text = NSLocalizedString(@"Loading", nil);
             
-            [self.topView configureCloudAndDropletHeightWithRatio:1.0f];
+            [self.topView configureCloudAndDropletWithRatio:1.0f];
         }
 			break;
             
@@ -363,7 +363,7 @@ static int kDragToLoadDecoratorObservingContext;
     CGFloat scrollViewRealContentOffsetY = scrollView.contentOffset.y + self.scrollViewOriginalContentInset.top;
     if (scrollView.isDragging) {
         if (state == TopViewStateNormal) {
-            [self.topView configureCloudAndDropletHeightWithRatio:scrollView.contentOffset.y / WTTopViewThresholdOffsetY];
+            [self.topView configureCloudAndDropletWithRatio:scrollView.contentOffset.y / WTTopViewThresholdOffsetY];
             if (scrollViewRealContentOffsetY < WTTopViewThresholdOffsetY) {
                 [self setTopViewLoading:YES];
                 [self killScroll];
@@ -478,6 +478,8 @@ static int kDragToLoadDecoratorObservingContext;
 }
 
 - (void)cloudLoopAnimation {
+    if (!self.showingAnimation)
+        return;
     [CATransaction begin];
     [CATransaction setCompletionBlock:^{
         if (self.showingAnimation) {
@@ -514,7 +516,7 @@ static int kDragToLoadDecoratorObservingContext;
     self.showingAnimation = NO;
 }
 
-- (void)configureCloudAndDropletHeightWithRatio:(float)ratio {
+- (void)configureCloudAndDropletWithRatio:(float)ratio {
     ratio = ratio < 0 ? 0 : ratio;
     
     float scaleRatio = ratio;

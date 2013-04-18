@@ -67,7 +67,7 @@
 
 - (void)stopLoadingAnimation;
 
-- (void)configureCloudAndDropletHeightWithRatio:(float)ratio;
+- (void)configureCloudAndDropletWithRatio:(float)ratio;
 
 @end
 

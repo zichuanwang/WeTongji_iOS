@@ -62,13 +62,15 @@
 
 - (void)setCellPast:(BOOL)past {
     if (past) {
-        self.bgImageView.image = [UIImage imageNamed:@"WTRoundCornerPanelCuppedBg"];
+        [self.bgButton setBackgroundImage:[UIImage imageNamed:@"WTRoundCornerPanelCuppedBg"] forState:UIControlStateNormal];
+        [self.bgButton setBackgroundImage:[UIImage imageNamed:@"WTRoundCornerPanelCuppedBg"] forState:UIControlStateHighlighted];
         self.whenLabel.highlighted = YES;
         self.whenLabel.shadowOffset = CGSizeZero;
         self.whereLabel.highlighted = YES;
         self.whereLabel.shadowOffset = CGSizeZero;
     } else {
-        self.bgImageView.image = [UIImage imageNamed:@"WTRoundCornerPanelBg"];
+        [self.bgButton setBackgroundImage:[UIImage imageNamed:@"WTRoundCornerPanelBg"] forState:UIControlStateNormal];
+        [self.bgButton setBackgroundImage:[UIImage imageNamed:@"WTRoundCornerPanelHighlightBg"] forState:UIControlStateHighlighted];
         self.whenLabel.highlighted = NO;
         self.whenLabel.shadowOffset = CGSizeMake(0, 1);
         self.whereLabel.highlighted = NO;

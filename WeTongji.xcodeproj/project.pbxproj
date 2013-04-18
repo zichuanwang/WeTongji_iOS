@@ -266,6 +266,13 @@
 		E177E64216EE35B60029130F /* public_key.der in Resources */ = {isa = PBXBuildFile; fileRef = E177E64016EE35AD0029130F /* public_key.der */; };
 		E177EB6416C59F1A0044A697 /* WTInnerModalSeparator.png in Resources */ = {isa = PBXBuildFile; fileRef = E177EB6216C59F1A0044A697 /* WTInnerModalSeparator.png */; };
 		E177EB6516C59F1A0044A697 /* WTInnerModalSeparator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E177EB6316C59F1A0044A697 /* WTInnerModalSeparator@2x.png */; };
+		E17AE8D8171EE5950026B644 /* WTBillboardPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17AE8D7171EE5950026B644 /* WTBillboardPostViewController.m */; };
+		E17AE8DC171EE5B30026B644 /* WTBillboardPostPlainTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17AE8DA171EE5B30026B644 /* WTBillboardPostPlainTextViewController.m */; };
+		E17AE8DD171EE5B30026B644 /* WTBillboardPostPlainTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17AE8DB171EE5B30026B644 /* WTBillboardPostPlainTextViewController.xib */; };
+		E17AE8E1171EE5CD0026B644 /* WTBillboardPostImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17AE8DF171EE5CD0026B644 /* WTBillboardPostImageViewController.m */; };
+		E17AE8E2171EE5CD0026B644 /* WTBillboardPostImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17AE8E0171EE5CD0026B644 /* WTBillboardPostImageViewController.xib */; };
+		E17AE8E8171EEAB60026B644 /* WTImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17AE8E6171EEAB60026B644 /* WTImageViewController.m */; };
+		E17AE8E9171EEAB60026B644 /* WTImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17AE8E7171EEAB60026B644 /* WTImageViewController.xib */; };
 		E17C664A1716C14400B91B25 /* WTNewPostNormalIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C66461716C14400B91B25 /* WTNewPostNormalIcon.png */; };
 		E17C664B1716C14400B91B25 /* WTNewPostNormalIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C66471716C14400B91B25 /* WTNewPostNormalIcon@2x.png */; };
 		E17C664C1716C14400B91B25 /* WTNewPostSelectIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C66481716C14400B91B25 /* WTNewPostSelectIcon.png */; };
@@ -769,6 +776,17 @@
 		E177E64016EE35AD0029130F /* public_key.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = public_key.der; sourceTree = "<group>"; };
 		E177EB6216C59F1A0044A697 /* WTInnerModalSeparator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTInnerModalSeparator.png; sourceTree = "<group>"; };
 		E177EB6316C59F1A0044A697 /* WTInnerModalSeparator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTInnerModalSeparator@2x.png"; sourceTree = "<group>"; };
+		E17AE8D6171EE5950026B644 /* WTBillboardPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBillboardPostViewController.h; sourceTree = "<group>"; };
+		E17AE8D7171EE5950026B644 /* WTBillboardPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTBillboardPostViewController.m; sourceTree = "<group>"; };
+		E17AE8D9171EE5B30026B644 /* WTBillboardPostPlainTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBillboardPostPlainTextViewController.h; sourceTree = "<group>"; };
+		E17AE8DA171EE5B30026B644 /* WTBillboardPostPlainTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTBillboardPostPlainTextViewController.m; sourceTree = "<group>"; };
+		E17AE8DB171EE5B30026B644 /* WTBillboardPostPlainTextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTBillboardPostPlainTextViewController.xib; sourceTree = "<group>"; };
+		E17AE8DE171EE5CD0026B644 /* WTBillboardPostImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBillboardPostImageViewController.h; sourceTree = "<group>"; };
+		E17AE8DF171EE5CD0026B644 /* WTBillboardPostImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTBillboardPostImageViewController.m; sourceTree = "<group>"; };
+		E17AE8E0171EE5CD0026B644 /* WTBillboardPostImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTBillboardPostImageViewController.xib; sourceTree = "<group>"; };
+		E17AE8E5171EEAB60026B644 /* WTImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTImageViewController.h; sourceTree = "<group>"; };
+		E17AE8E6171EEAB60026B644 /* WTImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTImageViewController.m; sourceTree = "<group>"; };
+		E17AE8E7171EEAB60026B644 /* WTImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTImageViewController.xib; sourceTree = "<group>"; };
 		E17C66461716C14400B91B25 /* WTNewPostNormalIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNewPostNormalIcon.png; sourceTree = "<group>"; };
 		E17C66471716C14400B91B25 /* WTNewPostNormalIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNewPostNormalIcon@2x.png"; sourceTree = "<group>"; };
 		E17C66481716C14400B91B25 /* WTNewPostSelectIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNewPostSelectIcon.png; sourceTree = "<group>"; };
@@ -1129,6 +1147,7 @@
 		E117038E1651EFD900D82F4A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E17AE8E4171EEA850026B644 /* Image */,
 				E1250C0A16859A1D00802808 /* Activity */,
 				E1D3741316942E350012E30A /* Billboard */,
 				E10A8D0116E244EE008B72E7 /* ElectricityQuery */,
@@ -1389,6 +1408,16 @@
 				E177E63116EE11720029130F /* WTFriendListViewController.xib */,
 			);
 			name = Friends;
+			sourceTree = "<group>";
+		};
+		E17AE8E4171EEA850026B644 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				E17AE8E5171EEAB60026B644 /* WTImageViewController.h */,
+				E17AE8E6171EEAB60026B644 /* WTImageViewController.m */,
+				E17AE8E7171EEAB60026B644 /* WTImageViewController.xib */,
+			);
+			name = Image;
 			sourceTree = "<group>";
 		};
 		E17F9E6B1712C14800DC6AB6 /* Home */ = {
@@ -1858,6 +1887,14 @@
 				E10C24F7171AC55F0009C673 /* WTBillboardTableViewController.h */,
 				E10C24F8171AC55F0009C673 /* WTBillboardTableViewController.m */,
 				E10C24F9171AC5600009C673 /* WTBillboardTableViewController.xib */,
+				E17AE8D6171EE5950026B644 /* WTBillboardPostViewController.h */,
+				E17AE8D7171EE5950026B644 /* WTBillboardPostViewController.m */,
+				E17AE8D9171EE5B30026B644 /* WTBillboardPostPlainTextViewController.h */,
+				E17AE8DA171EE5B30026B644 /* WTBillboardPostPlainTextViewController.m */,
+				E17AE8DB171EE5B30026B644 /* WTBillboardPostPlainTextViewController.xib */,
+				E17AE8DE171EE5CD0026B644 /* WTBillboardPostImageViewController.h */,
+				E17AE8DF171EE5CD0026B644 /* WTBillboardPostImageViewController.m */,
+				E17AE8E0171EE5CD0026B644 /* WTBillboardPostImageViewController.xib */,
 			);
 			name = Billboard;
 			sourceTree = "<group>";
@@ -2331,6 +2368,9 @@
 				E1DB6EE9171DCF6C00E24187 /* WTTableViewTopLineSectionBg@2x.png in Resources */,
 				E1E40828171DEBFB00C6FD51 /* WTWhiteMoreIndicator.png in Resources */,
 				E1E40829171DEBFB00C6FD51 /* WTWhiteMoreIndicator@2x.png in Resources */,
+				E17AE8DD171EE5B30026B644 /* WTBillboardPostPlainTextViewController.xib in Resources */,
+				E17AE8E2171EE5CD0026B644 /* WTBillboardPostImageViewController.xib in Resources */,
+				E17AE8E9171EEAB60026B644 /* WTImageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2464,6 +2504,10 @@
 				E142869D171BE086006AB739 /* WTNowBarTitleView.m in Sources */,
 				E14286A7171C5872006AB739 /* WTNowWeekCell.m in Sources */,
 				E1DB6EEF171DD0AB00E24187 /* Event.m in Sources */,
+				E17AE8D8171EE5950026B644 /* WTBillboardPostViewController.m in Sources */,
+				E17AE8DC171EE5B30026B644 /* WTBillboardPostPlainTextViewController.m in Sources */,
+				E17AE8E1171EE5CD0026B644 /* WTBillboardPostImageViewController.m in Sources */,
+				E17AE8E8171EEAB60026B644 /* WTImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
