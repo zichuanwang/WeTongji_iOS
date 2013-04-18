@@ -65,8 +65,8 @@
 
 - (void)configureScrollView {
     self.scrollView.alwaysBounceVertical = YES;
-    // TODO:
-    //self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, 0);
+
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, self.contentLabelContainerView.frame.origin.y + self.contentLabelContainerView.frame.size.height);
 }
 - (void)configureBriefIntroductionView {
     self.briefIntroductionView = [WTNewsBriefIntroductionView createNewsBriefIntroductionViewWithNews:self.news];
@@ -74,8 +74,31 @@
     [self.view sendSubviewToBack:self.briefIntroductionView];
 }
 
+#define CONTENT_LABEL_LINE_SPACING  8.0f
+
 - (void)configureContentLabel {
     [self.contentLabelContainerView resetOriginY:self.briefIntroductionView.frame.size.height];
+    
+    self.contentLabelContainerView.layer.shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1.0f].CGColor;
+    self.contentLabelContainerView.layer.shadowOffset = CGSizeMake(0, 1.0f);
+    self.contentLabelContainerView.layer.shadowOpacity = 0.25f;
+    self.contentLabelContainerView.layer.shadowRadius = 0;
+    
+    NSMutableAttributedString *contentAttributedString = [NSMutableAttributedString attributedStringWithString:self.news.content];
+    
+    [contentAttributedString setAttributes:[self.contentLabel.attributedText attributesAtIndex:0 effectiveRange:NULL] range:NSMakeRange(0, contentAttributedString.length)];
+    
+    [contentAttributedString modifyParagraphStylesWithBlock:^(OHParagraphStyle *paragraphStyle) {
+        paragraphStyle.lineSpacing = CONTENT_LABEL_LINE_SPACING;
+    }];
+    
+    self.contentLabel.attributedText = contentAttributedString;
+    
+    CGFloat contentLabelHeight = [contentAttributedString sizeConstrainedToSize:CGSizeMake(self.contentLabel.frame.size.width, 200000.0f)].height;
+    
+    [self.contentLabel resetHeight:contentLabelHeight];
+    
+    [self.contentLabelContainerView resetHeight:contentLabelHeight + self.contentLabel.frame.origin.y * 2];
 }
 
 #pragma mark - Actions
