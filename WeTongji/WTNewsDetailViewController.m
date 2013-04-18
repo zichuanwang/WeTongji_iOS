@@ -59,6 +59,7 @@
     [self configureBriefIntroductionView];
     [self configureContentLabel];
     [self configureScrollView];
+    [self configureLikeButton];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
 }
@@ -101,22 +102,27 @@
     [self.contentLabelContainerView resetHeight:contentLabelHeight + self.contentLabel.frame.origin.y * 2];
 }
 
+- (void)configureLikeButton {
+    self.likeButtonContainerView.likeButton.selected = !self.news.canLike.boolValue;
+    [self.likeButtonContainerView setLikeCount:self.news.likeCount.integerValue];
+}
+
 #pragma mark - Actions
 
 - (void)didClickLikeButton:(UIButton *)sender {
     sender.selected = !sender.selected;
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
-        WTLOG(@"Set activitiy liked:%d succeeded", sender.selected);
+        WTLOG(@"Set news liked:%d succeeded", sender.selected);
         self.news.likeCount = @(self.news.likeCount.integerValue + (sender.selected ? 1 : (-1)));
         [self.likeButtonContainerView setLikeCount:self.news.likeCount.integerValue];
         self.news.canLike = @(!sender.selected);
     } failureBlock:^(NSError *error) {
-        WTLOGERROR(@"Set activitiy liked:%d, reason:%@", sender.selected, error.localizedDescription);
+        WTLOGERROR(@"Set news liked:%d, reason:%@", sender.selected, error.localizedDescription);
         sender.selected = !sender.selected;
         
         [WTErrorHandler handleError:error];
     }];
-    //[request setActivitiyLiked:sender.selected activityID:self.activity.identifier];
+    [request setNewsLiked:sender.selected newsID:self.news.identifier];
     [[WTClient sharedClient] enqueueRequest:request];
 }
 
