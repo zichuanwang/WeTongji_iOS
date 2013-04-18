@@ -85,8 +85,8 @@
 
 - (void)configureHomeSelectViews {
     [self configureActivitySelect];
-    [self configureFeaturedSelect];
     [self configureNewsSelect];
+    [self configureFeaturedSelect];
     [self updateHomeSelectViews];
     [self configureScrollView];
 }
@@ -100,13 +100,12 @@
     }
     WTHomeSelectContainerView *activitySelectContainerView = self.homeSelectViewArray[0];
     [activitySelectContainerView updateItemInfoArray:[Activity getHomeSelectActivityArray]];
-    
-    WTHomeSelectContainerView *featuredSelectContainerView = self.homeSelectViewArray[1];
-    [featuredSelectContainerView updateItemInfoArray:@[@"", @"", @""]];
-    
-    WTHomeSelectContainerView *newsSelectContainerView = self.homeSelectViewArray[2];
+
+    WTHomeSelectContainerView *newsSelectContainerView = self.homeSelectViewArray[1];
     [newsSelectContainerView updateItemInfoArray:[News getHomeSelectNewsArray]];
     
+    WTHomeSelectContainerView *featuredSelectContainerView = self.homeSelectViewArray[2];
+    [featuredSelectContainerView updateItemInfoArray:@[@"", @"", @""]];
 }
 
 - (void)configureNewsSelect {

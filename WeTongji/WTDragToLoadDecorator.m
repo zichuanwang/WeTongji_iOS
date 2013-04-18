@@ -141,6 +141,11 @@ static int kDragToLoadDecoratorObservingContext;
 }
 
 - (void)topViewLoadFinished:(BOOL)loadSucceeded {
+    [self topViewLoadFinished:loadSucceeded animationCompletion:nil];
+}
+
+- (void)topViewLoadFinished:(BOOL)loadSucceeded
+        animationCompletion:(void (^)(void))completion {
     if (self.topViewState == TopViewStateLoading) {
         if (loadSucceeded) {
             //[self updateTopViewUpdateTimeLabel:NO];
@@ -148,6 +153,9 @@ static int kDragToLoadDecoratorObservingContext;
         
         [UIView animateWithDuration:0.25f animations:^{
             self.topViewState = TopViewStateNormal;
+        } completion:^(BOOL finished) {
+            if (completion)
+                completion();
         }];
         
         [self.topView stopLoadingAnimation];

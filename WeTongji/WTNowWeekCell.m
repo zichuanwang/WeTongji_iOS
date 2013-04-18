@@ -42,7 +42,7 @@
 
 - (void)configureCellWithWeekNumber:(NSUInteger)weekNumber {
     self.tableViewController.weekNumber = weekNumber;
-    self.tableViewController.tableView.contentOffset = CGPointMake(0, -self.tableViewController.tableView.contentInset.top);
+    self.tableViewController.tableView.contentOffset = CGPointMake(0, 1);
 }
 
 - (void)scrollToNow:(BOOL)animated {

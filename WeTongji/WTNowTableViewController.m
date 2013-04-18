@@ -147,6 +147,15 @@
     self.tableView.scrollsToTop = NO;
 }
 
+- (void)adjustTableViewContentOffset {
+    
+    if (self.tableView.contentOffset.y == 0) {
+        self.tableView.contentOffset = CGPointMake(0, 1);
+    } else if (self.tableView.contentOffset.y == self.tableView.contentSize.height - self.tableView.frame.size.height + self.tableView.contentInset.bottom) {
+        self.tableView.contentOffset = CGPointMake(0, self.tableView.contentOffset.y - 1);
+    }
+}
+
 #pragma mark - UITableViewDelegate
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -246,10 +255,28 @@
                     to:toDate
           successBlock:^{
               [Event clearCurrentUserScheduledEventsFrom:fromDate to:toDate];
-              [self.dragToLoadDecorator topViewLoadFinished:YES];
+              [self.dragToLoadDecorator topViewLoadFinished:YES animationCompletion:^{
+                  if (!self.tableView.dragging)
+                      [self adjustTableViewContentOffset];
+              }];
           } failureBlock:^{
-              [self.dragToLoadDecorator topViewLoadFinished:NO];
+              [self.dragToLoadDecorator topViewLoadFinished:NO animationCompletion:^{
+                  if (!self.tableView.dragging)
+                      [self adjustTableViewContentOffset];
+              }];
           }];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    [self adjustTableViewContentOffset];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (!decelerate) {
+        [self adjustTableViewContentOffset];
+    }
 }
 
 @end

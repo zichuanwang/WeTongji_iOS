@@ -36,6 +36,9 @@
 
 - (void)topViewLoadFinished:(BOOL)loadSucceeded;
 
+- (void)topViewLoadFinished:(BOOL)loadSucceeded
+        animationCompletion:(void (^)(void))completion;
+
 - (void)bottomViewLoadFinished:(BOOL)loadSucceeded;
 
 - (void)setTopViewDisabled:(BOOL)disabled;

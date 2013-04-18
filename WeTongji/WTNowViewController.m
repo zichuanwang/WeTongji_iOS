@@ -187,8 +187,4 @@
     }
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    scrollView.contentOffset = CGPointMake(0, scrollView.contentOffset.y);
-}
-
 @end
