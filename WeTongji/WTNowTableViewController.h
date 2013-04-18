@@ -14,6 +14,6 @@
 
 - (void)scrollToNow:(BOOL)animated;
 
-- (void)changeCurrentUser;
+- (void)updateNowBarTitleViewTimeDisplay;
 
 @end

@@ -47,7 +47,7 @@
 								<array class="NSMutableArray" key="NSSubviews">
 									<object class="IBUIView" id="424461557">
 										<reference key="NSNextResponder" ref="663172755"/>
-										<int key="NSvFlags">-2147483374</int>
+										<int key="NSvFlags">274</int>
 										<array class="NSMutableArray" key="NSSubviews"/>
 										<string key="NSFrameSize">{320, 92}</string>
 										<reference key="NSSuperview" ref="663172755"/>
@@ -58,6 +58,7 @@
 											<int key="NSColorSpace">1</int>
 											<bytes key="NSRGB">MC4wNDcwNTg4MjM1MyAwLjc2MDc4NDMxMzcgMC43OTYwNzg0MzE0AA</bytes>
 										</object>
+										<float key="IBUIAlpha">0.0</float>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 									</object>

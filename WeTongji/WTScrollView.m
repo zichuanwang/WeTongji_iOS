@@ -7,37 +7,30 @@
 //
 
 #import "WTScrollView.h"
+#import "WTResourceFactory.h"
 
 @interface WTScrollView ()
 
-@property (nonatomic, strong) UIImageView *topPlaceholderImageView;
+@property (nonatomic, strong) UIView *topPlaceholderView;
 
 @end
 
 @implementation WTScrollView
 
 - (void)didMoveToSuperview {
-    if (!self.topPlaceholderImageView.superview) {
-        [self addSubview:self.topPlaceholderImageView];
-        [self sendSubviewToBack:self.topPlaceholderImageView];
+    if (!self.topPlaceholderView.superview) {
+        [self addSubview:self.topPlaceholderView];
+        [self sendSubviewToBack:self.topPlaceholderView];
     }
 }
 
 #pragma mark - Properties
 
-- (UIImageView *)topPlaceholderImageView {
-    if (!_topPlaceholderImageView) {
-        UIImage *placeholderImage = [UIImage imageNamed:@"WTBluePlaceholderImage.jpg"];
-        _topPlaceholderImageView = [[UIImageView alloc] initWithImage:placeholderImage];
-        [_topPlaceholderImageView setAutoresizingMask:UIViewAutoresizingNone];
-        [_topPlaceholderImageView resetOriginY:-_topPlaceholderImageView.frame.size.height];
-        
-        UIImageView *shadowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTScrollViewPlaceholderShadowUnit"]];
-        [shadowImageView resetOriginY:_topPlaceholderImageView.frame.size.height - shadowImageView.frame.size.height];
-        [shadowImageView resetWidth:320.0f];
-        [_topPlaceholderImageView addSubview:shadowImageView];
+- (UIView *)topPlaceholderView {
+    if (!_topPlaceholderView) {
+        _topPlaceholderView = [WTResourceFactory createScrollViewPlaceholderView];
     }
-    return _topPlaceholderImageView;
+    return _topPlaceholderView;
 }
 
 @end

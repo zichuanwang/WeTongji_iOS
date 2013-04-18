@@ -60,6 +60,11 @@
     [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+}
+
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self.dragToLoadDecorator stopObservingChangesInDragToLoadScrollView];
@@ -225,7 +230,7 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [[tableView cellForRowAtIndexPath:indexPath] setSelected:YES animated:YES];
     
     Activity *activity = [self.fetchedResultsController objectAtIndexPath:indexPath];
     WTActivityDetailViewController *detailVC = [WTActivityDetailViewController createActivityDetailViewControllerWithActivity:activity backBarButtonText:NSLocalizedString(@"Activities", nil)];

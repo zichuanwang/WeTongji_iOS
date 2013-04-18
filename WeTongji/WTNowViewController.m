@@ -73,6 +73,10 @@
     }
 }
 
+- (void)setBarTitleViewDisplayTime:(NSDate *)time {
+    self.barTitleView.timeLabel.text = [NSString timeConvertFromDate:time];
+}
+
 #pragma mark - Properties
 
 - (WTNowBarTitleView *)barTitleView {

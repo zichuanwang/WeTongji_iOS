@@ -13,6 +13,20 @@
 #define NEWS_TITLE_SUMMARY_LABEL_MARGIN 4.0f
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    if (self.highlighted == highlighted)
+        return;
+    [super setHighlighted:highlighted animated:animated];
+    
+    if (!highlighted && animated) {
+        [UIView animateWithDuration:0.5f animations:^{
+            [self configureCell:highlighted];
+        }];
+    } else {
+        [self configureCell:highlighted];
+    }
+}
+
+- (void)configureCell:(BOOL)highlighted {
     self.titleLabel.highlighted = highlighted;
     self.categoryLabel.highlighted = highlighted;
     self.summaryLabel.highlighted = highlighted;
@@ -22,8 +36,16 @@
     self.categoryLabel.shadowOffset = labelShadowOffset;
     self.summaryLabel.shadowOffset = labelShadowOffset;
     
-    self.highlightBgView.hidden = !highlighted;
+    self.highlightBgView.alpha = highlighted ? 1.0f : 0;
     self.disclosureImageView.highlighted = highlighted;
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    if (self.selected == selected)
+        return;
+    [super setSelected:selected animated:animated];
+    
+    [self setHighlighted:selected animated:animated];
 }
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath

@@ -11,12 +11,14 @@
 #import "Course+Addition.h"
 #import "Activity+Addition.h"
 #import "NSUserDefaults+WTAddition.h"
-#import "NSString+WTAddition.h"
 #import "WTNowActivityCell.h"
 #import "WTNowCourseCell.h"
 #import "Event+Addition.h"
 #import "NSNotificationCenter+WTAddition.h"
 #import "WTDragToLoadDecorator.h"
+#import "WTNowViewController.h"
+#import "UIApplication+WTAddition.h"
+#import "NSString+WTAddition.h"
 
 @interface WTNowTableViewController () <WTDragToLoadDecoratorDelegate, WTDragToLoadDecoratorDataSource>
 
@@ -53,9 +55,14 @@
     }
 }
 
-- (void)changeCurrentUser {
-    self.fetchedResultsController = nil;
-    [self.tableView reloadData];
+- (void)updateNowBarTitleViewTimeDisplay {
+    UITableViewCell *firstVisibleCell = [self.tableView visibleCells][0];
+    if (!firstVisibleCell)
+        return;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:firstVisibleCell];
+    Event *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    WTNowViewController *nowViewController = [UIApplication sharedApplication].nowViewController;
+    [nowViewController setBarTitleViewDisplayTime:event.beginTime];
 }
 
 #pragma mark - Properties
@@ -82,7 +89,7 @@
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
     
     request.predicate = [NSPredicate predicateWithFormat:@"(SELF in %@) AND (endTime >= %@)", [WTCoreDataManager sharedManager].currentUser.scheduledEvents, [NSDate date]];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"endTime" ascending:YES]];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"beginTime" ascending:YES]];
     
     NSArray *matches = [[WTCoreDataManager sharedManager].managedObjectContext executeFetchRequest:request error:nil];
     if ([matches count] == 0) {
@@ -277,6 +284,10 @@
     if (!decelerate) {
         [self adjustTableViewContentOffset];
     }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self updateNowBarTitleViewTimeDisplay];
 }
 
 @end

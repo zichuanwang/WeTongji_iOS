@@ -43,6 +43,7 @@
 - (void)configureCellWithWeekNumber:(NSUInteger)weekNumber {
     self.tableViewController.weekNumber = weekNumber;
     self.tableViewController.tableView.contentOffset = CGPointMake(0, 0.5f);
+    [self.tableViewController updateNowBarTitleViewTimeDisplay];
 }
 
 - (void)scrollToNow:(BOOL)animated {

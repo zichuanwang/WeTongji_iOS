@@ -120,7 +120,7 @@ typedef enum {
     self.itemStyle = (newsImageArray.count == 0) ? WTHomeSelectItemStyleNormal : WTHomeSelectItemStyleWithImage;
     if (self.itemStyle == WTHomeSelectItemStyleWithImage) {
         self.bgImageContainerView.hidden = NO;
-        self.subCategoryLabel.shadowColor = [UIColor blackColor];
+        self.subCategoryLabel.shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5f];
         self.newsTitleLabel.textColor = [UIColor whiteColor];
         self.newsTitleLabel.shadowColor = [UIColor blackColor];
         [self configureBgImageView:newsImageArray[0]];
@@ -137,7 +137,7 @@ typedef enum {
 
 - (void)configureBgImageView:(NSString *)imageURL {
     self.bgImageContainerView.layer.masksToBounds = YES;
-    self.bgImageContainerView.layer.cornerRadius = 9.0f;
+    self.bgImageContainerView.layer.cornerRadius = 8.0f;
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURL]];
     [self.bgImageView setImageWithURLRequest:request

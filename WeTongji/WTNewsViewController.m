@@ -58,6 +58,11 @@
     [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+}
+
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self.dragToLoadDecorator stopObservingChangesInDragToLoadScrollView];
@@ -118,7 +123,7 @@
 
 - (void)configureTableView {
     self.tableView.alwaysBounceVertical = YES;
-    
+    self.
     self.tableView.scrollsToTop = NO;
 }
 
@@ -173,7 +178,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [[tableView cellForRowAtIndexPath:indexPath] setSelected:YES animated:YES];
     
     News *news = [self.fetchedResultsController objectAtIndexPath:indexPath];
     WTNewsDetailViewController *detailVC = [WTNewsDetailViewController createNewsDetailViewControllerWithNews:news backBarButtonText:NSLocalizedString(@"News", nil)];
