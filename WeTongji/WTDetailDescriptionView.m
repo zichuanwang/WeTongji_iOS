@@ -70,7 +70,7 @@
     
     [self.contentLabel resetHeight:contentLabelHeight];
     
-    self.contentLabel.automaticallyAddLinksForType = 0;
+    self.contentLabel.automaticallyAddLinksForType = NSTextCheckingTypeLink;
 }
 
 - (void)configureContentViewBgImageView {

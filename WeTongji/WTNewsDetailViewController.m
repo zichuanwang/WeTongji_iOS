@@ -101,7 +101,7 @@
     
     [self.contentLabelContainerView resetHeight:contentLabelHeight + self.contentLabel.frame.origin.y * 2];
     
-    self.contentLabel.automaticallyAddLinksForType = 0;
+    self.contentLabel.automaticallyAddLinksForType = NSTextCheckingTypeLink;
 }
 
 - (void)configureLikeButton {
