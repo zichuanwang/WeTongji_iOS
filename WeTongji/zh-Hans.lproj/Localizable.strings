@@ -11,12 +11,14 @@
 "Forgot?" = "忘记密码";
 "Log In / Sign Up" = "登录 / 注册";
 "Sign Up" = "注册新用户";
-"See All" = "查看全部";
+"See All News" = "全部资讯";
+"See All Featured" = "全部推荐";
+"See All Activities" = "全部活动";
 "News" = "资讯";
-"Featured" = "精选";
+"Featured" = "推荐";
 "Activity" = "活动";
 "Activities" = "活动";
-"Show All" = "显示全部";
+"Show Category" = "查看分类";
 "Now" = "当前";
 "Later" = "稍后";
 "ON" = "开";

@@ -74,12 +74,12 @@ typedef enum {
     UIButton *showAllButton = nil;
     switch (self.itemStyle) {
         case WTHomeSelectItemStyleNormal: {
-            showAllButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Show All", nil)];
+            showAllButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Show Category", nil)];
         }
             break;
          
         case WTHomeSelectItemStyleWithImage: {
-            showAllButton = [WTResourceFactory createTranslucentButtonWithText:NSLocalizedString(@"Show All", nil)];
+            showAllButton = [WTResourceFactory createTranslucentButtonWithText:NSLocalizedString(@"Show Category", nil)];
         }
             break;
         default:

@@ -106,7 +106,24 @@
 #pragma mark - UI methods
 
 - (void)configureSeeAllButton {
-    [self.seeAllButton setTitle:NSLocalizedString(@"See All", nil) forState:UIControlStateNormal];
+    NSString *seeAllTitle = nil;
+    switch (self.category) {
+        case WTHomeSelectContainerViewCategoryNews:
+            seeAllTitle = NSLocalizedString(@"See All News", nil);
+            break;
+            
+        case WTHomeSelectContainerViewCategoryActivity:
+            seeAllTitle = NSLocalizedString(@"See All Activities", nil);
+            break;
+            
+        case WTHomeSelectContainerViewCategoryFeatured:
+            seeAllTitle = NSLocalizedString(@"See All Featured", nil);
+            break;
+            
+        default:
+            break;
+    }
+    [self.seeAllButton setTitle:seeAllTitle forState:UIControlStateNormal];
     CGFloat seeAllButtonHeight = self.seeAllButton.frame.size.height;
     CGFloat seeAllButtonCenterY = self.seeAllButton.center.y;
     CGFloat seeAllButtonRightBoundX = self.seeAllButton.frame.origin.x + self.seeAllButton.frame.size.width;
