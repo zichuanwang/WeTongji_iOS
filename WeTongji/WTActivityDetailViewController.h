@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WTDetailViewController.h"
 
 @class Activity;
 
-@interface WTActivityDetailViewController : UIViewController <UIScrollViewDelegate>
+@interface WTActivityDetailViewController : WTDetailViewController <UIScrollViewDelegate>
 
 + (WTActivityDetailViewController *)createActivityDetailViewControllerWithActivity:(Activity *)activity
                                                                  backBarButtonText:(NSString *)backBarButtonText;

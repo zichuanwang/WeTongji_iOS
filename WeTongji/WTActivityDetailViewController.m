@@ -19,14 +19,13 @@
 
 @interface WTActivityDetailViewController ()
 
-@property (nonatomic, weak) WTLikeButtonView *likeButtonContainerView;
-
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic, weak) IBOutlet UIView *briefIntroductionView;
 @property (nonatomic, weak) IBOutlet UILabel *activityTitleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *activityTimeLabel;
 @property (nonatomic, weak) IBOutlet UIButton *activityLocationButton;
+
 @property (nonatomic, strong) UIButton *friendCountButton;
 @property (nonatomic, strong) UIButton *participateButton;
 @property (nonatomic, strong) UIButton *inviteButton;
@@ -34,7 +33,6 @@
 @property (nonatomic, strong) WTBannerContainerView *bannerView;
 @property (nonatomic, strong) WTDetailDescriptionView *detailDescriptionView;
 
-@property (nonatomic, strong) NSString *backBarButtonText;
 @property (nonatomic, strong) Activity *activity;
 
 - (IBAction)didClickOrganizerIndicator;
@@ -79,7 +77,7 @@
 
 - (void)configureUI {
     [self configureRootViewBackgroundColor];
-    [self configureNavigationBar];
+    [self configureLikeButton];
     [self configureBriefIntroductionView];
     [self configureBannerView];
     [self configureDetailDescriptionView];
@@ -95,62 +93,11 @@
     self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, self.detailDescriptionView.frame.origin.y + self.detailDescriptionView.frame.size.height);
 }
 
-#pragma mark Configure navigation bar
+#pragma mark Configure like button 
 
-- (void)configureNavigationBarBackButton {
-    UIBarButtonItem *backBarButtonItem = nil;
-    if (self.backBarButtonText)
-        backBarButtonItem = [WTResourceFactory createBackBarButtonWithText:self.backBarButtonText target:self action:@selector(didClickBackButton:)];
-    else
-        backBarButtonItem = [WTResourceFactory createLogoBackBarButtonWithTarget:self action:@selector(didClickBackButton:)];
-    self.navigationItem.leftBarButtonItem = backBarButtonItem;
-}
-
-- (void)configureNavigationBarRightButtons {
-    UIButton *commentButton = [[UIButton alloc] init];
-    commentButton.showsTouchWhenHighlighted = YES;
-    commentButton.adjustsImageWhenHighlighted = NO;
-    UIImage *commentImage = [UIImage imageNamed:@"WTCommentButton"];
-    [commentButton setBackgroundImage:commentImage forState:UIControlStateNormal];
-    [commentButton resetSize:commentImage.size];
-    
-    UIButton *moreButton = [[UIButton alloc] init];
-    moreButton.showsTouchWhenHighlighted = YES;
-    moreButton.adjustsImageWhenHighlighted = NO;
-    UIImage *moreImage = [UIImage imageNamed:@"WTMoreButton"];
-    [moreButton resetSize:moreImage.size];
-    [moreButton setBackgroundImage:moreImage forState:UIControlStateNormal];
-    
-    UIBarButtonItem *barCommentButton = [[UIBarButtonItem alloc] initWithCustomView:commentButton];
-    UIBarButtonItem *barMoreButton = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
-    
-    WTLikeButtonView *likeButtonContainerView = [WTLikeButtonView createLikeButtonViewWithTarget:self action:@selector(didClickLikeButton:)];
-    likeButtonContainerView.likeButton.selected = !self.activity.canLike.boolValue;
-    [likeButtonContainerView setLikeCount:self.activity.likeCount.integerValue];
-    self.likeButtonContainerView = likeButtonContainerView;
-    
-    UIBarButtonItem *barLikeButton = [[UIBarButtonItem alloc] initWithCustomView:likeButtonContainerView];
-    
-    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 160, 44)];
-    if (toolbar.subviews.count > 0)
-        [(toolbar.subviews)[0] removeFromSuperview];
-    
-    NSMutableArray *buttons = [[NSMutableArray alloc] initWithCapacity:5];
-    
-    [buttons addObject:barCommentButton];
-    [buttons addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
-    [buttons addObject:barMoreButton];
-    [buttons addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
-    [buttons addObject:barLikeButton];
-    
-    [toolbar setItems:buttons animated:NO];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:toolbar];
-}
-
-- (void)configureNavigationBar {
-    [self configureNavigationBarBackButton];
-    [self configureNavigationBarRightButtons];
+- (void)configureLikeButton {
+    self.likeButtonContainerView.likeButton.selected = !self.activity.canLike.boolValue;
+    [self.likeButtonContainerView setLikeCount:self.activity.likeCount.integerValue];
 }
 
 #pragma mark Configure brief introduction view
@@ -302,10 +249,6 @@
 }
 
 #pragma mark - Actions
-
-- (void)didClickBackButton:(UIButton *)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
 - (void)didClickLikeButton:(UIButton *)sender {
     sender.selected = !sender.selected;

@@ -13,6 +13,7 @@
 #import "WTNewsSettingViewController.h"
 #import "NSUserDefaults+WTAddition.h"
 #import "WTDragToLoadDecorator.h"
+#import "WTNewsDetailViewController.h"
 
 @interface WTNewsViewController () <WTDragToLoadDecoratorDelegate, WTDragToLoadDecoratorDataSource>
 
@@ -169,6 +170,14 @@
     [headerView addSubview:label];
     
     return headerView;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    News *news = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    WTNewsDetailViewController *detailVC = [WTNewsDetailViewController createNewsDetailViewControllerWithNews:news backBarButtonText:NSLocalizedString(@"News", nil)];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 #pragma mark - CoreDataTableViewController methods
