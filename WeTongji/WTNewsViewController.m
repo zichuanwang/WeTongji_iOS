@@ -167,7 +167,7 @@
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 0, tableView.bounds.size.width, sectionHeaderHeight)];
     label.text = sectionName;
     label.font = [UIFont boldSystemFontOfSize:12.0f];
-    label.textColor = [UIColor colorWithRed:131.0f / 255 green:131.0f / 255 blue:131.0f / 255 alpha:1.0f];
+    label.textColor = WTSectionHeaderViewGrayColor;
     label.backgroundColor = [UIColor clearColor];
     
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 24)];

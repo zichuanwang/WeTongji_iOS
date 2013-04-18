@@ -55,10 +55,16 @@
     }
 }
 
+- (void)updateTableViewController {
+    [self updateNowBarTitleViewTimeDisplay];
+    [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
+}
+
 - (void)updateNowBarTitleViewTimeDisplay {
-    UITableViewCell *firstVisibleCell = [self.tableView visibleCells][0];
-    if (!firstVisibleCell)
+    if (self.tableView.visibleCells.count == 0)
         return;
+    UITableViewCell *firstVisibleCell = self.tableView.visibleCells[0];
+    
     NSIndexPath *indexPath = [self.tableView indexPathForCell:firstVisibleCell];
     Event *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
     WTNowViewController *nowViewController = [UIApplication sharedApplication].nowViewController;
@@ -181,14 +187,17 @@
     UILabel *weekDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 0, tableView.bounds.size.width, sectionHeaderHeight)];
     weekDayLabel.text = [NSString weekConvertFromDate:firstEventInSection.beginTime];
     weekDayLabel.font = [UIFont boldSystemFontOfSize:12.0f];
-    weekDayLabel.textColor = [UIColor colorWithRed:131.0f / 255 green:131.0f / 255 blue:131.0f / 255 alpha:1.0f];
+    if ([[NSString yearMonthDayConvertFromDate:firstEventInSection.beginTime] isEqualToString:[NSString yearMonthDayConvertFromDate:[NSDate date]]])
+        weekDayLabel.textColor = WTBlueColor;
+    else
+        weekDayLabel.textColor = WTSectionHeaderViewGrayColor;
     weekDayLabel.backgroundColor = [UIColor clearColor];
     
     UILabel *yearMonthDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width - 10.0f, sectionHeaderHeight)];
     yearMonthDayLabel.textAlignment = NSTextAlignmentRight;
     yearMonthDayLabel.text = [NSString yearMonthDayConvertFromDate:firstEventInSection.beginTime];
     yearMonthDayLabel.font = [UIFont boldSystemFontOfSize:12.0f];
-    yearMonthDayLabel.textColor = [UIColor colorWithRed:131.0f / 255 green:131.0f / 255 blue:131.0f / 255 alpha:1.0f];
+    yearMonthDayLabel.textColor = WTSectionHeaderViewGrayColor;
     yearMonthDayLabel.backgroundColor = [UIColor clearColor];
     
     UIView *headerView = [[UIView alloc] initWithFrame:bgImageView.frame];

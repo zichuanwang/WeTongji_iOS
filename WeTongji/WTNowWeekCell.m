@@ -40,10 +40,14 @@
     [self addSubview:self.tableViewController.view];
 }
 
+- (void)cellDidAppear {
+    [self.tableViewController updateTableViewController];
+}
+
 - (void)configureCellWithWeekNumber:(NSUInteger)weekNumber {
     self.tableViewController.weekNumber = weekNumber;
     self.tableViewController.tableView.contentOffset = CGPointMake(0, 0.5f);
-    [self.tableViewController updateNowBarTitleViewTimeDisplay];
+    [self.tableViewController updateTableViewController];
 }
 
 - (void)scrollToNow:(BOOL)animated {

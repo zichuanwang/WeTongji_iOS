@@ -14,6 +14,6 @@
 
 - (void)scrollToNow:(BOOL)animated;
 
-- (void)updateNowBarTitleViewTimeDisplay;
+- (void)updateTableViewController;
 
 @end

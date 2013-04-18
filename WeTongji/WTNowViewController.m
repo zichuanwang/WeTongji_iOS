@@ -53,11 +53,20 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self.tableView resetHeight:self.view.frame.size.height];
     if (self.scrollToNow) {
         self.scrollToNow = NO;
         [self scrollToNow:NO];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.tableView.visibleCells.count == 0)
+        return;
+    WTNowWeekCell *visibleCell = (WTNowWeekCell *)self.tableView.visibleCells[0];
+    [visibleCell cellDidAppear];
 }
 
 - (void)didReceiveMemoryWarning {

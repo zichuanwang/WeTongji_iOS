@@ -14,4 +14,6 @@
 
 - (void)scrollToNow:(BOOL)animated;
 
+- (void)cellDidAppear;
+
 @end
