@@ -150,9 +150,9 @@
 - (void)adjustTableViewContentOffset {
     
     if (self.tableView.contentOffset.y == 0) {
-        self.tableView.contentOffset = CGPointMake(0, 1);
+        self.tableView.contentOffset = CGPointMake(0, 0.5f);
     } else if (self.tableView.contentOffset.y == self.tableView.contentSize.height - self.tableView.frame.size.height + self.tableView.contentInset.bottom) {
-        self.tableView.contentOffset = CGPointMake(0, self.tableView.contentOffset.y - 1);
+        self.tableView.contentOffset = CGPointMake(0, self.tableView.contentOffset.y - 0.5f);
     }
 }
 
