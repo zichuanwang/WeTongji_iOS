@@ -15,6 +15,7 @@
 #import "WTActivityDetailViewController.h"
 #import "Activity+Addition.h"
 #import "News+Addition.h"
+#import "WTNewsDetailViewController.h"
 
 @interface WTHomeViewController ()
 
@@ -221,7 +222,8 @@
         WTActivityDetailViewController *vc = [WTActivityDetailViewController createActivityDetailViewControllerWithActivity:(Activity *)modelObject backBarButtonText:nil];
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([modelObject isKindOfClass:[News class]]) {
-        
+        WTNewsDetailViewController *vc = [WTNewsDetailViewController createNewsDetailViewControllerWithNews:(News *)modelObject backBarButtonText:nil];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

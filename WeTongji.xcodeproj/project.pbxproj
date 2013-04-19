@@ -265,6 +265,8 @@
 		E177E64216EE35B60029130F /* public_key.der in Resources */ = {isa = PBXBuildFile; fileRef = E177E64016EE35AD0029130F /* public_key.der */; };
 		E177EB6416C59F1A0044A697 /* WTInnerModalSeparator.png in Resources */ = {isa = PBXBuildFile; fileRef = E177EB6216C59F1A0044A697 /* WTInnerModalSeparator.png */; };
 		E177EB6516C59F1A0044A697 /* WTInnerModalSeparator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E177EB6316C59F1A0044A697 /* WTInnerModalSeparator@2x.png */; };
+		E179D63D172127E800C6D789 /* WTNewsImageRollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E179D63C172127E800C6D789 /* WTNewsImageRollView.m */; };
+		E179D63F172127FC00C6D789 /* WTNewsImageRollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E179D63E172127FC00C6D789 /* WTNewsImageRollView.xib */; };
 		E17AE8D8171EE5950026B644 /* WTBillboardPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17AE8D7171EE5950026B644 /* WTBillboardPostViewController.m */; };
 		E17AE8DC171EE5B30026B644 /* WTBillboardPostPlainTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17AE8DA171EE5B30026B644 /* WTBillboardPostPlainTextViewController.m */; };
 		E17AE8DD171EE5B30026B644 /* WTBillboardPostPlainTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17AE8DB171EE5B30026B644 /* WTBillboardPostPlainTextViewController.xib */; };
@@ -779,6 +781,9 @@
 		E177E64016EE35AD0029130F /* public_key.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = public_key.der; sourceTree = "<group>"; };
 		E177EB6216C59F1A0044A697 /* WTInnerModalSeparator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTInnerModalSeparator.png; sourceTree = "<group>"; };
 		E177EB6316C59F1A0044A697 /* WTInnerModalSeparator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTInnerModalSeparator@2x.png"; sourceTree = "<group>"; };
+		E179D63B172127E800C6D789 /* WTNewsImageRollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNewsImageRollView.h; sourceTree = "<group>"; };
+		E179D63C172127E800C6D789 /* WTNewsImageRollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNewsImageRollView.m; sourceTree = "<group>"; };
+		E179D63E172127FC00C6D789 /* WTNewsImageRollView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNewsImageRollView.xib; sourceTree = "<group>"; };
 		E17AE8D6171EE5950026B644 /* WTBillboardPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBillboardPostViewController.h; sourceTree = "<group>"; };
 		E17AE8D7171EE5950026B644 /* WTBillboardPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTBillboardPostViewController.m; sourceTree = "<group>"; };
 		E17AE8D9171EE5B30026B644 /* WTBillboardPostPlainTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBillboardPostPlainTextViewController.h; sourceTree = "<group>"; };
@@ -1837,6 +1842,9 @@
 				E1CD3F381720646900359A79 /* WTNewsBriefIntroductionView.h */,
 				E1CD3F391720646900359A79 /* WTNewsBriefIntroductionView.m */,
 				E1CD3F3B1720648A00359A79 /* WTNewsBriefIntroductionView.xib */,
+				E179D63B172127E800C6D789 /* WTNewsImageRollView.h */,
+				E179D63C172127E800C6D789 /* WTNewsImageRollView.m */,
+				E179D63E172127FC00C6D789 /* WTNewsImageRollView.xib */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -2402,6 +2410,7 @@
 				E17AE8E9171EEAB60026B644 /* WTImageViewController.xib in Resources */,
 				E1CD3F33171FF5F600359A79 /* WTNewsDetailViewController.xib in Resources */,
 				E1CD3F3C1720648A00359A79 /* WTNewsBriefIntroductionView.xib in Resources */,
+				E179D63F172127FC00C6D789 /* WTNewsImageRollView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2542,6 +2551,7 @@
 				E1CD3F36171FF7E600359A79 /* WTDetailViewController.m in Sources */,
 				E1CD3F3A1720646900359A79 /* WTNewsBriefIntroductionView.m in Sources */,
 				E1CD3F3F172068E700359A79 /* News.m in Sources */,
+				E179D63D172127E800C6D789 /* WTNewsImageRollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

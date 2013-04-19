@@ -50,6 +50,7 @@
 										<string key="NSFrame">{{20, 16}, {280, 21}}</string>
 										<reference key="NSSuperview" ref="371055180"/>
 										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
 										<bool key="IBUIClipsSubviews">YES</bool>
@@ -59,8 +60,7 @@
 										<string key="IBUIText">Label</string>
 										<object class="NSColor" key="IBUITextColor">
 											<int key="NSColorSpace">1</int>
-											<bytes key="NSRGB">MCAwIDAAA</bytes>
-											<string key="IBUIColorCocoaTouchKeyPath">darkTextColor</string>
+											<bytes key="NSRGB">MC4yMTU2ODYyNzQ1IDAuMjE1Njg2Mjc0NSAwLjIxNTY4NjI3NDUAA</bytes>
 										</object>
 										<nil key="IBUIHighlightedColor"/>
 										<string key="IBUIShadowOffset">{0, 0}</string>

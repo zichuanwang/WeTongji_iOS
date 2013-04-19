@@ -12,11 +12,13 @@
 #import "WTNewsBriefIntroductionView.h"
 #import "OHAttributedLabel.h"
 #import <QuartzCore/QuartzCore.h>
+#import "WTNewsImageRollView.h"
 
 @interface WTNewsDetailViewController ()
 
 @property (nonatomic, strong) WTNewsBriefIntroductionView *briefIntroductionView;
 @property (nonatomic, strong) News *news;
+@property (nonatomic, strong) WTNewsImageRollView *imageRollView;
 
 @end
 
@@ -57,7 +59,7 @@
 
 - (void)configureUI {
     [self configureBriefIntroductionView];
-    [self configureContentLabel];
+    [self configureDetailView];
     [self configureScrollView];
     [self configureLikeButton];
     
@@ -69,22 +71,42 @@
 
     self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, self.contentLabelContainerView.frame.origin.y + self.contentLabelContainerView.frame.size.height);
 }
+
 - (void)configureBriefIntroductionView {
     self.briefIntroductionView = [WTNewsBriefIntroductionView createNewsBriefIntroductionViewWithNews:self.news];
     [self.scrollView addSubview:self.briefIntroductionView];
     [self.view sendSubviewToBack:self.briefIntroductionView];
 }
 
-#define CONTENT_LABEL_LINE_SPACING  8.0f
+- (void)configureDetailView {
+    [self configureImageRollView];
+    [self configureContentLabel];
+    [self configureContentLabelContainerView];
+}
 
-- (void)configureContentLabel {
-    [self.contentLabelContainerView resetOriginY:self.briefIntroductionView.frame.size.height];
+- (void)configureImageRollView {
+    self.imageRollView = [WTNewsImageRollView createImageRollViewWithImageURLStringArray:self.news.imageArray];
+    [self.imageRollView resetOriginY:0];
+    self.imageRollView.autoresizingMask = UIViewAutoresizingNone;
+    [self.contentLabelContainerView addSubview:self.imageRollView];
+}
+
+#define CONTENT_LABEL_BOTTOM_PADDING    20.0f
+
+- (void)configureContentLabelContainerView {
+    [self.contentLabelContainerView resetOriginY:self.briefIntroductionView.frame.size.height + self.briefIntroductionView.frame.origin.y];
     
     self.contentLabelContainerView.layer.shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1.0f].CGColor;
     self.contentLabelContainerView.layer.shadowOffset = CGSizeMake(0, 1.0f);
     self.contentLabelContainerView.layer.shadowOpacity = 0.25f;
     self.contentLabelContainerView.layer.shadowRadius = 0;
     
+    [self.contentLabelContainerView resetHeight:self.contentLabel.frame.size.height + self.contentLabel.frame.origin.y + CONTENT_LABEL_BOTTOM_PADDING];
+}
+
+#define CONTENT_LABEL_LINE_SPACING  8.0f
+
+- (void)configureContentLabel {
     NSMutableAttributedString *contentAttributedString = [NSMutableAttributedString attributedStringWithString:self.news.content];
     
     [contentAttributedString setAttributes:[self.contentLabel.attributedText attributesAtIndex:0 effectiveRange:NULL] range:NSMakeRange(0, contentAttributedString.length)];
@@ -98,8 +120,7 @@
     CGFloat contentLabelHeight = [contentAttributedString sizeConstrainedToSize:CGSizeMake(self.contentLabel.frame.size.width, 200000.0f)].height;
     
     [self.contentLabel resetHeight:contentLabelHeight];
-    
-    [self.contentLabelContainerView resetHeight:contentLabelHeight + self.contentLabel.frame.origin.y * 2];
+    [self.contentLabel resetOriginY:self.imageRollView.frame.size.height];
     
     self.contentLabel.automaticallyAddLinksForType = NSTextCheckingTypeLink;
 }
