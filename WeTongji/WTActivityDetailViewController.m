@@ -15,7 +15,7 @@
 #import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
 #import "NSString+WTAddition.h"
 #import "WTCoreDataManager.h"
-#import "WTDetailDescriptionView.h"
+#import "WTActivityDetailDescriptionView.h"
 
 @interface WTActivityDetailViewController ()
 
@@ -31,7 +31,7 @@
 @property (nonatomic, strong) UIButton *inviteButton;
 
 @property (nonatomic, strong) WTBannerContainerView *bannerView;
-@property (nonatomic, strong) WTDetailDescriptionView *detailDescriptionView;
+@property (nonatomic, strong) WTActivityDetailDescriptionView *detailDescriptionView;
 
 @property (nonatomic, strong) Activity *activity;
 
@@ -60,15 +60,13 @@
     return result;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self configureUI];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -214,7 +212,7 @@
 #pragma mark Configure detail descriptioin view
 
 - (void)configureDetailDescriptionView {
-    self.detailDescriptionView = [WTDetailDescriptionView createDetailDescriptionView];
+    self.detailDescriptionView = [WTActivityDetailDescriptionView createDetailDescriptionView];
     [self.detailDescriptionView configureViewWithManagedObject:self.activity];
     if (self.bannerView) {
         [self.detailDescriptionView resetOriginY:self.bannerView.frame.origin.y + self.bannerView.frame.size.height];

@@ -29,6 +29,10 @@
     self.titleLabel.text = self.news.title;
     self.publisherLabel.text = self.news.source;
     self.publishTimeLabel.text = self.news.publishDay;
+    
+    CGFloat titleLabelOriginalHeight = self.titleLabel.frame.size.height;
+    [self.titleLabel sizeToFit];
+    [self resetHeight:self.frame.size.height + self.titleLabel.frame.size.height - titleLabelOriginalHeight];
 }
 
 @end

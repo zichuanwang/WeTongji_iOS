@@ -10,7 +10,7 @@
 
 @class OHAttributedLabel;
 
-@interface WTDetailDescriptionView : UIView
+@interface WTActivityDetailDescriptionView : UIView
 
 @property (nonatomic, weak) IBOutlet UILabel *organizerDisplayLabel;
 @property (nonatomic, weak) IBOutlet UIButton *organizerButton;
@@ -20,7 +20,7 @@
 @property (nonatomic, weak) IBOutlet UIView *organizerAvatarContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *organizerAvatarImageView;
 
-+ (WTDetailDescriptionView *)createDetailDescriptionView;
++ (WTActivityDetailDescriptionView *)createDetailDescriptionView;
 
 - (void)configureViewWithManagedObject:(id)object;
 

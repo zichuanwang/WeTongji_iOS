@@ -147,8 +147,8 @@
 		E11825D31714769800B4B9BF /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825D21714769800B4B9BF /* Object.m */; };
 		E11825D61714769800B4B9BF /* Star.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825D51714769800B4B9BF /* Star.m */; };
 		E11825D91714769800B4B9BF /* InvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825D81714769800B4B9BF /* InvitationNotification.m */; };
-		E11825DD17154AB500B4B9BF /* WTDetailDescriptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825DC17154AB500B4B9BF /* WTDetailDescriptionView.m */; };
-		E11825DF17154AD400B4B9BF /* WTDetailDescriptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E11825DE17154AD400B4B9BF /* WTDetailDescriptionView.xib */; };
+		E11825DD17154AB500B4B9BF /* WTActivityDetailDescriptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825DC17154AB500B4B9BF /* WTActivityDetailDescriptionView.m */; };
+		E11825DF17154AD400B4B9BF /* WTActivityDetailDescriptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E11825DE17154AD400B4B9BF /* WTActivityDetailDescriptionView.xib */; };
 		E11A7F4C16FC08050068C074 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E11A7F4B16FC08050068C074 /* libFlurry.a */; };
 		E125549416491530006D42F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549316491530006D42F5 /* UIKit.framework */; };
 		E125549616491530006D42F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549516491530006D42F5 /* Foundation.framework */; };
@@ -630,9 +630,9 @@
 		E11825D51714769800B4B9BF /* Star.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Star.m; sourceTree = "<group>"; };
 		E11825D71714769800B4B9BF /* InvitationNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationNotification.h; sourceTree = "<group>"; };
 		E11825D81714769800B4B9BF /* InvitationNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationNotification.m; sourceTree = "<group>"; };
-		E11825DB17154AB500B4B9BF /* WTDetailDescriptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTDetailDescriptionView.h; sourceTree = "<group>"; };
-		E11825DC17154AB500B4B9BF /* WTDetailDescriptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTDetailDescriptionView.m; sourceTree = "<group>"; };
-		E11825DE17154AD400B4B9BF /* WTDetailDescriptionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTDetailDescriptionView.xib; sourceTree = "<group>"; };
+		E11825DB17154AB500B4B9BF /* WTActivityDetailDescriptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTActivityDetailDescriptionView.h; sourceTree = "<group>"; };
+		E11825DC17154AB500B4B9BF /* WTActivityDetailDescriptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTActivityDetailDescriptionView.m; sourceTree = "<group>"; };
+		E11825DE17154AD400B4B9BF /* WTActivityDetailDescriptionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTActivityDetailDescriptionView.xib; sourceTree = "<group>"; };
 		E11A7F4B16FC08050068C074 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry.a; sourceTree = "<group>"; };
 		E11A7F4D16FC084E0068C074 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		E125548F16491530006D42F5 /* WeTongji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeTongji.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1185,14 +1185,14 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		E11825DA17154A8000B4B9BF /* Detail */ = {
+		E11825DA17154A8000B4B9BF /* Activity */ = {
 			isa = PBXGroup;
 			children = (
-				E11825DB17154AB500B4B9BF /* WTDetailDescriptionView.h */,
-				E11825DC17154AB500B4B9BF /* WTDetailDescriptionView.m */,
-				E11825DE17154AD400B4B9BF /* WTDetailDescriptionView.xib */,
+				E11825DB17154AB500B4B9BF /* WTActivityDetailDescriptionView.h */,
+				E11825DC17154AB500B4B9BF /* WTActivityDetailDescriptionView.m */,
+				E11825DE17154AD400B4B9BF /* WTActivityDetailDescriptionView.xib */,
 			);
-			name = Detail;
+			name = Activity;
 			sourceTree = "<group>";
 		};
 		E1250C0A16859A1D00802808 /* Activity */ = {
@@ -1383,7 +1383,7 @@
 			children = (
 				E17F9E7317130C4100DC6AB6 /* Banner */,
 				E1428693171AE02F006AB739 /* Billboard */,
-				E11825DA17154A8000B4B9BF /* Detail */,
+				E11825DA17154A8000B4B9BF /* Activity */,
 				E17F9E6B1712C14800DC6AB6 /* Home */,
 				E1CD3F371720643B00359A79 /* News */,
 				E142869E171BE090006AB739 /* Now */,
@@ -2347,7 +2347,7 @@
 				E17F9E8D1713547D00DC6AB6 /* WTRoundCornerPanelBgCover@2x.png in Resources */,
 				E13652CA1713FD8000ACA92D /* WTTranslucentHighlightButton.png in Resources */,
 				E13652CB1713FD8000ACA92D /* WTTranslucentHighlightButton@2x.png in Resources */,
-				E11825DF17154AD400B4B9BF /* WTDetailDescriptionView.xib in Resources */,
+				E11825DF17154AD400B4B9BF /* WTActivityDetailDescriptionView.xib in Resources */,
 				E17C664A1716C14400B91B25 /* WTNewPostNormalIcon.png in Resources */,
 				E17C664B1716C14400B91B25 /* WTNewPostNormalIcon@2x.png in Resources */,
 				E17C664C1716C14400B91B25 /* WTNewPostSelectIcon.png in Resources */,
@@ -2529,7 +2529,7 @@
 				E11825D31714769800B4B9BF /* Object.m in Sources */,
 				E11825D61714769800B4B9BF /* Star.m in Sources */,
 				E11825D91714769800B4B9BF /* InvitationNotification.m in Sources */,
-				E11825DD17154AB500B4B9BF /* WTDetailDescriptionView.m in Sources */,
+				E11825DD17154AB500B4B9BF /* WTActivityDetailDescriptionView.m in Sources */,
 				E14F9E7717193383009AFABA /* WTErrorHandler.m in Sources */,
 				E14F9E7B17194B07009AFABA /* WTLoginIntroViewController.m in Sources */,
 				E10C1F2E171A8EF30009C673 /* WTRegisterInfoViewController.m in Sources */,

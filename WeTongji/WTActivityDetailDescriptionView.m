@@ -6,13 +6,13 @@
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
-#import "WTDetailDescriptionView.h"
+#import "WTActivityDetailDescriptionView.h"
 #import "Activity.h"
 #import "OHAttributedLabel.h"
 #import <QuartzCore/QuartzCore.h>
 #import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
 
-@implementation WTDetailDescriptionView
+@implementation WTActivityDetailDescriptionView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -34,8 +34,8 @@
     }
 }
 
-+ (WTDetailDescriptionView *)createDetailDescriptionView {
-    return [[[NSBundle mainBundle] loadNibNamed:@"WTDetailDescriptionView" owner:self options:nil] lastObject];
++ (WTActivityDetailDescriptionView *)createDetailDescriptionView {
+    return [[[NSBundle mainBundle] loadNibNamed:@"WTActivityDetailDescriptionView" owner:self options:nil] lastObject];
 }
 
 #pragma mark Configure detail description view
