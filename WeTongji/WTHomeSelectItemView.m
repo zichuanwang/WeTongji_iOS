@@ -10,7 +10,7 @@
 #import "WTHomeSelectItemView.h"
 #import "WTResourceFactory.h"
 #import "WTLikeButtonView.h"
-#import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
+#import "UIImageView+AsyncLoading.h"
 #import "NSString+WTAddition.h"
 #import "Event+Addition.h"
 #import "Activity+Addition.h"
@@ -139,16 +139,7 @@ typedef enum {
     self.bgImageContainerView.layer.masksToBounds = YES;
     self.bgImageContainerView.layer.cornerRadius = 8.0f;
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURL]];
-    [self.bgImageView setImageWithURLRequest:request
-                            placeholderImage:nil
-                                     success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                         self.bgImageView.image = image;
-                                         [self.bgImageView fadeIn];
-                                     }
-                                     failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                         
-                                     }];
+    [self.bgImageView loadImageWithImageURLString:imageURL];
 }
 
 @end
@@ -196,16 +187,7 @@ typedef enum {
 }
 
 - (void)configurePosterImageView:(NSString *)imageURL {
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURL]];
-    [self.posterImageView setImageWithURLRequest:request
-                                placeholderImage:nil
-                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                             self.posterImageView.image = image;
-                                             [self.posterImageView fadeIn];
-                                         }
-                                         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                             
-                                         }];
+    [self.posterImageView loadImageWithImageURLString:imageURL];
 }
 
 @end

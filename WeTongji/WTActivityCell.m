@@ -7,7 +7,7 @@
 //
 
 #import "WTActivityCell.h"
-#import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
+#import "UIImageView+AsyncLoading.h"
 
 @interface WTActivityCell ()
 
@@ -69,16 +69,7 @@
     self.titleLabel.text = title;
     self.timeLabel.text = time;
     self.locationLabel.text = location;
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURL]];
-    [self.posterImageView setImageWithURLRequest:request
-                          placeholderImage:nil
-                                   success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                        self.posterImageView.image = image;
-                                       [self.posterImageView fadeIn];
-                                   }
-                                   failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                            
-                                   }];
+    [self.posterImageView loadImageWithImageURLString:imageURL];
 }
 
 @end

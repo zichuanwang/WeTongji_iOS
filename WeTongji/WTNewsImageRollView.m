@@ -7,7 +7,7 @@
 //
 
 #import "WTNewsImageRollView.h"
-#import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
+#import "UIImageView+AsyncLoading.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface WTNewsImageRollView () <UIScrollViewDelegate>
@@ -99,16 +99,7 @@
 }
 
 - (void)loadImageWithImageURLString:(NSString *)imageURLString {
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURLString]];
-    [self.imageView setImageWithURLRequest:request
-                                   placeholderImage:nil
-                                            success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                                self.imageView.image = image;
-                                                [self.imageView fadeIn];
-                                            }
-                                            failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                                
-                                            }];
+    [self.imageView loadImageWithImageURLString:imageURLString];
 }
 
 @end

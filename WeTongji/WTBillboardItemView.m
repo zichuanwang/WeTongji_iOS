@@ -9,7 +9,7 @@
 #import "WTBillboardItemView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "BillboardPost.h"
-#import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
+#import "UIImageView+AsyncLoading.h"
 
 @implementation WTBillboardItemView
 
@@ -48,15 +48,7 @@ enum {
         
         self.imageTitleLabel.text = post.title;
         
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:post.image]];
-        [self.imageView setImageWithURLRequest:request
-                              placeholderImage:nil
-                                       success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                           self.imageView.image = image;
-                                           [self.imageView fadeIn];
-                                       } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                           
-                                       }];
+        [self.imageView loadImageWithImageURLString:post.image];
         
     } else {
         self.imageTextContainerView.hidden = YES;

@@ -7,7 +7,7 @@
 //
 
 #import "WTBannerView.h"
-#import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
+#import "UIImageView+AsyncLoading.h"
 
 @interface WTBannerContainerView()
 
@@ -99,16 +99,7 @@
                            atIndex:index];
     
     WTBannerItemView *containerView = self.bannerItemViewArray[index];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURLString]];
-    [containerView.imageView setImageWithURLRequest:request
-                                placeholderImage:nil
-                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                             containerView.imageView.image = image;
-                                             [containerView.imageView fadeIn];
-                                         }
-                                         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                             
-                                         }];
+    [containerView.imageView loadImageWithImageURLString:imageURLString];
 }
 
 - (void)addItemViewWithTitleText:(NSString *)title

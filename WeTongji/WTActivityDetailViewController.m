@@ -12,7 +12,6 @@
 #import "WTBannerView.h"
 #import "Activity+Addition.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
-#import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
 #import "NSString+WTAddition.h"
 #import "WTCoreDataManager.h"
 #import "WTActivityDetailDescriptionView.h"

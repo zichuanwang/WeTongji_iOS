@@ -7,7 +7,7 @@
 //
 
 #import "WTNowActivityCell.h"
-#import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
+#import "UIImageView+AsyncLoading.h"
 #import "Activity.h"
 #import "Event+Addition.h"
 
@@ -65,17 +65,7 @@
     
     self.posterPlaceholderImageView.alpha = 1.0f;
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:activity.image]];
-    [self.posterImageView setImageWithURLRequest:request
-                                placeholderImage:nil
-                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                             self.posterImageView.image = image;
-                                             [self.posterImageView fadeIn];
-                                             [self.posterPlaceholderImageView fadeOut];
-                                         }
-                                         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                             
-                                         }];
+    [self.posterImageView loadImageWithImageURLString:activity.image];
 }
 
 @end

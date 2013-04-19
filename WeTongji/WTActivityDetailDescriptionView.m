@@ -10,7 +10,7 @@
 #import "Activity.h"
 #import "OHAttributedLabel.h"
 #import <QuartzCore/QuartzCore.h>
-#import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
+#import "UIImageView+AsyncLoading.h"
 
 @implementation WTActivityDetailDescriptionView
 
@@ -89,16 +89,7 @@
     self.organizerAvatarContainerView.layer.masksToBounds = YES;
     self.organizerAvatarContainerView.layer.cornerRadius = 3.0f;
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:avatarURL]];
-    [self.organizerAvatarImageView setImageWithURLRequest:request
-                                         placeholderImage:nil
-                                                  success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                                      self.organizerAvatarImageView.image = image;
-                                                      [self.organizerAvatarImageView fadeIn];
-                                                  }
-                                                  failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                                      
-                                                  }];
+    [self.organizerAvatarImageView loadImageWithImageURLString:avatarURL];
 }
 
 @end
