@@ -25,10 +25,12 @@
 @property (nonatomic, weak) IBOutlet UILabel *activityTitleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *activityTimeLabel;
 @property (nonatomic, weak) IBOutlet UIButton *activityLocationButton;
+@property (nonatomic, weak) IBOutlet UIImageView *activityLocationDisclosureImageView;
 
 @property (nonatomic, strong) UIButton *friendCountButton;
 @property (nonatomic, strong) UIButton *participateButton;
 @property (nonatomic, strong) UIButton *inviteButton;
+@property (nonatomic, assign) BOOL showingBriefIntroViewBottomButtons;
 
 @property (nonatomic, strong) WTBannerContainerView *bannerView;
 @property (nonatomic, strong) WTActivityDetailDescriptionView *detailDescriptionView;
@@ -170,26 +172,40 @@
     self.activityTimeLabel.text = self.activity.yearMonthDayBeginToEndTimeString;
 }
 
+#define BRIEF_DESCRIPTION_VIEW_BOTTOM_BUTTONS_HEIGHT    40.0f
+
 - (void)configureActivityTitleLabelAndCalculateBriefIntroductionViewHeight {
     self.activityTitleLabel.text = self.activity.what;
     
     CGFloat titleLabelOriginalHeight = self.activityTitleLabel.frame.size.height;
     [self.activityTitleLabel sizeToFit];
     [self.briefIntroductionView resetHeight:self.briefIntroductionView.frame.size.height + self.activityTitleLabel.frame.size.height - titleLabelOriginalHeight];
+    
+    if (!self.showingBriefIntroViewBottomButtons) {
+        self.activityTimeLabel.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
+        self.activityLocationButton.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
+        self.activityLocationDisclosureImageView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
+        [self.briefIntroductionView resetHeight:self.briefIntroductionView.frame.size.height - BRIEF_DESCRIPTION_VIEW_BOTTOM_BUTTONS_HEIGHT];
+    }
 }
 
 - (void)configureBriefIntroductionViewBackgroundColor {
     self.briefIntroductionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTGrayPanel"]];
 }
 
+- (void)configureBriefIntroductionViewBottomButtons {
+    self.showingBriefIntroViewBottomButtons = ([self.activity.endTime compare:[NSDate date]] == NSOrderedDescending);
+    if (self.showingBriefIntroViewBottomButtons) {
+        [self configureInviteButton];
+        [self configureParticipateButton];
+        [self configureFriendCountButton];
+    }
+}
+
 - (void)configureBriefIntroductionView {
     [self configureBriefIntroductionViewBackgroundColor];
     [self configureActivityLocationButton];
-    
-    [self configureInviteButton];
-    [self configureParticipateButton];
-    [self configureFriendCountButton];
-    
+    [self configureBriefIntroductionViewBottomButtons];
     [self configureActivityTimeLabel];
     [self configureActivityTitleLabelAndCalculateBriefIntroductionViewHeight];
 }
@@ -235,14 +251,16 @@
 
 #pragma mark - UIScrollViewDelegate
 
-#define BRIEF_DESCRIPTION_VIEW_BOTTOM_INDENT  50.0f
+#define BRIEF_DESCRIPTION_VIEW_BOTTOM_INDENT    50.0f
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    CGFloat briefDescriptionViewTopIndent = self.briefIntroductionView.frame.size.height - BRIEF_DESCRIPTION_VIEW_BOTTOM_INDENT;
-    if (scrollView.contentOffset.y > briefDescriptionViewTopIndent) {
-        [self.briefIntroductionView resetOriginY:scrollView.contentOffset.y - briefDescriptionViewTopIndent];
-    } else {
-        [self.briefIntroductionView resetOriginY:0];
+    if (self.showingBriefIntroViewBottomButtons) {
+        CGFloat briefDescriptionViewTopIndent = self.briefIntroductionView.frame.size.height - BRIEF_DESCRIPTION_VIEW_BOTTOM_INDENT;
+        if (scrollView.contentOffset.y > briefDescriptionViewTopIndent) {
+            [self.briefIntroductionView resetOriginY:scrollView.contentOffset.y - briefDescriptionViewTopIndent];
+        } else {
+            [self.briefIntroductionView resetOriginY:0];
+        }
     }
 }
 
