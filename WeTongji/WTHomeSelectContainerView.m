@@ -92,6 +92,7 @@
         }
         
         itemView.bgButton.tag = index;
+        itemView.bgCoverButton.tag = index;
         
         [itemView.bgButton addTarget:self action:@selector(didClickItemViewBgButton:) forControlEvents:UIControlEventTouchUpInside];
         [itemView.bgCoverButton addTarget:self action:@selector(didClickItemViewBgButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -175,6 +176,7 @@
 }
 
 - (void)didClickItemViewBgButton:(UIButton *)sender {
+    NSLog(@"sender tag:%d", sender.tag);
     if ([self.delegate respondsToSelector:@selector(homeSelectContainerView:didSelectModelObject:)]) {
         [self.delegate homeSelectContainerView:self didSelectModelObject:self.itemInfoArray[sender.tag]];
     }

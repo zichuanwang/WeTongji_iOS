@@ -85,7 +85,8 @@
 }
 
 - (void)configureImageRollView {
-    self.imageRollView = [WTNewsImageRollView createImageRollViewWithImageURLStringArray:self.news.imageArray];
+    if (self.news.imageArray)
+        self.imageRollView = [WTNewsImageRollView createImageRollViewWithImageURLStringArray:self.news.imageArray];
     [self.imageRollView resetOriginY:0];
     self.imageRollView.autoresizingMask = UIViewAutoresizingNone;
     [self.contentLabelContainerView addSubview:self.imageRollView];
@@ -120,7 +121,7 @@
     CGFloat contentLabelHeight = [contentAttributedString sizeConstrainedToSize:CGSizeMake(self.contentLabel.frame.size.width, 200000.0f)].height;
     
     [self.contentLabel resetHeight:contentLabelHeight];
-    [self.contentLabel resetOriginY:self.imageRollView.frame.size.height];
+    [self.contentLabel resetOriginY:self.imageRollView ? self.imageRollView.frame.size.height : 15.0f];
     
     self.contentLabel.automaticallyAddLinksForType = NSTextCheckingTypeLink;
 }

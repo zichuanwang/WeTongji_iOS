@@ -52,6 +52,8 @@
     result.source = [NSString stringWithFormat:@"%@", dict[@"Source"]];
     
     NSArray *imageArray = dict[@"Images"];
+    if (imageArray.count == 0)
+        imageArray = nil;
     result.imageArray = imageArray;
     
     result.publishDay = [NSString yearMonthDayConvertFromDate:result.publishDate];
