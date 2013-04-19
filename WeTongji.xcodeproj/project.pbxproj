@@ -268,6 +268,8 @@
 		E179D63D172127E800C6D789 /* WTNewsImageRollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E179D63C172127E800C6D789 /* WTNewsImageRollView.m */; };
 		E179D63F172127FC00C6D789 /* WTNewsImageRollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E179D63E172127FC00C6D789 /* WTNewsImageRollView.xib */; };
 		E179D6421721951900C6D789 /* UIImageView+AsyncLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = E179D6411721951900C6D789 /* UIImageView+AsyncLoading.m */; };
+		E179D6491721A3E100C6D789 /* SDCachedURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E179D6461721A3E100C6D789 /* SDCachedURLResponse.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E179D64A1721A3E100C6D789 /* SDURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E179D6481721A3E100C6D789 /* SDURLCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E17AE8D8171EE5950026B644 /* WTBillboardPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17AE8D7171EE5950026B644 /* WTBillboardPostViewController.m */; };
 		E17AE8DC171EE5B30026B644 /* WTBillboardPostPlainTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17AE8DA171EE5B30026B644 /* WTBillboardPostPlainTextViewController.m */; };
 		E17AE8DD171EE5B30026B644 /* WTBillboardPostPlainTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17AE8DB171EE5B30026B644 /* WTBillboardPostPlainTextViewController.xib */; };
@@ -787,6 +789,10 @@
 		E179D63E172127FC00C6D789 /* WTNewsImageRollView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNewsImageRollView.xib; sourceTree = "<group>"; };
 		E179D6401721951900C6D789 /* UIImageView+AsyncLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AsyncLoading.h"; sourceTree = "<group>"; };
 		E179D6411721951900C6D789 /* UIImageView+AsyncLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AsyncLoading.m"; sourceTree = "<group>"; };
+		E179D6451721A3E100C6D789 /* SDCachedURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCachedURLResponse.h; sourceTree = "<group>"; };
+		E179D6461721A3E100C6D789 /* SDCachedURLResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCachedURLResponse.m; sourceTree = "<group>"; };
+		E179D6471721A3E100C6D789 /* SDURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDURLCache.h; sourceTree = "<group>"; };
+		E179D6481721A3E100C6D789 /* SDURLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDURLCache.m; sourceTree = "<group>"; };
 		E17AE8D6171EE5950026B644 /* WTBillboardPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBillboardPostViewController.h; sourceTree = "<group>"; };
 		E17AE8D7171EE5950026B644 /* WTBillboardPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTBillboardPostViewController.m; sourceTree = "<group>"; };
 		E17AE8D9171EE5B30026B644 /* WTBillboardPostPlainTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBillboardPostPlainTextViewController.h; sourceTree = "<group>"; };
@@ -1259,6 +1265,7 @@
 				E1D373F916936B5B0012E30A /* CustomCells */,
 				E14FA67D1680B9BB008A8D33 /* CustomViews */,
 				E1A5815F16F0F8C000551149 /* Decorators */,
+				E179D6431721A38100C6D789 /* External */,
 				E125549A16491530006D42F5 /* Supporting Files */,
 				E18821CD1680077000A41F47 /* Tools */,
 				E117038E1651EFD900D82F4A /* ViewControllers */,
@@ -1433,6 +1440,25 @@
 				E177E63116EE11720029130F /* WTFriendListViewController.xib */,
 			);
 			name = Friends;
+			sourceTree = "<group>";
+		};
+		E179D6431721A38100C6D789 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				E179D6441721A3E100C6D789 /* SDURLCache */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		E179D6441721A3E100C6D789 /* SDURLCache */ = {
+			isa = PBXGroup;
+			children = (
+				E179D6451721A3E100C6D789 /* SDCachedURLResponse.h */,
+				E179D6461721A3E100C6D789 /* SDCachedURLResponse.m */,
+				E179D6471721A3E100C6D789 /* SDURLCache.h */,
+				E179D6481721A3E100C6D789 /* SDURLCache.m */,
+			);
+			path = SDURLCache;
 			sourceTree = "<group>";
 		};
 		E17AE8E4171EEA850026B644 /* Image */ = {
@@ -2558,6 +2584,8 @@
 				E1CD3F3F172068E700359A79 /* News.m in Sources */,
 				E179D63D172127E800C6D789 /* WTNewsImageRollView.m in Sources */,
 				E179D6421721951900C6D789 /* UIImageView+AsyncLoading.m in Sources */,
+				E179D6491721A3E100C6D789 /* SDCachedURLResponse.m in Sources */,
+				E179D64A1721A3E100C6D789 /* SDURLCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
