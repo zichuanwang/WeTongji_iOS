@@ -19,4 +19,8 @@
 
 + (void)showTopCorner;
 
++ (void)dismissKeyWindowViewControllerAnimated:(BOOL)animated;
+
++ (void)presentKeyWindowViewController:(UIViewController *)vc animated:(BOOL)animated;
+
 @end

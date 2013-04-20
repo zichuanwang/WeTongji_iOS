@@ -29,5 +29,6 @@
 - (BOOL)isGIFURL;
 - (BOOL)isEmptyImageURL;
 - (NSString *)clearAllBacklashR;
++ (NSString *)friendCountStringConvertFromCountNumber:(NSNumber *)countNumber;
 
 @end

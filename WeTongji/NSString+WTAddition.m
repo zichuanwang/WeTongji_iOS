@@ -159,4 +159,10 @@
     return mutableSelf;
 }
 
++ (NSString *)friendCountStringConvertFromCountNumber:(NSNumber *)countNumber {
+    NSString *friendString = countNumber.integerValue > 1 ? @"Friends" : @"Friend";
+    NSString *resultString = [NSString stringWithFormat:@"%d %@", countNumber.integerValue, NSLocalizedString(friendString, nil)];
+    return resultString;
+}
+
 @end

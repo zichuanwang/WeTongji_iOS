@@ -12,4 +12,8 @@
 
 - (void)loadImageWithImageURLString:(NSString *)imageURLString;
 
+- (void)loadImageWithImageURLString:(NSString *)imageURLString
+                            success:(void (^)(UIImage *image))success
+                            failure:(void (^)(void))failure;
+
 @end

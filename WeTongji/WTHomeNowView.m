@@ -9,6 +9,7 @@
 #import "WTHomeNowView.h"
 #import "OHAttributedLabel.h"
 #import "Event+Addition.h"
+#import "NSString+WTAddition.h"
 
 @interface WTHomeNowContainerView ()
 
@@ -166,16 +167,14 @@
 }
 
 - (void)configureFriendCountLabel:(NSNumber *)count {
-    NSString *frinedCountString = count.stringValue;
-    NSString *friendString = count.integerValue > 1 ? @"friends" : @"friend";
-    NSString *resultString = [NSString stringWithFormat:@"%@ %@", frinedCountString, NSLocalizedString(friendString, nil)];
-    NSMutableAttributedString *resultAttributedString = [[NSMutableAttributedString alloc] initWithString:resultString];
+    NSMutableAttributedString *resultAttributedString = [[NSMutableAttributedString alloc] initWithString:[NSString friendCountStringConvertFromCountNumber:count]];
     
     // Retrieve the last character's attributes of friendCountLabel, set it as
     // resultAttributedString's attributes.
     [resultAttributedString setAttributes:[self.friendCountLabel.attributedText attributesAtIndex:self.friendCountLabel.attributedText.length - 1 effectiveRange:NULL] range:NSMakeRange(0, resultAttributedString.length)];
     // Make the friend count bold.
-    [resultAttributedString setTextBold:YES range:NSMakeRange(0, frinedCountString.length)];
+    NSString *friendCountString = count.stringValue;
+    [resultAttributedString setTextBold:YES range:NSMakeRange(0, friendCountString.length)];
     self.friendCountLabel.attributedText = resultAttributedString;
 }
 

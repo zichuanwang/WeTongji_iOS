@@ -154,7 +154,7 @@
     return result;
 }
 
-- (void)updateBannerScrollView {
+- (void)updateBannerPateControl {
     int currentPage = self.bannerScrollView.contentOffset.x / self.bannerScrollView.frame.size.width;
     self.bannerPageControl.currentPage = currentPage;
 }
@@ -178,13 +178,13 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (scrollView == self.bannerScrollView)
-        [self updateBannerScrollView];
+        [self updateBannerPateControl];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (decelerate == NO) {
         if (scrollView == self.bannerScrollView) {
-            [self updateBannerScrollView];
+            [self updateBannerPateControl];
         }
     }
 }

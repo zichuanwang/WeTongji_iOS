@@ -11,6 +11,10 @@
 #import "WTNowViewController.h"
 #import "WTNowNavigationController.h"
 
+static UIViewController *staticKeyWindowViewController;
+static UIView           *staticKeyWindowBgView;
+
+
 @implementation UIApplication (WTAddition)
 
 + (void)showTopCorner {
@@ -36,6 +40,57 @@
     WTRootTabBarController *rootTabBarViewController = [UIApplication sharedApplication].rootTabBarController;
     WTNowNavigationController *nowNavigationController = rootTabBarViewController.viewControllers[1];
     return nowNavigationController.viewControllers[0];
+}
+
+#pragma mark - Key window view controller
+
++ (void)presentKeyWindowViewController:(UIViewController *)vc animated:(BOOL)animated {
+    if (staticKeyWindowViewController)
+        return;
+    
+    CGRect screenBounds = [UIScreen mainScreen].bounds;
+    staticKeyWindowViewController = vc;
+	staticKeyWindowBgView = [[UIView alloc] initWithFrame:screenBounds];
+    vc.view.frame = screenBounds;
+	staticKeyWindowBgView.backgroundColor = [UIColor blackColor];
+    
+    NSLog(@"staticKeyWindowBgView frame:%@", NSStringFromCGRect(staticKeyWindowBgView.frame));
+    
+    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+	[keyWindow addSubview:staticKeyWindowBgView];
+	[keyWindow addSubview:vc.view];
+    
+    if(animated) {
+        [vc.view resetOriginY:screenBounds.size.height];
+        staticKeyWindowBgView.alpha = 0;
+        [UIView animateWithDuration:0.25f animations:^{
+            staticKeyWindowBgView.alpha = 1.0f;
+            [vc.view resetOriginY:0];
+        }];
+    } else {
+        staticKeyWindowBgView.alpha = 0;
+    }
+}
+
++ (void)dismissKeyWindowViewControllerAnimated:(BOOL)animated {
+    if (animated) {
+        staticKeyWindowBgView.alpha = 1.0f;
+        [UIView animateWithDuration:0.25f animations:^{
+            staticKeyWindowBgView.alpha = 0;
+            [staticKeyWindowViewController.view resetOriginY:staticKeyWindowViewController.view.frame.size.height];
+        } completion:^(BOOL finished) {
+            [UIApplication clearKeyWindowViewController];
+        }];
+    } else {
+        [UIApplication clearKeyWindowViewController];
+    }
+}
+
++ (void)clearKeyWindowViewController {
+    [staticKeyWindowBgView removeFromSuperview];
+    staticKeyWindowBgView = nil;
+    [staticKeyWindowViewController.view removeFromSuperview];
+    staticKeyWindowViewController = nil;
 }
 
 @end

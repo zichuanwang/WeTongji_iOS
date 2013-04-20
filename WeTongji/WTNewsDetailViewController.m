@@ -13,6 +13,7 @@
 #import "OHAttributedLabel.h"
 #import <QuartzCore/QuartzCore.h>
 #import "WTNewsImageRollView.h"
+#import "WTDetailImageViewController.h"
 
 @interface WTNewsDetailViewController ()
 
@@ -85,11 +86,15 @@
 }
 
 - (void)configureImageRollView {
-    if (self.news.imageArray)
+    if (self.news.imageArray) {
         self.imageRollView = [WTNewsImageRollView createImageRollViewWithImageURLStringArray:self.news.imageArray];
-    [self.imageRollView resetOriginY:0];
-    self.imageRollView.autoresizingMask = UIViewAutoresizingNone;
-    [self.contentLabelContainerView addSubview:self.imageRollView];
+        [self.imageRollView resetOriginY:0];
+        self.imageRollView.autoresizingMask = UIViewAutoresizingNone;
+        [self.contentLabelContainerView addSubview:self.imageRollView];
+        
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTagImageRollView:)];
+        [self.imageRollView.scrollView addGestureRecognizer:tapGestureRecognizer];
+    }
 }
 
 #define CONTENT_LABEL_BOTTOM_PADDING    20.0f
@@ -148,6 +153,12 @@
     }];
     [request setNewsLiked:sender.selected newsID:self.news.identifier];
     [[WTClient sharedClient] enqueueRequest:request];
+}
+
+#pragma mark - Handle gesture methods
+
+- (void)didTagImageRollView:(UITapGestureRecognizer *)gesture {
+    [WTDetailImageViewController showDetailImageViewWithImageURLArray:self.news.imageArray];
 }
 
 @end

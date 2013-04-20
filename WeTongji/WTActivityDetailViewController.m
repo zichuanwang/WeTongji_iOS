@@ -15,6 +15,7 @@
 #import "NSString+WTAddition.h"
 #import "WTCoreDataManager.h"
 #import "WTActivityDetailDescriptionView.h"
+#import "WTDetailImageViewController.h"
 
 @interface WTActivityDetailViewController ()
 
@@ -155,7 +156,7 @@
 }
 
 - (void)configureFriendCountButton {
-    NSString *friendCountString = [NSString stringWithFormat:@"%d Friends", 3];
+    NSString *friendCountString = [NSString friendCountStringConvertFromCountNumber:@(3)];
     self.friendCountButton = [WTResourceFactory createNormalButtonWithText:friendCountString];
     if (self.friendCountButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
         [self.friendCountButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];
@@ -221,6 +222,9 @@
                                            style:WTBannerItemViewStyleClear
                                          atIndex:0];
         [self.scrollView insertSubview:self.bannerView atIndex:0];
+        
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTagBannerView:)];
+        [self.bannerView.bannerScrollView addGestureRecognizer:tapGestureRecognizer];
     }
 }
 
@@ -261,6 +265,12 @@
             [self.briefIntroductionView resetOriginY:0];
         }
     }
+}
+
+#pragma mark - Handle gesture methods
+
+- (void)didTagBannerView:(UITapGestureRecognizer *)gesture {
+    [WTDetailImageViewController showDetailImageViewWithImageURLString:self.activity.image];
 }
 
 #pragma mark - Actions
