@@ -9,6 +9,7 @@
 #import "WTDetailImageItemView.h"
 #import "ALAssetsLibrary+CustomPhotoAlbum.h"
 #import "UIImageView+AsyncLoading.h"
+#import "UIImageView+ContentScale.h"
 
 @interface WTDetailImageItemView () <UIAlertViewDelegate, UIScrollViewDelegate>
 
@@ -40,6 +41,8 @@
     UITapGestureRecognizer* tapGestureRecognizer;
     tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTagScollViewView:)];
     [self.scrollView addGestureRecognizer:tapGestureRecognizer];
+    
+    self.scrollView.decelerationRate = UIScrollViewDecelerationRateFast;
 }
 
 #pragma mark - UI methods
@@ -47,8 +50,16 @@
 - (void)configureViewWithImageURLString:(NSString *)imageURLString {
     [self.activityIndicator startAnimating];
     [self.imageView loadImageWithImageURLString:imageURLString success:^(UIImage *image) {
-        [self.activityIndicator fadeOut];
-        [self.activityIndicator startAnimating];
+        [self.activityIndicator fadeOutWithCompletion:^{
+            [self.activityIndicator stopAnimating];
+        }];
+        
+        CGPoint imageViewCenter = self.imageView.center;
+        [self.imageView resetSize:CGSizeMake(image.size.width * self.imageView.contentScaleFactor, image.size.height * self.imageView.contentScaleFactor)];
+        self.imageView.center = imageViewCenter;
+        
+        self.scrollView.contentSize = self.imageView.frame.size;;
+
     } failure:^{
         [self.activityIndicator stopAnimating];
     }];
@@ -98,11 +109,30 @@
 #pragma mark UIScrollView delegate
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    return self.imageView;
+    if (self.imageView.image)
+        return self.imageView;
+    else
+        return nil;
 }
 
-- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(float)scale {
-    NSLog(@"scrollview contentsize:%@", NSStringFromCGSize(scrollView.contentSize));
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
+    
+    CGSize boundsSize = self.scrollView.bounds.size;
+    CGRect contentsFrame = self.imageView.frame;
+    
+    if (contentsFrame.size.width < boundsSize.width) {
+        contentsFrame.origin.x = (boundsSize.width - contentsFrame.size.width) / 2.0f;
+    } else {
+        contentsFrame.origin.x = 0.0f;
+    }
+    
+    if (contentsFrame.size.height < boundsSize.height) {
+        contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0f;
+    } else {
+        contentsFrame.origin.y = 0.0f;
+    }
+    
+    self.imageView.frame = contentsFrame;
 }
 
 @end
