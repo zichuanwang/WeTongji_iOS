@@ -15,6 +15,7 @@
 
 + (void)showDetailImageViewWithImageURLString:(NSString *)imageURLString;
 
-+ (void)showDetailImageViewWithImageURLArray:(NSArray *)imageURLArray;
++ (void)showDetailImageViewWithImageURLArray:(NSArray *)imageURLArray
+                                 currentPage:(NSUInteger)currentPage;
 
 @end

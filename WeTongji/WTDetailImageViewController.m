@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) NSMutableArray *itemViewArray;
 @property (nonatomic, strong) NSArray *imageURLArray;
+@property (nonatomic, assign) NSUInteger initPage;
 
 @end
 
@@ -42,11 +43,13 @@
 }
 
 + (void)showDetailImageViewWithImageURLString:(NSString *)imageURLString {
-    [WTDetailImageViewController showDetailImageViewWithImageURLArray:@[imageURLString]];
+    [WTDetailImageViewController showDetailImageViewWithImageURLArray:@[imageURLString] currentPage:0];
 }
 
-+ (void)showDetailImageViewWithImageURLArray:(NSArray *)imageURLArray {
++ (void)showDetailImageViewWithImageURLArray:(NSArray *)imageURLArray
+                                 currentPage:(NSUInteger)currentPage {
     WTDetailImageViewController *vc = [WTDetailImageViewController createDetailImageViewControllerWithImageURLArray:imageURLArray];
+    vc.initPage = currentPage;
     [vc show];
 }
 
@@ -94,6 +97,9 @@
     }
     self.pageControl.numberOfPages = self.imageURLArray.count;
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * self.imageURLArray.count, self.scrollView.frame.size.height);
+    
+    self.pageControl.currentPage = self.initPage;
+    self.scrollView.contentOffset = CGPointMake(self.scrollView.contentSize.width * self.initPage, 0);
 }
 
 - (void)updatePageControl {

@@ -158,7 +158,7 @@
 #pragma mark - Handle gesture methods
 
 - (void)didTagImageRollView:(UITapGestureRecognizer *)gesture {
-    [WTDetailImageViewController showDetailImageViewWithImageURLArray:self.news.imageArray];
+    [WTDetailImageViewController showDetailImageViewWithImageURLArray:self.news.imageArray currentPage:self.imageRollView.pageControl.currentPage];
 }
 
 @end

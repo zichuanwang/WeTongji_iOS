@@ -48,11 +48,11 @@
 #pragma mark - UI methods
 
 - (void)configureViewWithImageURLString:(NSString *)imageURLString {
+
     [self.activityIndicator startAnimating];
     [self.imageView loadImageWithImageURLString:imageURLString success:^(UIImage *image) {
-        [self.activityIndicator fadeOutWithCompletion:^{
-            [self.activityIndicator stopAnimating];
-        }];
+        self.activityIndicator.hidden = YES;
+        [self.activityIndicator stopAnimating];
         
         CGPoint imageViewCenter = self.imageView.center;
         [self.imageView resetSize:CGSizeMake(image.size.width * self.imageView.contentScaleFactor, image.size.height * self.imageView.contentScaleFactor)];
