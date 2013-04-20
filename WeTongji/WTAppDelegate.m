@@ -10,7 +10,6 @@
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import "WTCoreDataManager.h"
 #import "UIApplication+WTAddition.h"
-#import "SDURLCache.h"
 
 #define FLURRY_API_KEY @"SMBC9798JNZG6WQ7FDRJ"
 
@@ -27,12 +26,6 @@
     [Flurry startSession:FLURRY_API_KEY];
     
     [UIApplication showTopCorner];
-    
-    SDURLCache *cache = [[SDURLCache alloc] initWithMemoryCapacity:1024 * 1024      // 1MB mem cache
-                                                      diskCapacity:1024 * 1024 * 5  // 5MB disk cache
-                                                          diskPath:[SDURLCache defaultCachePath]];
-    cache.ignoreMemoryOnlyStoragePolicy = YES;
-    [NSURLCache setSharedURLCache:cache];
         
     return YES;
 }

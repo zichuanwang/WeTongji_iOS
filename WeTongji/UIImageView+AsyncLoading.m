@@ -12,12 +12,16 @@
 @implementation UIImageView (AsyncLoading)
 
 - (void)loadImageWithImageURLString:(NSString *)imageURLString {
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURLString]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:imageURLString] cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:60];
+    [request setHTTPShouldHandleCookies:NO];
+    [request addValue:@"image/*" forHTTPHeaderField:@"Accept"];
     
     BlockARCWeakSelf weakSelf = self;
     [weakSelf setImageWithURLRequest:request
                 placeholderImage:nil
                          success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                             NSLog(@"request:%@", [request allHTTPHeaderFields]);
+                             NSLog(@"response:%@", [response allHeaderFields]);
                              weakSelf.image = image;
                              [self fadeIn];
                          }
