@@ -16,7 +16,7 @@
 + (void)handleError:(NSError *)error {
     
     if (error.code == ErrorCodeUserSessionExpired || error.code == ErrorCodeNeedUserLogin) {
-        [WTLoginViewController show:NO];
+        [WTLoginViewController showWithIntro:NO];
     }
 }
 

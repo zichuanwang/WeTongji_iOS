@@ -22,7 +22,8 @@
 @property (nonatomic, strong) NSIndexPath *nowIndexPath;
 @property (nonatomic, strong) WTNowBarTitleView *barTitleView;
 
-@property (nonatomic, assign) BOOL scrollToNow;
+@property (nonatomic, assign) BOOL shouldScrollToNow;
+@property (nonatomic, assign) BOOL shouldShowLoginView;
 
 @end
 
@@ -41,32 +42,40 @@
     
     [self configureNavigationBar];
     [self configureTableView];
+    [self configureBarTitleView];
     
     [NSNotificationCenter registerCurrentUserDidChangeNotificationWithSelector:@selector(handleCurrentUserDidChangeNotification:)
                                                                         target:self];
     
     if (![WTCoreDataManager sharedManager].currentUser) {
-        [WTLoginViewController show:NO];
+        self.shouldShowLoginView = YES;
     } else {
-        self.scrollToNow = YES;
+        self.shouldScrollToNow = YES;
     }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     [self.tableView resetHeight:self.view.frame.size.height];
-    if (self.scrollToNow) {
-        self.scrollToNow = NO;
+    if (self.shouldScrollToNow) {
+        self.shouldScrollToNow = NO;
         [self scrollToNow:NO];
+    } else if (self.shouldShowLoginView) {
+        self.shouldShowLoginView = NO;
+        [WTLoginViewController showWithIntro:NO];
     }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
     if (self.tableView.visibleCells.count == 0)
         return;
     WTNowWeekCell *visibleCell = (WTNowWeekCell *)self.tableView.visibleCells[0];
     [visibleCell cellDidAppear];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    if (![WTCoreDataManager sharedManager].currentUser) {
+        self.shouldShowLoginView = YES;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -97,9 +106,14 @@
 
 #pragma mark - Notification handler
 
-- (void)handleCurrentUserDidChangeNotification:(NSNotification *)notification {    
+- (void)handleCurrentUserDidChangeNotification:(NSNotification *)notification {
     [self.tableView reloadData];
-    self.scrollToNow = YES;
+    
+    if ([WTCoreDataManager sharedManager].currentUser) {
+        self.shouldScrollToNow = YES;
+    }
+    
+    [self configureBarTitleView];
 }
 
 #pragma mark - Logic methods
@@ -112,6 +126,18 @@
 
 #pragma mark - UI methods
 
+- (void)configureBarTitleView {
+    if ([WTCoreDataManager sharedManager].currentUser) {
+        self.barTitleView.alpha = 1.0f;
+        self.barTitleView.userInteractionEnabled = YES;
+    } else {
+        self.barTitleView.weekNumber = 1;
+        self.barTitleView.timeLabel.text = @"00:00";
+        
+        self.barTitleView.alpha = 0.5f;
+        self.barTitleView.userInteractionEnabled = NO;
+    }
+}
 
 - (void)configureTableView {
     CGRect frame = self.tableView.frame;
@@ -173,7 +199,7 @@
     if ([WTCoreDataManager sharedManager].currentUser) {
         [self scrollToNow:YES];
     } else {
-        [WTLoginViewController show:NO];
+        [WTLoginViewController showWithIntro:NO];
     }
 }
 

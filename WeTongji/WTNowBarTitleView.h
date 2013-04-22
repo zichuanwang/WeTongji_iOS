@@ -20,6 +20,9 @@
 @property (nonatomic, weak) IBOutlet UIButton *prevButton;
 @property (nonatomic, weak) IBOutlet UIButton *nextButton;
 
+@property (nonatomic, assign) NSUInteger minWeekNumber;
+@property (nonatomic, assign) NSUInteger maxWeekNumber;
+
 @property (nonatomic, assign) NSUInteger weekNumber;
 
 @property (nonatomic, weak) id<WTNowBarTitleViewDelegate> delegate;

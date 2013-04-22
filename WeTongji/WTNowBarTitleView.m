@@ -8,9 +8,6 @@
 
 #import "WTNowBarTitleView.h"
 
-#define MIN_WEEK_NUMBER 1
-#define MAX_WEEK_NUMBER 19
-
 @implementation WTNowBarTitleView
 
 - (id)initWithFrame:(CGRect)frame
@@ -29,6 +26,10 @@
 + (WTNowBarTitleView *)createBarTitleViewWithDelegate:(id<WTNowBarTitleViewDelegate>)delegate {
     WTNowBarTitleView *result = [[[NSBundle mainBundle] loadNibNamed:@"WTNowBarTitleView" owner:nil options:nil] lastObject];
     result.delegate = delegate;
+    
+    result.minWeekNumber = 1;
+    result.maxWeekNumber = 19;
+    
     return result;
 }
 
@@ -48,15 +49,15 @@
 #define WEEK_DISPLAY_LABEL_PADDING_X    1.0f
 
 - (void)setWeekNumber:(NSUInteger)weekNumber {
-    if (weekNumber < MIN_WEEK_NUMBER || weekNumber > MAX_WEEK_NUMBER)
+    if (weekNumber < self.minWeekNumber || weekNumber > self.maxWeekNumber)
         return;
     
     self.prevButton.enabled = YES;
     self.nextButton.enabled = YES;
     
-    if (weekNumber == MIN_WEEK_NUMBER) {
+    if (weekNumber == self.minWeekNumber) {
         self.prevButton.enabled = NO;
-    } else if (weekNumber == MAX_WEEK_NUMBER) {
+    } else if (weekNumber == self.maxWeekNumber) {
         self.nextButton.enabled = NO;
     }
     
@@ -78,14 +79,14 @@
 #pragma mark - Actions
 
 - (IBAction)didClickPrevButton:(UIButton *)sender {
-    if (self.weekNumber > MIN_WEEK_NUMBER) {
+    if (self.weekNumber > self.minWeekNumber) {
         self.weekNumber--;
         [self.delegate nowBarTitleViewWeekNumberDidChange:self];
     }
 }
 
 - (IBAction)didClickNextButton:(UIButton *)sender {
-    if (self.weekNumber < MAX_WEEK_NUMBER) {
+    if (self.weekNumber < self.maxWeekNumber) {
         self.weekNumber++;
         [self.delegate nowBarTitleViewWeekNumberDidChange:self];
     }

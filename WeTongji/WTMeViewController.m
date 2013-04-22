@@ -50,7 +50,7 @@
 #pragma mark - Actions
 
 - (IBAction)didClickLoginButton:(UIButton *)sender {
-    [WTLoginViewController show:YES];
+    [WTLoginViewController showWithIntro:YES];
 }
 
 - (IBAction)didClickActivityDetailButton:(UIButton *)sender {

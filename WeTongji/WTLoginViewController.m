@@ -167,7 +167,7 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-+ (void)show:(BOOL)showIntro {
++ (void)showWithIntro:(BOOL)showIntro {
     WTLoginViewController *vc = [[WTLoginViewController alloc] init];
     WTRootNavigationController *nav = [[WTRootNavigationController alloc] initWithRootViewController:vc];
     vc.showIntro = showIntro;
