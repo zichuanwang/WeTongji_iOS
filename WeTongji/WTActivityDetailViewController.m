@@ -17,7 +17,7 @@
 #import "WTActivityDetailDescriptionView.h"
 #import "WTDetailImageViewController.h"
 
-@interface WTActivityDetailViewController ()
+@interface WTActivityDetailViewController () <WTDetaiImageViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
@@ -270,7 +270,15 @@
 #pragma mark - Handle gesture methods
 
 - (void)didTagBannerView:(UITapGestureRecognizer *)gesture {
-    [WTDetailImageViewController showDetailImageViewWithImageURLString:self.activity.image];
+    WTBannerItemView *currentBannerItemView = [self.bannerView currentItemView];
+    UIImageView *currentBannerImageView = currentBannerItemView.imageView;
+    CGRect imageViewFrame = [self.view convertRect:currentBannerImageView.frame fromView:currentBannerImageView];
+    imageViewFrame.origin.y += 64.0f;
+    
+    [WTDetailImageViewController showDetailImageViewWithImageURLString:self.activity.image
+                                                         fromImageView:currentBannerImageView
+                                                              fromRect:imageViewFrame
+                                                              delegate:self];
 }
 
 #pragma mark - Actions
@@ -335,6 +343,13 @@
 
 - (void)didClickLocationIndicator {
     NSLog(@"Location Indicator button clicked");
+}
+
+#pragma mark - WTDetailImageViewControllerDelegate
+
+- (void)detailImageViewControllerDidDismiss:(NSUInteger)currentPage {
+    self.bannerView.bannerScrollView.contentOffset = CGPointMake(self.bannerView.frame.size.width * currentPage, 0);
+    self.bannerView.bannerPageControl.currentPage = currentPage;
 }
 
 @end

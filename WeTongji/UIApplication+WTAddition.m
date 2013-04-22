@@ -53,9 +53,7 @@ static UIView           *staticKeyWindowBgView;
 	staticKeyWindowBgView = [[UIView alloc] initWithFrame:screenBounds];
     vc.view.frame = screenBounds;
 	staticKeyWindowBgView.backgroundColor = [UIColor blackColor];
-    
-    NSLog(@"staticKeyWindowBgView frame:%@", NSStringFromCGRect(staticKeyWindowBgView.frame));
-    
+        
     UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
 	[keyWindow addSubview:staticKeyWindowBgView];
 	[keyWindow addSubview:vc.view];

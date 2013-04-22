@@ -15,7 +15,7 @@
 #import "WTNewsImageRollView.h"
 #import "WTDetailImageViewController.h"
 
-@interface WTNewsDetailViewController ()
+@interface WTNewsDetailViewController () <WTDetaiImageViewControllerDelegate>
 
 @property (nonatomic, strong) WTNewsBriefIntroductionView *briefIntroductionView;
 @property (nonatomic, strong) News *news;
@@ -158,7 +158,21 @@
 #pragma mark - Handle gesture methods
 
 - (void)didTagImageRollView:(UITapGestureRecognizer *)gesture {
-    [WTDetailImageViewController showDetailImageViewWithImageURLArray:self.news.imageArray currentPage:self.imageRollView.pageControl.currentPage];
+    WTNewsImageRollItemView *currentItemView = [self.imageRollView currentItemView];
+    UIImageView *currentImageView = currentItemView.imageView;
+    CGRect imageViewFrame = [self.view convertRect:currentImageView.frame fromView:currentImageView];
+    imageViewFrame.origin.y += 64.0f;
+    
+    [WTDetailImageViewController showDetailImageViewWithImageURLArray:self.news.imageArray
+                                                          currentPage:self.imageRollView.pageControl.currentPage
+                                                        fromImageView:currentImageView
+                                                             fromRect:imageViewFrame
+                                                             delegate:self];
+}
+
+- (void)detailImageViewControllerDidDismiss:(NSUInteger)currentPage {
+    self.imageRollView.scrollView.contentOffset = CGPointMake(self.imageRollView.scrollView.frame.size.width * currentPage, 0);
+    self.imageRollView.pageControl.currentPage = currentPage;
 }
 
 @end

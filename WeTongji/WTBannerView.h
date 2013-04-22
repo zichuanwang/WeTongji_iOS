@@ -16,6 +16,8 @@ typedef enum {
 #define BANNER_VIEW_ORIGINAL_HIEHGT     130.0f
 #define BANNER_VIEW_ORIGINAL_WIDTH      320.0f
 
+@class WTBannerItemView;
+
 @interface WTBannerContainerView : UIView <UIScrollViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *bannerScrollView;
@@ -37,6 +39,10 @@ typedef enum {
             organizationName:(NSString *)organization
                        style:(WTBannerItemViewStyle)style
                      atIndex:(NSUInteger)index;
+
+- (WTBannerItemView *)itemViewAtIndex:(NSUInteger)index;
+
+- (WTBannerItemView *)currentItemView;
 
 - (void)configureTestBanner;
 

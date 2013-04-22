@@ -49,7 +49,7 @@
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="709265834"/>
 								<string key="NSReuseIdentifierKey">_NS:567</string>
-								<object class="NSColor" key="IBUIBackgroundColor" id="114756471">
+								<object class="NSColor" key="IBUIBackgroundColor" id="638074894">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MCAwAA</bytes>
 								</object>
@@ -64,7 +64,7 @@
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="877531808"/>
 						<string key="NSReuseIdentifierKey">_NS:190</string>
-						<reference key="IBUIBackgroundColor" ref="114756471"/>
+						<reference key="IBUIBackgroundColor" ref="638074894"/>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<object class="IBUISimulatedSizeMetrics" key="IBUISimulatedDestinationMetrics" id="6775288">
 							<string key="IBUISimulatedSizeMetricsClass">IBUISimulatedFreeformSizeMetricsSentinel</string>
@@ -94,7 +94,7 @@
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="627989886"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
-				<reference key="IBUIBackgroundColor" ref="114756471"/>
+				<reference key="IBUIBackgroundColor" ref="638074894"/>
 				<reference key="IBUISimulatedDestinationMetrics" ref="6775288"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>

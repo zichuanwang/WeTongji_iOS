@@ -85,7 +85,7 @@
     WTRequest * request = [WTRequest requestWithSuccessBlock:^(id responseData) {
         WTLOG(@"Get news: %@", responseData);
         
-         NSDictionary *resultDict = (NSDictionary *)responseData;
+        NSDictionary *resultDict = (NSDictionary *)responseData;
         NSString *nextPage = resultDict[@"NextPager"];
         self.nextPage = nextPage.integerValue;
         

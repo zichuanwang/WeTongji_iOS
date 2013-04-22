@@ -39,6 +39,14 @@
 
 #pragma mark - Public methods
 
+- (WTBannerItemView *)itemViewAtIndex:(NSUInteger)index {
+    return self.bannerItemViewArray[index];
+}
+
+- (WTBannerItemView *)currentItemView {
+    return [self itemViewAtIndex:self.bannerPageControl.currentPage];
+}
+
 + (WTBannerContainerView *)createBannerContainerView {
     return [[[NSBundle mainBundle] loadNibNamed:@"WTBannerContainerView" owner:self options:nil] lastObject];
 }

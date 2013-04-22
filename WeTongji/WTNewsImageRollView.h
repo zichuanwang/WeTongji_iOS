@@ -8,12 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class WTNewsImageRollItemView;
+
 @interface WTNewsImageRollView : UIView
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
 
 + (WTNewsImageRollView *)createImageRollViewWithImageURLStringArray:(NSArray *)imageURLArray;
+
+- (WTNewsImageRollItemView *)currentItemView;
+
+- (WTNewsImageRollItemView *)itemViewAtIndex:(NSUInteger)index;
 
 @end
 
