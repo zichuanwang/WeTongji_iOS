@@ -29,6 +29,7 @@
         }
     }
     
+    [result resetSize:[UIScreen mainScreen].bounds.size];
     result.delegate = delegate;
     [result configureViewWithImageURLString:imageURLString];
     
@@ -55,11 +56,10 @@
         self.activityIndicator.hidden = YES;
         [self.activityIndicator stopAnimating];
         
-        CGPoint imageViewCenter = self.imageView.center;
         [self.imageView resetSize:CGSizeMake(image.size.width * self.imageView.contentScaleFactor, image.size.height * self.imageView.contentScaleFactor)];
-        self.imageView.center = imageViewCenter;
+        self.imageView.center = self.center;
         
-        self.scrollView.contentSize = self.imageView.frame.size;;
+        self.scrollView.contentSize = self.imageView.frame.size;
 
     } failure:^{
         [self.activityIndicator stopAnimating];

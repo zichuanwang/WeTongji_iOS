@@ -165,10 +165,10 @@
 #define IMAGE_ITEM_VIEW_SPACING 20.0f
 
 - (void)configureView {
+    [self.view resetSize:[UIScreen mainScreen].bounds.size];
     for (NSString *imageURLString in self.imageURLArray) {
         WTDetailImageItemView *itemView = [WTDetailImageItemView createDetailItemViewWithImageURLString:imageURLString
                                                                                                delegate:self];
-        [itemView resetSize:self.view.frame.size];
         [itemView resetOriginX:self.scrollView.frame.size.width * self.itemViewArray.count];
         [self.scrollView addSubview:itemView];
                 
