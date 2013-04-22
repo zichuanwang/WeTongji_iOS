@@ -84,7 +84,8 @@
 - (void)show {
     [UIApplication presentKeyWindowViewController:self animated:NO];
     [self fadeInViewAnimation];
-    [self showTransitionImageViewAnimation];
+    if (self.showFromImageView.image)
+        [self showTransitionImageViewAnimation];
 }
 
 - (void)showTransitionImageViewAnimation {
@@ -133,6 +134,7 @@
     UIImageView *transitionImageView = [[UIImageView alloc] initWithImage:currentImageView.image];
     
     transitionImageView.frame = currentImageView.frame;
+    [transitionImageView resetOrigin:CGPointMake(transitionImageView.frame.origin.x - currentItemView.scrollView.contentOffset.x, transitionImageView.frame.origin.y - currentItemView.scrollView.contentOffset.y)];
     transitionImageView.contentMode = UIViewContentModeScaleAspectFill;
     transitionImageView.clipsToBounds = YES;
     
