@@ -33,30 +33,35 @@
     if (!(scrollBackgroundViewA && scrollBackgroundViewB && scrollView))
         return;
     
-    CGFloat top = scrollView.contentOffset.y;
-    CGFloat bottom = top + scrollView.frame.size.height;
+    CGFloat scrollViewOffsetY = scrollView.contentOffset.y + scrollView.contentInset.top;
+    CGFloat scrollViewHeight = scrollView.frame.size.height;
+    NSInteger page = scrollViewOffsetY / scrollViewHeight;
     
     UIView *upperView = nil;
     UIView *lowerView = nil;
-    BOOL alignToTop = NO;
     
-    if ((alignToTop = [WTWaterflowDecorator view:scrollBackgroundViewA containsPoint:top]) || [WTWaterflowDecorator view:scrollBackgroundViewB containsPoint:bottom]) {
-        upperView = scrollBackgroundViewA;
-        lowerView = scrollBackgroundViewB;
-    } else if((alignToTop = [WTWaterflowDecorator view:scrollBackgroundViewB containsPoint:top]) || [WTWaterflowDecorator view:scrollBackgroundViewA containsPoint:bottom]) {
-        upperView = scrollBackgroundViewB;
-        lowerView = scrollBackgroundViewA;
-    }
+    NSLog(@"offsetY:%f, page:%d", scrollViewOffsetY, page);
     
-    if (upperView && lowerView) {
-        if (alignToTop) {
-            [lowerView resetOriginY:upperView.frame.origin.y + upperView.frame.size.height];
+    if (scrollViewOffsetY > 0) {
+        if (page % 2 == 0) {
+            upperView = scrollBackgroundViewA;
+            lowerView = scrollBackgroundViewB;
         } else {
-            [upperView resetOriginY:lowerView.frame.origin.y - lowerView.frame.size.height];
+            upperView = scrollBackgroundViewB;
+            lowerView = scrollBackgroundViewA;
         }
+        [upperView resetOriginY:scrollViewHeight * page - scrollViewOffsetY];
+        [lowerView resetOriginY:upperView.frame.origin.y + upperView.frame.size.height];
     } else {
-        [scrollBackgroundViewA resetOriginY:top];
-        [scrollBackgroundViewB resetOriginY:scrollBackgroundViewA.frame.origin.y + scrollBackgroundViewA.frame.size.height];
+        if (page % 2 == 0) {
+            upperView = scrollBackgroundViewB;
+            lowerView = scrollBackgroundViewA;
+        } else {
+            upperView = scrollBackgroundViewA;
+            lowerView = scrollBackgroundViewB;
+        }
+        [lowerView resetOriginY:scrollViewHeight * page - scrollViewOffsetY];
+        [upperView resetOriginY:lowerView.frame.origin.y - upperView.frame.size.height];
     }
 }
 
@@ -81,7 +86,8 @@
         UIScrollView *scrollView = [self.dataSource waterflowScrollView];
         if (scrollView) {
             _waterflowImageViewA = [WTWaterflowDecorator createWaterflowImageViewWithImageName:[self.dataSource waterflowUnitImageName] frame:scrollView.frame];
-            [scrollView insertSubview:_waterflowImageViewA atIndex:0];
+            [_waterflowImageViewA resetOriginY:scrollView.contentInset.top];
+            [scrollView.superview insertSubview:_waterflowImageViewA atIndex:0];
         }
     }
     return _waterflowImageViewA;
@@ -92,7 +98,8 @@
         UIScrollView *scrollView = [self.dataSource waterflowScrollView];
         if (scrollView) {
             _waterflowImageViewB = [WTWaterflowDecorator createWaterflowImageViewWithImageName:[self.dataSource waterflowUnitImageName] frame:scrollView.frame];
-            [scrollView insertSubview:_waterflowImageViewB atIndex:0];
+            [_waterflowImageViewB resetOriginY:_waterflowImageViewA.frame.origin.y + _waterflowImageViewA.frame.size.height];
+            [scrollView.superview insertSubview:_waterflowImageViewB atIndex:0];
         }
     }
     return _waterflowImageViewB;
