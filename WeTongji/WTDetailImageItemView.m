@@ -10,8 +10,9 @@
 #import "ALAssetsLibrary+CustomPhotoAlbum.h"
 #import "UIImageView+AsyncLoading.h"
 #import "UIImageView+ContentScale.h"
+#import "UIApplication+WTAddition.h"
 
-@interface WTDetailImageItemView () <UIAlertViewDelegate, UIScrollViewDelegate>
+@interface WTDetailImageItemView () <UIActionSheetDelegate, UIScrollViewDelegate>
 
 @end
 
@@ -68,11 +69,14 @@
 #pragma mark - Handle gesture
 
 - (void)didLongPressImageView:(UILongPressGestureRecognizer *)gesture {
+    if (!self.imageView.image)
+        return;
+    
     switch (gesture.state) {
         case UIGestureRecognizerStateBegan:
         {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"保存图片" message:@"保存图片到相册？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"好", nil];
-            [alertView show];
+            UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"保存图片", nil];
+            [actionSheet showFromTabBar:[UIApplication sharedApplication].rootTabBarController.tabBar];
         }
             break;
             
@@ -87,9 +91,9 @@
 
 #pragma mark - UIAlertViewDelegate
 
-- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex {
-    if (buttonIndex != alertView.cancelButtonIndex) {
-        [self performSelectorInBackground:@selector(saveImageInBackground:) withObject:self.imageView.image];
+- (void)actionSheet:(UIActionSheet *)actionSheet willDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex != actionSheet.cancelButtonIndex) {
+        [self saveImageInBackground:self.imageView.image];
     }
 }
 
