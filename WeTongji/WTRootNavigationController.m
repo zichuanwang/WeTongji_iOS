@@ -88,16 +88,22 @@
 }
 
 - (void)disableNavBar {
+    
+    self.sourceViewController.navigationItem.titleView.userInteractionEnabled = NO;
+    self.sourceViewController.navigationItem.titleView.alpha = 0.5f;
+    
     switch (self.currentWTDisableNavBarType) {
         case WTDisableNavBarTypeLeft:
         {
             self.sourceViewController.navigationItem.leftBarButtonItem.enabled = NO;
+            self.sourceViewController.navigationItem.leftBarButtonItem.customView.alpha = 0.5f;
         }
             break;
             
         case WTDisableNavBarTypeRight:
         {
             self.sourceViewController.navigationItem.rightBarButtonItem.enabled = NO;
+            self.sourceViewController.navigationItem.rightBarButtonItem.customView.alpha = 0.5f;
         }
             break;
             
@@ -107,16 +113,22 @@
 }
 
 - (void)enableNavBar {
+    
+    self.sourceViewController.navigationItem.titleView.userInteractionEnabled = YES;
+    self.sourceViewController.navigationItem.titleView.alpha = 1.0f;
+    
     switch (self.currentWTDisableNavBarType) {
         case WTDisableNavBarTypeLeft:
         {
             self.sourceViewController.navigationItem.leftBarButtonItem.enabled = YES;
+            self.sourceViewController.navigationItem.leftBarButtonItem.customView.alpha = 1.0f;
         }
             break;
             
         case WTDisableNavBarTypeRight:
         {
             self.sourceViewController.navigationItem.rightBarButtonItem.enabled = YES;
+            self.sourceViewController.navigationItem.rightBarButtonItem.customView.alpha = 1.0f;
         }
             break;
             
