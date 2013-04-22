@@ -40,6 +40,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)resetFrame:(CGRect)frame {
+    self.view.frame = frame;
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 5, self.scrollView.frame.size.height);
+}
+
 #pragma mark - UI methods
 
 - (void)configureLocalizationLabels {
@@ -74,7 +79,6 @@
         [imageView resetOriginX:i * self.scrollView.frame.size.width];
         [self.scrollView addSubview:imageView];
     }
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 5, self.scrollView.frame.size.height);
     self.scrollView.contentOffset = CGPointMake(self.scrollView.frame.size.width, 0);
     self.pageControl.numberOfPages = 3;
 }

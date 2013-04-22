@@ -38,6 +38,9 @@
     self.tableViewController.view.transform = CGAffineTransformMakeRotation(M_PI_2);
     self.tableViewController.view.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     [self addSubview:self.tableViewController.view];
+    
+    // self.layer.borderColor = [UIColor redColor].CGColor;
+    // self.layer.borderWidth = 1.0f;
 }
 
 - (void)cellDidAppear {
@@ -48,6 +51,7 @@
     self.tableViewController.weekNumber = weekNumber;
     self.tableViewController.tableView.contentOffset = CGPointMake(0, 0.5f);
     [self.tableViewController updateTableViewController];
+    self.tableViewController.targetFrame = self.tableViewController.view.frame;
 }
 
 - (void)scrollToNow:(BOOL)animated {

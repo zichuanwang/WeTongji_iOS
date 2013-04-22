@@ -122,7 +122,7 @@
 - (void)configureCell:(WTNowWeekCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"index row:%d", indexPath.row);
     
-    [cell resetWidth:self.tableView.frame.size.height];
+    [cell resetWidth:self.view.frame.size.height];
     [cell configureCellWithWeekNumber:indexPath.row + 1];
 }
 
@@ -146,6 +146,9 @@
 }
 
 - (void)scrollToNow:(BOOL)animated {
+    if (![WTCoreDataManager sharedManager].currentUser) {
+        return;
+    }
     NSUInteger currentWeekNumber = [self currentWeekNumber];
     // TODO: 判断超过19的情况
     NSIndexPath *targetIndexPath = [NSIndexPath indexPathForRow:currentWeekNumber - 1 inSection:0];
@@ -177,6 +180,9 @@
 #pragma mark - WTNowBarTitleViewDelegate
 
 - (void)nowBarTitleViewWeekNumberDidChange:(WTNowBarTitleView *)titleView {
+    if (![WTCoreDataManager sharedManager].currentUser)
+        return;
+    
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:titleView.weekNumber - 1 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 

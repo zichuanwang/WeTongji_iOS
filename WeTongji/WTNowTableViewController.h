@@ -12,6 +12,8 @@
 
 @property (nonatomic, assign) NSUInteger weekNumber;
 
+@property (nonatomic, assign) CGRect targetFrame; // eggaches
+
 - (void)scrollToNow:(BOOL)animated;
 
 - (void)updateTableViewController;

@@ -312,13 +312,28 @@
     BOOL participated = self.participateButton.selected;
     [self configureParticipateButtonStatus:participated];
     
+    if (participated) {
+        [self.inviteButton fadeIn];
+        [[WTCoreDataManager sharedManager].currentUser addScheduledEventsObject:self.activity];
+    }
+    else {
+        [self.inviteButton fadeOut];
+        [[WTCoreDataManager sharedManager].currentUser removeScheduledEventsObject:self.activity];
+    }
+    
     sender.userInteractionEnabled = NO;
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Set activitiy scheduled:%d succeeded", participated);
         sender.userInteractionEnabled = YES;
         self.activity.canSchedule = @(!self.activity.canSchedule.boolValue);
         
-        if (participated) {
+        
+    } failureBlock:^(NSError *error) {
+        WTLOGERROR(@"Set activitiy scheduled:%d, reason:%@", participated, error.localizedDescription);
+        sender.userInteractionEnabled = YES;
+        [self configureParticipateButtonStatus:!participated];
+        
+        if (!participated) {
             [self.inviteButton fadeIn];
             [[WTCoreDataManager sharedManager].currentUser addScheduledEventsObject:self.activity];
         }
@@ -326,13 +341,10 @@
             [self.inviteButton fadeOut];
             [[WTCoreDataManager sharedManager].currentUser removeScheduledEventsObject:self.activity];
         }
-    } failureBlock:^(NSError *error) {
-        WTLOGERROR(@"Set activitiy scheduled:%d, reason:%@", participated, error.localizedDescription);
-        sender.userInteractionEnabled = YES;
-        [self configureParticipateButtonStatus:!participated];
         
         [WTErrorHandler handleError:error];
     }];
+    
     [request setActivityScheduled:participated activityID:self.activity.identifier];
     [[WTClient sharedClient] enqueueRequest:request];
 }

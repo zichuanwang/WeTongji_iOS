@@ -106,7 +106,7 @@
     [self.view addSubview:transitionImageView];
     self.showFromImageView.hidden = YES;
 
-    [UIView animateWithDuration:0.5f animations:^{
+    [UIView animateWithDuration:0.3f animations:^{
         transitionImageView.bounds = CGRectMake(0, 0, targetSize.width, targetSize.height);
         transitionImageView.center = self.view.center;
     } completion:^(BOOL finished) {
@@ -120,7 +120,7 @@
     
     self.bgView.alpha = 0;
     self.pageControl.alpha = 0;
-    [UIView animateWithDuration:0.5f animations:^{
+    [UIView animateWithDuration:0.3f animations:^{
         self.bgView.alpha = 1.0f;
         self.pageControl.alpha = 1.0f;
     }];
@@ -140,7 +140,7 @@
     
     [self.view addSubview:transitionImageView];
     
-    [UIView animateWithDuration:0.5f animations:^{
+    [UIView animateWithDuration:0.3f animations:^{
         transitionImageView.bounds = CGRectMake(0, 0, self.showFromRect.size.width, self.showFromRect.size.height);
         transitionImageView.center = CGPointMake(self.showFromRect.size.width / 2 + self.showFromRect.origin.x, self.showFromRect.size.height / 2 + self.showFromRect.origin.y);
     } completion:^(BOOL finished) {
@@ -151,7 +151,7 @@
 
 - (void)dismissView {
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
-    [UIView animateWithDuration:0.5f animations:^{
+    [UIView animateWithDuration:0.3f animations:^{
         self.bgView.alpha = 0;
         self.pageControl.alpha = 0;
     } completion:^(BOOL finished) {

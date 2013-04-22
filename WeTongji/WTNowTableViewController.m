@@ -35,6 +35,10 @@
     [self configureDragToLoadDecorator];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.view.frame = self.targetFrame;
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];

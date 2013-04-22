@@ -17,4 +17,6 @@
 
 - (IBAction)didClickTourButton:(UIButton *)sender;
 
+- (void)resetFrame:(CGRect)frame;
+
 @end

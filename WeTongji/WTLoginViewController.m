@@ -44,11 +44,14 @@
     [self configureLoginPanel];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     if (self.showIntro) {
         self.introButton.selected = YES;
         [self.view addSubview:self.introViewController.view];
-        self.introViewController.view.frame = self.view.frame;
+        [self.introViewController resetFrame:self.view.frame];
+        self.showIntro = NO;
     }
 }
 
@@ -118,9 +121,10 @@
 - (void)showIntroViewAnimation {
     self.introButton.userInteractionEnabled = NO;
     [self.view addSubview:self.introViewController.view];
-    self.introViewController.view.frame = self.view.frame;
+    [self.introViewController resetFrame:self.view.frame];
+    
     [self.introViewController.view resetOriginY:self.view.frame.size.height];
-    [UIView animateWithDuration:0.25 animations:^{
+    [UIView animateWithDuration:0.25f animations:^{
         [self.introViewController.view resetOriginY:0];
     } completion:^(BOOL finished) {
         self.introButton.userInteractionEnabled = YES;
