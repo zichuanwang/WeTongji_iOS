@@ -150,15 +150,13 @@
     [self updateNowView];
 }
 
-#define BANNER_CONTAINER_VIEW_HEIGHT    130.0f
-
 - (void)updateNowView {
     NSArray *events = [Event getTodayEvents];
     [self.nowContainerView configureNowContainerViewWithEvents:events];
     if (!events) {
         [self.nowContainerView resetOriginY:self.bannerContainerView.frame.size.height - self.nowContainerView.frame.size.height];
     } else {
-        [self.nowContainerView resetOriginY:BANNER_CONTAINER_VIEW_HEIGHT];
+        [self.nowContainerView resetOriginY:self.bannerContainerView.frame.size.height];
     }
 }
 

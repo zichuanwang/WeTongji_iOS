@@ -52,14 +52,14 @@
                               indexPath:(NSIndexPath *)indexPath {
     NSMutableArray *itemViewArray = [NSMutableArray arrayWithCapacity:3];
     if (indexPath.row % 2 == 0) {
-        [self.largeItemView resetOriginX:8.0f];
-        [self.smallItemViewA resetOriginX:self.largeItemView.frame.size.width + self.largeItemView.frame.origin.x + 4.0f];
+        [self.largeItemView resetOriginX:9.0f];
+        [self.smallItemViewA resetOriginX:self.largeItemView.frame.size.width + self.largeItemView.frame.origin.x + 2.0f];
         [self.smallItemViewB resetOriginX:self.smallItemViewA.frame.origin.x];
         [itemViewArray addObjectsFromArray:@[self.largeItemView, self.smallItemViewA, self.smallItemViewB]];
     } else {
-        [self.smallItemViewA resetOriginX:8.0f];
+        [self.smallItemViewA resetOriginX:9.0f];
         [self.smallItemViewB resetOriginX:self.smallItemViewA.frame.origin.x];
-        [self.largeItemView resetOriginX:self.smallItemViewA.frame.size.width + self.smallItemViewA.frame.origin.x + 4.0f];
+        [self.largeItemView resetOriginX:self.smallItemViewA.frame.size.width + self.smallItemViewA.frame.origin.x + 2.0f];
         [itemViewArray addObjectsFromArray:@[self.smallItemViewA, self.smallItemViewB, self.largeItemView]];
     }
     

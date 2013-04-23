@@ -10,6 +10,13 @@
 #import <QuartzCore/QuartzCore.h>
 #import "BillboardPost.h"
 #import "UIImageView+AsyncLoading.h"
+#import "OHAttributedLabel.h"
+
+@interface WTBillboardItemView ()
+
+@property (nonatomic, weak) BillboardPost *post;
+
+@end
 
 @implementation WTBillboardItemView
 
@@ -42,26 +49,50 @@ enum {
 }
 
 - (void)configureViewWithBillboardPost:(BillboardPost *)post {
+    self.post = post;
+    
     if (post.image) {
-        self.imageTextContainerView.hidden = NO;
-        self.plainTextContainerView.hidden = YES;
-        
-        self.imageTitleLabel.text = post.title;
-        
-        [self.imageView loadImageWithImageURLString:post.image];
-        
+        [self configureImageBillboardView];
     } else {
-        self.imageTextContainerView.hidden = YES;
-        self.plainTextContainerView.hidden = NO;
-        
-        self.plainTitleLabel.text = post.title;
-        self.plainContentLabel.text = post.content;
-        
-        [self.plainTitleLabel resetWidth:self.plainContentLabel.frame.size.width];
-        [self.plainTitleLabel sizeToFit];
-        [self.plainContentLabel resetHeight:self.plainTextContainerView.frame.size.height - self.plainTitleLabel.frame.size.height - self.plainTitleLabel.frame.origin.y - 18.0f];
-        [self.plainContentLabel resetOriginY:self.plainTitleLabel.frame.origin.y + self.plainTitleLabel.frame.size.height + 6.0f];
+        [self configurePlainTextBillboardView];
     }
+}
+
+- (void)configureImageBillboardView {
+    self.imageTextContainerView.hidden = NO;
+    self.plainTextContainerView.hidden = YES;
+    
+    self.imageTitleLabel.text = self.post.title;
+    
+    [self.imageView loadImageWithImageURLString:self.post.image];
+}
+
+#define PLAIN_CONTENT_LABEL_LINE_SPACING    4.0f
+#define PLAIN_CONTENT_LABEL_BOTTOM_INDENT   8.0f
+#define PLAIN_CONTENT_LABEL_TOP_INDENT      6.0f
+
+- (void)configurePlainTextBillboardView {
+    self.imageTextContainerView.hidden = YES;
+    self.plainTextContainerView.hidden = NO;
+    
+    self.plainTitleLabel.text = self.post.title;
+    [self.plainTitleLabel resetWidth:self.plainContentLabel.frame.size.width];
+    [self.plainTitleLabel sizeToFit];
+    
+    NSMutableAttributedString *contentAttributedString = [NSMutableAttributedString attributedStringWithString:self.post.content];
+    
+    [contentAttributedString setAttributes:[self.plainContentLabel.attributedText attributesAtIndex:0 effectiveRange:NULL] range:NSMakeRange(0, contentAttributedString.length)];
+    
+    [contentAttributedString modifyParagraphStylesWithBlock:^(OHParagraphStyle *paragraphStyle) {
+        paragraphStyle.lineSpacing = PLAIN_CONTENT_LABEL_LINE_SPACING;
+    }];
+    
+    self.plainContentLabel.attributedText = contentAttributedString;
+    
+    [self.plainContentLabel resetHeight:self.plainTextContainerView.frame.size.height - self.plainTitleLabel.frame.size.height - self.plainTitleLabel.frame.origin.y - PLAIN_CONTENT_LABEL_BOTTOM_INDENT];
+    [self.plainContentLabel resetOriginY:self.plainTitleLabel.frame.origin.y + self.plainTitleLabel.frame.size.height + PLAIN_CONTENT_LABEL_TOP_INDENT];
+    
+    self.plainContentLabel.automaticallyAddLinksForType = 0;
 }
 
 @end

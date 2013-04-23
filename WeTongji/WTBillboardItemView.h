@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @class BillboardPost;
+@class OHAttributedLabel;
 
 @interface WTBillboardItemView : UIView
 
 @property (nonatomic, weak) IBOutlet UILabel *plainTitleLabel;
-@property (nonatomic, weak) IBOutlet UILabel *plainContentLabel;
+@property (nonatomic, weak) IBOutlet OHAttributedLabel *plainContentLabel;
 @property (nonatomic, weak) IBOutlet UILabel *imageTitleLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UIView *plainTextContainerView;
