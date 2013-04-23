@@ -215,6 +215,7 @@
 
 - (void)fetchedResultsControllerDidPerformFetch {
     if ([self.fetchedResultsController.sections.lastObject numberOfObjects] == 0) {
+        _firstLoadData = YES;
         [self.dragToLoadDecorator setTopViewLoading:YES];
     }
 }
@@ -249,6 +250,9 @@
 #pragma mark - WTDragToLoadDecoratorDelegate
 
 - (void)dragToLoadDecoratorDidDragUp {
+    if (_firstLoadData)
+        return;
+    
     [self loadMoreDataWithSuccessBlock:^{
         [self.dragToLoadDecorator bottomViewLoadFinished:YES];
     } failureBlock:^{
@@ -261,6 +265,7 @@
     [self loadMoreDataWithSuccessBlock:^{
         [self clearAllData];
         [self.dragToLoadDecorator topViewLoadFinished:YES];
+        _firstLoadData = NO;
     } failureBlock:^{
         [self.dragToLoadDecorator topViewLoadFinished:NO];
     }];

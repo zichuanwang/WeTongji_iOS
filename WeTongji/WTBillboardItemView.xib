@@ -197,7 +197,7 @@
 								</object>
 								<string key="IBUIShadowOffset">{0, 1}</string>
 								<int key="IBUIBaselineAdjustment">0</int>
-								<int key="IBUINumberOfLines">3</int>
+								<int key="IBUINumberOfLines">0</int>
 								<object class="IBUIFontDescription" key="IBUIFontDescription" id="269904050">
 									<int key="type">2</int>
 									<double key="pointSize">12</double>
@@ -422,7 +422,7 @@
 								</object>
 								<string key="IBUIShadowOffset">{0, 1}</string>
 								<int key="IBUIBaselineAdjustment">0</int>
-								<int key="IBUINumberOfLines">3</int>
+								<int key="IBUINumberOfLines">0</int>
 								<reference key="IBUIFontDescription" ref="269904050"/>
 								<reference key="IBUIFont" ref="199137189"/>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>

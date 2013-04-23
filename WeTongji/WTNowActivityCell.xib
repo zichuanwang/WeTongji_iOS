@@ -47,7 +47,7 @@
 								<int key="NSvFlags">301</int>
 								<string key="NSFrame">{{10, 5}, {300, 106}}</string>
 								<reference key="NSSuperview" ref="275637802"/>
-								<reference key="NSNextKeyView"/>
+								<reference key="NSNextKeyView" ref="365742005"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -61,6 +61,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{10, 5}, {300, 106}}</string>
 								<reference key="NSSuperview" ref="275637802"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -104,7 +105,7 @@
 									<object class="IBUILabel" id="140232852">
 										<reference key="NSNextResponder" ref="530838254"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{80, 76}, {200, 12}}</string>
+										<string key="NSFrame">{{80, 78}, {200, 12}}</string>
 										<reference key="NSSuperview" ref="530838254"/>
 										<reference key="NSNextKeyView" ref="938389864"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -161,7 +162,7 @@
 										<string key="IBUIShadowOffset">{0, 1}</string>
 										<int key="IBUIBaselineAdjustment">0</int>
 										<float key="IBUIMinimumFontSize">14</float>
-										<int key="IBUINumberOfLines">2</int>
+										<int key="IBUINumberOfLines">0</int>
 										<object class="IBUIFontDescription" key="IBUIFontDescription">
 											<int key="type">2</int>
 											<double key="pointSize">17</double>

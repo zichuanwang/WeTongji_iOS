@@ -70,6 +70,7 @@ enum {
 #define PLAIN_CONTENT_LABEL_LINE_SPACING    4.0f
 #define PLAIN_CONTENT_LABEL_BOTTOM_INDENT   8.0f
 #define PLAIN_CONTENT_LABEL_TOP_INDENT      6.0f
+#define PLAIN_TITLE_LABEL_MAX_HEIGHT        46.0f
 
 - (void)configurePlainTextBillboardView {
     self.imageTextContainerView.hidden = YES;
@@ -78,6 +79,8 @@ enum {
     self.plainTitleLabel.text = self.post.title;
     [self.plainTitleLabel resetWidth:self.plainContentLabel.frame.size.width];
     [self.plainTitleLabel sizeToFit];
+    if (self.plainTitleLabel.frame.size.height > PLAIN_TITLE_LABEL_MAX_HEIGHT)
+        [self.plainTitleLabel resetHeight:PLAIN_TITLE_LABEL_MAX_HEIGHT];
     
     NSMutableAttributedString *contentAttributedString = [NSMutableAttributedString attributedStringWithString:self.post.content];
     

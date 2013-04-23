@@ -18,9 +18,9 @@
 - (void)loadImageWithImageURLString:(NSString *)imageURLString
                             success:(void (^)(UIImage *image))success
                             failure:(void (^)(void))failure {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:imageURLString] cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:60];
-    [request setHTTPShouldHandleCookies:NO];
-    [request addValue:@"image/*" forHTTPHeaderField:@"Accept"];
+    
+    WTLOG(@"image URL:%@", imageURLString);
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:imageURLString] cachePolicy:NSURLRequestReturnCacheDataDontLoad timeoutInterval:60];
     
     BlockARCWeakSelf weakSelf = self;
     [weakSelf setImageWithURLRequest:request
@@ -38,6 +38,7 @@
                                  WTLOG(@"Current memory cache usage:%d", [[NSURLCache sharedURLCache] currentMemoryUsage] / 1024);
                              }
                              failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                 WTLOGERROR(@"Load image:%@", error.localizedDescription);
                                  if (failure)
                                      failure();
                              }];

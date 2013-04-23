@@ -13,8 +13,6 @@
 
 @implementation WTNowActivityCell
 
-#define ACTIVITY_NAME_LABEL_WIDTH   210.0f
-
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -46,7 +44,11 @@
     }
 }
 
-#define NOW_ACTIVITY_LABEL_WHERE_LABEL_MIN_ORIGIN_Y 76.0f
+#define ACTIVITY_WHERE_LABEL_MIN_TOP_INDENT 6.0f
+#define ACTIVITY_NAME_LABEL_MAX_HEIGHT      43.0f
+#define ACTIVITY_LABEL_DEFAULT_ORIGIN_Y     34.0f
+#define ACTIVITY_NAME_LABEL_WIDTH           210.0f
+#define WHERE_LABEL_DEFAULT_ORIGIN_Y        78.0f
 
 - (void)configureCellWithEvent:(Event *)event {
     [super configureCellWithEvent:event];
@@ -54,14 +56,24 @@
     Activity *activity = (Activity *)event;
     self.whenLabel.text = activity.beginToEndTimeString;
     
+    self.whereLabel.text = activity.where;
+    
     self.activityNameLabel.text = activity.what;
     [self.activityNameLabel resetWidth:ACTIVITY_NAME_LABEL_WIDTH];
     [self.activityNameLabel sizeToFit];
     
-    self.whereLabel.text = activity.where;
-    [self.whereLabel resetOriginY:self.activityNameLabel.frame.origin.y + self.activityNameLabel.frame.size.height + 6.0f];
-    if (self.whereLabel.frame.origin.y < NOW_ACTIVITY_LABEL_WHERE_LABEL_MIN_ORIGIN_Y)
-        [self.whereLabel resetOriginY:NOW_ACTIVITY_LABEL_WHERE_LABEL_MIN_ORIGIN_Y];
+    if (self.activityNameLabel.frame.size.height > ACTIVITY_NAME_LABEL_MAX_HEIGHT)
+        [self.activityNameLabel resetHeight:ACTIVITY_NAME_LABEL_MAX_HEIGHT];
+    
+    [self.activityNameLabel resetOriginY:ACTIVITY_LABEL_DEFAULT_ORIGIN_Y];
+    [self.whereLabel resetOriginY:WHERE_LABEL_DEFAULT_ORIGIN_Y];
+    
+    if (self.whereLabel.frame.origin.y - self.activityNameLabel.frame.origin.y - self.activityNameLabel.frame.size.height < ACTIVITY_WHERE_LABEL_MIN_TOP_INDENT) {
+        [self.activityNameLabel resetOriginY:self.whereLabel.frame.origin.y - self.activityNameLabel.frame.size.height - ACTIVITY_WHERE_LABEL_MIN_TOP_INDENT];
+    } else {
+        [self.activityNameLabel resetOriginY:ACTIVITY_LABEL_DEFAULT_ORIGIN_Y];
+        [self.whereLabel resetOriginY:WHERE_LABEL_DEFAULT_ORIGIN_Y - 2.0f];
+    }
     
     self.posterPlaceholderImageView.alpha = 1.0f;
     

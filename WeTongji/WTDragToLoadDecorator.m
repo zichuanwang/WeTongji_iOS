@@ -217,6 +217,8 @@ static int kDragToLoadDecoratorObservingContext;
     if (self.topViewState == TopViewStateLoading)
         return;
     
+    self.topViewState = TopViewStateLoading;
+    
     if (animated) {
         [UIView animateWithDuration:0.25f animations:^{
             UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
@@ -225,8 +227,6 @@ static int kDragToLoadDecoratorObservingContext;
             scrollView.contentInset = inset;
         }];
     }
-    
-    self.topViewState = TopViewStateLoading;
     
     [self.topView startLoadingAnimation];
     
@@ -299,6 +299,9 @@ static int kDragToLoadDecoratorObservingContext;
 
 - (void)setBottomViewState:(BottomViewState)bottomViewState {
     if (_bottomViewState == bottomViewState)
+        return;
+    
+    if (self.topViewState == TopViewStateLoading)
         return;
     
     _bottomViewState = bottomViewState;

@@ -75,6 +75,8 @@
 - (void)viewDidDisappear:(BOOL)animated {
     if (![WTCoreDataManager sharedManager].currentUser) {
         self.shouldShowLoginView = YES;
+    } else {
+        self.shouldShowLoginView = NO;
     }
 }
 

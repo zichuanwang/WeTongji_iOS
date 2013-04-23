@@ -220,11 +220,10 @@
 }
 
 - (void)fetchedResultsControllerDidPerformFetch {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 300 * NSEC_PER_MSEC), dispatch_get_current_queue(), ^{
-        if ([self.fetchedResultsController.sections.lastObject numberOfObjects] == 0) {
-            [self.dragToLoadDecorator setTopViewLoading:YES];
-        }
-    });
+    if ([self.fetchedResultsController.sections.lastObject numberOfObjects] == 0) {
+        _firstLoadData = YES;
+        [self.dragToLoadDecorator setTopViewLoading:YES];
+    }
 }
 
 #pragma mark - UITableViewDelegate
@@ -267,6 +266,9 @@
 #pragma mark - WTDragToLoadDecoratorDelegate
 
 - (void)dragToLoadDecoratorDidDragUp {
+    if (_firstLoadData)
+        return;
+    
     [self loadMoreDataWithSuccessBlock:^{
         [self.dragToLoadDecorator bottomViewLoadFinished:YES];
     } failureBlock:^{
