@@ -64,17 +64,29 @@
 - (void)configureNavigationBar {
     self.navigationItem.leftBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:NSLocalizedString(@"Cancel", nil) target:self action:@selector(didClickCancelButton:)];
     
-    self.navigationItem.rightBarButtonItem = [WTResourceFactory createFocusBarButtonWithText:NSLocalizedString(@"Post", nil) target:self action:@selector(didClickCancelButton:)];
+    self.navigationItem.rightBarButtonItem = [WTResourceFactory createFocusBarButtonWithText:NSLocalizedString(@"Post", nil) target:self action:@selector(didClickPostButton:)];
+}
+
+- (void)dismissView {
+    [[UIApplication sharedApplication].rootTabBarController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Actions
 
 - (void)didClickCancelButton:(UIButton *)sender {
-    [[UIApplication sharedApplication].rootTabBarController dismissViewControllerAnimated:YES completion:nil];
+    [self dismissView];
 }
 
 - (void)didClickPostButton:(UIButton *)sender {
-    
+    sender.userInteractionEnabled = NO;
+    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        [self dismissView];
+    } failureBlock:^(NSError *error) {
+        WTLOGERROR(@"Post failed for reason:%@", error.localizedDescription);
+        sender.userInteractionEnabled = YES;
+    }];
+    [request addBillboardPostWithTitle:self.titleTextField.text content:self.contentTextView.text image:self.postImageView.image];
+    [[WTClient sharedClient] enqueueRequest:request];
 }
 
 @end

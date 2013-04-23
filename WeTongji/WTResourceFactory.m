@@ -313,4 +313,19 @@
     return result;
 }
 
++ (UIButton *)createLockButtonWithTarget:(id)target
+                                  action:(SEL)action {
+    UIButton *button = [WTResourceFactory createNormalButtonWithText:@""];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    
+    UIImage *lockNormalIconImage = [UIImage imageNamed:@"WTLockHighlightIcon"];
+    [button setImage:lockNormalIconImage forState:UIControlStateNormal];
+    [button setImage:lockNormalIconImage forState:UIControlStateHighlighted];
+    UIImage *lockSelectIconImage = [UIImage imageNamed:@"WTLockNormalIcon"];
+    [button setImage:lockSelectIconImage forState:UIControlStateSelected];
+    
+    [button resetWidth:lockNormalIconImage.size.width];
+    return button;
+}
+
 @end

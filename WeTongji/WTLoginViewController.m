@@ -85,7 +85,7 @@
     return _forgetPasswordButton;
 }
 
-#pragma UI methods
+#pragma - UI methods
 
 - (void)configureLoginPanel {
     UIEdgeInsets insets = UIEdgeInsetsMake(6.0, 7.0, 8.0, 7.0);

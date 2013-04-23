@@ -15,6 +15,10 @@ typedef enum {
 
 @interface WTBillboardPostViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UITextField *titleTextField;
+@property (nonatomic, weak) IBOutlet UITextView *contentTextView;
+@property (nonatomic, weak) IBOutlet UIImageView *postImageView;
+
 - (void)configureNavigationBar;
 
 + (WTBillboardPostViewController *)createPostViewControllerWithType:(WTBillboardPostViewControllerType)type;

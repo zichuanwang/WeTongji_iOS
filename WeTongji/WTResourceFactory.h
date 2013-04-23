@@ -42,6 +42,9 @@
 + (UIBarButtonItem *)createNewPostButtonWithTarget:(id)target
                                             action:(SEL)action;
 
++ (UIButton *)createLockButtonWithTarget:(id)target
+                                  action:(SEL)action;
+
 + (UIBarButtonItem *)createBarButtonWithButton:(UIButton *)button;
 
 + (UIView *)createScrollViewPlaceholderView;

@@ -11,4 +11,9 @@
 
 @interface WTBillboardPostPlainTextViewController : WTBillboardPostViewController
 
+@property (nonatomic, weak) IBOutlet UIImageView *titleBgImageView;
+@property (nonatomic, weak) IBOutlet UIImageView *contentBgImageView;
+@property (nonatomic, weak) IBOutlet UIView *titleBgView;
+@property (nonatomic, weak) IBOutlet UIView *contentBgView;
+
 @end

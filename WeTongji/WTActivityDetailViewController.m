@@ -272,7 +272,7 @@
 - (void)didTagBannerView:(UITapGestureRecognizer *)gesture {
     WTBannerItemView *currentBannerItemView = [self.bannerView currentItemView];
     UIImageView *currentBannerImageView = currentBannerItemView.imageView;
-    CGRect imageViewFrame = [self.view convertRect:currentBannerImageView.frame fromView:currentBannerImageView];
+    CGRect imageViewFrame = [self.view convertRect:currentBannerImageView.frame fromView:currentBannerImageView.superview];
     imageViewFrame.origin.y += 64.0f;
     
     [WTDetailImageViewController showDetailImageViewWithImageURLString:self.activity.image
