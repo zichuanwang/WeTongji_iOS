@@ -20,7 +20,9 @@
                             failure:(void (^)(void))failure {
     
     WTLOG(@"image URL:%@", imageURLString);
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:imageURLString] cachePolicy:NSURLRequestReturnCacheDataDontLoad timeoutInterval:60];
+    //NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:imageURLString] cachePolicy:NSURLRequestReturnCacheDataDontLoad timeoutInterval:60];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURLString]];
     
     BlockARCWeakSelf weakSelf = self;
     [weakSelf setImageWithURLRequest:request

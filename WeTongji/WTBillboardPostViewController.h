@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    WTBillboardPostViewControllerTypePlainText,
+    WTBillboardPostViewControllerTypeImage,
+} WTBillboardPostViewControllerType;
+
 @interface WTBillboardPostViewController : UIViewController
+
+- (void)configureNavigationBar;
+
++ (WTBillboardPostViewController *)createPostViewControllerWithType:(WTBillboardPostViewControllerType)type;
+
+- (void)show;
 
 @end

@@ -98,6 +98,7 @@
 		E10C423016AB051A0084337C /* WTSwitchCover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E10C422A16AB051A0084337C /* WTSwitchCover@2x.png */; };
 		E10C423116AB051A0084337C /* WTSwitchHandler.png in Resources */ = {isa = PBXBuildFile; fileRef = E10C422B16AB051A0084337C /* WTSwitchHandler.png */; };
 		E10C423216AB051A0084337C /* WTSwitchHandler@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E10C422C16AB051A0084337C /* WTSwitchHandler@2x.png */; };
+		E1106D9E1726F45000C00D81 /* WTNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1106D9D1726F44F00C00D81 /* WTNavigationViewController.m */; };
 		E1132E6416C6304A004CB808 /* WTInnerModalGroupTableViewBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E6216C6304A004CB808 /* WTInnerModalGroupTableViewBg.png */; };
 		E1132E6516C6304A004CB808 /* WTInnerModalGroupTableViewBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E6316C6304A004CB808 /* WTInnerModalGroupTableViewBg@2x.png */; };
 		E1132E6D16C632F6004CB808 /* WTEventIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E6716C632F6004CB808 /* WTEventIcon.png */; };
@@ -574,6 +575,8 @@
 		E10C422A16AB051A0084337C /* WTSwitchCover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTSwitchCover@2x.png"; sourceTree = "<group>"; };
 		E10C422B16AB051A0084337C /* WTSwitchHandler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTSwitchHandler.png; sourceTree = "<group>"; };
 		E10C422C16AB051A0084337C /* WTSwitchHandler@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTSwitchHandler@2x.png"; sourceTree = "<group>"; };
+		E1106D9C1726F44E00C00D81 /* WTNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNavigationViewController.h; sourceTree = "<group>"; };
+		E1106D9D1726F44F00C00D81 /* WTNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNavigationViewController.m; sourceTree = "<group>"; };
 		E1132E6216C6304A004CB808 /* WTInnerModalGroupTableViewBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTInnerModalGroupTableViewBg.png; sourceTree = "<group>"; };
 		E1132E6316C6304A004CB808 /* WTInnerModalGroupTableViewBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTInnerModalGroupTableViewBg@2x.png"; sourceTree = "<group>"; };
 		E1132E6716C632F6004CB808 /* WTEventIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTEventIcon.png; sourceTree = "<group>"; };
@@ -1850,6 +1853,8 @@
 				E13B0E5C16A302A500A45079 /* WTCoreDataTableViewController.m */,
 				E1CD3F34171FF7E600359A79 /* WTDetailViewController.h */,
 				E1CD3F35171FF7E600359A79 /* WTDetailViewController.m */,
+				E1106D9C1726F44E00C00D81 /* WTNavigationViewController.h */,
+				E1106D9D1726F44F00C00D81 /* WTNavigationViewController.m */,
 			);
 			name = Root;
 			sourceTree = "<group>";
@@ -2600,6 +2605,7 @@
 				E1E647B81722AD5200EB4C8D /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 				E1E647C01722D8F600EB4C8D /* WTDetailImageItemView.m in Sources */,
 				E151B795172320400090013B /* UIImageView+ContentScale.m in Sources */,
+				E1106D9E1726F45000C00D81 /* WTNavigationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

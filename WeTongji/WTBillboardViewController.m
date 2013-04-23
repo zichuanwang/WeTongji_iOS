@@ -11,6 +11,7 @@
 #import "UIApplication+WTAddition.h"
 #import "WTBillboardTableViewController.h"
 #import "BillboardPost+Addition.h"
+#import "WTBillboardPostViewController.h"
 
 @interface WTBillboardViewController ()
 
@@ -67,14 +68,40 @@
 #pragma mark - Actions
 
 - (void)didClickNewPostButton:(UIButton *)sender {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Photo", nil), NSLocalizedString(@"Text", nil), NSLocalizedString(@"WeTongji Q&A", nil), nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:NSLocalizedString(@"Photo", nil), NSLocalizedString(@"Text", nil), NSLocalizedString(@"WeTongji Q&A", nil), nil];
     [actionSheet showFromTabBar:[UIApplication sharedApplication].rootTabBarController.tabBar];
 }
+
+enum {
+    ActionSheetImageButtonIndex,
+    ActionSheetPlainTextButtonIndex,
+    ActionSheetWeTongjiQAndAButtonIndex,
+};
 
 #pragma mark - UIActionSheetDelegate
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSLog(@"button index%d", buttonIndex);
+    switch (buttonIndex) {
+        case ActionSheetImageButtonIndex:
+        {
+            WTBillboardPostViewController *vc = [WTBillboardPostViewController createPostViewControllerWithType:WTBillboardPostViewControllerTypeImage];
+            [vc show];
+        }
+            break;
+        case ActionSheetPlainTextButtonIndex:
+        {
+            WTBillboardPostViewController *vc = [WTBillboardPostViewController createPostViewControllerWithType:WTBillboardPostViewControllerTypePlainText];
+            [vc show];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "WTLoginViewController.h"
-#import "WTRootNavigationController.h"
+#import "WTNavigationViewController.h"
 #import "UIApplication+WTAddition.h"
 #import "WTResourceFactory.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
@@ -169,7 +169,7 @@
 
 + (void)showWithIntro:(BOOL)showIntro {
     WTLoginViewController *vc = [[WTLoginViewController alloc] init];
-    WTRootNavigationController *nav = [[WTRootNavigationController alloc] initWithRootViewController:vc];
+    WTNavigationViewController *nav = [[WTNavigationViewController alloc] initWithRootViewController:vc];
     vc.showIntro = showIntro;
     
     UIViewController *rootVC = [UIApplication sharedApplication].rootTabBarController;

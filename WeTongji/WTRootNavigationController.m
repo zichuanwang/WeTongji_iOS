@@ -21,8 +21,6 @@
 @property (nonatomic, strong) UIImageView *screenShootImageView;
 @property (nonatomic, strong) UIView *screenShootContainerView;
 
-@property (nonatomic, strong) UIImageView *navigationBarShadowImageView;
-
 @property (nonatomic, assign) WTDisableNavBarType currentWTDisableNavBarType;
 
 @end
@@ -41,29 +39,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    [self configureNavigationBar];    
+	// Do any additional setup after loading the view.   
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - UI methods
-
-- (void)configureNavigationBar {
-    if ([self.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
-        [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"WTNavigationBarBg"] forBarMetrics:UIBarMetricsDefault];
-        if ([self.navigationBar respondsToSelector:@selector(shadowImage)])
-            self.navigationBar.shadowImage = [[UIImage alloc] init];
-    }
-    
-    UIImageView *shadowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTNavigationBarShadow"]];
-    [shadowImageView resetOriginY:self.navigationBar.frame.size.height];
-    [self.navigationBar insertSubview:shadowImageView atIndex:0];
-    self.navigationBarShadowImageView = shadowImageView;
 }
 
 #pragma mark - Logic methods

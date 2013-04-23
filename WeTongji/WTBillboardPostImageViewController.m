@@ -7,6 +7,7 @@
 //
 
 #import "WTBillboardPostImageViewController.h"
+#import "WTResourceFactory.h"
 
 @interface WTBillboardPostImageViewController ()
 
@@ -33,6 +34,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UI methods
+
+- (void)configureNavigationBar {
+    [super configureNavigationBar];
+    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Photo", nil)];
 }
 
 @end

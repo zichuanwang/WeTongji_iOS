@@ -7,6 +7,12 @@
 //
 
 #import "WTBillboardPostViewController.h"
+#import "WTResourceFactory.h"
+#import <WeTongjiSDK/WeTongjiSDK.h>
+#import "WTBillboardPostPlainTextViewController.h"
+#import "WTBillboardPostImageViewController.h"
+#import "UIApplication+WTAddition.h"
+#import "WTNavigationViewController.h"
 
 @interface WTBillboardPostViewController ()
 
@@ -27,12 +33,48 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self configureNavigationBar];
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)show {
+    WTNavigationViewController *nav = [[WTNavigationViewController alloc] initWithRootViewController:self];
+    [[UIApplication sharedApplication].rootTabBarController presentViewController:nav animated:YES completion:nil];
+}
+
++ (WTBillboardPostViewController *)createPostViewControllerWithType:(WTBillboardPostViewControllerType)type {
+    WTBillboardPostViewController *result = nil;
+    if (type == WTBillboardPostViewControllerTypePlainText) {
+        result = [[WTBillboardPostPlainTextViewController alloc] init];
+    } else if (type == WTBillboardPostViewControllerTypeImage) {
+        result = [[WTBillboardPostImageViewController alloc] init];
+    }
+    return result;
+}
+
+#pragma mark - UI methods
+
+- (void)configureNavigationBar {
+    self.navigationItem.leftBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:NSLocalizedString(@"Cancel", nil) target:self action:@selector(didClickCancelButton:)];
+    
+    self.navigationItem.rightBarButtonItem = [WTResourceFactory createFocusBarButtonWithText:NSLocalizedString(@"Post", nil) target:self action:@selector(didClickCancelButton:)];
+}
+
+#pragma mark - Actions
+
+- (void)didClickCancelButton:(UIButton *)sender {
+    [[UIApplication sharedApplication].rootTabBarController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)didClickPostButton:(UIButton *)sender {
+    
 }
 
 @end

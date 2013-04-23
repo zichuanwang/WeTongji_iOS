@@ -25,6 +25,8 @@
     [Flurry setAppVersion:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
     [Flurry startSession:FLURRY_API_KEY];
     
+    WTLOG(@"Current disk cache capacity:%d", [[NSURLCache sharedURLCache] diskCapacity] / 1024);
+    WTLOG(@"Current memory cache capacity:%d", [[NSURLCache sharedURLCache] memoryCapacity] / 1024);
     WTLOG(@"Current disk cache usage:%d", [[NSURLCache sharedURLCache] currentDiskUsage] / 1024);
     WTLOG(@"Current memory cache usage:%d", [[NSURLCache sharedURLCache] currentMemoryUsage] / 1024);
     

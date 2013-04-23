@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WTBillboardPostViewController.h"
 
-@interface WTBillboardPostPlainTextViewController : UIViewController
+@interface WTBillboardPostPlainTextViewController : WTBillboardPostViewController
 
 @end

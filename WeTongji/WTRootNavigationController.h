@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WTNavigationViewController.h"
 
 typedef enum {
     WTDisableNavBarTypeNone,
@@ -18,7 +19,7 @@ typedef enum {
 
 @class WTInnerModalViewController;
 
-@interface WTRootNavigationController : UINavigationController
+@interface WTRootNavigationController : WTNavigationViewController
 
 - (void)showInnerModalViewController:(WTInnerModalViewController *)innerController
                 sourceViewController:(UIViewController<WTRootNavigationControllerDelegate> *)sourceController
