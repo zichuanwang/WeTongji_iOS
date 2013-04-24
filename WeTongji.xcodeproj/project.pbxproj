@@ -179,6 +179,8 @@
 		E12E248D17274CC300EFA9B5 /* WTBillboardDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12E248C17274CC300EFA9B5 /* WTBillboardDetailHeaderView.xib */; };
 		E12E249017274E1500EFA9B5 /* WTDetailBillboardImageCover.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E248E17274E1500EFA9B5 /* WTDetailBillboardImageCover.png */; };
 		E12E249117274E1500EFA9B5 /* WTDetailBillboardImageCover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E248F17274E1500EFA9B5 /* WTDetailBillboardImageCover@2x.png */; };
+		E12E2494172806F800EFA9B5 /* WTAnonymousAvatarPlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E2492172806F800EFA9B5 /* WTAnonymousAvatarPlaceholder.png */; };
+		E12E2495172806F800EFA9B5 /* WTAnonymousAvatarPlaceholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E2493172806F800EFA9B5 /* WTAnonymousAvatarPlaceholder@2x.png */; };
 		E13652CA1713FD8000ACA92D /* WTTranslucentHighlightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E13652C81713FD8000ACA92D /* WTTranslucentHighlightButton.png */; };
 		E13652CB1713FD8000ACA92D /* WTTranslucentHighlightButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13652C91713FD8000ACA92D /* WTTranslucentHighlightButton@2x.png */; };
 		E13B0E4C169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0E4A169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon.png */; };
@@ -694,6 +696,8 @@
 		E12E248C17274CC300EFA9B5 /* WTBillboardDetailHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTBillboardDetailHeaderView.xib; sourceTree = "<group>"; };
 		E12E248E17274E1500EFA9B5 /* WTDetailBillboardImageCover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTDetailBillboardImageCover.png; sourceTree = "<group>"; };
 		E12E248F17274E1500EFA9B5 /* WTDetailBillboardImageCover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTDetailBillboardImageCover@2x.png"; sourceTree = "<group>"; };
+		E12E2492172806F800EFA9B5 /* WTAnonymousAvatarPlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTAnonymousAvatarPlaceholder.png; sourceTree = "<group>"; };
+		E12E2493172806F800EFA9B5 /* WTAnonymousAvatarPlaceholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTAnonymousAvatarPlaceholder@2x.png"; sourceTree = "<group>"; };
 		E13652C81713FD8000ACA92D /* WTTranslucentHighlightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTranslucentHighlightButton.png; sourceTree = "<group>"; };
 		E13652C91713FD8000ACA92D /* WTTranslucentHighlightButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTranslucentHighlightButton@2x.png"; sourceTree = "<group>"; };
 		E13B0E4A169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNavigationBarBackNormalButtonIcon.png; sourceTree = "<group>"; };
@@ -1803,6 +1807,8 @@
 		E19589B21707455C0040E669 /* Placeholder */ = {
 			isa = PBXGroup;
 			children = (
+				E12E2492172806F800EFA9B5 /* WTAnonymousAvatarPlaceholder.png */,
+				E12E2493172806F800EFA9B5 /* WTAnonymousAvatarPlaceholder@2x.png */,
 				E19589B3170745DC0040E669 /* WTAvatarPlaceholder.png */,
 				E19589B6170745DC0040E669 /* WTAvatarPlaceholder@2x.png */,
 				E19589A61706BFD30040E669 /* WTBluePlaceholderImage.jpg */,
@@ -2527,6 +2533,8 @@
 				E12E248D17274CC300EFA9B5 /* WTBillboardDetailHeaderView.xib in Resources */,
 				E12E249017274E1500EFA9B5 /* WTDetailBillboardImageCover.png in Resources */,
 				E12E249117274E1500EFA9B5 /* WTDetailBillboardImageCover@2x.png in Resources */,
+				E12E2494172806F800EFA9B5 /* WTAnonymousAvatarPlaceholder.png in Resources */,
+				E12E2495172806F800EFA9B5 /* WTAnonymousAvatarPlaceholder@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
