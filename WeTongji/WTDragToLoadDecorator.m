@@ -23,8 +23,6 @@ typedef enum {
     BottomViewStateDisabled,
 } BottomViewState;
 
-#define SET_BOTTOM_VIEW_STATE_DISABLED_DELAY_SEC 1
-
 @interface WTDragToLoadDecorator ()
 
 @property (nonatomic, strong) WTDragToLoadDecoratorTopView *topView;
@@ -200,14 +198,7 @@ static int kDragToLoadDecoratorObservingContext;
 
 - (void)setBottomViewDisabled:(BOOL)disabled {
     if (disabled) {
-        self.delayBottomViewDisable = YES;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, SET_BOTTOM_VIEW_STATE_DISABLED_DELAY_SEC * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
-            if (self.delayBottomViewDisable) {
-                self.bottomViewState = BottomViewStateDisabled;
-                self.delayBottomViewDisable = NO;
-            }
-        });
-
+        self.bottomViewState = BottomViewStateDisabled;
     } else {
         self.bottomViewState = BottomViewStateNormal;
     }
