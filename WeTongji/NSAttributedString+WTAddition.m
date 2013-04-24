@@ -19,9 +19,10 @@
     NSString *resultString = [NSString stringWithFormat:@"%@ %@", countString, NSLocalizedString(friendString, nil)];
     
     NSMutableAttributedString *resultAttribuedString = [[NSMutableAttributedString alloc] initWithString:resultString];
-    [resultAttribuedString setTextBold:YES range:NSMakeRange(0, countString.length)];
+    [resultAttribuedString setTextAlignment:kCTTextAlignmentRight lineBreakMode:kCTLineBreakByCharWrapping];
     [resultAttribuedString setTextColor:color];
     [resultAttribuedString setFont:font];
+    [resultAttribuedString setTextBold:YES range:NSMakeRange(0, countString.length)];
     
     return resultAttribuedString;
 }

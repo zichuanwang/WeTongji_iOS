@@ -11,6 +11,8 @@
 #import "Event.h"
 #import "UIApplication+WTAddition.h"
 #import "WTNowViewController.h"
+#import "OHAttributedLabel.h"
+#import "NSAttributedString+WTAddition.h"
 
 @interface WTNowBaseCell ()
 
@@ -45,6 +47,8 @@
 
 - (void)configureCellWithEvent:(Event *)event {
     self.event = event;
+    
+    self.friendsCountLabel.attributedText = [NSAttributedString friendCountStringConvertFromCountNumber:@(3) font:self.friendsCountLabel.font textColor:self.friendsCountLabel.textColor];
 }
 
 #pragma mark - UI methods
