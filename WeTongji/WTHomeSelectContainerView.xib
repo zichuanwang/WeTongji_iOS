@@ -51,6 +51,7 @@
 						<double key="IBUIContentInset.bottom">0.0</double>
 						<double key="IBUIContentInset.left">-8</double>
 						<double key="IBUIContentInset.right">-8</double>
+						<bool key="IBUIDirectionalLockEnabled">YES</bool>
 						<bool key="IBUIPagingEnabled">YES</bool>
 						<bool key="IBUIShowsHorizontalScrollIndicator">NO</bool>
 						<bool key="IBUIShowsVerticalScrollIndicator">NO</bool>
