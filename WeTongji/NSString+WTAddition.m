@@ -165,4 +165,10 @@
     return resultString;
 }
 
++ (NSString *)commentCountStringConvertFromCountNumber:(NSNumber *)countNumber {
+    NSString *friendString = countNumber.integerValue > 1 ? @"Comments" : @"Comment";
+    NSString *resultString = [NSString stringWithFormat:@"%d %@", countNumber.integerValue, NSLocalizedString(friendString, nil)];
+    return resultString;
+}
+
 @end

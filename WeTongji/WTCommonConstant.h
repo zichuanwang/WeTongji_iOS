@@ -17,6 +17,8 @@
 
 #define WTSectionHeaderViewGrayColor [UIColor colorWithRed:131.0f / 255 green:131.0f / 255 blue:131.0f / 255 alpha:1.0f]
 
+#define WTSectionHeaderViewLightGrayColor [UIColor colorWithRed:202.0f / 255 green:202.0f / 255 blue:202.0f / 255 alpha:1.0f]
+
 #define WTBlueColor [UIColor colorWithRed:12.0f / 255 green:194.0f / 255 blue:203.0f / 255 alpha:1.0f]
 
 #define semesterBeginTime   @"2013-02-25T00:00:00+08:00"

@@ -9,11 +9,13 @@
 #import "WTBillboardDetailViewController.h"
 #import "BillboardPost.h"
 #import "WTBillboardDetailHeaderView.h"
+#import "WTBillboardCommentViewController.h"
 
-@interface WTBillboardDetailViewController ()
+@interface WTBillboardDetailViewController () <WTBillboardCommentViewControllerDataSource>
 
 @property (nonatomic, strong) BillboardPost *post;
 @property (nonatomic, strong) WTBillboardDetailHeaderView *headerView;
+@property (nonatomic, strong) WTBillboardCommentViewController *commentViewController;
 
 @end
 
@@ -33,6 +35,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self configureHeaderView];
+    [self configureCommentViewController];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
 }
@@ -56,13 +59,23 @@
 
 - (void)configureHeaderView {
     self.headerView = [WTBillboardDetailHeaderView createDetailHeaderViewWithBillboardPost:self.post];
-    [self.view addSubview:self.headerView];
+}
+
+- (void)configureCommentViewController {
+    self.commentViewController = [WTBillboardCommentViewController createCommentViewControllerWithBillboardPost:self.post dataSource:self];
+    [self.view addSubview:self.commentViewController.view];
 }
 
 #pragma mark - Actions
 
 - (void)didClickLikeButton:(UIButton *)sender {
     
+}
+
+#pragma mark - WTBillboardCommentViewControllerDataSource
+
+- (UIView *)commentViewControllerTableViewHeaderView {
+    return self.headerView;
 }
 
 @end

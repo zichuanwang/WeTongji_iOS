@@ -2,7 +2,7 @@
 //  User.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-4-10.
+//  Created by 王 紫川 on 13-4-24.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -10,13 +10,13 @@
 #import <CoreData/CoreData.h>
 #import "Object.h"
 
-@class Event, Notification;
+@class BillboardComment, Event, Notification;
 
 @interface User : Object
 
 @property (nonatomic, retain) NSString * avatar;
-@property (nonatomic, retain) NSString * birthPlace;
 @property (nonatomic, retain) NSDate * birthday;
+@property (nonatomic, retain) NSString * birthPlace;
 @property (nonatomic, retain) NSString * department;
 @property (nonatomic, retain) NSString * emailAddress;
 @property (nonatomic, retain) NSNumber * enrollYear;
@@ -31,8 +31,9 @@
 @property (nonatomic, retain) NSNumber * studyPlan;
 @property (nonatomic, retain) NSString * wechatAccount;
 @property (nonatomic, retain) NSSet *receivedNotifications;
-@property (nonatomic, retain) NSSet *sentNotifications;
 @property (nonatomic, retain) NSSet *scheduledEvents;
+@property (nonatomic, retain) NSSet *sentNotifications;
+@property (nonatomic, retain) NSSet *billboardComments;
 @end
 
 @interface User (CoreDataGeneratedAccessors)
@@ -42,14 +43,19 @@
 - (void)addReceivedNotifications:(NSSet *)values;
 - (void)removeReceivedNotifications:(NSSet *)values;
 
+- (void)addScheduledEventsObject:(Event *)value;
+- (void)removeScheduledEventsObject:(Event *)value;
+- (void)addScheduledEvents:(NSSet *)values;
+- (void)removeScheduledEvents:(NSSet *)values;
+
 - (void)addSentNotificationsObject:(Notification *)value;
 - (void)removeSentNotificationsObject:(Notification *)value;
 - (void)addSentNotifications:(NSSet *)values;
 - (void)removeSentNotifications:(NSSet *)values;
 
-- (void)addScheduledEventsObject:(Event *)value;
-- (void)removeScheduledEventsObject:(Event *)value;
-- (void)addScheduledEvents:(NSSet *)values;
-- (void)removeScheduledEvents:(NSSet *)values;
+- (void)addBillboardCommentsObject:(BillboardComment *)value;
+- (void)removeBillboardCommentsObject:(BillboardComment *)value;
+- (void)addBillboardComments:(NSSet *)values;
+- (void)removeBillboardComments:(NSSet *)values;
 
 @end

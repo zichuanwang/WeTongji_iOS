@@ -12,11 +12,18 @@
         <attribute name="organizerAvatar" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="ActivityInvitationNotification" representedClassName="ActivityInvitationNotification" parentEntity="InvitationNotification" syncable="YES"/>
+    <entity name="BillboardComment" representedClassName="BillboardComment" parentEntity="Object" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="author" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="billboardComments" inverseEntity="User" syncable="YES"/>
+        <relationship name="belongTo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BillboardPost" inverseName="comments" inverseEntity="BillboardPost" syncable="YES"/>
+    </entity>
     <entity name="BillboardPost" representedClassName="BillboardPost" parentEntity="Object" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BillboardComment" inverseName="belongTo" inverseEntity="BillboardComment" syncable="YES"/>
     </entity>
     <entity name="Course" representedClassName="Course" parentEntity="Event" syncable="YES">
         <attribute name="courseDay" optional="YES" attributeType="Date" syncable="YES"/>
@@ -90,6 +97,7 @@
         <attribute name="studentNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="studyPlan" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="wechatAccount" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="billboardComments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BillboardComment" inverseName="author" inverseEntity="BillboardComment" syncable="YES"/>
         <relationship name="receivedNotifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notification" inverseName="owner" inverseEntity="Notification" syncable="YES"/>
         <relationship name="scheduledEvents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="scheduledBy" inverseEntity="Event" syncable="YES"/>
         <relationship name="sentNotifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notification" inverseName="sender" inverseEntity="Notification" syncable="YES"/>
@@ -97,7 +105,7 @@
     <elements>
         <element name="Activity" positionX="160" positionY="192" width="128" height="180"/>
         <element name="ActivityInvitationNotification" positionX="160" positionY="192" width="128" height="45"/>
-        <element name="BillboardPost" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="BillboardPost" positionX="160" positionY="192" width="128" height="120"/>
         <element name="Course" positionX="160" positionY="192" width="128" height="180"/>
         <element name="Event" positionX="160" positionY="192" width="128" height="135"/>
         <element name="Exam" positionX="160" positionY="192" width="128" height="45"/>
@@ -108,6 +116,7 @@
         <element name="Object" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Organization" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Star" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="User" positionX="160" positionY="192" width="128" height="330"/>
+        <element name="User" positionX="160" positionY="192" width="128" height="345"/>
+        <element name="BillboardComment" positionX="160" positionY="192" width="128" height="105"/>
     </elements>
 </model>

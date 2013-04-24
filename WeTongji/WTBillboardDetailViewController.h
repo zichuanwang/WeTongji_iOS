@@ -15,5 +15,6 @@
 
 + (WTBillboardDetailViewController *)createBillboardDetailViewControllerWithBillboardPost:(BillboardPost *)post
                                                                         backBarButtonText:(NSString *)backBarButtonText;
-
 @end
+
+

@@ -51,7 +51,6 @@
 										<int key="NSvFlags">269</int>
 										<string key="NSFrame">{{0, 129}, {320, 1}}</string>
 										<reference key="NSSuperview" ref="198761760"/>
-										<reference key="NSWindow"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<float key="IBUIAlpha">0.80000001192092896</float>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -66,7 +65,6 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{18, 17}, {282, 24}}</string>
 										<reference key="NSSuperview" ref="198761760"/>
-										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="1029342131"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<object class="NSColor" key="IBUIBackgroundColor" id="602750795">
@@ -110,7 +108,6 @@
 										<int key="NSvFlags">268</int>
 										<string key="NSFrame">{{18, 38}, {282, 21}}</string>
 										<reference key="NSSuperview" ref="198761760"/>
-										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="293806985"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<reference key="IBUIBackgroundColor" ref="602750795"/>
@@ -149,7 +146,6 @@
 										<int key="NSvFlags">265</int>
 										<string key="NSFrame">{{194, 58}, {94, 22}}</string>
 										<reference key="NSSuperview" ref="198761760"/>
-										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="37434258"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
@@ -192,7 +188,6 @@
 										<int key="NSvFlags">265</int>
 										<string key="NSFrame">{{296, 61}, {10, 16}}</string>
 										<reference key="NSSuperview" ref="198761760"/>
-										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="1070727844"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -205,7 +200,6 @@
 								</array>
 								<string key="NSFrameSize">{320, 129}</string>
 								<reference key="NSSuperview" ref="964278674"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="680125909"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
@@ -220,7 +214,6 @@
 						</array>
 						<string key="NSFrameSize">{320, 460}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="198761760"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<reference key="IBUIBackgroundColor" ref="602750795"/>
@@ -235,7 +228,6 @@
 				</array>
 				<string key="NSFrameSize">{320, 460}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="964278674"/>
 				<reference key="IBUIBackgroundColor" ref="602750795"/>
 				<bool key="IBUIClipsSubviews">YES</bool>
@@ -414,82 +406,7 @@
 			<nil key="sourceID"/>
 			<int key="maxID">73</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">WTActivityDetailViewController</string>
-					<string key="superclassName">WTDetailViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="didClickLocationIndicator">id</string>
-						<string key="didClickOrganizerIndicator">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="didClickLocationIndicator">
-							<string key="name">didClickLocationIndicator</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="didClickOrganizerIndicator">
-							<string key="name">didClickOrganizerIndicator</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="activityLocationButton">UIButton</string>
-						<string key="activityLocationDisclosureImageView">UIImageView</string>
-						<string key="activityTimeLabel">UILabel</string>
-						<string key="activityTitleLabel">UILabel</string>
-						<string key="briefIntroductionView">UIView</string>
-						<string key="scrollView">UIScrollView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="activityLocationButton">
-							<string key="name">activityLocationButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="activityLocationDisclosureImageView">
-							<string key="name">activityLocationDisclosureImageView</string>
-							<string key="candidateClassName">UIImageView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="activityTimeLabel">
-							<string key="name">activityTimeLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="activityTitleLabel">
-							<string key="name">activityTitleLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="briefIntroductionView">
-							<string key="name">briefIntroductionView</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="scrollView">
-							<string key="name">scrollView</string>
-							<string key="candidateClassName">UIScrollView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/WTActivityDetailViewController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">WTDetailViewController</string>
-					<string key="superclassName">UIViewController</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/WTDetailViewController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">WTScrollView</string>
-					<string key="superclassName">UIScrollView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/WTScrollView.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>

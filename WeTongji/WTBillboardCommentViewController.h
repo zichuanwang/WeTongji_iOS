@@ -8,6 +8,20 @@
 
 #import "WTCoreDataTableViewController.h"
 
+@class BillboardPost;
+@protocol WTBillboardCommentViewControllerDataSource;
+
 @interface WTBillboardCommentViewController : WTCoreDataTableViewController
+
+@property (nonatomic, weak) id<WTBillboardCommentViewControllerDataSource> dataSource;
+
++ (WTBillboardCommentViewController *)createCommentViewControllerWithBillboardPost:(BillboardPost *)post
+                                                                        dataSource:(id<WTBillboardCommentViewControllerDataSource>)dataSource;
+
+@end
+
+@protocol WTBillboardCommentViewControllerDataSource <NSObject>
+
+- (UIView *)commentViewControllerTableViewHeaderView;
 
 @end
