@@ -48,6 +48,8 @@ typedef enum {
 
 - (void)configureBannerContainerViewHeight:(CGFloat)height;
 
+- (void)reloadItemImages;
+
 @end
 
 @interface WTBannerItemView : UIView
@@ -57,6 +59,7 @@ typedef enum {
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UIView *labelContainerView;
 @property (nonatomic, assign) WTBannerItemViewStyle style;
+@property (nonatomic, copy) NSString *imageURLString;
 
 - (void)configureBannerItemViewHeight:(CGFloat)height
                          enlargeRatio:(float)enlargeRatio

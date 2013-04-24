@@ -12,7 +12,6 @@
 
 @interface WTNewsImageRollView () <UIScrollViewDelegate>
 
-@property (nonatomic, strong) NSMutableArray *imageURLArray;
 @property (nonatomic, strong) NSMutableArray *itemViewArray;
 
 @end
@@ -36,6 +35,14 @@
     return [self.itemViewArray objectAtIndex:index];
 }
 
+- (void)reloadItemImages {
+    for (WTNewsImageRollItemView *itemView in self.itemViewArray) {
+        [itemView.imageView loadImageWithImageURLString:itemView.imageURLString success:^(UIImage *image) {
+            itemView.imageView.image = image;
+        } failure:nil];
+    }
+}
+
 + (WTNewsImageRollView *)createImageRollViewWithImageURLStringArray:(NSArray *)imageURLArray {
     WTNewsImageRollView *result = nil;
     NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"WTNewsImageRollView" owner:nil options:nil];
@@ -45,23 +52,23 @@
             break;
         }
     }
-    result.imageURLArray = [NSMutableArray arrayWithCapacity:4];
     result.itemViewArray = [NSMutableArray arrayWithCapacity:4];
     
     for (NSString *imageURLString in imageURLArray) {
         [result addImageViewWithImageURLString:imageURLString];
-        [result.imageURLArray addObject:imageURLString];
     }
     
-    result.scrollView.contentSize = CGSizeMake(result.scrollView.frame.size.width * result.imageURLArray.count, result.scrollView.frame.size.height);
-    result.pageControl.numberOfPages = result.imageURLArray.count;
+    result.scrollView.contentSize = CGSizeMake(result.scrollView.frame.size.width * result.itemViewArray.count, result.scrollView.frame.size.height);
+    result.pageControl.numberOfPages = result.itemViewArray.count;
     
     return result;
 }
 
 - (void)addImageViewWithImageURLString:(NSString *)imageURLString {
     WTNewsImageRollItemView *itemView = [WTNewsImageRollItemView createItemViewWithImageURLString:imageURLString];
-    itemView.center = CGPointMake((self.scrollView.frame.size.width * (self.imageURLArray.count * 2 + 1)) / 2, self.scrollView.frame.size.height / 2);
+    itemView.imageURLString = imageURLString;
+    
+    itemView.center = CGPointMake((self.scrollView.frame.size.width * (self.itemViewArray.count * 2 + 1)) / 2, self.scrollView.frame.size.height / 2);
     [self.scrollView addSubview:itemView];
     [self.itemViewArray addObject:itemView];
 }

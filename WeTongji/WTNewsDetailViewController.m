@@ -173,6 +173,7 @@
 - (void)detailImageViewControllerDidDismiss:(NSUInteger)currentPage {
     self.imageRollView.scrollView.contentOffset = CGPointMake(self.imageRollView.scrollView.frame.size.width * currentPage, 0);
     self.imageRollView.pageControl.currentPage = currentPage;
+    [self.imageRollView reloadItemImages];
 }
 
 @end

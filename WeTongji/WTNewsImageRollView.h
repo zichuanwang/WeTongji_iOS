@@ -21,11 +21,14 @@
 
 - (WTNewsImageRollItemView *)itemViewAtIndex:(NSUInteger)index;
 
+- (void)reloadItemImages;
+
 @end
 
 @interface WTNewsImageRollItemView : UIView
 
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
+@property (nonatomic, copy) NSString *imageURLString;
 
 + (WTNewsImageRollItemView *)createItemViewWithImageURLString:(NSString *)imageURLString;
 

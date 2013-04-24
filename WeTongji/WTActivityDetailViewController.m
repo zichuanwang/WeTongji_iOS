@@ -362,6 +362,7 @@
 - (void)detailImageViewControllerDidDismiss:(NSUInteger)currentPage {
     self.bannerView.bannerScrollView.contentOffset = CGPointMake(self.bannerView.frame.size.width * currentPage, 0);
     self.bannerView.bannerPageControl.currentPage = currentPage;
+    [self.bannerView reloadItemImages];
 }
 
 @end

@@ -106,8 +106,9 @@
                              style:style
                            atIndex:index];
     
-    WTBannerItemView *containerView = self.bannerItemViewArray[index];
-    [containerView.imageView loadImageWithImageURLString:imageURLString];
+    WTBannerItemView *itemView = self.bannerItemViewArray[index];
+    [itemView.imageView loadImageWithImageURLString:imageURLString];
+    itemView.imageURLString = imageURLString;
 }
 
 - (void)addItemViewWithTitleText:(NSString *)title
@@ -119,6 +120,14 @@
     itemView.titleLabel.text = title;
     itemView.organizationNameLabel.text = organization;
     itemView.style = style;
+}
+
+- (void)reloadItemImages {
+    for (WTBannerItemView *itemView in self.bannerItemViewArray) {
+        [itemView.imageView loadImageWithImageURLString:itemView.imageURLString success:^(UIImage *image) {
+            itemView.imageView.image = image;
+        } failure:nil];
+    }
 }
 
 #pragma mark - Properties

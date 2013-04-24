@@ -28,13 +28,13 @@
     [weakSelf setImageWithURLRequest:request
                     placeholderImage:nil
                              success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                 // NSLog(@"request:%@", [request allHTTPHeaderFields]);
-                                 // NSLog(@"response:%@", [response allHeaderFields]);
-                                 weakSelf.image = image;
-                                 [self fadeIn];
                                  
-                                 if (success)
+                                 if (success) {
                                      success(image);
+                                 } else {
+                                     weakSelf.image = image;
+                                     [self fadeIn];
+                                 }
                                  
                                  WTLOG(@"Current disk cache usage:%d", [[NSURLCache sharedURLCache] currentDiskUsage] / 1024);
                                  WTLOG(@"Current memory cache usage:%d", [[NSURLCache sharedURLCache] currentMemoryUsage] / 1024);
