@@ -11,6 +11,8 @@
 #import "BillboardPost.h"
 #import "UIImageView+AsyncLoading.h"
 #import "OHAttributedLabel.h"
+#import "UIApplication+WTAddition.h"
+#import "WTBillboardViewController.h"
 
 @interface WTBillboardItemView ()
 
@@ -96,6 +98,12 @@ enum {
     [self.plainContentLabel resetOriginY:self.plainTitleLabel.frame.origin.y + self.plainTitleLabel.frame.size.height + PLAIN_CONTENT_LABEL_TOP_INDENT];
     
     self.plainContentLabel.automaticallyAddLinksForType = 0;
+}
+
+#pragma mark - Actions
+
+- (IBAction)didClickBgButton:(UIButton *)sender {
+    [[UIApplication sharedApplication].billboardViewController showBillboardDetailViewWithBillboardPost:self.post];
 }
 
 @end

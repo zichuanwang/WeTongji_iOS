@@ -10,6 +10,7 @@
 #import "WTAppDelegate.h"
 #import "WTNowViewController.h"
 #import "WTNowNavigationController.h"
+#import "WTBillboardNavigationViewController.h"
 
 static UIViewController *staticKeyWindowViewController;
 static UIView           *staticKeyWindowBgView;
@@ -40,6 +41,12 @@ static UIView           *staticKeyWindowBgView;
     WTRootTabBarController *rootTabBarViewController = [UIApplication sharedApplication].rootTabBarController;
     WTNowNavigationController *nowNavigationController = rootTabBarViewController.viewControllers[1];
     return nowNavigationController.viewControllers[0];
+}
+
+- (WTBillboardViewController *)billboardViewController {
+    WTRootTabBarController *rootTabBarViewController = [UIApplication sharedApplication].rootTabBarController;
+    WTBillboardNavigationViewController *billboardNavigationController = rootTabBarViewController.viewControllers[3];
+    return billboardNavigationController.viewControllers[0];
 }
 
 #pragma mark - Key window view controller

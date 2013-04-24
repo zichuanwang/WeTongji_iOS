@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "WTRootViewController.h"
 
+@class BillboardPost;
+
 @interface WTBillboardViewController : WTRootViewController <UIActionSheetDelegate>
+
+- (void)showBillboardDetailViewWithBillboardPost:(BillboardPost *)post;
 
 @end

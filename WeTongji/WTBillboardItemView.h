@@ -27,4 +27,6 @@
 
 - (void)configureViewWithBillboardPost:(BillboardPost *)post;
 
+- (IBAction)didClickBgButton:(UIButton *)sender;
+
 @end

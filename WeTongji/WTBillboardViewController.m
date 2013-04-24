@@ -12,6 +12,7 @@
 #import "WTBillboardTableViewController.h"
 #import "BillboardPost+Addition.h"
 #import "WTBillboardPostViewController.h"
+#import "WTBillboardDetailViewController.h"
 
 @interface WTBillboardViewController ()
 
@@ -46,6 +47,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Public methods
+
+- (void)showBillboardDetailViewWithBillboardPost:(BillboardPost *)post {
+    WTBillboardDetailViewController *vc = [WTBillboardDetailViewController createBillboardDetailViewControllerWithBillboardPost:post backBarButtonText:NSLocalizedString(@"Billboard", nil)];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - Properties

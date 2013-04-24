@@ -102,4 +102,8 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)didClickLikeButton:(UIButton *)sender {
+    
+}
+
 @end
