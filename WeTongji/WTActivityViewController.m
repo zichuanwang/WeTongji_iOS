@@ -55,18 +55,15 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
     [self.tableView resetHeight:self.view.frame.size.height];
     [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
     [self.dragToLoadDecorator stopObservingChangesInDragToLoadScrollView];
 }
 
@@ -220,8 +217,8 @@
 }
 
 - (void)fetchedResultsControllerDidPerformFetch {
-    if ([self.fetchedResultsController.sections.lastObject numberOfObjects] == 0) {
-        _firstLoadData = YES;
+    [super fetchedResultsControllerDidPerformFetch];
+    if (_firstLoadData) {
         [self.dragToLoadDecorator setTopViewLoading:YES];
     }
 }
@@ -281,6 +278,7 @@
     [self loadMoreDataWithSuccessBlock:^{
         [self clearAllData];
         [self.dragToLoadDecorator topViewLoadFinished:YES];
+        _firstLoadData = NO;
     } failureBlock:^{
         [self.dragToLoadDecorator topViewLoadFinished:NO];
     }];

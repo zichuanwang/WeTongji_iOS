@@ -8,6 +8,7 @@
 
 #import "BillboardPost+Addition.h"
 #import "WTCoreDataManager.h"
+#import "NSString+WTAddition.h"
 
 @implementation BillboardPost (Addition)
 
@@ -34,6 +35,30 @@
     }
 }
 
++ (BillboardPost *)insertBillboardPost:(NSDictionary *)dict {
+    NSString *postID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
+    
+    if (!postID || [postID isEqualToString:@""]) {
+        return nil;
+    }
+    
+    BillboardPost *result = [BillboardPost postWithID:postID];
+    if (!result) {
+        result = [NSEntityDescription insertNewObjectForEntityForName:@"BillboardPost" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
+        result.identifier = postID;
+    }
+    result.content = [NSString stringWithFormat:@"%@", dict[@"Body"]];
+    result.title = [NSString stringWithFormat:@"%@", dict[@"Title"]];
+    result.image = [NSString stringWithFormat:@"%@", dict[@"Image"]];
+    if ([result.image isEmptyImageURL])
+        result.image = nil;
+    
+    result.createdAt = [[NSString stringWithFormat:@"%@", dict[@"PublishedAt"]] convertToDate];
+    result.commentCount = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"CommentsCount"]]).integerValue);
+    
+    return result;
+}
+
 + (BillboardPost *)postWithID:(NSString *)postID {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
@@ -43,6 +68,17 @@
     BillboardPost *result = [[[WTCoreDataManager sharedManager].managedObjectContext executeFetchRequest:request error:NULL] lastObject];
     
     return result;
+}
+
++ (void)clearAllBillboardPosts {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
+    [request setEntity:[NSEntityDescription entityForName:@"BillboardPost" inManagedObjectContext:context]];
+    NSArray *allBillboardPosts = [context executeFetchRequest:request error:NULL];
+    
+    for(BillboardPost *item in allBillboardPosts) {
+        [context deleteObject:item];
+    }
 }
 
 @end

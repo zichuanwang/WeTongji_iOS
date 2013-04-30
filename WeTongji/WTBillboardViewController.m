@@ -10,7 +10,7 @@
 #import "WTResourceFactory.h"
 #import "UIApplication+WTAddition.h"
 #import "WTBillboardTableViewController.h"
-#import "BillboardPost+Addition.h"
+#import "BillboardPost.h"
 #import "WTBillboardPostViewController.h"
 #import "WTBillboardDetailViewController.h"
 
@@ -35,12 +35,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self configureTableViewController];
     [self configureNavigationBar];
-    
-    self.tableViewController.view.frame = self.view.frame;
-    [self.view addSubview:self.tableViewController.view];
-    
-    [BillboardPost createTestBillboardPosts];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self.tableViewController viewDidAppear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [self.tableViewController viewDidDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,6 +75,11 @@
     self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Billboard", nil)];
     
     self.navigationItem.rightBarButtonItem = [WTResourceFactory createNewPostButtonWithTarget:self action:@selector(didClickNewPostButton:)];
+}
+
+- (void)configureTableViewController {
+    self.tableViewController.view.frame = self.view.frame;
+    [self.view addSubview:self.tableViewController.view];
 }
 
 #pragma mark - Actions

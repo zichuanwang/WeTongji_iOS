@@ -28,7 +28,7 @@
 
 - (UIView *)topPlaceholderView {
     if (!_topPlaceholderView) {
-        _topPlaceholderView = [WTResourceFactory createScrollViewPlaceholderView];
+        _topPlaceholderView = [WTResourceFactory createPlaceholderViewWithScrollView:self];
     }
     return _topPlaceholderView;
 }

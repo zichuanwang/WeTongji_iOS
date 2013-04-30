@@ -213,7 +213,7 @@
 #pragma mark Configure banner view
 
 - (void)configureBannerView {
-    if (![self.activity.image isEmptyImageURL]) {
+    if (self.activity.image) {
         self.bannerView = [WTBannerContainerView createBannerContainerView];
         [self.bannerView resetOrigin:CGPointMake(0, self.briefIntroductionView.frame.origin.y + self.briefIntroductionView.frame.size.height)];
         [self.bannerView addItemViewWithImageURL:self.activity.image

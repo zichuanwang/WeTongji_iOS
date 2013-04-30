@@ -19,6 +19,15 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        _firstLoadData = YES;
+    }
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        _firstLoadData = YES;
     }
     return self;
 }
@@ -69,7 +78,9 @@
 }
 
 - (void)fetchedResultsControllerDidPerformFetch {
-    
+    if ([self.fetchedResultsController.sections.lastObject numberOfObjects] != 0) {
+        _firstLoadData = NO;
+    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -166,15 +177,15 @@
             
         case NSFetchedResultsChangeMove:
             // NSLog(@"did move");
-            [tableView deleteRowsAtIndexPaths:@[indexPath]
-                             withRowAnimation:UITableViewRowAnimationFade];
-            [tableView insertRowsAtIndexPaths:@[newIndexPath]
-                             withRowAnimation:UITableViewRowAnimationFade];
+            [self deleteCellAtIndexPath:indexPath];
+            [self insertCellAtIndexPath:newIndexPath];
             break;
     }
 }
 
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+- (void)controller:(NSFetchedResultsController *)controller
+  didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
     
 	if(_noAnimationFlag)
         return;
@@ -197,12 +208,6 @@
         [self.tableView reloadData];
     else
         [self.tableView endUpdates];
-}
-
-- (NSInteger)numberOfRowsInFirstSection {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] lastObject];
-    NSInteger count = [sectionInfo numberOfObjects];
-    return count;
 }
 
 @end

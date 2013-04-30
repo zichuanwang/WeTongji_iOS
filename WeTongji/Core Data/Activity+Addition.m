@@ -51,6 +51,9 @@
     result.createdAt = [[NSString stringWithFormat:@"%@", dict[@"CreatedAt"]] convertToDate];
     result.content = [[NSString stringWithFormat:@"%@", dict[@"Description"]] clearAllBacklashR];
     result.image = [NSString stringWithFormat:@"%@", dict[@"Image"]];
+    if ([result.image isEmptyImageURL])
+        result.image = nil;
+    
     result.likeCount = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"Like"]]).integerValue);
     result.organizerAvatar = [NSString stringWithFormat:@"%@", dict[@"OrganizerAvatar"]];
     

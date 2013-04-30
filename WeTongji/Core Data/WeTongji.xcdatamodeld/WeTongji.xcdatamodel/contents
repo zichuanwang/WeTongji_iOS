@@ -19,6 +19,7 @@
         <relationship name="belongTo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BillboardPost" inverseName="comments" inverseEntity="BillboardPost" syncable="YES"/>
     </entity>
     <entity name="BillboardPost" representedClassName="BillboardPost" parentEntity="Object" syncable="YES">
+        <attribute name="commentCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
@@ -105,7 +106,8 @@
     <elements>
         <element name="Activity" positionX="160" positionY="192" width="128" height="180"/>
         <element name="ActivityInvitationNotification" positionX="160" positionY="192" width="128" height="45"/>
-        <element name="BillboardPost" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="BillboardComment" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="BillboardPost" positionX="160" positionY="192" width="128" height="135"/>
         <element name="Course" positionX="160" positionY="192" width="128" height="180"/>
         <element name="Event" positionX="160" positionY="192" width="128" height="135"/>
         <element name="Exam" positionX="160" positionY="192" width="128" height="45"/>
@@ -117,6 +119,5 @@
         <element name="Organization" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Star" positionX="160" positionY="192" width="128" height="75"/>
         <element name="User" positionX="160" positionY="192" width="128" height="345"/>
-        <element name="BillboardComment" positionX="160" positionY="192" width="128" height="105"/>
     </elements>
 </model>

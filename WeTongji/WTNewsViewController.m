@@ -214,8 +214,8 @@
 }
 
 - (void)fetchedResultsControllerDidPerformFetch {
-    if ([self.fetchedResultsController.sections.lastObject numberOfObjects] == 0) {
-        _firstLoadData = YES;
+    [super fetchedResultsControllerDidPerformFetch];
+    if (_firstLoadData) {
         [self.dragToLoadDecorator setTopViewLoading:YES];
     }
 }

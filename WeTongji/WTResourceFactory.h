@@ -47,6 +47,6 @@
 
 + (UIBarButtonItem *)createBarButtonWithButton:(UIButton *)button;
 
-+ (UIView *)createScrollViewPlaceholderView;
++ (UIView *)createPlaceholderViewWithScrollView:(UIScrollView *)scrollView;
 
 @end

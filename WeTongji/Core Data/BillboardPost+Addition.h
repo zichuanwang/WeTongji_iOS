@@ -12,4 +12,8 @@
 
 + (void)createTestBillboardPosts;
 
++ (void)clearAllBillboardPosts;
+
++ (BillboardPost *)insertBillboardPost:(NSDictionary *)dict;
+
 @end

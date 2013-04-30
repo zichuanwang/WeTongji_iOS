@@ -292,9 +292,6 @@ static int kDragToLoadDecoratorObservingContext;
     if (_bottomViewState == bottomViewState)
         return;
     
-    if (self.topViewState == TopViewStateLoading)
-        return;
-    
     _bottomViewState = bottomViewState;
     
     UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
@@ -309,7 +306,11 @@ static int kDragToLoadDecoratorObservingContext;
         }
 			break;
             
-		case BottomViewStateLoading: {            
+		case BottomViewStateLoading: {
+            
+            if (self.topViewState == TopViewStateLoading)
+                return;
+            
             inset.bottom = self.scrollViewOriginalContentInset.bottom + self.bottomView.frame.size.height;
             scrollView.contentInset = inset;
             

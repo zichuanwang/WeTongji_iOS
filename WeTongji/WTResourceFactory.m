@@ -298,12 +298,12 @@
     [button resetSize:CGSizeMake(titleLabelWidth + BUTTON_WIDTH_INCREMENT, normalImage.size.height)];
 }
 
-+ (UIView *)createScrollViewPlaceholderView {
++ (UIView *)createPlaceholderViewWithScrollView:(UIScrollView *)scrollView {
     UIView *result = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     UIImage *placeholderImage = [UIImage imageNamed:@"WTBluePlaceholderImage.jpg"];
     result.backgroundColor = [UIColor colorWithPatternImage:placeholderImage];
     [result setAutoresizingMask:UIViewAutoresizingNone];
-    [result resetOriginY:-result.frame.size.height];
+    [result resetOriginY:-result.frame.size.height - scrollView.contentInset.top];
     
     UIImageView *shadowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTScrollViewPlaceholderShadowUnit"]];
     [shadowImageView resetOriginY:result.frame.size.height - shadowImageView.frame.size.height];
