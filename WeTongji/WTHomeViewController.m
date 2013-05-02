@@ -50,7 +50,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     [self.scrollView resetHeight:self.view.frame.size.height];
     [self updateNowView];
     [self updateHomeSelectViews];

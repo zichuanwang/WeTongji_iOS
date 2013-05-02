@@ -19,7 +19,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        _firstLoadData = YES;
     }
     return self;
 }
@@ -27,7 +26,6 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        _firstLoadData = YES;
     }
     return self;
 }
@@ -78,9 +76,6 @@
 }
 
 - (void)fetchedResultsControllerDidPerformFetch {
-    if ([self.fetchedResultsController.sections.lastObject numberOfObjects] != 0) {
-        _firstLoadData = NO;
-    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -201,7 +196,6 @@
 			break;
 	}
 }
-
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     if(_noAnimationFlag)

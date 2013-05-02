@@ -58,7 +58,7 @@
 - (void)reloadDataWithSuccessBlock:(void (^)(void))success
                       failureBlock:(void (^)(void))failure {
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
-        WTLOG(@"Billboard:%@", responseObject);
+        // WTLOG(@"Billboard:%@", responseObject);
         
         NSDictionary *resultDict = (NSDictionary *)responseObject;
         NSString *nextPage = resultDict[@"NextPager"];
@@ -77,6 +77,7 @@
         for (NSDictionary *dict in resultArray) {
             [BillboardPost insertBillboardPost:dict];
         }
+        _noAnimationFlag = NO;
 
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Error:%@", error.localizedDescription);
@@ -92,11 +93,16 @@
     [BillboardPost clearAllBillboardPosts];
 }
 
+- (NSInteger)numberOfRowsInTableView {
+    NSInteger numberOfItems = [self.fetchedResultsController.sections[0] numberOfObjects];
+    NSInteger result = numberOfItems / 3 + ((numberOfItems % 3 == 0) ? 0 : 1);
+    return result;
+}
+
 #pragma mark - UI methods
 
 - (void)configureDragToLoadDecorator {
     self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
-    [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
 }
 
 #pragma mark - WTDragToLoadDecoratorDataSource
@@ -108,9 +114,6 @@
 #pragma mark - WTDragToLoadDecoratorDelegate
 
 - (void)dragToLoadDecoratorDidDragUp {
-    if (_firstLoadData)
-        return;
-    
     [self reloadDataWithSuccessBlock:^{
         [self.dragToLoadDecorator bottomViewLoadFinished:YES];
     } failureBlock:^{
@@ -121,20 +124,33 @@
 - (void)dragToLoadDecoratorDidDragDown {
     self.nextPage = 1;
     [self reloadDataWithSuccessBlock:^{
+        _noAnimationFlag = YES;
         [self clearAllData];
         [self.dragToLoadDecorator topViewLoadFinished:YES];
-        _firstLoadData = NO;
     } failureBlock:^{
         [self.dragToLoadDecorator topViewLoadFinished:NO];
     }];
 }
 
+#pragma mark - UITableViewDelegate
+
+#define TABLE_VIEW_FULL_ROW_HEIGHT  202.0f
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CGFloat result = TABLE_VIEW_FULL_ROW_HEIGHT;
+    if (indexPath.row == [self numberOfRowsInTableView] - 1 && indexPath.row % 2 == 1) {
+        NSInteger numberOfItems = [self.fetchedResultsController.sections[0] numberOfObjects];
+        if (numberOfItems % 3 == 1) {
+            result /= 2;
+        }
+    }
+    return  result;
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger numberOfItems = [self.fetchedResultsController.sections[0] numberOfObjects];
-    NSInteger result = numberOfItems / 3 + ((numberOfItems % 3 == 0) ? 0 : 1);
-    return result;
+    return [self numberOfRowsInTableView];
 }
 
 #pragma mark - CoreDataTableViewController methods
@@ -155,7 +171,7 @@
 
 - (void)configureRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"BillboardPost" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
-    NSSortDescriptor *createTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createdAt" ascending:YES];
+    NSSortDescriptor *createTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createdAt" ascending:NO];
     
     [request setSortDescriptors:[NSArray arrayWithObject:createTimeDescriptor]];
 }
@@ -165,21 +181,26 @@
 }
 
 - (void)fetchedResultsControllerDidPerformFetch {
-    [super fetchedResultsControllerDidPerformFetch];
-    if (_firstLoadData) {
+    if ([self.fetchedResultsController.sections.lastObject numberOfObjects] == 0) {
         [self.dragToLoadDecorator setTopViewLoading:YES];
     }
 }
 
 - (void)insertCellAtIndexPath:(NSIndexPath *)indexPath {
+    NSIndexPath *targetIndexPath = [NSIndexPath indexPathForRow:indexPath.row / 3 inSection:0];
     if (indexPath.row % 3 == 0) {
-        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:indexPath.row / 3 inSection:0]]
+        WTLOG(@"insert:%d", indexPath.row / 3);
+        [self.tableView insertRowsAtIndexPaths:@[targetIndexPath]
                               withRowAnimation:UITableViewRowAnimationFade];
+    } else {
+        WTLOG(@"configure cell:%d", targetIndexPath.row);
+        [self configureCell:[self.tableView cellForRowAtIndexPath:targetIndexPath] atIndexPath:targetIndexPath];
     }
 }
 
 - (void)deleteCellAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row % 3 == 0) {
+        WTLOG(@"delete:%d", indexPath.row / 3);
         [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:indexPath.row / 3 inSection:0]]
                               withRowAnimation:UITableViewRowAnimationFade];
     }

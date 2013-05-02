@@ -42,12 +42,10 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
     [NSNotificationCenter registerInnerSettingItemDidModifyNotificationWithSelector:@selector(settingItemDidModify) target:self];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

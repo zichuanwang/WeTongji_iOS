@@ -40,12 +40,10 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
     [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
     [self.dragToLoadDecorator stopObservingChangesInDragToLoadScrollView];
 }
 

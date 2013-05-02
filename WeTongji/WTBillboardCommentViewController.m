@@ -66,7 +66,6 @@
 - (void)configureDragToLoadDecorator {
     self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
     [self.dragToLoadDecorator setBottomViewDisabled:YES];
-    [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
 }
 
 - (void)configureTableViewHeaderView {

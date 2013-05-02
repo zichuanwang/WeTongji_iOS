@@ -31,6 +31,9 @@
 @property (nonatomic, weak) id<WTDragToLoadDecoratorDataSource> dataSource;
 @property (nonatomic, weak) id<WTDragToLoadDecoratorDelegate> delegate;
 
+@property (nonatomic, assign) BOOL topViewDisabled;
+@property (nonatomic, assign) BOOL bottomViewDisabled;
+
 + (WTDragToLoadDecorator *)createDecoratorWithDataSource:(id<WTDragToLoadDecoratorDataSource>)dataSource
                                                 delegate:(id<WTDragToLoadDecoratorDelegate>)delegate;
 
@@ -41,21 +44,13 @@
 
 - (void)bottomViewLoadFinished:(BOOL)loadSucceeded;
 
-- (void)setTopViewDisabled:(BOOL)disabled;
-
-// Call this method before |bottomViewLoadFinished:|.
-- (void)setBottomViewDisabled:(BOOL)disabled;
-
 - (void)setTopViewLoading:(BOOL)animated;
 
-// Call this method in your UIViewController's |viewDidLoad| and
-// |viewDidAppear:animated:|.
+// Call this method in your UIViewController's |viewDidAppear:animated:|.
 - (void)startObservingChangesInDragToLoadScrollView;
 
 // Call this method in your UIViewController's |viewDidDisappear:animated:|.
 - (void)stopObservingChangesInDragToLoadScrollView;
-
-- (void)scrollViewDidLoadNewCell;
 
 @end
 

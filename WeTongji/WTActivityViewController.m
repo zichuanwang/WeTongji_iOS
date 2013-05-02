@@ -50,8 +50,6 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
     
     self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
-    
-    [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -217,8 +215,7 @@
 }
 
 - (void)fetchedResultsControllerDidPerformFetch {
-    [super fetchedResultsControllerDidPerformFetch];
-    if (_firstLoadData) {
+    if ([self.fetchedResultsController.sections.lastObject numberOfObjects] == 0) {
         [self.dragToLoadDecorator setTopViewLoading:YES];
     }
 }
@@ -262,10 +259,7 @@
 
 #pragma mark - WTDragToLoadDecoratorDelegate
 
-- (void)dragToLoadDecoratorDidDragUp {
-    if (_firstLoadData)
-        return;
-    
+- (void)dragToLoadDecoratorDidDragUp {    
     [self loadMoreDataWithSuccessBlock:^{
         [self.dragToLoadDecorator bottomViewLoadFinished:YES];
     } failureBlock:^{
@@ -278,7 +272,6 @@
     [self loadMoreDataWithSuccessBlock:^{
         [self clearAllData];
         [self.dragToLoadDecorator topViewLoadFinished:YES];
-        _firstLoadData = NO;
     } failureBlock:^{
         [self.dragToLoadDecorator topViewLoadFinished:NO];
     }];

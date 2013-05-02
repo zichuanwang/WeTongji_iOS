@@ -11,7 +11,6 @@
 
 @interface WTCoreDataTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate> {
     BOOL _noAnimationFlag;
-    BOOL _firstLoadData;    // 第一次加载数据
 }
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;

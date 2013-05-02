@@ -47,24 +47,19 @@
         
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
     
-    self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
-    
-    [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
+    self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
     [self.tableView resetHeight:self.view.frame.size.height];
     [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
     [self.dragToLoadDecorator stopObservingChangesInDragToLoadScrollView];
 }
 
@@ -193,11 +188,6 @@
     [newsCell configureCellWithIndexPath:indexPath category:NSLocalizedString(@"Campus Update", nil) title:news.title summary:news.content];
 }
 
-- (void)insertCellAtIndexPath:(NSIndexPath *)indexPath {
-    [super insertCellAtIndexPath:indexPath];
-    [self.dragToLoadDecorator scrollViewDidLoadNewCell];
-}
-
 - (void)configureRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"News" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
@@ -214,8 +204,7 @@
 }
 
 - (void)fetchedResultsControllerDidPerformFetch {
-    [super fetchedResultsControllerDidPerformFetch];
-    if (_firstLoadData) {
+    if ([self.fetchedResultsController.sections.lastObject numberOfObjects] == 0) {
         [self.dragToLoadDecorator setTopViewLoading:YES];
     }
 }
@@ -249,10 +238,7 @@
 
 #pragma mark - WTDragToLoadDecoratorDelegate
 
-- (void)dragToLoadDecoratorDidDragUp {
-    if (_firstLoadData)
-        return;
-    
+- (void)dragToLoadDecoratorDidDragUp {    
     [self loadMoreDataWithSuccessBlock:^{
         [self.dragToLoadDecorator bottomViewLoadFinished:YES];
     } failureBlock:^{
@@ -265,7 +251,6 @@
     [self loadMoreDataWithSuccessBlock:^{
         [self clearAllData];
         [self.dragToLoadDecorator topViewLoadFinished:YES];
-        _firstLoadData = NO;
     } failureBlock:^{
         [self.dragToLoadDecorator topViewLoadFinished:NO];
     }];

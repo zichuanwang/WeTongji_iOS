@@ -19,7 +19,7 @@
                             success:(void (^)(UIImage *image))success
                             failure:(void (^)(void))failure {
     
-    WTLOG(@"image URL:%@", imageURLString);
+    // WTLOG(@"image URL:%@", imageURLString);
     //NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:imageURLString] cachePolicy:NSURLRequestReturnCacheDataDontLoad timeoutInterval:60];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURLString]];
@@ -36,11 +36,11 @@
                                      [self fadeIn];
                                  }
                                  
-                                 WTLOG(@"Current disk cache usage:%d", [[NSURLCache sharedURLCache] currentDiskUsage] / 1024);
-                                 WTLOG(@"Current memory cache usage:%d", [[NSURLCache sharedURLCache] currentMemoryUsage] / 1024);
+                                 // WTLOG(@"Current disk cache usage:%d", [[NSURLCache sharedURLCache] currentDiskUsage] / 1024);
+                                 // WTLOG(@"Current memory cache usage:%d", [[NSURLCache sharedURLCache] currentMemoryUsage] / 1024);
                              }
                              failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                 WTLOGERROR(@"Load image:%@", error.localizedDescription);
+                                 // WTLOGERROR(@"Load image:%@", error.localizedDescription);
                                  if (failure)
                                      failure();
                              }];

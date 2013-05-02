@@ -40,6 +40,14 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [self.commentViewController viewDidAppear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [self.commentViewController viewDidDisappear:animated];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
