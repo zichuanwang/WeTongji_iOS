@@ -61,6 +61,8 @@ static int kDragToLoadDecoratorObservingContext;
     UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
     [scrollView addObserver:self forKeyPath:@"contentSize" options:0 context:&kDragToLoadDecoratorObservingContext];
     [scrollView addObserver:self forKeyPath:@"contentOffset" options:0 context:&kDragToLoadDecoratorObservingContext];
+    
+    [self resetBottomViewOriginY];
 }
 
 - (void)stopObservingChangesInDragToLoadScrollView {
