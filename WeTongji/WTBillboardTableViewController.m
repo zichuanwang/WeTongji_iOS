@@ -192,6 +192,7 @@
         WTLOG(@"insert:%d", indexPath.row / 3);
         [self.tableView insertRowsAtIndexPaths:@[targetIndexPath]
                               withRowAnimation:UITableViewRowAnimationFade];
+        [self.dragToLoadDecorator scrollViewDidInsertNewCell];
     } else {
         WTLOG(@"configure cell:%d", targetIndexPath.row);
         [self configureCell:[self.tableView cellForRowAtIndexPath:targetIndexPath] atIndexPath:targetIndexPath];

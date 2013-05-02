@@ -195,6 +195,11 @@
     [request setSortDescriptors:@[sortByPublishTime]];
 }
 
+- (void)insertCellAtIndexPath:(NSIndexPath *)indexPath {
+    [super insertCellAtIndexPath:indexPath];
+    [self.dragToLoadDecorator scrollViewDidInsertNewCell];
+}
+
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
     return @"WTNewsCell";
 }

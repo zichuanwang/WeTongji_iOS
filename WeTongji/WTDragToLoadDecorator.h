@@ -52,6 +52,8 @@
 // Call this method in your UIViewController's |viewDidDisappear:animated:|.
 - (void)stopObservingChangesInDragToLoadScrollView;
 
+- (void)scrollViewDidInsertNewCell;
+
 @end
 
 @interface WTDragToLoadDecoratorTopView : UIView

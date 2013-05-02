@@ -189,6 +189,10 @@ static int kDragToLoadDecoratorObservingContext;
     });
 }
 
+- (void)scrollViewDidInsertNewCell {
+    [self.bottomView resetOriginYByOffset:self.bottomView.frame.size.height];
+}
+
 #pragma mark - Properties
 
 - (WTDragToLoadDecoratorTopView *)topView {
