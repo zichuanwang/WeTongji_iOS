@@ -265,6 +265,13 @@
 		E15BBF241717D5F40021CCCD /* WTRoundCornerPanelCuppedBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E15BBF221717D5F40021CCCD /* WTRoundCornerPanelCuppedBg.png */; };
 		E15BBF251717D5F40021CCCD /* WTRoundCornerPanelCuppedBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E15BBF231717D5F40021CCCD /* WTRoundCornerPanelCuppedBg@2x.png */; };
 		E15C3D1A16C37B3200A91AAF /* WTConfigLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = E15C3D1916C37B3200A91AAF /* WTConfigLoader.m */; };
+		E16E96191733A73E0055DE27 /* news_inform.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E96171733A73E0055DE27 /* news_inform.png */; };
+		E16E961A1733A73E0055DE27 /* news_LBS.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E96181733A73E0055DE27 /* news_LBS.png */; };
+		E16E961D1733AA550055DE27 /* WTOrangeBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961B1733AA550055DE27 /* WTOrangeBg.png */; };
+		E16E961E1733AA550055DE27 /* WTOrangeBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961C1733AA550055DE27 /* WTOrangeBg@2x.png */; };
+		E16E96211733ADC30055DE27 /* WTTicketIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961F1733ADC30055DE27 /* WTTicketIcon.png */; };
+		E16E96221733ADC30055DE27 /* WTTicketIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E96201733ADC30055DE27 /* WTTicketIcon@2x.png */; };
+		E16E96251733E70B0055DE27 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = E16E96241733E70B0055DE27 /* News.m */; };
 		E1767A4A16D14D2700E58CCC /* WTBlackMoreIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4416D14D2700E58CCC /* WTBlackMoreIndicator.png */; };
 		E1767A4B16D14D2700E58CCC /* WTBlackMoreIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4516D14D2700E58CCC /* WTBlackMoreIndicator@2x.png */; };
 		E1767A4C16D14D2700E58CCC /* WTBlueMoreIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4616D14D2700E58CCC /* WTBlueMoreIndicator.png */; };
@@ -398,7 +405,6 @@
 		E1CD3F36171FF7E600359A79 /* WTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CD3F35171FF7E600359A79 /* WTDetailViewController.m */; };
 		E1CD3F3A1720646900359A79 /* WTNewsBriefIntroductionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CD3F391720646900359A79 /* WTNewsBriefIntroductionView.m */; };
 		E1CD3F3C1720648A00359A79 /* WTNewsBriefIntroductionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CD3F3B1720648A00359A79 /* WTNewsBriefIntroductionView.xib */; };
-		E1CD3F3F172068E700359A79 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CD3F3E172068E700359A79 /* News.m */; };
 		E1D3737B1691D0370012E30A /* WTPanelMoreHighlightButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D373791691D0370012E30A /* WTPanelMoreHighlightButton@2x.png */; };
 		E1D3737C1691D0370012E30A /* WTPanelMoreHighlightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D3737A1691D0370012E30A /* WTPanelMoreHighlightButton.png */; };
 		E1D3737F1691D09C0012E30A /* WTPanelMoreNormalButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D3737D1691D09C0012E30A /* WTPanelMoreNormalButton.png */; };
@@ -808,6 +814,14 @@
 		E15BBF231717D5F40021CCCD /* WTRoundCornerPanelCuppedBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTRoundCornerPanelCuppedBg@2x.png"; sourceTree = "<group>"; };
 		E15C3D1816C37B3200A91AAF /* WTConfigLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTConfigLoader.h; sourceTree = "<group>"; };
 		E15C3D1916C37B3200A91AAF /* WTConfigLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTConfigLoader.m; sourceTree = "<group>"; };
+		E16E96171733A73E0055DE27 /* news_inform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news_inform.png; sourceTree = "<group>"; };
+		E16E96181733A73E0055DE27 /* news_LBS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news_LBS.png; sourceTree = "<group>"; };
+		E16E961B1733AA550055DE27 /* WTOrangeBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTOrangeBg.png; sourceTree = "<group>"; };
+		E16E961C1733AA550055DE27 /* WTOrangeBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTOrangeBg@2x.png"; sourceTree = "<group>"; };
+		E16E961F1733ADC30055DE27 /* WTTicketIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTicketIcon.png; sourceTree = "<group>"; };
+		E16E96201733ADC30055DE27 /* WTTicketIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTicketIcon@2x.png"; sourceTree = "<group>"; };
+		E16E96231733E70B0055DE27 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
+		E16E96241733E70B0055DE27 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
 		E1767A4416D14D2700E58CCC /* WTBlackMoreIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTBlackMoreIndicator.png; sourceTree = "<group>"; };
 		E1767A4516D14D2700E58CCC /* WTBlackMoreIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTBlackMoreIndicator@2x.png"; sourceTree = "<group>"; };
 		E1767A4616D14D2700E58CCC /* WTBlueMoreIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTBlueMoreIndicator.png; sourceTree = "<group>"; };
@@ -978,8 +992,6 @@
 		E1CD3F381720646900359A79 /* WTNewsBriefIntroductionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNewsBriefIntroductionView.h; sourceTree = "<group>"; };
 		E1CD3F391720646900359A79 /* WTNewsBriefIntroductionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNewsBriefIntroductionView.m; sourceTree = "<group>"; };
 		E1CD3F3B1720648A00359A79 /* WTNewsBriefIntroductionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNewsBriefIntroductionView.xib; sourceTree = "<group>"; };
-		E1CD3F3D172068E700359A79 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
-		E1CD3F3E172068E700359A79 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
 		E1D373791691D0370012E30A /* WTPanelMoreHighlightButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTPanelMoreHighlightButton@2x.png"; sourceTree = "<group>"; };
 		E1D3737A1691D0370012E30A /* WTPanelMoreHighlightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTPanelMoreHighlightButton.png; sourceTree = "<group>"; };
 		E1D3737D1691D09C0012E30A /* WTPanelMoreNormalButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTPanelMoreNormalButton.png; sourceTree = "<group>"; };
@@ -1165,6 +1177,8 @@
 		E1132E6616C632EA004CB808 /* Icon */ = {
 			isa = PBXGroup;
 			children = (
+				E16E961F1733ADC30055DE27 /* WTTicketIcon.png */,
+				E16E96201733ADC30055DE27 /* WTTicketIcon@2x.png */,
 				E12E24701727364900EFA9B5 /* WTLockHighlightIcon.png */,
 				E12E24711727364900EFA9B5 /* WTLockHighlightIcon@2x.png */,
 				E12E24721727364900EFA9B5 /* WTLockNormalIcon.png */,
@@ -1212,6 +1226,8 @@
 		E117035A1651EF3E00D82F4A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E16E96171733A73E0055DE27 /* news_inform.png */,
+				E16E96181733A73E0055DE27 /* news_LBS.png */,
 				E19832D716FEF21300AB83E8 /* Bg */,
 				E10C24DE171AB3840009C673 /* Billboard */,
 				E14FA67C1680A9F7008A8D33 /* Button */,
@@ -1858,6 +1874,8 @@
 				E1C482ED1698A83D004F025A /* WTNowBarTitleCountViewBg@2x.png */,
 				E1C482EE1698A83D004F025A /* WTNowBarTitleViewBg.png */,
 				E1C482EF1698A83D004F025A /* WTNowBarTitleViewBg@2x.png */,
+				E16E961B1733AA550055DE27 /* WTOrangeBg.png */,
+				E16E961C1733AA550055DE27 /* WTOrangeBg@2x.png */,
 				E10C1F35171A93350009C673 /* WTRegisterAccountPanelBg.png */,
 				E10C1F36171A93350009C673 /* WTRegisterAccountPanelBg@2x.png */,
 				E1B892801690F4B1009D901C /* WTRootBgUnit.png */,
@@ -2116,14 +2134,14 @@
 				E11825D51714769800B4B9BF /* Star.m */,
 				E1DB6EED171DD0AB00E24187 /* Event.h */,
 				E1DB6EEE171DD0AB00E24187 /* Event.m */,
-				E1CD3F3D172068E700359A79 /* News.h */,
-				E1CD3F3E172068E700359A79 /* News.m */,
 				E17966941728353B00761BD5 /* User.h */,
 				E17966951728353B00761BD5 /* User.m */,
 				E179669717283D3500761BD5 /* BillboardComment.h */,
 				E179669817283D3500761BD5 /* BillboardComment.m */,
 				E1FC01A4172FEB2300D0776C /* BillboardPost.h */,
 				E1FC01A5172FEB2300D0776C /* BillboardPost.m */,
+				E16E96231733E70B0055DE27 /* News.h */,
+				E16E96241733E70B0055DE27 /* News.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2554,6 +2572,12 @@
 				E12E2495172806F800EFA9B5 /* WTAnonymousAvatarPlaceholder@2x.png in Resources */,
 				E179668B1728302A00761BD5 /* WTBillboardCommentViewController.xib in Resources */,
 				E17966901728315600761BD5 /* WTBillboardCommentCell.xib in Resources */,
+				E16E96191733A73E0055DE27 /* news_inform.png in Resources */,
+				E16E961A1733A73E0055DE27 /* news_LBS.png in Resources */,
+				E16E961D1733AA550055DE27 /* WTOrangeBg.png in Resources */,
+				E16E961E1733AA550055DE27 /* WTOrangeBg@2x.png in Resources */,
+				E16E96211733ADC30055DE27 /* WTTicketIcon.png in Resources */,
+				E16E96221733ADC30055DE27 /* WTTicketIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2691,7 +2715,6 @@
 				E1CD3F32171FF5F600359A79 /* WTNewsDetailViewController.m in Sources */,
 				E1CD3F36171FF7E600359A79 /* WTDetailViewController.m in Sources */,
 				E1CD3F3A1720646900359A79 /* WTNewsBriefIntroductionView.m in Sources */,
-				E1CD3F3F172068E700359A79 /* News.m in Sources */,
 				E179D63D172127E800C6D789 /* WTNewsImageRollView.m in Sources */,
 				E179D6421721951900C6D789 /* UIImageView+AsyncLoading.m in Sources */,
 				E1E647B81722AD5200EB4C8D /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
@@ -2706,6 +2729,7 @@
 				E179669917283D3500761BD5 /* BillboardComment.m in Sources */,
 				E179669F1728458A00761BD5 /* NSAttributedString+WTAddition.m in Sources */,
 				E1FC01A6172FEB2300D0776C /* BillboardPost.m in Sources */,
+				E16E96251733E70B0055DE27 /* News.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

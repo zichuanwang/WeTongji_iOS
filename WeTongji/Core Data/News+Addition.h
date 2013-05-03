@@ -7,10 +7,13 @@
 //
 
 #import "News.h"
+#import "NSUserDefaults+WTAddition.h"
 
 @interface News (Addition)
 
 @property (nonatomic, readonly) NSString *yearMonthDayTimePublishTimeString;
+
+@property (nonatomic, readonly) NSString *categoryString;
 
 + (NSArray *)getHomeSelectNewsArray;
 

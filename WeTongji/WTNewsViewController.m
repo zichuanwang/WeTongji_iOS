@@ -94,7 +94,7 @@
         if (success)
             success();
         
-        NSArray *resultArray = resultDict[@"SchoolNews"];
+        NSArray *resultArray = resultDict[@"Information"];
         for(NSDictionary *dict in resultArray) {
             [News insertNews:dict];
         }
@@ -193,7 +193,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     WTNewsCell *newsCell = (WTNewsCell *)cell;
     News *news = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [newsCell configureCellWithIndexPath:indexPath category:NSLocalizedString(@"Campus Update", nil) title:news.title summary:news.content];
+    [newsCell configureCellWithIndexPath:indexPath category:news.categoryString title:news.title summary:news.content];
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {

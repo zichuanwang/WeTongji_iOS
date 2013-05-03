@@ -22,4 +22,28 @@
 
 @interface WTOfficialNewsBriefIntroductionView : WTNewsBriefIntroductionView
 
++ (WTOfficialNewsBriefIntroductionView *)createOfficialNewsBriefIntroductionView;
+
+@end
+
+@interface WTRecommendationNewsBriefIntroductionView : WTNewsBriefIntroductionView
+
+@property (nonatomic, weak) IBOutlet UIView *ticketInfoContainerView;
+@property (nonatomic, weak) IBOutlet UILabel *ticketInfoLabel;
+@property (nonatomic, weak) IBOutlet UIView *otherInfoContainerView;
+@property (nonatomic, weak) IBOutlet UIImageView *ticketIconImageView;
+@property (nonatomic, weak) IBOutlet UIButton *locationButton;
+@property (nonatomic, weak) IBOutlet UIImageView *posterImageView;
+
++ (WTRecommendationNewsBriefIntroductionView *)createRecommendationNewsBriefIntroductionView;
+
+@end
+
+@interface WTClubNewsBriefIntroductionView : WTNewsBriefIntroductionView
+
+@property (nonatomic, weak) IBOutlet UIView *avatarContainerView;
+@property (nonatomic, weak) IBOutlet UIImageView *avatarImageView;
+
++ (WTClubNewsBriefIntroductionView *)createClubNewsBriefIntroductionView;
+
 @end

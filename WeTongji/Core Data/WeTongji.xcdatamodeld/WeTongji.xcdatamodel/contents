@@ -52,6 +52,7 @@
     </entity>
     <entity name="News" representedClassName="News" parentEntity="Object" syncable="YES">
         <attribute name="canLike" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="category" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageArray" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="likeCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -113,7 +114,7 @@
         <element name="Exam" positionX="160" positionY="192" width="128" height="45"/>
         <element name="FriendInvitationNotification" positionX="160" positionY="192" width="128" height="45"/>
         <element name="InvitationNotification" positionX="160" positionY="192" width="128" height="60"/>
-        <element name="News" positionX="160" positionY="192" width="128" height="225"/>
+        <element name="News" positionX="160" positionY="192" width="128" height="240"/>
         <element name="Notification" positionX="160" positionY="192" width="128" height="90"/>
         <element name="Object" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Organization" positionX="160" positionY="192" width="128" height="75"/>

@@ -56,6 +56,19 @@
         imageArray = nil;
     result.imageArray = imageArray;
     
+    NSString *categoryString = [NSString stringWithFormat:@"%@", dict[@"Category"]];
+    if ([categoryString isEqualToString:@"校园新闻"])
+        result.category = @(NewsShowTypeCampusUpdate);
+    else if ([categoryString isEqualToString:@"团体通告"])
+        result.category = @(NewsShowTypeClubNews);
+    else if ([categoryString isEqualToString:@"周边推荐"])
+        result.category = @(NewsShowTypeLocalRecommandation);
+    else if ([categoryString isEqualToString:@"校务信息"])
+        result.category = @(NewsShowTypeAdministrativeAffairs);
+    else {
+        NSAssert(NO, @"Error");
+    }
+    
     result.publishDay = [NSString yearMonthDayConvertFromDate:result.publishDate];
     
     return result;
@@ -90,6 +103,24 @@
 
 - (NSString *)yearMonthDayTimePublishTimeString {
     return [NSString yearMonthDayTimeConvertFromDate:self.publishDate];
+}
+
+- (NSString *)categoryString {
+    switch (self.category.integerValue) {
+        case NewsShowTypeCampusUpdate:
+            return NSLocalizedString(@"Campus Update", nil);
+        case NewsShowTypeClubNews:
+            return NSLocalizedString(@"Club News", nil);
+        case NewsShowTypeLocalRecommandation:
+            return NSLocalizedString(@"Local Recommandation", nil);
+        case NewsShowTypeAdministrativeAffairs:
+            return NSLocalizedString(@"Administrative Affairs", nil);
+        case NewsShowTypeMyCollege:
+            return NSLocalizedString(@"My College", nil);
+        default:
+            break;
+    }
+    return nil;
 }
 
 @end
