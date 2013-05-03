@@ -53,6 +53,7 @@
     if ([result.image isEmptyImageURL])
         result.image = nil;
     else {
+        // TODO: Remove temp code
         NSMutableString *imageURLString = [NSMutableString stringWithString:result.image];
         [imageURLString replaceOccurrencesOfString:@"we.tongji.edu.cn" withString:@"leiz.name:8080" options:NSLiteralSearch range:NSMakeRange(0, imageURLString.length)];
         result.image = imageURLString;

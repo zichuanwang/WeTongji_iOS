@@ -2,7 +2,7 @@
 //  News.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-5-3.
+//  Created by 王 紫川 on 13-5-4.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -26,5 +26,9 @@
 @property (nonatomic, retain) NSString * summary;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSNumber * category;
+@property (nonatomic, retain) NSNumber * hasTicket;
+@property (nonatomic, retain) NSString * location;
+@property (nonatomic, retain) NSString * phoneNumber;
+@property (nonatomic, retain) NSString * ticketInfo;
 
 @end

@@ -51,10 +51,27 @@
     result.organizerAvatar = [NSString stringWithFormat:@"%@", dict[@"OrganizerAvatar"]];
     result.source = [NSString stringWithFormat:@"%@", dict[@"Source"]];
     
+    result.hasTicket = @([[NSString stringWithFormat:@"%@", dict[@"HasTicket"]] boolValue]);
+    result.phoneNumber = [NSString stringWithFormat:@"%@", dict[@"Contact"]];
+    if ([result.phoneNumber isEqualToString:@""])
+        result.phoneNumber = nil;
+    
+    result.ticketInfo = [NSString stringWithFormat:@"%@", dict[@"TicketService"]];
+    result.location = [NSString stringWithFormat:@"%@", dict[@"Location"]];
+    
     NSArray *imageArray = dict[@"Images"];
     if (imageArray.count == 0)
-        imageArray = nil;
-    result.imageArray = imageArray;
+        result.imageArray = nil;
+    else {
+        // TODO: Remove temp code
+        NSMutableArray *mutableImageArray = [NSMutableArray array];
+        for (NSString *imageString in imageArray) {
+            NSMutableString *imageURLString = [NSMutableString stringWithString:imageString];
+            [imageURLString replaceOccurrencesOfString:@"we.tongji.edu.cn" withString:@"leiz.name:8080" options:NSLiteralSearch range:NSMakeRange(0, imageURLString.length)];
+            [mutableImageArray addObject:imageURLString];
+        }
+        result.imageArray = mutableImageArray;
+    }
     
     NSString *categoryString = [NSString stringWithFormat:@"%@", dict[@"Category"]];
     if ([categoryString isEqualToString:@"校园新闻"])
@@ -112,7 +129,7 @@
         case NewsShowTypeClubNews:
             return NSLocalizedString(@"Club News", nil);
         case NewsShowTypeLocalRecommandation:
-            return NSLocalizedString(@"Local Recommandation", nil);
+            return NSLocalizedString(@"Local Recommendation", nil);
         case NewsShowTypeAdministrativeAffairs:
             return NSLocalizedString(@"Administrative Affairs", nil);
         case NewsShowTypeMyCollege:
