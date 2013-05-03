@@ -8,6 +8,7 @@
 
 #import "WTNewsSettingViewController.h"
 #import "WTConfigLoader.h"
+#import "NSUserDefaults+WTAddition.h"
 
 @interface WTNewsSettingViewController ()
 
@@ -38,6 +39,10 @@
 
 - (NSArray *)loadSettingConfig {
     return [[WTConfigLoader sharedLoader] loadConfig:kWTNewsConfig];
+}
+
+- (BOOL)isSettingDifferentFromDefaultValue {
+    return [[NSUserDefaults standardUserDefaults] isNewsSettingDifferentFromDefaultValue];
 }
 
 @end

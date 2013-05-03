@@ -9,7 +9,6 @@
 #import "WTInnerSettingViewController.h"
 #import "WTConfigLoader.h"
 #import "WTSwitch.h"
-#import "NSUserDefaults+WTAddition.h"
 #import "WTResourceFactory.h"
 #import "WTWaterflowDecorator.h"
 #import "NSNotificationCenter+WTAddition.h"
@@ -72,6 +71,10 @@
 
 - (NSArray *)loadSettingConfig {
     return nil;
+}
+
+- (BOOL)isSettingDifferentFromDefaultValue {
+    return NO;
 }
 
 #pragma mark - Properties
@@ -144,8 +147,7 @@
 #pragma mark - Notification handler
 
 - (void)settingItemDidModify {
-    BOOL isActivitySettingDifferentFromDefaultValue = [[NSUserDefaults standardUserDefaults] isActivitySettingDifferentFromDefaultValue];
-    [WTResourceFactory configureFilterBarButton:self.callBarButtonItem modified:isActivitySettingDifferentFromDefaultValue];
+    [WTResourceFactory configureFilterBarButton:self.callBarButtonItem modified:[self isSettingDifferentFromDefaultValue]];
     
     NSLog(@"count:%d", self.innerSettingItems.count);
     for (id<WTInnerSettingItem> item in self.innerSettingItems) {

@@ -113,7 +113,11 @@
             failure();
     }];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [request getActivitiesInTypes:[userDefaults getActivityShowTypesArray] orderMethod:[userDefaults getActivityOrderMethod] smartOrder:[userDefaults getActivitySmartOrderProperty] showExpire:![userDefaults getActivityHidePastProperty] page:self.nextPage];
+    [request getActivitiesInTypes:[userDefaults getActivityShowTypesArray]
+                      orderMethod:[userDefaults getActivityOrderMethod]
+                       smartOrder:[userDefaults getActivitySmartOrderProperty]
+                       showExpire:![userDefaults getActivityHidePastProperty]
+                             page:self.nextPage];
     [[WTClient sharedClient] enqueueRequest:request];
 }
 

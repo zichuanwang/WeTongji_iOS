@@ -22,18 +22,22 @@
 #define ActivityDefaultSmartOrder   YES
 #define ActivityDefaultHidePast     YES
 
+#define NewsDefaultOrderMethod      NewsOrderByPublishDate
+#define NewsDefaultShowTypes        NewsShowTypesAll
+#define NewsDefaultSmartOrder       YES
+
 @implementation NSUserDefaults (WTAddition)
 
 + (void)initialize {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if ([userDefaults objectForKey:kNewsShowTypes] == nil) {
-        [userDefaults setNewsShowTypes:NewsShowTypesAll];
+        [userDefaults setNewsShowTypes:NewsDefaultShowTypes];
     }
     if ([userDefaults objectForKey:kNewsOrderMethod] == nil) {
-        [userDefaults setNewsOrderMethod:NewsOrderByPublishDate];
+        [userDefaults setNewsOrderMethod:NewsDefaultOrderMethod];
     }
     if ([userDefaults objectForKey:kNewsSmartOrder] == nil) {
-        [userDefaults setNewsSmartOrderProperty:YES];
+        [userDefaults setNewsSmartOrderProperty:NewsDefaultSmartOrder];
     }
     if ([userDefaults objectForKey:kActivityOrderMethod] == nil) {
         [userDefaults setActivityOrderMethod:ActivityDefaultOrderMethod];
@@ -63,6 +67,12 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setInteger:method forKey:kNewsOrderMethod];
     [userDefaults synchronize];
+}
+
+- (BOOL)getNewsSmartOrderProperty {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults boolForKey:kNewsSmartOrder];
+
 }
 
 - (NewsShowTypes)getNewsShowTypes {
@@ -97,6 +107,32 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setBool:on forKey:kNewsSmartOrder];
     [userDefaults synchronize];
+}
+
+- (NSArray *)getNewsShowTypesArray {
+    NSMutableArray *result = [NSMutableArray array];
+    ActivityShowTypes showTypes = [[NSUserDefaults standardUserDefaults] getNewsShowTypes];
+    for (int i = 0; i < NewsShowTypesCount; i++) {
+        NSInteger showType = 1 << i;
+        NSNumber *show = @((showTypes & showType) != 0);
+        [result addObject:show];
+    }
+    return result;
+}
+
+- (BOOL)isNewsSettingDifferentFromDefaultValue {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([userDefaults getNewsOrderMethod] != NewsDefaultOrderMethod)
+        return YES;
+    
+    if ([userDefaults getNewsShowTypes] != NewsDefaultShowTypes)
+        return YES;
+    
+    if ([userDefaults getNewsSmartOrderProperty] != NewsDefaultSmartOrder)
+        return YES;
+    
+    return NO;
 }
 
 #pragma mark - Activity

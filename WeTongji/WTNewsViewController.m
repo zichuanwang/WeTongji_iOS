@@ -14,6 +14,7 @@
 #import "NSUserDefaults+WTAddition.h"
 #import "WTDragToLoadDecorator.h"
 #import "WTNewsDetailViewController.h"
+#import <WeTongjiSDK/WeTongjiSDK.h>
 
 @interface WTNewsViewController () <WTDragToLoadDecoratorDelegate, WTDragToLoadDecoratorDataSource>
 
@@ -104,7 +105,11 @@
         if (failure)
             failure();
     }];
-    [request getNewsInTypes:nil sortMethod:nil page:self.nextPage];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [request getInformationInTypes:[userDefaults getNewsShowTypesArray]
+                       orderMethod:[userDefaults getNewsOrderMethod]
+                        smartOrder:[userDefaults getNewsSmartOrderProperty]
+                              page:self.nextPage];
     [[WTClient sharedClient] enqueueRequest:request];
 }
 
@@ -128,6 +133,9 @@
                                                                                           action:@selector(didClickBackButton:)];
     self.navigationItem.rightBarButtonItem = [WTResourceFactory createFilterBarButtonWithTarget:self
                                                                                          action:@selector(didClickFilterButton:)];
+    
+    BOOL isNewsSettingDifferentFromDefaultValue = [[NSUserDefaults standardUserDefaults] isNewsSettingDifferentFromDefaultValue];
+    [WTResourceFactory configureFilterBarButton:self.navigationItem.rightBarButtonItem modified:isNewsSettingDifferentFromDefaultValue];
 }
 
 #pragma mark - Actions
@@ -191,8 +199,29 @@
 - (void)configureRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"News" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
-    NSSortDescriptor *sortByPublishTime = [[NSSortDescriptor alloc] initWithKey:@"publishDate" ascending:NO];
-    [request setSortDescriptors:@[sortByPublishTime]];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NewsOrderMethod orderMethod = [userDefaults getNewsOrderMethod];
+    BOOL smartOrder = [userDefaults getNewsSmartOrderProperty];
+    BOOL orderByAsc = ![WTRequest shouldInformationOrderByDesc:orderMethod smartOrder:smartOrder];
+    NSArray *descriptors = nil;
+    NSSortDescriptor *updateTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updateTime" ascending:YES];
+    
+    switch (orderMethod) {
+        case NewsOrderByPublishDate:
+        {
+            descriptors = [NSArray arrayWithObjects:[[NSSortDescriptor alloc] initWithKey:@"publishDate" ascending:orderByAsc], updateTimeDescriptor, nil];
+        }
+            break;
+        case NewsOrderByPopularity:
+        {
+            descriptors = [NSArray arrayWithObjects:[[NSSortDescriptor alloc] initWithKey:@"likeCount" ascending:orderByAsc], updateTimeDescriptor, nil];
+        }
+            break;
+        default:
+            break;
+    }
+    
+    [request setSortDescriptors:descriptors];
 }
 
 - (void)insertCellAtIndexPath:(NSIndexPath *)indexPath {

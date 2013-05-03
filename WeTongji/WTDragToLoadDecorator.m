@@ -62,7 +62,7 @@ static int kDragToLoadDecoratorObservingContext;
     [scrollView addObserver:self forKeyPath:@"contentSize" options:0 context:&kDragToLoadDecoratorObservingContext];
     [scrollView addObserver:self forKeyPath:@"contentOffset" options:0 context:&kDragToLoadDecoratorObservingContext];
     
-    [self resetBottomViewOriginY];
+    [self scrollViewContentSizeDidChange];
 }
 
 - (void)stopObservingChangesInDragToLoadScrollView {
@@ -335,7 +335,7 @@ static int kDragToLoadDecoratorObservingContext;
 - (void)scrollViewContentSizeDidChange {
     UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
     if (scrollView.contentSize.height == 0) {
-        return;
+        [self.bottomView resetOriginY:scrollView.frame.size.height];
     } else if (scrollView.contentSize.height < scrollView.frame.size.height) {
         self.bottomViewState = BottomViewStateLoading;
     } else {

@@ -151,7 +151,7 @@
         
         [WTErrorHandler handleError:error];
     }];
-    [request setNewsLiked:sender.selected newsID:self.news.identifier];
+    [request setInformationLiked:sender.selected informationID:self.news.identifier];
     [[WTClient sharedClient] enqueueRequest:request];
 }
 

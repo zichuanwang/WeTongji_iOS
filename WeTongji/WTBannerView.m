@@ -8,6 +8,7 @@
 
 #import "WTBannerView.h"
 #import "UIImageView+AsyncLoading.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface WTBannerContainerView()
 
@@ -223,6 +224,12 @@
 - (void)awakeFromNib {
     self.organizationNameLabelOriginY = self.organizationNameLabel.frame.origin.y;
     self.titleLabelOriginY = self.titleLabel.frame.origin.y;
+    
+    self.titleLabel.layer.masksToBounds = NO;
+    self.titleLabel.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.titleLabel.layer.shadowOpacity = 0.4f;
+    self.titleLabel.layer.shadowOffset = CGSizeMake(0, 1.0f);
+    self.titleLabel.layer.shadowRadius = 2.0f;
 }
 
 - (void)configureBannerItemViewHeight:(CGFloat)height

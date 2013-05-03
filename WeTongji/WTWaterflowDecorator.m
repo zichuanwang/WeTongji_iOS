@@ -39,9 +39,7 @@
     
     UIView *upperView = nil;
     UIView *lowerView = nil;
-    
-    NSLog(@"offsetY:%f, page:%d", scrollViewOffsetY, page);
-    
+        
     if (scrollViewOffsetY > 0) {
         if (page % 2 == 0) {
             upperView = scrollBackgroundViewA;

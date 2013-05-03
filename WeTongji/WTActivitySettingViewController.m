@@ -8,6 +8,7 @@
 
 #import "WTActivitySettingViewController.h"
 #import "WTConfigLoader.h"
+#import "NSUserDefaults+WTAddition.h"
 
 @interface WTActivitySettingViewController ()
 
@@ -38,6 +39,10 @@
 
 - (NSArray *)loadSettingConfig {
     return [[WTConfigLoader sharedLoader] loadConfig:kWTActivityConfig];
+}
+
+- (BOOL)isSettingDifferentFromDefaultValue {
+    return [[NSUserDefaults standardUserDefaults] isActivitySettingDifferentFromDefaultValue];
 }
 
 @end

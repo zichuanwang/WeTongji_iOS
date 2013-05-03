@@ -75,7 +75,7 @@
 
 - (void)configureScrollView {
     self.scrollView.alwaysBounceVertical = YES;
-    self.scrollView.decelerationRate = UIScrollViewDecelerationRateFast;
+    // self.scrollView.decelerationRate = UIScrollViewDecelerationRateFast;
     [self updateScrollView];
 }
 

@@ -40,19 +40,19 @@
 			</dict>
 			<dict>
 				<key>CellTitle</key>
-				<string>College Notification</string>
-				<key>CellAccessoryType</key>
-				<string>CellAccessoryTypeCheckmark</string>
-			</dict>
-			<dict>
-				<key>CellTitle</key>
-				<string>Association News</string>
+				<string>Club News</string>
 				<key>CellAccessoryType</key>
 				<string>CellAccessoryTypeCheckmark</string>
 			</dict>
 			<dict>
 				<key>CellTitle</key>
 				<string>Local Recommendation</string>
+				<key>CellAccessoryType</key>
+				<string>CellAccessoryTypeCheckmark</string>
+			</dict>
+			<dict>
+				<key>CellTitle</key>
+				<string>Administrative Affairs</string>
 				<key>CellAccessoryType</key>
 				<string>CellAccessoryTypeCheckmark</string>
 			</dict>

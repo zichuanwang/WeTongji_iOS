@@ -32,6 +32,8 @@
 
 - (NSArray *)loadSettingConfig;
 
+- (BOOL)isSettingDifferentFromDefaultValue;
+
 @end
 
 @interface WTSettingPlainCell : UIView <WTSwitchDelegate, WTInnerSettingItem>

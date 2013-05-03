@@ -24,7 +24,6 @@
 "ON" = "开";
 "OFF" = "关";
 "Stars" = "每周之星";
-"Campus Update" = "校园新闻";
 "Organizer" = "组织机构";
 "About" = "相关信息";
 "Invite" = "邀请好友";
@@ -51,6 +50,11 @@
 "Competition" = "校园赛事";
 "Entertainment" = "文娱活动";
 "Enterprise" = "企业招聘";
+
+"Campus Update" = "校园新闻";
+"Club News" = "组织动态";
+"Local Recommendation" = "周边推荐";
+"Administrative Affairs" = "校务信息";
 
 "Publish Date" = "发布日期";
 "Popularity" = "受欢迎度";
