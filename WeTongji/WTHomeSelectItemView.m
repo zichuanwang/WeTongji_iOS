@@ -15,6 +15,7 @@
 #import "Event+Addition.h"
 #import "Activity+Addition.h"
 #import "News+Addition.h"
+#import "Star.h"
 
 typedef enum {
     WTHomeSelectItemStyleNormal,
@@ -23,7 +24,6 @@ typedef enum {
 
 @interface WTHomeSelectItemView()
 
-@property (nonatomic, strong) UIButton *showAllButton;
 @property (nonatomic, strong) WTLikeButtonView *likeButtonView;
 @property (nonatomic, assign) WTHomeSelectItemStyle itemStyle;
 
@@ -31,65 +31,32 @@ typedef enum {
 
 @implementation WTHomeSelectItemView
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
-
-- (void)didMoveToSuperview {    
-    if ([self isMemberOfClass:[WTHomeSelectStarView class]]) {
-        [self createLikeButtonView];
-        [self addSubview:self.likeButtonView];
-    } else { // WTHomeSelectNewsView, WTHomeSelectActivityView
-        [self createShowAllButton];
-        [self addSubview:self.showAllButton];
-    }
-}
-
 #pragma mark - Actions
-
-- (void)didClickShowAllButon:(UIButton *)sender {
-    
-}
 
 - (void)didClickLikeButton:(UIButton *)sender {
     sender.selected = !sender.selected;
 }
 
-#pragma mark - Properties
+#pragma mark - UI methods
 
-- (void)createShowAllButton {
-    UIButton *showAllButton = nil;
+- (void)createShowCategoryButton {
+    UIButton *showCategoryButton = nil;
     switch (self.itemStyle) {
         case WTHomeSelectItemStyleNormal: {
-            showAllButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Show Category", nil)];
+            showCategoryButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Show Category", nil)];
         }
             break;
          
         case WTHomeSelectItemStyleWithImage: {
-            showAllButton = [WTResourceFactory createTranslucentButtonWithText:NSLocalizedString(@"Show Category", nil)];
+            showCategoryButton = [WTResourceFactory createTranslucentButtonWithText:NSLocalizedString(@"Show Category", nil)];
         }
             break;
         default:
             break;
     }
     
-    [showAllButton resetOrigin:CGPointMake(self.frame.size.width - showAllButton.frame.size.width - 8, -3)];
-    [showAllButton addTarget:self action:@selector(didClickShowAllButon:) forControlEvents:UIControlEventTouchUpInside];
-    self.showAllButton = showAllButton;
+    [showCategoryButton resetOrigin:CGPointMake(self.frame.size.width - showCategoryButton.frame.size.width - 8, -3)];
+    self.showCategoryButton = showCategoryButton;
 }
 
 - (void)createLikeButtonView {
@@ -136,6 +103,9 @@ typedef enum {
     self.newsTitleLabel.text = news.title;
     
     self.subCategoryLabel.text = news.categoryString;
+    
+    [self createShowCategoryButton];
+    [self addSubview:self.showCategoryButton];
 }
 
 - (void)configureBgImageView:(NSString *)imageURL {
@@ -180,6 +150,9 @@ typedef enum {
     self.timeLabel.text = news.publishDay;
     
     self.subCategoryLabel.text = news.categoryString;
+    
+    [self createShowCategoryButton];
+    [self addSubview:self.showCategoryButton];
 }
 
 @end
@@ -193,8 +166,14 @@ typedef enum {
         if ([view isKindOfClass:[WTHomeSelectStarView class]])
             result = (WTHomeSelectStarView *)view;
     }
-    [result configureAvatarImageView];
+    [result configureViewWithStar:nil];
     return result;
+}
+
+- (void)configureViewWithStar:(Star *)star {
+    [self configureAvatarImageView];
+    [self createLikeButtonView];
+    [self addSubview:self.likeButtonView];
 }
 
 - (void)configureAvatarImageView {
@@ -222,8 +201,11 @@ typedef enum {
 - (void)configureViewWithActivity:(Activity *)activity {
     self.titleLabel.text = activity.what;
     self.timeLabel.text = activity.yearMonthDayBeginToEndTimeString;
-    self.subCategoryLabel.text = activity.activityTypeString;
+    self.subCategoryLabel.text = activity.categoryString;
     [self configurePosterImageView:activity.image];
+    
+    [self createShowCategoryButton];
+    [self addSubview:self.showCategoryButton];
 }
 
 - (void)configurePosterImageView:(NSString *)imageURL {

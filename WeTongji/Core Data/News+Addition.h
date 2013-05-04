@@ -23,4 +23,6 @@
 
 + (void)clearAllNews;
 
++ (NSString *)convertCategoryStringFromCategory:(NSNumber *)category;
+
 @end

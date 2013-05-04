@@ -225,6 +225,31 @@ static int kDragToLoadDecoratorObservingContext;
     }
 }
 
+- (void)setBottomViewDisabled:(BOOL)bottomViewDisabled
+                  immediately:(BOOL)immediately {
+    if (immediately) {
+        if (_bottomViewDisabled == bottomViewDisabled)
+            return;
+        
+        _bottomViewDisabled = bottomViewDisabled;
+        if (bottomViewDisabled) {
+            
+            self.bottomView.hidden = YES;
+            UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
+            UIEdgeInsets inset = scrollView.contentInset;
+            inset.bottom = self.scrollViewOriginalContentInset.bottom;
+            scrollView.contentInset = inset;
+            
+        } else {
+            self.bottomView.hidden = NO;
+            self.bottomViewState = TopViewStateNormal;
+        }
+
+    } else {
+        [self setBottomViewDisabled:bottomViewDisabled];
+    }
+}
+
 - (void)setBottomViewDisabled:(BOOL)bottomViewDisabled {
     
     if (_bottomViewDisabled == bottomViewDisabled)

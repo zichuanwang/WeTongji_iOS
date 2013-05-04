@@ -37,6 +37,9 @@
 + (WTDragToLoadDecorator *)createDecoratorWithDataSource:(id<WTDragToLoadDecoratorDataSource>)dataSource
                                                 delegate:(id<WTDragToLoadDecoratorDelegate>)delegate;
 
+- (void)setBottomViewDisabled:(BOOL)bottomViewDisabled
+                  immediately:(BOOL)immediately;
+
 - (void)topViewLoadFinished:(BOOL)loadSucceeded;
 
 - (void)topViewLoadFinished:(BOOL)loadSucceeded

@@ -99,9 +99,13 @@
         
         itemView.bgButton.tag = index;
         itemView.bgCoverButton.tag = index;
+        itemView.showCategoryButton.tag = index;
         
         [itemView.bgButton addTarget:self action:@selector(didClickItemViewBgButton:) forControlEvents:UIControlEventTouchUpInside];
+        
         [itemView.bgCoverButton addTarget:self action:@selector(didClickItemViewBgButton:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [itemView.showCategoryButton addTarget:self action:@selector(didClickShowCategoryButton:) forControlEvents:UIControlEventTouchUpInside];
         
         [self.itemViewArray addObject:itemView];
         return itemView;
@@ -182,9 +186,14 @@
 }
 
 - (void)didClickItemViewBgButton:(UIButton *)sender {
-    NSLog(@"sender tag:%d", sender.tag);
     if ([self.delegate respondsToSelector:@selector(homeSelectContainerView:didSelectModelObject:)]) {
         [self.delegate homeSelectContainerView:self didSelectModelObject:self.itemInfoArray[sender.tag]];
+    }
+}
+
+- (void)didClickShowCategoryButton:(UIButton *)sender {
+    if ([self.delegate respondsToSelector:@selector(homeSelectContainerView:didClickShowCategoryButton:modelObject:)]) {
+        [self.delegate homeSelectContainerView:self didClickShowCategoryButton:sender modelObject:self.itemInfoArray[sender.tag]];
     }
 }
 

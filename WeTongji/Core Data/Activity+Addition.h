@@ -8,10 +8,11 @@
 
 #import "Activity.h"
 #import "Event+Addition.h"
+#import "NSUserDefaults+WTAddition.h"
 
 @interface Activity (Addition)
 
-@property (nonatomic, readonly) NSString *activityTypeString;
+@property (nonatomic, readonly) NSString *categoryString;
 
 + (Activity *)insertActivity:(NSDictionary *)dict;
 
@@ -20,5 +21,7 @@
 + (void)clearAllActivites;
 
 + (NSArray *)getHomeSelectActivityArray;
+
++ (NSString *)convertCategoryStringFromCategory:(NSNumber *)category;
 
 @end

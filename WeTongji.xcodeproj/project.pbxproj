@@ -139,7 +139,6 @@
 		E11703991651F35B00D82F4A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E11703981651F35A00D82F4A /* MainWindow.xib */; };
 		E11825B51714768100B4B9BF /* FriendInvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825B41714768100B4B9BF /* FriendInvitationNotification.m */; };
 		E11825B81714768200B4B9BF /* Exam.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825B71714768200B4B9BF /* Exam.m */; };
-		E11825BB1714768200B4B9BF /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825BA1714768200B4B9BF /* Activity.m */; };
 		E11825BE1714768300B4B9BF /* ActivityInvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825BD1714768300B4B9BF /* ActivityInvitationNotification.m */; };
 		E11825C11714768400B4B9BF /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825C01714768400B4B9BF /* Course.m */; };
 		E11825C71714769600B4B9BF /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825C61714769600B4B9BF /* Organization.m */; };
@@ -164,6 +163,9 @@
 		E12554C816491532006D42F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549516491530006D42F5 /* Foundation.framework */; };
 		E12554D016491532006D42F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E12554CE16491532006D42F5 /* InfoPlist.strings */; };
 		E12554D316491532006D42F5 /* WeTongjiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E12554D216491532006D42F5 /* WeTongjiTests.m */; };
+		E12B8C011734FC0D002A4D9C /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B8C001734FC0D002A4D9C /* Activity.m */; };
+		E12B8C04173546B1002A4D9C /* WTCategoryActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B8C03173546B1002A4D9C /* WTCategoryActivityViewController.m */; };
+		E12B8C0717356029002A4D9C /* WTCategoryNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B8C0617356029002A4D9C /* WTCategoryNewsViewController.m */; };
 		E12E24741727364900EFA9B5 /* WTLockHighlightIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E24701727364900EFA9B5 /* WTLockHighlightIcon.png */; };
 		E12E24751727364900EFA9B5 /* WTLockHighlightIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E24711727364900EFA9B5 /* WTLockHighlightIcon@2x.png */; };
 		E12E24761727364900EFA9B5 /* WTLockNormalIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E24721727364900EFA9B5 /* WTLockNormalIcon.png */; };
@@ -645,8 +647,6 @@
 		E11825B41714768100B4B9BF /* FriendInvitationNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendInvitationNotification.m; sourceTree = "<group>"; };
 		E11825B61714768200B4B9BF /* Exam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exam.h; sourceTree = "<group>"; };
 		E11825B71714768200B4B9BF /* Exam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exam.m; sourceTree = "<group>"; };
-		E11825B91714768200B4B9BF /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
-		E11825BA1714768200B4B9BF /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
 		E11825BC1714768300B4B9BF /* ActivityInvitationNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityInvitationNotification.h; sourceTree = "<group>"; };
 		E11825BD1714768300B4B9BF /* ActivityInvitationNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityInvitationNotification.m; sourceTree = "<group>"; };
 		E11825BF1714768400B4B9BF /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
@@ -685,6 +685,12 @@
 		E12554CF16491532006D42F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E12554D116491532006D42F5 /* WeTongjiTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeTongjiTests.h; sourceTree = "<group>"; };
 		E12554D216491532006D42F5 /* WeTongjiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeTongjiTests.m; sourceTree = "<group>"; };
+		E12B8BFF1734FC0D002A4D9C /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
+		E12B8C001734FC0D002A4D9C /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
+		E12B8C02173546B1002A4D9C /* WTCategoryActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCategoryActivityViewController.h; sourceTree = "<group>"; };
+		E12B8C03173546B1002A4D9C /* WTCategoryActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCategoryActivityViewController.m; sourceTree = "<group>"; };
+		E12B8C0517356029002A4D9C /* WTCategoryNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCategoryNewsViewController.h; sourceTree = "<group>"; };
+		E12B8C0617356029002A4D9C /* WTCategoryNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCategoryNewsViewController.m; sourceTree = "<group>"; };
 		E12E24701727364900EFA9B5 /* WTLockHighlightIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTLockHighlightIcon.png; sourceTree = "<group>"; };
 		E12E24711727364900EFA9B5 /* WTLockHighlightIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTLockHighlightIcon@2x.png"; sourceTree = "<group>"; };
 		E12E24721727364900EFA9B5 /* WTLockNormalIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTLockNormalIcon.png; sourceTree = "<group>"; };
@@ -1124,6 +1130,8 @@
 				A1DD01CC169F244E009EBE02 /* WTNewsViewController.h */,
 				A1DD01CD169F244E009EBE02 /* WTNewsViewController.m */,
 				A1DD01CE169F244E009EBE02 /* WTNewsViewController.xib */,
+				E12B8C0517356029002A4D9C /* WTCategoryNewsViewController.h */,
+				E12B8C0617356029002A4D9C /* WTCategoryNewsViewController.m */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -1285,6 +1293,8 @@
 				A1ADA9D816AC460500E3A62E /* WTActivityViewController.h */,
 				A1ADA9D916AC460500E3A62E /* WTActivityViewController.m */,
 				A1ADA9DA16AC460500E3A62E /* WTActivityViewController.xib */,
+				E12B8C02173546B1002A4D9C /* WTCategoryActivityViewController.h */,
+				E12B8C03173546B1002A4D9C /* WTCategoryActivityViewController.m */,
 			);
 			name = Activity;
 			sourceTree = "<group>";
@@ -2104,8 +2114,6 @@
 		E1D3743D1694C3D90012E30A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E11825B91714768200B4B9BF /* Activity.h */,
-				E11825BA1714768200B4B9BF /* Activity.m */,
 				E11825BC1714768300B4B9BF /* ActivityInvitationNotification.h */,
 				E11825BD1714768300B4B9BF /* ActivityInvitationNotification.m */,
 				E11825BF1714768400B4B9BF /* Course.h */,
@@ -2136,6 +2144,8 @@
 				E1FC01A5172FEB2300D0776C /* BillboardPost.m */,
 				E16E9629173430540055DE27 /* News.h */,
 				E16E962A173430540055DE27 /* News.m */,
+				E12B8BFF1734FC0D002A4D9C /* Activity.h */,
+				E12B8C001734FC0D002A4D9C /* Activity.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2679,7 +2689,6 @@
 				E17F9E7617130D4800DC6AB6 /* Event+Addition.m in Sources */,
 				E11825B51714768100B4B9BF /* FriendInvitationNotification.m in Sources */,
 				E11825B81714768200B4B9BF /* Exam.m in Sources */,
-				E11825BB1714768200B4B9BF /* Activity.m in Sources */,
 				E11825BE1714768300B4B9BF /* ActivityInvitationNotification.m in Sources */,
 				E11825C11714768400B4B9BF /* Course.m in Sources */,
 				E11825C71714769600B4B9BF /* Organization.m in Sources */,
@@ -2722,6 +2731,9 @@
 				E179669F1728458A00761BD5 /* NSAttributedString+WTAddition.m in Sources */,
 				E1FC01A6172FEB2300D0776C /* BillboardPost.m in Sources */,
 				E16E962B173430540055DE27 /* News.m in Sources */,
+				E12B8C011734FC0D002A4D9C /* Activity.m in Sources */,
+				E12B8C04173546B1002A4D9C /* WTCategoryActivityViewController.m in Sources */,
+				E12B8C0717356029002A4D9C /* WTCategoryNewsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

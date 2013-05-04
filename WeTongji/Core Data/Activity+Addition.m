@@ -47,7 +47,8 @@
     result.what = [NSString stringWithFormat:@"%@", dict[@"Title"]];
     result.canSchedule = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"CanSchedule"]]).boolValue);
     result.canLike = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"CanLike"]]).boolValue);
-    result.activityType = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"Channel_Id"]]).integerValue);
+    [result configureActivityCategory:((NSString *)[NSString stringWithFormat:@"%@", dict[@"Channel_Id"]]).integerValue];
+    
     result.createdAt = [[NSString stringWithFormat:@"%@", dict[@"CreatedAt"]] convertToDate];
     result.content = [[NSString stringWithFormat:@"%@", dict[@"Description"]] clearAllBacklashR];
     result.image = [NSString stringWithFormat:@"%@", dict[@"Image"]];
@@ -92,19 +93,42 @@
     [super awakeFromFetch];
 }
 
-- (NSString *)activityTypeString {
-    NSString *result = nil;
-    switch (self.activityType.integerValue) {
+- (void)configureActivityCategory:(NSInteger)activityChannelID {
+    switch (activityChannelID) {
         case 1:
-            result = NSLocalizedString(@"Academics", nil);
+            self.category = @(ActivityShowTypeAcademics);
             break;
         case 2:
-            result = NSLocalizedString(@"Competition", nil);
+            self.category = @(ActivityShowTypeCompetition);
             break;
         case 3:
-            result = NSLocalizedString(@"Entertainment", nil);
+            self.category = @(ActivityShowTypeEntertainment);
             break;
         case 4:
+            self.category = @(ActivityShowTypeEnterprise);
+            break;
+        default:
+            break;
+    }
+}
+
+- (NSString *)categoryString {
+    return [Activity convertCategoryStringFromCategory:self.category];
+}
+
++ (NSString *)convertCategoryStringFromCategory:(NSNumber *)category {
+    NSString *result = nil;
+    switch (category.integerValue) {
+        case ActivityShowTypeAcademics:
+            result = NSLocalizedString(@"Academics", nil);
+            break;
+        case ActivityShowTypeCompetition:
+            result = NSLocalizedString(@"Competition", nil);
+            break;
+        case ActivityShowTypeEntertainment:
+            result = NSLocalizedString(@"Entertainment", nil);
+            break;
+        case ActivityShowTypeEnterprise:
             result = NSLocalizedString(@"Enterprise", nil);
             break;
         default:

@@ -47,5 +47,9 @@ typedef enum {
 - (void)homeSelectContainerView:(WTHomeSelectContainerView *)containerView
            didSelectModelObject:(Object *)modelObject;
 
+- (void)homeSelectContainerView:(WTHomeSelectContainerView *)containerView
+     didClickShowCategoryButton:(UIButton *)sender
+                    modelObject:(Object *)modelObject;
+
 @end
 

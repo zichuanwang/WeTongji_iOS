@@ -106,11 +106,23 @@
             failure();
     }];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [request getInformationInTypes:[userDefaults getNewsShowTypesArray]
+    [request getInformationInTypes:[self newsShowTypes]
                        orderMethod:[userDefaults getNewsOrderMethod]
                         smartOrder:[userDefaults getNewsSmartOrderProperty]
                               page:self.nextPage];
     [[WTClient sharedClient] enqueueRequest:request];
+}
+
+#pragma mark - Methods to overwrite
+
+- (NSArray *)newsShowTypes {
+    return [NSUserDefaults getNewsShowTypesArray];
+}
+
+- (WTNewsSettingViewController *)createNewsSettingViewController {
+    WTNewsSettingViewController *vc = [[WTNewsSettingViewController alloc] init];
+    vc.delegate = self;
+    return vc;
 }
 
 #pragma mark - Properties
@@ -150,10 +162,8 @@
     
     if (sender.selected) {
         sender.selected = NO;
-        
-        WTNewsSettingViewController *vc = [[WTNewsSettingViewController alloc] init];
-        vc.delegate = self;
-        [nav showInnerModalViewController:vc sourceViewController:self disableNavBarType:WTDisableNavBarTypeLeft];
+
+        [nav showInnerModalViewController:[self createNewsSettingViewController] sourceViewController:self disableNavBarType:WTDisableNavBarTypeLeft];
         
     } else {
         [nav hideInnerModalViewController];

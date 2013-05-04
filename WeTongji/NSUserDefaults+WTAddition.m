@@ -109,12 +109,22 @@
     [userDefaults synchronize];
 }
 
-- (NSArray *)getNewsShowTypesArray {
++ (NSArray *)getNewsShowTypesArray {
     NSMutableArray *result = [NSMutableArray array];
     ActivityShowTypes showTypes = [[NSUserDefaults standardUserDefaults] getNewsShowTypes];
     for (int i = 0; i < NewsShowTypesCount; i++) {
         NSInteger showType = 1 << i;
         NSNumber *show = @((showTypes & showType) != 0);
+        [result addObject:show];
+    }
+    return result;
+}
+
++ (NSArray *)getNewsShowTypesArrayWithNewsShowType:(NewsShowTypes)type {
+    NSMutableArray *result = [NSMutableArray array];
+    for (int i = 0; i < NewsShowTypesCount; i++) {
+        NSInteger showType = 1 << i;
+        NSNumber *show = @(type == showType);
         [result addObject:show];
     }
     return result;
@@ -184,12 +194,22 @@
     return [userDefaults integerForKey:kActivityShowTypes];
 }
 
-- (NSArray *)getActivityShowTypesArray {
++ (NSArray *)getActivityShowTypesArray {
     NSMutableArray *result = [NSMutableArray array];
     ActivityShowTypes showTypes = [[NSUserDefaults standardUserDefaults] getActivityShowTypes];
     for (int i = 0; i < ActivityShowTypesCount; i++) {
         NSInteger showType = 1 << i;
         NSNumber *show = @((showTypes & showType) != 0);
+        [result addObject:show];
+    }
+    return result;
+}
+
++ (NSArray *)getActivityShowTypesArrayWithActivityShowType:(ActivityShowTypes)type {
+    NSMutableArray *result = [NSMutableArray array];
+    for (int i = 0; i < ActivityShowTypesCount; i++) {
+        NSInteger showType = 1 << i;
+        NSNumber *show = @(type == showType);
         [result addObject:show];
     }
     return result;

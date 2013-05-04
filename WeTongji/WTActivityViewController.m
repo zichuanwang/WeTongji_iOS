@@ -113,12 +113,24 @@
             failure();
     }];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [request getActivitiesInTypes:[userDefaults getActivityShowTypesArray]
+    [request getActivitiesInTypes:[self activityShowTypes]
                       orderMethod:[userDefaults getActivityOrderMethod]
                        smartOrder:[userDefaults getActivitySmartOrderProperty]
                        showExpire:![userDefaults getActivityHidePastProperty]
                              page:self.nextPage];
     [[WTClient sharedClient] enqueueRequest:request];
+}
+
+#pragma mark - Methods to overwrite
+
+- (NSArray *)activityShowTypes {
+    return [NSUserDefaults getActivityShowTypesArray];
+}
+
+- (WTActivitySettingViewController *)createActivitySettingViewController {
+    WTActivitySettingViewController *vc = [[WTActivitySettingViewController alloc] init];
+    vc.delegate = self;
+    return vc;
 }
 
 #pragma mark - UI methods
@@ -152,9 +164,7 @@
     if (sender.selected) {
         sender.selected = NO;
         
-        WTActivitySettingViewController *vc = [[WTActivitySettingViewController alloc] init];
-        vc.delegate = self;
-        [nav showInnerModalViewController:vc sourceViewController:self disableNavBarType:WTDisableNavBarTypeLeft];
+        [nav showInnerModalViewController:[self createActivitySettingViewController] sourceViewController:self disableNavBarType:WTDisableNavBarTypeLeft];
         
     } else {
         [nav hideInnerModalViewController];

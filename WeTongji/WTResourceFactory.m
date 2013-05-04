@@ -228,7 +228,7 @@
                            selectImage:nil
                       normalTitleColor:[UIColor whiteColor]
                      normalShadowColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3f]
-                   highlightTitleColor:[UIColor grayColor]
+                   highlightTitleColor:[UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.8f]
                   highlightShadowColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5f]
                       selectTitleColor:nil
                      selectShadowColor:nil];

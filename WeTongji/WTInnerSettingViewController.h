@@ -30,6 +30,8 @@
 
 @property (nonatomic, weak) id<WTInnerSettingViewControllerDelegate> delegate;
 
+@property (nonatomic, assign) BOOL hideCategoryFilter;
+
 - (NSArray *)loadSettingConfig;
 
 - (BOOL)isSettingDifferentFromDefaultValue;

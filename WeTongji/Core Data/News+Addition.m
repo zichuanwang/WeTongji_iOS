@@ -123,7 +123,12 @@
 }
 
 - (NSString *)categoryString {
-    switch (self.category.integerValue) {
+    return [News convertCategoryStringFromCategory:self.category];
+}
+
+
++ (NSString *)convertCategoryStringFromCategory:(NSNumber *)category {
+    switch (category.integerValue) {
         case NewsShowTypeCampusUpdate:
             return NSLocalizedString(@"Campus Update", nil);
         case NewsShowTypeClubNews:

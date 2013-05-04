@@ -118,6 +118,14 @@
             }
         } else if ([tableViewType isEqualToString:kTableViewTypeGroup]) {
             WTSettingGroupTableView *tableView = [WTSettingGroupTableView createGroupTableView:dict];
+            
+            // 比较差的实现，凑合用先。
+            if (self.hideCategoryFilter) {
+                if ([tableView.headerLabel.text isEqualToString:NSLocalizedString(@"Show", nil)]) {
+                    continue;
+                }
+            }
+            
             [tableView resetOriginY:originY];
             originY += tableView.frame.size.height;
             [self.scrollView addSubview:tableView];

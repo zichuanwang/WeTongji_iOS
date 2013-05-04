@@ -9,13 +9,13 @@
 #import "WTHomeViewController.h"
 #import "WTBannerView.h"
 #import "UIApplication+WTAddition.h"
-#import "WTNewsViewController.h"
-#import "WTActivityViewController.h"
 #import "Event+Addition.h"
 #import "WTActivityDetailViewController.h"
 #import "Activity+Addition.h"
 #import "News+Addition.h"
 #import "WTNewsDetailViewController.h"
+#import "WTCategoryActivityViewController.h"
+#import "WTCategoryNewsViewController.h"
 
 @interface WTHomeViewController ()
 
@@ -221,6 +221,20 @@
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([modelObject isKindOfClass:[News class]]) {
         WTNewsDetailViewController *vc = [WTNewsDetailViewController createNewsDetailViewControllerWithNews:(News *)modelObject backBarButtonText:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
+- (void)homeSelectContainerView:(WTHomeSelectContainerView *)containerView
+     didClickShowCategoryButton:(UIButton *)sender
+                    modelObject:(Object *)modelObject {
+    if ([modelObject isKindOfClass:[Activity class]]) {
+        Activity *activity = (Activity *)modelObject;
+        WTCategoryActivityViewController *vc = [WTCategoryActivityViewController createViewControllerWithActivityCategory:activity.category];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([modelObject isKindOfClass:[News class]]) {
+        News *news = (News *)modelObject;
+        WTCategoryNewsViewController *vc = [WTCategoryNewsViewController createViewControllerWithNewsCategory:news.category];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
