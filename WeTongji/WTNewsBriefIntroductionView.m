@@ -145,7 +145,13 @@
 }
 
 - (void)configureOtherInfoView {
-    self.titleLabel.text = self.news.title;
+    if (!self.news.hasTicket.boolValue) {
+        self.ticketIconImageView.hidden = YES;
+        self.titleLabel.text = self.news.title;
+    } else {
+        self.titleLabel.text = [NSString stringWithFormat:@"    %@", self.news.title];
+    }
+    
     self.publisherLabel.text = self.news.source;
     self.publishTimeLabel.text = self.news.publishDay;
     
@@ -153,11 +159,6 @@
     [self configureBookTicketButton];
     [self configureActivityLocationButton];
     
-    if (!self.news.hasTicket.boolValue) {
-        self.ticketIconImageView.hidden = YES;
-        [self.titleLabel resetOriginX:self.ticketIconImageView.frame.origin.x];
-        [self.titleLabel resetWidth:self.publishTimeLabel.frame.size.width];
-    }
     
     CGFloat titleLabelOriginalHeight = self.titleLabel.frame.size.height;
     [self.titleLabel sizeToFit];

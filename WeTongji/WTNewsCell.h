@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class News;
+
 @interface WTNewsCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *categoryLabel;
@@ -17,10 +19,9 @@
 @property (nonatomic, weak) IBOutlet UIImageView *topSeperatorImageView;
 @property (nonatomic, weak) IBOutlet UIView *highlightBgView;
 @property (nonatomic, weak) IBOutlet UIImageView *disclosureImageView;
+@property (nonatomic, weak) IBOutlet UIImageView *ticketIconImageView;
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
-                          category:(NSString *)category
-                             title:(NSString *)title
-                           summary:(NSString *)summary;
+                              news:(News *)news;
 
 @end

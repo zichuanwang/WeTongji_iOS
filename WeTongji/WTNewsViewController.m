@@ -193,7 +193,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     WTNewsCell *newsCell = (WTNewsCell *)cell;
     News *news = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [newsCell configureCellWithIndexPath:indexPath category:news.categoryString title:news.title summary:news.content];
+    [newsCell configureCellWithIndexPath:indexPath news:news];
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {

@@ -14,6 +14,7 @@
 #import "NSString+WTAddition.h"
 #import "Event+Addition.h"
 #import "Activity+Addition.h"
+#import "News+Addition.h"
 
 typedef enum {
     WTHomeSelectItemStyleNormal,
@@ -133,6 +134,8 @@ typedef enum {
     
     // Info
     self.newsTitleLabel.text = news.title;
+    
+    self.subCategoryLabel.text = news.categoryString;
 }
 
 - (void)configureBgImageView:(NSString *)imageURL {
@@ -140,6 +143,43 @@ typedef enum {
     self.bgImageContainerView.layer.cornerRadius = 8.0f;
     
     [self.bgImageView loadImageWithImageURLString:imageURL];
+}
+
+@end
+
+@implementation WTHomeSelectNewsWithTicketView
+
++ (WTHomeSelectNewsWithTicketView *)createHomeSelectNewsWithTicketView:(News *)news {
+    NSArray *viewArray = [[NSBundle mainBundle] loadNibNamed:@"WTHomeSelectItemView" owner:self options:nil];
+    WTHomeSelectNewsWithTicketView *result = nil;
+    for(UIView *view in viewArray) {
+        if ([view isKindOfClass:[WTHomeSelectNewsWithTicketView class]])
+            result = (WTHomeSelectNewsWithTicketView *)view;
+    }
+    
+    [result configureViewWithNews:news];
+    
+    return result;
+}
+
+- (void)configureViewWithNews:(News *)news {
+    // Poster image
+    NSArray *newsImageArray = news.imageArray;
+    if (newsImageArray.count != 0) {
+        [self.posterImageView loadImageWithImageURLString:newsImageArray[0]];
+    }
+    
+    // Info
+    if (news.hasTicket.boolValue) {
+        self.newsTitleLabel.text = [NSString stringWithFormat:@"     %@", news.title];
+    } else {
+        self.newsTitleLabel.text = news.title;
+        self.ticketIconImageView.hidden = YES;
+    }
+    
+    self.timeLabel.text = news.publishDay;
+    
+    self.subCategoryLabel.text = news.categoryString;
 }
 
 @end
@@ -182,7 +222,7 @@ typedef enum {
 - (void)configureViewWithActivity:(Activity *)activity {
     self.titleLabel.text = activity.what;
     self.timeLabel.text = activity.yearMonthDayBeginToEndTimeString;
-    self.typeLabel.text = activity.activityTypeString;
+    self.subCategoryLabel.text = activity.activityTypeString;
     [self configurePosterImageView:activity.image];
 }
 

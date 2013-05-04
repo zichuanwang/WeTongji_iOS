@@ -7,6 +7,7 @@
 //
 
 #import "WTNewsCell.h"
+#import "News+Addition.h"
 
 @implementation WTNewsCell
 
@@ -49,9 +50,7 @@
 }
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
-                          category:(NSString *)category
-                             title:(NSString *)title
-                           summary:(NSString *)summary {
+                              news:(News *)news {
     if (indexPath.row % 2) {
         self.containerView.backgroundColor = WTCellBackgroundColor1;
     } else {
@@ -64,9 +63,15 @@
         self.topSeperatorImageView.hidden = NO;
     }
     
-    self.categoryLabel.text = category;
-    self.titleLabel.text = title;
-    self.summaryLabel.text = summary;
+    if (news.hasTicket.boolValue) {
+        self.ticketIconImageView.hidden = NO;
+        self.titleLabel.text = [NSString stringWithFormat:@"    %@", news.title];
+    } else {
+        self.ticketIconImageView.hidden = YES;
+        self.titleLabel.text = news.title;
+    }
+    self.categoryLabel.text = news.categoryString;
+    self.summaryLabel.text = news.content;
         
     CGFloat titleLabelOriginalWidth = self.titleLabel.frame.size.width;
     CGFloat titleLabelRealWidth = [self.titleLabel.text sizeWithFont:self.titleLabel.font].width;

@@ -68,7 +68,7 @@
 										<string key="NSFrame">{{14, 12}, {286, 12}}</string>
 										<reference key="NSSuperview" ref="1014921692"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="275779684"/>
+										<reference key="NSNextKeyView" ref="978941129"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
 										<bool key="IBUIClipsSubviews">YES</bool>
@@ -101,7 +101,7 @@
 									<object class="IBUILabel" id="275779684">
 										<reference key="NSNextResponder" ref="1014921692"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{14, 30}, {270, 20}}</string>
+										<string key="NSFrame">{{14, 29}, {270, 22}}</string>
 										<reference key="NSSuperview" ref="1014921692"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="904694800"/>
@@ -137,6 +137,21 @@
 										</object>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 										<double key="preferredMaxLayoutWidth">270</double>
+									</object>
+									<object class="IBUIImageView" id="978941129">
+										<reference key="NSNextResponder" ref="1014921692"/>
+										<int key="NSvFlags">292</int>
+										<string key="NSFrame">{{14, 31}, {18, 18}}</string>
+										<reference key="NSSuperview" ref="1014921692"/>
+										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView" ref="275779684"/>
+										<string key="NSReuseIdentifierKey">_NS:9</string>
+										<bool key="IBUIUserInteractionEnabled">NO</bool>
+										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+										<object class="NSCustomResource" key="IBUIImage">
+											<string key="NSClassName">NSImage</string>
+											<string key="NSResourceName">WTTicketIcon.png</string>
+										</object>
 									</object>
 									<object class="IBUILabel" id="679569808">
 										<reference key="NSNextResponder" ref="1014921692"/>
@@ -320,6 +335,14 @@
 					</object>
 					<int key="connectionID">37</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">ticketIconImageView</string>
+						<reference key="source" ref="36478612"/>
+						<reference key="destination" ref="978941129"/>
+					</object>
+					<int key="connectionID">39</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -359,6 +382,7 @@
 							<reference ref="23988917"/>
 							<reference ref="861479651"/>
 							<reference ref="904694800"/>
+							<reference ref="978941129"/>
 						</array>
 						<reference key="parent" ref="36478612"/>
 					</object>
@@ -370,11 +394,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">4</int>
 						<reference key="object" ref="1061917353"/>
-						<reference key="parent" ref="1014921692"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">5</int>
-						<reference key="object" ref="275779684"/>
 						<reference key="parent" ref="1014921692"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -390,11 +409,22 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">34</int>
 						<reference key="object" ref="861479651"/>
+						<array class="NSMutableArray" key="children"/>
 						<reference key="parent" ref="1014921692"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">35</int>
 						<reference key="object" ref="904694800"/>
+						<reference key="parent" ref="1014921692"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">38</int>
+						<reference key="object" ref="978941129"/>
+						<reference key="parent" ref="1014921692"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">5</int>
+						<reference key="object" ref="275779684"/>
 						<reference key="parent" ref="1014921692"/>
 					</object>
 				</array>
@@ -410,6 +440,7 @@
 				<string key="32.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="34.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="35.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="38.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -418,7 +449,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">37</int>
+			<int key="maxID">39</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -431,6 +462,7 @@
 						<string key="disclosureImageView">UIImageView</string>
 						<string key="highlightBgView">UIView</string>
 						<string key="summaryLabel">UILabel</string>
+						<string key="ticketIconImageView">UIImageView</string>
 						<string key="titleLabel">UILabel</string>
 						<string key="topSeperatorImageView">UIImageView</string>
 					</dictionary>
@@ -454,6 +486,10 @@
 						<object class="IBToOneOutletInfo" key="summaryLabel">
 							<string key="name">summaryLabel</string>
 							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="ticketIconImageView">
+							<string key="name">ticketIconImageView</string>
+							<string key="candidateClassName">UIImageView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="titleLabel">
 							<string key="name">titleLabel</string>
@@ -482,6 +518,7 @@
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="WTDarkGrayMoreIndicator.png">{10, 16}</string>
 			<string key="WTTableViewSeperatorUnit.png">{1, 1}</string>
+			<string key="WTTicketIcon.png">{18, 18}</string>
 			<string key="WTWhiteMoreIndicator.png">{10, 16}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>

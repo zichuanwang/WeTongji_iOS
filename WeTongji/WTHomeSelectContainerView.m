@@ -8,6 +8,7 @@
 
 #import "WTHomeSelectContainerView.h"
 #import "WTHomeSelectItemView.h"
+#import "News+Addition.h"
 
 @interface WTHomeSelectContainerView()
 
@@ -76,7 +77,12 @@
         WTHomeSelectItemView *itemView = nil;
         switch (self.category) {
             case WTHomeSelectContainerViewCategoryNews: {
-                itemView = [WTHomeSelectNewsView createHomeSelectNewsView:self.itemInfoArray[index]];
+                News *news = self.itemInfoArray[index];
+                if (news.category.integerValue == NewsShowTypeLocalRecommandation) {
+                    itemView = [WTHomeSelectNewsWithTicketView createHomeSelectNewsWithTicketView:news];
+                } else {
+                    itemView = [WTHomeSelectNewsView createHomeSelectNewsView:news];
+                }
             }
                 break;
             case WTHomeSelectContainerViewCategoryFeatured: {
