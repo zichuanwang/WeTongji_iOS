@@ -76,7 +76,7 @@
     NSString *categoryString = [NSString stringWithFormat:@"%@", dict[@"Category"]];
     if ([categoryString isEqualToString:@"校园新闻"])
         result.category = @(NewsShowTypeCampusUpdate);
-    else if ([categoryString isEqualToString:@"团体通告"])
+    else if ([categoryString isEqualToString:@"社团通告"])
         result.category = @(NewsShowTypeClubNews);
     else if ([categoryString isEqualToString:@"周边推荐"])
         result.category = @(NewsShowTypeLocalRecommandation);
