@@ -2,7 +2,7 @@
 //  Object.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-4-10.
+//  Created by 王 紫川 on 13-5-5.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -14,5 +14,6 @@
 
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSDate * updateTime;
+@property (nonatomic, retain) NSNumber * homeSelected;
 
 @end

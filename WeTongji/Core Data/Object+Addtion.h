@@ -1,5 +1,5 @@
 //
-//  Object.m
+//  Object+Addtion.h
 //  WeTongji
 //
 //  Created by 王 紫川 on 13-5-5.
@@ -8,11 +8,8 @@
 
 #import "Object.h"
 
+@interface Object (Addtion)
 
-@implementation Object
-
-@dynamic identifier;
-@dynamic updateTime;
-@dynamic homeSelected;
++ (void)clearAllHomeSelectedObject;
 
 @end

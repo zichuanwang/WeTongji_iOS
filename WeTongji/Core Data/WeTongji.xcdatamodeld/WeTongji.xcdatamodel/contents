@@ -75,6 +75,7 @@
         <relationship name="sender" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="sentNotifications" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Object" representedClassName="Object" isAbstract="YES" syncable="YES">
+        <attribute name="homeSelected" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="identifier" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="updateTime" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
@@ -120,7 +121,7 @@
         <element name="InvitationNotification" positionX="160" positionY="192" width="128" height="60"/>
         <element name="News" positionX="160" positionY="192" width="128" height="300"/>
         <element name="Notification" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="Object" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="Object" positionX="160" positionY="192" width="128" height="90"/>
         <element name="Organization" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Star" positionX="160" positionY="192" width="128" height="75"/>
         <element name="User" positionX="160" positionY="192" width="128" height="345"/>

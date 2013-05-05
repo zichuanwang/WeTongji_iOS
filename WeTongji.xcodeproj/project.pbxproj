@@ -143,7 +143,6 @@
 		E11825C11714768400B4B9BF /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825C01714768400B4B9BF /* Course.m */; };
 		E11825C71714769600B4B9BF /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825C61714769600B4B9BF /* Organization.m */; };
 		E11825CD1714769800B4B9BF /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825CC1714769700B4B9BF /* Notification.m */; };
-		E11825D31714769800B4B9BF /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825D21714769800B4B9BF /* Object.m */; };
 		E11825D61714769800B4B9BF /* Star.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825D51714769800B4B9BF /* Star.m */; };
 		E11825D91714769800B4B9BF /* InvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825D81714769800B4B9BF /* InvitationNotification.m */; };
 		E11825DD17154AB500B4B9BF /* WTActivityDetailDescriptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825DC17154AB500B4B9BF /* WTActivityDetailDescriptionView.m */; };
@@ -166,6 +165,8 @@
 		E12B8C011734FC0D002A4D9C /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B8C001734FC0D002A4D9C /* Activity.m */; };
 		E12B8C04173546B1002A4D9C /* WTCategoryActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B8C03173546B1002A4D9C /* WTCategoryActivityViewController.m */; };
 		E12B8C0717356029002A4D9C /* WTCategoryNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B8C0617356029002A4D9C /* WTCategoryNewsViewController.m */; };
+		E12B8C0A1736B516002A4D9C /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B8C091736B516002A4D9C /* Object.m */; };
+		E12B8C0D1736B545002A4D9C /* Object+Addtion.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B8C0C1736B544002A4D9C /* Object+Addtion.m */; };
 		E12E24741727364900EFA9B5 /* WTLockHighlightIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E24701727364900EFA9B5 /* WTLockHighlightIcon.png */; };
 		E12E24751727364900EFA9B5 /* WTLockHighlightIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E24711727364900EFA9B5 /* WTLockHighlightIcon@2x.png */; };
 		E12E24761727364900EFA9B5 /* WTLockNormalIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E24721727364900EFA9B5 /* WTLockNormalIcon.png */; };
@@ -655,8 +656,6 @@
 		E11825C61714769600B4B9BF /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Organization.m; sourceTree = "<group>"; };
 		E11825CB1714769700B4B9BF /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		E11825CC1714769700B4B9BF /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
-		E11825D11714769800B4B9BF /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
-		E11825D21714769800B4B9BF /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
 		E11825D41714769800B4B9BF /* Star.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Star.h; sourceTree = "<group>"; };
 		E11825D51714769800B4B9BF /* Star.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Star.m; sourceTree = "<group>"; };
 		E11825D71714769800B4B9BF /* InvitationNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationNotification.h; sourceTree = "<group>"; };
@@ -691,6 +690,10 @@
 		E12B8C03173546B1002A4D9C /* WTCategoryActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCategoryActivityViewController.m; sourceTree = "<group>"; };
 		E12B8C0517356029002A4D9C /* WTCategoryNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCategoryNewsViewController.h; sourceTree = "<group>"; };
 		E12B8C0617356029002A4D9C /* WTCategoryNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCategoryNewsViewController.m; sourceTree = "<group>"; };
+		E12B8C081736B516002A4D9C /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
+		E12B8C091736B516002A4D9C /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
+		E12B8C0B1736B544002A4D9C /* Object+Addtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Object+Addtion.h"; sourceTree = "<group>"; };
+		E12B8C0C1736B544002A4D9C /* Object+Addtion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Object+Addtion.m"; sourceTree = "<group>"; };
 		E12E24701727364900EFA9B5 /* WTLockHighlightIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTLockHighlightIcon.png; sourceTree = "<group>"; };
 		E12E24711727364900EFA9B5 /* WTLockHighlightIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTLockHighlightIcon@2x.png"; sourceTree = "<group>"; };
 		E12E24721727364900EFA9B5 /* WTLockNormalIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTLockNormalIcon.png; sourceTree = "<group>"; };
@@ -2128,8 +2131,6 @@
 				E11825D81714769800B4B9BF /* InvitationNotification.m */,
 				E11825CB1714769700B4B9BF /* Notification.h */,
 				E11825CC1714769700B4B9BF /* Notification.m */,
-				E11825D11714769800B4B9BF /* Object.h */,
-				E11825D21714769800B4B9BF /* Object.m */,
 				E11825C51714769600B4B9BF /* Organization.h */,
 				E11825C61714769600B4B9BF /* Organization.m */,
 				E11825D41714769800B4B9BF /* Star.h */,
@@ -2146,6 +2147,8 @@
 				E16E962A173430540055DE27 /* News.m */,
 				E12B8BFF1734FC0D002A4D9C /* Activity.h */,
 				E12B8C001734FC0D002A4D9C /* Activity.m */,
+				E12B8C081736B516002A4D9C /* Object.h */,
+				E12B8C091736B516002A4D9C /* Object.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2169,6 +2172,8 @@
 				E10A8D5116E4EFE3008B72E7 /* Notification+Addition.m */,
 				E13B0E6B16A4476000A45079 /* User+Addition.h */,
 				E13B0E6C16A4476000A45079 /* User+Addition.m */,
+				E12B8C0B1736B544002A4D9C /* Object+Addtion.h */,
+				E12B8C0C1736B544002A4D9C /* Object+Addtion.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -2693,7 +2698,6 @@
 				E11825C11714768400B4B9BF /* Course.m in Sources */,
 				E11825C71714769600B4B9BF /* Organization.m in Sources */,
 				E11825CD1714769800B4B9BF /* Notification.m in Sources */,
-				E11825D31714769800B4B9BF /* Object.m in Sources */,
 				E11825D61714769800B4B9BF /* Star.m in Sources */,
 				E11825D91714769800B4B9BF /* InvitationNotification.m in Sources */,
 				E11825DD17154AB500B4B9BF /* WTActivityDetailDescriptionView.m in Sources */,
@@ -2734,6 +2738,8 @@
 				E12B8C011734FC0D002A4D9C /* Activity.m in Sources */,
 				E12B8C04173546B1002A4D9C /* WTCategoryActivityViewController.m in Sources */,
 				E12B8C0717356029002A4D9C /* WTCategoryNewsViewController.m in Sources */,
+				E12B8C0A1736B516002A4D9C /* Object.m in Sources */,
+				E12B8C0D1736B545002A4D9C /* Object+Addtion.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

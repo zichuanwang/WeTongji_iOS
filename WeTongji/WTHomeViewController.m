@@ -13,6 +13,7 @@
 #import "WTActivityDetailViewController.h"
 #import "Activity+Addition.h"
 #import "News+Addition.h"
+#import "Object+Addtion.h"
 #import "WTNewsDetailViewController.h"
 #import "WTCategoryActivityViewController.h"
 #import "WTCategoryNewsViewController.h"
@@ -22,6 +23,9 @@
 @property (nonatomic, strong) WTBannerContainerView *bannerContainerView;
 @property (nonatomic, strong) WTHomeNowContainerView *nowContainerView;
 @property (nonatomic, strong) NSMutableArray *homeSelectViewArray;
+
+@property (nonatomic, assign) BOOL shouldHomeSelectViewsUpdate;
+@property (nonatomic, strong) NSTimer *loadHomeSelectedItemsTimer;
 
 @end
 
@@ -45,6 +49,7 @@
     [self configureNowView];
     [self configureHomeSelectViews];
     
+    [self setUpLoadHomeSelectedItemsTimer];
     
     self.scrollView.scrollsToTop = NO;
 }
@@ -69,6 +74,53 @@
         _homeSelectViewArray = [NSMutableArray arrayWithCapacity:3];
     }
     return _homeSelectViewArray;
+}
+
+#pragma mark - Load data methods
+
+- (void)setUpLoadHomeSelectedItemsTimer {
+    // 设定 10 分钟刷新频率
+    self.loadHomeSelectedItemsTimer = [NSTimer scheduledTimerWithTimeInterval:10 * 60
+											  target:self
+											selector:@selector(loadHomeSelectedItemsTimerFired:)
+											userInfo:nil
+											 repeats:YES];
+    
+    // 立即刷新一次
+    [self loadHomeSelectedItems];
+}
+
+- (void)loadHomeSelectedItemsTimerFired:(NSTimer *)timer {
+    [self loadHomeSelectedItems];
+}
+
+- (void)loadHomeSelectedItems {
+    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        WTLOG(@"Get home recommendation succuess:%@", responseObject);
+        
+        [Object clearAllHomeSelectedObject];
+        
+        NSDictionary *resultDict = (NSDictionary *)responseObject;
+        NSArray *activityInfoArray = resultDict[@"Activities"];
+        for (NSDictionary *infoDict in activityInfoArray) {
+            Activity *activity = [Activity insertActivity:infoDict];
+            activity.homeSelected = @(YES);
+        }
+        
+        NSArray *newsInfoArray = resultDict[@"Information"];
+        for (NSDictionary *infoDict in newsInfoArray) {
+            News *news = [News insertNews:infoDict];
+            news.homeSelected = @(YES);
+        }
+        
+        self.shouldHomeSelectViewsUpdate = YES;
+        [self updateHomeSelectViews];
+        
+    } failureBlock:^(NSError *error) {
+        WTLOGERROR(@"Get home recommendation failure:%@", error.localizedDescription);
+    }];
+    [request getHomeRecommendation];
+    [[WTClient sharedClient] enqueueRequest:request];
 }
 
 #pragma mark - UI methods
@@ -99,6 +151,10 @@
                                                .height + self.nowContainerView.frame.origin.y + homeSelectContainerView.frame.size.height * index)];
         index++;
     }
+    
+    if (!self.shouldHomeSelectViewsUpdate)
+        return;
+    
     WTHomeSelectContainerView *activitySelectContainerView = self.homeSelectViewArray[0];
     [activitySelectContainerView updateItemInfoArray:[Activity getHomeSelectActivityArray]];
 
@@ -154,9 +210,9 @@
     NSArray *events = [Event getTodayEvents];
     [self.nowContainerView configureNowContainerViewWithEvents:events];
     if (!events) {
-        [self.nowContainerView resetOriginY:self.bannerContainerView.frame.size.height - self.nowContainerView.frame.size.height];
+        [self.nowContainerView resetOriginY:self.bannerContainerView.frame.origin.y + self.bannerContainerView.frame.size.height - self.nowContainerView.frame.size.height];
     } else {
-        [self.nowContainerView resetOriginY:self.bannerContainerView.frame.size.height];
+        [self.nowContainerView resetOriginY:self.bannerContainerView.frame.origin.y + self.bannerContainerView.frame.size.height];
     }
 }
 

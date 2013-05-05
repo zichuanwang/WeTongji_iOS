@@ -19,6 +19,7 @@
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     request.entity = [NSEntityDescription entityForName:@"Activity" inManagedObjectContext:context];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:NO]];
+    request.predicate = [NSPredicate predicateWithFormat:@"homeSelected == YES"];
     NSArray *allActivities = [context executeFetchRequest:request error:NULL];
     
     result = [NSArray arrayWithArray:[allActivities subarrayWithRange:NSMakeRange(0, MIN(4, allActivities.count))]];

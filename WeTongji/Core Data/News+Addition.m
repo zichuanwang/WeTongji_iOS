@@ -19,6 +19,7 @@
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     request.entity = [NSEntityDescription entityForName:@"News" inManagedObjectContext:context];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"publishDate" ascending:NO]];
+    request.predicate = [NSPredicate predicateWithFormat:@"homeSelected == YES"];
     NSArray *allNews = [context executeFetchRequest:request error:NULL];
     
     result = [NSArray arrayWithArray:[allNews subarrayWithRange:NSMakeRange(0, MIN(4, allNews.count))]];
