@@ -79,10 +79,6 @@
 
 #pragma mark - Data load methods
 
-- (void)clearAllData {
-    [Activity clearAllActivites];
-}
-
 - (void)loadMoreDataWithSuccessBlock:(void (^)(void))success
                         failureBlock:(void (^)(void))failure {
     WTRequest * request = [WTRequest requestWithSuccessBlock:^(id responseData) {
@@ -131,6 +127,10 @@
     WTActivitySettingViewController *vc = [[WTActivitySettingViewController alloc] init];
     vc.delegate = self;
     return vc;
+}
+
+- (void)clearAllData {
+    [Activity clearAllActivites];
 }
 
 #pragma mark - UI methods

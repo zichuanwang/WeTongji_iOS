@@ -89,6 +89,18 @@
     }
 }
 
++ (void)clearActivitesInCategory:(NSNumber *)category {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
+    [request setEntity:[NSEntityDescription entityForName:@"Activity" inManagedObjectContext:context]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"category == %@", category]];
+    NSArray *allActivities = [context executeFetchRequest:request error:NULL];
+    
+    for(Activity *item in allActivities) {
+        [context deleteObject:item];
+    }
+}
+
 - (void)awakeFromFetch {
     [super awakeFromFetch];
 }

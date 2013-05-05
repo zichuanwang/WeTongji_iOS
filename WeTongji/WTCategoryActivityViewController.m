@@ -68,4 +68,8 @@
     return vc;
 }
 
+- (void)clearAllData {
+    [Activity clearActivitesInCategory:self.showActivityCategory];
+}
+
 @end

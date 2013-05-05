@@ -72,10 +72,6 @@
 
 #pragma mark - Data load methods
 
-- (void)clearAllData {
-    [News clearAllNews];
-}
-
 - (void)loadMoreDataWithSuccessBlock:(void (^)(void))success
                         failureBlock:(void (^)(void))failure {
     WTRequest * request = [WTRequest requestWithSuccessBlock:^(id responseData) {
@@ -123,6 +119,10 @@
     WTNewsSettingViewController *vc = [[WTNewsSettingViewController alloc] init];
     vc.delegate = self;
     return vc;
+}
+
+- (void)clearAllData {
+    [News clearAllNews];
 }
 
 #pragma mark - Properties

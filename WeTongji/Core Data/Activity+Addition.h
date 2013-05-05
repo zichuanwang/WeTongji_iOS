@@ -20,6 +20,8 @@
 
 + (void)clearAllActivites;
 
++ (void)clearActivitesInCategory:(NSNumber *)category;
+
 + (NSArray *)getHomeSelectActivityArray;
 
 + (NSString *)convertCategoryStringFromCategory:(NSNumber *)category;

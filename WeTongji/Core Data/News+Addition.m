@@ -113,6 +113,19 @@
     }
 }
 
++ (void)clearNewsInCategory:(NSNumber *)category {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
+    [request setEntity:[NSEntityDescription entityForName:@"News" inManagedObjectContext:context]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"category == %@", category]];
+    NSArray *allNews = [context executeFetchRequest:request error:NULL];
+    
+    for(News *item in allNews) {
+        [context deleteObject:item];
+    }
+
+}
+
 - (void)awakeFromFetch {
     [super awakeFromFetch];
     self.publishDay = [NSString yearMonthDayConvertFromDate:self.publishDate];

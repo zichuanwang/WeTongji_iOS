@@ -68,4 +68,8 @@
     return vc;
 }
 
+- (void)clearAllData {
+    [News clearNewsInCategory:self.showNewsCategory];
+}
+
 @end

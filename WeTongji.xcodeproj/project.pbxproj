@@ -1124,14 +1124,14 @@
 		A1DD01CA169F2437009EBE02 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				E12B8C0517356029002A4D9C /* WTCategoryNewsViewController.h */,
+				E12B8C0617356029002A4D9C /* WTCategoryNewsViewController.m */,
 				E1CD3F2F171FF5F600359A79 /* WTNewsDetailViewController.h */,
 				E1CD3F30171FF5F600359A79 /* WTNewsDetailViewController.m */,
 				E1CD3F31171FF5F600359A79 /* WTNewsDetailViewController.xib */,
 				A1DD01CC169F244E009EBE02 /* WTNewsViewController.h */,
 				A1DD01CD169F244E009EBE02 /* WTNewsViewController.m */,
 				A1DD01CE169F244E009EBE02 /* WTNewsViewController.xib */,
-				E12B8C0517356029002A4D9C /* WTCategoryNewsViewController.h */,
-				E12B8C0617356029002A4D9C /* WTCategoryNewsViewController.m */,
 			);
 			name = News;
 			sourceTree = "<group>";
