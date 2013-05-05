@@ -24,7 +24,8 @@
 @property (nonatomic, strong) WTHomeNowContainerView *nowContainerView;
 @property (nonatomic, strong) NSMutableArray *homeSelectViewArray;
 
-@property (nonatomic, assign) BOOL shouldHomeSelectViewsUpdate;
+@property (nonatomic, assign) BOOL shouldUpdateHomeSelectViews;
+@property (nonatomic, assign) BOOL shouldLoadHomeSelectedItems;
 @property (nonatomic, strong) NSTimer *loadHomeSelectedItemsTimer;
 
 @end
@@ -59,6 +60,11 @@
     [self updateNowView];
     [self updateHomeSelectViews];
     [self updateScrollView];
+    
+    if (self.shouldLoadHomeSelectedItems) {
+        [self loadHomeSelectedItems];
+        self.shouldLoadHomeSelectedItems = NO;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -113,11 +119,13 @@
             news.homeSelected = @(YES);
         }
         
-        self.shouldHomeSelectViewsUpdate = YES;
+        self.shouldUpdateHomeSelectViews = YES;
         [self updateHomeSelectViews];
         
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Get home recommendation failure:%@", error.localizedDescription);
+        self.shouldLoadHomeSelectedItems = YES;
+        
     }];
     [request getHomeRecommendation];
     [[WTClient sharedClient] enqueueRequest:request];
@@ -152,7 +160,7 @@
         index++;
     }
     
-    if (!self.shouldHomeSelectViewsUpdate)
+    if (!self.shouldUpdateHomeSelectViews)
         return;
     
     WTHomeSelectContainerView *activitySelectContainerView = self.homeSelectViewArray[0];

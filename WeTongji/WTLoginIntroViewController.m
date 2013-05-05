@@ -10,6 +10,8 @@
 
 @interface WTLoginIntroViewController ()
 
+@property (nonatomic, assign) NSInteger currentIntroBgImageIndex;
+
 @end
 
 @implementation WTLoginIntroViewController
@@ -31,6 +33,8 @@
     [self configureScrollView];
     [self configureLocalizationLabels];
     
+    [self introBgImageViewLoopAnimation];
+    
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
 }
 
@@ -42,7 +46,30 @@
 
 - (void)resetFrame:(CGRect)frame {
     self.view.frame = frame;
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 5, self.scrollView.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 3, self.scrollView.frame.size.height);
+}
+
+#pragma mark - Animations
+
+- (void)introBgImageViewLoopAnimation {
+    
+    self.introBgImageViewB.image = self.introBgImageViewA.image;
+    self.introBgImageViewB.alpha = 1.0f;
+    
+    self.currentIntroBgImageIndex++;
+    if (self.currentIntroBgImageIndex > 2) {
+        self.currentIntroBgImageIndex = 0;
+    }
+    
+    self.introBgImageViewA.image = [UIImage imageNamed:[NSString stringWithFormat:@"WTLoginIntroImage%d.jpg", self.currentIntroBgImageIndex + 1]];
+    
+    [UIView animateWithDuration:1.0f delay:3.0f options:UIViewAnimationCurveEaseInOut animations:^{
+        
+        self.introBgImageViewB.alpha = 0;
+
+    } completion:^(BOOL finished) {
+        [self introBgImageViewLoopAnimation];
+    }];
 }
 
 #pragma mark - UI methods
@@ -64,36 +91,11 @@
 }
 
 - (void)configureScrollView {
-    for (int i = 0; i < 5; i++) {
-        int index = i;
-        if (index == 0)
-            index = 3;
-        else if (index == 4)
-            index = 1;
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"WTLoginIntroImage%d.jpg", index]];
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-        imageView.contentMode = UIViewContentModeScaleAspectFill;
-        imageView.autoresizingMask = UIViewAutoresizingNone;
-        [imageView resetSize:CGSizeMake(image.size.width / 2, image.size.height / 2)];
-        
-        [imageView resetOriginX:i * self.scrollView.frame.size.width];
-        [self.scrollView addSubview:imageView];
-    }
-    self.scrollView.contentOffset = CGPointMake(self.scrollView.frame.size.width, 0);
     self.pageControl.numberOfPages = 3;
 }
 
 - (void)updateScrollView {
     int currentPage = self.scrollView.contentOffset.x / self.scrollView.frame.size.width;
-    if (currentPage == self.pageControl.numberOfPages + 1) {
-        currentPage = 0;
-        self.scrollView.contentOffset = CGPointMake(self.scrollView.frame.size.width, 0);
-    } else if (currentPage == 0) {
-        currentPage = 2;
-        self.scrollView.contentOffset = CGPointMake(self.pageControl.numberOfPages * self.scrollView.frame.size.width, 0);
-    } else {
-        currentPage--;
-    }
     self.pageControl.currentPage = currentPage;
 }
 

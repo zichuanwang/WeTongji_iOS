@@ -14,6 +14,8 @@
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, weak) IBOutlet UILabel *campusInYourPocketLabel;
 @property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
+@property (nonatomic, weak) IBOutlet UIImageView *introBgImageViewA;
+@property (nonatomic, weak) IBOutlet UIImageView *introBgImageViewB;
 
 - (IBAction)didClickTourButton:(UIButton *)sender;
 
