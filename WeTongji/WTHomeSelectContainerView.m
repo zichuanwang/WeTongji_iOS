@@ -86,7 +86,8 @@
             }
                 break;
             case WTHomeSelectContainerViewCategoryFeatured: {
-                itemView = [WTHomeSelectStarView createHomeSelectStarView];
+                Star *star = self.itemInfoArray[index];
+                itemView = [WTHomeSelectStarView createHomeSelectStarViewWithStar:star];
             }
                 break;
             case WTHomeSelectContainerViewCategoryActivity: {

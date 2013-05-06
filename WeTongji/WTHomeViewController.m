@@ -13,6 +13,7 @@
 #import "WTActivityDetailViewController.h"
 #import "Activity+Addition.h"
 #import "News+Addition.h"
+#import "Star+Addition.h"
 #import "Object+Addtion.h"
 #import "WTNewsDetailViewController.h"
 #import "WTCategoryActivityViewController.h"
@@ -120,6 +121,19 @@
             news.homeSelected = @(YES);
         }
         
+        NSObject *starInfoObject = resultDict[@"Person"];
+        
+        if ([starInfoObject isKindOfClass:[NSArray class]]) {
+            NSArray *starInfoArray = (NSArray *)starInfoObject;
+            for (NSDictionary *infoDict in starInfoArray) {
+                Star *star = [Star insertStar:infoDict];
+                star.homeSelected = @(YES);
+            }
+        } else if ([starInfoObject isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *starInfoDict = (NSDictionary *)starInfoObject;
+            Star *star = [Star insertStar:starInfoDict];
+            star.homeSelected = @(YES);
+        }
         self.shouldUpdateHomeSelectViews = YES;
         [self updateHomeSelectViews];
         
@@ -171,7 +185,7 @@
     [newsSelectContainerView updateItemInfoArray:[News getHomeSelectNewsArray]];
     
     WTHomeSelectContainerView *featuredSelectContainerView = self.homeSelectViewArray[2];
-    [featuredSelectContainerView updateItemInfoArray:@[@"", @"", @""]];
+    [featuredSelectContainerView updateItemInfoArray:[Star getHomeSelectStarArray]];
     
     self.shouldUpdateHomeSelectViews = NO;
 }

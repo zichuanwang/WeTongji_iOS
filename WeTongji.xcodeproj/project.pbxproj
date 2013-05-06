@@ -143,7 +143,6 @@
 		E11825C11714768400B4B9BF /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825C01714768400B4B9BF /* Course.m */; };
 		E11825C71714769600B4B9BF /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825C61714769600B4B9BF /* Organization.m */; };
 		E11825CD1714769800B4B9BF /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825CC1714769700B4B9BF /* Notification.m */; };
-		E11825D61714769800B4B9BF /* Star.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825D51714769800B4B9BF /* Star.m */; };
 		E11825D91714769800B4B9BF /* InvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825D81714769800B4B9BF /* InvitationNotification.m */; };
 		E11825DD17154AB500B4B9BF /* WTActivityDetailDescriptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825DC17154AB500B4B9BF /* WTActivityDetailDescriptionView.m */; };
 		E11825DF17154AD400B4B9BF /* WTActivityDetailDescriptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E11825DE17154AD400B4B9BF /* WTActivityDetailDescriptionView.xib */; };
@@ -465,6 +464,8 @@
 		E1ED19171719D1E400B0A847 /* WTLoginIntroImage1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1ED19141719D1E400B0A847 /* WTLoginIntroImage1.jpg */; };
 		E1ED19181719D1E400B0A847 /* WTLoginIntroImage2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1ED19151719D1E400B0A847 /* WTLoginIntroImage2.jpg */; };
 		E1ED19191719D1E400B0A847 /* WTLoginIntroImage3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1ED19161719D1E400B0A847 /* WTLoginIntroImage3.jpg */; };
+		E1EF0E741738184B00959DD0 /* Star+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EF0E731738184B00959DD0 /* Star+Addition.m */; };
+		E1EF0E7717381CE100959DD0 /* Star.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EF0E7617381CE100959DD0 /* Star.m */; };
 		E1F02F4B16F38B5900699C81 /* WTNavigationBarBackHighlightButtonIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F02F4916F38B5800699C81 /* WTNavigationBarBackHighlightButtonIcon.png */; };
 		E1F02F4C16F38B5900699C81 /* WTNavigationBarBackHighlightButtonIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F02F4A16F38B5900699C81 /* WTNavigationBarBackHighlightButtonIcon@2x.png */; };
 		E1F02F4F16F38B6E00699C81 /* WTNavigationBarBackHighlightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F02F4D16F38B6D00699C81 /* WTNavigationBarBackHighlightButton.png */; };
@@ -656,8 +657,6 @@
 		E11825C61714769600B4B9BF /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Organization.m; sourceTree = "<group>"; };
 		E11825CB1714769700B4B9BF /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		E11825CC1714769700B4B9BF /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
-		E11825D41714769800B4B9BF /* Star.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Star.h; sourceTree = "<group>"; };
-		E11825D51714769800B4B9BF /* Star.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Star.m; sourceTree = "<group>"; };
 		E11825D71714769800B4B9BF /* InvitationNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationNotification.h; sourceTree = "<group>"; };
 		E11825D81714769800B4B9BF /* InvitationNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationNotification.m; sourceTree = "<group>"; };
 		E11825DB17154AB500B4B9BF /* WTActivityDetailDescriptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTActivityDetailDescriptionView.h; sourceTree = "<group>"; };
@@ -1071,6 +1070,10 @@
 		E1ED19141719D1E400B0A847 /* WTLoginIntroImage1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WTLoginIntroImage1.jpg; sourceTree = "<group>"; };
 		E1ED19151719D1E400B0A847 /* WTLoginIntroImage2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WTLoginIntroImage2.jpg; sourceTree = "<group>"; };
 		E1ED19161719D1E400B0A847 /* WTLoginIntroImage3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WTLoginIntroImage3.jpg; sourceTree = "<group>"; };
+		E1EF0E721738184B00959DD0 /* Star+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Star+Addition.h"; sourceTree = "<group>"; };
+		E1EF0E731738184B00959DD0 /* Star+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Star+Addition.m"; sourceTree = "<group>"; };
+		E1EF0E7517381CE100959DD0 /* Star.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Star.h; sourceTree = "<group>"; };
+		E1EF0E7617381CE100959DD0 /* Star.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Star.m; sourceTree = "<group>"; };
 		E1F02F4916F38B5800699C81 /* WTNavigationBarBackHighlightButtonIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNavigationBarBackHighlightButtonIcon.png; sourceTree = "<group>"; };
 		E1F02F4A16F38B5900699C81 /* WTNavigationBarBackHighlightButtonIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNavigationBarBackHighlightButtonIcon@2x.png"; sourceTree = "<group>"; };
 		E1F02F4D16F38B6D00699C81 /* WTNavigationBarBackHighlightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNavigationBarBackHighlightButton.png; sourceTree = "<group>"; };
@@ -2133,8 +2136,6 @@
 				E11825CC1714769700B4B9BF /* Notification.m */,
 				E11825C51714769600B4B9BF /* Organization.h */,
 				E11825C61714769600B4B9BF /* Organization.m */,
-				E11825D41714769800B4B9BF /* Star.h */,
-				E11825D51714769800B4B9BF /* Star.m */,
 				E1DB6EED171DD0AB00E24187 /* Event.h */,
 				E1DB6EEE171DD0AB00E24187 /* Event.m */,
 				E17966941728353B00761BD5 /* User.h */,
@@ -2149,6 +2150,8 @@
 				E12B8C001734FC0D002A4D9C /* Activity.m */,
 				E12B8C081736B516002A4D9C /* Object.h */,
 				E12B8C091736B516002A4D9C /* Object.m */,
+				E1EF0E7517381CE100959DD0 /* Star.h */,
+				E1EF0E7617381CE100959DD0 /* Star.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2174,6 +2177,8 @@
 				E13B0E6C16A4476000A45079 /* User+Addition.m */,
 				E12B8C0B1736B544002A4D9C /* Object+Addtion.h */,
 				E12B8C0C1736B544002A4D9C /* Object+Addtion.m */,
+				E1EF0E721738184B00959DD0 /* Star+Addition.h */,
+				E1EF0E731738184B00959DD0 /* Star+Addition.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -2698,7 +2703,6 @@
 				E11825C11714768400B4B9BF /* Course.m in Sources */,
 				E11825C71714769600B4B9BF /* Organization.m in Sources */,
 				E11825CD1714769800B4B9BF /* Notification.m in Sources */,
-				E11825D61714769800B4B9BF /* Star.m in Sources */,
 				E11825D91714769800B4B9BF /* InvitationNotification.m in Sources */,
 				E11825DD17154AB500B4B9BF /* WTActivityDetailDescriptionView.m in Sources */,
 				E14F9E7717193383009AFABA /* WTErrorHandler.m in Sources */,
@@ -2740,6 +2744,8 @@
 				E12B8C0717356029002A4D9C /* WTCategoryNewsViewController.m in Sources */,
 				E12B8C0A1736B516002A4D9C /* Object.m in Sources */,
 				E12B8C0D1736B545002A4D9C /* Object+Addtion.m in Sources */,
+				E1EF0E741738184B00959DD0 /* Star+Addition.m in Sources */,
+				E1EF0E7717381CE100959DD0 /* Star.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

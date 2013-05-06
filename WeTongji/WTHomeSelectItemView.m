@@ -15,7 +15,7 @@
 #import "Event+Addition.h"
 #import "Activity+Addition.h"
 #import "News+Addition.h"
-#import "Star.h"
+#import "Star+Addition.h"
 
 typedef enum {
     WTHomeSelectItemStyleNormal,
@@ -159,14 +159,14 @@ typedef enum {
 
 @implementation WTHomeSelectStarView
 
-+ (WTHomeSelectStarView *)createHomeSelectStarView {
++ (WTHomeSelectStarView *)createHomeSelectStarViewWithStar:(Star *)star {
     NSArray *viewArray = [[NSBundle mainBundle] loadNibNamed:@"WTHomeSelectItemView" owner:self options:nil];
     WTHomeSelectStarView *result = nil;
     for(UIView *view in viewArray) {
         if ([view isKindOfClass:[WTHomeSelectStarView class]])
             result = (WTHomeSelectStarView *)view;
     }
-    [result configureViewWithStar:nil];
+    [result configureViewWithStar:star];
     return result;
 }
 
@@ -174,6 +174,14 @@ typedef enum {
     [self configureAvatarImageView];
     [self createLikeButtonView];
     [self addSubview:self.likeButtonView];
+    
+    [self.avatarImageView loadImageWithImageURLString:star.avatar];
+    self.nameLabel.text = star.name;
+    self.titleLbale.text = star.jobTitle;
+    self.subCategoryLabel.text = NSLocalizedString(@"Star", nil);
+    
+    self.likeButtonView.likeButton.selected = !star.canLike.boolValue;
+    [self.likeButtonView setLikeCount:star.likeCount.integerValue];
 }
 
 - (void)configureAvatarImageView {

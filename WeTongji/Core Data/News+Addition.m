@@ -13,18 +13,15 @@
 @implementation News (Addition)
 
 + (NSArray *)getHomeSelectNewsArray {
-    NSMutableArray *result = [NSMutableArray array];
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     request.entity = [NSEntityDescription entityForName:@"News" inManagedObjectContext:context];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"publishDate" ascending:NO]];
     request.predicate = [NSPredicate predicateWithFormat:@"homeSelected == YES"];
-    NSArray *allNews = [context executeFetchRequest:request error:NULL];
-    
-    result = [NSArray arrayWithArray:[allNews subarrayWithRange:NSMakeRange(0, MIN(4, allNews.count))]];
-    
-    return result;
+    NSArray *homeSelectedNews = [context executeFetchRequest:request error:NULL];
+        
+    return homeSelectedNews;
 }
 
 + (News *)insertNews:(NSDictionary *)dict {

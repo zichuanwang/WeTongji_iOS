@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "News.h"
 #import "Activity.h"
+#import "Star.h"
 
 @interface WTHomeSelectItemView : UIView
 
@@ -47,7 +48,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *titleLbale;
 
-+ (WTHomeSelectStarView *)createHomeSelectStarView;
++ (WTHomeSelectStarView *)createHomeSelectStarViewWithStar:(Star *)star;
 
 @end
 
