@@ -172,6 +172,8 @@
     
     WTHomeSelectContainerView *featuredSelectContainerView = self.homeSelectViewArray[2];
     [featuredSelectContainerView updateItemInfoArray:@[@"", @"", @""]];
+    
+    self.shouldUpdateHomeSelectViews = NO;
 }
 
 - (void)configureNewsSelect {
