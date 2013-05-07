@@ -31,6 +31,10 @@ typedef enum {
 
 @implementation WTHomeSelectItemView
 
+- (void)updateItemViewWithInfoObject:(Object *)infoObject {
+    
+}
+
 #pragma mark - Actions
 
 - (void)didClickLikeButton:(UIButton *)sender {
@@ -80,6 +84,14 @@ typedef enum {
     [result configureViewWithNews:news];
     
     return result;
+}
+
+- (void)updateItemViewWithInfoObject:(Object *)infoObject {
+    News *news = (News *)infoObject;
+    NSArray *newsImageArray = news.imageArray;
+    if (newsImageArray && newsImageArray.count > 0 && self.bgImageView.image == nil) {
+        [self.bgImageView loadImageWithImageURLString:newsImageArray[0]];
+    }
 }
 
 - (void)configureViewWithNews:(News *)news {
@@ -132,6 +144,14 @@ typedef enum {
     return result;
 }
 
+- (void)updateItemViewWithInfoObject:(Object *)infoObject {
+    News *news = (News *)infoObject;
+    NSArray *newsImageArray = news.imageArray;
+    if (newsImageArray && newsImageArray.count > 0 && self.posterImageView.image == nil) {
+        [self.posterImageView loadImageWithImageURLString:newsImageArray[0]];
+    }
+}
+
 - (void)configureViewWithNews:(News *)news {
     // Poster image
     NSArray *newsImageArray = news.imageArray;
@@ -170,6 +190,13 @@ typedef enum {
     return result;
 }
 
+- (void)updateItemViewWithInfoObject:(Object *)infoObject {
+    Star *star = (Star *)infoObject;
+    if (star.avatar && self.avatarImageView.image == nil) {
+        [self.avatarImageView loadImageWithImageURLString:star.avatar];
+    }
+}
+
 - (void)configureViewWithStar:(Star *)star {
     [self configureAvatarImageView];
     [self createLikeButtonView];
@@ -204,6 +231,13 @@ typedef enum {
     [result configureViewWithActivity:activity];
     
     return result;
+}
+
+- (void)updateItemViewWithInfoObject:(Object *)infoObject {
+    Activity *activity = (Activity *)infoObject;
+    if (activity.image && self.posterImageView.image == nil) {
+        [self.posterImageView loadImageWithImageURLString:activity.image];
+    }
 }
 
 - (void)configureViewWithActivity:(Activity *)activity {

@@ -20,6 +20,8 @@
 @property (nonatomic, weak) IBOutlet UIButton *bgCoverButton;
 @property (nonatomic, strong) UIButton *showCategoryButton;
 
+- (void)updateItemViewWithInfoObject:(Object *)infoObject;
+
 @end
 
 @interface WTHomeSelectNewsView : WTHomeSelectItemView

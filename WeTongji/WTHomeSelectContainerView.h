@@ -34,6 +34,8 @@ typedef enum {
 
 - (void)updateItemInfoArray:(NSArray *)infoArray;
 
+- (void)updateItemViews;
+
 @end
 
 #pragma mark - WTHomeSelectContainerViewDelegate Protocol

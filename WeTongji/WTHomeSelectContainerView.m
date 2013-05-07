@@ -66,6 +66,14 @@
     [self configureScrollView];
 }
 
+- (void)updateItemViews {
+    NSUInteger index = 0;
+    for (WTHomeSelectItemView *itemView in self.itemViewArray) {
+        [itemView updateItemViewWithInfoObject:self.itemInfoArray[index]];
+        index++;
+    }
+}
+
 #pragma mark - Logic methods
 
 - (NSUInteger)numberOfItemViewsInScrollView {

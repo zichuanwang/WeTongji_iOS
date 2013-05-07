@@ -172,6 +172,7 @@
     for (WTHomeSelectContainerView *homeSelectContainerView in self.homeSelectViewArray) {
         [homeSelectContainerView resetOrigin:CGPointMake(0, self.nowContainerView.frame.size
                                                .height + self.nowContainerView.frame.origin.y + homeSelectContainerView.frame.size.height * index)];
+        [homeSelectContainerView updateItemViews];
         index++;
     }
     
