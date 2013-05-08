@@ -11,7 +11,7 @@
 @interface WTSearchHintView : UIView <UITableViewDataSource>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, copy) NSString *searchKeyWord;
+@property (nonatomic, copy) NSString *searchKeyword;
 
 + (WTSearchHintView *)createSearchHintView;
 

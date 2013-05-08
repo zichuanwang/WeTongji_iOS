@@ -17,6 +17,6 @@
 @property (nonatomic, weak) IBOutlet UIView *containerView;
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
-                     searchKeyWord:(NSString *)keyWord;
+                     searchKeyword:(NSString *)keyword;
 
 @end

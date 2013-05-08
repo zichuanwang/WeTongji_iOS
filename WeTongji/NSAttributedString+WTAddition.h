@@ -18,7 +18,7 @@
                                                             font:(UIFont *)font
                                                        textColor:(UIColor *)color;
 
-+ (NSAttributedString *)searchHintStringForKeyWord:(NSString *)keyWord
++ (NSAttributedString *)searchHintStringForKeyword:(NSString *)keyword
                                           category:(NSString *)category
                                         attributes:(NSDictionary *)attributes;
 

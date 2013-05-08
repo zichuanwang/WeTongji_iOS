@@ -29,7 +29,7 @@
 }
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
-                     searchKeyWord:(NSString *)keyWord {
+                     searchKeyword:(NSString *)keyword {
     if (indexPath.row % 2) {
         self.containerView.backgroundColor = WTCellBackgroundColor1;
     } else {
@@ -72,7 +72,7 @@
     }
     
     if (categoryString) {
-        labelAttributedString = [NSMutableAttributedString attributedStringWithAttributedString:[NSAttributedString searchHintStringForKeyWord:keyWord category:categoryString attributes:[self.label.attributedText attributesAtIndex:0 effectiveRange:NULL]]];
+        labelAttributedString = [NSMutableAttributedString attributedStringWithAttributedString:[NSAttributedString searchHintStringForKeyword:keyword category:categoryString attributes:[self.label.attributedText attributesAtIndex:0 effectiveRange:NULL]]];
     }
     
     self.label.attributedText = labelAttributedString;

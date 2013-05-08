@@ -12,4 +12,7 @@
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 
++ (WTSearchResultTableViewController *)createViewControllerWithSearchKeyword:(NSString *)keyword
+                                                              searchCategory:(NSInteger)category;
+
 @end

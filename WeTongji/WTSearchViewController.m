@@ -11,6 +11,7 @@
 #import "WTResourceFactory.h"
 #import "User+Addition.h"
 #import "WTSearchHintView.h"
+#import "WTSearchResultTableViewController.h"
 
 @interface WTSearchViewController () <UITableViewDelegate>
 
@@ -37,14 +38,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapView:)]];
-    
     [self configureNavigationBar];
     
     [self configureSearchHintView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleKeyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleKeyboardWillDismissNotification:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -65,10 +64,15 @@
     [self configureSearchHintViewSizeWithKeyboardHeight:keyboardHeight];
 }
 
+- (void)handleKeyboardWillDismissNotification:(NSNotification *)notification {
+    [self configureSearchHintViewSizeWithKeyboardHeight:0];
+}
+
 #pragma mark - UI methods
 
 - (void)configureSearchHintViewSizeWithKeyboardHeight:(CGFloat)keyboardHeight {
     CGFloat visibleScreenHeight = [UIScreen mainScreen].bounds.size.height - 64.0f - keyboardHeight;
+    visibleScreenHeight = visibleScreenHeight > self.view.frame.size.height ? self.view.frame.size.height : visibleScreenHeight;
     [self.searchHintView resetHeight:visibleScreenHeight];
 }
 
@@ -116,13 +120,13 @@
     self.navigationItem.rightBarButtonItem = searchBarButtonItem;
 }
 
-#define CUSTOM_SEARCH_BAR_CANCEL_BUTTNO_TAG 10000
+#define CUSTOM_SEARCH_BAR_CANCEL_BUTTON_TAG 10000
 
 - (void)addCustomCancelButtonToSearchBar {
     UIButton *customSearchBarCancelButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Cancel", nil)];
     [customSearchBarCancelButton resetOriginY:1.0f];
     [customSearchBarCancelButton resetOriginX:self.searchBar.frame.size.width - customSearchBarCancelButton.frame.size.width];
-    customSearchBarCancelButton.tag = CUSTOM_SEARCH_BAR_CANCEL_BUTTNO_TAG;
+    customSearchBarCancelButton.tag = CUSTOM_SEARCH_BAR_CANCEL_BUTTON_TAG;
     [customSearchBarCancelButton addTarget:self action:@selector(didClickCustomSearchBarCancelButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.searchBar addSubview:customSearchBarCancelButton];
     self.customSearchBarCancelButton = customSearchBarCancelButton;
@@ -130,7 +134,7 @@
 
 - (void)hideOriginalSearchBarCancelButton {
     for (UIView *subView in self.searchBar.subviews) {
-        if([subView isKindOfClass:[UIButton class]] && subView.tag != CUSTOM_SEARCH_BAR_CANCEL_BUTTNO_TAG)
+        if([subView isKindOfClass:[UIButton class]] && subView.tag != CUSTOM_SEARCH_BAR_CANCEL_BUTTON_TAG)
         {
             subView.hidden = YES;
         }
@@ -196,7 +200,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == self.searchHintView.tableView) {
-        
+        WTSearchResultTableViewController *vc = [WTSearchResultTableViewController createViewControllerWithSearchKeyword:self.searchBar.text searchCategory:indexPath.row];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
@@ -218,13 +223,7 @@
     [super didClickNotificationButton:sender];
 }
 
-#pragma mark - Handle gesture recognizer
-
-- (void)didTapView:(UIGestureRecognizer*)gestureRecognizer {
-    [self.searchBar endEditing:YES];
-}
-
-#pragma mark - UISearchBarDelega
+#pragma mark - UISearchBarDelegate
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     [self showSearchBarCancelButton:YES];
@@ -233,7 +232,7 @@
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    self.searchHintView.searchKeyWord = searchText;
+    self.searchHintView.searchKeyword = searchText;
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
@@ -255,7 +254,6 @@
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"搜索失败" message:error.localizedDescription delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil];
         [alertView show];
     }];
-    [request search:searchBar.text];
     [[WTClient sharedClient] enqueueRequest:request];
 }
 

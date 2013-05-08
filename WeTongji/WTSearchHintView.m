@@ -30,9 +30,9 @@
 
 #pragma mark - Properties
 
-- (void)setSearchKeyWord:(NSString *)searchKeyWord {
-    if (![searchKeyWord isEqualToString:_searchKeyWord]) {
-        _searchKeyWord = [searchKeyWord copy];
+- (void)setSearchKeyword:(NSString *)searchKeyword {
+    if (![searchKeyword isEqualToString:_searchKeyword]) {
+        _searchKeyword = [searchKeyword copy];
         [self.tableView reloadData];
     }
 }
@@ -40,7 +40,7 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.searchKeyWord && ![self.searchKeyWord isEqualToString:@""])
+    if (self.searchKeyword && ![self.searchKeyword isEqualToString:@""])
         return 5;
     else
         return 0;
@@ -57,16 +57,8 @@
     }
     
     WTSearchHintCell *searchHintCell = (WTSearchHintCell *)cell;
-    [searchHintCell configureCellWithIndexPath:indexPath searchKeyWord:self.searchKeyWord];
+    [searchHintCell configureCellWithIndexPath:indexPath searchKeyword:self.searchKeyword];
     return cell;
-}
-
-#pragma mark - UIScrollViewDelegate
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    return;
-    if (scrollView.contentOffset.y < 0)
-        scrollView.contentOffset = CGPointZero;
 }
 
 @end
