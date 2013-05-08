@@ -35,10 +35,22 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleKeyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Keyboard notification
+
+- (void)handleKeyboardWillShowNotification:(NSNotification *)notification {
+    NSDictionary *info = [notification userInfo];
+    CGFloat keyboardHeight = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
+    [self configureContentTextViewSizeWithKeyboardHeight:keyboardHeight];
 }
 
 #pragma mark - UI methods
@@ -81,14 +93,6 @@
 
 - (void)didClickLockButton:(UIButton *)sender {
     sender.selected = !sender.selected;
-}
-
-#pragma mark - Keyboard notification
-
-- (void)handleKeyboardWillShowNotification:(NSNotification *)notification {
-    NSDictionary *info = [notification userInfo];
-    CGFloat keyboardHeight = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
-    [self configureContentTextViewSizeWithKeyboardHeight:keyboardHeight];
 }
 
 @end

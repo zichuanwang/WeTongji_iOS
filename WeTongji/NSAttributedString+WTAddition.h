@@ -18,4 +18,8 @@
                                                             font:(UIFont *)font
                                                        textColor:(UIColor *)color;
 
++ (NSAttributedString *)searchHintStringForKeyWord:(NSString *)keyWord
+                                          category:(NSString *)category
+                                        attributes:(NSDictionary *)attributes;
+
 @end

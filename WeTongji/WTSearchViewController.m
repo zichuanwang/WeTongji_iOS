@@ -10,10 +10,13 @@
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import "WTResourceFactory.h"
 #import "User+Addition.h"
+#import "WTSearchHintView.h"
 
-@interface WTSearchViewController ()
+@interface WTSearchViewController () <UITableViewDelegate>
 
 @property (nonatomic, weak) UIButton *customSearchBarCancelButton;
+
+@property (nonatomic, strong) WTSearchHintView *searchHintView;
 
 @property (nonatomic, assign) BOOL shouldSearchBarBecomeFirstResponder;
 
@@ -38,6 +41,14 @@
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapView:)]];
     
     [self configureNavigationBar];
+    
+    [self configureSearchHintView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleKeyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,7 +57,27 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Keyboard notification
+
+- (void)handleKeyboardWillShowNotification:(NSNotification *)notification {
+    NSDictionary *info = [notification userInfo];
+    CGFloat keyboardHeight = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
+    [self configureSearchHintViewSizeWithKeyboardHeight:keyboardHeight];
+}
+
 #pragma mark - UI methods
+
+- (void)configureSearchHintViewSizeWithKeyboardHeight:(CGFloat)keyboardHeight {
+    CGFloat visibleScreenHeight = [UIScreen mainScreen].bounds.size.height - 64.0f - keyboardHeight;
+    [self.searchHintView resetHeight:visibleScreenHeight];
+}
+
+- (void)configureSearchHintView {
+    self.searchHintView = [WTSearchHintView createSearchHintView];
+    self.searchHintView.hidden = YES;
+    self.searchHintView.tableView.delegate = self;
+    [self.view addSubview:self.searchHintView];
+}
 
 - (void)configureSearchBarBgWithControlState:(UIControlState)state {
     if (state == UIControlStateSelected) {
@@ -161,12 +192,20 @@
     }
 }
 
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView == self.searchHintView.tableView) {
+        
+    }
+}
+
 #pragma mark - Actions
 
 - (void)didClickCustomSearchBarCancelButton:(UIButton *)sender {
-    self.searchBar.text = @"";
     [self showSearchBarCancelButton:NO];
     [self.searchBar resignFirstResponder];
+    self.searchHintView.hidden = YES;
 }
 
 - (void)didClickNotificationButton:(WTNotificationBarButton *)sender {
@@ -189,7 +228,12 @@
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     [self showSearchBarCancelButton:YES];
+    self.searchHintView.hidden = NO;
     NSLog(@"searchBarTextDidBeginEditing");
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    self.searchHintView.searchKeyWord = searchText;
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
@@ -197,6 +241,7 @@
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    return;
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Search user result:%@", responseObject);
         NSDictionary *responseDict = responseObject;
