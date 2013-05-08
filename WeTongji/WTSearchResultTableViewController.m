@@ -19,7 +19,7 @@
 #import "WTNewsDetailViewController.h"
 #import "WTActivityDetailViewController.h"
 
-@interface WTSearchResultTableViewController ()
+@interface WTSearchResultTableViewController () <WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
 @property (nonatomic, strong) WTDragToLoadDecorator *dragToLoadDecorator;
 
@@ -120,9 +120,11 @@
 //            Star *star = [Star insertStar:infoDict];
 //            star.searchResult = @(YES);
 //        }
+        [self.dragToLoadDecorator topViewLoadFinished:YES];
 
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Load search result failure:%@", error.localizedDescription);
+        [self.dragToLoadDecorator topViewLoadFinished:NO];
     }];
     [request getSearchResultInCategory:self.searchCategory keyword:self.searchKeyword];
     [[WTClient sharedClient] enqueueRequest:request];
