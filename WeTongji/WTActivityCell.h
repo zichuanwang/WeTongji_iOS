@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class Activity;
+
 @interface WTActivityCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
@@ -19,10 +21,7 @@
 @property (nonatomic, weak) IBOutlet UIImageView *disclosureImageView;
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
-                             title:(NSString *)title
-                              time:(NSString *)time
-                          location:(NSString *)location
-                         imageURL:(NSString *)imageURL;
+                          activity:(Activity *)activity;
 
 
 @end

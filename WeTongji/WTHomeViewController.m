@@ -106,7 +106,7 @@
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Get home recommendation succuess:%@", responseObject);
         
-        [Object clearAllHomeSelectedObject];
+        [Object clearAllHomeSelectedObjects];
         
         NSDictionary *resultDict = (NSDictionary *)responseObject;
         NSArray *activityInfoArray = resultDict[@"Activities"];

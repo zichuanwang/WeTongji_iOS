@@ -177,13 +177,8 @@
     WTActivityCell *activityCell = (WTActivityCell *)cell;
     
     Activity *activity = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    NSString *timeString = activity.yearMonthDayBeginToEndTimeString;
-    
-    [activityCell configureCellWithIndexPath:indexPath title:activity.what
-                                        time:timeString
-                                    location:activity.where
-                                    imageURL:activity.image];
+        
+    [activityCell configureCellWithIndexPath:indexPath activity:activity];
 }
 
 - (void)insertCellAtIndexPath:(NSIndexPath *)indexPath {

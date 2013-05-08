@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WTCoreDataTableViewController.h"
 
-@interface WTSearchResultTableViewController : UIViewController
+@interface WTSearchResultTableViewController : WTCoreDataTableViewController
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 

@@ -11,16 +11,27 @@
 
 @implementation Object (Addtion)
 
-+ (void)clearAllHomeSelectedObject {
++ (void)clearAllHomeSelectedObjects {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     [request setEntity:[NSEntityDescription entityForName:@"Object" inManagedObjectContext:context]];
     [request setPredicate:[NSPredicate predicateWithFormat:@"homeSelected == YES"]];
-    NSArray *allHomeSelectedObject = [context executeFetchRequest:request error:NULL];
-    NSLog(@"home selected object count:%d", allHomeSelectedObject.count);
+    NSArray *allHomeSelectedObjects = [context executeFetchRequest:request error:NULL];
     
-    for(Object *item in allHomeSelectedObject) {
+    for(Object *item in allHomeSelectedObjects) {
         item.homeSelected = @(NO);
+    }
+}
+
++ (void)clearAllSearchResultObjects {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
+    [request setEntity:[NSEntityDescription entityForName:@"Object" inManagedObjectContext:context]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"searchResult == YES"]];
+    NSArray *allSearchResultObjects = [context executeFetchRequest:request error:NULL];
+    
+    for(Object *item in allSearchResultObjects) {
+        item.searchResult = @(NO);
     }
 }
 

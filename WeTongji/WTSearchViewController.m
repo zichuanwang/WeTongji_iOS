@@ -240,21 +240,8 @@
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    return;
-    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
-        WTLOG(@"Search user result:%@", responseObject);
-        NSDictionary *responseDict = responseObject;
-        // TODO: 实际应该为Array
-        NSDictionary *searchResultUserDict = responseDict[@"User"];
-        User *result = [User insertUser:searchResultUserDict];
-        WTLOG(@"Search user:%@", searchResultUserDict);
-        [self inviteFriend:result];
-    } failureBlock:^(NSError *error) {
-        WTLOGERROR(@"Search user:%@", error.localizedDescription);
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"搜索失败" message:error.localizedDescription delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil];
-        [alertView show];
-    }];
-    [[WTClient sharedClient] enqueueRequest:request];
+    WTSearchResultTableViewController *vc = [WTSearchResultTableViewController createViewControllerWithSearchKeyword:self.searchBar.text searchCategory:0];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)inviteFriend:(User *)user {

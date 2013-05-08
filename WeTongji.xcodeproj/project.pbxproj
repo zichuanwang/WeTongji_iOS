@@ -110,6 +110,7 @@
 		E1132E7516C63308004CB808 /* WTCheckmarkIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E7316C63308004CB808 /* WTCheckmarkIcon.png */; };
 		E1132E7616C63308004CB808 /* WTCheckmarkIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E7416C63308004CB808 /* WTCheckmarkIcon@2x.png */; };
 		E1132E7916C65823004CB808 /* NSUserDefaults+WTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E1132E7816C65823004CB808 /* NSUserDefaults+WTAddition.m */; };
+		E1157DC8173ADB4E00E62295 /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E1157DC7173ADB4E00E62295 /* Object.m */; };
 		E115FA9D173A3D2800DE5649 /* WTSearchHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = E115FA9C173A3D2800DE5649 /* WTSearchHintView.m */; };
 		E115FA9F173A3D3C00DE5649 /* WTSearchHintView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E115FA9E173A3D3C00DE5649 /* WTSearchHintView.xib */; };
 		E115FAA2173A3DE900DE5649 /* WTSearchHintCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E115FAA1173A3DE900DE5649 /* WTSearchHintCell.m */; };
@@ -168,7 +169,6 @@
 		E12B8C011734FC0D002A4D9C /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B8C001734FC0D002A4D9C /* Activity.m */; };
 		E12B8C04173546B1002A4D9C /* WTCategoryActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B8C03173546B1002A4D9C /* WTCategoryActivityViewController.m */; };
 		E12B8C0717356029002A4D9C /* WTCategoryNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B8C0617356029002A4D9C /* WTCategoryNewsViewController.m */; };
-		E12B8C0A1736B516002A4D9C /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B8C091736B516002A4D9C /* Object.m */; };
 		E12B8C0D1736B545002A4D9C /* Object+Addtion.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B8C0C1736B544002A4D9C /* Object+Addtion.m */; };
 		E12E24741727364900EFA9B5 /* WTLockHighlightIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E24701727364900EFA9B5 /* WTLockHighlightIcon.png */; };
 		E12E24751727364900EFA9B5 /* WTLockHighlightIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E24711727364900EFA9B5 /* WTLockHighlightIcon@2x.png */; };
@@ -621,6 +621,8 @@
 		E1132E7416C63308004CB808 /* WTCheckmarkIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTCheckmarkIcon@2x.png"; sourceTree = "<group>"; };
 		E1132E7716C65823004CB808 /* NSUserDefaults+WTAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+WTAddition.h"; sourceTree = "<group>"; };
 		E1132E7816C65823004CB808 /* NSUserDefaults+WTAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+WTAddition.m"; sourceTree = "<group>"; };
+		E1157DC6173ADB4E00E62295 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
+		E1157DC7173ADB4E00E62295 /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
 		E115FA9B173A3D2800DE5649 /* WTSearchHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSearchHintView.h; sourceTree = "<group>"; };
 		E115FA9C173A3D2800DE5649 /* WTSearchHintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSearchHintView.m; sourceTree = "<group>"; };
 		E115FA9E173A3D3C00DE5649 /* WTSearchHintView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSearchHintView.xib; sourceTree = "<group>"; };
@@ -699,8 +701,6 @@
 		E12B8C03173546B1002A4D9C /* WTCategoryActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCategoryActivityViewController.m; sourceTree = "<group>"; };
 		E12B8C0517356029002A4D9C /* WTCategoryNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCategoryNewsViewController.h; sourceTree = "<group>"; };
 		E12B8C0617356029002A4D9C /* WTCategoryNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCategoryNewsViewController.m; sourceTree = "<group>"; };
-		E12B8C081736B516002A4D9C /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
-		E12B8C091736B516002A4D9C /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
 		E12B8C0B1736B544002A4D9C /* Object+Addtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Object+Addtion.h"; sourceTree = "<group>"; };
 		E12B8C0C1736B544002A4D9C /* Object+Addtion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Object+Addtion.m"; sourceTree = "<group>"; };
 		E12E24701727364900EFA9B5 /* WTLockHighlightIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTLockHighlightIcon.png; sourceTree = "<group>"; };
@@ -2172,10 +2172,10 @@
 				E16E962A173430540055DE27 /* News.m */,
 				E12B8BFF1734FC0D002A4D9C /* Activity.h */,
 				E12B8C001734FC0D002A4D9C /* Activity.m */,
-				E12B8C081736B516002A4D9C /* Object.h */,
-				E12B8C091736B516002A4D9C /* Object.m */,
 				E1EF0E7517381CE100959DD0 /* Star.h */,
 				E1EF0E7617381CE100959DD0 /* Star.m */,
+				E1157DC6173ADB4E00E62295 /* Object.h */,
+				E1157DC7173ADB4E00E62295 /* Object.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2768,12 +2768,12 @@
 				E12B8C011734FC0D002A4D9C /* Activity.m in Sources */,
 				E12B8C04173546B1002A4D9C /* WTCategoryActivityViewController.m in Sources */,
 				E12B8C0717356029002A4D9C /* WTCategoryNewsViewController.m in Sources */,
-				E12B8C0A1736B516002A4D9C /* Object.m in Sources */,
 				E12B8C0D1736B545002A4D9C /* Object+Addtion.m in Sources */,
 				E1EF0E741738184B00959DD0 /* Star+Addition.m in Sources */,
 				E1EF0E7717381CE100959DD0 /* Star.m in Sources */,
 				E115FA9D173A3D2800DE5649 /* WTSearchHintView.m in Sources */,
 				E115FAA2173A3DE900DE5649 /* WTSearchHintCell.m in Sources */,
+				E1157DC8173ADB4E00E62295 /* Object.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 #import "WTActivityCell.h"
 #import "UIImageView+AsyncLoading.h"
+#import "Activity+Addition.h"
 
 @interface WTActivityCell ()
 
@@ -53,7 +54,7 @@
     [self setHighlighted:selected animated:animated];
 }
 
-- (void)configureCellWithIndexPath:(NSIndexPath *)indexPath title:(NSString *)title time:(NSString *)time location:(NSString *)location imageURL:(NSString *)imageURL {
+- (void)configureCellWithIndexPath:(NSIndexPath *)indexPath activity:(Activity *)activity {
     if (indexPath.row % 2) {
         self.containerView.backgroundColor = WTCellBackgroundColor1;
     } else {
@@ -66,10 +67,10 @@
         self.topSeperatorImageView.hidden = NO;
     }
     
-    self.titleLabel.text = title;
-    self.timeLabel.text = time;
-    self.locationLabel.text = location;
-    [self.posterImageView loadImageWithImageURLString:imageURL];
+    self.titleLabel.text = activity.what;
+    self.timeLabel.text = activity.yearMonthDayBeginToEndTimeString;
+    self.locationLabel.text = activity.where;
+    [self.posterImageView loadImageWithImageURLString:activity.image];
 }
 
 @end

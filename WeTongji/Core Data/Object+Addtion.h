@@ -10,6 +10,8 @@
 
 @interface Object (Addtion)
 
-+ (void)clearAllHomeSelectedObject;
++ (void)clearAllHomeSelectedObjects;
+
++ (void)clearAllSearchResultObjects;
 
 @end
