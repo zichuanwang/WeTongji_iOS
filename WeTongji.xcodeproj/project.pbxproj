@@ -113,6 +113,8 @@
 		E1157DC8173ADB4E00E62295 /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E1157DC7173ADB4E00E62295 /* Object.m */; };
 		E1157DCE173B6BBD00E62295 /* Organization+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E1157DCD173B6BBD00E62295 /* Organization+Addition.m */; };
 		E1157DD1173B6E7B00E62295 /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = E1157DD0173B6E7B00E62295 /* Organization.m */; };
+		E1157DD7173B7A3300E62295 /* WTCourseDetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1157DD5173B7A3300E62295 /* WTCourseDetialViewController.m */; };
+		E1157DD8173B7A3300E62295 /* WTCourseDetialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1157DD6173B7A3300E62295 /* WTCourseDetialViewController.xib */; };
 		E115FA9D173A3D2800DE5649 /* WTSearchHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = E115FA9C173A3D2800DE5649 /* WTSearchHintView.m */; };
 		E115FA9F173A3D3C00DE5649 /* WTSearchHintView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E115FA9E173A3D3C00DE5649 /* WTSearchHintView.xib */; };
 		E115FAA2173A3DE900DE5649 /* WTSearchHintCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E115FAA1173A3DE900DE5649 /* WTSearchHintCell.m */; };
@@ -628,6 +630,9 @@
 		E1157DCD173B6BBD00E62295 /* Organization+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Organization+Addition.m"; sourceTree = "<group>"; };
 		E1157DCF173B6E7B00E62295 /* Organization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Organization.h; sourceTree = "<group>"; };
 		E1157DD0173B6E7B00E62295 /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Organization.m; sourceTree = "<group>"; };
+		E1157DD4173B7A3300E62295 /* WTCourseDetialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCourseDetialViewController.h; sourceTree = "<group>"; };
+		E1157DD5173B7A3300E62295 /* WTCourseDetialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCourseDetialViewController.m; sourceTree = "<group>"; };
+		E1157DD6173B7A3300E62295 /* WTCourseDetialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTCourseDetialViewController.xib; sourceTree = "<group>"; };
 		E115FA9B173A3D2800DE5649 /* WTSearchHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSearchHintView.h; sourceTree = "<group>"; };
 		E115FA9C173A3D2800DE5649 /* WTSearchHintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSearchHintView.m; sourceTree = "<group>"; };
 		E115FA9E173A3D3C00DE5649 /* WTSearchHintView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSearchHintView.xib; sourceTree = "<group>"; };
@@ -1246,6 +1251,23 @@
 			name = Icon;
 			sourceTree = "<group>";
 		};
+		E1157DD2173B78D700E62295 /* Star */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Star;
+			sourceTree = "<group>";
+		};
+		E1157DD3173B79F500E62295 /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				E1157DD4173B7A3300E62295 /* WTCourseDetialViewController.h */,
+				E1157DD5173B7A3300E62295 /* WTCourseDetialViewController.m */,
+				E1157DD6173B7A3300E62295 /* WTCourseDetialViewController.xib */,
+			);
+			name = Course;
+			sourceTree = "<group>";
+		};
 		E115FA9A173A3D0900DE5649 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -1286,6 +1308,8 @@
 		E117038E1651EFD900D82F4A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E1157DD3173B79F500E62295 /* Course */,
+				E1157DD2173B78D700E62295 /* Star */,
 				E1250C0A16859A1D00802808 /* Activity */,
 				E1D3741316942E350012E30A /* Billboard */,
 				E10A8D0116E244EE008B72E7 /* ElectricityQuery */,
@@ -2621,6 +2645,7 @@
 				E16E96221733ADC30055DE27 /* WTTicketIcon@2x.png in Resources */,
 				E115FA9F173A3D3C00DE5649 /* WTSearchHintView.xib in Resources */,
 				E115FAA4173A3DFF00DE5649 /* WTSearchHintCell.xib in Resources */,
+				E1157DD8173B7A3300E62295 /* WTCourseDetialViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2780,6 +2805,7 @@
 				E1157DC8173ADB4E00E62295 /* Object.m in Sources */,
 				E1157DCE173B6BBD00E62295 /* Organization+Addition.m in Sources */,
 				E1157DD1173B6E7B00E62295 /* Organization.m in Sources */,
+				E1157DD7173B7A3300E62295 /* WTCourseDetialViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
