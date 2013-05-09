@@ -211,6 +211,7 @@
     [self showSearchBarCancelButton:NO];
     [self.searchBar resignFirstResponder];
     self.searchHintView.hidden = YES;
+    self.searchBar.text = @"";
 }
 
 - (void)didClickNotificationButton:(WTNotificationBarButton *)sender {

@@ -111,6 +111,8 @@
 		E1132E7616C63308004CB808 /* WTCheckmarkIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E7416C63308004CB808 /* WTCheckmarkIcon@2x.png */; };
 		E1132E7916C65823004CB808 /* NSUserDefaults+WTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E1132E7816C65823004CB808 /* NSUserDefaults+WTAddition.m */; };
 		E1157DC8173ADB4E00E62295 /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E1157DC7173ADB4E00E62295 /* Object.m */; };
+		E1157DCE173B6BBD00E62295 /* Organization+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E1157DCD173B6BBD00E62295 /* Organization+Addition.m */; };
+		E1157DD1173B6E7B00E62295 /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = E1157DD0173B6E7B00E62295 /* Organization.m */; };
 		E115FA9D173A3D2800DE5649 /* WTSearchHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = E115FA9C173A3D2800DE5649 /* WTSearchHintView.m */; };
 		E115FA9F173A3D3C00DE5649 /* WTSearchHintView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E115FA9E173A3D3C00DE5649 /* WTSearchHintView.xib */; };
 		E115FAA2173A3DE900DE5649 /* WTSearchHintCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E115FAA1173A3DE900DE5649 /* WTSearchHintCell.m */; };
@@ -146,7 +148,6 @@
 		E11825B81714768200B4B9BF /* Exam.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825B71714768200B4B9BF /* Exam.m */; };
 		E11825BE1714768300B4B9BF /* ActivityInvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825BD1714768300B4B9BF /* ActivityInvitationNotification.m */; };
 		E11825C11714768400B4B9BF /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825C01714768400B4B9BF /* Course.m */; };
-		E11825C71714769600B4B9BF /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825C61714769600B4B9BF /* Organization.m */; };
 		E11825CD1714769800B4B9BF /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825CC1714769700B4B9BF /* Notification.m */; };
 		E11825D91714769800B4B9BF /* InvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825D81714769800B4B9BF /* InvitationNotification.m */; };
 		E11825DD17154AB500B4B9BF /* WTActivityDetailDescriptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E11825DC17154AB500B4B9BF /* WTActivityDetailDescriptionView.m */; };
@@ -623,6 +624,10 @@
 		E1132E7816C65823004CB808 /* NSUserDefaults+WTAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+WTAddition.m"; sourceTree = "<group>"; };
 		E1157DC6173ADB4E00E62295 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
 		E1157DC7173ADB4E00E62295 /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
+		E1157DCC173B6BBD00E62295 /* Organization+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Organization+Addition.h"; sourceTree = "<group>"; };
+		E1157DCD173B6BBD00E62295 /* Organization+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Organization+Addition.m"; sourceTree = "<group>"; };
+		E1157DCF173B6E7B00E62295 /* Organization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Organization.h; sourceTree = "<group>"; };
+		E1157DD0173B6E7B00E62295 /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Organization.m; sourceTree = "<group>"; };
 		E115FA9B173A3D2800DE5649 /* WTSearchHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSearchHintView.h; sourceTree = "<group>"; };
 		E115FA9C173A3D2800DE5649 /* WTSearchHintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSearchHintView.m; sourceTree = "<group>"; };
 		E115FA9E173A3D3C00DE5649 /* WTSearchHintView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSearchHintView.xib; sourceTree = "<group>"; };
@@ -665,8 +670,6 @@
 		E11825BD1714768300B4B9BF /* ActivityInvitationNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityInvitationNotification.m; sourceTree = "<group>"; };
 		E11825BF1714768400B4B9BF /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
 		E11825C01714768400B4B9BF /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
-		E11825C51714769600B4B9BF /* Organization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Organization.h; sourceTree = "<group>"; };
-		E11825C61714769600B4B9BF /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Organization.m; sourceTree = "<group>"; };
 		E11825CB1714769700B4B9BF /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		E11825CC1714769700B4B9BF /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		E11825D71714769800B4B9BF /* InvitationNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationNotification.h; sourceTree = "<group>"; };
@@ -2158,8 +2161,6 @@
 				E11825D81714769800B4B9BF /* InvitationNotification.m */,
 				E11825CB1714769700B4B9BF /* Notification.h */,
 				E11825CC1714769700B4B9BF /* Notification.m */,
-				E11825C51714769600B4B9BF /* Organization.h */,
-				E11825C61714769600B4B9BF /* Organization.m */,
 				E1DB6EED171DD0AB00E24187 /* Event.h */,
 				E1DB6EEE171DD0AB00E24187 /* Event.m */,
 				E17966941728353B00761BD5 /* User.h */,
@@ -2176,6 +2177,8 @@
 				E1EF0E7617381CE100959DD0 /* Star.m */,
 				E1157DC6173ADB4E00E62295 /* Object.h */,
 				E1157DC7173ADB4E00E62295 /* Object.m */,
+				E1157DCF173B6E7B00E62295 /* Organization.h */,
+				E1157DD0173B6E7B00E62295 /* Organization.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2203,6 +2206,8 @@
 				E12B8C0C1736B544002A4D9C /* Object+Addtion.m */,
 				E1EF0E721738184B00959DD0 /* Star+Addition.h */,
 				E1EF0E731738184B00959DD0 /* Star+Addition.m */,
+				E1157DCC173B6BBD00E62295 /* Organization+Addition.h */,
+				E1157DCD173B6BBD00E62295 /* Organization+Addition.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -2727,7 +2732,6 @@
 				E11825B81714768200B4B9BF /* Exam.m in Sources */,
 				E11825BE1714768300B4B9BF /* ActivityInvitationNotification.m in Sources */,
 				E11825C11714768400B4B9BF /* Course.m in Sources */,
-				E11825C71714769600B4B9BF /* Organization.m in Sources */,
 				E11825CD1714769800B4B9BF /* Notification.m in Sources */,
 				E11825D91714769800B4B9BF /* InvitationNotification.m in Sources */,
 				E11825DD17154AB500B4B9BF /* WTActivityDetailDescriptionView.m in Sources */,
@@ -2774,6 +2778,8 @@
 				E115FA9D173A3D2800DE5649 /* WTSearchHintView.m in Sources */,
 				E115FAA2173A3DE900DE5649 /* WTSearchHintCell.m in Sources */,
 				E1157DC8173ADB4E00E62295 /* Object.m in Sources */,
+				E1157DCE173B6BBD00E62295 /* Organization+Addition.m in Sources */,
+				E1157DD1173B6E7B00E62295 /* Organization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

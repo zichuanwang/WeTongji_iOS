@@ -82,6 +82,8 @@
     </entity>
     <entity name="Organization" representedClassName="Organization" parentEntity="Object" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="administrator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="avatar" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Star" representedClassName="Star" parentEntity="Object" syncable="YES">
@@ -131,7 +133,7 @@
         <element name="News" positionX="160" positionY="192" width="128" height="300"/>
         <element name="Notification" positionX="160" positionY="192" width="128" height="90"/>
         <element name="Object" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="Organization" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="Organization" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Star" positionX="160" positionY="192" width="128" height="195"/>
         <element name="User" positionX="160" positionY="192" width="128" height="345"/>
     </elements>

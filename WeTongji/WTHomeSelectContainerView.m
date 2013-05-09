@@ -9,6 +9,9 @@
 #import "WTHomeSelectContainerView.h"
 #import "WTHomeSelectItemView.h"
 #import "News+Addition.h"
+#import "Activity+Addition.h"
+#import "Star+Addition.h"
+#import "Organization+Addition.h"
 
 @interface WTHomeSelectContainerView()
 
@@ -94,8 +97,15 @@
             }
                 break;
             case WTHomeSelectContainerViewCategoryFeatured: {
-                Star *star = self.itemInfoArray[index];
-                itemView = [WTHomeSelectStarView createHomeSelectStarViewWithStar:star];
+                
+                Object *infoObject = self.itemInfoArray[index];
+                
+                if ([infoObject isKindOfClass:[Star class]]) {
+                    itemView = [WTHomeSelectStarView createHomeSelectStarViewWithStar:(Star *)infoObject];
+                } else if ([infoObject isKindOfClass:[Organization class]]) {
+                    itemView = [WTHomeSelectOrganizatioinView createHomeSelectOrganizationViewWithStar:(Organization *)infoObject];
+                }
+                
             }
                 break;
             case WTHomeSelectContainerViewCategoryActivity: {

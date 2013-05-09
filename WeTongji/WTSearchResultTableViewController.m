@@ -102,6 +102,8 @@
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Load serach result success:%@", responseObject);
         
+        [self clearSearchResultObjects];
+        
         NSDictionary *resultDict = (NSDictionary *)responseObject;
         NSArray *activityInfoArray = resultDict[@"Activities"];
         for (NSDictionary *infoDict in activityInfoArray) {

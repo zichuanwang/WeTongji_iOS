@@ -16,6 +16,7 @@
 #import "Activity+Addition.h"
 #import "News+Addition.h"
 #import "Star+Addition.h"
+#import "Organization+Addition.h"
 
 typedef enum {
     WTHomeSelectItemStyleNormal,
@@ -199,16 +200,54 @@ typedef enum {
 
 - (void)configureViewWithStar:(Star *)star {
     [self configureAvatarImageView];
-    [self createLikeButtonView];
-    [self addSubview:self.likeButtonView];
+    [self createShowCategoryButton];
+    [self addSubview:self.showCategoryButton];
     
     [self.avatarImageView loadImageWithImageURLString:star.avatar];
     self.nameLabel.text = star.name;
     self.titleLbale.text = star.jobTitle;
     self.subCategoryLabel.text = NSLocalizedString(@"Star", nil);
+}
+
+- (void)configureAvatarImageView {
+    self.avatarContainerView.layer.masksToBounds = YES;
+    self.avatarContainerView.layer.cornerRadius = 6.0f;
+}
+
+@end
+
+@implementation WTHomeSelectOrganizatioinView
+
++ (WTHomeSelectOrganizatioinView *)createHomeSelectOrganizationViewWithStar:(Organization *)org {
+    NSArray *viewArray = [[NSBundle mainBundle] loadNibNamed:@"WTHomeSelectItemView" owner:self options:nil];
+    WTHomeSelectOrganizatioinView *result = nil;
+    for(UIView *view in viewArray) {
+        if ([view isKindOfClass:[WTHomeSelectOrganizatioinView class]])
+            result = (WTHomeSelectOrganizatioinView *)view;
+    }
+    [result configureViewWithOrganization:org];
+    return result;
+}
+
+- (void)updateItemViewWithInfoObject:(Object *)infoObject {
+    Organization *org = (Organization *)infoObject;
+    if (org.avatar && self.avatarImageView.image == nil) {
+        [self.avatarImageView loadImageWithImageURLString:org.avatar];
+    }
+}
+
+- (void)configureViewWithOrganization:(Organization *)org {
+    [self configureAvatarImageView];
+    [self createLikeButtonView];
+    [self addSubview:self.likeButtonView];
     
-    self.likeButtonView.likeButton.selected = !star.canLike.boolValue;
-    [self.likeButtonView setLikeCount:star.likeCount.integerValue];
+    [self.avatarImageView loadImageWithImageURLString:org.avatar];
+    self.nameLabel.text = org.name;
+    self.aboutLabel.text = org.about;
+    self.subCategoryLabel.text = NSLocalizedString(@"Organization", nil);
+    
+    // self.likeButtonView.likeButton.selected = !org.canLike.boolValue;
+    // [self.likeButtonView setLikeCount:org.likeCount.integerValue];
 }
 
 - (void)configureAvatarImageView {

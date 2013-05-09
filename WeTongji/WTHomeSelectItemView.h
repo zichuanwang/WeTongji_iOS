@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "News.h"
-#import "Activity.h"
-#import "Star.h"
+
+@class News;
+@class Activity;
+@class Star;
+@class Organization;
+@class Object;
+
 
 @interface WTHomeSelectItemView : UIView
 
@@ -51,6 +55,17 @@
 @property (nonatomic, weak) IBOutlet UILabel *titleLbale;
 
 + (WTHomeSelectStarView *)createHomeSelectStarViewWithStar:(Star *)star;
+
+@end
+
+@interface WTHomeSelectOrganizatioinView : WTHomeSelectItemView
+
+@property (nonatomic, weak) IBOutlet UIImageView *avatarImageView;
+@property (nonatomic, weak) IBOutlet UIView *avatarContainerView;
+@property (nonatomic, weak) IBOutlet UILabel *nameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *aboutLabel;
+
++ (WTHomeSelectOrganizatioinView *)createHomeSelectOrganizationViewWithStar:(Organization *)org;
 
 @end
 

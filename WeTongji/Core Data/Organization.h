@@ -2,7 +2,7 @@
 //  Organization.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-4-10.
+//  Created by 王 紫川 on 13-5-9.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -15,5 +15,7 @@
 
 @property (nonatomic, retain) NSString * about;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * administrator;
+@property (nonatomic, retain) NSString * avatar;
 
 @end

@@ -15,6 +15,7 @@
 #import "News+Addition.h"
 #import "Star+Addition.h"
 #import "Object+Addtion.h"
+#import "Organization+Addition.h"
 #import "WTNewsDetailViewController.h"
 #import "WTCategoryActivityViewController.h"
 #import "WTCategoryNewsViewController.h"
@@ -134,6 +135,15 @@
             Star *star = [Star insertStar:starInfoDict];
             star.homeSelected = @(YES);
         }
+        
+        NSDictionary *newestOrgDict = resultDict[@"AccountNewest"];
+        Organization *newestOrg = [Organization insertOrganization:newestOrgDict];
+        newestOrg.homeSelected = @(YES);
+        
+        NSDictionary *popularOrgDict = resultDict[@"AccountPopulor"];
+        Organization *popularOrg = [Organization insertOrganization:popularOrgDict];
+        popularOrg.homeSelected = @(YES);
+        
         self.shouldUpdateHomeSelectViews = YES;
         [self updateHomeSelectViews];
         
@@ -186,7 +196,9 @@
     [newsSelectContainerView updateItemInfoArray:[News getHomeSelectNewsArray]];
     
     WTHomeSelectContainerView *featuredSelectContainerView = self.homeSelectViewArray[2];
-    [featuredSelectContainerView updateItemInfoArray:[Star getHomeSelectStarArray]];
+    NSMutableArray *featurerSelectInfoArray = [NSMutableArray arrayWithArray:[Star getHomeSelectStarArray]];
+    [featurerSelectInfoArray addObjectsFromArray:[Organization getHomeSelectOrganizationArray]];
+    [featuredSelectContainerView updateItemInfoArray:featurerSelectInfoArray];
     
     self.shouldUpdateHomeSelectViews = NO;
 }

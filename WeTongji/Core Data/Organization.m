@@ -2,7 +2,7 @@
 //  Organization.m
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-4-10.
+//  Created by 王 紫川 on 13-5-9.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -13,5 +13,7 @@
 
 @dynamic about;
 @dynamic name;
+@dynamic administrator;
+@dynamic avatar;
 
 @end
