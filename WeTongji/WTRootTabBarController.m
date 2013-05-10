@@ -178,7 +178,7 @@
     if ([viewController needUserLogin] && ![WTCoreDataManager sharedManager].currentUser) {
         WTLoginViewController *loginViewController = [WTLoginViewController showWithIntro:NO];
         loginViewController.delegate = self;
-        self.self.loginPendingButton = button;
+        self.loginPendingButton = button;
         return;
     }
     
@@ -198,8 +198,8 @@
 
 #pragma mark - WTLoginViewControllerDelegate
 
-- (void)loginViewControllerWillDismiss:(BOOL)loginSucceeded {
-    if (loginSucceeded) {
+- (void)loginViewControllerDidDismiss {
+    if ([WTCoreDataManager sharedManager].currentUser) {
         [self didClickTabBarButton:self.loginPendingButton];
     }
     self.loginPendingButton = nil;

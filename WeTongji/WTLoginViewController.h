@@ -10,7 +10,7 @@
 
 @protocol WTLoginViewControllerDelegate <NSObject>
 
-- (void)loginViewControllerWillDismiss:(BOOL)loginSucceeded;
+- (void)loginViewControllerDidDismiss;
 
 @end
 

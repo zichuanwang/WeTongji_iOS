@@ -144,7 +144,6 @@
 #pragma mark - Actions
 
 - (void)didClickCancelButton:(UIButton *)sender {
-    [self.delegate loginViewControllerWillDismiss:NO];
     [self dismissView];
 }
 
@@ -181,7 +180,9 @@
 
 - (void)dismissView {
     UIViewController *rootVC = [UIApplication sharedApplication].rootTabBarController;
-    [rootVC dismissViewControllerAnimated:YES completion:nil];
+    [rootVC dismissViewControllerAnimated:YES completion:^{
+        [self.delegate loginViewControllerDidDismiss];
+    }];
 }
 
 #pragma mark - Logic methods
@@ -206,7 +207,6 @@
         User *user = [User insertUser:[responseData objectForKey:@"User"]];
         [WTCoreDataManager sharedManager].currentUser = user;
         [self configureFlurryUserData:user];
-        [self.delegate loginViewControllerWillDismiss:YES];
         [self dismissView];
     } failureBlock:^(NSError * error) {
         [self showLoginFailedAlertView:error];
