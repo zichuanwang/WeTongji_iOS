@@ -123,6 +123,8 @@
 		E1157DE8173CCD4B00E62295 /* WTBannerLeftShadowUnit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1157DE2173CCD4B00E62295 /* WTBannerLeftShadowUnit@2x.png */; };
 		E1157DE9173CCD4B00E62295 /* WTBannerRightShadowUnit.png in Resources */ = {isa = PBXBuildFile; fileRef = E1157DE3173CCD4B00E62295 /* WTBannerRightShadowUnit.png */; };
 		E1157DEA173CCD4B00E62295 /* WTBannerRightShadowUnit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1157DE4173CCD4B00E62295 /* WTBannerRightShadowUnit@2x.png */; };
+		E1157DEE173CF1A000E62295 /* WTSearchDefaultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1157DEC173CF19F00E62295 /* WTSearchDefaultViewController.m */; };
+		E1157DEF173CF1A000E62295 /* WTSearchDefaultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1157DED173CF19F00E62295 /* WTSearchDefaultViewController.xib */; };
 		E115FA9D173A3D2800DE5649 /* WTSearchHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = E115FA9C173A3D2800DE5649 /* WTSearchHintView.m */; };
 		E115FA9F173A3D3C00DE5649 /* WTSearchHintView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E115FA9E173A3D3C00DE5649 /* WTSearchHintView.xib */; };
 		E115FAA2173A3DE900DE5649 /* WTSearchHintCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E115FAA1173A3DE900DE5649 /* WTSearchHintCell.m */; };
@@ -650,6 +652,9 @@
 		E1157DE2173CCD4B00E62295 /* WTBannerLeftShadowUnit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTBannerLeftShadowUnit@2x.png"; sourceTree = "<group>"; };
 		E1157DE3173CCD4B00E62295 /* WTBannerRightShadowUnit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTBannerRightShadowUnit.png; sourceTree = "<group>"; };
 		E1157DE4173CCD4B00E62295 /* WTBannerRightShadowUnit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTBannerRightShadowUnit@2x.png"; sourceTree = "<group>"; };
+		E1157DEB173CF19E00E62295 /* WTSearchDefaultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSearchDefaultViewController.h; sourceTree = "<group>"; };
+		E1157DEC173CF19F00E62295 /* WTSearchDefaultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSearchDefaultViewController.m; sourceTree = "<group>"; };
+		E1157DED173CF19F00E62295 /* WTSearchDefaultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSearchDefaultViewController.xib; sourceTree = "<group>"; };
 		E115FA9B173A3D2800DE5649 /* WTSearchHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSearchHintView.h; sourceTree = "<group>"; };
 		E115FA9C173A3D2800DE5649 /* WTSearchHintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSearchHintView.m; sourceTree = "<group>"; };
 		E115FA9E173A3D3C00DE5649 /* WTSearchHintView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSearchHintView.xib; sourceTree = "<group>"; };
@@ -1571,7 +1576,6 @@
 		E14FA67D1680B9BB008A8D33 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				E115FA9A173A3D0900DE5649 /* Search */,
 				E11825DA17154A8000B4B9BF /* Activity */,
 				E17F9E7317130C4100DC6AB6 /* Banner */,
 				E1428693171AE02F006AB739 /* Billboard */,
@@ -1580,6 +1584,7 @@
 				E1CD3F371720643B00359A79 /* News */,
 				E142869E171BE090006AB739 /* Now */,
 				E17F9E7217130C3800DC6AB6 /* Other */,
+				E115FA9A173A3D0900DE5649 /* Search */,
 				E17F9E71171302A100DC6AB6 /* Widget */,
 			);
 			name = CustomViews;
@@ -2053,6 +2058,9 @@
 				E187E92B16EA614C00599F47 /* WTSearchResultTableViewController.h */,
 				E187E92C16EA614C00599F47 /* WTSearchResultTableViewController.m */,
 				E187E92D16EA614C00599F47 /* WTSearchResultTableViewController.xib */,
+				E1157DEB173CF19E00E62295 /* WTSearchDefaultViewController.h */,
+				E1157DEC173CF19F00E62295 /* WTSearchDefaultViewController.m */,
+				E1157DED173CF19F00E62295 /* WTSearchDefaultViewController.xib */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -2687,6 +2695,7 @@
 				E1157DE8173CCD4B00E62295 /* WTBannerLeftShadowUnit@2x.png in Resources */,
 				E1157DE9173CCD4B00E62295 /* WTBannerRightShadowUnit.png in Resources */,
 				E1157DEA173CCD4B00E62295 /* WTBannerRightShadowUnit@2x.png in Resources */,
+				E1157DEF173CF1A000E62295 /* WTSearchDefaultViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2848,6 +2857,7 @@
 				E1157DD1173B6E7B00E62295 /* Organization.m in Sources */,
 				E1157DD7173B7A3300E62295 /* WTCourseDetialViewController.m in Sources */,
 				E1157DDD173B7CF000E62295 /* WTCommentViewController.m in Sources */,
+				E1157DEE173CF1A000E62295 /* WTSearchDefaultViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

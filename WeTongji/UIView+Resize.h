@@ -24,10 +24,6 @@
 
 - (void)resetFrameWithOrigin:(CGPoint)origin size:(CGSize)size;
 
-- (void)appearWithDuration:(CGFloat)duration;
-
-- (void)disappearWithDuration:(CGFloat)duration;
-
 - (void)adjustHalfPixel;
 
 - (void)resetHeightByOffset:(CGFloat)offset;

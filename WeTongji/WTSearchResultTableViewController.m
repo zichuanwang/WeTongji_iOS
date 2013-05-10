@@ -42,9 +42,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
-    
+        
     [self clearSearchResultObjects];
     [self configureDragToLoadDecorator];
 }
@@ -68,12 +66,15 @@
 }
 
 + (WTSearchResultTableViewController *)createViewControllerWithSearchKeyword:(NSString *)keyword
-                                                              searchCategory:(NSInteger)category {
+                                                              searchCategory:(NSInteger)category
+                                                                    delegate:(id<WTSearchResultTableViewControllerDelegate>)delegate {
     WTSearchResultTableViewController *result = [[WTSearchResultTableViewController alloc] init];
     
     result.searchKeyword = keyword;
     
     result.searchCategory = category;
+    
+    result.delegate = delegate;
     
     return result;
 }
@@ -201,7 +202,8 @@
     } else {
         return;
     }
-    [self.navigationController pushViewController:vc animated:YES];
+
+    [self.delegate wantToPushViewController:vc];
 }
 
 @end

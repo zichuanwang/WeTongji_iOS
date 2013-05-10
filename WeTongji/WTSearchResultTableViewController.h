@@ -9,11 +9,22 @@
 #import <UIKit/UIKit.h>
 #import "WTCoreDataTableViewController.h"
 
+@protocol WTSearchResultTableViewControllerDelegate <NSObject>
+
+- (void)wantToPushViewController:(UIViewController *)viewController;
+
+@end
+
 @interface WTSearchResultTableViewController : WTCoreDataTableViewController
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 
+@property (nonatomic, copy, readonly) NSString *searchKeyword;
+
+@property (nonatomic, weak) id<WTSearchResultTableViewControllerDelegate> delegate;
+
 + (WTSearchResultTableViewController *)createViewControllerWithSearchKeyword:(NSString *)keyword
-                                                              searchCategory:(NSInteger)category;
+                                                              searchCategory:(NSInteger)category
+                                                                    delegate:(id<WTSearchResultTableViewControllerDelegate>)delegate;
 
 @end

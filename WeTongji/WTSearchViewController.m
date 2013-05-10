@@ -12,8 +12,9 @@
 #import "User+Addition.h"
 #import "WTSearchHintView.h"
 #import "WTSearchResultTableViewController.h"
+#import "WTSearchDefaultViewController.h"
 
-@interface WTSearchViewController () <UITableViewDelegate>
+@interface WTSearchViewController () <UITableViewDelegate, WTSearchResultTableViewControllerDelegate>
 
 @property (nonatomic, weak) UIButton *customSearchBarCancelButton;
 
@@ -22,6 +23,8 @@
 @property (nonatomic, assign) BOOL shouldSearchBarBecomeFirstResponder;
 
 @property (nonatomic, strong) WTSearchResultTableViewController *resultViewController;
+
+@property (nonatomic, strong) WTSearchDefaultViewController *defaultViewController;
 
 @end
 
@@ -41,7 +44,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self configureNavigationBar];
-    
+    [self configureDefaultView];
     [self configureSearchHintView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleKeyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
@@ -84,14 +87,21 @@
 - (void)configureSearchHintViewSizeWithKeyboardHeight:(CGFloat)keyboardHeight {
     CGFloat visibleScreenHeight = [UIScreen mainScreen].bounds.size.height - 64.0f - keyboardHeight;
     visibleScreenHeight = visibleScreenHeight > self.view.frame.size.height ? self.view.frame.size.height : visibleScreenHeight;
-    [self.searchHintView resetHeight:visibleScreenHeight];
+    [self.searchHintView.tableView resetHeight:visibleScreenHeight];
 }
 
 - (void)configureSearchHintView {
     self.searchHintView = [WTSearchHintView createSearchHintView];
     self.searchHintView.hidden = YES;
     self.searchHintView.tableView.delegate = self;
+    [self.searchHintView resetHeight:self.view.frame.size.height];
     [self.view addSubview:self.searchHintView];
+}
+
+- (void)configureDefaultView {
+    self.defaultViewController = [[WTSearchDefaultViewController alloc] init];
+    [self.defaultViewController.view resetHeight:self.view.frame.size.height];
+    [self.view addSubview:self.defaultViewController.view];
 }
 
 - (void)configureSearchBarBgWithControlState:(UIControlState)state {
@@ -109,6 +119,19 @@
         
         UIImage *nornalSearchIcon = [UIImage imageNamed:@"WTSearchBarNormalSearchIcon"];
         [self.searchBar setImage:nornalSearchIcon forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
+    }
+}
+
+- (void)configureSearchBarTextFieldClearButtonWithCancelButtonStatus:(BOOL)showingCancelButton {
+    for (UIView *subview in self.searchBar.subviews) {
+        if ([subview conformsToProtocol:@protocol(UITextInputTraits)]) {
+            UITextField *textFielt = (UITextField *)subview;
+            if (showingCancelButton) {
+                [textFielt setClearButtonMode:UITextFieldViewModeAlways];
+            } else {
+                [textFielt setClearButtonMode:UITextFieldViewModeWhileEditing];
+            }
+        }
     }
 }
 
@@ -145,8 +168,7 @@
 
 - (void)hideOriginalSearchBarCancelButton {
     for (UIView *subView in self.searchBar.subviews) {
-        if([subView isKindOfClass:[UIButton class]] && subView.tag != CUSTOM_SEARCH_BAR_CANCEL_BUTTON_TAG)
-        {
+        if([subView isKindOfClass:[UIButton class]] && subView.tag != CUSTOM_SEARCH_BAR_CANCEL_BUTTON_TAG) {
             subView.hidden = YES;
         }
     }
@@ -188,29 +210,26 @@
 }
 
 - (void)showHintView:(BOOL)show {
-    if (show) {
-        self.searchHintView.hidden = NO;
-        [self.view bringSubviewToFront:self.searchHintView];
-        self.resultViewController.view.userInteractionEnabled = NO;
-    } else {
-        self.searchHintView.hidden = YES;
-        self.resultViewController.view.userInteractionEnabled = YES;
-    }
+    self.searchHintView.hidden = !show;
 }
 
-- (void)showSearchResultViewForSearchCategory:(NSInteger)category {
-    [self.resultViewController.view removeFromSuperview];
-    self.resultViewController = nil;
-    
-    WTSearchResultTableViewController *vc = [WTSearchResultTableViewController createViewControllerWithSearchKeyword:self.searchBar.text searchCategory:category];
+- (void)showSearchResultView:(BOOL)show {
+    self.resultViewController.view.hidden = !show;
+}
+
+- (void)updateSearchResultViewForSearchCategory:(NSInteger)category {
+    [self.resultViewController.view removeFromSuperview];    
+    WTSearchResultTableViewController *vc = [WTSearchResultTableViewController createViewControllerWithSearchKeyword:self.searchBar.text searchCategory:category delegate:self];
     self.resultViewController = vc;
-    [self.view addSubview:vc.view];
+    [self.view insertSubview:vc.view aboveSubview:self.defaultViewController.view];
     [vc.view resetHeight:self.view.frame.size.height];
 }
 
 - (void)showSearchBarCancelButton:(BOOL)show {
     if (self.searchBar.showsCancelButton == show)
         return;
+    
+    [self configureSearchBarTextFieldClearButtonWithCancelButtonStatus:YES];
     
     [self configureSearchBarBgWithControlState:show ? UIControlStateSelected : UIControlStateNormal];
     [self.searchBar setShowsCancelButton:show animated:YES];
@@ -232,7 +251,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == self.searchHintView.tableView) {
-        [self showSearchResultViewForSearchCategory:indexPath.row];
+        [self updateSearchResultViewForSearchCategory:indexPath.row];
         [self.searchBar resignFirstResponder];
     }
 }
@@ -243,8 +262,15 @@
     [self showSearchBarCancelButton:NO];
     [self.searchBar resignFirstResponder];
     [self showHintView:NO];
+    
     self.searchBar.text = @"";
     self.searchHintView.searchKeyword = @"";
+    
+    [self configureSearchBarTextFieldClearButtonWithCancelButtonStatus:NO];
+    
+    [self showSearchResultView:NO];
+    
+    [self.defaultViewController.shadowCoverView fadeOut];
 }
 
 - (void)didClickNotificationButton:(WTNotificationBarButton *)sender {
@@ -263,11 +289,16 @@
     WTLOG(@"searchBarTextDidBeginEditing");
     [self showSearchBarCancelButton:YES];
     [self showHintView:YES];
+    [self showSearchResultView:NO];
+    
+    if (self.defaultViewController.shadowCoverView.alpha == 0)
+        [self.defaultViewController.shadowCoverView fadeIn];
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
     WTLOG(@"searchBarTextDidEndEditing");
     [self showHintView:NO];
+    [self showSearchResultView:YES];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
@@ -275,8 +306,14 @@
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    [self showSearchResultViewForSearchCategory:0];
+    [self updateSearchResultViewForSearchCategory:0];
     [searchBar resignFirstResponder];
+}
+
+#pragma mark - WTSearchResultTableViewControllerDelegate
+
+- (void)wantToPushViewController:(UIViewController *)vc {
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end
