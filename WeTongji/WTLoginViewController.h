@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol WTLoginViewControllerDelegate <NSObject>
+
+- (void)loginViewControllerWillDismiss:(BOOL)loginSucceeded;
+
+@end
+
 @interface WTLoginViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet UIView      *loginPanelContainerView;
@@ -15,8 +21,9 @@
 @property (nonatomic, weak) IBOutlet UITextField *accountTextField;
 @property (nonatomic, weak) IBOutlet UITextField *passwordTextField;
 @property (nonatomic, weak) IBOutlet UIButton    *signUpButton;
+@property (nonatomic, weak) id<WTLoginViewControllerDelegate> delegate;
 
-+ (void)showWithIntro:(BOOL)showIntro;
++ (WTLoginViewController *)showWithIntro:(BOOL)showIntro;
 
 - (IBAction)didClickSignUpButton:(UIButton *)sender;
 

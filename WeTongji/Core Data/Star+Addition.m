@@ -34,6 +34,7 @@
     if (!result) {
         result = [NSEntityDescription insertNewObjectForEntityForName:@"Star" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
         result.identifier = starID;
+        result.objectClass = NSStringFromClass([Star class]);
     }
     
     result.avatar = [NSString stringWithFormat:@"%@", dict[@"Avatar"]];

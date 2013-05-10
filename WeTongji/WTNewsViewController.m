@@ -183,7 +183,7 @@
     label.textColor = WTSectionHeaderViewGrayColor;
     label.backgroundColor = [UIColor clearColor];
     
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 24)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 24.0f)];
     [headerView addSubview:bgImageView];
     [headerView addSubview:label];
     

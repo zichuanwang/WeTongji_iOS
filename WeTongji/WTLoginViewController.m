@@ -144,6 +144,7 @@
 #pragma mark - Actions
 
 - (void)didClickCancelButton:(UIButton *)sender {
+    [self.delegate loginViewControllerWillDismiss:NO];
     [self dismissView];
 }
 
@@ -167,13 +168,15 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-+ (void)showWithIntro:(BOOL)showIntro {
++ (WTLoginViewController *)showWithIntro:(BOOL)showIntro {
     WTLoginViewController *vc = [[WTLoginViewController alloc] init];
     WTNavigationViewController *nav = [[WTNavigationViewController alloc] initWithRootViewController:vc];
     vc.showIntro = showIntro;
     
     UIViewController *rootVC = [UIApplication sharedApplication].rootTabBarController;
     [rootVC presentViewController:nav animated:YES completion:nil];
+    
+    return vc;
 }
 
 - (void)dismissView {
@@ -203,6 +206,7 @@
         User *user = [User insertUser:[responseData objectForKey:@"User"]];
         [WTCoreDataManager sharedManager].currentUser = user;
         [self configureFlurryUserData:user];
+        [self.delegate loginViewControllerWillDismiss:YES];
         [self dismissView];
     } failureBlock:^(NSError * error) {
         [self showLoginFailedAlertView:error];

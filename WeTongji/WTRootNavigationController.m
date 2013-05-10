@@ -48,6 +48,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (BOOL)needUserLogin {
+    return NO;
+}
+
 #pragma mark - Logic methods
 
 - (void)configureInnerModalCallBarButtonItem {

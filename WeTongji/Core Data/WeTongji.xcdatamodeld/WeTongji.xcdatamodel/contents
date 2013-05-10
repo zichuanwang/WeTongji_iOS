@@ -77,6 +77,7 @@
     <entity name="Object" representedClassName="Object" isAbstract="YES" syncable="YES">
         <attribute name="homeSelected" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="identifier" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="objectClass" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="searchResult" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="updateTime" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
@@ -132,7 +133,7 @@
         <element name="InvitationNotification" positionX="160" positionY="192" width="128" height="60"/>
         <element name="News" positionX="160" positionY="192" width="128" height="300"/>
         <element name="Notification" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="Object" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Object" positionX="160" positionY="192" width="128" height="120"/>
         <element name="Organization" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Star" positionX="160" positionY="192" width="128" height="195"/>
         <element name="User" positionX="160" positionY="192" width="128" height="345"/>

@@ -23,36 +23,37 @@
     }
     
     NSDate *courseDay = [[NSString stringWithFormat:@"%@", dict[@"Day"]] convertToDate];
-    Course *course = [Course courseScheduleAtDay:courseDay withCourseID:courseID];
-    if (!course) {
-        course = [NSEntityDescription insertNewObjectForEntityForName:@"Course"
+    Course *result = [Course courseScheduleAtDay:courseDay withCourseID:courseID];
+    if (!result) {
+        result = [NSEntityDescription insertNewObjectForEntityForName:@"Course"
                                                inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
-        course.identifier = courseID;
+        result.identifier = courseID;
+        result.objectClass = NSStringFromClass([Course class]);
     }
 
-    course.what = [NSString stringWithFormat:@"%@", dict[@"Name"]];
-    course.where = [NSString stringWithFormat:@"%@", dict[@"Location"]];
+    result.what = [NSString stringWithFormat:@"%@", dict[@"Name"]];
+    result.where = [NSString stringWithFormat:@"%@", dict[@"Location"]];
     
-    course.teacher = [NSString stringWithFormat:@"%@", dict[@"Teacher"]];
+    result.teacher = [NSString stringWithFormat:@"%@", dict[@"Teacher"]];
     
-    course.courseDay = courseDay;
-    course.sectionStart = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"SectionStart"]] intValue]];
-    course.sectionEnd = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"SectionEnd"]] intValue]];
-    course.beginTime = [courseDay dateByAddingTimeInterval:
-                         [Course getDayTimeIntervalFromSection:course.sectionStart.intValue]];
-    course.endTime = [courseDay dateByAddingTimeInterval:
-                       [Course getDayTimeIntervalFromSection:course.sectionEnd.intValue]];
+    result.courseDay = courseDay;
+    result.sectionStart = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"SectionStart"]] intValue]];
+    result.sectionEnd = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"SectionEnd"]] intValue]];
+    result.beginTime = [courseDay dateByAddingTimeInterval:
+                         [Course getDayTimeIntervalFromSection:result.sectionStart.intValue]];
+    result.endTime = [courseDay dateByAddingTimeInterval:
+                       [Course getDayTimeIntervalFromSection:result.sectionEnd.intValue]];
     
-    course.hours = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"Hours"]] intValue]];
-    course.point = [NSNumber numberWithFloat: [[NSString stringWithFormat:@"%@", dict[@"Point"]] floatValue]];
-    course.required = [NSString stringWithFormat:@"%@", dict[@"Required"]];
+    result.hours = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"Hours"]] intValue]];
+    result.point = [NSNumber numberWithFloat: [[NSString stringWithFormat:@"%@", dict[@"Point"]] floatValue]];
+    result.required = [NSString stringWithFormat:@"%@", dict[@"Required"]];
     
-    course.weekType = [NSString stringWithFormat:@"%@", dict[@"WeekType"]];
-    course.weekDay = [NSString stringWithFormat:@"%@", dict[@"WeekDay"]];
+    result.weekType = [NSString stringWithFormat:@"%@", dict[@"WeekType"]];
+    result.weekDay = [NSString stringWithFormat:@"%@", dict[@"WeekDay"]];
     
-    course.beginDay = [NSString yearMonthDayConvertFromDate:course.beginTime];
+    result.beginDay = [NSString yearMonthDayConvertFromDate:result.beginTime];
     
-    return course;
+    return result;
 }
 
 + (Course *)courseScheduleAtDay:(NSDate *)date withCourseID:(NSString *)courseID

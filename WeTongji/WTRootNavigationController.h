@@ -27,6 +27,8 @@ typedef enum {
 
 - (void)hideInnerModalViewController;
 
+- (BOOL)needUserLogin;
+
 @end
 
 @protocol WTRootNavigationControllerDelegate <NSObject>

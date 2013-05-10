@@ -35,6 +35,7 @@
     if (!result) {
         result = [NSEntityDescription insertNewObjectForEntityForName:@"News" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
         result.identifier = newsID;
+        result.objectClass = NSStringFromClass([News class]);
     }
     
     result.updateTime = [NSDate date];

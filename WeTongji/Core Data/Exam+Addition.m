@@ -19,25 +19,26 @@
         return nil;
     }
     
-    Exam *exam = [Exam examWithID:examID];
-    if (!exam) {
-        exam = [NSEntityDescription insertNewObjectForEntityForName:@"Exam"
+    Exam *result = [Exam examWithID:examID];
+    if (!result) {
+        result = [NSEntityDescription insertNewObjectForEntityForName:@"Exam"
                                              inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
-        exam.identifier = examID;
+        result.identifier = examID;
+        result.objectClass = NSStringFromClass([Exam class]);
     }
-    exam.what = [NSString stringWithFormat:@"%@", dict[@"Name"]];
-    exam.teacher = [NSString stringWithFormat:@"%@", dict[@"Teacher"]];
-    exam.where = [NSString stringWithFormat:@"%@", dict[@"Location"]];
-    exam.beginTime = [[NSString stringWithFormat:@"%@", dict[@"Begin"]] convertToDate];
-    exam.endTime = [[NSString stringWithFormat:@"%@", dict[@"End"]] convertToDate];
+    result.what = [NSString stringWithFormat:@"%@", dict[@"Name"]];
+    result.teacher = [NSString stringWithFormat:@"%@", dict[@"Teacher"]];
+    result.where = [NSString stringWithFormat:@"%@", dict[@"Location"]];
+    result.beginTime = [[NSString stringWithFormat:@"%@", dict[@"Begin"]] convertToDate];
+    result.endTime = [[NSString stringWithFormat:@"%@", dict[@"End"]] convertToDate];
     
-    exam.hours = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"Hours"]] intValue]];
-    exam.point = [NSNumber numberWithFloat: [[NSString stringWithFormat:@"%@", dict[@"Point"]] floatValue]];
-    exam.required = [NSString stringWithFormat:@"%@", dict[@"Required"]];
+    result.hours = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"Hours"]] intValue]];
+    result.point = [NSNumber numberWithFloat: [[NSString stringWithFormat:@"%@", dict[@"Point"]] floatValue]];
+    result.required = [NSString stringWithFormat:@"%@", dict[@"Required"]];
     
-    exam.beginDay = [NSString yearMonthDayConvertFromDate:exam.beginTime];
+    result.beginDay = [NSString yearMonthDayConvertFromDate:result.beginTime];
 
-    return exam;
+    return result;
 }
 
 + (Exam *)examWithID:(NSString *)examID {

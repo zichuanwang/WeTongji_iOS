@@ -27,6 +27,7 @@
         result = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
         
         result.identifier = userID;
+        result.objectClass = NSStringFromClass([User class]);
     }
     
     result.avatar = [NSString stringWithFormat:@"%@", dict[@"Avatar"]];

@@ -38,4 +38,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (BOOL)needUserLogin {
+    return YES;
+}
+
 @end

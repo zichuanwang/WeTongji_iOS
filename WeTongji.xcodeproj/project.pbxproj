@@ -110,7 +110,6 @@
 		E1132E7516C63308004CB808 /* WTCheckmarkIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E7316C63308004CB808 /* WTCheckmarkIcon.png */; };
 		E1132E7616C63308004CB808 /* WTCheckmarkIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E7416C63308004CB808 /* WTCheckmarkIcon@2x.png */; };
 		E1132E7916C65823004CB808 /* NSUserDefaults+WTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E1132E7816C65823004CB808 /* NSUserDefaults+WTAddition.m */; };
-		E1157DC8173ADB4E00E62295 /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E1157DC7173ADB4E00E62295 /* Object.m */; };
 		E1157DCE173B6BBD00E62295 /* Organization+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E1157DCD173B6BBD00E62295 /* Organization+Addition.m */; };
 		E1157DD1173B6E7B00E62295 /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = E1157DD0173B6E7B00E62295 /* Organization.m */; };
 		E1157DD7173B7A3300E62295 /* WTCourseDetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1157DD5173B7A3300E62295 /* WTCourseDetialViewController.m */; };
@@ -295,6 +294,7 @@
 		E1767A4D16D14D2700E58CCC /* WTBlueMoreIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4716D14D2700E58CCC /* WTBlueMoreIndicator@2x.png */; };
 		E1767A4E16D14D2700E58CCC /* WTNotificationMoreIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4816D14D2700E58CCC /* WTNotificationMoreIndicator.png */; };
 		E1767A4F16D14D2700E58CCC /* WTNotificationMoreIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4916D14D2700E58CCC /* WTNotificationMoreIndicator@2x.png */; };
+		E1770379173D41530086E550 /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E1770378173D41530086E550 /* Object.m */; };
 		E177E62316EDE0170029130F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E177E62216EDE0170029130F /* Security.framework */; };
 		E177E63216EE11720029130F /* WTFriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E177E63016EE11720029130F /* WTFriendListViewController.m */; };
 		E177E63316EE11720029130F /* WTFriendListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E177E63116EE11720029130F /* WTFriendListViewController.xib */; };
@@ -634,8 +634,6 @@
 		E1132E7416C63308004CB808 /* WTCheckmarkIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTCheckmarkIcon@2x.png"; sourceTree = "<group>"; };
 		E1132E7716C65823004CB808 /* NSUserDefaults+WTAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+WTAddition.h"; sourceTree = "<group>"; };
 		E1132E7816C65823004CB808 /* NSUserDefaults+WTAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+WTAddition.m"; sourceTree = "<group>"; };
-		E1157DC6173ADB4E00E62295 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
-		E1157DC7173ADB4E00E62295 /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
 		E1157DCC173B6BBD00E62295 /* Organization+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Organization+Addition.h"; sourceTree = "<group>"; };
 		E1157DCD173B6BBD00E62295 /* Organization+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Organization+Addition.m"; sourceTree = "<group>"; };
 		E1157DCF173B6E7B00E62295 /* Organization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Organization.h; sourceTree = "<group>"; };
@@ -872,6 +870,8 @@
 		E1767A4716D14D2700E58CCC /* WTBlueMoreIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTBlueMoreIndicator@2x.png"; sourceTree = "<group>"; };
 		E1767A4816D14D2700E58CCC /* WTNotificationMoreIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNotificationMoreIndicator.png; sourceTree = "<group>"; };
 		E1767A4916D14D2700E58CCC /* WTNotificationMoreIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNotificationMoreIndicator@2x.png"; sourceTree = "<group>"; };
+		E1770377173D41530086E550 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
+		E1770378173D41530086E550 /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
 		E177E62216EDE0170029130F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E177E62F16EE11720029130F /* WTFriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTFriendListViewController.h; sourceTree = "<group>"; };
 		E177E63016EE11720029130F /* WTFriendListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTFriendListViewController.m; sourceTree = "<group>"; };
@@ -2241,10 +2241,10 @@
 				E12B8C001734FC0D002A4D9C /* Activity.m */,
 				E1EF0E7517381CE100959DD0 /* Star.h */,
 				E1EF0E7617381CE100959DD0 /* Star.m */,
-				E1157DC6173ADB4E00E62295 /* Object.h */,
-				E1157DC7173ADB4E00E62295 /* Object.m */,
 				E1157DCF173B6E7B00E62295 /* Organization.h */,
 				E1157DD0173B6E7B00E62295 /* Organization.m */,
+				E1770377173D41530086E550 /* Object.h */,
+				E1770378173D41530086E550 /* Object.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2852,12 +2852,12 @@
 				E1EF0E7717381CE100959DD0 /* Star.m in Sources */,
 				E115FA9D173A3D2800DE5649 /* WTSearchHintView.m in Sources */,
 				E115FAA2173A3DE900DE5649 /* WTSearchHintCell.m in Sources */,
-				E1157DC8173ADB4E00E62295 /* Object.m in Sources */,
 				E1157DCE173B6BBD00E62295 /* Organization+Addition.m in Sources */,
 				E1157DD1173B6E7B00E62295 /* Organization.m in Sources */,
 				E1157DD7173B7A3300E62295 /* WTCourseDetialViewController.m in Sources */,
 				E1157DDD173B7CF000E62295 /* WTCommentViewController.m in Sources */,
 				E1157DEE173CF1A000E62295 /* WTSearchDefaultViewController.m in Sources */,
+				E1770379173D41530086E550 /* Object.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

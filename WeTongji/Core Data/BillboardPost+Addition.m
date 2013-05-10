@@ -46,6 +46,7 @@
     if (!result) {
         result = [NSEntityDescription insertNewObjectForEntityForName:@"BillboardPost" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
         result.identifier = postID;
+        result.objectClass = NSStringFromClass([BillboardPost class]);
     }
     result.content = [NSString stringWithFormat:@"%@", dict[@"Body"]];
     result.title = [NSString stringWithFormat:@"%@", dict[@"Title"]];

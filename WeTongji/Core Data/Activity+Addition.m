@@ -35,6 +35,7 @@
     if (!result) {
         result = [NSEntityDescription insertNewObjectForEntityForName:@"Activity" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
         result.identifier = activityID;
+        result.objectClass = NSStringFromClass([Activity class]);
     }
     
     result.updateTime = [NSDate date];

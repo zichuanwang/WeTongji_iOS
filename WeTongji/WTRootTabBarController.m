@@ -7,11 +7,16 @@
 //
 
 #import "WTRootTabBarController.h"
+#import "WTRootNavigationController.h"
+#import "WTLoginViewController.h"
+#import "WTCoreDataManager.h"
 
-@interface WTRootTabBarController ()
+@interface WTRootTabBarController () <WTLoginViewControllerDelegate>
 
 @property (nonatomic, strong) UIImageView *tabBarBgImageView;
 @property (nonatomic, strong) NSMutableArray *buttonArray;
+
+@property (nonatomic, weak) UIButton *loginPendingButton;
 
 @end
 
@@ -169,6 +174,14 @@
         return;
     }
     
+    WTRootNavigationController *viewController = self.viewControllers[button.tag];
+    if ([viewController needUserLogin] && ![WTCoreDataManager sharedManager].currentUser) {
+        WTLoginViewController *loginViewController = [WTLoginViewController showWithIntro:NO];
+        loginViewController.delegate = self;
+        self.self.loginPendingButton = button;
+        return;
+    }
+    
     self.selectedIndex = button.tag;
     
     // |button.tag == 4| 时似乎系统有bug，用下面的方法折衷
@@ -181,6 +194,15 @@
     }
     
     button.selected = YES;
+}
+
+#pragma mark - WTLoginViewControllerDelegate
+
+- (void)loginViewControllerWillDismiss:(BOOL)loginSucceeded {
+    if (loginSucceeded) {
+        [self didClickTabBarButton:self.loginPendingButton];
+    }
+    self.loginPendingButton = nil;
 }
 
 @end

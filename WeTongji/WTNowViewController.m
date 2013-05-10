@@ -10,7 +10,6 @@
 #import "WTResourceFactory.h"
 #import "WTCoreDataManager.h"
 #import "NSNotificationCenter+WTAddition.h"
-#import "WTLoginViewController.h"
 #import "WTNowBarTitleView.h"
 #import "WTNowWeekCell.h"
 #import "NSString+WTAddition.h"
@@ -25,7 +24,6 @@
 @property (nonatomic, strong) WTNowBarTitleView *barTitleView;
 
 @property (nonatomic, assign) BOOL shouldScrollToNow;
-@property (nonatomic, assign) BOOL shouldShowLoginView;
 
 @end
 
@@ -49,11 +47,7 @@
     [NSNotificationCenter registerCurrentUserDidChangeNotificationWithSelector:@selector(handleCurrentUserDidChangeNotification:)
                                                                         target:self];
     
-    if (![WTCoreDataManager sharedManager].currentUser) {
-        self.shouldShowLoginView = YES;
-    } else {
-        self.shouldScrollToNow = YES;
-    }
+    self.shouldScrollToNow = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -61,9 +55,6 @@
     if (self.shouldScrollToNow) {
         self.shouldScrollToNow = NO;
         [self scrollToNow:NO];
-    } else if (self.shouldShowLoginView) {
-        self.shouldShowLoginView = NO;
-        [WTLoginViewController showWithIntro:NO];
     }
 }
 
@@ -72,14 +63,6 @@
         return;
     WTNowWeekCell *visibleCell = (WTNowWeekCell *)self.tableView.visibleCells[0];
     [visibleCell cellDidAppear];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    if (![WTCoreDataManager sharedManager].currentUser) {
-        self.shouldShowLoginView = YES;
-    } else {
-        self.shouldShowLoginView = NO;
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -203,11 +186,7 @@
 #pragma mark - Actions
 
 - (void)didClickNowButton:(UIButton *)sender {
-    if ([WTCoreDataManager sharedManager].currentUser) {
-        [self scrollToNow:YES];
-    } else {
-        [WTLoginViewController showWithIntro:NO];
-    }
+    [self scrollToNow:YES];
 }
 
 #pragma mark - WTNowBarTitleViewDelegate
