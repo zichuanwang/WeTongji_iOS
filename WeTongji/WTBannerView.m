@@ -66,9 +66,10 @@
     [self resetOriginY:self.originalBottomY - bannerViewSize.height];
     [self resetCenterX:BANNER_VIEW_ORIGINAL_WIDTH / 2];
     
+    [self.shadowContainerView resetHeight:bannerViewSize.height];
+    
     [self.bannerPageControl resetCenterX:self.frame.size.width / 2];
     [self.bannerPageControl resetOriginY:bannerViewSize.height - BANNER_VIEW_ORIGINAL_HIEHGT + self.pageControlOriginY];
-    [self.bottomShadowImageView resetOriginY:bannerViewSize.height];
         
     self.bannerScrollView.contentSize = CGSizeMake(self.bannerScrollView.frame.size.width * self.bannerItemCount, bannerViewSize.height);
     self.bannerScrollView.contentOffset = CGPointMake(self.frame.size.width * self.bannerPageControl.currentPage, 0);

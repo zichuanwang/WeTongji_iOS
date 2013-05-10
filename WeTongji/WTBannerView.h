@@ -22,9 +22,8 @@ typedef enum {
 
 @property (nonatomic, weak) IBOutlet UIScrollView *bannerScrollView;
 @property (nonatomic, weak) IBOutlet UIPageControl *bannerPageControl;
-@property (nonatomic, weak) IBOutlet UIImageView *leftShadowImageView;
+@property (nonatomic, weak) IBOutlet UIView *shadowContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *rightShadowImageView;
-@property (nonatomic, weak) IBOutlet UIImageView *bottomShadowImageView;
 
 + (WTBannerContainerView *)createBannerContainerView;
 

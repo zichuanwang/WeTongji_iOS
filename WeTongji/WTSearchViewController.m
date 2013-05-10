@@ -21,6 +21,8 @@
 
 @property (nonatomic, assign) BOOL shouldSearchBarBecomeFirstResponder;
 
+@property (nonatomic, strong) WTSearchResultTableViewController *resultViewController;
+
 @end
 
 @implementation WTSearchViewController
@@ -46,7 +48,16 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleKeyboardWillDismissNotification:) name:UIKeyboardWillHideNotification object:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self.resultViewController viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self.resultViewController viewDidAppear:animated];
+}
+
 - (void)viewDidDisappear:(BOOL)animated {
+    [self.resultViewController viewDidDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -176,6 +187,27 @@
     }
 }
 
+- (void)showHintView:(BOOL)show {
+    if (show) {
+        self.searchHintView.hidden = NO;
+        [self.view bringSubviewToFront:self.searchHintView];
+        self.resultViewController.view.userInteractionEnabled = NO;
+    } else {
+        self.searchHintView.hidden = YES;
+        self.resultViewController.view.userInteractionEnabled = YES;
+    }
+}
+
+- (void)showSearchResultViewForSearchCategory:(NSInteger)category {
+    [self.resultViewController.view removeFromSuperview];
+    self.resultViewController = nil;
+    
+    WTSearchResultTableViewController *vc = [WTSearchResultTableViewController createViewControllerWithSearchKeyword:self.searchBar.text searchCategory:category];
+    self.resultViewController = vc;
+    [self.view addSubview:vc.view];
+    [vc.view resetHeight:self.view.frame.size.height];
+}
+
 - (void)showSearchBarCancelButton:(BOOL)show {
     if (self.searchBar.showsCancelButton == show)
         return;
@@ -200,8 +232,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == self.searchHintView.tableView) {
-        WTSearchResultTableViewController *vc = [WTSearchResultTableViewController createViewControllerWithSearchKeyword:self.searchBar.text searchCategory:indexPath.row];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self showSearchResultViewForSearchCategory:indexPath.row];
+        [self.searchBar resignFirstResponder];
     }
 }
 
@@ -210,8 +242,9 @@
 - (void)didClickCustomSearchBarCancelButton:(UIButton *)sender {
     [self showSearchBarCancelButton:NO];
     [self.searchBar resignFirstResponder];
-    self.searchHintView.hidden = YES;
+    [self showHintView:NO];
     self.searchBar.text = @"";
+    self.searchHintView.searchKeyword = @"";
 }
 
 - (void)didClickNotificationButton:(WTNotificationBarButton *)sender {
@@ -227,36 +260,23 @@
 #pragma mark - UISearchBarDelegate
 
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    WTLOG(@"searchBarTextDidBeginEditing");
     [self showSearchBarCancelButton:YES];
-    self.searchHintView.hidden = NO;
-    NSLog(@"searchBarTextDidBeginEditing");
+    [self showHintView:YES];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    WTLOG(@"searchBarTextDidEndEditing");
+    [self showHintView:NO];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     self.searchHintView.searchKeyword = searchText;
 }
 
-- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
-    NSLog(@"searchBarTextDidEndEditing");
-}
-
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    WTSearchResultTableViewController *vc = [WTSearchResultTableViewController createViewControllerWithSearchKeyword:self.searchBar.text searchCategory:0];
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)inviteFriend:(User *)user {
-    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
-        WTLOG(@"Invite friend:%@", responseObject);
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"添加好友" message:[NSString stringWithFormat:@"已经添加 %@ 为好友。", user.name] delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil];
-        [alertView show];
-    } failureBlock:^(NSError *error) {
-        WTLOGERROR(@"Invite friend:%@", error.localizedDescription);
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"添加好友失败" message:error.localizedDescription delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil];
-        [alertView show];
-    }];
-    [request inviteFriend:user.identifier];
-    [[WTClient sharedClient] enqueueRequest:request];
+    [self showSearchResultViewForSearchCategory:0];
+    [searchBar resignFirstResponder];
 }
 
 @end

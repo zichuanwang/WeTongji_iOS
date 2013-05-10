@@ -7,7 +7,6 @@
 //
 
 #import "WTSearchResultTableViewController.h"
-#import "WTResourceFactory.h"
 #import "WTDragToLoadDecorator.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import "News+Addition.h"
@@ -43,7 +42,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self configureNavigationBar];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
     
@@ -138,13 +136,7 @@
     self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
     [self.dragToLoadDecorator setTopViewLoading:YES];
     [self.dragToLoadDecorator setBottomViewDisabled:YES immediately:YES];
-}
-
-- (void)configureNavigationBar {
-    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Search Results", nil)];
-    self.navigationItem.leftBarButtonItem = [WTResourceFactory createBackBarButtonWithText:NSLocalizedString(@"Search", nil)
-                                                                                    target:self
-                                                                                    action:@selector(didClickBackButton:)];
+    [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
 }
 
 #pragma mark - Actions

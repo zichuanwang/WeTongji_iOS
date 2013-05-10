@@ -115,6 +115,14 @@
 		E1157DD1173B6E7B00E62295 /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = E1157DD0173B6E7B00E62295 /* Organization.m */; };
 		E1157DD7173B7A3300E62295 /* WTCourseDetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1157DD5173B7A3300E62295 /* WTCourseDetialViewController.m */; };
 		E1157DD8173B7A3300E62295 /* WTCourseDetialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1157DD6173B7A3300E62295 /* WTCourseDetialViewController.xib */; };
+		E1157DDD173B7CF000E62295 /* WTCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1157DDB173B7CF000E62295 /* WTCommentViewController.m */; };
+		E1157DDE173B7CF000E62295 /* WTCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1157DDC173B7CF000E62295 /* WTCommentViewController.xib */; };
+		E1157DE5173CCD4B00E62295 /* WTBannerBottomShadowUnit.png in Resources */ = {isa = PBXBuildFile; fileRef = E1157DDF173CCD4B00E62295 /* WTBannerBottomShadowUnit.png */; };
+		E1157DE6173CCD4B00E62295 /* WTBannerBottomShadowUnit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1157DE0173CCD4B00E62295 /* WTBannerBottomShadowUnit@2x.png */; };
+		E1157DE7173CCD4B00E62295 /* WTBannerLeftShadowUnit.png in Resources */ = {isa = PBXBuildFile; fileRef = E1157DE1173CCD4B00E62295 /* WTBannerLeftShadowUnit.png */; };
+		E1157DE8173CCD4B00E62295 /* WTBannerLeftShadowUnit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1157DE2173CCD4B00E62295 /* WTBannerLeftShadowUnit@2x.png */; };
+		E1157DE9173CCD4B00E62295 /* WTBannerRightShadowUnit.png in Resources */ = {isa = PBXBuildFile; fileRef = E1157DE3173CCD4B00E62295 /* WTBannerRightShadowUnit.png */; };
+		E1157DEA173CCD4B00E62295 /* WTBannerRightShadowUnit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1157DE4173CCD4B00E62295 /* WTBannerRightShadowUnit@2x.png */; };
 		E115FA9D173A3D2800DE5649 /* WTSearchHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = E115FA9C173A3D2800DE5649 /* WTSearchHintView.m */; };
 		E115FA9F173A3D3C00DE5649 /* WTSearchHintView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E115FA9E173A3D3C00DE5649 /* WTSearchHintView.xib */; };
 		E115FAA2173A3DE900DE5649 /* WTSearchHintCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E115FAA1173A3DE900DE5649 /* WTSearchHintCell.m */; };
@@ -633,6 +641,15 @@
 		E1157DD4173B7A3300E62295 /* WTCourseDetialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCourseDetialViewController.h; sourceTree = "<group>"; };
 		E1157DD5173B7A3300E62295 /* WTCourseDetialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCourseDetialViewController.m; sourceTree = "<group>"; };
 		E1157DD6173B7A3300E62295 /* WTCourseDetialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTCourseDetialViewController.xib; sourceTree = "<group>"; };
+		E1157DDA173B7CF000E62295 /* WTCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCommentViewController.h; sourceTree = "<group>"; };
+		E1157DDB173B7CF000E62295 /* WTCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCommentViewController.m; sourceTree = "<group>"; };
+		E1157DDC173B7CF000E62295 /* WTCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTCommentViewController.xib; sourceTree = "<group>"; };
+		E1157DDF173CCD4B00E62295 /* WTBannerBottomShadowUnit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTBannerBottomShadowUnit.png; sourceTree = "<group>"; };
+		E1157DE0173CCD4B00E62295 /* WTBannerBottomShadowUnit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTBannerBottomShadowUnit@2x.png"; sourceTree = "<group>"; };
+		E1157DE1173CCD4B00E62295 /* WTBannerLeftShadowUnit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTBannerLeftShadowUnit.png; sourceTree = "<group>"; };
+		E1157DE2173CCD4B00E62295 /* WTBannerLeftShadowUnit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTBannerLeftShadowUnit@2x.png"; sourceTree = "<group>"; };
+		E1157DE3173CCD4B00E62295 /* WTBannerRightShadowUnit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTBannerRightShadowUnit.png; sourceTree = "<group>"; };
+		E1157DE4173CCD4B00E62295 /* WTBannerRightShadowUnit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTBannerRightShadowUnit@2x.png"; sourceTree = "<group>"; };
 		E115FA9B173A3D2800DE5649 /* WTSearchHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSearchHintView.h; sourceTree = "<group>"; };
 		E115FA9C173A3D2800DE5649 /* WTSearchHintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSearchHintView.m; sourceTree = "<group>"; };
 		E115FA9E173A3D3C00DE5649 /* WTSearchHintView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSearchHintView.xib; sourceTree = "<group>"; };
@@ -1268,6 +1285,16 @@
 			name = Course;
 			sourceTree = "<group>";
 		};
+		E1157DD9173B7CD700E62295 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				E1157DDA173B7CF000E62295 /* WTCommentViewController.h */,
+				E1157DDB173B7CF000E62295 /* WTCommentViewController.m */,
+				E1157DDC173B7CF000E62295 /* WTCommentViewController.xib */,
+			);
+			name = Comment;
+			sourceTree = "<group>";
+		};
 		E115FA9A173A3D0900DE5649 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -1308,6 +1335,7 @@
 		E117038E1651EFD900D82F4A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E1157DD9173B7CD700E62295 /* Comment */,
 				E1157DD3173B79F500E62295 /* Course */,
 				E1157DD2173B78D700E62295 /* Star */,
 				E1250C0A16859A1D00802808 /* Activity */,
@@ -1971,6 +1999,12 @@
 		E1AEA9861691AF56007DFA4C /* Shadow */ = {
 			isa = PBXGroup;
 			children = (
+				E1157DDF173CCD4B00E62295 /* WTBannerBottomShadowUnit.png */,
+				E1157DE0173CCD4B00E62295 /* WTBannerBottomShadowUnit@2x.png */,
+				E1157DE1173CCD4B00E62295 /* WTBannerLeftShadowUnit.png */,
+				E1157DE2173CCD4B00E62295 /* WTBannerLeftShadowUnit@2x.png */,
+				E1157DE3173CCD4B00E62295 /* WTBannerRightShadowUnit.png */,
+				E1157DE4173CCD4B00E62295 /* WTBannerRightShadowUnit@2x.png */,
 				E1B89292169181CA009D901C /* WTBottomShadowUnit.png */,
 				E1B89293169181CA009D901C /* WTBottomShadowUnit@2x.png */,
 				E1AEA98B1691B3BA007DFA4C /* WTLeftShadow.png */,
@@ -2646,6 +2680,13 @@
 				E115FA9F173A3D3C00DE5649 /* WTSearchHintView.xib in Resources */,
 				E115FAA4173A3DFF00DE5649 /* WTSearchHintCell.xib in Resources */,
 				E1157DD8173B7A3300E62295 /* WTCourseDetialViewController.xib in Resources */,
+				E1157DDE173B7CF000E62295 /* WTCommentViewController.xib in Resources */,
+				E1157DE5173CCD4B00E62295 /* WTBannerBottomShadowUnit.png in Resources */,
+				E1157DE6173CCD4B00E62295 /* WTBannerBottomShadowUnit@2x.png in Resources */,
+				E1157DE7173CCD4B00E62295 /* WTBannerLeftShadowUnit.png in Resources */,
+				E1157DE8173CCD4B00E62295 /* WTBannerLeftShadowUnit@2x.png in Resources */,
+				E1157DE9173CCD4B00E62295 /* WTBannerRightShadowUnit.png in Resources */,
+				E1157DEA173CCD4B00E62295 /* WTBannerRightShadowUnit@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2806,6 +2847,7 @@
 				E1157DCE173B6BBD00E62295 /* Organization+Addition.m in Sources */,
 				E1157DD1173B6E7B00E62295 /* Organization.m in Sources */,
 				E1157DD7173B7A3300E62295 /* WTCourseDetialViewController.m in Sources */,
+				E1157DDD173B7CF000E62295 /* WTCommentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
