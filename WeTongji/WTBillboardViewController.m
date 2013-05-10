@@ -13,6 +13,7 @@
 #import "BillboardPost.h"
 #import "WTBillboardPostViewController.h"
 #import "WTBillboardDetailViewController.h"
+#import "WTLoginViewController.h"
 
 @interface WTBillboardViewController ()
 
@@ -85,6 +86,12 @@
 #pragma mark - Actions
 
 - (void)didClickNewPostButton:(UIButton *)sender {
+    
+    if (![WTCoreDataManager sharedManager].currentUser) {
+        [WTLoginViewController showWithIntro:NO];
+        return;
+    }
+    
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
                                                     cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
