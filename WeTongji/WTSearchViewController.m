@@ -223,6 +223,8 @@
     self.resultViewController = vc;
     [self.view insertSubview:vc.view aboveSubview:self.defaultViewController.view];
     [vc.view resetHeight:self.view.frame.size.height];
+    
+    [self.defaultViewController.historyView.tableView reloadData];
 }
 
 - (void)showSearchBarCancelButton:(BOOL)show {

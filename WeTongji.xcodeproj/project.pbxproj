@@ -295,6 +295,12 @@
 		E1767A4E16D14D2700E58CCC /* WTNotificationMoreIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4816D14D2700E58CCC /* WTNotificationMoreIndicator.png */; };
 		E1767A4F16D14D2700E58CCC /* WTNotificationMoreIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4916D14D2700E58CCC /* WTNotificationMoreIndicator@2x.png */; };
 		E1770379173D41530086E550 /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E1770378173D41530086E550 /* Object.m */; };
+		E177037C173EB46D0086E550 /* WTSearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = E177037B173EB46D0086E550 /* WTSearchHistoryView.m */; };
+		E177037E173EB47D0086E550 /* WTSearchHistoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E177037D173EB47D0086E550 /* WTSearchHistoryView.xib */; };
+		E1770381173EBA240086E550 /* WTSearchHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1770380173EBA240086E550 /* WTSearchHistoryCell.m */; };
+		E1770383173EBA340086E550 /* WTSearchHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1770382173EBA340086E550 /* WTSearchHistoryCell.xib */; };
+		E1770386173EBA890086E550 /* WTSearchTagBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1770384173EBA890086E550 /* WTSearchTagBg.png */; };
+		E1770387173EBA890086E550 /* WTSearchTagBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1770385173EBA890086E550 /* WTSearchTagBg@2x.png */; };
 		E177E62316EDE0170029130F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E177E62216EDE0170029130F /* Security.framework */; };
 		E177E63216EE11720029130F /* WTFriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E177E63016EE11720029130F /* WTFriendListViewController.m */; };
 		E177E63316EE11720029130F /* WTFriendListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E177E63116EE11720029130F /* WTFriendListViewController.xib */; };
@@ -872,6 +878,14 @@
 		E1767A4916D14D2700E58CCC /* WTNotificationMoreIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNotificationMoreIndicator@2x.png"; sourceTree = "<group>"; };
 		E1770377173D41530086E550 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
 		E1770378173D41530086E550 /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
+		E177037A173EB46D0086E550 /* WTSearchHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSearchHistoryView.h; sourceTree = "<group>"; };
+		E177037B173EB46D0086E550 /* WTSearchHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSearchHistoryView.m; sourceTree = "<group>"; };
+		E177037D173EB47D0086E550 /* WTSearchHistoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSearchHistoryView.xib; sourceTree = "<group>"; };
+		E177037F173EBA240086E550 /* WTSearchHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSearchHistoryCell.h; sourceTree = "<group>"; };
+		E1770380173EBA240086E550 /* WTSearchHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSearchHistoryCell.m; sourceTree = "<group>"; };
+		E1770382173EBA340086E550 /* WTSearchHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSearchHistoryCell.xib; sourceTree = "<group>"; };
+		E1770384173EBA890086E550 /* WTSearchTagBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTSearchTagBg.png; sourceTree = "<group>"; };
+		E1770385173EBA890086E550 /* WTSearchTagBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTSearchTagBg@2x.png"; sourceTree = "<group>"; };
 		E177E62216EDE0170029130F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E177E62F16EE11720029130F /* WTFriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTFriendListViewController.h; sourceTree = "<group>"; };
 		E177E63016EE11720029130F /* WTFriendListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTFriendListViewController.m; sourceTree = "<group>"; };
@@ -1306,6 +1320,9 @@
 				E115FA9B173A3D2800DE5649 /* WTSearchHintView.h */,
 				E115FA9C173A3D2800DE5649 /* WTSearchHintView.m */,
 				E115FA9E173A3D3C00DE5649 /* WTSearchHintView.xib */,
+				E177037A173EB46D0086E550 /* WTSearchHistoryView.h */,
+				E177037B173EB46D0086E550 /* WTSearchHistoryView.m */,
+				E177037D173EB47D0086E550 /* WTSearchHistoryView.xib */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -1955,6 +1972,8 @@
 		E19832D716FEF21300AB83E8 /* Bg */ = {
 			isa = PBXGroup;
 			children = (
+				E1770384173EBA890086E550 /* WTSearchTagBg.png */,
+				E1770385173EBA890086E550 /* WTSearchTagBg@2x.png */,
 				E1132E6216C6304A004CB808 /* WTInnerModalGroupTableViewBg.png */,
 				E1132E6316C6304A004CB808 /* WTInnerModalGroupTableViewBg@2x.png */,
 				E14FA69B1680DF62008A8D33 /* WTInnerModalViewBg.png */,
@@ -2140,6 +2159,9 @@
 				E115FAA0173A3DE900DE5649 /* WTSearchHintCell.h */,
 				E115FAA1173A3DE900DE5649 /* WTSearchHintCell.m */,
 				E115FAA3173A3DFF00DE5649 /* WTSearchHintCell.xib */,
+				E177037F173EBA240086E550 /* WTSearchHistoryCell.h */,
+				E1770380173EBA240086E550 /* WTSearchHistoryCell.m */,
+				E1770382173EBA340086E550 /* WTSearchHistoryCell.xib */,
 			);
 			name = CustomCells;
 			sourceTree = "<group>";
@@ -2696,6 +2718,10 @@
 				E1157DE9173CCD4B00E62295 /* WTBannerRightShadowUnit.png in Resources */,
 				E1157DEA173CCD4B00E62295 /* WTBannerRightShadowUnit@2x.png in Resources */,
 				E1157DEF173CF1A000E62295 /* WTSearchDefaultViewController.xib in Resources */,
+				E177037E173EB47D0086E550 /* WTSearchHistoryView.xib in Resources */,
+				E1770383173EBA340086E550 /* WTSearchHistoryCell.xib in Resources */,
+				E1770386173EBA890086E550 /* WTSearchTagBg.png in Resources */,
+				E1770387173EBA890086E550 /* WTSearchTagBg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2858,6 +2884,8 @@
 				E1157DDD173B7CF000E62295 /* WTCommentViewController.m in Sources */,
 				E1157DEE173CF1A000E62295 /* WTSearchDefaultViewController.m in Sources */,
 				E1770379173D41530086E550 /* Object.m in Sources */,
+				E177037C173EB46D0086E550 /* WTSearchHistoryView.m in Sources */,
+				E1770381173EBA240086E550 /* WTSearchHistoryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

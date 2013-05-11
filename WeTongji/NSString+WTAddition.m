@@ -171,4 +171,38 @@
     return resultString;
 }
 
++ (NSString *)searchCategoryStringForCategory:(NSInteger)category {
+    NSString *result = nil;
+    switch (category) {
+        case 0:
+        {
+            result = NSLocalizedString(@"all", nil);
+        }
+            break;
+        case 1:
+        {
+            result = NSLocalizedString(@"people", nil);
+        }
+            break;
+        case 2:
+        {
+            result = NSLocalizedString(@"organizations", nil);
+        }
+            break;
+        case 3:
+        {
+            result = NSLocalizedString(@"activities", nil);
+        }
+            break;
+        case 4:
+        {
+            result = NSLocalizedString(@"news", nil);
+        }
+            break;
+        default:
+            break;
+    }
+    return result;
+}
+
 @end

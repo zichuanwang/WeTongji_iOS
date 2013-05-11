@@ -92,7 +92,7 @@
 "Star" = "济人";
 
 "Search all" = "搜索全部";
-"people" = "人物";
+"people" = "用户";
 "organizations" = "组织机构";
 "activities" = "活动";
 "news" = "资讯";
@@ -101,3 +101,6 @@
 "Search" = "搜索";
 
 "Organization" = "组织机构";
+
+"Search History" = "搜索历史";
+"all" = "全部";

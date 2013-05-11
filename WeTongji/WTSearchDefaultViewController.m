@@ -10,6 +10,8 @@
 
 @interface WTSearchDefaultViewController ()
 
+@property (nonatomic, weak) WTSearchHistoryView *historyView;
+
 @end
 
 @implementation WTSearchDefaultViewController
@@ -27,12 +29,22 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self configureSearchHistoryView];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UI methods
+
+- (void)configureSearchHistoryView {
+    WTSearchHistoryView *historyView = [WTSearchHistoryView createSearchHistoryView];
+    [historyView resetHeight:self.view.frame.size.height];
+    [self.view insertSubview:historyView belowSubview:self.shadowCoverView];
+    self.historyView = historyView;
 }
 
 @end

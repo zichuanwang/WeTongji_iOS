@@ -33,4 +33,6 @@
 + (NSString *)friendCountStringConvertFromCountNumber:(NSNumber *)countNumber;
 + (NSString *)commentCountStringConvertFromCountNumber:(NSNumber *)countNumber;
 
++ (NSString *)searchCategoryStringForCategory:(NSInteger)category;
+
 @end

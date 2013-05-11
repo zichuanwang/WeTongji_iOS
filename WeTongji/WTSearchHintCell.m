@@ -9,6 +9,7 @@
 #import "WTSearchHintCell.h"
 #import "OHAttributedLabel.h"
 #import "NSAttributedString+WTAddition.h"
+#import "NSString+WTAddition.h"
 
 @implementation WTSearchHintCell
 
@@ -37,41 +38,15 @@
     }
     
     NSMutableAttributedString *labelAttributedString = nil;
-    NSString *categoryString = nil;
     
-    switch (indexPath.row) {
-        case 0:
-        {
-            NSString *cellLabelString = NSLocalizedString(@"Search all", nil);
-            labelAttributedString = [NSMutableAttributedString attributedStringWithString:cellLabelString];
-            [labelAttributedString setAttributes:[self.label.attributedText attributesAtIndex:0 effectiveRange:NULL] range:NSMakeRange(0, labelAttributedString.length)];
-        }
-            break;
-        case 1:
-        {
-            categoryString = NSLocalizedString(@"people", nil);
-        }
-            break;
-        case 2:
-        {
-            categoryString = NSLocalizedString(@"organizations", nil);
-        }
-            break;
-        case 3:
-        {
-            categoryString = NSLocalizedString(@"activities", nil);
-        }
-            break;
-        case 4:
-        {
-            categoryString = NSLocalizedString(@"news", nil);
-        }
-            break;
-        default:
-            break;
-    }
-    
-    if (categoryString) {
+    if (indexPath.row == 0) {
+        
+        NSString *cellLabelString = NSLocalizedString(@"Search all", nil);
+        labelAttributedString = [NSMutableAttributedString attributedStringWithString:cellLabelString];
+        [labelAttributedString setAttributes:[self.label.attributedText attributesAtIndex:0 effectiveRange:NULL] range:NSMakeRange(0, labelAttributedString.length)];
+
+    } else {
+        NSString *categoryString = [NSString searchCategoryStringForCategory:indexPath.row];
         labelAttributedString = [NSMutableAttributedString attributedStringWithAttributedString:[NSAttributedString searchHintStringForKeyword:keyword category:categoryString attributes:[self.label.attributedText attributesAtIndex:0 effectiveRange:NULL]]];
     }
     

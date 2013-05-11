@@ -17,6 +17,7 @@
 #import "WTActivityCell.h"
 #import "WTNewsDetailViewController.h"
 #import "WTActivityDetailViewController.h"
+#import "NSUserDefaults+WTAddition.h"
 
 @interface WTSearchResultTableViewController () <WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
@@ -75,6 +76,8 @@
     result.searchCategory = category;
     
     result.delegate = delegate;
+    
+    [[NSUserDefaults standardUserDefaults] addSearchHistoryItemWithSearchKeyword:keyword searchCategory:category];
     
     return result;
 }

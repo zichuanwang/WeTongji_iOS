@@ -72,4 +72,17 @@ typedef enum {
 
 - (BOOL)isActivitySettingDifferentFromDefaultValue;
 
+#pragma mark Search history
+
++ (NSString *)getSearchHistoryKeyword:(NSDictionary *)dict;
+
++ (NSInteger)getSearchHistoryCategory:(NSDictionary *)dict;
+
+- (void)addSearchHistoryItemWithSearchKeyword:(NSString *)keyword
+                               searchCategory:(NSInteger)category;
+
+- (void)clearAllSearchHistoryItems;
+
+- (NSArray *)getSearchHistoryArray;
+
 @end

@@ -67,6 +67,10 @@
 											<int key="NSColorSpace">3</int>
 											<bytes key="NSWhite">MSAwLjcAA</bytes>
 										</object>
+										<object class="NSColor" key="IBUIShadowColor">
+											<int key="NSColorSpace">3</int>
+											<bytes key="NSWhite">MSAwLjcAA</bytes>
+										</object>
 										<string key="IBUIShadowOffset">{0, 1}</string>
 										<int key="IBUIBaselineAdjustment">0</int>
 										<int key="IBUILineBreakMode">2</int>
@@ -99,7 +103,7 @@
 									<object class="IBUIImageView" id="877524453">
 										<reference key="NSNextResponder" ref="900677780"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{0, -0.5}, {320, 1}}</string>
+										<string key="NSFrame">{{0, -1}, {320, 1}}</string>
 										<reference key="NSSuperview" ref="900677780"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="584486500"/>

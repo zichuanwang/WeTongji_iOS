@@ -58,55 +58,47 @@
 #pragma mark - News
 
 - (NewsOrderMethod)getNewsOrderMethod {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NewsOrderMethod method = [userDefaults integerForKey:kNewsOrderMethod];
+    NewsOrderMethod method = [self integerForKey:kNewsOrderMethod];
     return method;
 }
 
 - (void)setNewsOrderMethod:(NewsOrderMethod)method {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setInteger:method forKey:kNewsOrderMethod];
-    [userDefaults synchronize];
+    [self setInteger:method forKey:kNewsOrderMethod];
+    [self synchronize];
 }
 
 - (BOOL)getNewsSmartOrderProperty {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    return [userDefaults boolForKey:kNewsSmartOrder];
+    return [self boolForKey:kNewsSmartOrder];
 
 }
 
 - (NewsShowTypes)getNewsShowTypes {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NewsShowTypes types = [userDefaults integerForKey:kNewsShowTypes];
+    NewsShowTypes types = [self integerForKey:kNewsShowTypes];
     return types;
 }
 
 - (void)setNewsShowTypes:(NewsShowTypes)types {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setInteger:types forKey:kNewsShowTypes];
-    [userDefaults synchronize];
+    [self setInteger:types forKey:kNewsShowTypes];
+    [self synchronize];
 }
 
 - (void)addNewsShowTypes:(NewsShowTypes)type {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NewsShowTypes types = [userDefaults getNewsShowTypes];
+    NewsShowTypes types = [self getNewsShowTypes];
     types |= type;
     NSLog(@"add %d, result %d", type, types);
-    [userDefaults setNewsShowTypes:types];
+    [self setNewsShowTypes:types];
 }
 
 - (void)removeNewsShowTypes:(NewsShowTypes)type {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NewsShowTypes types = [userDefaults getNewsShowTypes];
+    NewsShowTypes types = [self getNewsShowTypes];
     types &= ~type;
     NSLog(@"remove %d, result %d", type, types);
-    [userDefaults setNewsShowTypes:types];
+    [self setNewsShowTypes:types];
 }
 
 - (void)setNewsSmartOrderProperty:(BOOL)on {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setBool:on forKey:kNewsSmartOrder];
-    [userDefaults synchronize];
+    [self setBool:on forKey:kNewsSmartOrder];
+    [self synchronize];
 }
 
 + (NSArray *)getNewsShowTypesArray {
@@ -131,15 +123,14 @@
 }
 
 - (BOOL)isNewsSettingDifferentFromDefaultValue {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
-    if ([userDefaults getNewsOrderMethod] != NewsDefaultOrderMethod)
+    if ([self getNewsOrderMethod] != NewsDefaultOrderMethod)
         return YES;
     
-    if ([userDefaults getNewsShowTypes] != NewsDefaultShowTypes)
+    if ([self getNewsShowTypes] != NewsDefaultShowTypes)
         return YES;
     
-    if ([userDefaults getNewsSmartOrderProperty] != NewsDefaultSmartOrder)
+    if ([self getNewsSmartOrderProperty] != NewsDefaultSmartOrder)
         return YES;
     
     return NO;
@@ -148,50 +139,44 @@
 #pragma mark - Activity
 
 - (BOOL)isActivitySettingDifferentFromDefaultValue {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
-    if ([userDefaults getActivityOrderMethod] != ActivityDefaultOrderMethod)
+    if ([self getActivityOrderMethod] != ActivityDefaultOrderMethod)
         return YES;
     
-    if ([userDefaults getActivityShowTypes] != ActivityDefaultShowTypes)
+    if ([self getActivityShowTypes] != ActivityDefaultShowTypes)
         return YES;
     
-    if ([userDefaults getActivitySmartOrderProperty] != ActivityDefaultSmartOrder)
+    if ([self getActivitySmartOrderProperty] != ActivityDefaultSmartOrder)
         return YES;
     
-    if ([userDefaults getActivityHidePastProperty] != ActivityDefaultHidePast)
+    if ([self getActivityHidePastProperty] != ActivityDefaultHidePast)
         return YES;
     
     return NO;
 }
 
 - (void)setActivityOrderMethod:(ActivityOrderMethod)method {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setInteger:method forKey:kActivityOrderMethod];
-    [userDefaults synchronize];
+    [self setInteger:method forKey:kActivityOrderMethod];
+    [self synchronize];
 }
 
 - (void)setActivityShowTypes:(NewsShowTypes)types {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setInteger:types forKey:kActivityShowTypes];
-    [userDefaults synchronize];
+    [self setInteger:types forKey:kActivityShowTypes];
+    [self synchronize];
 }
 
 - (void)setActivitySmartOrderProperty:(BOOL)on {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setBool:on forKey:kActivitySmartOrder];
-    [userDefaults synchronize];
+    [self setBool:on forKey:kActivitySmartOrder];
+    [self synchronize];
 }
 
 - (void)setActivityHidePastProperty:(BOOL)on {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setBool:on forKey:kActivityHidePast];
-    [userDefaults synchronize];
+    [self setBool:on forKey:kActivityHidePast];
+    [self synchronize];
 }
 
 - (ActivityShowTypes)getActivityShowTypes {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    return [userDefaults integerForKey:kActivityShowTypes];
+    return [self integerForKey:kActivityShowTypes];
 }
 
 + (NSArray *)getActivityShowTypesArray {
@@ -216,18 +201,55 @@
 }
 
 - (ActivityOrderMethod)getActivityOrderMethod {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    return [userDefaults integerForKey:kActivityOrderMethod];
+    return [self integerForKey:kActivityOrderMethod];
 }
 
 - (BOOL)getActivityHidePastProperty {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    return [userDefaults boolForKey:kActivityHidePast];
+    return [self boolForKey:kActivityHidePast];
 }
 
 - (BOOL)getActivitySmartOrderProperty {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    return [userDefaults boolForKey:kActivitySmartOrder];
+    return [self boolForKey:kActivitySmartOrder];
+}
+
+#pragma mark - Search history
+
+#define kSearchHistoryArray     @"SearchHistoryArray"
+#define kSearchHistoryKeyword   @"SearchHistoryKeyword"
+#define kSearchHistoryCateogory @"SearchHistoryCateogory"
+
+#define SEARCH_HISTORY_ARRAY_MAX_CAPACITY   10
+
++ (NSString *)getSearchHistoryKeyword:(NSDictionary *)dict {
+    return [dict objectForKey:kSearchHistoryKeyword];
+}
+
++ (NSInteger)getSearchHistoryCategory:(NSDictionary *)dict {
+    NSNumber *categoryNumber = [dict objectForKey:kSearchHistoryCateogory];
+    return categoryNumber.integerValue;
+}
+
+- (void)addSearchHistoryItemWithSearchKeyword:(NSString *)keyword
+                               searchCategory:(NSInteger)category {
+    
+    NSDictionary *item = @{kSearchHistoryKeyword : keyword, kSearchHistoryCateogory : @(category)};
+    
+    NSMutableArray *searchHistoryArray = [NSMutableArray arrayWithArray:[self getSearchHistoryArray]];
+    if (searchHistoryArray.count >= SEARCH_HISTORY_ARRAY_MAX_CAPACITY) {
+        [searchHistoryArray removeLastObject];
+    }
+    [searchHistoryArray insertObject:item atIndex:0];
+    [self setObject:searchHistoryArray forKey:kSearchHistoryArray];
+    [self synchronize];
+}
+
+- (void)clearAllSearchHistoryItems {
+    [self setObject:nil forKey:kSearchHistoryArray];
+    [self synchronize];
+}
+
+- (NSArray *)getSearchHistoryArray {
+    return [self arrayForKey:kSearchHistoryArray];
 }
 
 @end
