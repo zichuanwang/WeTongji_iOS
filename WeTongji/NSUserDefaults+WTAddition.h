@@ -31,9 +31,9 @@ typedef enum {
 
 typedef enum {
     ActivityShowTypeAcademics       = 1 << 0,
-    ActivityShowTypeEntertainment   = 1 << 1,
-    ActivityShowTypeEnterprise      = 1 << 2,
-    ActivityShowTypeCompetition     = 1 << 3,
+    ActivityShowTypeCompetition     = 1 << 1,
+    ActivityShowTypeEntertainment   = 1 << 2,
+    ActivityShowTypeEnterprise      = 1 << 3,
 } ActivityShowTypes;
 
 #define ActivityShowTypesCount  4
