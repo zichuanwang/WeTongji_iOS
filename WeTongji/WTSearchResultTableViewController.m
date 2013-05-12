@@ -219,7 +219,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Object *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     UIViewController *vc = nil;
-    NSString *backBarButtonText = NSLocalizedString(@"Search Results", nil);
+    NSString *backBarButtonText = NSLocalizedString(@"Search", nil);
     if ([object isKindOfClass:[News class]]) {
         vc = [WTNewsDetailViewController createNewsDetailViewControllerWithNews:(News *)object backBarButtonText:backBarButtonText];
     } else if ([object isKindOfClass:[Activity class]]) {

@@ -286,7 +286,8 @@
     
     [self showSearchResultView:NO];
     
-    [self.defaultViewController.shadowCoverView fadeOut];
+    if (self.defaultViewController.shadowCoverView.alpha == 1)
+        [self.defaultViewController.shadowCoverView fadeOut];
 }
 
 - (void)didClickNotificationButton:(WTNotificationBarButton *)sender {

@@ -12,6 +12,8 @@
 #import "UIApplication+WTAddition.h"
 #import "WTSearchViewController.h"
 
+#define CLEAR_HISTORY_CELL_ROW  ([[NSUserDefaults standardUserDefaults] getSearchHistoryArray].count)
+
 @interface WTSearchHistoryView ()
 
 @end
@@ -60,8 +62,13 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *searchHistoryInfoDict = [[NSUserDefaults standardUserDefaults] getSearchHistoryArray][indexPath.row];
-    [[UIApplication sharedApplication].searchViewController showSearchResultWithSearchKeyword:[NSUserDefaults getSearchHistoryKeyword:searchHistoryInfoDict] searchCategory:[NSUserDefaults getSearchHistoryCategory:searchHistoryInfoDict]];
+    if (indexPath.row != CLEAR_HISTORY_CELL_ROW) {
+        NSDictionary *searchHistoryInfoDict = [[NSUserDefaults standardUserDefaults] getSearchHistoryArray][indexPath.row];
+        [[UIApplication sharedApplication].searchViewController showSearchResultWithSearchKeyword:[NSUserDefaults getSearchHistoryKeyword:searchHistoryInfoDict] searchCategory:[NSUserDefaults getSearchHistoryCategory:searchHistoryInfoDict]];
+    } else {
+        [[NSUserDefaults standardUserDefaults] clearAllSearchHistoryItems];
+        [tableView reloadData];
+    }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -69,12 +76,11 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[NSUserDefaults standardUserDefaults] getSearchHistoryArray].count;
+    return [[NSUserDefaults standardUserDefaults] getSearchHistoryArray].count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSDictionary *searchHistoryInfoDict = [[NSUserDefaults standardUserDefaults] getSearchHistoryArray][indexPath.row];
     NSString *cellIdentifier = @"WTSearchHistoryCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -84,9 +90,20 @@
     }
     
     WTSearchHistoryCell *searchHistoryCell = (WTSearchHistoryCell *)cell;
-    [searchHistoryCell configureCellWithIndexPath:indexPath
-                                    searchKeyword:[NSUserDefaults getSearchHistoryKeyword:searchHistoryInfoDict]
-                                   searchCategory:[NSUserDefaults getSearchHistoryCategory:searchHistoryInfoDict]];
+    
+    
+    if (indexPath.row != CLEAR_HISTORY_CELL_ROW) {
+        
+        NSDictionary *searchHistoryInfoDict = [[NSUserDefaults standardUserDefaults] getSearchHistoryArray][indexPath.row];
+    
+        [searchHistoryCell configureCellWithIndexPath:indexPath
+                                        searchKeyword:[NSUserDefaults getSearchHistoryKeyword:searchHistoryInfoDict]
+                                       searchCategory:[NSUserDefaults getSearchHistoryCategory:searchHistoryInfoDict]];
+    } else {    
+        [searchHistoryCell configureCellWithIndexPath:indexPath
+                                        searchKeyword:nil
+                                       searchCategory:0];
+    }
     return cell;
 }
 

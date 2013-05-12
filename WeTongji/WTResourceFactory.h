@@ -34,12 +34,15 @@
                                                 action:(SEL)action;
 
 + (UIBarButtonItem *)createFilterBarButtonWithTarget:(id)target
-                                              action:(SEL)action;
+                                            action:(SEL)action;
 
 + (void)configureFilterBarButton:(UIBarButtonItem *)barButton
                         modified:(BOOL)modified;
 
-+ (UIBarButtonItem *)createNewPostButtonWithTarget:(id)target
++ (UIBarButtonItem *)createNewPostBarButtonWithTarget:(id)target
+                                               action:(SEL)action;
+
++ (UIBarButtonItem *)createSettingBarButtonWithTarget:(id)target
                                             action:(SEL)action;
 
 + (UIButton *)createLockButtonWithTarget:(id)target

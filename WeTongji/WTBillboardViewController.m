@@ -75,7 +75,7 @@
 - (void)configureNavigationBar {
     self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Billboard", nil)];
     
-    self.navigationItem.rightBarButtonItem = [WTResourceFactory createNewPostButtonWithTarget:self action:@selector(didClickNewPostButton:)];
+    self.navigationItem.rightBarButtonItem = [WTResourceFactory createNewPostBarButtonWithTarget:self action:@selector(didClickNewPostButton:)];
 }
 
 - (void)configureTableViewController {

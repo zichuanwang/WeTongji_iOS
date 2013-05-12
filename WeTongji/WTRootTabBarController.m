@@ -186,7 +186,8 @@
     
     // |button.tag == 4| 时似乎系统有bug，用下面的方法折衷
     if (button.tag == 4) {
-        self.selectedViewController = [self.viewControllers lastObject];
+        UIViewController *lastViewController = [self.viewControllers lastObject];
+        self.selectedViewController = lastViewController;
     }
     
     for (UIButton* btn in self.buttonArray) {

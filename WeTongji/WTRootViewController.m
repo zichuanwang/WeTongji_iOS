@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self configureUI];
+    [self configureRootViewUI];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,7 +39,7 @@
 
 #pragma mark - UI methods
 
-- (void)configureUI {
+- (void)configureRootViewUI {
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
     self.navigationItem.leftBarButtonItem = self.notificationButton;
 }

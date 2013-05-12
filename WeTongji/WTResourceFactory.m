@@ -13,7 +13,21 @@
 
 @implementation WTResourceFactory
 
-+ (UIBarButtonItem *)createNewPostButtonWithTarget:(id)target
++ (UIBarButtonItem *)createSettingBarButtonWithTarget:(id)target
+                                               action:(SEL)action {
+    UIButton *button = [WTResourceFactory createNormalButtonWithText:@""];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    UIImage *newPostNormalIconImage = [UIImage imageNamed:@"WTSettingSelectIcon"];
+    [button setImage:newPostNormalIconImage forState:UIControlStateNormal];
+    [button setImage:newPostNormalIconImage forState:UIControlStateHighlighted];
+    UIImage *newPostSelectIconImage = [UIImage imageNamed:@"WTSettingNormalIcon"];
+    [button setImage:newPostSelectIconImage forState:UIControlStateSelected];
+    
+    [button resetWidth:38.0f];
+    return [WTResourceFactory createBarButtonWithButton:button];
+}
+
++ (UIBarButtonItem *)createNewPostBarButtonWithTarget:(id)target
                                             action:(SEL)action {
     UIButton *button = [WTResourceFactory createNormalButtonWithText:@""];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
@@ -23,7 +37,7 @@
     UIImage *newPostSelectIconImage = [UIImage imageNamed:@"WTNewPostNormalIcon"];
     [button setImage:newPostSelectIconImage forState:UIControlStateSelected];
     
-    [button resetWidth:36.0f];
+    [button resetWidth:38.0f];
     return [WTResourceFactory createBarButtonWithButton:button];
 }
 
