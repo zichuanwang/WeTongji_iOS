@@ -70,6 +70,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)showSearchResultWithSearchKeyword:(NSString *)keyword
+                           searchCategory:(NSInteger)category {
+    [self showSearchBarCancelButton:YES];
+    [self showHintView:NO];
+    [self showSearchResultView:YES];
+    
+    if (self.defaultViewController.shadowCoverView.alpha == 0)
+        [self.defaultViewController.shadowCoverView fadeIn];
+    
+    self.searchBar.text = keyword;
+    [self updateSearchResultViewForSearchKeyword:keyword searchCategory:category];
+}
+
 #pragma mark - Keyboard notification
 
 - (void)handleKeyboardWillShowNotification:(NSNotification *)notification {
@@ -217,9 +230,9 @@
     self.resultViewController.view.hidden = !show;
 }
 
-- (void)updateSearchResultViewForSearchCategory:(NSInteger)category {
+- (void)updateSearchResultViewForSearchKeyword:(NSString *)keyword searchCategory:(NSInteger)category {
     [self.resultViewController.view removeFromSuperview];    
-    WTSearchResultTableViewController *vc = [WTSearchResultTableViewController createViewControllerWithSearchKeyword:self.searchBar.text searchCategory:category delegate:self];
+    WTSearchResultTableViewController *vc = [WTSearchResultTableViewController createViewControllerWithSearchKeyword:keyword searchCategory:category delegate:self];
     self.resultViewController = vc;
     [self.view insertSubview:vc.view aboveSubview:self.defaultViewController.view];
     [vc.view resetHeight:self.view.frame.size.height];
@@ -253,8 +266,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == self.searchHintView.tableView) {
-        [self updateSearchResultViewForSearchCategory:indexPath.row];
+        [self updateSearchResultViewForSearchKeyword:self.searchBar.text searchCategory:indexPath.row];
         [self.searchBar resignFirstResponder];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
 }
 
@@ -295,6 +309,8 @@
     
     if (self.defaultViewController.shadowCoverView.alpha == 0)
         [self.defaultViewController.shadowCoverView fadeIn];
+    
+    self.searchHintView.searchKeyword = searchBar.text;
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
@@ -308,7 +324,7 @@
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    [self updateSearchResultViewForSearchCategory:0];
+    [self updateSearchResultViewForSearchKeyword:self.searchBar.text searchCategory:0];
     [searchBar resignFirstResponder];
 }
 

@@ -11,20 +11,35 @@
 
 @implementation WTSearchHistoryCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    if (self.highlighted == highlighted)
+        return;
+    [super setHighlighted:highlighted animated:animated];
+    
+    if (!highlighted && animated) {
+        [UIView animateWithDuration:0.5f animations:^{
+            [self configureCell:highlighted];
+        }];
+    } else {
+        [self configureCell:highlighted];
     }
-    return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    if (self.selected == selected)
+        return;
     [super setSelected:selected animated:animated];
+    
+    [self setHighlighted:selected animated:animated];
+}
 
-    // Configure the view for the selected state
+- (void)configureCell:(BOOL)highlighted {
+    self.searchKeywordLabel.highlighted = highlighted;
+    
+    CGSize labelShadowOffset = highlighted ? CGSizeZero : CGSizeMake(0, 1.0f);
+    self.searchKeywordLabel.shadowOffset = labelShadowOffset;
+    
+    self.highlightBgView.alpha = highlighted ? 1.0f : 0;
 }
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath

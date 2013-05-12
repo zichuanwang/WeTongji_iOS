@@ -27,6 +27,14 @@
     }
 }
 
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    if (self.selected == selected)
+        return;
+    [super setSelected:selected animated:animated];
+    
+    [self setHighlighted:selected animated:animated];
+}
+
 - (void)configureCell:(BOOL)highlighted {
     self.titleLabel.highlighted = highlighted;
     self.categoryLabel.highlighted = highlighted;
@@ -39,14 +47,6 @@
     
     self.highlightBgView.alpha = highlighted ? 1.0f : 0;
     self.disclosureImageView.highlighted = highlighted;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    if (self.selected == selected)
-        return;
-    [super setSelected:selected animated:animated];
-    
-    [self setHighlighted:selected animated:animated];
 }
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath

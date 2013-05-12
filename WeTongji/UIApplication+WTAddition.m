@@ -11,6 +11,7 @@
 #import "WTNowViewController.h"
 #import "WTNowNavigationController.h"
 #import "WTBillboardNavigationViewController.h"
+#import "WTSearchNavigationController.h"
 
 static UIViewController *staticKeyWindowViewController;
 static UIView           *staticKeyWindowBgView;
@@ -47,6 +48,12 @@ static UIView           *staticKeyWindowBgView;
     WTRootTabBarController *rootTabBarViewController = [UIApplication sharedApplication].rootTabBarController;
     WTBillboardNavigationViewController *billboardNavigationController = rootTabBarViewController.viewControllers[3];
     return billboardNavigationController.viewControllers[0];
+}
+
+- (WTSearchViewController *)searchViewController {
+    WTRootTabBarController *rootTabBarViewController = [UIApplication sharedApplication].rootTabBarController;
+    WTSearchNavigationController *searchNavigationController = rootTabBarViewController.viewControllers[2];
+    return searchNavigationController.viewControllers[0];
 }
 
 #pragma mark - Key window view controller

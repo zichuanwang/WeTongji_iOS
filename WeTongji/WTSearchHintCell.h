@@ -13,8 +13,8 @@
 @interface WTSearchHintCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *label;
-@property (nonatomic, weak) IBOutlet UIImageView *disclosureImageView;
 @property (nonatomic, weak) IBOutlet UIView *containerView;
+@property (nonatomic, weak) IBOutlet UIView *highlightBgView;
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
                      searchKeyword:(NSString *)keyword;

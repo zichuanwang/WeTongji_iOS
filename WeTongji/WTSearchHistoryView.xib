@@ -36,7 +36,7 @@
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<array class="NSMutableArray" key="NSSubviews">
-					<object class="IBUITableView" id="475042670">
+					<object class="IBUITableView" id="148615692">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{320, 460}</string>
@@ -44,7 +44,7 @@
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
-						<object class="NSColor" key="IBUIBackgroundColor" id="865731036">
+						<object class="NSColor" key="IBUIBackgroundColor" id="1022555482">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MCAwAA</bytes>
 						</object>
@@ -61,23 +61,23 @@
 				<string key="NSFrameSize">{320, 460}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="475042670"/>
-				<reference key="IBUIBackgroundColor" ref="865731036"/>
-				<object class="IBUISimulatedSizeMetrics" key="IBUISimulatedDestinationMetrics" id="33215973">
+				<reference key="NSNextKeyView" ref="148615692"/>
+				<reference key="IBUIBackgroundColor" ref="1022555482"/>
+				<object class="IBUISimulatedSizeMetrics" key="IBUISimulatedDestinationMetrics" id="276927999">
 					<string key="IBUISimulatedSizeMetricsClass">IBUISimulatedFreeformSizeMetricsSentinel</string>
 					<string key="IBUIDisplayName">Freeform</string>
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
-			<object class="IBUIView" id="738042788">
+			<object class="IBUIView" id="1066560451">
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<array class="NSMutableArray" key="NSSubviews">
-					<object class="IBUILabel" id="235510485">
-						<reference key="NSNextResponder" ref="738042788"/>
+					<object class="IBUILabel" id="1036054267">
+						<reference key="NSNextResponder" ref="1066560451"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{15, 1}, {200, 40}}</string>
-						<reference key="NSSuperview" ref="738042788"/>
+						<reference key="NSSuperview" ref="1066560451"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -116,10 +116,10 @@
 				<string key="NSFrameSize">{320, 40}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="235510485"/>
+				<reference key="NSNextKeyView" ref="1036054267"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
-				<reference key="IBUIBackgroundColor" ref="865731036"/>
-				<reference key="IBUISimulatedDestinationMetrics" ref="33215973"/>
+				<reference key="IBUIBackgroundColor" ref="1022555482"/>
+				<reference key="IBUISimulatedDestinationMetrics" ref="276927999"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 		</array>
@@ -129,23 +129,31 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">tableView</string>
 						<reference key="source" ref="191373211"/>
-						<reference key="destination" ref="475042670"/>
+						<reference key="destination" ref="148615692"/>
 					</object>
 					<int key="connectionID">10</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">dataSource</string>
-						<reference key="source" ref="475042670"/>
+						<reference key="source" ref="148615692"/>
 						<reference key="destination" ref="191373211"/>
 					</object>
 					<int key="connectionID">11</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="148615692"/>
+						<reference key="destination" ref="191373211"/>
+					</object>
+					<int key="connectionID">15</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">searchHistoryDisplayLabel</string>
-						<reference key="source" ref="738042788"/>
-						<reference key="destination" ref="235510485"/>
+						<reference key="source" ref="1066560451"/>
+						<reference key="destination" ref="1036054267"/>
 					</object>
 					<int key="connectionID">14</int>
 				</object>
@@ -162,7 +170,7 @@
 						<int key="objectID">1</int>
 						<reference key="object" ref="191373211"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="475042670"/>
+							<reference ref="148615692"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -179,21 +187,21 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">8</int>
-						<reference key="object" ref="475042670"/>
+						<reference key="object" ref="148615692"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">12</int>
-						<reference key="object" ref="738042788"/>
+						<reference key="object" ref="1066560451"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="235510485"/>
+							<reference ref="1036054267"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">13</int>
-						<reference key="object" ref="235510485"/>
-						<reference key="parent" ref="738042788"/>
+						<reference key="object" ref="1036054267"/>
+						<reference key="parent" ref="1066560451"/>
 					</object>
 				</array>
 			</object>
@@ -212,7 +220,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">14</int>
+			<int key="maxID">15</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

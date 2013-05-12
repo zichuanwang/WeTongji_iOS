@@ -13,4 +13,7 @@
 
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 
+- (void)showSearchResultWithSearchKeyword:(NSString *)keyword
+                           searchCategory:(NSInteger)category;
+
 @end

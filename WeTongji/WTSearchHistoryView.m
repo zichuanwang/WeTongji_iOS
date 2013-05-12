@@ -9,6 +9,8 @@
 #import "WTSearchHistoryView.h"
 #import "NSUserDefaults+WTAddition.h"
 #import "WTSearchHistoryCell.h"
+#import "UIApplication+WTAddition.h"
+#import "WTSearchViewController.h"
 
 @interface WTSearchHistoryView ()
 
@@ -53,6 +55,15 @@
 - (void)configureView {
     WTSearchHistoryTableViewHeaderView *headerView = [WTSearchHistoryTableViewHeaderView createHeaderView];
     self.tableView.tableHeaderView = headerView;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *searchHistoryInfoDict = [[NSUserDefaults standardUserDefaults] getSearchHistoryArray][indexPath.row];
+    [[UIApplication sharedApplication].searchViewController showSearchResultWithSearchKeyword:[NSUserDefaults getSearchHistoryKeyword:searchHistoryInfoDict] searchCategory:[NSUserDefaults getSearchHistoryCategory:searchHistoryInfoDict]];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - UITableViewDataSource

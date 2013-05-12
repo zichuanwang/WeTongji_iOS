@@ -15,6 +15,7 @@
 @property (nonatomic, weak) IBOutlet UIView *searchCategoryTagContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *searchCategoryTagImageView;
 @property (nonatomic, weak) IBOutlet UILabel *searchCategoryLabel;
+@property (nonatomic, weak) IBOutlet UIView *highlightBgView;
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
                      searchKeyword:(NSString *)keyword

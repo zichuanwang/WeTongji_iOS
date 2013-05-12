@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WTSearchHistoryView : UIView <UITableViewDataSource>
+@interface WTSearchHistoryView : UIView <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 
