@@ -130,7 +130,10 @@
 }
 
 - (void)clearAllData {
-    [Activity clearAllActivites];
+    NSSet *activityShowTypesSet = [NSUserDefaults getActivityShowTypesSet];
+    for (NSNumber *showTypeNumber in activityShowTypesSet) {
+        [Activity clearActivitesInCategory:showTypeNumber];
+    }
 }
 
 #pragma mark - UI methods
@@ -218,6 +221,8 @@
     }
     
     [request setSortDescriptors:descriptors];
+    
+    [request setPredicate:[NSPredicate predicateWithFormat:@"category in %@", [NSUserDefaults getActivityShowTypesSet]]];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {

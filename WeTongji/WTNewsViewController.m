@@ -122,7 +122,10 @@
 }
 
 - (void)clearAllData {
-    [News clearAllNews];
+    NSSet *newsShowTypesSet = [NSUserDefaults getNewsShowTypesSet];
+    for (NSNumber *showTypeNumber in newsShowTypesSet) {
+        [News clearNewsInCategory:showTypeNumber];
+    }
 }
 
 #pragma mark - Properties

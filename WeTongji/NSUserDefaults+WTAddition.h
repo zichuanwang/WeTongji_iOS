@@ -46,8 +46,10 @@ typedef enum {
 
 #pragma mark News
 
-// 返回一个数组, 数组中的元素按|ActivityShowTypes|排列, 类型均为包含一个BOOL类型数据的NSNumber
+// 返回一个数组, 数组中的元素按|NewsShowTypes|排列, 类型均为包含一个BOOL类型数据的NSNumber
 + (NSArray *)getNewsShowTypesArray;
+
++ (NSSet *)getNewsShowTypesSet;
 
 + (NSArray *)getNewsShowTypesArrayWithNewsShowType:(NewsShowTypes)type;
 
@@ -57,10 +59,14 @@ typedef enum {
 
 - (BOOL)isNewsSettingDifferentFromDefaultValue;
 
+- (void)setNewsShowTypes:(NewsShowTypes)types;
+
 #pragma mark Activity
 
 // 返回一个数组, 数组中的元素按|ActivityShowTypes|排列, 类型均为包含一个BOOL类型数据的NSNumber
 + (NSArray *)getActivityShowTypesArray;
+
++ (NSSet *)getActivityShowTypesSet;
 
 + (NSArray *)getActivityShowTypesArrayWithActivityShowType:(ActivityShowTypes)type;
 
@@ -71,6 +77,8 @@ typedef enum {
 - (BOOL)getActivitySmartOrderProperty;
 
 - (BOOL)isActivitySettingDifferentFromDefaultValue;
+
+- (void)setActivityShowTypes:(ActivityShowTypes)types;
 
 #pragma mark Search history
 

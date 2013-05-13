@@ -17,8 +17,8 @@
 #import "Object+Addtion.h"
 #import "Organization+Addition.h"
 #import "WTNewsDetailViewController.h"
-#import "WTCategoryActivityViewController.h"
-#import "WTCategoryNewsViewController.h"
+#import "WTActivityViewController.h"
+#import "WTNewsViewController.h"
 
 @interface WTHomeViewController ()
 
@@ -289,12 +289,14 @@
     switch (containerView.category) {
         case WTHomeSelectContainerViewCategoryNews:
             [Flurry logEvent:@"Check All News" timed:YES];
+            [[NSUserDefaults standardUserDefaults] setNewsShowTypes:NewsShowTypesAll];
             [self.navigationController pushViewController:[[WTNewsViewController alloc] init] animated:YES];
             break;
             
         case WTHomeSelectContainerViewCategoryActivity:
         {
             [Flurry logEvent:@"Check All Activities" timed:YES];
+            [[NSUserDefaults standardUserDefaults] setActivityShowTypes:ActivityShowTypesAll];
             [self.navigationController pushViewController:[[WTActivityViewController alloc] init] animated:YES];
         }
             break;
@@ -324,11 +326,13 @@
                     modelObject:(Object *)modelObject {
     if ([modelObject isKindOfClass:[Activity class]]) {
         Activity *activity = (Activity *)modelObject;
-        WTCategoryActivityViewController *vc = [WTCategoryActivityViewController createViewControllerWithActivityCategory:activity.category];
+        [[NSUserDefaults standardUserDefaults] setActivityShowTypes:activity.category.integerValue];
+        WTActivityViewController *vc = [[WTActivityViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([modelObject isKindOfClass:[News class]]) {
         News *news = (News *)modelObject;
-        WTCategoryNewsViewController *vc = [WTCategoryNewsViewController createViewControllerWithNewsCategory:news.category];
+        [[NSUserDefaults standardUserDefaults] setNewsShowTypes:news.category.integerValue];
+        WTNewsViewController *vc = [[WTNewsViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

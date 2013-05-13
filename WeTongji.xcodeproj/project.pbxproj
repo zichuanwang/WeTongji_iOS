@@ -179,8 +179,6 @@
 		E12554D016491532006D42F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E12554CE16491532006D42F5 /* InfoPlist.strings */; };
 		E12554D316491532006D42F5 /* WeTongjiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E12554D216491532006D42F5 /* WeTongjiTests.m */; };
 		E12B8C011734FC0D002A4D9C /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B8C001734FC0D002A4D9C /* Activity.m */; };
-		E12B8C04173546B1002A4D9C /* WTCategoryActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B8C03173546B1002A4D9C /* WTCategoryActivityViewController.m */; };
-		E12B8C0717356029002A4D9C /* WTCategoryNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B8C0617356029002A4D9C /* WTCategoryNewsViewController.m */; };
 		E12B8C0D1736B545002A4D9C /* Object+Addtion.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B8C0C1736B544002A4D9C /* Object+Addtion.m */; };
 		E12E24741727364900EFA9B5 /* WTLockHighlightIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E24701727364900EFA9B5 /* WTLockHighlightIcon.png */; };
 		E12E24751727364900EFA9B5 /* WTLockHighlightIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E24711727364900EFA9B5 /* WTLockHighlightIcon@2x.png */; };
@@ -779,10 +777,6 @@
 		E12554D216491532006D42F5 /* WeTongjiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeTongjiTests.m; sourceTree = "<group>"; };
 		E12B8BFF1734FC0D002A4D9C /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
 		E12B8C001734FC0D002A4D9C /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
-		E12B8C02173546B1002A4D9C /* WTCategoryActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCategoryActivityViewController.h; sourceTree = "<group>"; };
-		E12B8C03173546B1002A4D9C /* WTCategoryActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCategoryActivityViewController.m; sourceTree = "<group>"; };
-		E12B8C0517356029002A4D9C /* WTCategoryNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCategoryNewsViewController.h; sourceTree = "<group>"; };
-		E12B8C0617356029002A4D9C /* WTCategoryNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCategoryNewsViewController.m; sourceTree = "<group>"; };
 		E12B8C0B1736B544002A4D9C /* Object+Addtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Object+Addtion.h"; sourceTree = "<group>"; };
 		E12B8C0C1736B544002A4D9C /* Object+Addtion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Object+Addtion.m"; sourceTree = "<group>"; };
 		E12E24701727364900EFA9B5 /* WTLockHighlightIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTLockHighlightIcon.png; sourceTree = "<group>"; };
@@ -1266,8 +1260,6 @@
 		A1DD01CA169F2437009EBE02 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				E12B8C0517356029002A4D9C /* WTCategoryNewsViewController.h */,
-				E12B8C0617356029002A4D9C /* WTCategoryNewsViewController.m */,
 				E1CD3F2F171FF5F600359A79 /* WTNewsDetailViewController.h */,
 				E1CD3F30171FF5F600359A79 /* WTNewsDetailViewController.m */,
 				E1CD3F31171FF5F600359A79 /* WTNewsDetailViewController.xib */,
@@ -1492,8 +1484,6 @@
 				A1ADA9D816AC460500E3A62E /* WTActivityViewController.h */,
 				A1ADA9D916AC460500E3A62E /* WTActivityViewController.m */,
 				A1ADA9DA16AC460500E3A62E /* WTActivityViewController.xib */,
-				E12B8C02173546B1002A4D9C /* WTCategoryActivityViewController.h */,
-				E12B8C03173546B1002A4D9C /* WTCategoryActivityViewController.m */,
 			);
 			name = Activity;
 			sourceTree = "<group>";
@@ -3051,8 +3041,6 @@
 				E1FC01A6172FEB2300D0776C /* BillboardPost.m in Sources */,
 				E16E962B173430540055DE27 /* News.m in Sources */,
 				E12B8C011734FC0D002A4D9C /* Activity.m in Sources */,
-				E12B8C04173546B1002A4D9C /* WTCategoryActivityViewController.m in Sources */,
-				E12B8C0717356029002A4D9C /* WTCategoryNewsViewController.m in Sources */,
 				E12B8C0D1736B545002A4D9C /* Object+Addtion.m in Sources */,
 				E1EF0E741738184B00959DD0 /* Star+Addition.m in Sources */,
 				E1EF0E7717381CE100959DD0 /* Star.m in Sources */,
