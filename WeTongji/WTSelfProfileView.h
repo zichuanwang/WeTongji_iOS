@@ -12,8 +12,10 @@
 
 @interface WTSelfProfileView : UIView
 
-@property (nonatomic, weak) IBOutlet UIImageView *secondSectionBgImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *firstSectionBgImageView;
+@property (nonatomic, weak) IBOutlet UIImageView *secondSectionBgImageView;
+@property (nonatomic, weak) IBOutlet UIView *firstSectionContianerView;
+@property (nonatomic, weak) IBOutlet UIView *secondSectionContianerView;
 
 + (WTSelfProfileView *)createSelfProfileViewWithUser:(User *)user;
 

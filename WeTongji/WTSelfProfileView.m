@@ -8,6 +8,7 @@
 
 #import "WTSelfProfileView.h"
 #import "User+Addition.h"
+#import "WTResourceFactory.h"
 
 @interface WTSelfProfileView ()
 
@@ -33,6 +34,8 @@
     return result;
 }
 
+#pragma mark - UI methods
+
 - (void)configureView {
     [self configureFirstSectionView];
     [self configureSecondSectionView];
@@ -42,12 +45,23 @@
     UIEdgeInsets insets = UIEdgeInsetsMake(6.0, 7.0, 8.0, 7.0);
     UIImage *bgImage = [[UIImage imageNamed:@"WTInfoPanelBg"] resizableImageWithCapInsets:insets];
     self.firstSectionBgImageView.image = bgImage;
+    
+    UIButton *addFriendButton = [WTResourceFactory createAddFriendButtonWithTarget:self action:@selector(didClickAddFriendButton:)];
+    [addFriendButton resetOriginX:218.0f];
+    [addFriendButton resetCenterY:23.0f];
+    [self.firstSectionContianerView addSubview:addFriendButton];
 }
 
 - (void)configureSecondSectionView {
     UIEdgeInsets insets = UIEdgeInsetsMake(6.0, 7.0, 8.0, 7.0);
     UIImage *bgImage = [[UIImage imageNamed:@"WTInfoPanelBg"] resizableImageWithCapInsets:insets];
     self.secondSectionBgImageView.image = bgImage;
+}
+
+#pragma mark - Actions
+
+- (void)didClickAddFriendButton:(UIButton *)sender {
+    
 }
 
 @end

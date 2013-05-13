@@ -13,6 +13,29 @@
 
 @implementation WTResourceFactory
 
++ (UIButton *)createAddFriendButtonWithTarget:(id)target
+                                       action:(SEL)action {
+    UIButton *button = [WTResourceFactory createNormalButtonWithText:@""];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    UIImage *addFriendNormalIconImage = nil;
+    UIImage *addFriendSelectIconImage = nil;
+    NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    if ([language isEqualToString:@"zh-Hans"]) {
+        addFriendNormalIconImage = [UIImage imageNamed:@"WTAddFriendSelectIconCN"];
+        addFriendSelectIconImage = [UIImage imageNamed:@"WTAddFriendNormalIconCN"];
+    } else {
+        addFriendNormalIconImage = [UIImage imageNamed:@"WTAddFriendSelectIconEN"];
+        addFriendSelectIconImage = [UIImage imageNamed:@"WTAddFriendNormalIconEN"];
+    }
+    [button setImage:addFriendNormalIconImage forState:UIControlStateNormal];
+    [button setImage:addFriendNormalIconImage forState:UIControlStateHighlighted];
+    
+    [button setImage:addFriendSelectIconImage forState:UIControlStateSelected];
+    [button resetWidth:74.0f];
+    
+    return button;
+}
+
 + (UIBarButtonItem *)createSettingBarButtonWithTarget:(id)target
                                                action:(SEL)action {
     UIButton *button = [WTResourceFactory createNormalButtonWithText:@""];

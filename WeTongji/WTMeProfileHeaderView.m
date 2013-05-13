@@ -13,6 +13,12 @@
 #import "GPUImage.h"
 #import "UIImage+ProportionalFill.h"
 
+@interface WTMeProfileHeaderView ()
+
+@property (nonatomic, weak) User *user;
+
+@end
+
 @implementation WTMeProfileHeaderView
 
 - (id)initWithFrame:(CGRect)frame
@@ -45,7 +51,7 @@
             
             GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:resultImage];
             GPUImageGaussianBlurFilter *stillImageFilter = [[GPUImageGaussianBlurFilter alloc] init];
-            stillImageFilter.blurSize = 6.0f;
+            stillImageFilter.blurSize = 4.0f;
             
             [stillImageSource addTarget:stillImageFilter];
             [stillImageSource processImage];

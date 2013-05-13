@@ -52,4 +52,7 @@
 
 + (UIView *)createPlaceholderViewWithScrollView:(UIScrollView *)scrollView;
 
++ (UIButton *)createAddFriendButtonWithTarget:(id)target
+                                       action:(SEL)action;
+
 @end
