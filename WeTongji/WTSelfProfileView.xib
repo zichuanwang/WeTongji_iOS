@@ -240,7 +240,7 @@
 									<object class="IBUILabel" id="12238802">
 										<reference key="NSNextResponder" ref="664747738"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{42, 13}, {213, 20}}</string>
+										<string key="NSFrame">{{44, 13}, {213, 20}}</string>
 										<reference key="NSSuperview" ref="664747738"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="459149675"/>
@@ -264,7 +264,7 @@
 									<object class="IBUILabel" id="652865073">
 										<reference key="NSNextResponder" ref="664747738"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{42, 59}, {213, 20}}</string>
+										<string key="NSFrame">{{44, 59}, {213, 20}}</string>
 										<reference key="NSSuperview" ref="664747738"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="1071179231"/>
@@ -288,7 +288,7 @@
 									<object class="IBUILabel" id="1030577325">
 										<reference key="NSNextResponder" ref="664747738"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{42, 105}, {213, 20}}</string>
+										<string key="NSFrame">{{44, 105}, {213, 20}}</string>
 										<reference key="NSSuperview" ref="664747738"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="804436463"/>
@@ -313,7 +313,7 @@
 									<object class="IBUILabel" id="530517625">
 										<reference key="NSNextResponder" ref="664747738"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{42, 151}, {213, 20}}</string>
+										<string key="NSFrame">{{44, 151}, {213, 20}}</string>
 										<reference key="NSSuperview" ref="664747738"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="740427686"/>
@@ -338,9 +338,10 @@
 									<object class="IBUILabel" id="747274072">
 										<reference key="NSNextResponder" ref="664747738"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{42, 197}, {213, 20}}</string>
+										<string key="NSFrame">{{44, 197}, {213, 20}}</string>
 										<reference key="NSSuperview" ref="664747738"/>
 										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<reference key="IBUIBackgroundColor" ref="373333238"/>
 										<bool key="IBUIOpaque">NO</bool>
@@ -552,6 +553,78 @@
 						<reference key="destination" ref="664747738"/>
 					</object>
 					<int key="connectionID">33</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">likedActivityLabel</string>
+						<reference key="source" ref="191373211"/>
+						<reference key="destination" ref="12238802"/>
+					</object>
+					<int key="connectionID">34</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">likedBillboardPostLabel</string>
+						<reference key="source" ref="191373211"/>
+						<reference key="destination" ref="1030577325"/>
+					</object>
+					<int key="connectionID">35</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">likedNewsLabel</string>
+						<reference key="source" ref="191373211"/>
+						<reference key="destination" ref="652865073"/>
+					</object>
+					<int key="connectionID">36</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">likedOrganizationLabel</string>
+						<reference key="source" ref="191373211"/>
+						<reference key="destination" ref="530517625"/>
+					</object>
+					<int key="connectionID">37</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">likedPersonLabel</string>
+						<reference key="source" ref="191373211"/>
+						<reference key="destination" ref="747274072"/>
+					</object>
+					<int key="connectionID">38</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">myBillboardPostLabel</string>
+						<reference key="source" ref="191373211"/>
+						<reference key="destination" ref="679552457"/>
+					</object>
+					<int key="connectionID">39</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">myFriendLabel</string>
+						<reference key="source" ref="191373211"/>
+						<reference key="destination" ref="221301971"/>
+					</object>
+					<int key="connectionID">40</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">myQuestionsLabel</string>
+						<reference key="source" ref="191373211"/>
+						<reference key="destination" ref="798921717"/>
+					</object>
+					<int key="connectionID">41</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">myFavoriteDisplayLabel</string>
+						<reference key="source" ref="191373211"/>
+						<reference key="destination" ref="708310265"/>
+					</object>
+					<int key="connectionID">42</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -789,7 +862,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">33</int>
+			<int key="maxID">42</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -818,6 +891,15 @@
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="firstSectionBgImageView">UIImageView</string>
 						<string key="firstSectionContianerView">UIView</string>
+						<string key="likedActivityLabel">OHAttributedLabel</string>
+						<string key="likedBillboardPostLabel">OHAttributedLabel</string>
+						<string key="likedNewsLabel">OHAttributedLabel</string>
+						<string key="likedOrganizationLabel">OHAttributedLabel</string>
+						<string key="likedPersonLabel">OHAttributedLabel</string>
+						<string key="myBillboardPostLabel">OHAttributedLabel</string>
+						<string key="myFavoriteDisplayLabel">UILabel</string>
+						<string key="myFriendLabel">OHAttributedLabel</string>
+						<string key="myQuestionsLabel">OHAttributedLabel</string>
 						<string key="secondSectionBgImageView">UIImageView</string>
 						<string key="secondSectionContianerView">UIView</string>
 					</dictionary>
@@ -829,6 +911,42 @@
 						<object class="IBToOneOutletInfo" key="firstSectionContianerView">
 							<string key="name">firstSectionContianerView</string>
 							<string key="candidateClassName">UIView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="likedActivityLabel">
+							<string key="name">likedActivityLabel</string>
+							<string key="candidateClassName">OHAttributedLabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="likedBillboardPostLabel">
+							<string key="name">likedBillboardPostLabel</string>
+							<string key="candidateClassName">OHAttributedLabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="likedNewsLabel">
+							<string key="name">likedNewsLabel</string>
+							<string key="candidateClassName">OHAttributedLabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="likedOrganizationLabel">
+							<string key="name">likedOrganizationLabel</string>
+							<string key="candidateClassName">OHAttributedLabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="likedPersonLabel">
+							<string key="name">likedPersonLabel</string>
+							<string key="candidateClassName">OHAttributedLabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="myBillboardPostLabel">
+							<string key="name">myBillboardPostLabel</string>
+							<string key="candidateClassName">OHAttributedLabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="myFavoriteDisplayLabel">
+							<string key="name">myFavoriteDisplayLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="myFriendLabel">
+							<string key="name">myFriendLabel</string>
+							<string key="candidateClassName">OHAttributedLabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="myQuestionsLabel">
+							<string key="name">myQuestionsLabel</string>
+							<string key="candidateClassName">OHAttributedLabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="secondSectionBgImageView">
 							<string key="name">secondSectionBgImageView</string>
