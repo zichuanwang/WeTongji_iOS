@@ -10,15 +10,17 @@
 #import "WTBannerView.h"
 #import "UIApplication+WTAddition.h"
 #import "Event+Addition.h"
-#import "WTActivityDetailViewController.h"
 #import "Activity+Addition.h"
 #import "News+Addition.h"
 #import "Star+Addition.h"
+#import "Organization+Addition.h"
 #import "Object+Addtion.h"
 #import "Organization+Addition.h"
 #import "WTNewsDetailViewController.h"
-#import "WTActivityViewController.h"
+#import "WTActivityDetailViewController.h"
+#import "WTOrganizationDetailViewController.h"
 #import "WTNewsViewController.h"
+#import "WTActivityViewController.h"
 
 @interface WTHomeViewController ()
 
@@ -313,10 +315,13 @@
 - (void)homeSelectContainerView:(WTHomeSelectContainerView *)containerView
            didSelectModelObject:(Object *)modelObject {
     if ([modelObject isKindOfClass:[Activity class]]) {
-        WTActivityDetailViewController *vc = [WTActivityDetailViewController createActivityDetailViewControllerWithActivity:(Activity *)modelObject backBarButtonText:nil];
+        WTActivityDetailViewController *vc = [WTActivityDetailViewController createDetailViewControllerWithActivity:(Activity *)modelObject backBarButtonText:nil];
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([modelObject isKindOfClass:[News class]]) {
-        WTNewsDetailViewController *vc = [WTNewsDetailViewController createNewsDetailViewControllerWithNews:(News *)modelObject backBarButtonText:nil];
+        WTNewsDetailViewController *vc = [WTNewsDetailViewController createDetailViewControllerWithNews:(News *)modelObject backBarButtonText:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([modelObject isKindOfClass:[Organization class]]) {
+        WTOrganizationDetailViewController *vc = [WTOrganizationDetailViewController createDetailViewControllerWithOrganization:(Organization *)modelObject backBarButtonText:nil];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -341,7 +346,7 @@
 
 - (void)homeNowContainerViewDidSelectEvent:(Event *)event {
     if ([event isKindOfClass:[Activity class]]) {
-        WTActivityDetailViewController *vc = [WTActivityDetailViewController createActivityDetailViewControllerWithActivity:(Activity *)event backBarButtonText:nil];
+        WTActivityDetailViewController *vc = [WTActivityDetailViewController createDetailViewControllerWithActivity:(Activity *)event backBarButtonText:nil];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

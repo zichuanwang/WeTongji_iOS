@@ -12,11 +12,14 @@
 #import "News+Addition.h"
 #import "Activity+Addition.h"
 #import "Star+Addition.h"
+#import "Organization+Addition.h"
 #import "Object+Addtion.h"
 #import "WTNewsCell.h"
 #import "WTActivityCell.h"
+#import "WTOrganizationCell.h"
 #import "WTNewsDetailViewController.h"
 #import "WTActivityDetailViewController.h"
+#import "WTOrganizationDetailViewController.h"
 #import "NSUserDefaults+WTAddition.h"
 
 @interface WTSearchResultTableViewController () <WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
@@ -124,6 +127,12 @@
 //            Star *star = [Star insertStar:infoDict];
 //            star.searchResult = @(YES);
 //        }
+        
+        NSArray *orgInfoArray = resultDict[@"Accounts"];
+        for (NSDictionary *infoDict in orgInfoArray) {
+            Organization *org = [Organization insertOrganization:infoDict];
+            org.searchResult = @(YES);
+        }
         [self.dragToLoadDecorator topViewLoadFinished:YES];
 
     } failureBlock:^(NSError *error) {
@@ -159,8 +168,10 @@
     } else if ([object isKindOfClass:[Activity class]]) {
         WTActivityCell *activityCell = (WTActivityCell *)cell;
         [activityCell configureCellWithIndexPath:indexPath activity:(Activity *)object];
+    } else if ([object isKindOfClass:[Organization class]]) {
+        WTOrganizationCell *orgCell = (WTOrganizationCell *)cell;
+        [orgCell configureCellWithIndexPath:indexPath organization:(Organization *)object];
     }
-
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {
@@ -178,6 +189,8 @@
         return @"WTNewsCell";
     else if ([object isKindOfClass:[Activity class]])
         return @"WTActivityCell";
+    else if ([object isKindOfClass:[Organization class]])
+        return @"WTOrganizationCell";
     else
         return nil;
 }
@@ -190,7 +203,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTTableViewSectionBg"]];
-    CGFloat sectionHeaderHeight = bgImageView.frame.size.height;
+    CGFloat sectionHeaderHeight = 24.0f;
     
     NSString *sectionName = NSLocalizedString([self.fetchedResultsController.sections[section] name], nil);
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 0, tableView.bounds.size.width, sectionHeaderHeight)];
@@ -199,7 +212,7 @@
     label.textColor = WTSectionHeaderViewGrayColor;
     label.backgroundColor = [UIColor clearColor];
     
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 24.0f)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, sectionHeaderHeight)];
     [headerView addSubview:bgImageView];
     [headerView addSubview:label];
     
@@ -212,6 +225,8 @@
         return 105.0f;
     else if ([object isKindOfClass:[Activity class]])
         return 92.0f;
+    else if ([object isKindOfClass:[Organization class]])
+        return 78.0f;
     else
         return 0;
 }
@@ -221,9 +236,11 @@
     UIViewController *vc = nil;
     NSString *backBarButtonText = NSLocalizedString(@"Search", nil);
     if ([object isKindOfClass:[News class]]) {
-        vc = [WTNewsDetailViewController createNewsDetailViewControllerWithNews:(News *)object backBarButtonText:backBarButtonText];
+        vc = [WTNewsDetailViewController createDetailViewControllerWithNews:(News *)object backBarButtonText:backBarButtonText];
     } else if ([object isKindOfClass:[Activity class]]) {
-        vc = [WTActivityDetailViewController createActivityDetailViewControllerWithActivity:(Activity *)object backBarButtonText:backBarButtonText];
+        vc = [WTActivityDetailViewController createDetailViewControllerWithActivity:(Activity *)object backBarButtonText:backBarButtonText];
+    } else if ([object isKindOfClass:[Organization class]]) {
+        vc = [WTOrganizationDetailViewController createDetailViewControllerWithOrganization:(Organization *)object backBarButtonText:backBarButtonText];
     } else {
         return;
     }

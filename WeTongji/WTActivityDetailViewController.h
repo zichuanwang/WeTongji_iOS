@@ -13,7 +13,7 @@
 
 @interface WTActivityDetailViewController : WTDetailViewController <UIScrollViewDelegate>
 
-+ (WTActivityDetailViewController *)createActivityDetailViewControllerWithActivity:(Activity *)activity
-                                                                 backBarButtonText:(NSString *)backBarButtonText;
++ (WTActivityDetailViewController *)createDetailViewControllerWithActivity:(Activity *)activity
+                                                         backBarButtonText:(NSString *)backBarButtonText;
 
 @end

@@ -47,8 +47,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-+ (WTNewsDetailViewController *)createNewsDetailViewControllerWithNews:(News *)news
-                                                     backBarButtonText:(NSString *)backBarButtonText {
++ (WTNewsDetailViewController *)createDetailViewControllerWithNews:(News *)news
+                                                 backBarButtonText:(NSString *)backBarButtonText {
     WTNewsDetailViewController *result = [[WTNewsDetailViewController alloc] init];
     result.news = news;
     result.backBarButtonText = backBarButtonText;

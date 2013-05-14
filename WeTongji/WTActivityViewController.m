@@ -245,7 +245,7 @@
     [[tableView cellForRowAtIndexPath:indexPath] setSelected:YES animated:YES];
     
     Activity *activity = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    WTActivityDetailViewController *detailVC = [WTActivityDetailViewController createActivityDetailViewControllerWithActivity:activity backBarButtonText:NSLocalizedString(@"Activities", nil)];
+    WTActivityDetailViewController *detailVC = [WTActivityDetailViewController createDetailViewControllerWithActivity:activity backBarButtonText:NSLocalizedString(@"Activities", nil)];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 

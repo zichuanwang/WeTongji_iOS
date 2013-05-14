@@ -73,9 +73,9 @@
     } failure:nil];
     
     if ([user.gender isEqualToString:@"男"]) {
-        self.genderIndicatorImageView.image = [UIImage imageNamed:@"WTGenderMaleIcon"];
+        self.genderIndicatorImageView.image = [UIImage imageNamed:@"WTGenderWhiteMaleIcon"];
     } else {
-        self.genderIndicatorImageView.image = [UIImage imageNamed:@"WTGenderFemaleIcon"];
+        self.genderIndicatorImageView.image = [UIImage imageNamed:@"WTGenderWhiteFemaleIcon"];
     }
     
     self.schoolLabel.text = user.department;

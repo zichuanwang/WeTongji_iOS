@@ -73,7 +73,7 @@
 
 - (void)showNowItemDetailViewWithEvent:(Event *)event {
     if ([event isKindOfClass:[Activity class]]) {
-        WTActivityDetailViewController *vc = [WTActivityDetailViewController createActivityDetailViewControllerWithActivity:(Activity *)event backBarButtonText:NSLocalizedString(@"Schedule", nil)];
+        WTActivityDetailViewController *vc = [WTActivityDetailViewController createDetailViewControllerWithActivity:(Activity *)event backBarButtonText:NSLocalizedString(@"Schedule", nil)];
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([event isKindOfClass:[Course class]]) {
         WTCourseDetialViewController *vc = [WTCourseDetialViewController createCourseDetailViewControllerWithCourse:(Course *)event backBarButtonText:NSLocalizedString(@"Schedule", nil)];

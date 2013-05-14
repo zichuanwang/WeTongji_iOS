@@ -180,13 +180,14 @@
     CGFloat sectionHeaderHeight = bgImageView.frame.size.height;
     
     NSString *sectionName = [self.fetchedResultsController.sections[section] name];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 0, tableView.bounds.size.width, sectionHeaderHeight)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 0, tableView.bounds.size.width - 20.0f, sectionHeaderHeight)];
     label.text = sectionName;
     label.font = [UIFont boldSystemFontOfSize:12.0f];
     label.textColor = WTSectionHeaderViewGrayColor;
     label.backgroundColor = [UIColor clearColor];
     
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 24.0f)];
+    headerView.backgroundColor = [UIColor clearColor];
     [headerView addSubview:bgImageView];
     [headerView addSubview:label];
     
@@ -197,7 +198,7 @@
     [[tableView cellForRowAtIndexPath:indexPath] setSelected:YES animated:YES];
     
     News *news = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    WTNewsDetailViewController *detailVC = [WTNewsDetailViewController createNewsDetailViewControllerWithNews:news backBarButtonText:NSLocalizedString(@"News", nil)];
+    WTNewsDetailViewController *detailVC = [WTNewsDetailViewController createDetailViewControllerWithNews:news backBarButtonText:NSLocalizedString(@"News", nil)];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 

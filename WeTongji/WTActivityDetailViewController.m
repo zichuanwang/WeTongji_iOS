@@ -53,8 +53,8 @@
     return self;
 }
 
-+ (WTActivityDetailViewController *)createActivityDetailViewControllerWithActivity:(Activity *)activity
-                                                                 backBarButtonText:(NSString *)backBarButtonText {
++ (WTActivityDetailViewController *)createDetailViewControllerWithActivity:(Activity *)activity
+                                                         backBarButtonText:(NSString *)backBarButtonText {
     WTActivityDetailViewController *result = [[WTActivityDetailViewController alloc] init];
     result.activity = activity;
     result.backBarButtonText = backBarButtonText;

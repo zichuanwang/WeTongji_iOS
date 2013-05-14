@@ -54,7 +54,6 @@
 												<int key="NSvFlags">274</int>
 												<string key="NSFrame">{{-0.5, 0.5}, {26, 26}}</string>
 												<reference key="NSSuperview" ref="960062411"/>
-												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="253618823"/>
 												<string key="NSReuseIdentifierKey">_NS:9</string>
 												<int key="IBUIContentMode">2</int>
@@ -70,7 +69,6 @@
 												<int key="NSvFlags">274</int>
 												<string key="NSFrameSize">{26, 26}</string>
 												<reference key="NSSuperview" ref="960062411"/>
-												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="1013443055"/>
 												<string key="NSReuseIdentifierKey">_NS:9</string>
 												<int key="IBUIContentMode">2</int>
@@ -80,7 +78,6 @@
 										</array>
 										<string key="NSFrameSize">{26, 26}</string>
 										<reference key="NSSuperview" ref="465234123"/>
-										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="434831171"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<object class="NSColor" key="IBUIBackgroundColor" id="118891470">
@@ -95,7 +92,6 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{-2, -2}, {30, 30}}</string>
 										<reference key="NSSuperview" ref="465234123"/>
-										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="960062411"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -108,7 +104,6 @@
 								</array>
 								<string key="NSFrame">{{10, 10}, {26, 26}}</string>
 								<reference key="NSSuperview" ref="909665877"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="1054551196"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<reference key="IBUIBackgroundColor" ref="118891470"/>
@@ -119,7 +114,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{45, 10}, {182, 26}}</string>
 								<reference key="NSSuperview" ref="909665877"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="870746698"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -158,7 +152,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{220, 10}, {84, 22}}</string>
 								<reference key="NSSuperview" ref="909665877"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="1060470892"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -195,7 +188,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{14, 50}, {287, 16}}</string>
 								<reference key="NSSuperview" ref="909665877"/>
-								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -217,7 +209,6 @@
 						</array>
 						<string key="NSFrameSize">{320, 74}</string>
 						<reference key="NSSuperview" ref="658274815"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="465234123"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
 						<reference key="IBUIBackgroundColor" ref="118891470"/>
@@ -230,7 +221,6 @@
 				</array>
 				<string key="NSFrameSize">{320, 75}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="909665877"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -382,47 +372,7 @@
 			<nil key="sourceID"/>
 			<int key="maxID">16</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">WTBillboardCommentCell</string>
-					<string key="superclassName">UITableViewCell</string>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="authorLabel">UILabel</string>
-						<string key="avatarContainerView">UIView</string>
-						<string key="avatarImageView">UIImageView</string>
-						<string key="commentLabel">UILabel</string>
-						<string key="timeLabel">UILabel</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="authorLabel">
-							<string key="name">authorLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="avatarContainerView">
-							<string key="name">avatarContainerView</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="avatarImageView">
-							<string key="name">avatarImageView</string>
-							<string key="candidateClassName">UIImageView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="commentLabel">
-							<string key="name">commentLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="timeLabel">
-							<string key="name">timeLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/WTBillboardCommentCell.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencies">

@@ -18,7 +18,7 @@
 @property (nonatomic, weak) IBOutlet UIView *contentLabelContainerView;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *contentLabel;
 
-+ (WTNewsDetailViewController *)createNewsDetailViewControllerWithNews:(News *)news
-                                                     backBarButtonText:(NSString *)backBarButtonText;
++ (WTNewsDetailViewController *)createDetailViewControllerWithNews:(News *)news
+                                                 backBarButtonText:(NSString *)backBarButtonText;
 
 @end
