@@ -18,8 +18,10 @@ typedef enum {
 @interface WTMeProfileHeaderView : UIView
 
 @property (nonatomic, weak) IBOutlet UIView *avatarContainerView;
+@property (nonatomic, weak) IBOutlet UIImageView *avatarPlaceholderImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *avatarImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *avatarBgImageView;
+@property (nonatomic, weak) IBOutlet UIImageView *avatarBgPlaceholderImageView;
 @property (nonatomic, weak) IBOutlet UILabel *mottoLabel;
 @property (nonatomic, weak) IBOutlet UIView *personalInfoContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *genderIndicatorImageView;
@@ -29,5 +31,7 @@ typedef enum {
 @property (nonatomic, assign) ProfileHeaderViewType type;
 
 + (WTMeProfileHeaderView *)createProfileHeaderViewWithUser:(User *)user;
+
+- (void)updateAvatarImage:(UIImage *)image;
 
 @end

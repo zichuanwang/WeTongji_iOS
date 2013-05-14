@@ -14,8 +14,6 @@
 #import "UIApplication+WTAddition.h"
 #import "UIImage+ProportionalFill.h"
 
-#define CROP_AVATAR_SIZE CGSizeMake(100, 100)
-
 @interface WTRegisterInfoViewController () <OHAttributedLabelDelegate>
 
 @end
@@ -133,7 +131,6 @@
 }
 
 #pragma mark - UIActionSheetDelegate
-#pragma mark 
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if(buttonIndex == 2)

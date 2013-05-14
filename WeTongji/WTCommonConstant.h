@@ -25,4 +25,6 @@
 
 #define WEEK_TIME_INTERVAL  (60 * 60 * 24 * 7)
 
+#define CROP_AVATAR_SIZE CGSizeMake(100, 100)
+
 #endif

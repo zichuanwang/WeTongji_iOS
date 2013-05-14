@@ -13,8 +13,12 @@
 #import "WTMeProfileHeaderView.h"
 #import "WTSelfProfileView.h"
 #import "NSNotificationCenter+WTAddition.h"
+#import "UIApplication+WTAddition.h"
+#import <WeTongjiSDK/WeTongjiSDK.h>
+#import "UIImage+ProportionalFill.h"
+#import "User+Addition.h"
 
-@interface WTMeViewController ()
+@interface WTMeViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, weak) WTMeProfileHeaderView *profileHeaderView;
 @property (nonatomic, weak) WTSelfProfileView *selfProfileView;
@@ -80,6 +84,8 @@
     WTMeProfileHeaderView *headerView = [WTMeProfileHeaderView createProfileHeaderViewWithUser:[WTCoreDataManager sharedManager].currentUser];
     [self.scrollView addSubview:headerView];
     self.profileHeaderView = headerView;
+    
+    [headerView.functionButton addTarget:self action:@selector(didClickChangeAvatarButton:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)configureNavigationBar {
@@ -92,6 +98,59 @@
 - (void)didClickSettingButton:(UIButton *)sender {
     [[WTClient sharedClient] logout];
     [WTCoreDataManager sharedManager].currentUser = nil;
+}
+
+- (void)didClickChangeAvatarButton:(UIButton *)sender {
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+                                  initWithTitle:nil
+                                  delegate:self
+                                  cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
+                                  destructiveButtonTitle:nil
+                                  otherButtonTitles:NSLocalizedString(@"Camera", nil), NSLocalizedString(@"Photo Album", nil), nil];
+    [actionSheet showFromTabBar:[UIApplication sharedApplication].rootTabBarController.tabBar];
+}
+
+#pragma mark - UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if(buttonIndex == actionSheet.cancelButtonIndex)
+        return;
+    
+    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    ipc.delegate = self;
+    ipc.allowsEditing = YES;
+    
+    if(buttonIndex == 1) {
+        ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    } else if(buttonIndex == 0) {
+        ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    
+    [self presentModalViewController:ipc animated:YES];
+}
+
+#pragma mark - UIImagePickerController delegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *edittedImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    edittedImage = [edittedImage imageScaledToFitSize:CROP_AVATAR_SIZE];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        WTLOG(@"Upload avatar success:%@", responseObject);
+        NSDictionary *responseDict = responseObject;
+        User *currentUser = [User insertUser:responseDict[@"User"]];
+        [WTCoreDataManager sharedManager].currentUser = currentUser;
+        
+        [self.profileHeaderView updateAvatarImage:edittedImage];
+    } failureBlock:^(NSError *error) {
+        WTLOGERROR(@"Upload avatar failure:%@", error.description);
+        [WTErrorHandler handleError:error];
+    }];
+    [request updateUserAvatar:edittedImage];
+    [[WTClient sharedClient] enqueueRequest:request];
 }
 
 @end
