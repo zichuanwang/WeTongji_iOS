@@ -32,6 +32,10 @@
     [self configureSearchHistoryView];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self.historyView resetHeight:self.view.frame.size.height];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

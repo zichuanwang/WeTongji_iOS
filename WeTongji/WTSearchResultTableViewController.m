@@ -59,6 +59,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    [self.tableView resetHeight:self.view.frame.size.height];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

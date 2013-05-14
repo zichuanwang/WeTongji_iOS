@@ -50,6 +50,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.resultViewController viewWillAppear:animated];
+    [self.defaultViewController viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -95,6 +96,16 @@
 }
 
 #pragma mark - UI methods
+
+- (void)disableNotificationBarButton {
+    self.notificationButton.customView.alpha = 0.5f;
+    self.notificationButton.enabled = NO;
+}
+
+- (void)enableNotificationBarButton {
+    self.notificationButton.customView.alpha = 1.0f;
+    self.notificationButton.enabled = YES;
+}
 
 - (void)configureSearchHintViewSizeWithKeyboardHeight:(CGFloat)keyboardHeight {
     CGFloat visibleScreenHeight = [UIScreen mainScreen].bounds.size.height - 64.0f - keyboardHeight;
@@ -311,12 +322,16 @@
         [self.defaultViewController.shadowCoverView fadeIn];
     
     self.searchHintView.searchKeyword = searchBar.text;
+    
+    [self disableNotificationBarButton];
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
     WTLOG(@"searchBarTextDidEndEditing");
     [self showHintView:NO];
     [self showSearchResultView:YES];
+    
+    [self enableNotificationBarButton];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
