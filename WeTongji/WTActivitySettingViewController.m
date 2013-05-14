@@ -8,6 +8,7 @@
 
 #import "WTActivitySettingViewController.h"
 #import "WTConfigLoader.h"
+#import "WTResourceFactory.h"
 #import "NSUserDefaults+WTAddition.h"
 
 @interface WTActivitySettingViewController ()
@@ -43,6 +44,11 @@
 
 - (BOOL)isSettingDifferentFromDefaultValue {
     return [[NSUserDefaults standardUserDefaults] isActivitySettingDifferentFromDefaultValue];
+}
+
+- (void)settingItemDidModify {
+    [super settingItemDidModify];
+    [WTResourceFactory configureFilterBarButton:self.callBarButtonItem modified:[self isSettingDifferentFromDefaultValue]];
 }
 
 @end

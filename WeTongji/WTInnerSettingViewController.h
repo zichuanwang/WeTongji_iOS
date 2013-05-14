@@ -30,11 +30,9 @@
 
 @property (nonatomic, weak) id<WTInnerSettingViewControllerDelegate> delegate;
 
-@property (nonatomic, assign) BOOL hideCategoryFilter;
-
 - (NSArray *)loadSettingConfig;
 
-- (BOOL)isSettingDifferentFromDefaultValue;
+- (void)settingItemDidModify;
 
 @end
 
@@ -66,5 +64,14 @@
 @property (nonatomic, assign) BOOL dirty;
 
 + (WTSettingGroupCell *)createGroupCell;
+
+@end
+
+@interface WTSettingButtonCell : UIView
+
+@property (nonatomic, strong) IBOutlet UIButton *button;
+
++ (WTSettingButtonCell *)createButtonCell:(NSDictionary *)cellInfo
+                                   target:(id)target;
 
 @end

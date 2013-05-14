@@ -9,6 +9,7 @@
 #import "WTNewsSettingViewController.h"
 #import "WTConfigLoader.h"
 #import "NSUserDefaults+WTAddition.h"
+#import "WTResourceFactory.h"
 
 @interface WTNewsSettingViewController ()
 
@@ -43,6 +44,11 @@
 
 - (BOOL)isSettingDifferentFromDefaultValue {
     return [[NSUserDefaults standardUserDefaults] isNewsSettingDifferentFromDefaultValue];
+}
+
+- (void)settingItemDidModify {
+    [super settingItemDidModify];
+    [WTResourceFactory configureFilterBarButton:self.callBarButtonItem modified:[self isSettingDifferentFromDefaultValue]];
 }
 
 @end

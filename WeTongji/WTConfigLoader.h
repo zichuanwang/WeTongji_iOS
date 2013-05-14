@@ -14,6 +14,8 @@
 #define kCellTitle                          @"CellTitle"
 #define kCellThumbnail                      @"CellThumbnail"
 #define kCellAccessoryType                  @"CellAccessoryType"
+#define kButtonTitle                        @"ButtonTitle"
+#define kButtonTarget                       @"ButtonTarget"
 
 #define kCellAccessoryTypeNone              @"CellAccessoryTypeNone"
 #define kCellAccessoryTypeSwitch            @"CellAccessoryTypeSwitch"
@@ -23,6 +25,7 @@
 #define kTableViewTypePlain                 @"TableViewTypePlain"
 #define kTableViewTypeGroup                 @"TableViewTypeGroup"
 #define kTableViewTypeSeparator             @"TableViewTypeSeparator"
+#define kTableViewTypeButton                @"TableViewTypeButton"
 
 #define kTableViewSectionHeader             @"TableViewSectionHeader"
 #define kTableViewSupportsMultiSelection    @"TableViewSupportsMultiSelection"
@@ -30,6 +33,7 @@
 
 #define kWTActivityConfig                   @"WTActivitySettingConfig"
 #define kWTNewsConfig                       @"WTNewsSettingConfig"
+#define kWTMeConfig                         @"WTMeSettingConfig"
 
 @interface WTConfigLoader : NSObject {
     NSMutableDictionary *_configDictionary;

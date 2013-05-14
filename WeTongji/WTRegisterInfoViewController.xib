@@ -185,10 +185,6 @@
 												<int key="IBUIContentMode">2</int>
 												<bool key="IBUIUserInteractionEnabled">NO</bool>
 												<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-												<object class="NSCustomResource" key="IBUIImage">
-													<string key="NSClassName">NSImage</string>
-													<string key="NSResourceName">WTTestBanner1.png</string>
-												</object>
 											</object>
 										</array>
 										<string key="NSFrameSize">{91, 90}</string>
@@ -259,6 +255,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{50, 140}, {220, 30}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -474,7 +471,7 @@ jiDkvb/nlKjmnaHmrL4</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="10.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="1" key="10.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="0.0" key="10.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="11.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="12.CustomClassName">OHAttributedLabel</string>
 				<string key="12.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -505,7 +502,6 @@ jiDkvb/nlKjmnaHmrL4</string>
 			<string key="WTRegisterAccountPanelBg.png">{302, 92}</string>
 			<string key="WTRegisterAvatarHighlightButton.png">{92, 90}</string>
 			<string key="WTRegisterAvatarNormalButton.png">{92, 90}</string>
-			<string key="WTTestBanner1.png">{640, 260}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>

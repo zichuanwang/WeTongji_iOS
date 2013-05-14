@@ -73,10 +73,6 @@
     return nil;
 }
 
-- (BOOL)isSettingDifferentFromDefaultValue {
-    return NO;
-}
-
 #pragma mark - Properties
 
 - (WTWaterflowDecorator *)waterflowDecorator {
@@ -118,14 +114,6 @@
             }
         } else if ([tableViewType isEqualToString:kTableViewTypeGroup]) {
             WTSettingGroupTableView *tableView = [WTSettingGroupTableView createGroupTableView:dict];
-            
-            // 比较差的实现，凑合用先。
-            if (self.hideCategoryFilter) {
-                if ([tableView.headerLabel.text isEqualToString:NSLocalizedString(@"Show", nil)]) {
-                    continue;
-                }
-            }
-            
             [tableView resetOriginY:originY];
             originY += tableView.frame.size.height;
             [self.scrollView addSubview:tableView];
@@ -136,6 +124,15 @@
             originY += 6;
             [separatorImageView resetOrigin:CGPointMake(0, originY)];
             [self.scrollView addSubview:separatorImageView];
+        } else if ([tableViewType isEqualToString:kTableViewTypeButton]) {
+            NSArray *contentArray = dict[kTableViewContent];
+            for (NSDictionary *cellDict in contentArray) {
+                WTSettingButtonCell *buttonCell = [WTSettingButtonCell createButtonCell:cellDict target:self];
+                [buttonCell resetOriginY:originY];
+                originY += buttonCell.frame.size.height;
+                [self.scrollView addSubview:buttonCell];
+                [self.innerSettingItems addObject:buttonCell];
+            }
         }
     }
     
@@ -155,11 +152,9 @@
 #pragma mark - Notification handler
 
 - (void)settingItemDidModify {
-    [WTResourceFactory configureFilterBarButton:self.callBarButtonItem modified:[self isSettingDifferentFromDefaultValue]];
-    
-    NSLog(@"count:%d", self.innerSettingItems.count);
     for (id<WTInnerSettingItem> item in self.innerSettingItems) {
-        NSLog(@"%d", [item isDirty]);
+        if (![item respondsToSelector:@selector(isDirty)])
+            continue;
         if ([item isDirty]) {
             self.dirty = YES;
             return;
@@ -422,6 +417,35 @@
 
 - (BOOL)isDirty {
     return self.dirty;
+}
+
+@end
+
+@implementation WTSettingButtonCell
+
++ (WTSettingButtonCell *)createButtonCell:(NSDictionary *)cellInfo
+                                   target:(id)target {
+    WTSettingButtonCell *result = nil;
+    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"WTSettingCells" owner:self options:nil];
+    for (UIView *view in views) {
+        if ([view isKindOfClass:[WTSettingButtonCell class]]) {
+            result = (WTSettingButtonCell *)view;
+            break;
+        }
+    }
+    
+    UIImage *buttonBgImage = [result.button backgroundImageForState:UIControlStateNormal];
+    buttonBgImage = [buttonBgImage resizableImageWithCapInsets:UIEdgeInsetsMake(6.0, 8.0f, 6.0, 8.0f)];
+    [result.button setBackgroundImage:buttonBgImage forState:UIControlStateNormal];
+    
+    NSString *buttonTitle = NSLocalizedString(cellInfo[kButtonTitle], nil);
+    WTLOG(@"button title:%@", buttonTitle);
+    [result.button setTitle:buttonTitle forState:UIControlStateNormal];
+    
+    NSString *buttonTarget = cellInfo[kButtonTarget];
+    [result.button addTarget:target action:NSSelectorFromString(buttonTarget) forControlEvents:UIControlEventTouchUpInside];
+    
+    return result;
 }
 
 @end

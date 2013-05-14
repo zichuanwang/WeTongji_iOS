@@ -17,11 +17,13 @@
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import "UIImage+ProportionalFill.h"
 #import "User+Addition.h"
+#import "WTMeSettingViewController.h"
 
-@interface WTMeViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface WTMeViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, WTInnerSettingViewControllerDelegate, WTRootNavigationControllerDelegate>
 
 @property (nonatomic, weak) WTMeProfileHeaderView *profileHeaderView;
 @property (nonatomic, weak) WTSelfProfileView *selfProfileView;
+@property (nonatomic, readonly) UIButton *settingButton;
 
 @end
 
@@ -45,6 +47,10 @@
     [NSNotificationCenter registerCurrentUserDidChangeNotificationWithSelector:@selector(hanldeCurrentUserDidChangeNotification:) target:self];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [self.scrollView resetHeight:self.view.frame.size.height];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -54,7 +60,15 @@
 #pragma mark - Notification handler
 
 - (void)hanldeCurrentUserDidChangeNotification:(NSNotification *)notification {
-    [self configureUI];
+    if ([WTCoreDataManager sharedManager].currentUser) {
+        [self configureUI];
+    }
+}
+
+#pragma mark - Properties
+
+- (UIButton *)settingButton {
+    return (UIButton *)self.navigationItem.rightBarButtonItem.customView.subviews.lastObject;
 }
 
 #pragma mark - UI methods
@@ -96,8 +110,18 @@
 #pragma mark - Actions
 
 - (void)didClickSettingButton:(UIButton *)sender {
-    [[WTClient sharedClient] logout];
-    [WTCoreDataManager sharedManager].currentUser = nil;
+    WTRootNavigationController *nav = (WTRootNavigationController *)self.navigationController;
+    
+    if (sender.selected) {
+        sender.selected = NO;
+        
+        WTMeSettingViewController *vc = [[WTMeSettingViewController alloc] init];
+        vc.delegate = self;
+        [nav showInnerModalViewController:vc sourceViewController:self disableNavBarType:WTDisableNavBarTypeLeft];
+        
+    } else {
+        [nav hideInnerModalViewController];
+    }
 }
 
 - (void)didClickChangeAvatarButton:(UIButton *)sender {
@@ -151,6 +175,20 @@
     }];
     [request updateUserAvatar:edittedImage];
     [[WTClient sharedClient] enqueueRequest:request];
+}
+
+#pragma mark - WTInnerSettingViewControllerDelegate
+
+- (void)innerSettingViewController:(WTInnerSettingViewController *)controller didFinishSetting:(BOOL)modified {
+    if (modified) {
+        [WTClient refreshSharedClient];
+    }
+}
+
+#pragma mark - WTRootNavigationControllerDelegate
+
+- (void)didHideInnderModalViewController {
+    self.settingButton.selected = YES;
 }
 
 @end

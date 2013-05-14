@@ -114,3 +114,6 @@
 " News" = " 条资讯";
 " Organizations" = " 个组织";
 " People" = " 个人";
+
+"Use test server" = "使用测试服务器";
+"Logout" = "登出";

@@ -168,6 +168,8 @@
 		E1222C5217420BFB004B4312 /* WTOrganizationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1BFFE0E17415F93004EF0D6 /* WTOrganizationCell.xib */; };
 		E1222C5717421AB4004B4312 /* WTOrganizationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1222C5517421AB4004B4312 /* WTOrganizationDetailViewController.m */; };
 		E1222C5817421AB4004B4312 /* WTOrganizationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1222C5617421AB4004B4312 /* WTOrganizationDetailViewController.xib */; };
+		E1222C5D17423B94004B4312 /* WTMeSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1222C5B17423B94004B4312 /* WTMeSettingViewController.m */; };
+		E1222C6017423D7C004B4312 /* WTMeSettingConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1222C5F17423D7C004B4312 /* WTMeSettingConfig.plist */; };
 		E125549416491530006D42F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549316491530006D42F5 /* UIKit.framework */; };
 		E125549616491530006D42F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549516491530006D42F5 /* Foundation.framework */; };
 		E125549816491530006D42F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549716491530006D42F5 /* CoreGraphics.framework */; };
@@ -781,6 +783,9 @@
 		E1222C5417421AB4004B4312 /* WTOrganizationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTOrganizationDetailViewController.h; sourceTree = "<group>"; };
 		E1222C5517421AB4004B4312 /* WTOrganizationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTOrganizationDetailViewController.m; sourceTree = "<group>"; };
 		E1222C5617421AB4004B4312 /* WTOrganizationDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTOrganizationDetailViewController.xib; sourceTree = "<group>"; };
+		E1222C5A17423B94004B4312 /* WTMeSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTMeSettingViewController.h; sourceTree = "<group>"; };
+		E1222C5B17423B94004B4312 /* WTMeSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTMeSettingViewController.m; sourceTree = "<group>"; };
+		E1222C5F17423D7C004B4312 /* WTMeSettingConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WTMeSettingConfig.plist; sourceTree = "<group>"; };
 		E125548F16491530006D42F5 /* WeTongji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeTongji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E125549316491530006D42F5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E125549516491530006D42F5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1793,6 +1798,7 @@
 			children = (
 				E191D91116C72E7100384CF6 /* WTActivitySettingConfig.plist */,
 				E1C033CB16691E75004738EF /* WTDistrictBuildingMap.plist */,
+				E1222C5F17423D7C004B4312 /* WTMeSettingConfig.plist */,
 				E1528D6A16C5533C00BD2B42 /* WTNewsSettingConfig.plist */,
 			);
 			name = Config;
@@ -1968,6 +1974,8 @@
 		E187E93016EA6E0300599F47 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				E1222C5A17423B94004B4312 /* WTMeSettingViewController.h */,
+				E1222C5B17423B94004B4312 /* WTMeSettingViewController.m */,
 				E191D91316C78F2E00384CF6 /* WTActivitySettingViewController.h */,
 				E191D91416C78F2E00384CF6 /* WTActivitySettingViewController.m */,
 				E1528D6F16C561C100BD2B42 /* WTInnerSettingViewController.h */,
@@ -2991,6 +2999,7 @@
 				E1BFFE1217415FA0004EF0D6 /* WTUserCell.xib in Resources */,
 				E1222C5217420BFB004B4312 /* WTOrganizationCell.xib in Resources */,
 				E1222C5817421AB4004B4312 /* WTOrganizationDetailViewController.xib in Resources */,
+				E1222C6017423D7C004B4312 /* WTMeSettingConfig.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3157,6 +3166,7 @@
 				E1BFFE1117415F9B004EF0D6 /* WTUserCell.m in Sources */,
 				E1222C5117420BF0004B4312 /* WTOrganizationCell.m in Sources */,
 				E1222C5717421AB4004B4312 /* WTOrganizationDetailViewController.m in Sources */,
+				E1222C5D17423B94004B4312 /* WTMeSettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
