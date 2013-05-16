@@ -244,8 +244,10 @@
     [self.resultViewController.view removeFromSuperview];    
     WTSearchResultTableViewController *vc = [WTSearchResultTableViewController createViewControllerWithSearchKeyword:keyword searchCategory:category delegate:self];
     self.resultViewController = vc;
-    [self.view insertSubview:vc.view aboveSubview:self.defaultViewController.view];
     [vc.view resetHeight:self.view.frame.size.height];
+    // 刷新resultViewController中tableView的高度。
+    [self.resultViewController viewWillAppear:NO];
+    [self.view insertSubview:vc.view aboveSubview:self.defaultViewController.view];
     
     [self.defaultViewController.historyView.tableView reloadData];
 }
