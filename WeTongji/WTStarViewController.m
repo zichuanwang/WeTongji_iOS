@@ -114,7 +114,7 @@
             failure();
     }];
 
-    [request getAllStarsWithNextPage:self.nextPage];
+    [request getStarsInPage:self.nextPage];
     
     [[WTClient sharedClient] enqueueRequest:request];
 }
