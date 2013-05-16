@@ -236,6 +236,8 @@
     }
     
     [request setSortDescriptors:descriptors];
+    
+    [request setPredicate:[NSPredicate predicateWithFormat:@"category in %@", [NSUserDefaults getNewsShowTypesSet]]];
 }
 
 - (void)insertCellAtIndexPath:(NSIndexPath *)indexPath {
