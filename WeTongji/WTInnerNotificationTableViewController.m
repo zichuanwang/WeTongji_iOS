@@ -13,11 +13,13 @@
 #import "Notification+Addition.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import "NSString+WTAddition.h"
+#import "WTDragToLoadDecorator.h"
 
-@interface WTInnerNotificationTableViewController () <WTWaterflowDecoratorDataSource>
+@interface WTInnerNotificationTableViewController () <WTWaterflowDecoratorDataSource, WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
 @property (nonatomic, strong) WTWaterflowDecorator *waterflowDecorator;
-
+@property (nonatomic, strong) WTDragToLoadDecorator *dragToLoadDecorator;
+@property (nonatomic, assign) NSInteger nextPage;
 @end
 
 @implementation WTInnerNotificationTableViewController
@@ -27,6 +29,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.nextPage = 2;
     }
     return self;
 }
@@ -36,11 +39,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.tableView.alwaysBounceVertical = YES;
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [self viewDidDisappear:animated];
-    [self loadMoreData];
+    
+    self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -56,18 +56,39 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [self.dragToLoadDecorator stopObservingChangesInDragToLoadScrollView];
+}
+
 #pragma mark - Logic methods
 
-- (void)loadMoreData {
+- (void)loadMoreDataWithSuccessBlock:(void (^)(void))success
+                        failureBlock:(void (^)(void))failure {
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
-        WTLOG(@"notification list:%@", responseObject);
-        [Notification clearAllNotifications];
+        WTLOG(@"Get notification list succese:%@", responseObject);
+        
+        if (success)
+            success();
+        
         [Notification insertNotifications:responseObject];
     } failureBlock:^(NSError *error) {
-        WTLOGERROR(@"Get notification list:%@", error.localizedDescription);
+        WTLOGERROR(@"Get notification list failure:%@", error.localizedDescription);
+        
+        if (failure)
+            failure();
+        
+        [WTErrorHandler handleError:error];
     }];
     [request getNotificationList];
     [[WTClient sharedClient] enqueueRequest:request];
+}
+
+- (void)clearAllData {
+    [Notification clearAllNotifications];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -137,6 +158,36 @@
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
     [self.tableView performSelector:@selector(reloadData) withObject:nil afterDelay:0.25f];
+}
+
+#pragma mark - WTDragToLoadDecoratorDataSource
+
+- (UIScrollView *)dragToLoadScrollView {
+    return self.tableView;
+}
+
+- (NSString *)userDefaultKey {
+    return @"WTActivityController";
+}
+
+#pragma mark - WTDragToLoadDecoratorDelegate
+
+- (void)dragToLoadDecoratorDidDragUp {
+    [self loadMoreDataWithSuccessBlock:^{
+        [self.dragToLoadDecorator bottomViewLoadFinished:YES];
+    } failureBlock:^{
+        [self.dragToLoadDecorator bottomViewLoadFinished:NO];
+    }];
+}
+
+- (void)dragToLoadDecoratorDidDragDown {
+    self.nextPage = 1;
+    [self loadMoreDataWithSuccessBlock:^{
+        [self clearAllData];
+        [self.dragToLoadDecorator topViewLoadFinished:YES];
+    } failureBlock:^{
+        [self.dragToLoadDecorator topViewLoadFinished:NO];
+    }];
 }
 
 @end
