@@ -62,9 +62,7 @@
     [self configureBriefIntroductionView];
     [self configureDetailView];
     [self configureScrollView];
-    [self configureLikeButton];
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
+    [self configureLikeButton];    
 }
 
 - (void)configureScrollView {

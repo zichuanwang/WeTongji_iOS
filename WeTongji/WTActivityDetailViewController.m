@@ -76,16 +76,11 @@
 #pragma mark - UI methods
 
 - (void)configureUI {
-    [self configureRootViewBackgroundColor];
     [self configureLikeButton];
     [self configureBriefIntroductionView];
     [self configureBannerView];
     [self configureDetailDescriptionView];
     [self configureScrollView];
-}
-
-- (void)configureRootViewBackgroundColor {
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
 }
 
 - (void)configureScrollView {

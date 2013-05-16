@@ -22,6 +22,7 @@
 #import "WTNewsDetailViewController.h"
 #import "WTActivityDetailViewController.h"
 #import "WTOrganizationDetailViewController.h"
+#import "WTUserDetailViewController.h"
 #import "NSUserDefaults+WTAddition.h"
 
 @interface WTSearchResultTableViewController () <WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
@@ -258,6 +259,8 @@
         vc = [WTActivityDetailViewController createDetailViewControllerWithActivity:(Activity *)object backBarButtonText:backBarButtonText];
     } else if ([object isKindOfClass:[Organization class]]) {
         vc = [WTOrganizationDetailViewController createDetailViewControllerWithOrganization:(Organization *)object backBarButtonText:backBarButtonText];
+    } else if ([object isKindOfClass:[User class]]) {
+        vc = [WTUserDetailViewController createDetailViewControllerWithUser:(User *)object backBarButtonText:backBarButtonText];
     } else {
         return;
     }

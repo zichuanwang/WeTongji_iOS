@@ -53,11 +53,6 @@
 #pragma mark - UI methods
 
 - (void)configureUI {
-    [self configureRootViewBackgroundColor];
-}
-
-- (void)configureRootViewBackgroundColor {
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
 }
 
 #pragma mark - Actions

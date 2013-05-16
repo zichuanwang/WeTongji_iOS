@@ -1,23 +1,23 @@
 //
-//  WTUserProfileView.m
+//  WTCurrentUserProfileView.m
 //  WeTongji
 //
 //  Created by 王 紫川 on 13-5-13.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
-#import "WTUserProfileView.h"
+#import "WTCurrentUserProfileView.h"
 #import "User+Addition.h"
 #import "WTResourceFactory.h"
 #import "OHAttributedLabel.h"
 
-@interface WTUserProfileView ()
+@interface WTCurrentUserProfileView ()
 
 @property (nonatomic, weak) User *user;
 
 @end
 
-@implementation WTUserProfileView
+@implementation WTCurrentUserProfileView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -28,8 +28,8 @@
     return self;
 }
 
-+ (WTUserProfileView *)createProfileViewWithUser:(User *)user {
-    WTUserProfileView *result = [[NSBundle mainBundle] loadNibNamed:@"WTUserProfileView" owner:nil options:nil].lastObject;
++ (WTCurrentUserProfileView *)createProfileViewWithUser:(User *)user {
+    WTCurrentUserProfileView *result = [[NSBundle mainBundle] loadNibNamed:@"WTCurrentUserProfileView" owner:nil options:nil].lastObject;
     result.user = user;
     [result configureView];
     return result;

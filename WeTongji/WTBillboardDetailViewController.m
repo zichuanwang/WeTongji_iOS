@@ -35,9 +35,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self configureHeaderView];
-    [self configureCommentViewController];
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
+    [self configureCommentViewController];    
 }
 
 - (void)viewDidAppear:(BOOL)animated {

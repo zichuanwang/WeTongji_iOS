@@ -236,6 +236,8 @@
 		E14286A4171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14286A2171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover@2x.png */; };
 		E14286A7171C5872006AB739 /* WTNowWeekCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E14286A6171C5871006AB739 /* WTNowWeekCell.m */; };
 		E14286A9171C5893006AB739 /* WTNowWeekCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14286A8171C5892006AB739 /* WTNowWeekCell.xib */; };
+		E14EFECE1744A9C200C2009F /* WTUserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E14EFECC1744A9C200C2009F /* WTUserDetailViewController.m */; };
+		E14EFECF1744A9C200C2009F /* WTUserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14EFECD1744A9C200C2009F /* WTUserDetailViewController.xib */; };
 		E14F964F1696FCF40048414D /* TestAvatar1.png in Resources */ = {isa = PBXBuildFile; fileRef = E14F964E1696FCF40048414D /* TestAvatar1.png */; };
 		E14F96521696FD660048414D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E14F96511696FD660048414D /* QuartzCore.framework */; };
 		E14F9E7717193383009AFABA /* WTErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E14F9E7617193383009AFABA /* WTErrorHandler.m */; };
@@ -324,8 +326,8 @@
 		E17703B0173FC3FB0086E550 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17703AF173FC3F80086E550 /* OpenGLES.framework */; };
 		E17703B2173FC4070086E550 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17703B1173FC4050086E550 /* AVFoundation.framework */; };
 		E17703C3173FC6620086E550 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E17703BA173FC4880086E550 /* libGPUImage.a */; };
-		E17703C6173FFA440086E550 /* WTUserProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = E17703C5173FFA440086E550 /* WTUserProfileView.m */; };
-		E17703C8173FFA860086E550 /* WTUserProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17703C7173FFA850086E550 /* WTUserProfileView.xib */; };
+		E17703C6173FFA440086E550 /* WTCurrentUserProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = E17703C5173FFA440086E550 /* WTCurrentUserProfileView.m */; };
+		E17703C8173FFA860086E550 /* WTCurrentUserProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17703C7173FFA850086E550 /* WTCurrentUserProfileView.xib */; };
 		E17703D31740010E0086E550 /* WTSmallLikeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E17703CD1740010E0086E550 /* WTSmallLikeIcon.png */; };
 		E17703D41740010E0086E550 /* WTSmallLikeIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17703CE1740010E0086E550 /* WTSmallLikeIcon@2x.png */; };
 		E17703E41740BA720086E550 /* WTSilverBillboardIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E17703DA1740BA720086E550 /* WTSilverBillboardIcon.png */; };
@@ -872,6 +874,9 @@
 		E14286A5171C5871006AB739 /* WTNowWeekCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNowWeekCell.h; sourceTree = "<group>"; };
 		E14286A6171C5871006AB739 /* WTNowWeekCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNowWeekCell.m; sourceTree = "<group>"; };
 		E14286A8171C5892006AB739 /* WTNowWeekCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNowWeekCell.xib; sourceTree = "<group>"; };
+		E14EFECB1744A9C200C2009F /* WTUserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTUserDetailViewController.h; sourceTree = "<group>"; };
+		E14EFECC1744A9C200C2009F /* WTUserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTUserDetailViewController.m; sourceTree = "<group>"; };
+		E14EFECD1744A9C200C2009F /* WTUserDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTUserDetailViewController.xib; sourceTree = "<group>"; };
 		E14F964E1696FCF40048414D /* TestAvatar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TestAvatar1.png; sourceTree = "<group>"; };
 		E14F96511696FD660048414D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E14F9E7517193383009AFABA /* WTErrorHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTErrorHandler.h; sourceTree = "<group>"; };
@@ -977,9 +982,9 @@
 		E17703AF173FC3F80086E550 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		E17703B1173FC4050086E550 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E17703B3173FC4860086E550 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = ../GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
-		E17703C4173FFA440086E550 /* WTUserProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTUserProfileView.h; sourceTree = "<group>"; };
-		E17703C5173FFA440086E550 /* WTUserProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTUserProfileView.m; sourceTree = "<group>"; };
-		E17703C7173FFA850086E550 /* WTUserProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTUserProfileView.xib; sourceTree = "<group>"; };
+		E17703C4173FFA440086E550 /* WTCurrentUserProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCurrentUserProfileView.h; sourceTree = "<group>"; };
+		E17703C5173FFA440086E550 /* WTCurrentUserProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCurrentUserProfileView.m; sourceTree = "<group>"; };
+		E17703C7173FFA850086E550 /* WTCurrentUserProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTCurrentUserProfileView.xib; sourceTree = "<group>"; };
 		E17703CD1740010E0086E550 /* WTSmallLikeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTSmallLikeIcon.png; sourceTree = "<group>"; };
 		E17703CE1740010E0086E550 /* WTSmallLikeIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTSmallLikeIcon@2x.png"; sourceTree = "<group>"; };
 		E17703DA1740BA720086E550 /* WTSilverBillboardIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTSilverBillboardIcon.png; sourceTree = "<group>"; };
@@ -1511,6 +1516,7 @@
 		E117038E1651EFD900D82F4A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E14EFECA1744A9A600C2009F /* User */,
 				E1250C0A16859A1D00802808 /* Activity */,
 				E1D3741316942E350012E30A /* Billboard */,
 				E1157DD9173B7CD700E62295 /* Comment */,
@@ -1700,6 +1706,16 @@
 			name = Now;
 			sourceTree = "<group>";
 		};
+		E14EFECA1744A9A600C2009F /* User */ = {
+			isa = PBXGroup;
+			children = (
+				E14EFECB1744A9C200C2009F /* WTUserDetailViewController.h */,
+				E14EFECC1744A9C200C2009F /* WTUserDetailViewController.m */,
+				E14EFECD1744A9C200C2009F /* WTUserDetailViewController.xib */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
 		E14FA67C1680A9F7008A8D33 /* Button */ = {
 			isa = PBXGroup;
 			children = (
@@ -1814,9 +1830,9 @@
 				E177038E173F887B0086E550 /* WTUserProfileHeaderView.h */,
 				E177038F173F887B0086E550 /* WTUserProfileHeaderView.m */,
 				E1770391173F888F0086E550 /* WTUserProfileHeaderView.xib */,
-				E17703C4173FFA440086E550 /* WTUserProfileView.h */,
-				E17703C5173FFA440086E550 /* WTUserProfileView.m */,
-				E17703C7173FFA850086E550 /* WTUserProfileView.xib */,
+				E17703C4173FFA440086E550 /* WTCurrentUserProfileView.h */,
+				E17703C5173FFA440086E550 /* WTCurrentUserProfileView.m */,
+				E17703C7173FFA850086E550 /* WTCurrentUserProfileView.xib */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -2966,7 +2982,7 @@
 				E17703A6173FAEEB0086E550 /* WTGenderWhiteMaleIcon@2x.png in Resources */,
 				E17703A9173FB4710086E550 /* WTMeNormalButtonBg.png in Resources */,
 				E17703AA173FB4710086E550 /* WTMeNormalButtonBg@2x.png in Resources */,
-				E17703C8173FFA860086E550 /* WTUserProfileView.xib in Resources */,
+				E17703C8173FFA860086E550 /* WTCurrentUserProfileView.xib in Resources */,
 				E17703D31740010E0086E550 /* WTSmallLikeIcon.png in Resources */,
 				E17703D41740010E0086E550 /* WTSmallLikeIcon@2x.png in Resources */,
 				E17703E41740BA720086E550 /* WTSilverBillboardIcon.png in Resources */,
@@ -2995,6 +3011,7 @@
 				E1222C5217420BFB004B4312 /* WTOrganizationCell.xib in Resources */,
 				E1222C5817421AB4004B4312 /* WTOrganizationDetailViewController.xib in Resources */,
 				E1222C6017423D7C004B4312 /* WTMeSettingConfig.plist in Resources */,
+				E14EFECF1744A9C200C2009F /* WTUserDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3156,11 +3173,12 @@
 				E177037C173EB46D0086E550 /* WTSearchHistoryView.m in Sources */,
 				E1770381173EBA240086E550 /* WTSearchHistoryCell.m in Sources */,
 				E1770390173F887B0086E550 /* WTUserProfileHeaderView.m in Sources */,
-				E17703C6173FFA440086E550 /* WTUserProfileView.m in Sources */,
+				E17703C6173FFA440086E550 /* WTCurrentUserProfileView.m in Sources */,
 				E1BFFE1117415F9B004EF0D6 /* WTUserCell.m in Sources */,
 				E1222C5117420BF0004B4312 /* WTOrganizationCell.m in Sources */,
 				E1222C5717421AB4004B4312 /* WTOrganizationDetailViewController.m in Sources */,
 				E1222C5D17423B94004B4312 /* WTMeSettingViewController.m in Sources */,
+				E14EFECE1744A9C200C2009F /* WTUserDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

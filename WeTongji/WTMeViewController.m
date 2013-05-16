@@ -11,7 +11,7 @@
 #import "WTCoreDataManager.h"
 #import "WTResourceFactory.h"
 #import "WTUserProfileHeaderView.h"
-#import "WTUserProfileView.h"
+#import "WTCurrentUserProfileView.h"
 #import "NSNotificationCenter+WTAddition.h"
 #import "UIApplication+WTAddition.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
@@ -22,7 +22,7 @@
 @interface WTMeViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, WTInnerSettingViewControllerDelegate, WTRootNavigationControllerDelegate>
 
 @property (nonatomic, weak) WTUserProfileHeaderView *profileHeaderView;
-@property (nonatomic, weak) WTUserProfileView *profileView;
+@property (nonatomic, weak) WTCurrentUserProfileView *profileView;
 @property (nonatomic, readonly) UIButton *settingButton;
 
 @end
@@ -82,7 +82,7 @@
 
 - (void)configureProfileView {
     [self.profileView removeFromSuperview];
-    WTUserProfileView *profileView = [WTUserProfileView createProfileViewWithUser:[WTCoreDataManager sharedManager].currentUser];
+    WTCurrentUserProfileView *profileView = [WTCurrentUserProfileView createProfileViewWithUser:[WTCoreDataManager sharedManager].currentUser];
     [profileView resetOriginY:self.profileHeaderView.frame.size.height];
     [self.scrollView addSubview:profileView];
     self.profileView = profileView;

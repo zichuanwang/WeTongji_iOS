@@ -1,5 +1,5 @@
 //
-//  WTUserProfileView.h
+//  WTCurrentUserProfileView.h
 //  WeTongji
 //
 //  Created by 王 紫川 on 13-5-13.
@@ -11,7 +11,7 @@
 @class User;
 @class OHAttributedLabel;
 
-@interface WTUserProfileView : UIView
+@interface WTCurrentUserProfileView : UIView
 
 @property (nonatomic, weak) IBOutlet UIImageView *firstSectionBgImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *secondSectionBgImageView;
@@ -27,6 +27,6 @@
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *likedOrganizationLabel;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *likedPersonLabel;
 
-+ (WTUserProfileView *)createProfileViewWithUser:(User *)user;
++ (WTCurrentUserProfileView *)createProfileViewWithUser:(User *)user;
 
 @end
