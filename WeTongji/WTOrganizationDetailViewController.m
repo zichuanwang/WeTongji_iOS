@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *organizationHeaderView;
 @property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
+@property (weak, nonatomic) IBOutlet UILabel *organizationNameLabel;
 @property (nonatomic, strong) Organization *org;
 
 @end
@@ -63,11 +64,15 @@
 - (void)configureOrganizationHeaderView {
     self.organizationHeaderView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTGrayPanel"]];
     
-    [self configureOrganizationLogo];
+    [self configureOrganizationLogoAndName];
 }
 
-- (void)configureOrganizationLogo {
+- (void)configureOrganizationLogoAndName {
     [self.logoImageView loadImageWithImageURLString:self.org.avatar];
+    
+    self.organizationNameLabel.text = self.org.name;
+    [self.organizationNameLabel sizeToFit];
+    [self.organizationNameLabel resetCenterX:self.view.bounds.size.width / 2];
 }
 
 #pragma mark - Actions
@@ -75,6 +80,7 @@
 - (void)viewDidUnload {
     [self setLogoImageView:nil];
     [self setOrganizationHeaderView:nil];
+    [self setOrganizationNameLabel:nil];
     [super viewDidUnload];
 }
 @end
