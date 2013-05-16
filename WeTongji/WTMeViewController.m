@@ -188,7 +188,11 @@
 #pragma mark - WTRootNavigationControllerDelegate
 
 - (void)didHideInnderModalViewController {
-    self.settingButton.selected = YES;
+    if (self.settingButton.selected == NO) {
+        self.settingButton.selected = YES;
+    } else if (self.notificationButton.selected == YES) {
+        self.notificationButton.selected = NO;
+    }
 }
 
 @end
