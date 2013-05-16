@@ -89,6 +89,7 @@
 
 - (void)clearAllData {
     [Notification clearAllNotifications];
+    
 }
 
 #pragma mark - UIScrollViewDelegate

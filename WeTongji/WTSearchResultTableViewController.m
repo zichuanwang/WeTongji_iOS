@@ -14,9 +14,11 @@
 #import "Star+Addition.h"
 #import "Organization+Addition.h"
 #import "Object+Addtion.h"
+#import "User+Addition.h"
 #import "WTNewsCell.h"
 #import "WTActivityCell.h"
 #import "WTOrganizationCell.h"
+#import "WTUserCell.h"
 #import "WTNewsDetailViewController.h"
 #import "WTActivityDetailViewController.h"
 #import "WTOrganizationDetailViewController.h"
@@ -134,6 +136,13 @@
             Organization *org = [Organization insertOrganization:infoDict];
             org.searchResult = @(YES);
         }
+        
+        NSArray *userArray = resultDict[@"Users"];
+        for (NSDictionary *infoDict in userArray) {
+            User *user = [User insertUser:infoDict];
+            user.searchResult = @(YES);
+        }
+        
         [self.dragToLoadDecorator topViewLoadFinished:YES];
 
     } failureBlock:^(NSError *error) {
@@ -172,6 +181,9 @@
     } else if ([object isKindOfClass:[Organization class]]) {
         WTOrganizationCell *orgCell = (WTOrganizationCell *)cell;
         [orgCell configureCellWithIndexPath:indexPath organization:(Organization *)object];
+    } else if ([object isKindOfClass:[User class]]) {
+        WTUserCell *userCell = (WTUserCell *)cell;
+        [userCell configureCellWithIndexPath:indexPath user:(User *)object];
     }
 }
 
@@ -192,6 +204,8 @@
         return @"WTActivityCell";
     else if ([object isKindOfClass:[Organization class]])
         return @"WTOrganizationCell";
+    else if ([object isKindOfClass:[User class]])
+        return @"WTUserCell";
     else
         return nil;
 }
@@ -227,6 +241,8 @@
     else if ([object isKindOfClass:[Activity class]])
         return 92.0f;
     else if ([object isKindOfClass:[Organization class]])
+        return 78.0f;
+    else if ([object isKindOfClass:[User class]])
         return 78.0f;
     else
         return 0;

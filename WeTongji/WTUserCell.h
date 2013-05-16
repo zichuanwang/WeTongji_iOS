@@ -18,6 +18,8 @@
 @property (nonatomic, weak) IBOutlet UIView *containerView;
 @property (nonatomic, weak) IBOutlet UIView *avatarContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *avatarImageView;
+@property (nonatomic, weak) IBOutlet UIView *highlightBgView;
+@property (nonatomic, weak) IBOutlet UIImageView *disclosureImageView;
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
                               user:(User *)user;

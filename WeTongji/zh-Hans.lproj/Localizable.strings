@@ -11,20 +11,16 @@
 "Forgot?" = "忘记密码";
 "Log In / Sign Up" = "登录 / 注册";
 "Sign Up" = "注册新用户";
-"See All News" = "全部资讯";
+
 "See All Featured" = "全部推荐";
-"See All Activities" = "全部活动";
-"News" = "资讯";
 "Featured" = "推荐";
-"Activity" = "活动";
-"Activities" = "活动";
+
 "Show Category" = "查看分类";
 "Now" = "当前";
 "Later" = "稍后";
 "ON" = "开";
 "OFF" = "关";
-"Stars" = "每周之星";
-"Organizer" = "组织机构";
+"Stars" = "济人";
 "About" = "相关信息";
 "Invite" = "邀请好友";
 "Participate" = "参加";
@@ -33,31 +29,20 @@
 "Cancel" = "取消";
 "OK" = "好";
 "Call" = "打电话给";
+"Today" = "今日";
+
 "Pull to refresh" = "下拉以刷新";
 "Release to refresh" = "松开以刷新";
 "Loading" = "加载中";
 "Last update" = "上次更新";
 "Unknown" = "未知";
+
 "Published at" = "发表于";
 "Show" = "显示";
 "Order by" = "排序";
 "Start time" = "开始时间";
 "Smart Order" = "智能排序";
 "Hide Past Activities" = "隐藏过期活动";
-"Today" = "今日";
-"Friend" = "个朋友";
-"Friends" = "个朋友";
-
-"Academics" = "学术讲座";
-"Competition" = "校园赛事";
-"Entertainment" = "文娱活动";
-"Enterprise" = "企业招聘";
-
-"Campus Update" = "校园新闻";
-"Club News" = "组织动态";
-"Local Recommendation" = "周边推荐";
-"Administrative Affairs" = "校务信息";
-
 "Publish Date" = "发布日期";
 "Popularity" = "受欢迎度";
 "Activity Start Date" = "开始日期";
@@ -89,31 +74,54 @@
 "Comments" = "条评论";
 
 "Book a ticket" = "立即订票";
-"Star" = "济人";
 
 "Search all" = "搜索全部";
-"people" = "用户";
-"organizations" = "组织机构";
-"activities" = "活动";
-"news" = "资讯";
-
 "Search Results" = "搜索结果";
 "Search" = "搜索";
-
-"Organization" = "组织机构";
-
 "Search History" = "搜索历史";
-"all" = "全部";
 "Clear search history" = "清理搜索历史";
+"all" = "全部";
+
+"Star" = "济人";
+"stars" = "济人";
 
 "My Favorite" = "我喜欢的";
-" Friends" = " 个朋友";
 " Billboard Posts" = " 篇 Billboad 发表";
 " Questions" = " 个问题";
+
+" Friends" = " 个朋友";
+"Friend" = "个朋友";
+"Friends" = "个朋友";
+
+"See All Activities" = "全部活动";
 " Activities" = " 个活动";
+"Activity" = "活动";
+"Activities" = "活动";
+"activities" = "活动";
+
+"Academics" = "学术讲座";
+"Competition" = "校园赛事";
+"Entertainment" = "文娱活动";
+"Enterprise" = "企业招聘";
+
+"See All News" = "全部资讯";
 " News" = " 条资讯";
+"news" = "资讯";
+"News" = "资讯";
+
+"Campus Update" = "校园新闻";
+"Club News" = "组织动态";
+"Local Recommendation" = "周边推荐";
+"Administrative Affairs" = "校务信息";
+
 " Organizations" = " 个组织";
-" People" = " 个人";
+"Organization" = "组织机构";
+"organizations" = "组织机构";
+"Organizer" = "组织机构";
+
+" Users" = " 个用户";
+"User" = "用户";
+"users" = "用户";
 
 "Use test server" = "使用测试服务器";
 "Logout" = "登出";

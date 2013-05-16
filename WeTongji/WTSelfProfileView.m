@@ -52,7 +52,7 @@
                                   NSLocalizedString(@" News", nil),
                                   NSLocalizedString(@" Billboard Posts", nil),
                                   NSLocalizedString(@" Organizations", nil),
-                                  NSLocalizedString(@" People", nil)];
+                                  NSLocalizedString(@" Users", nil)];
     NSArray *labels = @[self.myFriendLabel,
                         self.myBillboardPostLabel,
                         self.myQuestionsLabel,

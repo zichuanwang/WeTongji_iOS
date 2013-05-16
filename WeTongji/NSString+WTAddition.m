@@ -181,7 +181,7 @@
             break;
         case 1:
         {
-            result = NSLocalizedString(@"people", nil);
+            result = NSLocalizedString(@"users", nil);
         }
             break;
         case 2:
@@ -197,6 +197,10 @@
         case 4:
         {
             result = NSLocalizedString(@"news", nil);
+        }
+        case 5:
+        {
+            result = NSLocalizedString(@"stars", nil);
         }
             break;
         default:
