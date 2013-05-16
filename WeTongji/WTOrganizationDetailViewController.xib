@@ -54,7 +54,7 @@
 										<reference key="NSNextKeyView" ref="424380340"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIClipsSubviews">YES</bool>
-										<int key="IBUIContentMode">7</int>
+										<int key="IBUIContentMode">5</int>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										<object class="NSCustomResource" key="IBUIImage">
@@ -79,7 +79,7 @@
 										<string key="NSFrame">{{114, 11}, {90, 90}}</string>
 										<reference key="NSSuperview" ref="503112077"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="794709156"/>
+										<reference key="NSNextKeyView" ref="1071072062"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -88,13 +88,12 @@
 											<string key="NSResourceName">WTMeAvatarCover.png</string>
 										</object>
 									</object>
-									<object class="IBUILabel" id="794709156">
+									<object class="IBUILabel" id="1071072062">
 										<reference key="NSNextResponder" ref="503112077"/>
 										<int key="NSvFlags">288</int>
 										<string key="NSFrame">{{20, 109}, {280, 21}}</string>
 										<reference key="NSSuperview" ref="503112077"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
 										<bool key="IBUIClipsSubviews">YES</bool>
@@ -204,7 +203,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">organizationNameLabel</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="794709156"/>
+						<reference key="destination" ref="1071072062"/>
 					</object>
 					<int key="connectionID">22</int>
 				</object>
@@ -251,7 +250,7 @@
 							<reference ref="424380340"/>
 							<reference ref="541710633"/>
 							<reference ref="381696566"/>
-							<reference ref="794709156"/>
+							<reference ref="1071072062"/>
 						</array>
 						<reference key="parent" ref="221961741"/>
 					</object>
@@ -272,7 +271,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">21</int>
-						<reference key="object" ref="794709156"/>
+						<reference key="object" ref="1071072062"/>
 						<reference key="parent" ref="503112077"/>
 					</object>
 				</array>
