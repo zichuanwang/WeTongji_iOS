@@ -8,9 +8,13 @@
 
 #import "WTOrganizationDetailViewController.h"
 #import "Organization+Addition.h"
+#import "UIImageView+AsyncLoading.h"
+#import "WTScrollView.h"
 
 @interface WTOrganizationDetailViewController ()
-
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *organizationHeaderView;
+@property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 @property (nonatomic, strong) Organization *org;
 
 @end
@@ -53,8 +57,24 @@
 #pragma mark - UI methods
 
 - (void)configureUI {
+    [self configureOrganizationHeaderView];
+}
+
+- (void)configureOrganizationHeaderView {
+    self.organizationHeaderView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTGrayPanel"]];
+    
+    [self configureOrganizationLogo];
+}
+
+- (void)configureOrganizationLogo {
+    [self.logoImageView loadImageWithImageURLString:self.org.avatar];
 }
 
 #pragma mark - Actions
 
+- (void)viewDidUnload {
+    [self setLogoImageView:nil];
+    [self setOrganizationHeaderView:nil];
+    [super viewDidUnload];
+}
 @end
