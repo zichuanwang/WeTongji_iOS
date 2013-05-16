@@ -20,6 +20,8 @@
 		03B3E06416E7784D008BB481 /* WTNowTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B3E06316E7784D008BB481 /* WTNowTableViewController.m */; };
 		03B3E06616E77957008BB481 /* WTNowTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03B3E06516E77957008BB481 /* WTNowTableViewController.xib */; };
 		03B7261116E62CBD00093638 /* Exam+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B7261016E62CBD00093638 /* Exam+Addition.m */; };
+		03EE1092174534A20062A06B /* WTOrganizationProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03EE1091174534A20062A06B /* WTOrganizationProfileView.xib */; };
+		03EE1095174535770062A06B /* WTOrganizationProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EE1094174535770062A06B /* WTOrganizationProfileView.m */; };
 		A1ADA9DB16AC460500E3A62E /* WTActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ADA9D916AC460500E3A62E /* WTActivityViewController.m */; };
 		A1ADA9DC16AC460500E3A62E /* WTActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1ADA9DA16AC460500E3A62E /* WTActivityViewController.xib */; };
 		A1ADA9E016AC58E400E3A62E /* WTActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ADA9DF16AC58E400E3A62E /* WTActivityCell.m */; };
@@ -581,6 +583,9 @@
 		03B3E06516E77957008BB481 /* WTNowTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNowTableViewController.xib; sourceTree = "<group>"; };
 		03B7260F16E62CBD00093638 /* Exam+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Exam+Addition.h"; sourceTree = "<group>"; };
 		03B7261016E62CBD00093638 /* Exam+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Exam+Addition.m"; sourceTree = "<group>"; };
+		03EE1091174534A20062A06B /* WTOrganizationProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTOrganizationProfileView.xib; sourceTree = "<group>"; };
+		03EE1093174535770062A06B /* WTOrganizationProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTOrganizationProfileView.h; sourceTree = "<group>"; };
+		03EE1094174535770062A06B /* WTOrganizationProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTOrganizationProfileView.m; sourceTree = "<group>"; };
 		A1ADA9D816AC460500E3A62E /* WTActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTActivityViewController.h; sourceTree = "<group>"; };
 		A1ADA9D916AC460500E3A62E /* WTActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTActivityViewController.m; sourceTree = "<group>"; };
 		A1ADA9DA16AC460500E3A62E /* WTActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTActivityViewController.xib; sourceTree = "<group>"; };
@@ -1299,6 +1304,16 @@
 			name = Now;
 			sourceTree = "<group>";
 		};
+		03EE1090174534630062A06B /* Organization */ = {
+			isa = PBXGroup;
+			children = (
+				03EE1093174535770062A06B /* WTOrganizationProfileView.h */,
+				03EE1094174535770062A06B /* WTOrganizationProfileView.m */,
+				03EE1091174534A20062A06B /* WTOrganizationProfileView.xib */,
+			);
+			name = Organization;
+			sourceTree = "<group>";
+		};
 		A1DD01CA169F2437009EBE02 /* News */ = {
 			isa = PBXGroup;
 			children = (
@@ -1779,6 +1794,7 @@
 				E1CD3F371720643B00359A79 /* News */,
 				E142869E171BE090006AB739 /* Now */,
 				E17F9E7217130C3800DC6AB6 /* Other */,
+				03EE1090174534630062A06B /* Organization */,
 				E115FA9A173A3D0900DE5649 /* Search */,
 				E17F9E71171302A100DC6AB6 /* Widget */,
 			);
@@ -2969,6 +2985,7 @@
 				E14EFECF1744A9C200C2009F /* WTUserDetailViewController.xib in Resources */,
 				E4D164241744D01700F11A2C /* WTStarViewController.xib in Resources */,
 				E4D1642B1744D7DB00F11A2C /* WTStarCell.xib in Resources */,
+				03EE1092174534A20062A06B /* WTOrganizationProfileView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3139,6 +3156,7 @@
 				E4D164231744D01700F11A2C /* WTStarViewController.m in Sources */,
 				E4D164291744D7B000F11A2C /* WTStarCell.m in Sources */,
 				E47686711745287A003C9627 /* UIImage+StackBlur.m in Sources */,
+				03EE1095174535770062A06B /* WTOrganizationProfileView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

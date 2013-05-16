@@ -10,6 +10,7 @@
 #import "Organization+Addition.h"
 #import "UIImageView+AsyncLoading.h"
 #import "WTBannerView.h"
+#import "WTOrganizationProfileView.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface WTOrganizationDetailViewController ()
@@ -19,6 +20,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *organizationNameLabel;
 
 @property (nonatomic, strong) WTBannerContainerView *bannerView;
+@property (nonatomic, strong) WTOrganizationProfileView *profileView;
 @property (nonatomic, strong) Organization *org;
 
 @end
@@ -63,13 +65,15 @@
 - (void)configureUI {
     [self configureOrganizationHeaderView];
     [self configureBannerView];
+    [self configureProfileView];
     [self configureScrollView];
 }
 
 - (void)configureScrollView {
     self.scrollView.alwaysBounceVertical = YES;
     self.scrollView.scrollsToTop = YES;
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, self.scrollView.bounds.size.height + 1);
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width,
+                                             self.profileView.frame.origin.y + self.profileView.frame.size.height);
 }
 
 - (void)configureOrganizationHeaderView {
@@ -92,9 +96,17 @@
 
 - (void)configureBannerView {
     self.bannerView = [WTBannerContainerView createBannerContainerView];
-    [self.bannerView resetOrigin:CGPointMake(0, self.organizationHeaderView.frame.origin.y + self.organizationHeaderView.frame.size.height)];
+    [self.bannerView
+     resetOrigin:CGPointMake(0, self.organizationHeaderView.frame.origin.y + self.organizationHeaderView.frame.size.height)];
     [self.scrollView insertSubview:self.bannerView atIndex:0];
+    
     [self configureTestBanner];
+}
+
+- (void)configureProfileView {
+    self.profileView = [WTOrganizationProfileView createProfileViewWithOrganization:self.org];
+    [self.profileView resetOriginY:self.bannerView.frame.origin.y + self.bannerView.frame.size.height];
+    [self.scrollView addSubview:self.profileView];
 }
 
 - (void)configureTestBanner {
