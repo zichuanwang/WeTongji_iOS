@@ -13,6 +13,8 @@
 
 @interface WTUserDetailViewController : WTDetailViewController
 
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+
 + (WTUserDetailViewController *)createDetailViewControllerWithUser:(User *)user
                                                  backBarButtonText:(NSString *)backBarButtonText;
 

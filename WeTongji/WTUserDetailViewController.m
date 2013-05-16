@@ -8,10 +8,12 @@
 
 #import "WTUserDetailViewController.h"
 #import "User+Addition.h"
+#import "WTUserProfileHeaderView.h"
 
 @interface WTUserDetailViewController ()
 
 @property (nonatomic, strong) User *user;
+@property (nonatomic, weak) WTUserProfileHeaderView *profileHeaderView;
 
 @end
 
@@ -30,6 +32,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self configureUI];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,6 +50,36 @@
     result.backBarButtonText = backBarButtonText;
     
     return result;
+}
+
+#pragma mark - UI methods
+
+- (void)configureUI {
+    [self configureProfileHeaderView];
+    [self configureProfileView];
+    [self configureScrollView];
+}
+
+- (void)configureProfileView {
+//    [self.profileView removeFromSuperview];
+//    WTCurrentUserProfileView *profileView = [WTCurrentUserProfileView createProfileViewWithUser:[WTCoreDataManager sharedManager].currentUser];
+//    [profileView resetOriginY:self.profileHeaderView.frame.size.height];
+//    [self.scrollView addSubview:profileView];
+//    self.profileView = profileView;
+}
+
+- (void)configureScrollView {
+    self.scrollView.alwaysBounceVertical = YES;
+    //self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, self.profileView.frame.origin.y + self.profileView.frame.size.height);
+}
+
+- (void)configureProfileHeaderView {
+    [self.profileHeaderView removeFromSuperview];
+    WTUserProfileHeaderView *headerView = [WTUserProfileHeaderView createProfileHeaderViewWithUser:self.user];
+    [self.scrollView addSubview:headerView];
+    self.profileHeaderView = headerView;
+    
+    [headerView.functionButton addTarget:self action:@selector(didClickChangeAvatarButton:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 @end
