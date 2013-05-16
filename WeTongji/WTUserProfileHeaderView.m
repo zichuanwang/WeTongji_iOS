@@ -10,7 +10,7 @@
 #import "User+Addition.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIImageView+AsyncLoading.h"
-#import "GPUImage.h"
+#import "UIImage+StackBlur.h"
 #import "UIImage+ProportionalFill.h"
 
 @interface WTUserProfileHeaderView ()
@@ -78,23 +78,7 @@
 
 - (void)configureAvatarBgImageViewWithAvatarImage:(UIImage *)image completion:(void (^)(UIImage *bgImage))completion {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        UIImage *resultImage = [image imageCroppedToFitSize:self.avatarBgImageView.frame.size];
-        
-        GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:resultImage];
-        GPUImageGaussianBlurFilter *stillImageFilter = [[GPUImageGaussianBlurFilter alloc] init];
-        stillImageFilter.blurSize = 4.0f;
-        
-        [stillImageSource addTarget:stillImageFilter];
-        [stillImageSource processImage];
-        resultImage = [stillImageFilter imageFromCurrentlyProcessedOutput];
-        
-        stillImageSource = [[GPUImagePicture alloc] initWithImage:resultImage];
-        stillImageFilter = [[GPUImageGaussianBlurFilter alloc] init];
-        
-        [stillImageSource addTarget:stillImageFilter];
-        [stillImageSource processImage];
-        resultImage = [stillImageFilter imageFromCurrentlyProcessedOutput];
-        
+        UIImage *resultImage = [image stackBlur:4];
         dispatch_async(dispatch_get_main_queue(), ^{
             if (completion) {
                 completion(resultImage);

@@ -325,7 +325,6 @@
 		E17703AE173FC3ED0086E550 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17703AD173FC3EA0086E550 /* CoreVideo.framework */; };
 		E17703B0173FC3FB0086E550 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17703AF173FC3F80086E550 /* OpenGLES.framework */; };
 		E17703B2173FC4070086E550 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17703B1173FC4050086E550 /* AVFoundation.framework */; };
-		E17703C3173FC6620086E550 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E17703BA173FC4880086E550 /* libGPUImage.a */; };
 		E17703C6173FFA440086E550 /* WTCurrentUserProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = E17703C5173FFA440086E550 /* WTCurrentUserProfileView.m */; };
 		E17703C8173FFA860086E550 /* WTCurrentUserProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17703C7173FFA850086E550 /* WTCurrentUserProfileView.xib */; };
 		E17703D31740010E0086E550 /* WTSmallLikeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E17703CD1740010E0086E550 /* WTSmallLikeIcon.png */; };
@@ -544,6 +543,11 @@
 		E1F02F4F16F38B6E00699C81 /* WTNavigationBarBackHighlightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F02F4D16F38B6D00699C81 /* WTNavigationBarBackHighlightButton.png */; };
 		E1F02F5016F38B6E00699C81 /* WTNavigationBarBackHighlightButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F02F4E16F38B6D00699C81 /* WTNavigationBarBackHighlightButton@2x.png */; };
 		E1FC01A6172FEB2300D0776C /* BillboardPost.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FC01A5172FEB2300D0776C /* BillboardPost.m */; };
+		E47686711745287A003C9627 /* UIImage+StackBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = E47686701745287A003C9627 /* UIImage+StackBlur.m */; };
+		E4D164231744D01700F11A2C /* WTStarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D164211744D01700F11A2C /* WTStarViewController.m */; };
+		E4D164241744D01700F11A2C /* WTStarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D164221744D01700F11A2C /* WTStarViewController.xib */; };
+		E4D164291744D7B000F11A2C /* WTStarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D164281744D7B000F11A2C /* WTStarCell.m */; };
+		E4D1642B1744D7DB00F11A2C /* WTStarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D1642A1744D7DB00F11A2C /* WTStarCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -553,27 +557,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = E125548E16491530006D42F5;
 			remoteInfo = WeTongji;
-		};
-		E17703B9173FC4880086E550 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E17703B3173FC4860086E550 /* GPUImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
-			remoteInfo = GPUImage;
-		};
-		E17703BB173FC4880086E550 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E17703B3173FC4860086E550 /* GPUImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BCF1A34414DDB1EC00852800;
-			remoteInfo = GPUImageTests;
-		};
-		E17703BE173FC4E90086E550 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E17703B3173FC4860086E550 /* GPUImage.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = BCF1A33314DDB1EC00852800;
-			remoteInfo = GPUImage;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -981,7 +964,6 @@
 		E17703AD173FC3EA0086E550 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		E17703AF173FC3F80086E550 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		E17703B1173FC4050086E550 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		E17703B3173FC4860086E550 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = ../GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		E17703C4173FFA440086E550 /* WTCurrentUserProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCurrentUserProfileView.h; sourceTree = "<group>"; };
 		E17703C5173FFA440086E550 /* WTCurrentUserProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCurrentUserProfileView.m; sourceTree = "<group>"; };
 		E17703C7173FFA850086E550 /* WTCurrentUserProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTCurrentUserProfileView.xib; sourceTree = "<group>"; };
@@ -1258,6 +1240,14 @@
 		E1F02F4E16F38B6D00699C81 /* WTNavigationBarBackHighlightButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNavigationBarBackHighlightButton@2x.png"; sourceTree = "<group>"; };
 		E1FC01A4172FEB2300D0776C /* BillboardPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillboardPost.h; sourceTree = "<group>"; };
 		E1FC01A5172FEB2300D0776C /* BillboardPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillboardPost.m; sourceTree = "<group>"; };
+		E476866F1745287A003C9627 /* UIImage+StackBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+StackBlur.h"; sourceTree = "<group>"; };
+		E47686701745287A003C9627 /* UIImage+StackBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+StackBlur.m"; sourceTree = "<group>"; };
+		E4D164201744D01700F11A2C /* WTStarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTStarViewController.h; sourceTree = "<group>"; };
+		E4D164211744D01700F11A2C /* WTStarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTStarViewController.m; sourceTree = "<group>"; };
+		E4D164221744D01700F11A2C /* WTStarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTStarViewController.xib; sourceTree = "<group>"; };
+		E4D164271744D7B000F11A2C /* WTStarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTStarCell.h; sourceTree = "<group>"; };
+		E4D164281744D7B000F11A2C /* WTStarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTStarCell.m; sourceTree = "<group>"; };
+		E4D1642A1744D7DB00F11A2C /* WTStarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTStarCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1265,7 +1255,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E17703C3173FC6620086E550 /* libGPUImage.a in Frameworks */,
 				E17703B2173FC4070086E550 /* AVFoundation.framework in Frameworks */,
 				E17703B0173FC3FB0086E550 /* OpenGLES.framework in Frameworks */,
 				E17703AE173FC3ED0086E550 /* CoreVideo.framework in Frameworks */,
@@ -1449,6 +1438,9 @@
 		E1157DD2173B78D700E62295 /* Star */ = {
 			isa = PBXGroup;
 			children = (
+				E4D164201744D01700F11A2C /* WTStarViewController.h */,
+				E4D164211744D01700F11A2C /* WTStarViewController.m */,
+				E4D164221744D01700F11A2C /* WTStarViewController.xib */,
 			);
 			name = Star;
 			sourceTree = "<group>";
@@ -1574,7 +1566,6 @@
 		E125548416491530006D42F5 = {
 			isa = PBXGroup;
 			children = (
-				E17703B3173FC4860086E550 /* GPUImage.xcodeproj */,
 				E125549916491530006D42F5 /* WeTongji */,
 				E12554CB16491532006D42F5 /* WeTongjiTests */,
 				E117035A1651EF3E00D82F4A /* Resources */,
@@ -1620,7 +1611,6 @@
 		E125549916491530006D42F5 /* WeTongji */ = {
 			isa = PBXGroup;
 			children = (
-				E1770388173F87090086E550 /* External */,
 				E18821CE1680077C00A41F47 /* Categories */,
 				E1D3743C1694C3B90012E30A /* Core Data */,
 				E1D373F916936B5B0012E30A /* CustomCells */,
@@ -1817,13 +1807,6 @@
 			name = Config;
 			sourceTree = "<group>";
 		};
-		E1770388173F87090086E550 /* External */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = External;
-			sourceTree = "<group>";
-		};
 		E177038D173F885C0086E550 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -1835,15 +1818,6 @@
 				E17703C7173FFA850086E550 /* WTCurrentUserProfileView.xib */,
 			);
 			name = User;
-			sourceTree = "<group>";
-		};
-		E17703B4173FC4860086E550 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E17703BA173FC4880086E550 /* libGPUImage.a */,
-				E17703BC173FC4880086E550 /* GPUImageTests.octest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		E177E62D16EE07230029130F /* Keys */ = {
@@ -1867,6 +1841,8 @@
 		E179D6431721A38100C6D789 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				E476866F1745287A003C9627 /* UIImage+StackBlur.h */,
+				E47686701745287A003C9627 /* UIImage+StackBlur.m */,
 			);
 			name = External;
 			sourceTree = "<group>";
@@ -2342,6 +2318,9 @@
 				A1ADA9DE16AC58E300E3A62E /* WTActivityCell.h */,
 				A1ADA9DF16AC58E400E3A62E /* WTActivityCell.m */,
 				A1ADA9E416AC5AE400E3A62E /* WTActivityCell.xib */,
+				E4D164271744D7B000F11A2C /* WTStarCell.h */,
+				E4D164281744D7B000F11A2C /* WTStarCell.m */,
+				E4D1642A1744D7DB00F11A2C /* WTStarCell.xib */,
 				E10C24FC171AC7010009C673 /* WTBillboardCell.h */,
 				E10C24FD171AC7010009C673 /* WTBillboardCell.m */,
 				E10C24FF171AC73D0009C673 /* WTBillboardCell.xib */,
@@ -2547,7 +2526,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				E17703BF173FC4E90086E550 /* PBXTargetDependency */,
 			);
 			name = WeTongji;
 			productName = WeTongji;
@@ -2595,12 +2573,6 @@
 			mainGroup = E125548416491530006D42F5;
 			productRefGroup = E125549016491530006D42F5 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = E17703B4173FC4860086E550 /* Products */;
-					ProjectRef = E17703B3173FC4860086E550 /* GPUImage.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				E125548E16491530006D42F5 /* WeTongji */,
@@ -2608,23 +2580,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		E17703BA173FC4880086E550 /* libGPUImage.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libGPUImage.a;
-			remoteRef = E17703B9173FC4880086E550 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E17703BC173FC4880086E550 /* GPUImageTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = GPUImageTests.octest;
-			remoteRef = E17703BB173FC4880086E550 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E125548D16491530006D42F5 /* Resources */ = {
@@ -3012,6 +2967,8 @@
 				E1222C5817421AB4004B4312 /* WTOrganizationDetailViewController.xib in Resources */,
 				E1222C6017423D7C004B4312 /* WTMeSettingConfig.plist in Resources */,
 				E14EFECF1744A9C200C2009F /* WTUserDetailViewController.xib in Resources */,
+				E4D164241744D01700F11A2C /* WTStarViewController.xib in Resources */,
+				E4D1642B1744D7DB00F11A2C /* WTStarCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3179,6 +3136,9 @@
 				E1222C5717421AB4004B4312 /* WTOrganizationDetailViewController.m in Sources */,
 				E1222C5D17423B94004B4312 /* WTMeSettingViewController.m in Sources */,
 				E14EFECE1744A9C200C2009F /* WTUserDetailViewController.m in Sources */,
+				E4D164231744D01700F11A2C /* WTStarViewController.m in Sources */,
+				E4D164291744D7B000F11A2C /* WTStarCell.m in Sources */,
+				E47686711745287A003C9627 /* UIImage+StackBlur.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3197,11 +3157,6 @@
 			isa = PBXTargetDependency;
 			target = E125548E16491530006D42F5 /* WeTongji */;
 			targetProxy = E12554C916491532006D42F5 /* PBXContainerItemProxy */;
-		};
-		E17703BF173FC4E90086E550 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GPUImage;
-			targetProxy = E17703BE173FC4E90086E550 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
