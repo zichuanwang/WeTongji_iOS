@@ -1,25 +1,25 @@
 //
-//  WTMeProfileHeaderView.m
+//  WTUserProfileHeaderView.m
 //  WeTongji
 //
 //  Created by 王 紫川 on 13-5-12.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
-#import "WTMeProfileHeaderView.h"
+#import "WTUserProfileHeaderView.h"
 #import "User+Addition.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIImageView+AsyncLoading.h"
 #import "GPUImage.h"
 #import "UIImage+ProportionalFill.h"
 
-@interface WTMeProfileHeaderView ()
+@interface WTUserProfileHeaderView ()
 
 @property (nonatomic, weak) User *user;
 
 @end
 
-@implementation WTMeProfileHeaderView
+@implementation WTUserProfileHeaderView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -103,8 +103,8 @@
     });
 }
 
-+ (WTMeProfileHeaderView *)createProfileHeaderViewWithUser:(User *)user {
-    WTMeProfileHeaderView *result = [[NSBundle mainBundle] loadNibNamed:@"WTMeProfileHeaderView" owner:nil options:nil].lastObject;
++ (WTUserProfileHeaderView *)createProfileHeaderViewWithUser:(User *)user {
+    WTUserProfileHeaderView *result = [[NSBundle mainBundle] loadNibNamed:@"WTUserProfileHeaderView" owner:nil options:nil].lastObject;
 
     [result configureViewWithUser:user];
     return result;

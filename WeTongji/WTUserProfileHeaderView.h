@@ -1,5 +1,5 @@
 //
-//  WTMeProfileHeaderView.h
+//  WTUserProfileHeaderView.h
 //  WeTongji
 //
 //  Created by 王 紫川 on 13-5-12.
@@ -15,7 +15,7 @@ typedef enum {
 
 @class User;
 
-@interface WTMeProfileHeaderView : UIView
+@interface WTUserProfileHeaderView : UIView
 
 @property (nonatomic, weak) IBOutlet UIView *avatarContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *avatarPlaceholderImageView;
@@ -30,7 +30,7 @@ typedef enum {
 
 @property (nonatomic, assign) ProfileHeaderViewType type;
 
-+ (WTMeProfileHeaderView *)createProfileHeaderViewWithUser:(User *)user;
++ (WTUserProfileHeaderView *)createProfileHeaderViewWithUser:(User *)user;
 
 - (void)updateAvatarImage:(UIImage *)image;
 

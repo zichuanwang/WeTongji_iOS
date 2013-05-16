@@ -305,8 +305,8 @@
 		E1770383173EBA340086E550 /* WTSearchHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1770382173EBA340086E550 /* WTSearchHistoryCell.xib */; };
 		E1770386173EBA890086E550 /* WTSearchTagBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1770384173EBA890086E550 /* WTSearchTagBg.png */; };
 		E1770387173EBA890086E550 /* WTSearchTagBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1770385173EBA890086E550 /* WTSearchTagBg@2x.png */; };
-		E1770390173F887B0086E550 /* WTMeProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E177038F173F887B0086E550 /* WTMeProfileHeaderView.m */; };
-		E1770392173F888F0086E550 /* WTMeProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1770391173F888F0086E550 /* WTMeProfileHeaderView.xib */; };
+		E1770390173F887B0086E550 /* WTUserProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E177038F173F887B0086E550 /* WTUserProfileHeaderView.m */; };
+		E1770392173F888F0086E550 /* WTUserProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1770391173F888F0086E550 /* WTUserProfileHeaderView.xib */; };
 		E1770397173F8AF40086E550 /* WTSettingNormalIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1770393173F8AF40086E550 /* WTSettingNormalIcon.png */; };
 		E1770398173F8AF40086E550 /* WTSettingNormalIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1770394173F8AF40086E550 /* WTSettingNormalIcon@2x.png */; };
 		E1770399173F8AF40086E550 /* WTSettingSelectIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1770395173F8AF40086E550 /* WTSettingSelectIcon.png */; };
@@ -324,8 +324,8 @@
 		E17703B0173FC3FB0086E550 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17703AF173FC3F80086E550 /* OpenGLES.framework */; };
 		E17703B2173FC4070086E550 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17703B1173FC4050086E550 /* AVFoundation.framework */; };
 		E17703C3173FC6620086E550 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E17703BA173FC4880086E550 /* libGPUImage.a */; };
-		E17703C6173FFA440086E550 /* WTSelfProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = E17703C5173FFA440086E550 /* WTSelfProfileView.m */; };
-		E17703C8173FFA860086E550 /* WTSelfProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17703C7173FFA850086E550 /* WTSelfProfileView.xib */; };
+		E17703C6173FFA440086E550 /* WTUserProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = E17703C5173FFA440086E550 /* WTUserProfileView.m */; };
+		E17703C8173FFA860086E550 /* WTUserProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17703C7173FFA850086E550 /* WTUserProfileView.xib */; };
 		E17703D31740010E0086E550 /* WTSmallLikeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E17703CD1740010E0086E550 /* WTSmallLikeIcon.png */; };
 		E17703D41740010E0086E550 /* WTSmallLikeIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17703CE1740010E0086E550 /* WTSmallLikeIcon@2x.png */; };
 		E17703E41740BA720086E550 /* WTSilverBillboardIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E17703DA1740BA720086E550 /* WTSilverBillboardIcon.png */; };
@@ -957,9 +957,9 @@
 		E1770382173EBA340086E550 /* WTSearchHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSearchHistoryCell.xib; sourceTree = "<group>"; };
 		E1770384173EBA890086E550 /* WTSearchTagBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTSearchTagBg.png; sourceTree = "<group>"; };
 		E1770385173EBA890086E550 /* WTSearchTagBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTSearchTagBg@2x.png"; sourceTree = "<group>"; };
-		E177038E173F887B0086E550 /* WTMeProfileHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTMeProfileHeaderView.h; sourceTree = "<group>"; };
-		E177038F173F887B0086E550 /* WTMeProfileHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTMeProfileHeaderView.m; sourceTree = "<group>"; };
-		E1770391173F888F0086E550 /* WTMeProfileHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTMeProfileHeaderView.xib; sourceTree = "<group>"; };
+		E177038E173F887B0086E550 /* WTUserProfileHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTUserProfileHeaderView.h; sourceTree = "<group>"; };
+		E177038F173F887B0086E550 /* WTUserProfileHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTUserProfileHeaderView.m; sourceTree = "<group>"; };
+		E1770391173F888F0086E550 /* WTUserProfileHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTUserProfileHeaderView.xib; sourceTree = "<group>"; };
 		E1770393173F8AF40086E550 /* WTSettingNormalIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTSettingNormalIcon.png; sourceTree = "<group>"; };
 		E1770394173F8AF40086E550 /* WTSettingNormalIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTSettingNormalIcon@2x.png"; sourceTree = "<group>"; };
 		E1770395173F8AF40086E550 /* WTSettingSelectIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTSettingSelectIcon.png; sourceTree = "<group>"; };
@@ -977,9 +977,9 @@
 		E17703AF173FC3F80086E550 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		E17703B1173FC4050086E550 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E17703B3173FC4860086E550 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = ../GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
-		E17703C4173FFA440086E550 /* WTSelfProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSelfProfileView.h; sourceTree = "<group>"; };
-		E17703C5173FFA440086E550 /* WTSelfProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSelfProfileView.m; sourceTree = "<group>"; };
-		E17703C7173FFA850086E550 /* WTSelfProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSelfProfileView.xib; sourceTree = "<group>"; };
+		E17703C4173FFA440086E550 /* WTUserProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTUserProfileView.h; sourceTree = "<group>"; };
+		E17703C5173FFA440086E550 /* WTUserProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTUserProfileView.m; sourceTree = "<group>"; };
+		E17703C7173FFA850086E550 /* WTUserProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTUserProfileView.xib; sourceTree = "<group>"; };
 		E17703CD1740010E0086E550 /* WTSmallLikeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTSmallLikeIcon.png; sourceTree = "<group>"; };
 		E17703CE1740010E0086E550 /* WTSmallLikeIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTSmallLikeIcon@2x.png"; sourceTree = "<group>"; };
 		E17703DA1740BA720086E550 /* WTSilverBillboardIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTSilverBillboardIcon.png; sourceTree = "<group>"; };
@@ -1769,7 +1769,7 @@
 				E1428693171AE02F006AB739 /* Billboard */,
 				E1E647BD1722D8DD00EB4C8D /* DetailImage */,
 				E17F9E6B1712C14800DC6AB6 /* Home */,
-				E177038D173F885C0086E550 /* Me */,
+				E177038D173F885C0086E550 /* User */,
 				E1CD3F371720643B00359A79 /* News */,
 				E142869E171BE090006AB739 /* Now */,
 				E17F9E7217130C3800DC6AB6 /* Other */,
@@ -1808,17 +1808,17 @@
 			path = External;
 			sourceTree = "<group>";
 		};
-		E177038D173F885C0086E550 /* Me */ = {
+		E177038D173F885C0086E550 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				E177038E173F887B0086E550 /* WTMeProfileHeaderView.h */,
-				E177038F173F887B0086E550 /* WTMeProfileHeaderView.m */,
-				E1770391173F888F0086E550 /* WTMeProfileHeaderView.xib */,
-				E17703C4173FFA440086E550 /* WTSelfProfileView.h */,
-				E17703C5173FFA440086E550 /* WTSelfProfileView.m */,
-				E17703C7173FFA850086E550 /* WTSelfProfileView.xib */,
+				E177038E173F887B0086E550 /* WTUserProfileHeaderView.h */,
+				E177038F173F887B0086E550 /* WTUserProfileHeaderView.m */,
+				E1770391173F888F0086E550 /* WTUserProfileHeaderView.xib */,
+				E17703C4173FFA440086E550 /* WTUserProfileView.h */,
+				E17703C5173FFA440086E550 /* WTUserProfileView.m */,
+				E17703C7173FFA850086E550 /* WTUserProfileView.xib */,
 			);
-			name = Me;
+			name = User;
 			sourceTree = "<group>";
 		};
 		E17703B4173FC4860086E550 /* Products */ = {
@@ -2953,7 +2953,7 @@
 				E1770383173EBA340086E550 /* WTSearchHistoryCell.xib in Resources */,
 				E1770386173EBA890086E550 /* WTSearchTagBg.png in Resources */,
 				E1770387173EBA890086E550 /* WTSearchTagBg@2x.png in Resources */,
-				E1770392173F888F0086E550 /* WTMeProfileHeaderView.xib in Resources */,
+				E1770392173F888F0086E550 /* WTUserProfileHeaderView.xib in Resources */,
 				E1770397173F8AF40086E550 /* WTSettingNormalIcon.png in Resources */,
 				E1770398173F8AF40086E550 /* WTSettingNormalIcon@2x.png in Resources */,
 				E1770399173F8AF40086E550 /* WTSettingSelectIcon.png in Resources */,
@@ -2966,7 +2966,7 @@
 				E17703A6173FAEEB0086E550 /* WTGenderWhiteMaleIcon@2x.png in Resources */,
 				E17703A9173FB4710086E550 /* WTMeNormalButtonBg.png in Resources */,
 				E17703AA173FB4710086E550 /* WTMeNormalButtonBg@2x.png in Resources */,
-				E17703C8173FFA860086E550 /* WTSelfProfileView.xib in Resources */,
+				E17703C8173FFA860086E550 /* WTUserProfileView.xib in Resources */,
 				E17703D31740010E0086E550 /* WTSmallLikeIcon.png in Resources */,
 				E17703D41740010E0086E550 /* WTSmallLikeIcon@2x.png in Resources */,
 				E17703E41740BA720086E550 /* WTSilverBillboardIcon.png in Resources */,
@@ -3155,8 +3155,8 @@
 				E1770379173D41530086E550 /* Object.m in Sources */,
 				E177037C173EB46D0086E550 /* WTSearchHistoryView.m in Sources */,
 				E1770381173EBA240086E550 /* WTSearchHistoryCell.m in Sources */,
-				E1770390173F887B0086E550 /* WTMeProfileHeaderView.m in Sources */,
-				E17703C6173FFA440086E550 /* WTSelfProfileView.m in Sources */,
+				E1770390173F887B0086E550 /* WTUserProfileHeaderView.m in Sources */,
+				E17703C6173FFA440086E550 /* WTUserProfileView.m in Sources */,
 				E1BFFE1117415F9B004EF0D6 /* WTUserCell.m in Sources */,
 				E1222C5117420BF0004B4312 /* WTOrganizationCell.m in Sources */,
 				E1222C5717421AB4004B4312 /* WTOrganizationDetailViewController.m in Sources */,

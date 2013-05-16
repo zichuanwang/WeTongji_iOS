@@ -10,8 +10,8 @@
 #import "WTFriendListViewController.h"
 #import "WTCoreDataManager.h"
 #import "WTResourceFactory.h"
-#import "WTMeProfileHeaderView.h"
-#import "WTSelfProfileView.h"
+#import "WTUserProfileHeaderView.h"
+#import "WTUserProfileView.h"
 #import "NSNotificationCenter+WTAddition.h"
 #import "UIApplication+WTAddition.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
@@ -21,8 +21,8 @@
 
 @interface WTMeViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, WTInnerSettingViewControllerDelegate, WTRootNavigationControllerDelegate>
 
-@property (nonatomic, weak) WTMeProfileHeaderView *profileHeaderView;
-@property (nonatomic, weak) WTSelfProfileView *selfProfileView;
+@property (nonatomic, weak) WTUserProfileHeaderView *profileHeaderView;
+@property (nonatomic, weak) WTUserProfileView *profileView;
 @property (nonatomic, readonly) UIButton *settingButton;
 
 @end
@@ -76,26 +76,26 @@
 - (void)configureUI {
     [self configureNavigationBar];
     [self configureProfileHeaderView];
-    [self configureSelfProfileView];
+    [self configureProfileView];
     [self configureScrollView];
 }
 
-- (void)configureSelfProfileView {
-    [self.selfProfileView removeFromSuperview];
-    WTSelfProfileView *profileView = [WTSelfProfileView createSelfProfileViewWithUser:[WTCoreDataManager sharedManager].currentUser];
+- (void)configureProfileView {
+    [self.profileView removeFromSuperview];
+    WTUserProfileView *profileView = [WTUserProfileView createProfileViewWithUser:[WTCoreDataManager sharedManager].currentUser];
     [profileView resetOriginY:self.profileHeaderView.frame.size.height];
     [self.scrollView addSubview:profileView];
-    self.selfProfileView = profileView;
+    self.profileView = profileView;
 }
 
 - (void)configureScrollView {
     self.scrollView.alwaysBounceVertical = YES;
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, self.selfProfileView.frame.origin.y + self.selfProfileView.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, self.profileView.frame.origin.y + self.profileView.frame.size.height);
 }
 
 - (void)configureProfileHeaderView {
     [self.profileHeaderView removeFromSuperview];
-    WTMeProfileHeaderView *headerView = [WTMeProfileHeaderView createProfileHeaderViewWithUser:[WTCoreDataManager sharedManager].currentUser];
+    WTUserProfileHeaderView *headerView = [WTUserProfileHeaderView createProfileHeaderViewWithUser:[WTCoreDataManager sharedManager].currentUser];
     [self.scrollView addSubview:headerView];
     self.profileHeaderView = headerView;
     
