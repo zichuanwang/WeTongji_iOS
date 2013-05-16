@@ -21,6 +21,7 @@
 #import "WTOrganizationDetailViewController.h"
 #import "WTNewsViewController.h"
 #import "WTActivityViewController.h"
+#import "WTStarViewController.h"
 
 @interface WTHomeViewController ()
 
@@ -338,6 +339,10 @@
         News *news = (News *)modelObject;
         [[NSUserDefaults standardUserDefaults] setNewsShowTypes:news.category.integerValue];
         WTNewsViewController *vc = [[WTNewsViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([modelObject isKindOfClass:[Star class]]) {
+        
+        WTStarViewController *vc = [[WTStarViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

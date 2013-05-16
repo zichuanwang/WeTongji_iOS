@@ -544,6 +544,10 @@
 		E1F02F4F16F38B6E00699C81 /* WTNavigationBarBackHighlightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F02F4D16F38B6D00699C81 /* WTNavigationBarBackHighlightButton.png */; };
 		E1F02F5016F38B6E00699C81 /* WTNavigationBarBackHighlightButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F02F4E16F38B6D00699C81 /* WTNavigationBarBackHighlightButton@2x.png */; };
 		E1FC01A6172FEB2300D0776C /* BillboardPost.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FC01A5172FEB2300D0776C /* BillboardPost.m */; };
+		E4D164231744D01700F11A2C /* WTStarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D164211744D01700F11A2C /* WTStarViewController.m */; };
+		E4D164241744D01700F11A2C /* WTStarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D164221744D01700F11A2C /* WTStarViewController.xib */; };
+		E4D164291744D7B000F11A2C /* WTStarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D164281744D7B000F11A2C /* WTStarCell.m */; };
+		E4D1642B1744D7DB00F11A2C /* WTStarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D1642A1744D7DB00F11A2C /* WTStarCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1258,6 +1262,12 @@
 		E1F02F4E16F38B6D00699C81 /* WTNavigationBarBackHighlightButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNavigationBarBackHighlightButton@2x.png"; sourceTree = "<group>"; };
 		E1FC01A4172FEB2300D0776C /* BillboardPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillboardPost.h; sourceTree = "<group>"; };
 		E1FC01A5172FEB2300D0776C /* BillboardPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillboardPost.m; sourceTree = "<group>"; };
+		E4D164201744D01700F11A2C /* WTStarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTStarViewController.h; sourceTree = "<group>"; };
+		E4D164211744D01700F11A2C /* WTStarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTStarViewController.m; sourceTree = "<group>"; };
+		E4D164221744D01700F11A2C /* WTStarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTStarViewController.xib; sourceTree = "<group>"; };
+		E4D164271744D7B000F11A2C /* WTStarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTStarCell.h; sourceTree = "<group>"; };
+		E4D164281744D7B000F11A2C /* WTStarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTStarCell.m; sourceTree = "<group>"; };
+		E4D1642A1744D7DB00F11A2C /* WTStarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTStarCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1449,6 +1459,9 @@
 		E1157DD2173B78D700E62295 /* Star */ = {
 			isa = PBXGroup;
 			children = (
+				E4D164201744D01700F11A2C /* WTStarViewController.h */,
+				E4D164211744D01700F11A2C /* WTStarViewController.m */,
+				E4D164221744D01700F11A2C /* WTStarViewController.xib */,
 			);
 			name = Star;
 			sourceTree = "<group>";
@@ -2342,6 +2355,9 @@
 				A1ADA9DE16AC58E300E3A62E /* WTActivityCell.h */,
 				A1ADA9DF16AC58E400E3A62E /* WTActivityCell.m */,
 				A1ADA9E416AC5AE400E3A62E /* WTActivityCell.xib */,
+				E4D164271744D7B000F11A2C /* WTStarCell.h */,
+				E4D164281744D7B000F11A2C /* WTStarCell.m */,
+				E4D1642A1744D7DB00F11A2C /* WTStarCell.xib */,
 				E10C24FC171AC7010009C673 /* WTBillboardCell.h */,
 				E10C24FD171AC7010009C673 /* WTBillboardCell.m */,
 				E10C24FF171AC73D0009C673 /* WTBillboardCell.xib */,
@@ -3012,6 +3028,8 @@
 				E1222C5817421AB4004B4312 /* WTOrganizationDetailViewController.xib in Resources */,
 				E1222C6017423D7C004B4312 /* WTMeSettingConfig.plist in Resources */,
 				E14EFECF1744A9C200C2009F /* WTUserDetailViewController.xib in Resources */,
+				E4D164241744D01700F11A2C /* WTStarViewController.xib in Resources */,
+				E4D1642B1744D7DB00F11A2C /* WTStarCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3179,6 +3197,8 @@
 				E1222C5717421AB4004B4312 /* WTOrganizationDetailViewController.m in Sources */,
 				E1222C5D17423B94004B4312 /* WTMeSettingViewController.m in Sources */,
 				E14EFECE1744A9C200C2009F /* WTUserDetailViewController.m in Sources */,
+				E4D164231744D01700F11A2C /* WTStarViewController.m in Sources */,
+				E4D164291744D7B000F11A2C /* WTStarCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
