@@ -10,9 +10,6 @@
 
 @interface Organization (Addition)
 
-
-+ (NSArray *)getHomeSelectOrganizationArray;
-
 + (Organization *)insertOrganization:(NSDictionary *)dict;
 
 + (Organization *)organizationWithID:(NSString *)orgID;

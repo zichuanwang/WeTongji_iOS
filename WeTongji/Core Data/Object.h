@@ -12,11 +12,9 @@
 
 @interface Object : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * homeSelected;
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSString * objectClass;
-@property (nonatomic, retain) NSNumber * searchResult;
-@property (nonatomic, retain) NSDate * updateTime;
-@property (nonatomic, retain) NSString * bannerCoverColor;
+@property (nonatomic, retain) NSDate * updatedAt;
+@property (nonatomic, retain) id heldBy;
 
 @end

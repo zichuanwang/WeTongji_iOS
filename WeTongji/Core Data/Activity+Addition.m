@@ -12,18 +12,6 @@
 
 @implementation Activity (Addition)
 
-+ (NSArray *)getHomeSelectActivityArray {
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
-    request.entity = [NSEntityDescription entityForName:@"Activity" inManagedObjectContext:context];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:NO]];
-    request.predicate = [NSPredicate predicateWithFormat:@"homeSelected == YES"];
-    NSArray *homeSelectedActivities = [context executeFetchRequest:request error:NULL];
-        
-    return homeSelectedActivities;
-}
-
 + (Activity *)insertActivity:(NSDictionary *)dict {
     NSString *activityID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
@@ -38,7 +26,7 @@
         result.objectClass = NSStringFromClass([Activity class]);
     }
     
-    result.updateTime = [NSDate date];
+    result.updatedAt = [NSDate date];
     result.beginTime = [[NSString stringWithFormat:@"%@", dict[@"Begin"]] convertToDate];
     result.endTime = [[NSString stringWithFormat:@"%@", dict[@"End"]] convertToDate];
     result.where = [NSString stringWithFormat:@"%@", dict[@"Location"]];

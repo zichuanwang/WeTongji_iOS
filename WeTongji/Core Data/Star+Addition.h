@@ -10,8 +10,6 @@
 
 @interface Star (Addition)
 
-+ (NSArray *)getHomeSelectStarArray;
-
 + (Star *)insertStar:(NSDictionary *)dict;
 
 + (Star *)starWithID:(NSString *)starID;

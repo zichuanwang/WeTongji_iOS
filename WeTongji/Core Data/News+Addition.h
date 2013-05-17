@@ -15,8 +15,6 @@
 
 @property (nonatomic, readonly) NSString *categoryString;
 
-+ (NSArray *)getHomeSelectNewsArray;
-
 + (News *)insertNews:(NSDictionary *)dict;
 
 + (News *)newsWithID:(NSString *)newsID;

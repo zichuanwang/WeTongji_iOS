@@ -11,18 +11,6 @@
 
 @implementation Star (Addition)
 
-+ (NSArray *)getHomeSelectStarArray {
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
-    request.entity = [NSEntityDescription entityForName:@"Star" inManagedObjectContext:context];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:NO]];
-    request.predicate = [NSPredicate predicateWithFormat:@"homeSelected == YES"];
-    NSArray *homeSelectedStars = [context executeFetchRequest:request error:NULL];
-        
-    return homeSelectedStars;
-}
-
 + (Star *)insertStar:(NSDictionary *)dict {
     NSString *starID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     

@@ -111,19 +111,19 @@
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Get home recommendation succuess:%@", responseObject);
         
-        [Object clearAllHomeSelectedObjects];
+        [Object setAllObjectsFreeFromHolder:self];
         
         NSDictionary *resultDict = (NSDictionary *)responseObject;
         NSArray *activityInfoArray = resultDict[@"Activities"];
         for (NSDictionary *infoDict in activityInfoArray) {
             Activity *activity = [Activity insertActivity:infoDict];
-            activity.homeSelected = @(YES);
+            [activity setObjectHeldByHolder:self];
         }
         
         NSArray *newsInfoArray = resultDict[@"Information"];
         for (NSDictionary *infoDict in newsInfoArray) {
             News *news = [News insertNews:infoDict];
-            news.homeSelected = @(YES);
+            [news setObjectHeldByHolder:self];
         }
         
         NSObject *starInfoObject = resultDict[@"Person"];
@@ -132,21 +132,21 @@
             NSArray *starInfoArray = (NSArray *)starInfoObject;
             for (NSDictionary *infoDict in starInfoArray) {
                 Star *star = [Star insertStar:infoDict];
-                star.homeSelected = @(YES);
+                [star setObjectHeldByHolder:self];
             }
         } else if ([starInfoObject isKindOfClass:[NSDictionary class]]) {
             NSDictionary *starInfoDict = (NSDictionary *)starInfoObject;
             Star *star = [Star insertStar:starInfoDict];
-            star.homeSelected = @(YES);
+            [star setObjectHeldByHolder:self];
         }
         
         NSDictionary *newestOrgDict = resultDict[@"AccountNewest"];
         Organization *newestOrg = [Organization insertOrganization:newestOrgDict];
-        newestOrg.homeSelected = @(YES);
+        [newestOrg setObjectHeldByHolder:self];
         
         NSDictionary *popularOrgDict = resultDict[@"AccountPopulor"];
         Organization *popularOrg = [Organization insertOrganization:popularOrgDict];
-        popularOrg.homeSelected = @(YES);
+        [popularOrg setObjectHeldByHolder:self];
         
         NSDictionary *bannerActivityInfo = resultDict[@"BannerActivity"];
         Activity *bannerActivity = [Activity insertActivity:bannerActivityInfo];
@@ -205,14 +205,14 @@
         return;
     
     WTHomeSelectContainerView *activitySelectContainerView = self.homeSelectViewArray[0];
-    [activitySelectContainerView updateItemInfoArray:[Activity getHomeSelectActivityArray]];
+    [activitySelectContainerView updateItemInfoArray:[Object getAllObjectsHeldByHolder:self objectEntityName:@"Activity"]];
 
     WTHomeSelectContainerView *newsSelectContainerView = self.homeSelectViewArray[1];
-    [newsSelectContainerView updateItemInfoArray:[News getHomeSelectNewsArray]];
+    [newsSelectContainerView updateItemInfoArray:[Object getAllObjectsHeldByHolder:self objectEntityName:@"News"]];
     
     WTHomeSelectContainerView *featuredSelectContainerView = self.homeSelectViewArray[2];
-    NSMutableArray *featurerSelectInfoArray = [NSMutableArray arrayWithArray:[Star getHomeSelectStarArray]];
-    [featurerSelectInfoArray addObjectsFromArray:[Organization getHomeSelectOrganizationArray]];
+    NSMutableArray *featurerSelectInfoArray = [NSMutableArray arrayWithArray:[Object getAllObjectsHeldByHolder:self objectEntityName:@"Star"]];
+    [featurerSelectInfoArray addObjectsFromArray:[Object getAllObjectsHeldByHolder:self objectEntityName:@"Organization"]];
     [featuredSelectContainerView updateItemInfoArray:featurerSelectInfoArray];
     
     self.shouldUpdateHomeSelectViews = NO;

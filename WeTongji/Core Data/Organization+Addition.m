@@ -11,18 +11,6 @@
 
 @implementation Organization (Addition)
 
-+ (NSArray *)getHomeSelectOrganizationArray {
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
-    request.entity = [NSEntityDescription entityForName:@"Organization" inManagedObjectContext:context];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:NO]];
-    request.predicate = [NSPredicate predicateWithFormat:@"homeSelected == YES"];
-    NSArray *homeSelectedOrgs = [context executeFetchRequest:request error:NULL];
-    
-    return homeSelectedOrgs;
-}
-
 + (Organization *)insertOrganization:(NSDictionary *)dict {
     NSString *orgID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     

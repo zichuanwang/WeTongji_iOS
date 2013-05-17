@@ -10,8 +10,15 @@
 
 @interface Object (Addtion)
 
-+ (void)clearAllHomeSelectedObjects;
+@property (nonatomic, readonly) NSSet *holderSet;
 
-+ (void)clearAllSearchResultObjects;
+- (void)setObjectHeldByHolder:(id)holder;
+
+- (void)setObjectFreeFromHolder:(id)holder;
+
++ (void)setAllObjectsFreeFromHolder:(id)holder;
+
++ (NSArray *)getAllObjectsHeldByHolder:(id)holder
+                      objectEntityName:(NSString *)entityName;
 
 @end

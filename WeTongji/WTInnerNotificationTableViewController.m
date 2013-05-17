@@ -71,6 +71,16 @@
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Get notification list succese:%@", responseObject);
         
+        NSDictionary *resultDict = (NSDictionary *)responseObject;
+        NSString *nextPage = resultDict[@"NextPager"];
+        self.nextPage = nextPage.integerValue;
+        
+        if (self.nextPage == 0) {
+            [self.dragToLoadDecorator setBottomViewDisabled:YES];
+        } else {
+            [self.dragToLoadDecorator setBottomViewDisabled:NO];
+        }
+
         if (success)
             success();
         
@@ -83,7 +93,7 @@
         
         [WTErrorHandler handleError:error];
     }];
-    [request getNotificationList];
+    [request getNotificationInPage:self.nextPage];
     [[WTClient sharedClient] enqueueRequest:request];
 }
 

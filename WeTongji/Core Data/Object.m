@@ -11,11 +11,9 @@
 
 @implementation Object
 
-@dynamic homeSelected;
 @dynamic identifier;
 @dynamic objectClass;
-@dynamic searchResult;
-@dynamic updateTime;
-@dynamic bannerCoverColor;
+@dynamic updatedAt;
+@dynamic heldBy;
 
 @end

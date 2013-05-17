@@ -25,7 +25,7 @@
         result.objectClass = NSStringFromClass([Advertisement class]);
     }
     
-    result.updateTime = [NSDate date];
+    result.updatedAt = [NSDate date];
     result.title = [NSString stringWithFormat:@"%@", dict[@"Title"]];
     result.image = [NSString stringWithFormat:@"%@", dict[@"Image"]];
     result.publisher = @"刘哥快加字段";

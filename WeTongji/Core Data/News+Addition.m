@@ -12,18 +12,6 @@
 
 @implementation News (Addition)
 
-+ (NSArray *)getHomeSelectNewsArray {
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
-    request.entity = [NSEntityDescription entityForName:@"News" inManagedObjectContext:context];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"publishDate" ascending:NO]];
-    request.predicate = [NSPredicate predicateWithFormat:@"homeSelected == YES"];
-    NSArray *homeSelectedNews = [context executeFetchRequest:request error:NULL];
-        
-    return homeSelectedNews;
-}
-
 + (News *)insertNews:(NSDictionary *)dict {
     NSString *newsID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
@@ -38,7 +26,7 @@
         result.objectClass = NSStringFromClass([News class]);
     }
     
-    result.updateTime = [NSDate date];
+    result.updatedAt = [NSDate date];
     result.title = [NSString stringWithFormat:@"%@", dict[@"Title"]];
     result.content = [[NSString stringWithFormat:@"%@", dict[@"Context"]] clearAllBacklashR];
     result.summary = [NSString stringWithFormat:@"%@", dict[@"Summary"]];

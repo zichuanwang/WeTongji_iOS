@@ -104,7 +104,7 @@
 #pragma mark - Load data methods
 
 - (void)clearSearchResultObjects {
-    [Object clearAllSearchResultObjects];
+    [Object setAllObjectsFreeFromHolder:self];
 }
 
 - (void)loadSearchResult {
@@ -117,13 +117,13 @@
         NSArray *activityInfoArray = resultDict[@"Activities"];
         for (NSDictionary *infoDict in activityInfoArray) {
             Activity *activity = [Activity insertActivity:infoDict];
-            activity.searchResult = @(YES);
+            [activity setObjectHeldByHolder:self];
         }
         
         NSArray *newsInfoArray = resultDict[@"Information"];
         for (NSDictionary *infoDict in newsInfoArray) {
             News *news = [News insertNews:infoDict];
-            news.searchResult = @(YES);
+            [news setObjectHeldByHolder:self];
         }
         
 //        NSArray *starInfoArray = resultDict[@"Person"];
@@ -135,13 +135,13 @@
         NSArray *orgInfoArray = resultDict[@"Accounts"];
         for (NSDictionary *infoDict in orgInfoArray) {
             Organization *org = [Organization insertOrganization:infoDict];
-            org.searchResult = @(YES);
+            [org setObjectHeldByHolder:self];
         }
         
         NSArray *userArray = resultDict[@"Users"];
         for (NSDictionary *infoDict in userArray) {
             User *user = [User insertUser:infoDict];
-            user.searchResult = @(YES);
+            [user setObjectHeldByHolder:self];
         }
         
         [self.dragToLoadDecorator topViewLoadFinished:YES];
