@@ -8,6 +8,7 @@
 
 #import "UIImageView+AsyncLoading.h"
 #import <WeTongjiSDK/AFNetworking/UIImageView+AFNetworking.h>
+#import <WeTongjiSDK/NSUserDefaults+WTSDKAddition.h>
 
 @implementation UIImageView (AsyncLoading)
 
@@ -21,6 +22,12 @@
     
     // WTLOG(@"image URL:%@", imageURLString);
     //NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:imageURLString] cachePolicy:NSURLRequestReturnCacheDataDontLoad timeoutInterval:60];
+    
+//    if ([NSUserDefaults useTestServer]) {
+//        NSMutableString *testServerImageURLString = [NSMutableString stringWithString:imageURLString];
+//        [testServerImageURLString replaceOccurrencesOfString:@"we.tongji.edu.cn" withString:@"leiz.name:8080" options:NSLiteralSearch range:NSMakeRange(0, imageURLString.length)];
+//        imageURLString = testServerImageURLString;
+//    }
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURLString]];
     

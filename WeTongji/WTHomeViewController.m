@@ -16,6 +16,7 @@
 #import "Organization+Addition.h"
 #import "Object+Addtion.h"
 #import "Organization+Addition.h"
+#import "Advertisement+Addition.h"
 #import "WTNewsDetailViewController.h"
 #import "WTActivityDetailViewController.h"
 #import "WTOrganizationDetailViewController.h"
@@ -146,6 +147,17 @@
         NSDictionary *popularOrgDict = resultDict[@"AccountPopulor"];
         Organization *popularOrg = [Organization insertOrganization:popularOrgDict];
         popularOrg.homeSelected = @(YES);
+        
+        NSDictionary *bannerActivityInfo = resultDict[@"BannerActivity"];
+        Activity *bannerActivity = [Activity insertActivity:bannerActivityInfo];
+        
+        NSDictionary *bannerNewsInfo = resultDict[@"BannerInformation"];
+        News *bannerNews = [News insertNews:bannerNewsInfo];
+        
+        NSArray *bannerAdvertisementArray = resultDict[@"BannerAdvertisements"];
+        for (NSDictionary *adInfo in bannerAdvertisementArray) {
+            Advertisement *ad = [Advertisement insertAdvertisement:adInfo];
+        }
         
         self.shouldUpdateHomeSelectViews = YES;
         [self updateHomeSelectViews];

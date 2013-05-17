@@ -12,6 +12,12 @@
         <attribute name="organizerAvatar" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="ActivityInvitationNotification" representedClassName="ActivityInvitationNotification" parentEntity="InvitationNotification" syncable="YES"/>
+    <entity name="Advertisement" representedClassName="Advertisement" parentEntity="Object" syncable="YES">
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="publisher" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="BillboardComment" representedClassName="BillboardComment" parentEntity="Object" syncable="YES">
         <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
@@ -75,6 +81,7 @@
         <relationship name="sender" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="sentNotifications" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Object" representedClassName="Object" isAbstract="YES" syncable="YES">
+        <attribute name="bannerCoverColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="homeSelected" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="identifier" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="objectClass" optional="YES" attributeType="String" syncable="YES"/>
@@ -133,9 +140,10 @@
         <element name="InvitationNotification" positionX="160" positionY="192" width="128" height="60"/>
         <element name="News" positionX="160" positionY="192" width="128" height="300"/>
         <element name="Notification" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="Object" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Object" positionX="160" positionY="192" width="128" height="135"/>
         <element name="Organization" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Star" positionX="160" positionY="192" width="128" height="195"/>
         <element name="User" positionX="160" positionY="192" width="128" height="345"/>
+        <element name="Advertisement" positionX="160" positionY="192" width="128" height="105"/>
     </elements>
 </model>

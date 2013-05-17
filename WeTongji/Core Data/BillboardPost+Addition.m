@@ -53,12 +53,6 @@
     result.image = [NSString stringWithFormat:@"%@", dict[@"Image"]];
     if ([result.image isEmptyImageURL])
         result.image = nil;
-    else {
-        // TODO: Remove temp code
-        NSMutableString *imageURLString = [NSMutableString stringWithString:result.image];
-        [imageURLString replaceOccurrencesOfString:@"we.tongji.edu.cn" withString:@"leiz.name:8080" options:NSLiteralSearch range:NSMakeRange(0, imageURLString.length)];
-        result.image = imageURLString;
-    }
     
     result.createdAt = [[NSString stringWithFormat:@"%@", dict[@"PublishedAt"]] convertToDate];
     result.commentCount = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"CommentsCount"]]).integerValue);

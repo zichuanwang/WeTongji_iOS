@@ -61,16 +61,6 @@
     NSArray *imageArray = dict[@"Images"];
     if (imageArray.count == 0)
         result.imageArray = nil;
-    else {
-        // TODO: Remove temp code
-        NSMutableArray *mutableImageArray = [NSMutableArray array];
-        for (NSString *imageString in imageArray) {
-            NSMutableString *imageURLString = [NSMutableString stringWithString:imageString];
-            [imageURLString replaceOccurrencesOfString:@"we.tongji.edu.cn" withString:@"leiz.name:8080" options:NSLiteralSearch range:NSMakeRange(0, imageURLString.length)];
-            [mutableImageArray addObject:imageURLString];
-        }
-        result.imageArray = mutableImageArray;
-    }
     
     NSString *categoryString = [NSString stringWithFormat:@"%@", dict[@"Category"]];
     if ([categoryString isEqualToString:@"校园新闻"])
