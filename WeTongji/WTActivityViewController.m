@@ -17,6 +17,7 @@
 #import "NSUserDefaults+WTAddition.h"
 #import "WTDragToLoadDecorator.h"
 #import "NSString+WTAddition.h"
+#import "Controller+Addition.h"
 
 @interface WTActivityViewController () <WTDragToLoadDecoratorDelegate, WTDragToLoadDecoratorDataSource>
 
@@ -224,8 +225,7 @@
     
     [request setSortDescriptors:descriptors];
     
-    NSString *holderIdentifier = NSStringFromClass([self class]);
-    [request setPredicate:[NSPredicate predicateWithFormat:@"(category in %@) AND (%@ in heldBy)", [NSUserDefaults getActivityShowTypesSet], holderIdentifier]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"(category in %@) AND (SELF in %@)", [NSUserDefaults getActivityShowTypesSet], [Controller controllerModelForClass:[self class]].hasObjects]];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {

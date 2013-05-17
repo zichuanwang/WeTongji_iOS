@@ -9,12 +9,21 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class Controller;
 
 @interface Object : NSManagedObject
 
-@property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSString * objectClass;
 @property (nonatomic, retain) NSDate * updatedAt;
-@property (nonatomic, retain) id heldBy;
+@property (nonatomic, retain) NSString * identifier;
+@property (nonatomic, retain) NSSet *belongToControllers;
+@end
+
+@interface Object (CoreDataGeneratedAccessors)
+
+- (void)addBelongToControllersObject:(Controller *)value;
+- (void)removeBelongToControllersObject:(Controller *)value;
+- (void)addBelongToControllers:(NSSet *)values;
+- (void)removeBelongToControllers:(NSSet *)values;
 
 @end

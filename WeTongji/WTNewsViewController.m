@@ -10,6 +10,7 @@
 #import "WTResourceFactory.h"
 #import "News+Addition.h"
 #import "Object+Addtion.h"
+#import "Controller+Addition.h"
 #import "WTNewsCell.h"
 #import "WTNewsSettingViewController.h"
 #import "NSUserDefaults+WTAddition.h"
@@ -237,10 +238,8 @@
     }
     
     [request setSortDescriptors:descriptors];
-    
-    
-    NSString *holderIdentifier = NSStringFromClass([self class]);
-    [request setPredicate:[NSPredicate predicateWithFormat:@"(category in %@) AND (%@ in heldBy)", [NSUserDefaults getNewsShowTypesSet], holderIdentifier]];
+
+    [request setPredicate:[NSPredicate predicateWithFormat:@"(category in %@) AND (SELF in %@)", [NSUserDefaults getNewsShowTypesSet], [Controller controllerModelForClass:[self class]].hasObjects]];
 }
 
 - (void)insertCellAtIndexPath:(NSIndexPath *)indexPath {

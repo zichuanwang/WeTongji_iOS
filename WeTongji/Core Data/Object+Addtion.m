@@ -8,6 +8,7 @@
 
 #import "Object+Addtion.h"
 #import "WTCoreDataManager.h"
+#import "Controller+Addition.h"
 
 @implementation Object (Addtion)
 
@@ -19,36 +20,24 @@
     request.entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:context];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"updatedAt" ascending:YES]];
     
-    NSString *holderIdentifier = NSStringFromClass([holder class]);
-    [request setPredicate:[NSPredicate predicateWithFormat:@"%@ in heldBy", holderIdentifier]];
+    Controller *controller = [Controller controllerModelForClass:[holder class]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@", controller.hasObjects]];
     
-    NSArray *result = [context executeFetchRequest:request error:NULL];
+    NSArray *result = [context executeFetchRequest:request error:nil];
     
     return result;
 }
 
 - (void)setObjectHeldByHolder:(id)holder {
-    NSMutableSet *newHolderSet = [NSMutableSet setWithSet:self.holderSet];
-    [newHolderSet addObject:NSStringFromClass([holder class])];
-    self.heldBy = newHolderSet;
+    Controller *controller = [Controller controllerModelForClass:[holder class]];
+    [controller addHasObjectsObject:self];
 }
 
 - (void)setObjectFreeFromHolder:(id)holder {
-    NSMutableSet *newHolderSet = [NSMutableSet setWithSet:self.holderSet];
-    NSString *holderIdentifier = NSStringFromClass([holder class]);
-    __block NSString *holderIdentifierToRemove = nil;
-    [newHolderSet enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
-        NSString *identifier = obj;
-        if ([identifier isEqualToString:holderIdentifier]) {
-            holderIdentifierToRemove = holderIdentifier;
-            *stop = YES;
-        }
-    }];
-    if (holderIdentifierToRemove)
-        [newHolderSet removeObject:holderIdentifierToRemove];
-    self.heldBy = newHolderSet;
+    Controller *controller = [Controller controllerModelForClass:[holder class]];
+    [self removeBelongToControllersObject:controller];
     
-    if (newHolderSet.count == 0) {
+    if (self.belongToControllers.count == 0) {
         WTLOG(@"Delete object:%@", NSStringFromClass([self class]));
         NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
         [context deleteObject:self];
@@ -56,24 +45,8 @@
 }
 
 + (void)setAllObjectsFreeFromHolder:(id)holder {
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
-    [request setEntity:[NSEntityDescription entityForName:@"Object" inManagedObjectContext:context]];
-    
-    NSString *holderIdentifier = NSStringFromClass([holder class]);
-    [request setPredicate:[NSPredicate predicateWithFormat:@"%@ in heldBy", holderIdentifier]];
-    
-    NSArray *heldObjects = [context executeFetchRequest:request error:NULL];
-    
-    for(Object *item in heldObjects) {
-        [item setObjectFreeFromHolder:holder];
-    }
-}
-
-#pragma mark - Properties
-
-- (NSSet *)holderSet {
-    return self.heldBy;
+    Controller *controller = [Controller controllerModelForClass:[holder class]];
+    [controller removeHasObjects:controller.hasObjects];
 }
 
 @end

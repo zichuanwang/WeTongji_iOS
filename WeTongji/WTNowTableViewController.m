@@ -10,6 +10,7 @@
 #import "Exam+Addition.h"
 #import "Course+Addition.h"
 #import "Activity+Addition.h"
+#import "Controller+Addition.h"
 #import "NSUserDefaults+WTAddition.h"
 #import "WTNowActivityCell.h"
 #import "WTNowCourseCell.h"
@@ -228,9 +229,8 @@
 
 - (void)configureRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"Event" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
-    
-    NSString *holderIdentifier = NSStringFromClass([self class]);
-    request.predicate = [NSPredicate predicateWithFormat:@"(SELF in %@) AND (beginTime >= %@) AND (beginTime <= %@) AND (%@ in heldBy)", [WTCoreDataManager sharedManager].currentUser.scheduledEvents, [self convertWeekNumberToDate:self.weekNumber - 1], [self convertWeekNumberToDate:self.weekNumber], holderIdentifier];
+
+    request.predicate = [NSPredicate predicateWithFormat:@"(SELF in %@) AND (beginTime >= %@) AND (beginTime <= %@) AND (SELF in %@)", [WTCoreDataManager sharedManager].currentUser.scheduledEvents, [self convertWeekNumberToDate:self.weekNumber - 1], [self convertWeekNumberToDate:self.weekNumber], [Controller controllerModelForClass:[self class]].hasObjects];
     
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"beginTime" ascending:YES]];
 }

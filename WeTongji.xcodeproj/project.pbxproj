@@ -186,7 +186,6 @@
 		E12554C816491532006D42F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549516491530006D42F5 /* Foundation.framework */; };
 		E12554D016491532006D42F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E12554CE16491532006D42F5 /* InfoPlist.strings */; };
 		E12554D316491532006D42F5 /* WeTongjiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E12554D216491532006D42F5 /* WeTongjiTests.m */; };
-		E125F88517465E9900B9EE03 /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E125F88417465E9900B9EE03 /* Object.m */; };
 		E12B8C011734FC0D002A4D9C /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B8C001734FC0D002A4D9C /* Activity.m */; };
 		E12B8C0D1736B545002A4D9C /* Object+Addtion.m in Sources */ = {isa = PBXBuildFile; fileRef = E12B8C0C1736B544002A4D9C /* Object+Addtion.m */; };
 		E12E24741727364900EFA9B5 /* WTLockHighlightIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E24701727364900EFA9B5 /* WTLockHighlightIcon.png */; };
@@ -476,6 +475,10 @@
 		E1C482F31698A83D004F025A /* WTNowBarTitleViewBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1C482EF1698A83D004F025A /* WTNowBarTitleViewBg@2x.png */; };
 		E1C53DD216523DCE0011C8A1 /* WTSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C53DD016523DCE0011C8A1 /* WTSearchViewController.m */; };
 		E1C53DD316523DCE0011C8A1 /* WTSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C53DD116523DCE0011C8A1 /* WTSearchViewController.xib */; };
+		E1C8321417467423002C0567 /* SetToDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C8321317467423002C0567 /* SetToDataTransformer.m */; };
+		E1C8321717467717002C0567 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C8321617467717002C0567 /* Controller.m */; };
+		E1C8321D1746772A002C0567 /* Controller+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C8321C1746772A002C0567 /* Controller+Addition.m */; };
+		E1C8322017467AD4002C0567 /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C8321F17467AD4002C0567 /* Object.m */; };
 		E1CD3F32171FF5F600359A79 /* WTNewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CD3F30171FF5F600359A79 /* WTNewsDetailViewController.m */; };
 		E1CD3F33171FF5F600359A79 /* WTNewsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CD3F31171FF5F600359A79 /* WTNewsDetailViewController.xib */; };
 		E1CD3F36171FF7E600359A79 /* WTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CD3F35171FF7E600359A79 /* WTDetailViewController.m */; };
@@ -796,8 +799,6 @@
 		E12554CF16491532006D42F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E12554D116491532006D42F5 /* WeTongjiTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeTongjiTests.h; sourceTree = "<group>"; };
 		E12554D216491532006D42F5 /* WeTongjiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeTongjiTests.m; sourceTree = "<group>"; };
-		E125F88317465E9900B9EE03 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
-		E125F88417465E9900B9EE03 /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
 		E12B8BFF1734FC0D002A4D9C /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
 		E12B8C001734FC0D002A4D9C /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
 		E12B8C0B1736B544002A4D9C /* Object+Addtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Object+Addtion.h"; sourceTree = "<group>"; };
@@ -1159,6 +1160,14 @@
 		E1C53DCF16523DCE0011C8A1 /* WTSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSearchViewController.h; sourceTree = "<group>"; };
 		E1C53DD016523DCE0011C8A1 /* WTSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSearchViewController.m; sourceTree = "<group>"; };
 		E1C53DD116523DCE0011C8A1 /* WTSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSearchViewController.xib; sourceTree = "<group>"; };
+		E1C8321217467423002C0567 /* SetToDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetToDataTransformer.h; sourceTree = "<group>"; };
+		E1C8321317467423002C0567 /* SetToDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetToDataTransformer.m; sourceTree = "<group>"; };
+		E1C8321517467717002C0567 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
+		E1C8321617467717002C0567 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
+		E1C8321B1746772A002C0567 /* Controller+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Controller+Addition.h"; sourceTree = "<group>"; };
+		E1C8321C1746772A002C0567 /* Controller+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Controller+Addition.m"; sourceTree = "<group>"; };
+		E1C8321E17467AD4002C0567 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
+		E1C8321F17467AD4002C0567 /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
 		E1CD3F2F171FF5F600359A79 /* WTNewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNewsDetailViewController.h; sourceTree = "<group>"; };
 		E1CD3F30171FF5F600359A79 /* WTNewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNewsDetailViewController.m; sourceTree = "<group>"; };
 		E1CD3F31171FF5F600359A79 /* WTNewsDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNewsDetailViewController.xib; sourceTree = "<group>"; };
@@ -2302,6 +2311,15 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
+		E1C83211174673FD002C0567 /* Transformer */ = {
+			isa = PBXGroup;
+			children = (
+				E1C8321217467423002C0567 /* SetToDataTransformer.h */,
+				E1C8321317467423002C0567 /* SetToDataTransformer.m */,
+			);
+			name = Transformer;
+			sourceTree = "<group>";
+		};
 		E1CD3F371720643B00359A79 /* News */ = {
 			isa = PBXGroup;
 			children = (
@@ -2449,6 +2467,7 @@
 		E1D3743C1694C3B90012E30A /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				E1C83211174673FD002C0567 /* Transformer */,
 				E1D3743E1694C3E50012E30A /* Categories */,
 				E1D3743D1694C3D90012E30A /* Models */,
 				E1D374491694C46A0012E30A /* WeTongji.xcdatamodeld */,
@@ -2460,10 +2479,22 @@
 		E1D3743D1694C3D90012E30A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E12B8BFF1734FC0D002A4D9C /* Activity.h */,
+				E12B8C001734FC0D002A4D9C /* Activity.m */,
 				E11825BC1714768300B4B9BF /* ActivityInvitationNotification.h */,
 				E11825BD1714768300B4B9BF /* ActivityInvitationNotification.m */,
+				E16D5DC51746199400740D79 /* Advertisement.h */,
+				E16D5DC61746199400740D79 /* Advertisement.m */,
+				E179669717283D3500761BD5 /* BillboardComment.h */,
+				E179669817283D3500761BD5 /* BillboardComment.m */,
+				E1FC01A4172FEB2300D0776C /* BillboardPost.h */,
+				E1FC01A5172FEB2300D0776C /* BillboardPost.m */,
+				E1C8321517467717002C0567 /* Controller.h */,
+				E1C8321617467717002C0567 /* Controller.m */,
 				E11825BF1714768400B4B9BF /* Course.h */,
 				E11825C01714768400B4B9BF /* Course.m */,
+				E1DB6EED171DD0AB00E24187 /* Event.h */,
+				E1DB6EEE171DD0AB00E24187 /* Event.m */,
 				E11825B61714768200B4B9BF /* Exam.h */,
 				E11825B71714768200B4B9BF /* Exam.m */,
 				E11825B31714768100B4B9BF /* FriendInvitationNotification.h */,
@@ -2472,28 +2503,18 @@
 				E13B0EB216A4665A00A45079 /* Image.m */,
 				E11825D71714769800B4B9BF /* InvitationNotification.h */,
 				E11825D81714769800B4B9BF /* InvitationNotification.m */,
-				E11825CB1714769700B4B9BF /* Notification.h */,
-				E11825CC1714769700B4B9BF /* Notification.m */,
-				E1DB6EED171DD0AB00E24187 /* Event.h */,
-				E1DB6EEE171DD0AB00E24187 /* Event.m */,
-				E17966941728353B00761BD5 /* User.h */,
-				E17966951728353B00761BD5 /* User.m */,
-				E179669717283D3500761BD5 /* BillboardComment.h */,
-				E179669817283D3500761BD5 /* BillboardComment.m */,
-				E1FC01A4172FEB2300D0776C /* BillboardPost.h */,
-				E1FC01A5172FEB2300D0776C /* BillboardPost.m */,
 				E16E9629173430540055DE27 /* News.h */,
 				E16E962A173430540055DE27 /* News.m */,
-				E12B8BFF1734FC0D002A4D9C /* Activity.h */,
-				E12B8C001734FC0D002A4D9C /* Activity.m */,
-				E1EF0E7517381CE100959DD0 /* Star.h */,
-				E1EF0E7617381CE100959DD0 /* Star.m */,
+				E11825CB1714769700B4B9BF /* Notification.h */,
+				E11825CC1714769700B4B9BF /* Notification.m */,
+				E1C8321E17467AD4002C0567 /* Object.h */,
+				E1C8321F17467AD4002C0567 /* Object.m */,
 				E1157DCF173B6E7B00E62295 /* Organization.h */,
 				E1157DD0173B6E7B00E62295 /* Organization.m */,
-				E16D5DC51746199400740D79 /* Advertisement.h */,
-				E16D5DC61746199400740D79 /* Advertisement.m */,
-				E125F88317465E9900B9EE03 /* Object.h */,
-				E125F88417465E9900B9EE03 /* Object.m */,
+				E1EF0E7517381CE100959DD0 /* Star.h */,
+				E1EF0E7617381CE100959DD0 /* Star.m */,
+				E17966941728353B00761BD5 /* User.h */,
+				E17966951728353B00761BD5 /* User.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2503,8 +2524,12 @@
 			children = (
 				A1ADA9E916AC655400E3A62E /* Activity+Addition.h */,
 				A1ADA9EA16AC655400E3A62E /* Activity+Addition.m */,
+				E16D5DC8174619A900740D79 /* Advertisement+Addition.h */,
+				E16D5DC9174619A900740D79 /* Advertisement+Addition.m */,
 				E1428690171ADA14006AB739 /* BillboardPost+Addition.h */,
 				E1428691171ADA14006AB739 /* BillboardPost+Addition.m */,
+				E1C8321B1746772A002C0567 /* Controller+Addition.h */,
+				E1C8321C1746772A002C0567 /* Controller+Addition.m */,
 				033D2D1E16EA4586007242D0 /* Course+Addition.h */,
 				033D2D1F16EA4586007242D0 /* Course+Addition.m */,
 				E17F9E7417130D4800DC6AB6 /* Event+Addition.h */,
@@ -2515,16 +2540,14 @@
 				E13B0E7416A448C100A45079 /* News+Addition.m */,
 				E10A8D5016E4EFE3008B72E7 /* Notification+Addition.h */,
 				E10A8D5116E4EFE3008B72E7 /* Notification+Addition.m */,
-				E13B0E6B16A4476000A45079 /* User+Addition.h */,
-				E13B0E6C16A4476000A45079 /* User+Addition.m */,
 				E12B8C0B1736B544002A4D9C /* Object+Addtion.h */,
 				E12B8C0C1736B544002A4D9C /* Object+Addtion.m */,
-				E1EF0E721738184B00959DD0 /* Star+Addition.h */,
-				E1EF0E731738184B00959DD0 /* Star+Addition.m */,
 				E1157DCC173B6BBD00E62295 /* Organization+Addition.h */,
 				E1157DCD173B6BBD00E62295 /* Organization+Addition.m */,
-				E16D5DC8174619A900740D79 /* Advertisement+Addition.h */,
-				E16D5DC9174619A900740D79 /* Advertisement+Addition.m */,
+				E1EF0E721738184B00959DD0 /* Star+Addition.h */,
+				E1EF0E731738184B00959DD0 /* Star+Addition.m */,
+				E13B0E6B16A4476000A45079 /* User+Addition.h */,
+				E13B0E6C16A4476000A45079 /* User+Addition.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -3169,7 +3192,10 @@
 				03EE1095174535770062A06B /* WTOrganizationProfileView.m in Sources */,
 				E16D5DC71746199400740D79 /* Advertisement.m in Sources */,
 				E16D5DCA174619A900740D79 /* Advertisement+Addition.m in Sources */,
-				E125F88517465E9900B9EE03 /* Object.m in Sources */,
+				E1C8321417467423002C0567 /* SetToDataTransformer.m in Sources */,
+				E1C8321717467717002C0567 /* Controller.m in Sources */,
+				E1C8321D1746772A002C0567 /* Controller+Addition.m in Sources */,
+				E1C8322017467AD4002C0567 /* Object.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,8 +10,6 @@
 
 @interface Object (Addtion)
 
-@property (nonatomic, readonly) NSSet *holderSet;
-
 - (void)setObjectHeldByHolder:(id)holder;
 
 - (void)setObjectFreeFromHolder:(id)holder;
