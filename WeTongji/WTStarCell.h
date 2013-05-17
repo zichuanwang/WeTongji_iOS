@@ -7,19 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @class Star;
 
 @interface WTStarCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *pageLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *topSeprateImageView;
-@property (weak, nonatomic) IBOutlet UIView *highlightedBGView;
+@property (weak, nonatomic) IBOutlet UILabel *mottoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *starNumberLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *topSeperatorImageView;
+@property (weak, nonatomic) IBOutlet UIView *highlightedBgView;
 @property (weak, nonatomic) IBOutlet UIImageView *disclosureImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+@property (weak, nonatomic) IBOutlet UIView *avatarContainerView;
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
-                          Star:(Star *)star;
+                              Star:(Star *)star;
 @end

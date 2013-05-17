@@ -49,15 +49,15 @@
 
 - (void)configureCell:(BOOL)highlighted {
     self.nameLabel.highlighted = highlighted;
-    self.pageLabel.highlighted = highlighted;
-    self.descriptionLabel.highlighted = highlighted;
+    self.starNumberLabel.highlighted = highlighted;
+    self.mottoLabel.highlighted = highlighted;
     
     CGSize labelShadowOffset = highlighted ? CGSizeZero : CGSizeMake(0, 1.0f);
     self.nameLabel.shadowOffset = labelShadowOffset;
-    self.pageLabel.shadowOffset = labelShadowOffset;
-    self.descriptionLabel.shadowOffset = labelShadowOffset;
+    self.starNumberLabel.shadowOffset = labelShadowOffset;
+    self.mottoLabel.shadowOffset = labelShadowOffset;
     
-    self.highlightedBGView.alpha = highlighted ? 1.0f : 0;
+    self.highlightedBgView.alpha = highlighted ? 1.0f : 0;
     self.disclosureImageView.highlighted = highlighted;
 }
 
@@ -71,26 +71,26 @@
     }
     
     if (indexPath.row == 0) {
-        self.topSeprateImageView.hidden = YES;
+        self.topSeperatorImageView.hidden = YES;
     } else {
-        self.topSeprateImageView.hidden = NO;
+        self.topSeperatorImageView.hidden = NO;
     }
-
+    
+    self.avatarContainerView.layer.masksToBounds = YES;
+    self.avatarContainerView.layer.cornerRadius = 6.0f;
+    [self.avatarImageView loadImageWithImageURLString:star.avatar];
+    
     self.nameLabel.text = star.name;
-    self.descriptionLabel.text = star.content;
-    if(indexPath.row == 0)
-    {
-         self.pageLabel.text = @"本期人物";
-         self.pageLabel.textColor = [UIColor colorWithRed:234/255.0 green:82/255.0 blue:81/255.9 alpha:1];
+    self.mottoLabel.text = star.motto;
+    
+    if(indexPath.row == 0) {
+        self.starNumberLabel.text = @"本期人物";
+        self.starNumberLabel.textColor = [UIColor colorWithRed:234.0f / 255 green:82.0f / 255 blue:81.0f / 255 alpha:1.0f];
     }
-    else
-    {
-        self.pageLabel.text = [NSString stringWithFormat:@"第%d期",1];
-        self.pageLabel.textColor = [UIColor colorWithRed:12/255.0 green:192/255.0 blue:203/255.9 alpha:1];
+    else {
+        self.starNumberLabel.text = [NSString stringWithFormat:@"第%@期", star.starNumber];
+        self.starNumberLabel.textColor = [UIColor colorWithRed:12.0f / 255 green:192.0f / 255 blue:203.0f / 255 alpha:1.0f];
     }
-   [self.avatarImageView loadImageWithImageURLString:star.avatar];
-    self.avatarImageView.layer.cornerRadius = 6.0;
-    self.avatarImageView.layer.masksToBounds = YES;
 }
 
 
