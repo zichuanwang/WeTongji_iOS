@@ -44,7 +44,8 @@
             *stop = YES;
         }
     }];
-    [newHolderSet removeObject:holderIdentifierToRemove];
+    if (holderIdentifierToRemove)
+        [newHolderSet removeObject:holderIdentifierToRemove];
     self.heldBy = newHolderSet;
     
     if (newHolderSet.count == 0) {
