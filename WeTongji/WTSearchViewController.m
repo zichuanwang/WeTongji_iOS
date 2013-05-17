@@ -13,6 +13,7 @@
 #import "WTSearchHintView.h"
 #import "WTSearchResultTableViewController.h"
 #import "WTSearchDefaultViewController.h"
+#import <WeTongjiSDK/NSUserDefaults+WTSDKAddition.h>
 
 @interface WTSearchViewController () <UITableViewDelegate, WTSearchResultTableViewControllerDelegate>
 
@@ -341,8 +342,21 @@
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    [self updateSearchResultViewForSearchKeyword:self.searchBar.text searchCategory:0];
-    [searchBar resignFirstResponder];
+    
+    // 彩蛋
+    // TODO: 将后面的代码移到专门的彩蛋模块去
+    
+    if ([searchBar.text isEqualToString:@"set use test server"]) {
+        [NSUserDefaults setUseTestServer:YES];
+        [((UIAlertView *)[[UIAlertView alloc] initWithTitle:@"注意" message:@"已切换至测试服务器" delegate:nil cancelButtonTitle:@"好" otherButtonTitles: nil]) show];
+    } else if ([searchBar.text isEqualToString:@"set use product server"]) {
+        [NSUserDefaults setUseTestServer:NO];
+        [((UIAlertView *)[[UIAlertView alloc] initWithTitle:@"注意" message:@"已切换至生产服务器" delegate:nil cancelButtonTitle:@"好" otherButtonTitles: nil]) show];
+    } else {
+        [searchBar resignFirstResponder];
+        [self updateSearchResultViewForSearchKeyword:self.searchBar.text searchCategory:0];
+    }
+    
 }
 
 #pragma mark - WTSearchResultTableViewControllerDelegate
