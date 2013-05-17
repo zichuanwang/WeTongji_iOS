@@ -12,7 +12,7 @@
 @interface Exam (Addition)
 
 + (Exam *)insertExam:(NSDictionary *)dict;
+
 + (Exam *)examWithID:(NSString *)examID;
-+ (void)clearAllExams;
 
 @end

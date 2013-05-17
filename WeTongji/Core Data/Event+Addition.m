@@ -7,6 +7,7 @@
 //
 
 #import "Event+Addition.h"
+#import "Object+Addtion.h"
 #import "NSString+WTAddition.h"
 #import "WTCoreDataManager.h"
 
@@ -46,8 +47,9 @@
     self.beginDay = [NSString yearMonthDayConvertFromDate:self.beginTime];
 }
 
-+ (void)clearCurrentUserScheduledEventsFrom:(NSDate *)beginDate
-                                         to:(NSDate *)endDate {
++ (void)setCurrentUserScheduledEventsFreeFromHolder:(id)holder
+                                           fromDate:(NSDate *)beginDate
+                                             toDate:(NSDate *)endDate {
     
     User *currentUser = [WTCoreDataManager sharedManager].currentUser;
     if (!currentUser)
@@ -60,7 +62,7 @@
     NSArray *results = [context executeFetchRequest:request error:NULL];
     
     for(Event *item in results) {
-        [context deleteObject:item];
+        [item setObjectFreeFromHolder:holder];
     }
 }
 

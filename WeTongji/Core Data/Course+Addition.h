@@ -12,7 +12,8 @@
 @interface Course (Addition)
 
 + (Course *)insertCourse:(NSDictionary *)dict;
-+ (Course *)courseScheduleAtDay:(NSDate *)date withCourseID:(NSString *)courseID;
-+ (void)clearAllCourses;
+
++ (Course *)courseScheduleAtDay:(NSDate *)date
+                   withCourseID:(NSString *)courseID;
 
 @end

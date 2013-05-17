@@ -9,6 +9,7 @@
 #import "WTNewsViewController.h"
 #import "WTResourceFactory.h"
 #import "News+Addition.h"
+#import "Object+Addtion.h"
 #import "WTNewsCell.h"
 #import "WTNewsSettingViewController.h"
 #import "NSUserDefaults+WTAddition.h"
@@ -92,7 +93,8 @@
         
         NSArray *resultArray = resultDict[@"Information"];
         for(NSDictionary *dict in resultArray) {
-            [News insertNews:dict];
+            News *news = [News insertNews:dict];
+            [news setObjectHeldByHolder:self];
         }
         
     } failureBlock:^(NSError * error) {
@@ -124,7 +126,7 @@
 - (void)clearAllData {
     NSSet *newsShowTypesSet = [NSUserDefaults getNewsShowTypesSet];
     for (NSNumber *showTypeNumber in newsShowTypesSet) {
-        [News clearNewsInCategory:showTypeNumber];
+        [News setAllNewsFreeFromHolder:self inCategory:showTypeNumber];
     }
 }
 
@@ -138,7 +140,6 @@
 
 - (void)configureTableView {
     self.tableView.alwaysBounceVertical = YES;
-    self.
     self.tableView.scrollsToTop = NO;
 }
 
@@ -218,7 +219,7 @@
     BOOL smartOrder = [userDefaults getNewsSmartOrderProperty];
     BOOL orderByAsc = ![WTRequest shouldInformationOrderByDesc:orderMethod smartOrder:smartOrder];
     NSArray *descriptors = nil;
-    NSSortDescriptor *updateTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updateTime" ascending:YES];
+    NSSortDescriptor *updateTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updatedAt" ascending:YES];
     
     switch (orderMethod) {
         case NewsOrderByPublishDate:
@@ -237,7 +238,9 @@
     
     [request setSortDescriptors:descriptors];
     
-    [request setPredicate:[NSPredicate predicateWithFormat:@"category in %@", [NSUserDefaults getNewsShowTypesSet]]];
+    
+    NSString *holderIdentifier = NSStringFromClass([self class]);
+    [request setPredicate:[NSPredicate predicateWithFormat:@"(category in %@) AND (%@ in heldBy)", [NSUserDefaults getNewsShowTypesSet], holderIdentifier]];
 }
 
 - (void)insertCellAtIndexPath:(NSIndexPath *)indexPath {

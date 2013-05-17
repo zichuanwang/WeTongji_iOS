@@ -9,6 +9,7 @@
 #import "Activity+Addition.h"
 #import "WTCoreDataManager.h"
 #import "NSString+WTAddition.h"
+#import "Object+Addtion.h"
 
 @implementation Activity (Addition)
 
@@ -65,18 +66,8 @@
     return result;
 }
 
-+ (void)clearAllActivites {
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
-    [request setEntity:[NSEntityDescription entityForName:@"Activity" inManagedObjectContext:context]];
-    NSArray *allActivities = [context executeFetchRequest:request error:NULL];
-    
-    for(Activity *item in allActivities) {
-        [context deleteObject:item];
-    }
-}
-
-+ (void)clearActivitesInCategory:(NSNumber *)category {
++ (void)setAllActivitesFreeFromHolder:(id)holder
+                           inCategory:(NSNumber *)category {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     [request setEntity:[NSEntityDescription entityForName:@"Activity" inManagedObjectContext:context]];
@@ -84,7 +75,7 @@
     NSArray *allActivities = [context executeFetchRequest:request error:NULL];
     
     for(Activity *item in allActivities) {
-        [context deleteObject:item];
+        [item setObjectFreeFromHolder:holder];
     }
 }
 

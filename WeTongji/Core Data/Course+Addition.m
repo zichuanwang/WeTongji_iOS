@@ -65,18 +65,6 @@
     return [matches lastObject];
 }
 
-+ (void)clearAllCourses
-{
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
-    [request setEntity:[NSEntityDescription entityForName:@"Course" inManagedObjectContext:context]];
-    NSArray *allCourses = [context executeFetchRequest:request error:NULL];
-    
-    for(Course *course in allCourses) {
-        [context deleteObject:course];
-    }
-}
-
 + (NSTimeInterval)getDayTimeIntervalFromSection:(NSInteger)section {
     NSTimeInterval result = 0;
     switch (section) {

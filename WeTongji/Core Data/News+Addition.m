@@ -7,6 +7,7 @@
 //
 
 #import "News+Addition.h"
+#import "Object+Addtion.h"
 #import "WTCoreDataManager.h"
 #import "NSString+WTAddition.h"
 
@@ -79,18 +80,8 @@
     return result;
 }
 
-+ (void)clearAllNews {
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
-    [request setEntity:[NSEntityDescription entityForName:@"News" inManagedObjectContext:context]];
-    NSArray *allNews = [context executeFetchRequest:request error:NULL];
-
-    for(News *item in allNews) {
-        [context deleteObject:item];
-    }
-}
-
-+ (void)clearNewsInCategory:(NSNumber *)category {
++ (void)setAllNewsFreeFromHolder:(id)holder
+                      inCategory:(NSNumber *)category {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     [request setEntity:[NSEntityDescription entityForName:@"News" inManagedObjectContext:context]];
@@ -98,9 +89,8 @@
     NSArray *allNews = [context executeFetchRequest:request error:NULL];
     
     for(News *item in allNews) {
-        [context deleteObject:item];
+        [item setObjectFreeFromHolder:holder];
     }
-
 }
 
 - (void)awakeFromFetch {

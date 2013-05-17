@@ -50,15 +50,4 @@
     return [matches lastObject];
 }
 
-+ (void)clearAllExams {
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
-    [request setEntity:[NSEntityDescription entityForName:@"Exam" inManagedObjectContext:context]];
-    NSArray *allCourses = [context executeFetchRequest:request error:NULL];
-    
-    for(Exam *exam in allCourses) {
-        [context deleteObject:exam];
-    }
-}
-
 @end

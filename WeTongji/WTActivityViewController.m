@@ -11,6 +11,7 @@
 #import "WTResourceFactory.h"
 #import "WTActivityCell.h"
 #import "Activity+Addition.h"
+#import "Object+Addtion.h"
 #import "WTActivityDetailViewController.h"
 #import "WTActivitySettingViewController.h"
 #import "NSUserDefaults+WTAddition.h"
@@ -99,7 +100,8 @@
         
         NSArray *resultArray = resultDict[@"Activities"];
         for (NSDictionary *dict in resultArray) {
-            [Activity insertActivity:dict];
+            Activity *activity = [Activity insertActivity:dict];
+            [activity setObjectHeldByHolder:self];
         }
         
     } failureBlock:^(NSError * error) {
@@ -132,7 +134,7 @@
 - (void)clearAllData {
     NSSet *activityShowTypesSet = [NSUserDefaults getActivityShowTypesSet];
     for (NSNumber *showTypeNumber in activityShowTypesSet) {
-        [Activity clearActivitesInCategory:showTypeNumber];
+        [Activity setAllActivitesFreeFromHolder:self inCategory:showTypeNumber];
     }
 }
 
@@ -198,7 +200,7 @@
     BOOL showExpire = ![userDefaults getActivityHidePastProperty];
     BOOL orderByAsc = ![WTRequest shouldActivityOrderByDesc:orderMethod smartOrder:smartOrder showExpire:showExpire];
     NSArray *descriptors = nil;
-    NSSortDescriptor *updateTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updateTime" ascending:YES];
+    NSSortDescriptor *updateTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updatedAt" ascending:YES];
     
     switch (orderMethod) {
         case ActivityOrderByPublishDate:
@@ -222,7 +224,8 @@
     
     [request setSortDescriptors:descriptors];
     
-    [request setPredicate:[NSPredicate predicateWithFormat:@"category in %@", [NSUserDefaults getActivityShowTypesSet]]];
+    NSString *holderIdentifier = NSStringFromClass([self class]);
+    [request setPredicate:[NSPredicate predicateWithFormat:@"(category in %@) AND (%@ in heldBy)", [NSUserDefaults getActivityShowTypesSet], holderIdentifier]];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {

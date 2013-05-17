@@ -14,6 +14,7 @@
 #import "WTNowActivityCell.h"
 #import "WTNowCourseCell.h"
 #import "Event+Addition.h"
+#import "Object+Addtion.h"
 #import "NSNotificationCenter+WTAddition.h"
 #import "WTDragToLoadDecorator.h"
 #import "WTNowViewController.h"
@@ -87,12 +88,6 @@
     return [[semesterBeginTime convertToDate] dateByAddingTimeInterval:weekNumber * WEEK_TIME_INTERVAL];
 }
 
-- (void)clearAllData {
-    [Course clearAllCourses];
-    [Exam clearAllExams];
-    [Activity clearAllActivites];
-}
-
 - (Event *)getNowEvent {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Event"];
     
@@ -124,18 +119,21 @@
         NSArray *activitiesArray = resultDict[@"Activities"];
         for (NSDictionary *dict in activitiesArray) {
             Activity *activity= [Activity insertActivity:dict];
+            [activity setObjectHeldByHolder:self];
             [currentUser addScheduledEventsObject:activity];
         }
         
         NSArray *coursesArray = resultDict[@"CourseInstances"];
         for (NSDictionary *dict in coursesArray) {
             Course *course = [Course insertCourse:dict];
+            [course setObjectHeldByHolder:self];
             [currentUser addScheduledEventsObject:course];
         }
         
         NSArray *examsArray = resultDict[@"Exams"];
         for (NSDictionary *dict in examsArray) {
             Exam *exam = [Exam insertExam:dict];
+            [exam setObjectHeldByHolder:self];
             [currentUser addScheduledEventsObject:exam];
         }
     } failureBlock:^(NSError * error) {
@@ -231,7 +229,8 @@
 - (void)configureRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"Event" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
-    request.predicate = [NSPredicate predicateWithFormat:@"(SELF in %@) AND (beginTime >= %@) AND (beginTime <= %@)", [WTCoreDataManager sharedManager].currentUser.scheduledEvents, [self convertWeekNumberToDate:self.weekNumber - 1], [self convertWeekNumberToDate:self.weekNumber]];
+    NSString *holderIdentifier = NSStringFromClass([self class]);
+    request.predicate = [NSPredicate predicateWithFormat:@"(SELF in %@) AND (beginTime >= %@) AND (beginTime <= %@) AND (%@ in heldBy)", [WTCoreDataManager sharedManager].currentUser.scheduledEvents, [self convertWeekNumberToDate:self.weekNumber - 1], [self convertWeekNumberToDate:self.weekNumber], holderIdentifier];
     
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"beginTime" ascending:YES]];
 }
@@ -272,7 +271,9 @@
     [self loadDataFrom:fromDate
                     to:toDate
           successBlock:^{
-              [Event clearCurrentUserScheduledEventsFrom:fromDate to:toDate];
+              [Event setCurrentUserScheduledEventsFreeFromHolder:self
+                                                        fromDate:fromDate
+                                                          toDate:toDate];
               [self.dragToLoadDecorator topViewLoadFinished:YES animationCompletion:^{
                   if (!self.tableView.dragging)
                       [self adjustTableViewContentOffset];

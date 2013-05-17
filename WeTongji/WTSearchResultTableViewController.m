@@ -190,11 +190,12 @@
 
 - (void)configureRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"Object" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
-    NSSortDescriptor *createTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updateTime" ascending:NO];
+    NSSortDescriptor *updatedAtDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updatedAt" ascending:NO];
     
-    [request setSortDescriptors:[NSArray arrayWithObject:createTimeDescriptor]];
+    [request setSortDescriptors:@[updatedAtDescriptor]];
     
-    [request setPredicate:[NSPredicate predicateWithFormat:@"searchResult == YES"]];
+    NSString *holderIdentifier = NSStringFromClass([self class]);
+    [request setPredicate:[NSPredicate predicateWithFormat:@"%@ in heldBy", holderIdentifier]];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {

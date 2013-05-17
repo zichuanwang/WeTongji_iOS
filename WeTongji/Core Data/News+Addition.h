@@ -19,9 +19,8 @@
 
 + (News *)newsWithID:(NSString *)newsID;
 
-+ (void)clearAllNews;
-
-+ (void)clearNewsInCategory:(NSNumber *)category;
++ (void)setAllNewsFreeFromHolder:(id)holder
+                      inCategory:(NSNumber *)category;
 
 + (NSString *)convertCategoryStringFromCategory:(NSNumber *)category;
 

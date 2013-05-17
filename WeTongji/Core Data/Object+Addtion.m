@@ -46,6 +46,12 @@
     }];
     [newHolderSet removeObject:holderIdentifierToRemove];
     self.heldBy = newHolderSet;
+    
+    if (newHolderSet.count == 0) {
+        WTLOG(@"Delete object:%@", NSStringFromClass([self class]));
+        NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
+        [context deleteObject:self];
+    }
 }
 
 + (void)setAllObjectsFreeFromHolder:(id)holder {

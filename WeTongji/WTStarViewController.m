@@ -177,6 +177,7 @@
 - (void)configureRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"Star" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
+    // TODO:
     NSSortDescriptor *updateTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"identifier" ascending:NO];
   
     [request setSortDescriptors:@[updateTimeDescriptor]];
