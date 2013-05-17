@@ -475,7 +475,6 @@
 		E1C482F31698A83D004F025A /* WTNowBarTitleViewBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1C482EF1698A83D004F025A /* WTNowBarTitleViewBg@2x.png */; };
 		E1C53DD216523DCE0011C8A1 /* WTSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C53DD016523DCE0011C8A1 /* WTSearchViewController.m */; };
 		E1C53DD316523DCE0011C8A1 /* WTSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C53DD116523DCE0011C8A1 /* WTSearchViewController.xib */; };
-		E1C8321417467423002C0567 /* SetToDataTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C8321317467423002C0567 /* SetToDataTransformer.m */; };
 		E1C8321717467717002C0567 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C8321617467717002C0567 /* Controller.m */; };
 		E1C8321D1746772A002C0567 /* Controller+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C8321C1746772A002C0567 /* Controller+Addition.m */; };
 		E1C8322017467AD4002C0567 /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C8321F17467AD4002C0567 /* Object.m */; };
@@ -1160,8 +1159,6 @@
 		E1C53DCF16523DCE0011C8A1 /* WTSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSearchViewController.h; sourceTree = "<group>"; };
 		E1C53DD016523DCE0011C8A1 /* WTSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSearchViewController.m; sourceTree = "<group>"; };
 		E1C53DD116523DCE0011C8A1 /* WTSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSearchViewController.xib; sourceTree = "<group>"; };
-		E1C8321217467423002C0567 /* SetToDataTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetToDataTransformer.h; sourceTree = "<group>"; };
-		E1C8321317467423002C0567 /* SetToDataTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetToDataTransformer.m; sourceTree = "<group>"; };
 		E1C8321517467717002C0567 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
 		E1C8321617467717002C0567 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
 		E1C8321B1746772A002C0567 /* Controller+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Controller+Addition.h"; sourceTree = "<group>"; };
@@ -2311,15 +2308,6 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
-		E1C83211174673FD002C0567 /* Transformer */ = {
-			isa = PBXGroup;
-			children = (
-				E1C8321217467423002C0567 /* SetToDataTransformer.h */,
-				E1C8321317467423002C0567 /* SetToDataTransformer.m */,
-			);
-			name = Transformer;
-			sourceTree = "<group>";
-		};
 		E1CD3F371720643B00359A79 /* News */ = {
 			isa = PBXGroup;
 			children = (
@@ -2467,7 +2455,6 @@
 		E1D3743C1694C3B90012E30A /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				E1C83211174673FD002C0567 /* Transformer */,
 				E1D3743E1694C3E50012E30A /* Categories */,
 				E1D3743D1694C3D90012E30A /* Models */,
 				E1D374491694C46A0012E30A /* WeTongji.xcdatamodeld */,
@@ -3192,7 +3179,6 @@
 				03EE1095174535770062A06B /* WTOrganizationProfileView.m in Sources */,
 				E16D5DC71746199400740D79 /* Advertisement.m in Sources */,
 				E16D5DCA174619A900740D79 /* Advertisement+Addition.m in Sources */,
-				E1C8321417467423002C0567 /* SetToDataTransformer.m in Sources */,
 				E1C8321717467717002C0567 /* Controller.m in Sources */,
 				E1C8321D1746772A002C0567 /* Controller+Addition.m in Sources */,
 				E1C8322017467AD4002C0567 /* Object.m in Sources */,

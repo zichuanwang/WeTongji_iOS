@@ -8,6 +8,7 @@
 
 #import "Star+Addition.h"
 #import "WTCoreDataManager.h"
+#import "Object+Addtion.h"
 
 @implementation Star (Addition)
 
@@ -57,14 +58,14 @@
     return result;
 }
 
-+ (void)clearAllStars {
++ (void)setAllStarsFreeFromHolder:(id)holder {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     [request setEntity:[NSEntityDescription entityForName:@"Star" inManagedObjectContext:context]];
     NSArray *allStars = [context executeFetchRequest:request error:NULL];
     
     for(Star *item in allStars) {
-        [context deleteObject:item];
+        [item setObjectFreeFromHolder:holder];
     }
 }
 

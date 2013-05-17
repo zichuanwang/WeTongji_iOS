@@ -14,6 +14,4 @@
 
 + (Organization *)organizationWithID:(NSString *)orgID;
 
-+ (void)clearAllOrganizations;
-
 @end

@@ -13,7 +13,7 @@
 #import "WTDragToLoadDecorator.h"
 #import "NSString+WTAddition.h"
 #import "WTStarCell.h"
-#import "Star.h"
+#import "Object+Addtion.h"
 #import "Star+Addition.h"
 
 @interface WTStarViewController () <WTDragToLoadDecoratorDelegate, WTDragToLoadDecoratorDataSource>
@@ -79,7 +79,7 @@
 
 
 - (void)clearAllData {
-     [Star clearAllStars];
+     [Star setAllStarsFreeFromHolder:self];
 }
 
 #pragma mark - Data load methods
@@ -104,7 +104,8 @@
         
         NSArray *resultArray = resultDict[@"People"];
         for (NSDictionary *dict in resultArray) {
-            [Star insertStar:dict];
+            Star *star = [Star insertStar:dict];
+            [star setObjectHeldByHolder:self];
         }
         
     } failureBlock:^(NSError * error) {

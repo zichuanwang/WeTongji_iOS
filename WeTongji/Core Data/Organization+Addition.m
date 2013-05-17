@@ -44,15 +44,4 @@
     return result;
 }
 
-+ (void)clearAllOrganizations {
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
-    [request setEntity:[NSEntityDescription entityForName:@"Organization" inManagedObjectContext:context]];
-    NSArray *allOrgnizations = [context executeFetchRequest:request error:NULL];
-    
-    for(Organization *item in allOrgnizations) {
-        [context deleteObject:item];
-    }
-}
-
 @end
