@@ -43,7 +43,7 @@ typedef enum {
 
 - (WTBannerItemView *)currentItemView;
 
-- (void)configureTestBanner;
+- (void)configureBannerWithObjectsArray:(NSArray *)objectsArray;
 
 - (void)configureBannerContainerViewHeight:(CGFloat)height;
 

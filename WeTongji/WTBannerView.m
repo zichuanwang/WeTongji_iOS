@@ -9,6 +9,9 @@
 #import "WTBannerView.h"
 #import "UIImageView+AsyncLoading.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Activity+Addition.h"
+#import "News+Addition.h"
+#import "Advertisement+Addition.h"
 
 @interface WTBannerContainerView()
 
@@ -161,7 +164,7 @@
     self.bannerPageControl.numberOfPages = bannerItemCount;
     self.bannerScrollView.contentSize = CGSizeMake(self.bannerScrollView.frame.size.width * bannerItemCount, self.bannerScrollView.frame.size.height);
     
-    [self.rightShadowImageView resetOrigin:CGPointMake(self.bannerScrollView.contentSize.width, 0)];
+    [self.rightShadowImageView resetOrigin:CGPointMake(bannerItemCount == 0 ? self.bannerScrollView.frame.size.width : self.bannerScrollView.contentSize.width, 0)];
 }
 
 #pragma mark - UI methods
@@ -178,18 +181,39 @@
     self.bannerPageControl.currentPage = currentPage;
 }
 
-- (void)configureTestBanner {
-    NSArray *orgNameArray = @[@"WeTongji Dev Team", @"Tongji Apple Club", @"Apple Inc."];
-    NSArray *titleArray = @[@"WeTongji 3.0 Coming Soon", @"Enroll 2012", @"WWDC 2011"];
-    for(int i = 0; i < orgNameArray.count; i++) {
-        NSString *imageName = [NSString stringWithFormat:@"WTTestBanner%d", i + 1];
-        UIImage *image = [UIImage imageNamed:imageName];
-        
-        [self addItemViewWithImage:image
-                         titleText:titleArray[i]
-                  organizationName:orgNameArray[i]
-                             style:WTBannerItemViewStyleBlue
-                           atIndex:i];
+- (void)configureBannerWithObjectsArray:(NSArray *)objectsArray {
+    self.bannerItemCount = 0;
+    NSInteger i = 0;
+    for (Object *object in objectsArray) {
+        NSString *imageURL = nil;
+        NSString *title = nil;
+        NSString *orgName = nil;
+        if ([object isKindOfClass:[Activity class]]) {
+            Activity *activity = (Activity *)object;
+            imageURL = activity.image;
+            title = activity.what;
+            orgName = activity.organizer;
+        } else if ([object isKindOfClass:[News class]]) {
+            News *news = (News *)object;
+            NSArray *imageArray = news.imageArray;
+            if (imageArray) {
+                imageURL = imageArray[0];
+            }
+            title = news.title;
+            // TODO:
+            orgName = news.organizer;
+        } else if ([object isKindOfClass:[Advertisement class]]) {
+            Advertisement *ad = (Advertisement *)object;
+            imageURL = ad.image;
+            title = ad.title;
+            orgName = ad.publisher;
+        }
+        [self addItemViewWithImageURL:imageURL
+                            titleText:title
+                     organizationName:orgName
+                                style:WTBannerItemViewStyleBlue
+                              atIndex:i];
+        i++;
     }
 }
 

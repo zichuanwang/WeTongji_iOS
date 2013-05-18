@@ -148,16 +148,29 @@
         Organization *popularOrg = [Organization insertOrganization:popularOrgDict];
         [popularOrg setObjectHeldByHolder:self];
         
+        // Configure banner objects array begin
+        NSMutableArray *bannerObjectsArray = [NSMutableArray array];
+        
         NSDictionary *bannerActivityInfo = resultDict[@"BannerActivity"];
         Activity *bannerActivity = [Activity insertActivity:bannerActivityInfo];
+        [bannerObjectsArray addObject:bannerActivity];
         
         NSDictionary *bannerNewsInfo = resultDict[@"BannerInformation"];
         News *bannerNews = [News insertNews:bannerNewsInfo];
+        [bannerObjectsArray addObject:bannerNews];
         
         NSArray *bannerAdvertisementArray = resultDict[@"BannerAdvertisements"];
         for (NSDictionary *adInfo in bannerAdvertisementArray) {
             Advertisement *ad = [Advertisement insertAdvertisement:adInfo];
+            [bannerObjectsArray addObject:ad];
         }
+        
+        for (Object *bannerObject in bannerObjectsArray) {
+            [bannerObject setObjectHeldByHolder:self];
+        }
+        // Configure banner objects array end
+        
+        [self.bannerContainerView configureBannerWithObjectsArray:bannerObjectsArray];
         
         self.shouldUpdateHomeSelectViews = YES;
         [self updateHomeSelectViews];
@@ -241,7 +254,6 @@
 
 - (void)configureBanner {
     self.bannerContainerView = [WTBannerContainerView createBannerContainerView];
-    [self.bannerContainerView configureTestBanner];
     [self.bannerContainerView resetOrigin:CGPointZero];
     [self.scrollView addSubview:self.bannerContainerView];
 }
