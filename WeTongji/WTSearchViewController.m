@@ -349,7 +349,7 @@
     if ([searchBar.text isEqualToString:@"set use test server"]) {
         [NSUserDefaults setUseTestServer:YES];
         [((UIAlertView *)[[UIAlertView alloc] initWithTitle:@"注意" message:@"已切换至测试服务器" delegate:nil cancelButtonTitle:@"好" otherButtonTitles: nil]) show];
-    } else if ([searchBar.text isEqualToString:@"set use product server"]) {
+    } else if ([searchBar.text isEqualToString:@"set use produce server"]) {
         [NSUserDefaults setUseTestServer:NO];
         [((UIAlertView *)[[UIAlertView alloc] initWithTitle:@"注意" message:@"已切换至生产服务器" delegate:nil cancelButtonTitle:@"好" otherButtonTitles: nil]) show];
     } else {
