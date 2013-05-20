@@ -13,6 +13,7 @@
 #import "Activity+Addition.h"
 #import "News+Addition.h"
 #import "Star+Addition.h"
+#import "Course+Addition.h"
 #import "Organization+Addition.h"
 #import "Object+Addtion.h"
 #import "Organization+Addition.h"
@@ -21,6 +22,7 @@
 #import "WTActivityDetailViewController.h"
 #import "WTStarDetailViewController.h"
 #import "WTOrganizationDetailViewController.h"
+#import "WTCourseDetialViewController.h"
 #import "WTNewsViewController.h"
 #import "WTActivityViewController.h"
 #import "WTStarViewController.h"
@@ -379,6 +381,9 @@
 - (void)homeNowContainerViewDidSelectEvent:(Event *)event {
     if ([event isKindOfClass:[Activity class]]) {
         WTActivityDetailViewController *vc = [WTActivityDetailViewController createDetailViewControllerWithActivity:(Activity *)event backBarButtonText:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([event isKindOfClass:[Course class]]) {
+        WTCourseDetialViewController *vc = [WTCourseDetialViewController createCourseDetailViewControllerWithCourse:(Course *)event backBarButtonText:nil];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

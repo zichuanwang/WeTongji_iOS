@@ -55,10 +55,4 @@
     self.whereLabel.text = event.where;
 }
 
-- (void)configureCellWithTitle:(NSString *)title
-                          time:(NSString *)time
-                      location:(NSString *)location {
-   
-}
-
 @end
