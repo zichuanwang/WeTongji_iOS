@@ -198,6 +198,7 @@
         {
             result = NSLocalizedString(@"news", nil);
         }
+            break;
         case 5:
         {
             result = NSLocalizedString(@"stars", nil);

@@ -41,7 +41,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.searchKeyword && ![self.searchKeyword isEqualToString:@""])
-        return 5;
+        return 6;
     else
         return 0;
 }

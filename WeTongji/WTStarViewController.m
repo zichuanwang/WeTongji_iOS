@@ -80,7 +80,7 @@
 
 
 - (void)clearAllData {
-     [Star setAllStarsFreeFromHolder:self];
+     [Object setAllObjectsFreeFromHolder:[self class]];
 }
 
 #pragma mark - Data load methods
@@ -106,7 +106,7 @@
         NSArray *resultArray = resultDict[@"People"];
         for (NSDictionary *dict in resultArray) {
             Star *star = [Star insertStar:dict];
-            [star setObjectHeldByHolder:self];
+            [star setObjectHeldByHolder:[self class]];
         }
         
     } failureBlock:^(NSError * error) {

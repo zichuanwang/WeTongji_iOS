@@ -15,7 +15,7 @@
 
 + (NSArray *)getTodayEvents;
 
-+ (void)setCurrentUserScheduledEventsFreeFromHolder:(id)holder
++ (void)setCurrentUserScheduledEventsFreeFromHolder:(Class)holderClass
                                            fromDate:(NSDate *)beginDate
                                              toDate:(NSDate *)endDate;
 

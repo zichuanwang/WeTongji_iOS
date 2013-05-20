@@ -58,15 +58,4 @@
     return result;
 }
 
-+ (void)setAllStarsFreeFromHolder:(id)holder {
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
-    [request setEntity:[NSEntityDescription entityForName:@"Star" inManagedObjectContext:context]];
-    NSArray *allStars = [context executeFetchRequest:request error:NULL];
-    
-    for(Star *item in allStars) {
-        [item setObjectFreeFromHolder:holder];
-    }
-}
-
 @end

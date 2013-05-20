@@ -63,7 +63,7 @@
     return result;
 }
 
-- (void)updateItemInfoArray:(NSArray *)infoArray {
+- (void)configureItemInfoArray:(NSArray *)infoArray {
     [self.itemInfoArray removeAllObjects];
     [self.itemInfoArray addObjectsFromArray:infoArray];
     [self configureScrollView];

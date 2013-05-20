@@ -10,13 +10,13 @@
 
 @interface Object (Addtion)
 
-- (void)setObjectHeldByHolder:(id)holder;
+- (void)setObjectHeldByHolder:(Class)holderClass;
 
-- (void)setObjectFreeFromHolder:(id)holder;
+- (void)setObjectFreeFromHolder:(Class)holderClass;
 
-+ (void)setAllObjectsFreeFromHolder:(id)holder;
++ (void)setAllObjectsFreeFromHolder:(Class)holderClass;
 
-+ (NSArray *)getAllObjectsHeldByHolder:(id)holder
++ (NSArray *)getAllObjectsHeldByHolder:(Class)holderClass
                       objectEntityName:(NSString *)entityName;
 
 @end

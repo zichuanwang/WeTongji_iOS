@@ -120,21 +120,21 @@
         NSArray *activitiesArray = resultDict[@"Activities"];
         for (NSDictionary *dict in activitiesArray) {
             Activity *activity= [Activity insertActivity:dict];
-            [activity setObjectHeldByHolder:self];
+            [activity setObjectHeldByHolder:[self class]];
             [currentUser addScheduledEventsObject:activity];
         }
         
         NSArray *coursesArray = resultDict[@"CourseInstances"];
         for (NSDictionary *dict in coursesArray) {
             Course *course = [Course insertCourse:dict];
-            [course setObjectHeldByHolder:self];
+            [course setObjectHeldByHolder:[self class]];
             [currentUser addScheduledEventsObject:course];
         }
         
         NSArray *examsArray = resultDict[@"Exams"];
         for (NSDictionary *dict in examsArray) {
             Exam *exam = [Exam insertExam:dict];
-            [exam setObjectHeldByHolder:self];
+            [exam setObjectHeldByHolder:[self class]];
             [currentUser addScheduledEventsObject:exam];
         }
     } failureBlock:^(NSError * error) {
@@ -271,7 +271,7 @@
     [self loadDataFrom:fromDate
                     to:toDate
           successBlock:^{
-              [Event setCurrentUserScheduledEventsFreeFromHolder:self
+              [Event setCurrentUserScheduledEventsFreeFromHolder:[self class]
                                                         fromDate:fromDate
                                                           toDate:toDate];
               [self.dragToLoadDecorator topViewLoadFinished:YES animationCompletion:^{

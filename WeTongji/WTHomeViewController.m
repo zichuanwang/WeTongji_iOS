@@ -33,9 +33,8 @@
 @property (nonatomic, strong) WTHomeNowContainerView *nowContainerView;
 @property (nonatomic, strong) NSMutableArray *homeSelectViewArray;
 
-@property (nonatomic, assign) BOOL shouldUpdateHomeSelectViews;
-@property (nonatomic, assign) BOOL shouldLoadHomeSelectedItems;
-@property (nonatomic, strong) NSTimer *loadHomeSelectedItemsTimer;
+@property (nonatomic, assign) BOOL shouldLoadHomeItems;
+@property (nonatomic, strong) NSTimer *loadHomeItemsTimer;
 
 @end
 
@@ -46,7 +45,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.shouldUpdateHomeSelectViews = YES;
     }
     return self;
 }
@@ -56,9 +54,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self configureNavigationBar];
-    [self configureBanner];
+    [self configureBannerView];
     [self configureNowView];
     [self configureHomeSelectViews];
+    [self configureScrollView];
     
     [self setUpLoadHomeSelectedItemsTimer];
     
@@ -69,11 +68,10 @@
     [self.scrollView resetHeight:self.view.frame.size.height];
     [self updateNowView];
     [self updateHomeSelectViews];
-    [self updateScrollView];
     
-    if (self.shouldLoadHomeSelectedItems) {
+    if (self.shouldLoadHomeItems) {
         [self loadHomeSelectedItems];
-        self.shouldLoadHomeSelectedItems = NO;
+        self.shouldLoadHomeItems = NO;
     }
 }
 
@@ -96,7 +94,7 @@
 
 - (void)setUpLoadHomeSelectedItemsTimer {
     // 设定 10 分钟刷新频率
-    self.loadHomeSelectedItemsTimer = [NSTimer scheduledTimerWithTimeInterval:10 * 60
+    self.loadHomeItemsTimer = [NSTimer scheduledTimerWithTimeInterval:10 * 60
 											  target:self
 											selector:@selector(loadHomeSelectedItemsTimerFired:)
 											userInfo:nil
@@ -114,19 +112,21 @@
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Get home recommendation succuess:%@", responseObject);
         
-        [Object setAllObjectsFreeFromHolder:self];
-        
         NSDictionary *resultDict = (NSDictionary *)responseObject;
+        
+        // Refill home select views
+        [Object setAllObjectsFreeFromHolder:[WTHomeSelectContainerView class]];
+        
         NSArray *activityInfoArray = resultDict[@"Activities"];
         for (NSDictionary *infoDict in activityInfoArray) {
             Activity *activity = [Activity insertActivity:infoDict];
-            [activity setObjectHeldByHolder:self];
+            [activity setObjectHeldByHolder:[WTHomeSelectContainerView class]];
         }
         
         NSArray *newsInfoArray = resultDict[@"Information"];
         for (NSDictionary *infoDict in newsInfoArray) {
             News *news = [News insertNews:infoDict];
-            [news setObjectHeldByHolder:self];
+            [news setObjectHeldByHolder:[WTHomeSelectContainerView class]];
         }
         
         NSObject *starInfoObject = resultDict[@"Person"];
@@ -135,52 +135,46 @@
             NSArray *starInfoArray = (NSArray *)starInfoObject;
             for (NSDictionary *infoDict in starInfoArray) {
                 Star *star = [Star insertStar:infoDict];
-                [star setObjectHeldByHolder:self];
+                [star setObjectHeldByHolder:[WTHomeSelectContainerView class]];
             }
         } else if ([starInfoObject isKindOfClass:[NSDictionary class]]) {
             NSDictionary *starInfoDict = (NSDictionary *)starInfoObject;
             Star *star = [Star insertStar:starInfoDict];
-            [star setObjectHeldByHolder:self];
+            [star setObjectHeldByHolder:[WTHomeSelectContainerView class]];
         }
         
         NSDictionary *newestOrgDict = resultDict[@"AccountNewest"];
         Organization *newestOrg = [Organization insertOrganization:newestOrgDict];
-        [newestOrg setObjectHeldByHolder:self];
+        [newestOrg setObjectHeldByHolder:[WTHomeSelectContainerView class]];
         
         NSDictionary *popularOrgDict = resultDict[@"AccountPopulor"];
         Organization *popularOrg = [Organization insertOrganization:popularOrgDict];
-        [popularOrg setObjectHeldByHolder:self];
+        [popularOrg setObjectHeldByHolder:[WTHomeSelectContainerView class]];
         
-        // Configure banner objects array begin
-        NSMutableArray *bannerObjectsArray = [NSMutableArray array];
+        [self fillHomeSelectViews];
+        
+        // Refill banner view
+        [Object setAllObjectsFreeFromHolder:[WTBannerContainerView class]];
         
         NSDictionary *bannerActivityInfo = resultDict[@"BannerActivity"];
         Activity *bannerActivity = [Activity insertActivity:bannerActivityInfo];
-        [bannerObjectsArray addObject:bannerActivity];
+        [bannerActivity setObjectHeldByHolder:[WTBannerContainerView class]];
         
         NSDictionary *bannerNewsInfo = resultDict[@"BannerInformation"];
         News *bannerNews = [News insertNews:bannerNewsInfo];
-        [bannerObjectsArray addObject:bannerNews];
+        [bannerNews setObjectHeldByHolder:[WTBannerContainerView class]];
         
         NSArray *bannerAdvertisementArray = resultDict[@"BannerAdvertisements"];
         for (NSDictionary *adInfo in bannerAdvertisementArray) {
             Advertisement *ad = [Advertisement insertAdvertisement:adInfo];
-            [bannerObjectsArray addObject:ad];
+            [ad setObjectHeldByHolder:[WTBannerContainerView class]];
         }
         
-        for (Object *bannerObject in bannerObjectsArray) {
-            [bannerObject setObjectHeldByHolder:self];
-        }
-        // Configure banner objects array end
-        
-        [self.bannerContainerView configureBannerWithObjectsArray:bannerObjectsArray];
-        
-        self.shouldUpdateHomeSelectViews = YES;
-        [self updateHomeSelectViews];
+        [self fillBannerView];
         
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Get home recommendation failure:%@", error.localizedDescription);
-        self.shouldLoadHomeSelectedItems = YES;
+        self.shouldLoadHomeItems = YES;
         
     }];
     [request getHomeRecommendation];
@@ -191,7 +185,7 @@
 
 - (void)configureScrollView {
     self.scrollView.alwaysBounceVertical = YES;
-    // self.scrollView.decelerationRate = UIScrollViewDecelerationRateFast;
+    self.scrollView.scrollsToTop = NO;
     [self updateScrollView];
 }
 
@@ -204,8 +198,7 @@
     [self configureActivitySelect];
     [self configureNewsSelect];
     [self configureFeaturedSelect];
-    [self updateHomeSelectViews];
-    [self configureScrollView];
+    [self fillHomeSelectViews];
 }
 
 - (void)updateHomeSelectViews {
@@ -216,22 +209,19 @@
         [homeSelectContainerView updateItemViews];
         index++;
     }
-    
-    if (!self.shouldUpdateHomeSelectViews)
-        return;
-    
-    WTHomeSelectContainerView *activitySelectContainerView = self.homeSelectViewArray[0];
-    [activitySelectContainerView updateItemInfoArray:[Object getAllObjectsHeldByHolder:self objectEntityName:@"Activity"]];
+}
 
+- (void)fillHomeSelectViews {
+    WTHomeSelectContainerView *activitySelectContainerView = self.homeSelectViewArray[0];
+    [activitySelectContainerView configureItemInfoArray:[Object getAllObjectsHeldByHolder:[WTHomeSelectContainerView class] objectEntityName:@"Activity"]];
+    
     WTHomeSelectContainerView *newsSelectContainerView = self.homeSelectViewArray[1];
-    [newsSelectContainerView updateItemInfoArray:[Object getAllObjectsHeldByHolder:self objectEntityName:@"News"]];
+    [newsSelectContainerView configureItemInfoArray:[Object getAllObjectsHeldByHolder:[WTHomeSelectContainerView class] objectEntityName:@"News"]];
     
     WTHomeSelectContainerView *featuredSelectContainerView = self.homeSelectViewArray[2];
-    NSMutableArray *featurerSelectInfoArray = [NSMutableArray arrayWithArray:[Object getAllObjectsHeldByHolder:self objectEntityName:@"Star"]];
-    [featurerSelectInfoArray addObjectsFromArray:[Object getAllObjectsHeldByHolder:self objectEntityName:@"Organization"]];
-    [featuredSelectContainerView updateItemInfoArray:featurerSelectInfoArray];
-    
-    self.shouldUpdateHomeSelectViews = NO;
+    NSMutableArray *featurerSelectInfoArray = [NSMutableArray arrayWithArray:[Object getAllObjectsHeldByHolder:[WTHomeSelectContainerView class] objectEntityName:@"Star"]];
+    [featurerSelectInfoArray addObjectsFromArray:[Object getAllObjectsHeldByHolder:[WTHomeSelectContainerView class] objectEntityName:@"Organization"]];
+    [featuredSelectContainerView configureItemInfoArray:featurerSelectInfoArray];
 }
 
 - (void)configureNewsSelect {
@@ -255,10 +245,15 @@
     [self.scrollView addSubview:containerView];
 }
 
-- (void)configureBanner {
+- (void)configureBannerView {
     self.bannerContainerView = [WTBannerContainerView createBannerContainerView];
     [self.bannerContainerView resetOrigin:CGPointZero];
     [self.scrollView addSubview:self.bannerContainerView];
+    [self fillBannerView];
+}
+
+- (void)fillBannerView {
+    [self.bannerContainerView configureBannerWithObjectsArray:[Object getAllObjectsHeldByHolder:[WTBannerContainerView class] objectEntityName:@"Object"]];
 }
 
 - (void)configureNavigationBar {

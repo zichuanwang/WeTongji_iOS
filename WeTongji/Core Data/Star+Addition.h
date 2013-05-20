@@ -14,6 +14,4 @@
 
 + (Star *)starWithID:(NSString *)starID;
 
-+ (void)setAllStarsFreeFromHolder:(id)holder;
-
 @end

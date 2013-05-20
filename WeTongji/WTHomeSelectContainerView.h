@@ -32,7 +32,7 @@ typedef enum {
 
 + (WTHomeSelectContainerView *)createHomeSelectContainerViewWithCategory:(WTHomeSelectContainerViewCategory)category;
 
-- (void)updateItemInfoArray:(NSArray *)infoArray;
+- (void)configureItemInfoArray:(NSArray *)infoArray;
 
 - (void)updateItemViews;
 

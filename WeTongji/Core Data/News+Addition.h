@@ -19,7 +19,7 @@
 
 + (News *)newsWithID:(NSString *)newsID;
 
-+ (void)setAllNewsFreeFromHolder:(id)holder
++ (void)setAllNewsFreeFromHolder:(Class)holderClass
                       inCategory:(NSNumber *)category;
 
 + (NSString *)convertCategoryStringFromCategory:(NSNumber *)category;

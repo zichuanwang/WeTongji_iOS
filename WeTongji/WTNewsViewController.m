@@ -95,7 +95,7 @@
         NSArray *resultArray = resultDict[@"Information"];
         for(NSDictionary *dict in resultArray) {
             News *news = [News insertNews:dict];
-            [news setObjectHeldByHolder:self];
+            [news setObjectHeldByHolder:[self class]];
         }
         
     } failureBlock:^(NSError * error) {
@@ -127,7 +127,7 @@
 - (void)clearAllData {
     NSSet *newsShowTypesSet = [NSUserDefaults getNewsShowTypesSet];
     for (NSNumber *showTypeNumber in newsShowTypesSet) {
-        [News setAllNewsFreeFromHolder:self inCategory:showTypeNumber];
+        [News setAllNewsFreeFromHolder:[self class] inCategory:showTypeNumber];
     }
 }
 

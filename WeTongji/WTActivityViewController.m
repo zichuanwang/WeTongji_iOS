@@ -102,7 +102,7 @@
         NSArray *resultArray = resultDict[@"Activities"];
         for (NSDictionary *dict in resultArray) {
             Activity *activity = [Activity insertActivity:dict];
-            [activity setObjectHeldByHolder:self];
+            [activity setObjectHeldByHolder:[self class]];
         }
         
     } failureBlock:^(NSError * error) {
@@ -135,7 +135,7 @@
 - (void)clearAllData {
     NSSet *activityShowTypesSet = [NSUserDefaults getActivityShowTypesSet];
     for (NSNumber *showTypeNumber in activityShowTypesSet) {
-        [Activity setAllActivitesFreeFromHolder:self inCategory:showTypeNumber];
+        [Activity setAllActivitesFreeFromHolder:[self class] inCategory:showTypeNumber];
     }
 }
 

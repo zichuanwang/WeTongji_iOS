@@ -47,7 +47,7 @@
     self.beginDay = [NSString yearMonthDayConvertFromDate:self.beginTime];
 }
 
-+ (void)setCurrentUserScheduledEventsFreeFromHolder:(id)holder
++ (void)setCurrentUserScheduledEventsFreeFromHolder:(Class)holderClass
                                            fromDate:(NSDate *)beginDate
                                              toDate:(NSDate *)endDate {
     
@@ -62,7 +62,7 @@
     NSArray *results = [context executeFetchRequest:request error:NULL];
     
     for(Event *item in results) {
-        [item setObjectFreeFromHolder:holder];
+        [item setObjectFreeFromHolder:holderClass];
     }
 }
 

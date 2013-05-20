@@ -80,7 +80,7 @@
     return result;
 }
 
-+ (void)setAllNewsFreeFromHolder:(id)holder
++ (void)setAllNewsFreeFromHolder:(Class)holderClass
                       inCategory:(NSNumber *)category {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
@@ -89,7 +89,7 @@
     NSArray *allNews = [context executeFetchRequest:request error:NULL];
     
     for(News *item in allNews) {
-        [item setObjectFreeFromHolder:holder];
+        [item setObjectFreeFromHolder:holderClass];
     }
 }
 

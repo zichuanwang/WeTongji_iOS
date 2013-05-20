@@ -12,7 +12,7 @@
 
 @implementation Object (Addtion)
 
-+ (NSArray *)getAllObjectsHeldByHolder:(id)holder
++ (NSArray *)getAllObjectsHeldByHolder:(Class)holderClass
                       objectEntityName:(NSString *)entityName {
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -20,7 +20,7 @@
     request.entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:context];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"updatedAt" ascending:YES]];
     
-    Controller *controller = [Controller controllerModelForClass:[holder class]];
+    Controller *controller = [Controller controllerModelForClass:holderClass];
     [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@", controller.hasObjects]];
     
     NSArray *result = [context executeFetchRequest:request error:nil];
@@ -28,13 +28,13 @@
     return result;
 }
 
-- (void)setObjectHeldByHolder:(id)holder {
-    Controller *controller = [Controller controllerModelForClass:[holder class]];
+- (void)setObjectHeldByHolder:(Class)holderClass {
+    Controller *controller = [Controller controllerModelForClass:holderClass];
     [controller addHasObjectsObject:self];
 }
 
-- (void)setObjectFreeFromHolder:(id)holder {
-    Controller *controller = [Controller controllerModelForClass:[holder class]];
+- (void)setObjectFreeFromHolder:(Class)holderClass {
+    Controller *controller = [Controller controllerModelForClass:holderClass];
     [self removeBelongToControllersObject:controller];
     
     if (self.belongToControllers.count == 0) {
@@ -44,8 +44,8 @@
     }
 }
 
-+ (void)setAllObjectsFreeFromHolder:(id)holder {
-    Controller *controller = [Controller controllerModelForClass:[holder class]];
++ (void)setAllObjectsFreeFromHolder:(Class)holderClass {
+    Controller *controller = [Controller controllerModelForClass:holderClass];
     [controller removeHasObjects:controller.hasObjects];
 }
 

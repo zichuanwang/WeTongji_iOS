@@ -155,8 +155,8 @@
         for(NSUInteger i = bannerItemCount; i < _bannerItemCount; i++) {
             WTBannerItemView *itemView = self.bannerItemViewArray[i];
             [itemView removeFromSuperview];
-            [self.bannerItemViewArray removeObjectAtIndex:i];
         }
+        [self.bannerItemViewArray removeAllObjects];
     } else
         return;
     

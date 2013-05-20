@@ -66,7 +66,7 @@
     return result;
 }
 
-+ (void)setAllActivitesFreeFromHolder:(id)holder
++ (void)setAllActivitesFreeFromHolder:(Class)holderClass
                            inCategory:(NSNumber *)category {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
@@ -75,7 +75,7 @@
     NSArray *allActivities = [context executeFetchRequest:request error:NULL];
     
     for(Activity *item in allActivities) {
-        [item setObjectFreeFromHolder:holder];
+        [item setObjectFreeFromHolder:holderClass];
     }
 }
 
