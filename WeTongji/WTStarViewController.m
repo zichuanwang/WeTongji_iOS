@@ -15,6 +15,7 @@
 #import "WTStarCell.h"
 #import "Object+Addtion.h"
 #import "Star+Addition.h"
+#import "WTStarDetailViewController.h"
 
 @interface WTStarViewController () <WTDragToLoadDecoratorDelegate, WTDragToLoadDecoratorDataSource>
 
@@ -127,12 +128,6 @@
     self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Stars", nil)];
     self.navigationItem.leftBarButtonItem = [WTResourceFactory createLogoBackBarButtonWithTarget:self
                                                                                           action:@selector(didClickBackButton:)];
-    /*self.navigationItem.rightBarButtonItem = [WTResourceFactory createFilterBarButtonWithTarget:self
-                                                                                         action:@selector(didClickFilterButton:)];
-    
-    BOOL isActivitySettingDifferentFromDefaultValue = [[NSUserDefaults standardUserDefaults] isActivitySettingDifferentFromDefaultValue];
-    [WTResourceFactory configureFilterBarButton:self.navigationItem.rightBarButtonItem modified:isActivitySettingDifferentFromDefaultValue];
-     */
 }
 
 - (void)configureTableView {
@@ -145,19 +140,6 @@
 
 - (void)didClickBackButton:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)didClickFilterButton:(UIButton *)sender {
-//    WTRootNavigationController *nav = (WTRootNavigationController *)self.navigationController;
-//    
-//    if (sender.selected) {
-//        sender.selected = NO;
-//        
-//        [nav showInnerModalViewController:[self createActivitySettingViewController] sourceViewController:self disableNavBarType:WTDisableNavBarTypeLeft];
-//        
-//    } else {
-//        [nav hideInnerModalViewController];
-//    }
 }
 
 #pragma mark - CoreDataTableViewController methods
@@ -204,8 +186,9 @@
     [[tableView cellForRowAtIndexPath:indexPath] setSelected:YES animated:YES];
     
     Star *star = [self.fetchedResultsController objectAtIndexPath:indexPath];
-//    WTActivityDetailViewController *detailVC = [WTActivityDetailViewController createDetailViewControllerWithActivity:activity backBarButtonText:NSLocalizedString(@"Activities", nil)];
-//    [self.navigationController pushViewController:detailVC animated:YES];
+    
+    WTStarDetailViewController *detailVC = [WTStarDetailViewController createDetailViewControllerWithStar:star backBarButtonText:NSLocalizedString(@"Stars", nil)];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 

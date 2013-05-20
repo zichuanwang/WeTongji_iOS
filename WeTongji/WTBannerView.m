@@ -200,7 +200,7 @@
                 imageURL = imageArray[0];
             }
             title = news.title;
-            // TODO:
+            // TODO: 根据新闻类别配置orgName
             orgName = news.organizer;
         } else if ([object isKindOfClass:[Advertisement class]]) {
             Advertisement *ad = (Advertisement *)object;

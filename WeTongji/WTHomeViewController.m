@@ -19,6 +19,7 @@
 #import "Advertisement+Addition.h"
 #import "WTNewsDetailViewController.h"
 #import "WTActivityDetailViewController.h"
+#import "WTStarDetailViewController.h"
 #import "WTOrganizationDetailViewController.h"
 #import "WTNewsViewController.h"
 #import "WTActivityViewController.h"
@@ -348,6 +349,9 @@
     } else if ([modelObject isKindOfClass:[Organization class]]) {
         WTOrganizationDetailViewController *vc = [WTOrganizationDetailViewController createDetailViewControllerWithOrganization:(Organization *)modelObject backBarButtonText:nil];
         [self.navigationController pushViewController:vc animated:YES];
+    } else if([modelObject isKindOfClass:[Star class]]) {
+        WTStarDetailViewController *vc = [WTStarDetailViewController createDetailViewControllerWithStar:(Star *)modelObject backBarButtonText:nil];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
@@ -365,7 +369,6 @@
         WTNewsViewController *vc = [[WTNewsViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([modelObject isKindOfClass:[Star class]]) {
-        
         WTStarViewController *vc = [[WTStarViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }

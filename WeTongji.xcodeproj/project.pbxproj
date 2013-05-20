@@ -554,6 +554,8 @@
 		E1F0AE291747FA2D00EA2CED /* WTPanelBottomButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F0AE251747FA2D00EA2CED /* WTPanelBottomButton@2x.png */; };
 		E1F0AE2A1747FA2D00EA2CED /* WTPanelMiddleButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F0AE261747FA2D00EA2CED /* WTPanelMiddleButton.png */; };
 		E1F0AE2B1747FA2D00EA2CED /* WTPanelMiddleButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F0AE271747FA2D00EA2CED /* WTPanelMiddleButton@2x.png */; };
+		E1F0AE3C174A4E6D00EA2CED /* WTStarDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0AE3A174A4E6D00EA2CED /* WTStarDetailViewController.m */; };
+		E1F0AE3D174A4E6D00EA2CED /* WTStarDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F0AE3B174A4E6D00EA2CED /* WTStarDetailViewController.xib */; };
 		E1FC01A6172FEB2300D0776C /* BillboardPost.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FC01A5172FEB2300D0776C /* BillboardPost.m */; };
 		E47686711745287A003C9627 /* UIImage+StackBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = E47686701745287A003C9627 /* UIImage+StackBlur.m */; };
 		E4D164231744D01700F11A2C /* WTStarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D164211744D01700F11A2C /* WTStarViewController.m */; };
@@ -1267,6 +1269,9 @@
 		E1F0AE251747FA2D00EA2CED /* WTPanelBottomButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTPanelBottomButton@2x.png"; sourceTree = "<group>"; };
 		E1F0AE261747FA2D00EA2CED /* WTPanelMiddleButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTPanelMiddleButton.png; sourceTree = "<group>"; };
 		E1F0AE271747FA2D00EA2CED /* WTPanelMiddleButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTPanelMiddleButton@2x.png"; sourceTree = "<group>"; };
+		E1F0AE39174A4E6C00EA2CED /* WTStarDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTStarDetailViewController.h; sourceTree = "<group>"; };
+		E1F0AE3A174A4E6D00EA2CED /* WTStarDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTStarDetailViewController.m; sourceTree = "<group>"; };
+		E1F0AE3B174A4E6D00EA2CED /* WTStarDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTStarDetailViewController.xib; sourceTree = "<group>"; };
 		E1FC01A4172FEB2300D0776C /* BillboardPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillboardPost.h; sourceTree = "<group>"; };
 		E1FC01A5172FEB2300D0776C /* BillboardPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillboardPost.m; sourceTree = "<group>"; };
 		E476866F1745287A003C9627 /* UIImage+StackBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+StackBlur.h"; sourceTree = "<group>"; };
@@ -1480,6 +1485,9 @@
 				E4D164201744D01700F11A2C /* WTStarViewController.h */,
 				E4D164211744D01700F11A2C /* WTStarViewController.m */,
 				E4D164221744D01700F11A2C /* WTStarViewController.xib */,
+				E1F0AE39174A4E6C00EA2CED /* WTStarDetailViewController.h */,
+				E1F0AE3A174A4E6D00EA2CED /* WTStarDetailViewController.m */,
+				E1F0AE3B174A4E6D00EA2CED /* WTStarDetailViewController.xib */,
 			);
 			name = Star;
 			sourceTree = "<group>";
@@ -3031,6 +3039,7 @@
 				E1F0AE291747FA2D00EA2CED /* WTPanelBottomButton@2x.png in Resources */,
 				E1F0AE2A1747FA2D00EA2CED /* WTPanelMiddleButton.png in Resources */,
 				E1F0AE2B1747FA2D00EA2CED /* WTPanelMiddleButton@2x.png in Resources */,
+				E1F0AE3D174A4E6D00EA2CED /* WTStarDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3206,6 +3215,7 @@
 				E1C8321717467717002C0567 /* Controller.m in Sources */,
 				E1C8321D1746772A002C0567 /* Controller+Addition.m in Sources */,
 				E1C8322017467AD4002C0567 /* Object.m in Sources */,
+				E1F0AE3C174A4E6D00EA2CED /* WTStarDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
