@@ -68,6 +68,7 @@
     [self.scrollView resetHeight:self.view.frame.size.height];
     [self updateNowView];
     [self updateHomeSelectViews];
+    [self updateScrollView];
     
     if (self.shouldLoadHomeItems) {
         [self loadHomeSelectedItems];
