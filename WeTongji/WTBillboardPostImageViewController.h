@@ -11,4 +11,11 @@
 
 @interface WTBillboardPostImageViewController : WTBillboardPostViewController
 
+@property (nonatomic, weak) IBOutlet UIView *titleBgView;
+@property (nonatomic, weak) IBOutlet UIImageView *titleBgImageView;
+
+- (IBAction)didClickPickImageFromCameraButton:(UIButton *)sender;
+
+- (IBAction)didClickPickImageFromLibraryButton:(UIButton *)sender;
+
 @end

@@ -28,7 +28,8 @@
     result.updatedAt = [NSDate date];
     result.title = [NSString stringWithFormat:@"%@", dict[@"Title"]];
     result.image = [NSString stringWithFormat:@"%@", dict[@"Image"]];
-    result.publisher = @"刘哥快加字段";
+    result.publisher = [NSString stringWithFormat:@"%@", dict[@"Publisher"]];
+    result.bgColorHex = [NSString stringWithFormat:@"%@", dict[@"BgColor"]];
     
     return result;
 }

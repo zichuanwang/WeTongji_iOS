@@ -214,8 +214,7 @@
         [self.bannerView addItemViewWithImageURL:self.activity.image
                                        titleText:self.activity.what
                                 organizationName:self.activity.organizer
-                                           style:WTBannerItemViewStyleClear
-                                         atIndex:0];
+                                           style:WTBannerItemViewStyleClear];
         [self.scrollView insertSubview:self.bannerView atIndex:0];
         
         UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTagBannerView:)];

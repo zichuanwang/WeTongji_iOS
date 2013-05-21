@@ -27,4 +27,6 @@
 
 #define CROP_AVATAR_SIZE CGSizeMake(100, 100)
 
+#define DEFAULT_VOID_COLOR [UIColor colorWithRed:12.0f / 255 green:194.0f / 255 blue:203.0f / 255 alpha:0.6f]
+
 #endif

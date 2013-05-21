@@ -57,6 +57,12 @@
 
 - (void)reloadDataWithSuccessBlock:(void (^)(void))success
                       failureBlock:(void (^)(void))failure {
+    
+    if (failure) {
+        failure();
+    }
+    return;
+    
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         // WTLOG(@"Billboard:%@", responseObject);
         

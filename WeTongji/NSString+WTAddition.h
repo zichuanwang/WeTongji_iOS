@@ -35,4 +35,6 @@
 
 + (NSString *)searchCategoryStringForCategory:(NSInteger)category;
 
+- (UIColor *)converHexStringToColorWithAlpha:(CGFloat)alpha;
+
 @end

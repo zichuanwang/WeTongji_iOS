@@ -17,6 +17,8 @@ typedef enum {
 #define BANNER_VIEW_ORIGINAL_WIDTH      320.0f
 
 @class WTBannerItemView;
+@class Object;
+@protocol WTBannerContainerViewDelegate;
 
 @interface WTBannerContainerView : UIView <UIScrollViewDelegate>
 
@@ -24,20 +26,19 @@ typedef enum {
 @property (nonatomic, weak) IBOutlet UIPageControl *bannerPageControl;
 @property (nonatomic, weak) IBOutlet UIView *shadowContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *rightShadowImageView;
+@property (nonatomic, weak) id<WTBannerContainerViewDelegate> delegate;
 
 + (WTBannerContainerView *)createBannerContainerView;
 
-- (void)addItemViewWithImageURL:(NSString *)imageURLString
+- (WTBannerItemView *)addItemViewWithImageURL:(NSString *)imageURLString
                       titleText:(NSString *)title
                organizationName:(NSString *)organization
-                          style:(WTBannerItemViewStyle)style
-                        atIndex:(NSUInteger)index;
+                          style:(WTBannerItemViewStyle)style;
 
-- (void)addItemViewWithImage:(UIImage *)image
+- (WTBannerItemView *)addItemViewWithImage:(UIImage *)image
                    titleText:(NSString *)title
             organizationName:(NSString *)organization
-                       style:(WTBannerItemViewStyle)style
-                     atIndex:(NSUInteger)index;
+                       style:(WTBannerItemViewStyle)style;
 
 - (WTBannerItemView *)itemViewAtIndex:(NSUInteger)index;
 
@@ -48,6 +49,13 @@ typedef enum {
 - (void)configureBannerContainerViewHeight:(CGFloat)height;
 
 - (void)reloadItemImages;
+
+@end
+
+@protocol WTBannerContainerViewDelegate <NSObject>
+
+- (void)bannerContainerView:(WTBannerContainerView *)containerView
+       didSelectModelObject:(Object *)modelObject;
 
 @end
 
@@ -63,5 +71,7 @@ typedef enum {
 - (void)configureBannerItemViewHeight:(CGFloat)height
                          enlargeRatio:(float)enlargeRatio
                           isEnlarging:(BOOL)isEnlarging;
+
+- (void)configureViewWithModelObject:(Object *)object;
 
 @end

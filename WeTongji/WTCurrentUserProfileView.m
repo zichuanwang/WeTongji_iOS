@@ -80,7 +80,7 @@
     
     UIButton *addFriendButton = [WTResourceFactory createAddFriendButtonWithTarget:self action:@selector(didClickAddFriendButton:)];
     [addFriendButton resetOriginX:218.0f];
-    [addFriendButton resetCenterY:23.0f];
+    [addFriendButton resetCenterY:22.0f];
     [self.firstSectionContianerView addSubview:addFriendButton];
 }
 

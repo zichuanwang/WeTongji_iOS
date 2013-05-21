@@ -156,7 +156,7 @@ typedef enum {
 - (void)configureViewWithNews:(News *)news {
     // Poster image
     NSArray *newsImageArray = news.imageArray;
-    if (newsImageArray.count != 0) {
+    if (newsImageArray) {
         [self.posterImageView loadImageWithImageURLString:newsImageArray[0]];
     }
     

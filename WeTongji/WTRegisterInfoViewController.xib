@@ -255,7 +255,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{50, 140}, {220, 30}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -417,11 +416,6 @@ jiDkvb/nlKjmnaHmrL4</string>
 						<reference key="parent" ref="123155123"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">10</int>
-						<reference key="object" ref="115040855"/>
-						<reference key="parent" ref="123155123"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">11</int>
 						<reference key="object" ref="49275407"/>
 						<reference key="parent" ref="191373211"/>
@@ -461,6 +455,11 @@ jiDkvb/nlKjmnaHmrL4</string>
 						<int key="objectID">15</int>
 						<reference key="object" ref="348737962"/>
 						<reference key="parent" ref="1013174719"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">10</int>
+						<reference key="object" ref="115040855"/>
+						<reference key="parent" ref="123155123"/>
 					</object>
 				</array>
 			</object>

@@ -13,6 +13,7 @@
     </entity>
     <entity name="ActivityInvitationNotification" representedClassName="ActivityInvitationNotification" parentEntity="InvitationNotification" syncable="YES"/>
     <entity name="Advertisement" representedClassName="Advertisement" parentEntity="Object" syncable="YES">
+        <attribute name="bgColorHex" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="publisher" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -133,9 +134,10 @@
     <elements>
         <element name="Activity" positionX="160" positionY="192" width="128" height="180"/>
         <element name="ActivityInvitationNotification" positionX="160" positionY="192" width="128" height="45"/>
-        <element name="Advertisement" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Advertisement" positionX="160" positionY="192" width="128" height="120"/>
         <element name="BillboardComment" positionX="160" positionY="192" width="128" height="105"/>
         <element name="BillboardPost" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="Controller" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Course" positionX="160" positionY="192" width="128" height="180"/>
         <element name="Event" positionX="160" positionY="192" width="128" height="135"/>
         <element name="Exam" positionX="160" positionY="192" width="128" height="45"/>
@@ -147,6 +149,5 @@
         <element name="Organization" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Star" positionX="160" positionY="192" width="128" height="195"/>
         <element name="User" positionX="160" positionY="192" width="128" height="345"/>
-        <element name="Controller" positionX="160" positionY="192" width="128" height="75"/>
     </elements>
 </model>

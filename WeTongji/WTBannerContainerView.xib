@@ -42,7 +42,6 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{320, 130}</string>
 						<reference key="NSSuperview" ref="893876447"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="635336847"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -63,7 +62,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{-2, 0}, {2, 130}}</string>
 								<reference key="NSSuperview" ref="635336847"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="566112543"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -78,7 +76,6 @@
 								<int key="NSvFlags">289</int>
 								<string key="NSFrame">{{320, 0}, {2, 130}}</string>
 								<reference key="NSSuperview" ref="635336847"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="87145471"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -91,7 +88,6 @@
 						</array>
 						<string key="NSFrameSize">{320, 130}</string>
 						<reference key="NSSuperview" ref="893876447"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="823284681"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor" id="227524680">
@@ -113,7 +109,6 @@
 								<int key="NSvFlags">266</int>
 								<string key="NSFrame">{{0, 128}, {320, 3}}</string>
 								<reference key="NSSuperview" ref="87145471"/>
-								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -125,7 +120,6 @@
 						</array>
 						<string key="NSFrameSize">{320, 130}</string>
 						<reference key="NSSuperview" ref="893876447"/>
-						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<reference key="IBUIBackgroundColor" ref="227524680"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -137,7 +131,6 @@
 						<object class="NSPSMatrix" key="NSFrameMatrix"/>
 						<string key="NSFrame">{{141, 98}, {38, 36}}</string>
 						<reference key="NSSuperview" ref="893876447"/>
-						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -148,7 +141,6 @@
 				</array>
 				<string key="NSFrameSize">{320, 130}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="47177925"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<reference key="IBUIBackgroundColor" ref="227524680"/>
@@ -292,42 +284,7 @@
 			<nil key="sourceID"/>
 			<int key="maxID">28</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">WTBannerContainerView</string>
-					<string key="superclassName">UIView</string>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="bannerPageControl">UIPageControl</string>
-						<string key="bannerScrollView">UIScrollView</string>
-						<string key="rightShadowImageView">UIImageView</string>
-						<string key="shadowContainerView">UIView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="bannerPageControl">
-							<string key="name">bannerPageControl</string>
-							<string key="candidateClassName">UIPageControl</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="bannerScrollView">
-							<string key="name">bannerScrollView</string>
-							<string key="candidateClassName">UIScrollView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="rightShadowImageView">
-							<string key="name">rightShadowImageView</string>
-							<string key="candidateClassName">UIImageView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="shadowContainerView">
-							<string key="name">shadowContainerView</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/WTBannerContainerView.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencies">

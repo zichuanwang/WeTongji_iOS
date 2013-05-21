@@ -26,8 +26,10 @@
 #import "WTNewsViewController.h"
 #import "WTActivityViewController.h"
 #import "WTStarViewController.h"
+#import "WTHomeSelectContainerView.h"
+#import "WTHomeNowView.h"
 
-@interface WTHomeViewController ()
+@interface WTHomeViewController () <WTHomeSelectContainerViewDelegate, WTHomeNowContainerViewDelegate, WTBannerContainerViewDelegate>
 
 @property (nonatomic, strong) WTBannerContainerView *bannerContainerView;
 @property (nonatomic, strong) WTHomeNowContainerView *nowContainerView;
@@ -160,12 +162,16 @@
         [Object setAllObjectsFreeFromHolder:[WTBannerContainerView class]];
         
         NSDictionary *bannerActivityInfo = resultDict[@"BannerActivity"];
-        Activity *bannerActivity = [Activity insertActivity:bannerActivityInfo];
-        [bannerActivity setObjectHeldByHolder:[WTBannerContainerView class]];
+        if ([bannerActivityInfo isKindOfClass:[NSDictionary class]]) {
+            Activity *bannerActivity = [Activity insertActivity:bannerActivityInfo];
+            [bannerActivity setObjectHeldByHolder:[WTBannerContainerView class]];
+        }
         
         NSDictionary *bannerNewsInfo = resultDict[@"BannerInformation"];
-        News *bannerNews = [News insertNews:bannerNewsInfo];
-        [bannerNews setObjectHeldByHolder:[WTBannerContainerView class]];
+        if ([bannerNewsInfo isKindOfClass:[NSDictionary class]]) {
+            News *bannerNews = [News insertNews:bannerNewsInfo];
+            [bannerNews setObjectHeldByHolder:[WTBannerContainerView class]];
+        }
         
         NSArray *bannerAdvertisementArray = resultDict[@"BannerAdvertisements"];
         for (NSDictionary *adInfo in bannerAdvertisementArray) {
@@ -251,6 +257,7 @@
 - (void)configureBannerView {
     self.bannerContainerView = [WTBannerContainerView createBannerContainerView];
     [self.bannerContainerView resetOrigin:CGPointZero];
+    self.bannerContainerView.delegate = self;
     [self.scrollView addSubview:self.bannerContainerView];
     [self fillBannerView];
 }
@@ -283,6 +290,25 @@
         [self.nowContainerView resetOriginY:self.bannerContainerView.frame.origin.y + self.bannerContainerView.frame.size.height - self.nowContainerView.frame.size.height];
     } else {
         [self.nowContainerView resetOriginY:self.bannerContainerView.frame.origin.y + self.bannerContainerView.frame.size.height];
+    }
+}
+
+- (void)pushDetailViewControllerWithModelObject:(Object *)modelObject {
+    if ([modelObject isKindOfClass:[Activity class]]) {
+        WTActivityDetailViewController *vc = [WTActivityDetailViewController createDetailViewControllerWithActivity:(Activity *)modelObject backBarButtonText:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([modelObject isKindOfClass:[News class]]) {
+        WTNewsDetailViewController *vc = [WTNewsDetailViewController createDetailViewControllerWithNews:(News *)modelObject backBarButtonText:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([modelObject isKindOfClass:[Organization class]]) {
+        WTOrganizationDetailViewController *vc = [WTOrganizationDetailViewController createDetailViewControllerWithOrganization:(Organization *)modelObject backBarButtonText:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if([modelObject isKindOfClass:[Star class]]) {
+        WTStarDetailViewController *vc = [WTStarDetailViewController createDetailViewControllerWithStar:(Star *)modelObject backBarButtonText:nil];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([modelObject isKindOfClass:[Advertisement class]]) {
+        Advertisement *ad = (Advertisement *)modelObject;
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:ad.website]];
     }
 }
 
@@ -344,19 +370,7 @@
 
 - (void)homeSelectContainerView:(WTHomeSelectContainerView *)containerView
            didSelectModelObject:(Object *)modelObject {
-    if ([modelObject isKindOfClass:[Activity class]]) {
-        WTActivityDetailViewController *vc = [WTActivityDetailViewController createDetailViewControllerWithActivity:(Activity *)modelObject backBarButtonText:nil];
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if ([modelObject isKindOfClass:[News class]]) {
-        WTNewsDetailViewController *vc = [WTNewsDetailViewController createDetailViewControllerWithNews:(News *)modelObject backBarButtonText:nil];
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if ([modelObject isKindOfClass:[Organization class]]) {
-        WTOrganizationDetailViewController *vc = [WTOrganizationDetailViewController createDetailViewControllerWithOrganization:(Organization *)modelObject backBarButtonText:nil];
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if([modelObject isKindOfClass:[Star class]]) {
-        WTStarDetailViewController *vc = [WTStarDetailViewController createDetailViewControllerWithStar:(Star *)modelObject backBarButtonText:nil];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
+    [self pushDetailViewControllerWithModelObject:modelObject];
 }
 
 - (void)homeSelectContainerView:(WTHomeSelectContainerView *)containerView
@@ -388,6 +402,13 @@
         WTCourseDetialViewController *vc = [WTCourseDetialViewController createCourseDetailViewControllerWithCourse:(Course *)event backBarButtonText:nil];
         [self.navigationController pushViewController:vc animated:YES];
     }
+}
+
+#pragma mark - WTBannerContainerViewDelegate
+
+- (void)bannerContainerView:(WTBannerContainerView *)containerView
+       didSelectModelObject:(Object *)modelObject {
+    [self pushDetailViewControllerWithModelObject:modelObject];
 }
 
 @end

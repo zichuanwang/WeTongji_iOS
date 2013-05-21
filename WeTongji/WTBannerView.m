@@ -12,10 +12,12 @@
 #import "Activity+Addition.h"
 #import "News+Addition.h"
 #import "Advertisement+Addition.h"
+#import "NSString+WTAddition.h"
 
 @interface WTBannerContainerView()
 
 @property (nonatomic, strong) NSMutableArray *bannerItemViewArray;
+@property (nonatomic, strong) NSMutableArray *bannerObjectArray;
 @property (nonatomic, assign) NSUInteger bannerItemCount;
 
 @property (nonatomic, assign) CGFloat originalBottomY;
@@ -87,44 +89,52 @@
     }
 }
 
-- (void)addItemViewWithImage:(UIImage *)image
+- (WTBannerItemView *)addItemViewWithImage:(UIImage *)image
                    titleText:(NSString *)title
             organizationName:(NSString *)organization
-                       style:(WTBannerItemViewStyle)style
-                     atIndex:(NSUInteger)index {
-    [self addItemViewWithTitleText:title
-                  organizationName:organization
-                             style:style
-                           atIndex:index];
+                       style:(WTBannerItemViewStyle)style {
+    WTBannerItemView *result = [self addItemViewWithTitleText:title
+                                             organizationName:organization
+                                                        style:style];
     
-    WTBannerItemView *containerView = self.bannerItemViewArray[index];
-    containerView.imageView.image = image;
+    result.imageView.image = image;
+    return result;
 }
 
-- (void)addItemViewWithImageURL:(NSString *)imageURLString
+- (WTBannerItemView *)addItemViewWithImageURL:(NSString *)imageURLString
                       titleText:(NSString *)title
                organizationName:(NSString *)organization
-                          style:(WTBannerItemViewStyle)style
-                        atIndex:(NSUInteger)index {
-    [self addItemViewWithTitleText:title
-                  organizationName:organization
-                             style:style
-                           atIndex:index];
+                          style:(WTBannerItemViewStyle)style {
+    WTBannerItemView *result = [self addItemViewWithTitleText:title
+                                             organizationName:organization
+                                                        style:style];
     
-    WTBannerItemView *itemView = self.bannerItemViewArray[index];
-    [itemView.imageView loadImageWithImageURLString:imageURLString];
-    itemView.imageURLString = imageURLString;
+    [result.imageView loadImageWithImageURLString:imageURLString];
+    result.imageURLString = imageURLString;
+    
+    return result;
 }
 
-- (void)addItemViewWithTitleText:(NSString *)title
-                organizationName:(NSString *)organization
-                           style:(WTBannerItemViewStyle)style
-                         atIndex:(NSUInteger)index {
+- (WTBannerItemView *)addItemViewWithModelObject:(Object *)object {
     self.bannerItemCount = self.bannerItemCount + 1;
+    NSInteger index = self.bannerItemCount - 1;
     WTBannerItemView *itemView = self.bannerItemViewArray[index];
+    [itemView configureViewWithModelObject:self.bannerObjectArray[index]];
+    itemView.style = WTBannerItemViewStyleBlue;
+    
+    return itemView;
+}
+
+- (WTBannerItemView *)addItemViewWithTitleText:(NSString *)title
+                organizationName:(NSString *)organization
+                           style:(WTBannerItemViewStyle)style {
+    self.bannerItemCount = self.bannerItemCount + 1;
+    WTBannerItemView *itemView = self.bannerItemViewArray[self.bannerItemCount - 1];
     itemView.titleLabel.text = title;
     itemView.organizationNameLabel.text = organization;
     itemView.style = style;
+    
+    return itemView;
 }
 
 - (void)reloadItemImages {
@@ -144,6 +154,13 @@
         _bannerItemViewArray = [[NSMutableArray alloc] init];
     }
     return _bannerItemViewArray;
+}
+
+- (NSMutableArray *)bannerObjectArray {
+    if (_bannerObjectArray == nil) {
+        _bannerObjectArray = [[NSMutableArray alloc] init];
+    }
+    return  _bannerObjectArray;
 }
 
 - (void)setBannerItemCount:(NSUInteger)bannerItemCount {
@@ -184,39 +201,28 @@
 }
 
 - (void)configureBannerWithObjectsArray:(NSArray *)objectsArray {
+    [self.bannerObjectArray removeAllObjects];
+    [self.bannerObjectArray addObjectsFromArray:objectsArray];
+    
     self.bannerItemCount = 0;
     NSInteger i = 0;
-    for (Object *object in objectsArray) {
-        NSString *imageURL = nil;
-        NSString *title = nil;
-        NSString *orgName = nil;
-        if ([object isKindOfClass:[Activity class]]) {
-            Activity *activity = (Activity *)object;
-            imageURL = activity.image;
-            title = activity.what;
-            orgName = activity.organizer;
-        } else if ([object isKindOfClass:[News class]]) {
-            News *news = (News *)object;
-            NSArray *imageArray = news.imageArray;
-            if (imageArray) {
-                imageURL = imageArray[0];
-            }
-            title = news.title;
-            // TODO: 根据新闻类别配置orgName
-            orgName = news.organizer;
-        } else if ([object isKindOfClass:[Advertisement class]]) {
-            Advertisement *ad = (Advertisement *)object;
-            imageURL = ad.image;
-            title = ad.title;
-            orgName = ad.publisher;
-        }
-        [self addItemViewWithImageURL:imageURL
-                            titleText:title
-                     organizationName:orgName
-                                style:WTBannerItemViewStyleBlue
-                              atIndex:i];
+    for (Object *object in objectsArray) {        
+        WTBannerItemView *itemView = [self addItemViewWithModelObject:object];
+        itemView.tag = i;
+        
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGestureRecognizer:)];
+        [itemView addGestureRecognizer:tapGestureRecognizer];
+        
         i++;
     }
+}
+
+#pragma mark - Gesture recognizer
+
+- (void)handleTapGestureRecognizer:(UITapGestureRecognizer *)tap {
+    NSInteger itemIndex = tap.view.tag;
+    Object *bannerObject = self.bannerObjectArray[itemIndex];
+    [self.delegate bannerContainerView:self didSelectModelObject:bannerObject];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -299,6 +305,32 @@
         default:
             break;
     }
+}
+
+- (void)configureViewWithModelObject:(Object *)object {
+    if ([object isKindOfClass:[Activity class]]) {
+        Activity *activity = (Activity *)object;
+        self.imageURLString = activity.image;
+        self.titleLabel.text = activity.what;
+        self.organizationNameLabel.text = activity.organizer;
+    } else if ([object isKindOfClass:[News class]]) {
+        News *news = (News *)object;
+        NSArray *imageArray = news.imageArray;
+        if (imageArray) {
+            self.imageURLString = imageArray[0];
+        }
+        self.titleLabel.text = news.title;
+        // TODO: 根据新闻类别配置orgName
+        self.organizationNameLabel.text = news.organizer;
+    } else if ([object isKindOfClass:[Advertisement class]]) {
+        Advertisement *ad = (Advertisement *)object;
+        self.imageURLString = ad.image;
+        self.titleLabel.text = ad.title;
+        self.organizationNameLabel.text = ad.publisher;
+        self.labelContainerView.backgroundColor = [ad.bgColorHex converHexStringToColorWithAlpha:0.6f];
+    }
+    
+    [self.imageView loadImageWithImageURLString:self.imageURLString];
 }
 
 @end

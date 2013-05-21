@@ -50,6 +50,8 @@
     NSArray *imageArray = dict[@"Images"];
     if (imageArray.count == 0)
         result.imageArray = nil;
+    else
+        result.imageArray = imageArray;
     
     NSString *categoryString = [NSString stringWithFormat:@"%@", dict[@"Category"]];
     if ([categoryString isEqualToString:@"校园新闻"])

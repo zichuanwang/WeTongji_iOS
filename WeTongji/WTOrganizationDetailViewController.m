@@ -119,8 +119,7 @@
         [self.bannerView addItemViewWithImage:image
                          titleText:titleArray[i]
                   organizationName:orgNameArray[i]
-                             style:WTBannerItemViewStyleBlue
-                           atIndex:i];
+                             style:WTBannerItemViewStyleBlue];
     }
 }
 

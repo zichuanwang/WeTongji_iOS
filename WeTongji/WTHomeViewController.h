@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "WTRootViewController.h"
-#import "WTHomeSelectContainerView.h"
-#import "WTHomeNowView.h"
 
-@interface WTHomeViewController : WTRootViewController <UIScrollViewDelegate, WTHomeSelectContainerViewDelegate, WTHomeNowContainerViewDelegate>
+@interface WTHomeViewController : WTRootViewController <UIScrollViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
