@@ -41,6 +41,8 @@
     self.tableView.alwaysBounceVertical = YES;
     
     self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
+    
+    [Notification createTestFriendInvitationNotifications];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -68,6 +70,11 @@
 
 - (void)loadMoreDataWithSuccessBlock:(void (^)(void))success
                         failureBlock:(void (^)(void))failure {
+    
+    if (failure)
+        failure();
+    return;
+    
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Get notification list succese:%@", responseObject);
         
