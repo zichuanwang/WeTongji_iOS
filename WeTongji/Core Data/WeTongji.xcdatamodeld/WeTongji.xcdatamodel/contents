@@ -30,6 +30,7 @@
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="testImage" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BillboardComment" inverseName="belongTo" inverseEntity="BillboardComment" syncable="YES"/>
     </entity>
@@ -136,7 +137,7 @@
         <element name="ActivityInvitationNotification" positionX="160" positionY="192" width="128" height="45"/>
         <element name="Advertisement" positionX="160" positionY="192" width="128" height="120"/>
         <element name="BillboardComment" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="BillboardPost" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="BillboardPost" positionX="160" positionY="192" width="128" height="150"/>
         <element name="Controller" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Course" positionX="160" positionY="192" width="128" height="180"/>
         <element name="Event" positionX="160" positionY="192" width="128" height="135"/>

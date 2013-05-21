@@ -46,7 +46,7 @@
 }
 
 - (void)configurePostContentView {
-    if (self.post.image) {
+    if (self.post.image || self.post.testImage) {
         WTImageBillboardDetailHeaderView *postContentView = [WTImageBillboardDetailHeaderView createDetailHeaderView];
         [postContentView configureViewWithBillboardPost:self.post];
         self.postContentView = postContentView;
@@ -88,7 +88,11 @@
 }
 
 - (void)configureViewWithBillboardPost:(BillboardPost *)post {
-    [self.postImageView loadImageWithImageURLString:post.image];
+    if (post.testImage) {
+        self.postImageView.image = post.testImage;
+    } else {
+        [self.postImageView loadImageWithImageURLString:post.image];
+    }
     
     self.titleLabel.text = post.title;
     CGFloat titleLabelBottomIndent = self.frame.size.height - self.titleLabel.frame.size.height - self.titleLabel.frame.origin.y;

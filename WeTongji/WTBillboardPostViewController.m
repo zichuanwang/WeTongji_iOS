@@ -13,6 +13,7 @@
 #import "WTBillboardPostImageViewController.h"
 #import "UIApplication+WTAddition.h"
 #import "WTNavigationViewController.h"
+#import "BillboardPost+Addition.h"
 
 @interface WTBillboardPostViewController ()
 
@@ -78,6 +79,11 @@
 }
 
 - (void)didClickPostButton:(UIButton *)sender {
+    
+    [BillboardPost createTestBillboardPostWithTitle:self.titleTextField.text content:self.contentTextView.text image:self.postImageView.image];
+    [self dismissView];
+    return;
+    
     sender.userInteractionEnabled = NO;
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         [self dismissView];

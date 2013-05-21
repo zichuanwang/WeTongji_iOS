@@ -35,6 +35,20 @@
     }
 }
 
++ (BillboardPost *)createTestBillboardPostWithTitle:(NSString *)title
+                                            content:(NSString *)content
+                                              image:(UIImage *)image {
+    NSString *postID = [NSString stringWithFormat:@"%@", [NSDate date]];
+    BillboardPost *result = [NSEntityDescription insertNewObjectForEntityForName:@"BillboardPost" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
+    result.identifier = postID;
+    result.createdAt = [NSDate date];
+    result.title = title;
+    result.content = content;
+    result.testImage = image;
+    
+    return result;
+}
+
 + (BillboardPost *)insertBillboardPost:(NSDictionary *)dict {
     NSString *postID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
