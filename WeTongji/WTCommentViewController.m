@@ -7,8 +7,18 @@
 //
 
 #import "WTCommentViewController.h"
+#import "WTResourceFactory.h"
+#import "Object+Addtion.h"
+#import "UIApplication+WTAddition.h"
+#import "WTNavigationViewController.h"
 
-@interface WTCommentViewController ()
+#define MAX_COMMENT_TEXT_LENGTH 140
+
+@interface WTCommentViewController () <UITextViewDelegate>
+
+@property (nonatomic, strong) Object *commentObject;
+
+@property (nonatomic, weak) UILabel *navigationBarTitleLable;
 
 @end
 
@@ -27,12 +37,87 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self configureNavigationBar];
+    [self configureContentView];
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleKeyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
++ (void)showViewControllerWithCommentObject:(Object *)commentObject {
+    WTCommentViewController *result = [[WTCommentViewController alloc] init];
+    
+    WTNavigationViewController *nav = [[WTNavigationViewController alloc] initWithRootViewController:result];
+    
+    result.commentObject = commentObject;
+    
+    [[UIApplication sharedApplication].rootTabBarController presentViewController:nav animated:YES completion:nil];
+}
+
+#pragma mark - Keyboard notification
+
+- (void)handleKeyboardWillShowNotification:(NSNotification *)notification {
+    NSDictionary *info = [notification userInfo];
+    CGFloat keyboardHeight = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
+    [self configureContentTextViewSizeWithKeyboardHeight:keyboardHeight];
+}
+
+#pragma mark - Actions
+
+- (void)didClickCancelButton:(UIButton *)sender {
+    [[UIApplication sharedApplication].rootTabBarController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)didClickPostButton:(UIButton *)sender {
+    
+}
+
+#pragma mark - UI methods 
+
+- (void)configureNavigationBar {
+    self.navigationItem.leftBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:NSLocalizedString(@"Cancel", nil) target:self action:@selector(didClickCancelButton:)];
+    
+    self.navigationItem.rightBarButtonItem = [WTResourceFactory createFocusBarButtonWithText:NSLocalizedString(@"Post", nil) target:self action:@selector(didClickPostButton:)];
+    
+    // TODO: 不规范
+    UIView *titleView = [WTResourceFactory createNavigationBarTitleViewWithText:[NSString stringWithFormat:@"0/%d", MAX_COMMENT_TEXT_LENGTH]];
+    self.navigationBarTitleLable = titleView.subviews.lastObject;
+    self.navigationItem.titleView = titleView;
+}
+
+- (void)configureContentView {
+    UIEdgeInsets insets = UIEdgeInsetsMake(6.0, 7.0, 8.0, 7.0);
+    UIImage *bgImage = [[UIImage imageNamed:@"WTInfoPanelBg"] resizableImageWithCapInsets:insets];
+    self.contentBgImageView.image = bgImage;
+    
+    [self.contentTextView becomeFirstResponder];
+}
+
+- (void)configureContentTextViewSizeWithKeyboardHeight:(CGFloat)keyboardHeight {
+    CGFloat visibleScreenHeight = self.view.frame.size.height - keyboardHeight;
+    CGRect contentTextViewFrameInRootView = [self.view convertRect:self.contentTextView.frame fromView:self.contentTextView.superview];
+    CGFloat contentTextViewHeight = visibleScreenHeight - contentTextViewFrameInRootView.origin.y;
+    [self.contentTextView resetHeight:contentTextViewHeight];
+}
+
+#pragma mark - UITextViewDelegate
+
+- (void)textViewDidChange:(UITextView *)textView {
+    if (textView.text.length > MAX_COMMENT_TEXT_LENGTH) {
+        textView.text = [textView.text substringToIndex:MAX_COMMENT_TEXT_LENGTH];
+    }
+    self.navigationBarTitleLable.text = [NSString stringWithFormat:@"%d/%d", textView.text.length, MAX_COMMENT_TEXT_LENGTH];
 }
 
 @end

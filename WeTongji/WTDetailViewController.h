@@ -16,4 +16,10 @@
 
 @property (nonatomic, weak) WTLikeButtonView *likeButtonContainerView;
 
+- (void)didClickLikeButton:(UIButton *)sender;
+
+- (void)didClickCommentButton:(UIButton *)sender;
+
+- (void)didClickMoreButton:(UIButton *)sender;
+
 @end

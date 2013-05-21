@@ -66,6 +66,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.scrollView resetHeight:self.view.frame.size.height];
+    
+    [self updateBannerView];
     [self updateNowView];
     [self updateHomeSelectViews];
     [self updateScrollView];
@@ -255,6 +257,10 @@
 
 - (void)fillBannerView {
     [self.bannerContainerView configureBannerWithObjectsArray:[Object getAllObjectsHeldByHolder:[WTBannerContainerView class] objectEntityName:@"Object"]];
+}
+
+- (void)updateBannerView {
+    [self.bannerContainerView reloadItemImages];
 }
 
 - (void)configureNavigationBar {

@@ -59,6 +59,7 @@
     UIImage *commentImage = [UIImage imageNamed:@"WTCommentButton"];
     [commentButton setBackgroundImage:commentImage forState:UIControlStateNormal];
     [commentButton resetSize:commentImage.size];
+    [commentButton addTarget:self action:@selector(didClickCommentButton:) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *moreButton = [[UIButton alloc] init];
     moreButton.showsTouchWhenHighlighted = YES;
@@ -66,6 +67,7 @@
     UIImage *moreImage = [UIImage imageNamed:@"WTMoreButton"];
     [moreButton resetSize:moreImage.size];
     [moreButton setBackgroundImage:moreImage forState:UIControlStateNormal];
+    [moreButton addTarget:self action:@selector(didClickMoreButton:) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *barCommentButton = [[UIBarButtonItem alloc] initWithCustomView:commentButton];
     UIBarButtonItem *barMoreButton = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
@@ -104,6 +106,14 @@
 }
 
 - (void)didClickLikeButton:(UIButton *)sender {
+    
+}
+
+- (void)didClickCommentButton:(UIButton *)sender {
+    
+}
+
+- (void)didClickMoreButton:(UIButton *)sender {
     
 }
 

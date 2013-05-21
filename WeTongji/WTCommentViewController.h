@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class Object;
+
 @interface WTCommentViewController : UIViewController
+
+@property (nonatomic, weak) IBOutlet UIImageView *contentBgImageView;
+@property (nonatomic, weak) IBOutlet UIView *contentBgView;
+@property (nonatomic, weak) IBOutlet UITextView *contentTextView;
+
++ (void)showViewControllerWithCommentObject:(Object *)commentObject;
 
 @end

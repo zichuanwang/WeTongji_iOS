@@ -10,6 +10,7 @@
 #import "BillboardPost.h"
 #import "WTBillboardDetailHeaderView.h"
 #import "WTBillboardCommentViewController.h"
+#import "WTCommentViewController.h"
 
 @interface WTBillboardDetailViewController () <WTBillboardCommentViewControllerDataSource>
 
@@ -82,6 +83,12 @@
 
 - (UIView *)commentViewControllerTableViewHeaderView {
     return self.headerView;
+}
+
+#pragma mark - Overwrite super class methods
+
+- (void)didClickCommentButton:(UIButton *)sender {
+    [WTCommentViewController showViewControllerWithCommentObject:self.post];
 }
 
 @end

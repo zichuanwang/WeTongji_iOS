@@ -31,7 +31,9 @@
     // Do any additional setup after loading the view from its nib.
     [self configureTitleView];
     [self configureContentView];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleKeyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
 }
 

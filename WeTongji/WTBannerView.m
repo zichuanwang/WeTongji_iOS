@@ -129,9 +129,11 @@
 
 - (void)reloadItemImages {
     for (WTBannerItemView *itemView in self.bannerItemViewArray) {
-        [itemView.imageView loadImageWithImageURLString:itemView.imageURLString success:^(UIImage *image) {
-            itemView.imageView.image = image;
-        } failure:nil];
+        if (!itemView.imageView.image) {
+            [itemView.imageView loadImageWithImageURLString:itemView.imageURLString success:^(UIImage *image) {
+                itemView.imageView.image = image;
+            } failure:nil];
+        }
     }
 }
 

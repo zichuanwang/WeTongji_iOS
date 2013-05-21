@@ -117,6 +117,8 @@
     titleLabel.text = text;
     [titleLabel sizeToFit];
     
+    [titleLabel resetWidth:100.0f];
+    
     UIView *titleContainerView = [[UIView alloc] initWithFrame:titleLabel.frame];
     [titleLabel resetOriginY:0];
     [titleContainerView addSubview:titleLabel];

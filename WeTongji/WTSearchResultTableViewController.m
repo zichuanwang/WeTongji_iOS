@@ -53,6 +53,8 @@
         
     [self clearSearchResultObjects];
     [self configureDragToLoadDecorator];
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
 }
 
 - (void)didReceiveMemoryWarning
