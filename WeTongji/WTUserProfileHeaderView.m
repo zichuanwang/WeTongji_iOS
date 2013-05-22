@@ -30,17 +30,11 @@
     return self;
 }
 
-- (void)didMoveToSuperview {
-    [self configureAvatarImageView];
-}
-
 - (void)configureAvatarImageView {
     self.avatarContainerView.layer.masksToBounds = YES;
     self.avatarContainerView.layer.cornerRadius = 6.0f;
-}
-
-- (void)configureViewWithUser:(User *)user {
-
+    
+    User *user = self.user;
     [self.avatarImageView loadImageWithImageURLString:user.avatar success:^(UIImage *image) {
         self.avatarImageView.image = image;
         [self.avatarImageView fadeIn];
@@ -49,6 +43,13 @@
             [self.avatarBgImageView fadeIn];
         }];
     } failure:nil];
+}
+
+- (void)configureViewWithUser:(User *)user {
+    
+    self.user = user;
+
+    [self configureAvatarImageView];
     
     if ([user.gender isEqualToString:@"男"]) {
         self.genderIndicatorImageView.image = [UIImage imageNamed:@"WTGenderWhiteMaleIcon"];
@@ -76,7 +77,8 @@
     [self.personalInfoContainerView resetOriginY:self.mottoLabel.frame.size.height + self.mottoLabel.frame.origin.y + 12.0f];
 }
 
-- (void)configureAvatarBgImageViewWithAvatarImage:(UIImage *)image completion:(void (^)(UIImage *bgImage))completion {
+- (void)configureAvatarBgImageViewWithAvatarImage:(UIImage *)image
+                                       completion:(void (^)(UIImage *bgImage))completion {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         UIImage *resultImage = [image stackBlur:4];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -107,6 +109,12 @@
     self.avatarPlaceholderImageView.image = self.avatarImageView.image;
     self.avatarImageView.image = image;
     [self.avatarImageView fadeIn];
+}
+
+- (void)updateView {
+    if (!self.avatarImageView.image) {
+        [self configureAvatarImageView];
+    }
 }
 
 @end

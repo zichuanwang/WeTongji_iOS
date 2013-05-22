@@ -25,6 +25,7 @@
 #import "WTOrganizationDetailViewController.h"
 #import "WTUserDetailViewController.h"
 #import "NSUserDefaults+WTAddition.h"
+#import "UIApplication+WTAddition.h"
 
 @interface WTSearchResultTableViewController () <WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
@@ -264,6 +265,11 @@
     } else if ([object isKindOfClass:[Organization class]]) {
         vc = [WTOrganizationDetailViewController createDetailViewControllerWithOrganization:(Organization *)object backBarButtonText:backBarButtonText];
     } else if ([object isKindOfClass:[User class]]) {
+        // 如果是当前用户, 则进行Tab跳转
+        if ([[WTCoreDataManager sharedManager].currentUser.identifier isEqualToString:object.identifier]) {
+            [[UIApplication sharedApplication].rootTabBarController clickTabWithName:WTRootTabBarViewControllerMe];
+            return;
+        }
         vc = [WTUserDetailViewController createDetailViewControllerWithUser:(User *)object backBarButtonText:backBarButtonText];
     } else {
         return;

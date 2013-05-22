@@ -34,4 +34,6 @@ typedef enum {
 
 - (void)updateAvatarImage:(UIImage *)image;
 
+- (void)updateView;
+
 @end

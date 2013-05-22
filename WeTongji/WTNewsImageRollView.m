@@ -103,17 +103,9 @@
             break;
         }
     }
-    [result configureView];
     [result loadImageWithImageURLString:imageURLString];
     
     return result;
-}
-
-- (void)configureView {
-    self.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.layer.shadowOffset = CGSizeMake(0, 1.0f);
-    self.layer.shadowOpacity = 0.3f;
-    self.layer.shadowRadius = 2.0f;
 }
 
 - (void)loadImageWithImageURLString:(NSString *)imageURLString {

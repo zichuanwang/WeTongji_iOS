@@ -47,6 +47,10 @@
     [NSNotificationCenter registerCurrentUserDidChangeNotificationWithSelector:@selector(hanldeCurrentUserDidChangeNotification:) target:self];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self.profileHeaderView updateView];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [self.scrollView resetHeight:self.view.frame.size.height];
 }
@@ -181,7 +185,11 @@
 
 - (void)innerSettingViewController:(WTInnerSettingViewController *)controller didFinishSetting:(BOOL)modified {
     if (modified) {
-        [WTClient refreshSharedClient];
+        
+    }
+    
+    if (![WTCoreDataManager sharedManager].currentUser) {
+        [[UIApplication sharedApplication].rootTabBarController clickTabWithName:WTRootTabBarViewControllerHome];
     }
 }
 
