@@ -16,8 +16,4 @@
 
 + (BillboardPost *)insertBillboardPost:(NSDictionary *)dict;
 
-+ (BillboardPost *)createTestBillboardPostWithTitle:(NSString *)title
-                                            content:(NSString *)content
-                                              image:(UIImage *)image;
-
 @end

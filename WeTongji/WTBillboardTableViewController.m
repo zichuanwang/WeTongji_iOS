@@ -28,7 +28,6 @@
     if (self) {
         // Custom initialization
         self.nextPage = 2;
-        _noAnimationFlag = YES;
     }
     return self;
 }
@@ -84,7 +83,7 @@
         for (NSDictionary *dict in resultArray) {
             [BillboardPost insertBillboardPost:dict];
         }
-        // _noAnimationFlag = NO;
+        _noAnimationFlag = NO;
 
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Error:%@", error.localizedDescription);

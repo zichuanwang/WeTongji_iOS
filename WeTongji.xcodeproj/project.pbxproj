@@ -544,7 +544,6 @@
 		E1DA84DF174B6A470038B1E4 /* WTBillboardImageSourceLeftNormalButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1DA84DB174B6A470038B1E4 /* WTBillboardImageSourceLeftNormalButton@2x.png */; };
 		E1DA84E0174B6A470038B1E4 /* WTBillboardImageSourceRightNormalButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E1DA84DC174B6A470038B1E4 /* WTBillboardImageSourceRightNormalButton.png */; };
 		E1DA84E1174B6A470038B1E4 /* WTBillboardImageSourceRightNormalButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1DA84DD174B6A470038B1E4 /* WTBillboardImageSourceRightNormalButton@2x.png */; };
-		E1DA84E4174B70E70038B1E4 /* BillboardPost.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DA84E3174B70E70038B1E4 /* BillboardPost.m */; };
 		E1DB6EE8171DCF6C00E24187 /* WTTableViewTopLineSectionBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1DB6EE6171DCF6C00E24187 /* WTTableViewTopLineSectionBg.png */; };
 		E1DB6EE9171DCF6C00E24187 /* WTTableViewTopLineSectionBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1DB6EE7171DCF6C00E24187 /* WTTableViewTopLineSectionBg@2x.png */; };
 		E1DB6EEF171DD0AB00E24187 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DB6EEE171DD0AB00E24187 /* Event.m */; };
@@ -571,6 +570,7 @@
 		E1F0AE2B1747FA2D00EA2CED /* WTPanelMiddleButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F0AE271747FA2D00EA2CED /* WTPanelMiddleButton@2x.png */; };
 		E1F0AE3C174A4E6D00EA2CED /* WTStarDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0AE3A174A4E6D00EA2CED /* WTStarDetailViewController.m */; };
 		E1F0AE3D174A4E6D00EA2CED /* WTStarDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F0AE3B174A4E6D00EA2CED /* WTStarDetailViewController.xib */; };
+		E1FC01A6172FEB2300D0776C /* BillboardPost.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FC01A5172FEB2300D0776C /* BillboardPost.m */; };
 		E47686711745287A003C9627 /* UIImage+StackBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = E47686701745287A003C9627 /* UIImage+StackBlur.m */; };
 		E4D164231744D01700F11A2C /* WTStarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D164211744D01700F11A2C /* WTStarViewController.m */; };
 		E4D164241744D01700F11A2C /* WTStarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D164221744D01700F11A2C /* WTStarViewController.xib */; };
@@ -1268,8 +1268,6 @@
 		E1DA84DB174B6A470038B1E4 /* WTBillboardImageSourceLeftNormalButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTBillboardImageSourceLeftNormalButton@2x.png"; sourceTree = "<group>"; };
 		E1DA84DC174B6A470038B1E4 /* WTBillboardImageSourceRightNormalButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTBillboardImageSourceRightNormalButton.png; sourceTree = "<group>"; };
 		E1DA84DD174B6A470038B1E4 /* WTBillboardImageSourceRightNormalButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTBillboardImageSourceRightNormalButton@2x.png"; sourceTree = "<group>"; };
-		E1DA84E2174B70E70038B1E4 /* BillboardPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillboardPost.h; sourceTree = "<group>"; };
-		E1DA84E3174B70E70038B1E4 /* BillboardPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillboardPost.m; sourceTree = "<group>"; };
 		E1DB6EE6171DCF6C00E24187 /* WTTableViewTopLineSectionBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTableViewTopLineSectionBg.png; sourceTree = "<group>"; };
 		E1DB6EE7171DCF6C00E24187 /* WTTableViewTopLineSectionBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTableViewTopLineSectionBg@2x.png"; sourceTree = "<group>"; };
 		E1DB6EED171DD0AB00E24187 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
@@ -1302,6 +1300,8 @@
 		E1F0AE39174A4E6C00EA2CED /* WTStarDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTStarDetailViewController.h; sourceTree = "<group>"; };
 		E1F0AE3A174A4E6D00EA2CED /* WTStarDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTStarDetailViewController.m; sourceTree = "<group>"; };
 		E1F0AE3B174A4E6D00EA2CED /* WTStarDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTStarDetailViewController.xib; sourceTree = "<group>"; };
+		E1FC01A4172FEB2300D0776C /* BillboardPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillboardPost.h; sourceTree = "<group>"; };
+		E1FC01A5172FEB2300D0776C /* BillboardPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillboardPost.m; sourceTree = "<group>"; };
 		E476866F1745287A003C9627 /* UIImage+StackBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+StackBlur.h"; sourceTree = "<group>"; };
 		E47686701745287A003C9627 /* UIImage+StackBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+StackBlur.m"; sourceTree = "<group>"; };
 		E4D164201744D01700F11A2C /* WTStarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTStarViewController.h; sourceTree = "<group>"; };
@@ -2540,6 +2540,8 @@
 				E11825BD1714768300B4B9BF /* ActivityInvitationNotification.m */,
 				E179669717283D3500761BD5 /* BillboardComment.h */,
 				E179669817283D3500761BD5 /* BillboardComment.m */,
+				E1FC01A4172FEB2300D0776C /* BillboardPost.h */,
+				E1FC01A5172FEB2300D0776C /* BillboardPost.m */,
 				E1C8321517467717002C0567 /* Controller.h */,
 				E1C8321617467717002C0567 /* Controller.m */,
 				E11825BF1714768400B4B9BF /* Course.h */,
@@ -2568,8 +2570,6 @@
 				E17966951728353B00761BD5 /* User.m */,
 				E1DA84CB174B52A20038B1E4 /* Advertisement.h */,
 				E1DA84CC174B52A20038B1E4 /* Advertisement.m */,
-				E1DA84E2174B70E70038B1E4 /* BillboardPost.h */,
-				E1DA84E3174B70E70038B1E4 /* BillboardPost.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3240,6 +3240,7 @@
 				E17966961728353B00761BD5 /* User.m in Sources */,
 				E179669917283D3500761BD5 /* BillboardComment.m in Sources */,
 				E179669F1728458A00761BD5 /* NSAttributedString+WTAddition.m in Sources */,
+				E1FC01A6172FEB2300D0776C /* BillboardPost.m in Sources */,
 				E16E962B173430540055DE27 /* News.m in Sources */,
 				E12B8C011734FC0D002A4D9C /* Activity.m in Sources */,
 				E12B8C0D1736B545002A4D9C /* Object+Addtion.m in Sources */,
@@ -3271,7 +3272,6 @@
 				E1C8322017467AD4002C0567 /* Object.m in Sources */,
 				E1F0AE3C174A4E6D00EA2CED /* WTStarDetailViewController.m in Sources */,
 				E1DA84CD174B52A20038B1E4 /* Advertisement.m in Sources */,
-				E1DA84E4174B70E70038B1E4 /* BillboardPost.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

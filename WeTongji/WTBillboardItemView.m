@@ -53,7 +53,7 @@ enum {
 - (void)configureViewWithBillboardPost:(BillboardPost *)post {
     self.post = post;
     
-    if (post.image || post.testImage) {
+    if (post.image) {
         [self configureImageBillboardView];
     } else {
         [self configurePlainTextBillboardView];
@@ -66,11 +66,7 @@ enum {
     
     self.imageTitleLabel.text = self.post.title;
     
-    if (self.post.testImage) {
-        self.imageView.image = self.post.testImage;
-    } else {
-        [self.imageView loadImageWithImageURLString:self.post.image];
-    }
+    [self.imageView loadImageWithImageURLString:self.post.image];
 }
 
 #define PLAIN_CONTENT_LABEL_LINE_SPACING    4.0f
