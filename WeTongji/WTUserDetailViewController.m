@@ -9,11 +9,13 @@
 #import "WTUserDetailViewController.h"
 #import "User+Addition.h"
 #import "WTUserProfileHeaderView.h"
+#import "WTOtherUserProfileViewController.h"
 
 @interface WTUserDetailViewController ()
 
 @property (nonatomic, strong) User *user;
 @property (nonatomic, weak) WTUserProfileHeaderView *profileHeaderView;
+@property (nonatomic, weak) WTOtherUserProfileViewController *profileView;
 
 @end
 
@@ -61,16 +63,15 @@
 }
 
 - (void)configureProfileView {
-//    [self.profileView removeFromSuperview];
-//    WTCurrentUserProfileView *profileView = [WTCurrentUserProfileView createProfileViewWithUser:[WTCoreDataManager sharedManager].currentUser];
-//    [profileView resetOriginY:self.profileHeaderView.frame.size.height];
-//    [self.scrollView addSubview:profileView];
-//    self.profileView = profileView;
+    WTOtherUserProfileViewController *profileView = [WTOtherUserProfileViewController createProfileViewWithUser:self.user];
+    [profileView resetOriginY:self.profileHeaderView.frame.size.height];
+    [self.scrollView addSubview:profileView];
+    self.profileView = profileView;
 }
 
 - (void)configureScrollView {
     self.scrollView.alwaysBounceVertical = YES;
-    //self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, self.profileView.frame.origin.y + self.profileView.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, self.profileView.frame.origin.y + self.profileView.frame.size.height);
 }
 
 - (void)configureProfileHeaderView {
@@ -80,6 +81,12 @@
     self.profileHeaderView = headerView;
     
     [headerView.functionButton addTarget:self action:@selector(didClickChangeAvatarButton:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+#pragma mark - Actions
+
+- (void)didClickChangeRelationshipButton:(UIButton *)sender {
+    
 }
 
 @end

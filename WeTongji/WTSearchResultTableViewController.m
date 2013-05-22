@@ -130,11 +130,11 @@
             [news setObjectHeldByHolder:[self class]];
         }
         
-//        NSArray *starInfoArray = resultDict[@"Person"];
-//        for (NSDictionary *infoDict in starInfoArray) {
-//            Star *star = [Star insertStar:infoDict];
-//            star.searchResult = @(YES);
-//        }
+        NSArray *starInfoArray = resultDict[@"Person"];
+        for (NSDictionary *infoDict in starInfoArray) {
+            Star *star = [Star insertStar:infoDict];
+            [star setObjectHeldByHolder:[self class]];
+        }
         
         NSArray *orgInfoArray = resultDict[@"Accounts"];
         for (NSDictionary *infoDict in orgInfoArray) {

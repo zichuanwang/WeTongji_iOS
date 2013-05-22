@@ -78,6 +78,7 @@
 										<int key="NSvFlags">274</int>
 										<string key="NSFrameSize">{90, 90}</string>
 										<reference key="NSSuperview" ref="213706518"/>
+										<reference key="NSNextKeyView" ref="983202096"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -95,7 +96,7 @@
 								</array>
 								<string key="NSFrameSize">{90, 90}</string>
 								<reference key="NSSuperview" ref="1008970439"/>
-								<reference key="NSNextKeyView" ref="983202096"/>
+								<reference key="NSNextKeyView" ref="298172424"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor" id="146613948">
 									<int key="NSColorSpace">3</int>
@@ -225,7 +226,7 @@
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<string key="IBUITitleShadowOffset">{0, -1}</string>
-						<string key="IBUINormalTitle">修改头像</string>
+						<string key="IBUINormalTitle">Delete Friend</string>
 						<object class="NSColor" key="IBUIHighlightedTitleColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
@@ -492,7 +493,7 @@
 				<string key="11.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="12.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="13.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="1" key="13.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="0.0" key="13.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="22.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="23.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="24.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

@@ -12,6 +12,7 @@
 #import "UIImageView+AsyncLoading.h"
 #import "UIImage+StackBlur.h"
 #import "UIImage+ProportionalFill.h"
+#import "WTCoreDataManager.h"
 
 @interface WTUserProfileHeaderView ()
 
@@ -55,6 +56,17 @@
         self.genderIndicatorImageView.image = [UIImage imageNamed:@"WTGenderWhiteMaleIcon"];
     } else {
         self.genderIndicatorImageView.image = [UIImage imageNamed:@"WTGenderWhiteFemaleIcon"];
+    }
+    
+    if ([user.identifier isEqualToString:[WTCoreDataManager sharedManager].currentUser.identifier]) {
+        [self.functionButton setTitle:NSLocalizedString(@"New Avatar", nil) forState:UIControlStateNormal];
+    } else {
+        // TODO: 判断是否为好友
+        if (YES) {
+            [self.functionButton setTitle:NSLocalizedString(@"Add Friend", nil) forState:UIControlStateNormal];
+        } else {
+            [self.functionButton setTitle:NSLocalizedString(@"Delete Friend", nil) forState:UIControlStateNormal];
+        }
     }
     
     self.schoolLabel.text = user.department;
