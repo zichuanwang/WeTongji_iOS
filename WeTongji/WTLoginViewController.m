@@ -22,6 +22,7 @@
 @property (nonatomic, strong) UIButton *introButton;
 @property (nonatomic, strong) WTLoginIntroViewController *introViewController;
 @property (nonatomic, assign) BOOL showIntro;
+@property (nonatomic, assign) BOOL isLoggingIn;
 
 @end
 
@@ -202,14 +203,19 @@
 }
 
 - (void)login {
+    if (self.isLoggingIn)
+        return;
+    self.isLoggingIn = YES;
     WTClient *client = [WTClient sharedClient];
     WTRequest *request = [WTRequest requestWithSuccessBlock: ^(id responseData) {
         User *user = [User insertUser:[responseData objectForKey:@"User"]];
         [WTCoreDataManager sharedManager].currentUser = user;
         [self configureFlurryUserData:user];
         [self dismissView];
+        self.isLoggingIn = NO;
     } failureBlock:^(NSError * error) {
         [self showLoginFailedAlertView:error];
+        self.isLoggingIn = NO;
     }];
     [request login:self.accountTextField.text password:self.passwordTextField.text];
     [client enqueueRequest:request];
