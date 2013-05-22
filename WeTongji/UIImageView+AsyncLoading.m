@@ -20,8 +20,10 @@
                             success:(void (^)(UIImage *image))success
                             failure:(void (^)(void))failure {
     
-    if (!imageURLString)
+    if (!imageURLString) {
+        self.image = nil;
         return;
+    }
     // WTLOG(@"image URL:%@", imageURLString);
     //NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:imageURLString] cachePolicy:NSURLRequestReturnCacheDataDontLoad timeoutInterval:60];
     

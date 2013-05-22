@@ -32,7 +32,6 @@
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"beginTime" ascending:YES]];
     
     NSArray *allEvents = [context executeFetchRequest:request error:NULL];
-    // TODO:test
     NSArray *result = nil;
     if (allEvents.count >= 2) {
         result = [NSArray arrayWithObjects:allEvents[0], allEvents[1], nil];
@@ -62,6 +61,7 @@
     NSArray *results = [context executeFetchRequest:request error:NULL];
     
     for(Event *item in results) {
+        [currentUser removeScheduledEventsObject:item];
         [item setObjectFreeFromHolder:holderClass];
     }
 }

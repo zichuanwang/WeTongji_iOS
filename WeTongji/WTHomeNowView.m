@@ -11,6 +11,7 @@
 #import "Event+Addition.h"
 #import "NSString+WTAddition.h"
 #import "NSAttributedString+WTAddition.h"
+#import "Object+Addtion.h"
 
 @interface WTHomeNowContainerView ()
 
@@ -43,6 +44,10 @@
         [view removeFromSuperview];
     }
     [self.itemViewArray removeAllObjects];
+    
+    for (Event *event in self.eventArray) {
+        [event setObjectFreeFromHolder:[self class]];
+    }
     [self.eventArray removeAllObjects];
 }
 
@@ -78,6 +83,7 @@
         [itemView.bgButton addTarget:self action:@selector(didClickItemView:) forControlEvents:UIControlEventTouchUpInside];
         
         [self.eventArray addObject:event];
+        [event setObjectHeldByHolder:[self class]];
         
         eventIndex++;
     }

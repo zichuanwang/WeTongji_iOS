@@ -11,13 +11,23 @@
 
 @implementation Controller (Addition)
 
++ (NSMutableDictionary *)sharedControllerModelDictionary {
+    static NSMutableDictionary *controllerModelDictionary = nil;
+    static dispatch_once_t WTControllerModelDictionary;
+    dispatch_once(&WTControllerModelDictionary, ^{
+        controllerModelDictionary = [NSMutableDictionary dictionary];
+    });
+    return controllerModelDictionary;
+}
+
 + (Controller *)controllerModelForClass:(Class)className {
     NSString *controllerID = NSStringFromClass(className);
     Controller *result = [Controller controllerWithID:controllerID];
     if (!result) {
         result = [NSEntityDescription insertNewObjectForEntityForName:@"Controller" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
         result.identifier = controllerID;
-
+        
+        [Controller sharedControllerModelDictionary][NSStringFromClass(className)] = result;
     }
     return result;
 }
