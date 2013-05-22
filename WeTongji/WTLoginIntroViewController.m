@@ -46,6 +46,7 @@
 
 - (void)resetFrame:(CGRect)frame {
     self.view.frame = frame;
+    WTLOG(@"%@, %@", NSStringFromCGRect(frame), NSStringFromCGRect(self.introBgImageViewA.frame));
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 3, self.scrollView.frame.size.height);
 }
 
