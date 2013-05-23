@@ -12,10 +12,10 @@
 
 @interface WTOrganizationProfileView : UIView
 
-@property (nonatomic, weak) IBOutlet UIImageView *profileSectionBgView;
+@property (nonatomic, weak) IBOutlet UIImageView *profileSectionBgImageView;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *activityLabel;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *newsLabel;
-@property (nonatomic, weak) IBOutlet OHAttributedLabel *websiteLabel;
 
 + (WTOrganizationProfileView *)createProfileViewWithOrganization:(Organization *)org;
+
 @end

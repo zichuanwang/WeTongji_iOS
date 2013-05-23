@@ -7,7 +7,6 @@
 //
 
 #import "WTOrganizationProfileView.h"
-#define kOrganizationProfileViewNibName @"WTOrganizationProfileView"
 
 @interface WTOrganizationProfileView()
 
@@ -26,25 +25,38 @@
     return self;
 }
 
-+ (WTOrganizationProfileView *)createProfileViewWithOrganization:(Organization *)org
-{
++ (WTOrganizationProfileView *)createProfileViewWithOrganization:(Organization *)org {
     WTOrganizationProfileView *profile = [[NSBundle mainBundle]
-                                          loadNibNamed:kOrganizationProfileViewNibName owner:nil options:nil].lastObject;
+                                          loadNibNamed:@"WTOrganizationProfileView" owner:nil options:nil].lastObject;
     profile.org = org;
-    [profile configureProfileSectionView];
+    
+    [profile configureView];
     
     return profile;
 }
 
-- (void)configureProfileSectionView
+- (void)configureView
 {
     UIEdgeInsets insets = UIEdgeInsetsMake(6.0, 7.0, 8.0, 7.0);
     UIImage *bgImage = [[UIImage imageNamed:@"WTInfoPanelBg"] resizableImageWithCapInsets:insets];
-    self.profileSectionBgView.image = bgImage;
+    self.profileSectionBgImageView.image = bgImage;
     
-    self.activityLabel.text = NSLocalizedString(@"Activity", nil);
-    self.newsLabel.text = NSLocalizedString(@"News", nil);
-    self.websiteLabel.text = NSLocalizedString(@"Official Website", nil);
+    
+    NSArray *countNumberArray = @[@(2), @(4)];
+    NSArray *descriptionArray = @[NSLocalizedString(@" Activities", nil),
+                                  NSLocalizedString(@" Club News", nil)];
+    NSArray *labels = @[self.activityLabel,
+                        self.newsLabel];
+    
+    for (int i = 0; i < countNumberArray.count; i++) {
+        OHAttributedLabel *label = labels[i];
+        NSNumber *countNumber = countNumberArray[i];
+        NSString *description = descriptionArray[i];
+        NSMutableAttributedString *attributedString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@"%d%@", countNumber.integerValue, description]];
+        [attributedString setAttributes:[label.attributedText attributesAtIndex:label.attributedText.length - 1 effectiveRange:NULL] range:NSMakeRange(0, attributedString.length)];
+        [attributedString setTextBold:YES range:NSMakeRange(0, countNumber.stringValue.length)];
+        label.attributedText = attributedString;
+    }
 }
 
 @end
