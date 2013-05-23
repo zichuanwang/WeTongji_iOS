@@ -185,7 +185,7 @@
 
 - (void)innerSettingViewController:(WTInnerSettingViewController *)controller didFinishSetting:(BOOL)modified {
     if (modified) {
-        
+        [WTClient refreshSharedClient];
     }
     
     if (![WTCoreDataManager sharedManager].currentUser) {
