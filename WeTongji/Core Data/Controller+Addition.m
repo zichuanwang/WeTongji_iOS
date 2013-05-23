@@ -30,9 +30,8 @@
     if (!result) {
         result = [NSEntityDescription insertNewObjectForEntityForName:@"Controller" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
         result.identifier = controllerID;
-        
-        [Controller sharedControllerModelDictionary][NSStringFromClass(className)] = result;
     }
+    [Controller sharedControllerModelDictionary][controllerID] = result;
     return result;
 }
 

@@ -436,8 +436,8 @@
 		E19589CD17081B570040E669 /* WTScrollViewPlaceholderShadowUnit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E19589CB17081B570040E669 /* WTScrollViewPlaceholderShadowUnit@2x.png */; };
 		E198313F174CE41800C64CCE /* WTNewsImageShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = E198313D174CE41800C64CCE /* WTNewsImageShadow.png */; };
 		E1983140174CE41800C64CCE /* WTNewsImageShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E198313E174CE41800C64CCE /* WTNewsImageShadow@2x.png */; };
-		E1983144174D2CBC00C64CCE /* WTOtherUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1983142174D2CBB00C64CCE /* WTOtherUserProfileViewController.m */; };
-		E1983145174D2CBC00C64CCE /* WTOtherUserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1983143174D2CBB00C64CCE /* WTOtherUserProfileViewController.xib */; };
+		E1983144174D2CBC00C64CCE /* WTOtherUserProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1983142174D2CBB00C64CCE /* WTOtherUserProfileView.m */; };
+		E1983145174D2CBC00C64CCE /* WTOtherUserProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1983143174D2CBB00C64CCE /* WTOtherUserProfileView.xib */; };
 		E19832DA16FEF60900AB83E8 /* WTFilterNormalIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E19832D816FEF60900AB83E8 /* WTFilterNormalIcon.png */; };
 		E19832DB16FEF60900AB83E8 /* WTFilterNormalIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E19832D916FEF60900AB83E8 /* WTFilterNormalIcon@2x.png */; };
 		E19832DE16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E19832DD16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.m */; };
@@ -1141,9 +1141,9 @@
 		E19589CB17081B570040E669 /* WTScrollViewPlaceholderShadowUnit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTScrollViewPlaceholderShadowUnit@2x.png"; sourceTree = "<group>"; };
 		E198313D174CE41800C64CCE /* WTNewsImageShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNewsImageShadow.png; sourceTree = "<group>"; };
 		E198313E174CE41800C64CCE /* WTNewsImageShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNewsImageShadow@2x.png"; sourceTree = "<group>"; };
-		E1983141174D2CBB00C64CCE /* WTOtherUserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTOtherUserProfileViewController.h; sourceTree = "<group>"; };
-		E1983142174D2CBB00C64CCE /* WTOtherUserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTOtherUserProfileViewController.m; sourceTree = "<group>"; };
-		E1983143174D2CBB00C64CCE /* WTOtherUserProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTOtherUserProfileViewController.xib; sourceTree = "<group>"; };
+		E1983141174D2CBB00C64CCE /* WTOtherUserProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTOtherUserProfileView.h; sourceTree = "<group>"; };
+		E1983142174D2CBB00C64CCE /* WTOtherUserProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTOtherUserProfileView.m; sourceTree = "<group>"; };
+		E1983143174D2CBB00C64CCE /* WTOtherUserProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTOtherUserProfileView.xib; sourceTree = "<group>"; };
 		E19832D816FEF60900AB83E8 /* WTFilterNormalIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTFilterNormalIcon.png; sourceTree = "<group>"; };
 		E19832D916FEF60900AB83E8 /* WTFilterNormalIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTFilterNormalIcon@2x.png"; sourceTree = "<group>"; };
 		E19832DC16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+WTAddition.h"; sourceTree = "<group>"; };
@@ -1921,9 +1921,9 @@
 				E17703C4173FFA440086E550 /* WTCurrentUserProfileView.h */,
 				E17703C5173FFA440086E550 /* WTCurrentUserProfileView.m */,
 				E17703C7173FFA850086E550 /* WTCurrentUserProfileView.xib */,
-				E1983141174D2CBB00C64CCE /* WTOtherUserProfileViewController.h */,
-				E1983142174D2CBB00C64CCE /* WTOtherUserProfileViewController.m */,
-				E1983143174D2CBB00C64CCE /* WTOtherUserProfileViewController.xib */,
+				E1983141174D2CBB00C64CCE /* WTOtherUserProfileView.h */,
+				E1983142174D2CBB00C64CCE /* WTOtherUserProfileView.m */,
+				E1983143174D2CBB00C64CCE /* WTOtherUserProfileView.xib */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -3112,7 +3112,7 @@
 				E1DA84E1174B6A470038B1E4 /* WTBillboardImageSourceRightNormalButton@2x.png in Resources */,
 				E198313F174CE41800C64CCE /* WTNewsImageShadow.png in Resources */,
 				E1983140174CE41800C64CCE /* WTNewsImageShadow@2x.png in Resources */,
-				E1983145174D2CBC00C64CCE /* WTOtherUserProfileViewController.xib in Resources */,
+				E1983145174D2CBC00C64CCE /* WTOtherUserProfileView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3289,7 +3289,7 @@
 				E1C8322017467AD4002C0567 /* Object.m in Sources */,
 				E1F0AE3C174A4E6D00EA2CED /* WTStarDetailViewController.m in Sources */,
 				E1DA84CD174B52A20038B1E4 /* Advertisement.m in Sources */,
-				E1983144174D2CBC00C64CCE /* WTOtherUserProfileViewController.m in Sources */,
+				E1983144174D2CBC00C64CCE /* WTOtherUserProfileView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

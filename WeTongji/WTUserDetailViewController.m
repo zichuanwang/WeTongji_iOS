@@ -9,13 +9,13 @@
 #import "WTUserDetailViewController.h"
 #import "User+Addition.h"
 #import "WTUserProfileHeaderView.h"
-#import "WTOtherUserProfileViewController.h"
+#import "WTOtherUserProfileView.h"
 
 @interface WTUserDetailViewController ()
 
 @property (nonatomic, strong) User *user;
 @property (nonatomic, weak) WTUserProfileHeaderView *profileHeaderView;
-@property (nonatomic, weak) WTOtherUserProfileViewController *profileView;
+@property (nonatomic, weak) WTOtherUserProfileView *profileView;
 
 @end
 
@@ -63,7 +63,7 @@
 }
 
 - (void)configureProfileView {
-    WTOtherUserProfileViewController *profileView = [WTOtherUserProfileViewController createProfileViewWithUser:self.user];
+    WTOtherUserProfileView *profileView = [WTOtherUserProfileView createProfileViewWithUser:self.user];
     [profileView resetOriginY:self.profileHeaderView.frame.size.height];
     [self.scrollView addSubview:profileView];
     self.profileView = profileView;

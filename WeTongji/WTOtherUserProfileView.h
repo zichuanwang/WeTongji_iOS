@@ -1,5 +1,5 @@
 //
-//  WTOtherUserProfileViewController.h
+//  WTOtherUserProfileView.h
 //  WeTongji
 //
 //  Created by 王 紫川 on 13-5-23.
@@ -11,7 +11,7 @@
 @class User;
 @class OHAttributedLabel;
 
-@interface WTOtherUserProfileViewController : UIView
+@interface WTOtherUserProfileView : UIView
 
 @property (nonatomic, weak) IBOutlet UIImageView *firstSectionBgImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *secondSectionBgImageView;
@@ -21,6 +21,6 @@
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *activityLabel;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *friendLabel;
 
-+ (WTOtherUserProfileViewController *)createProfileViewWithUser:(User *)user;
++ (WTOtherUserProfileView *)createProfileViewWithUser:(User *)user;
 
 @end

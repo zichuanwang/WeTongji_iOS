@@ -1,24 +1,24 @@
 //
-//  WTOtherUserProfileViewController.m
+//  WTOtherUserProfileView.m
 //  WeTongji
 //
 //  Created by 王 紫川 on 13-5-23.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
-#import "WTOtherUserProfileViewController.h"
+#import "WTOtherUserProfileView.h"
 #import "User+Addition.h"
 
-@interface WTOtherUserProfileViewController ()
+@interface WTOtherUserProfileView ()
 
 @property (nonatomic, strong) User *user;
 
 @end
 
-@implementation WTOtherUserProfileViewController
+@implementation WTOtherUserProfileView
 
-+ (WTOtherUserProfileViewController *)createProfileViewWithUser:(User *)user {
-    WTOtherUserProfileViewController *result = [[NSBundle mainBundle] loadNibNamed:@"WTOtherUserProfileViewController" owner:nil options:nil].lastObject;
++ (WTOtherUserProfileView *)createProfileViewWithUser:(User *)user {
+    WTOtherUserProfileView *result = [[NSBundle mainBundle] loadNibNamed:@"WTOtherUserProfileView" owner:nil options:nil].lastObject;
     result.user = user;
     [result configureView];
     return result;
