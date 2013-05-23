@@ -42,6 +42,7 @@
     result.studyPlan = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@", dict[@"Plan"]] integerValue]];
     result.sinaWeiboName = [NSString stringWithFormat:@"%@", dict[@"SinaWeibo"]];
     result.enrollYear = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@", dict[@"Year"]] integerValue]];
+    result.qqAccount = [NSString stringWithFormat:@"%@", dict[@"QQ"]];
     
     return result;
 }

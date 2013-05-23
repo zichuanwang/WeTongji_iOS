@@ -25,7 +25,7 @@
         result.objectClass = NSStringFromClass([Organization class]);
     }
     
-    result.avatar = [NSString stringWithFormat:@"%@", dict[@"Avatar"]];
+    result.avatar = [NSString stringWithFormat:@"%@", dict[@"Image"]];
     result.name = [NSString stringWithFormat:@"%@", dict[@"Display"]];
     result.administrator = [NSString stringWithFormat:@"%@", dict[@"Name"]];
     result.about = [NSString stringWithFormat:@"%@", dict[@"Description"]];

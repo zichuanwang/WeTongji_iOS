@@ -8,6 +8,8 @@
 
 #import "WTOtherUserProfileView.h"
 #import "User+Addition.h"
+#import "OHAttributedLabel.h"
+#import "NSString+WTAddition.h"
 
 @interface WTOtherUserProfileView ()
 
@@ -34,37 +36,46 @@
 }
 
 - (void)configureSecondSectionLabels {
+    self.birthdayDisplayLabel.text = NSLocalizedString(@"Birthday", nil);
+    self.studentNumberDisplayLabel.text = NSLocalizedString(@"Student NO.", nil);
+    self.majorDisplayLabel.text = NSLocalizedString(@"Major", nil);
+    self.phoneDisplayLabel.text = NSLocalizedString(@"Phone", nil);
+    self.emailDisplayLabel.text = NSLocalizedString(@"Email", nil);
+    self.weiboDisplayLabel.text = NSLocalizedString(@"Sina Weibo", nil);
+    self.qqDisplayLabel.text = NSLocalizedString(@"QQ", nil);
+    self.dormDisplayLabel.text = NSLocalizedString(@"Dorm", nil);
     
+    self.birthdayLabel.text = [NSString yearMonthDayConvertFromDate:self.user.birthday];
+    self.studentNumberLabel.text = self.user.studentNumber;
+    self.majorLabel.text = self.user.major;
+    self.phoneLabel.text = self.user.phoneNumber;
+    self.emailLabel.text = self.user.emailAddress;
+    NSString *sinaWeiboName = self.user.sinaWeiboName;
+    if ([sinaWeiboName characterAtIndex:0] != '@') {
+        sinaWeiboName = [NSString stringWithFormat:@"@%@", sinaWeiboName];
+    }
+    self.weiboLabel.text = sinaWeiboName;
+    self.qqLabel.text = self.user.qqAccount;
+    // TODO:
+    self.dormLabel.text = self.user.department;
 }
 
 - (void)configureFirstSectionLabels {
-//    NSArray *countNumberArray = @[@(2), @(4), @(3), @(1), @(24), @(33), @(122), @(22)];
-//    NSArray *descriptionArray = @[NSLocalizedString(@" Friends", nil),
-//                                  NSLocalizedString(@" Billboard Posts", nil),
-//                                  NSLocalizedString(@" Questions", nil),
-//                                  NSLocalizedString(@" Activities", nil),
-//                                  NSLocalizedString(@" News", nil),
-//                                  NSLocalizedString(@" Billboard Posts", nil),
-//                                  NSLocalizedString(@" Organizations", nil),
-//                                  NSLocalizedString(@" Users", nil)];
-//    NSArray *labels = @[self.myFriendLabel,
-//                        self.myBillboardPostLabel,
-//                        self.myQuestionsLabel,
-//                        self.likedActivityLabel,
-//                        self.likedNewsLabel,
-//                        self.likedBillboardPostLabel,
-//                        self.likedOrganizationLabel,
-//                        self.likedPersonLabel];
-//    
-//    for (int i = 0; i < countNumberArray.count; i++) {
-//        OHAttributedLabel *label = labels[i];
-//        NSNumber *countNumber = countNumberArray[i];
-//        NSString *description = descriptionArray[i];
-//        NSMutableAttributedString *attributedString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@"%d%@", countNumber.integerValue, description]];
-//        [attributedString setAttributes:[label.attributedText attributesAtIndex:label.attributedText.length - 1 effectiveRange:NULL] range:NSMakeRange(0, attributedString.length)];
-//        [attributedString setTextBold:YES range:NSMakeRange(0, countNumber.stringValue.length)];
-//        label.attributedText = attributedString;
-//    }
+    NSArray *countNumberArray = @[@(2), @(4)];
+    NSArray *descriptionArray = @[NSLocalizedString(@" Friends", nil),
+                                  NSLocalizedString(@" Activities", nil)];
+    NSArray *labels = @[self.friendLabel,
+                        self.activityLabel];
+    
+    for (int i = 0; i < countNumberArray.count; i++) {
+        OHAttributedLabel *label = labels[i];
+        NSNumber *countNumber = countNumberArray[i];
+        NSString *description = descriptionArray[i];
+        NSMutableAttributedString *attributedString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@"%d%@", countNumber.integerValue, description]];
+        [attributedString setAttributes:[label.attributedText attributesAtIndex:label.attributedText.length - 1 effectiveRange:NULL] range:NSMakeRange(0, attributedString.length)];
+        [attributedString setTextBold:YES range:NSMakeRange(0, countNumber.stringValue.length)];
+        label.attributedText = attributedString;
+    }
 }
 
 - (void)configureFirstSectionView {

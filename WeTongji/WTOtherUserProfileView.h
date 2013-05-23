@@ -20,6 +20,22 @@
 @property (nonatomic, weak) IBOutlet UILabel *detailInformationDisplayLabel;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *activityLabel;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *friendLabel;
+@property (nonatomic, weak) IBOutlet UILabel *birthdayLabel;
+@property (nonatomic, weak) IBOutlet UILabel *studentNumberLabel;
+@property (nonatomic, weak) IBOutlet UILabel *majorLabel;
+@property (nonatomic, weak) IBOutlet UILabel *phoneLabel;
+@property (nonatomic, weak) IBOutlet UILabel *emailLabel;
+@property (nonatomic, weak) IBOutlet UILabel *weiboLabel;
+@property (nonatomic, weak) IBOutlet UILabel *qqLabel;
+@property (nonatomic, weak) IBOutlet UILabel *dormLabel;
+@property (nonatomic, weak) IBOutlet UILabel *birthdayDisplayLabel;
+@property (nonatomic, weak) IBOutlet UILabel *studentNumberDisplayLabel;
+@property (nonatomic, weak) IBOutlet UILabel *majorDisplayLabel;
+@property (nonatomic, weak) IBOutlet UILabel *phoneDisplayLabel;
+@property (nonatomic, weak) IBOutlet UILabel *emailDisplayLabel;
+@property (nonatomic, weak) IBOutlet UILabel *weiboDisplayLabel;
+@property (nonatomic, weak) IBOutlet UILabel *qqDisplayLabel;
+@property (nonatomic, weak) IBOutlet UILabel *dormDisplayLabel;
 
 + (WTOtherUserProfileView *)createProfileViewWithUser:(User *)user;
 

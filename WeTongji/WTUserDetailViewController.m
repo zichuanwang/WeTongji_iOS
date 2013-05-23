@@ -80,13 +80,19 @@
     [self.scrollView addSubview:headerView];
     self.profileHeaderView = headerView;
     
-    [headerView.functionButton addTarget:self action:@selector(didClickChangeAvatarButton:) forControlEvents:UIControlEventTouchUpInside];
+    [headerView.functionButton addTarget:self action:@selector(didClickChangeRelationshipButton:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 #pragma mark - Actions
 
 - (void)didClickChangeRelationshipButton:(UIButton *)sender {
-    
+    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        WTLOG(@"Add friend success:%@", responseObject);
+    } failureBlock:^(NSError *error) {
+        WTLOGERROR(@"Add friend failure:%@", error.localizedDescription);
+        [WTErrorHandler handleError:error];
+    }]; 
+    [request inviteFriend:self.user.identifier];
 }
 
 @end
