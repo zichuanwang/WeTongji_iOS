@@ -22,6 +22,10 @@
 
 + (Controller *)controllerModelForClass:(Class)className {
     NSString *controllerID = NSStringFromClass(className);
+    Controller *cachedController = [Controller sharedControllerModelDictionary][controllerID];
+    if (cachedController) {
+        return cachedController;
+    }
     Controller *result = [Controller controllerWithID:controllerID];
     if (!result) {
         result = [NSEntityDescription insertNewObjectForEntityForName:@"Controller" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
