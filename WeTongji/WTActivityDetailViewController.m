@@ -16,22 +16,13 @@
 #import "WTCoreDataManager.h"
 #import "WTActivityDetailDescriptionView.h"
 #import "WTDetailImageViewController.h"
+#import "WTActivityHeaderView.h"
 
 @interface WTActivityDetailViewController () <WTDetaiImageViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
-@property (nonatomic, weak) IBOutlet UIView *briefIntroductionView;
-@property (nonatomic, weak) IBOutlet UILabel *activityTitleLabel;
-@property (nonatomic, weak) IBOutlet UILabel *activityTimeLabel;
-@property (nonatomic, weak) IBOutlet UIButton *activityLocationButton;
-@property (nonatomic, weak) IBOutlet UIImageView *activityLocationDisclosureImageView;
-
-@property (nonatomic, strong) UIButton *friendCountButton;
-@property (nonatomic, strong) UIButton *participateButton;
-@property (nonatomic, strong) UIButton *inviteButton;
-@property (nonatomic, assign) BOOL showingBriefIntroViewBottomButtons;
-
+@property (nonatomic, weak) WTActivityHeaderView *headerView;
 @property (nonatomic, strong) WTBannerContainerView *bannerView;
 @property (nonatomic, strong) WTActivityDetailDescriptionView *detailDescriptionView;
 
@@ -77,7 +68,7 @@
 
 - (void)configureUI {
     [self configureLikeButton];
-    [self configureBriefIntroductionView];
+    [self configureHeaderView];
     [self configureBannerView];
     [self configureDetailDescriptionView];
     [self configureScrollView];
@@ -88,6 +79,17 @@
     self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, self.detailDescriptionView.frame.origin.y + self.detailDescriptionView.frame.size.height);
 }
 
+#pragma mark Configure header view
+
+- (void)configureHeaderView {
+    self.headerView = [WTActivityHeaderView createHeaderViewWithActivity:self.activity];
+    [self.scrollView addSubview:self.headerView];
+    
+    [self.headerView.inviteButton addTarget:self action:@selector(didClickInviteButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.headerView.participateButton addTarget:self action:@selector(didClickParticipateButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.headerView.friendCountButton addTarget:self action:@selector(didClickFriendCountButton:) forControlEvents:UIControlEventTouchUpInside];
+}
+
 #pragma mark Configure like button 
 
 - (void)configureLikeButton {
@@ -95,122 +97,12 @@
     [self.likeButtonContainerView setLikeCount:self.activity.likeCount.integerValue];
 }
 
-#pragma mark Configure brief introduction view
-
-- (void)configureActivityLocationButton {
-    [self.activityLocationButton setTitle:self.activity.where forState:UIControlStateNormal];
-    CGFloat locationButtonHeight = self.activityLocationButton.frame.size.height;
-    CGFloat locationButtonCenterY = self.activityLocationButton.center.y;
-    CGFloat locationButtonRightBoundX = self.activityLocationButton.frame.origin.x + self.activityLocationButton.frame.size
-    .width;
-    [self.activityLocationButton sizeToFit];
-    
-    CGFloat maxLocationButtonWidth = 282.0f;
-    if (self.activityLocationButton.frame.size.width > maxLocationButtonWidth) {
-        [self.activityLocationButton resetWidth:maxLocationButtonWidth];
-    }
-    
-    [self.activityLocationButton resetHeight:locationButtonHeight];
-    [self.activityLocationButton resetCenterY:locationButtonCenterY];
-    [self.activityLocationButton resetOriginX:locationButtonRightBoundX - self.activityLocationButton.frame.size.width];
-}
-
-#define MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH    85.0f
-#define MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y 83.0f
-
-- (void)configureInviteButton {
-    self.inviteButton = [WTResourceFactory createFocusButtonWithText:NSLocalizedString(@"Invite", nil)];
-    
-    if (self.inviteButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
-        [self.inviteButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];
-    
-    [self.inviteButton resetOrigin:CGPointMake(9.0, MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y)];
-    self.inviteButton.autoresizingMask |= UIViewAutoresizingFlexibleTopMargin;
-    
-    [self.inviteButton addTarget:self action:@selector(didClickInviteButton:) forControlEvents:UIControlEventTouchUpInside];
-    [self.briefIntroductionView addSubview:self.inviteButton];
-    
-    if (self.activity.canSchedule.boolValue) {
-        self.inviteButton.alpha = 0;
-    }
-}
-
-- (void)configureParticipateButton {
-    self.participateButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Participate", nil)];
-    
-    if (self.participateButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
-        [self.participateButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];
-    
-    [self.participateButton resetOrigin:CGPointMake(311.0f - self.participateButton.frame.size.width, MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y)];
-    self.participateButton.autoresizingMask |= UIViewAutoresizingFlexibleTopMargin;
-    
-    [self configureParticipateButtonStatus:!self.activity.canSchedule.boolValue];
-    
-    [self.participateButton addTarget:self action:@selector(didClickParticipateButton:) forControlEvents:UIControlEventTouchUpInside];    
-    [self.briefIntroductionView addSubview:self.participateButton];
-}
-
-- (void)configureFriendCountButton {
-    NSString *friendCountString = [NSString friendCountStringConvertFromCountNumber:@(3)];
-    self.friendCountButton = [WTResourceFactory createNormalButtonWithText:friendCountString];
-    if (self.friendCountButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
-        [self.friendCountButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];
-    
-    [self.friendCountButton resetOrigin:CGPointMake(self.participateButton.frame.origin.x - 8 - self.friendCountButton.frame.size.width, MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y)];
-    self.friendCountButton.autoresizingMask |= UIViewAutoresizingFlexibleTopMargin;
-    
-    [self.friendCountButton addTarget:self action:@selector(didClickFriendCountButton:) forControlEvents:UIControlEventTouchUpInside];
-    [self.briefIntroductionView addSubview:self.friendCountButton];
-}
-
-- (void)configureActivityTimeLabel {
-    self.activityTimeLabel.text = self.activity.yearMonthDayBeginToEndTimeString;
-}
-
-#define BRIEF_DESCRIPTION_VIEW_BOTTOM_BUTTONS_HEIGHT    40.0f
-
-- (void)configureActivityTitleLabelAndCalculateBriefIntroductionViewHeight {
-    self.activityTitleLabel.text = self.activity.what;
-    
-    CGFloat titleLabelOriginalHeight = self.activityTitleLabel.frame.size.height;
-    [self.activityTitleLabel sizeToFit];
-    [self.briefIntroductionView resetHeight:self.briefIntroductionView.frame.size.height + self.activityTitleLabel.frame.size.height - titleLabelOriginalHeight];
-    
-    if (!self.showingBriefIntroViewBottomButtons) {
-        self.activityTimeLabel.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
-        self.activityLocationButton.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
-        self.activityLocationDisclosureImageView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
-        [self.briefIntroductionView resetHeight:self.briefIntroductionView.frame.size.height - BRIEF_DESCRIPTION_VIEW_BOTTOM_BUTTONS_HEIGHT];
-    }
-}
-
-- (void)configureBriefIntroductionViewBackgroundColor {
-    self.briefIntroductionView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTGrayPanel"]];
-}
-
-- (void)configureBriefIntroductionViewBottomButtons {
-    self.showingBriefIntroViewBottomButtons = ([self.activity.endTime compare:[NSDate date]] == NSOrderedDescending);
-    if (self.showingBriefIntroViewBottomButtons) {
-        [self configureInviteButton];
-        [self configureParticipateButton];
-        [self configureFriendCountButton];
-    }
-}
-
-- (void)configureBriefIntroductionView {
-    [self configureBriefIntroductionViewBackgroundColor];
-    [self configureActivityLocationButton];
-    [self configureBriefIntroductionViewBottomButtons];
-    [self configureActivityTimeLabel];
-    [self configureActivityTitleLabelAndCalculateBriefIntroductionViewHeight];
-}
-
 #pragma mark Configure banner view
 
 - (void)configureBannerView {
     if (self.activity.image) {
         self.bannerView = [WTBannerContainerView createBannerContainerView];
-        [self.bannerView resetOrigin:CGPointMake(0, self.briefIntroductionView.frame.origin.y + self.briefIntroductionView.frame.size.height)];
+        [self.bannerView resetOrigin:CGPointMake(0, self.headerView.frame.origin.y + self.headerView.frame.size.height)];
         [self.bannerView addItemViewWithImageURL:self.activity.image
                                        titleText:self.activity.what
                                 organizationName:self.activity.organizer
@@ -230,33 +122,20 @@
     if (self.bannerView) {
         [self.detailDescriptionView resetOriginY:self.bannerView.frame.origin.y + self.bannerView.frame.size.height];
     } else {
-        [self.detailDescriptionView resetOriginY:self.briefIntroductionView.frame.size.height];
+        [self.detailDescriptionView resetOriginY:self.headerView.frame.size.height];
     }
     [self.scrollView insertSubview:self.detailDescriptionView atIndex:0];
 }
 
-#pragma mark - Configure button status methods
-
-- (void)configureParticipateButtonStatus:(BOOL)participated {
-    self.participateButton.selected = !participated;
-    if (participated) {
-        [self.participateButton setTitle:NSLocalizedString(@"Participated", nil) forState:UIControlStateNormal];
-    } else {
-        [self.participateButton setTitle:NSLocalizedString(@"Participate", nil) forState:UIControlStateNormal];
-    }
-}
-
 #pragma mark - UIScrollViewDelegate
 
-#define BRIEF_DESCRIPTION_VIEW_BOTTOM_INDENT    50.0f
-
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (self.showingBriefIntroViewBottomButtons) {
-        CGFloat briefDescriptionViewTopIndent = self.briefIntroductionView.frame.size.height - BRIEF_DESCRIPTION_VIEW_BOTTOM_INDENT;
+    if (self.headerView.showingBottomButtons) {
+        CGFloat briefDescriptionViewTopIndent = self.headerView.frame.size.height - HEADER_VIEW_BOTTOM_INDENT;
         if (scrollView.contentOffset.y > briefDescriptionViewTopIndent) {
-            [self.briefIntroductionView resetOriginY:scrollView.contentOffset.y - briefDescriptionViewTopIndent];
+            [self.headerView resetOriginY:scrollView.contentOffset.y - briefDescriptionViewTopIndent];
         } else {
-            [self.briefIntroductionView resetOriginY:0];
+            [self.headerView resetOriginY:0];
         }
     }
 }
@@ -303,15 +182,15 @@
 }
 
 - (void)didClickParticipateButton:(UIButton *)sender {
-    BOOL participated = self.participateButton.selected;
-    [self configureParticipateButtonStatus:participated];
+    BOOL participated = sender.selected;
+    [self.headerView configureParticipateButtonStatus:participated];
     
     if (participated) {
-        [self.inviteButton fadeIn];
+        [self.headerView.inviteButton fadeIn];
         [[WTCoreDataManager sharedManager].currentUser addScheduledEventsObject:self.activity];
     }
     else {
-        [self.inviteButton fadeOut];
+        [self.headerView.inviteButton fadeOut];
         [[WTCoreDataManager sharedManager].currentUser removeScheduledEventsObject:self.activity];
     }
     
@@ -325,14 +204,14 @@
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Set activitiy scheduled:%d, reason:%@", participated, error.localizedDescription);
         sender.userInteractionEnabled = YES;
-        [self configureParticipateButtonStatus:!participated];
+        [self.headerView configureParticipateButtonStatus:!participated];
         
         if (!participated) {
-            [self.inviteButton fadeIn];
+            [self.headerView.inviteButton fadeIn];
             [[WTCoreDataManager sharedManager].currentUser addScheduledEventsObject:self.activity];
         }
         else {
-            [self.inviteButton fadeOut];
+            [self.headerView.inviteButton fadeOut];
             [[WTCoreDataManager sharedManager].currentUser removeScheduledEventsObject:self.activity];
         }
         

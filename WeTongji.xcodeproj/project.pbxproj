@@ -299,6 +299,10 @@
 		E16E962B173430540055DE27 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = E16E962A173430540055DE27 /* News.m */; };
 		E172AFFC174F6D9A00DEB920 /* WTCourseHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E172AFFB174F6D9A00DEB920 /* WTCourseHeaderView.m */; };
 		E172AFFE174F6DAC00DEB920 /* WTCourseHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E172AFFD174F6DAC00DEB920 /* WTCourseHeaderView.xib */; };
+		E172B001174FD88000DEB920 /* WTActivityImageRollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E172B000174FD88000DEB920 /* WTActivityImageRollView.m */; };
+		E172B004174FD89300DEB920 /* WTActivityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E172B003174FD89300DEB920 /* WTActivityHeaderView.m */; };
+		E172B006174FD8A800DEB920 /* WTActivityHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E172B005174FD8A800DEB920 /* WTActivityHeaderView.xib */; };
+		E172B008174FD8B500DEB920 /* WTActivityImageRollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E172B007174FD8B500DEB920 /* WTActivityImageRollView.xib */; };
 		E1767A4A16D14D2700E58CCC /* WTBlackMoreIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4416D14D2700E58CCC /* WTBlackMoreIndicator.png */; };
 		E1767A4B16D14D2700E58CCC /* WTBlackMoreIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4516D14D2700E58CCC /* WTBlackMoreIndicator@2x.png */; };
 		E1767A4C16D14D2700E58CCC /* WTBlueMoreIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4616D14D2700E58CCC /* WTBlueMoreIndicator.png */; };
@@ -971,6 +975,12 @@
 		E172AFFA174F6D9A00DEB920 /* WTCourseHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCourseHeaderView.h; sourceTree = "<group>"; };
 		E172AFFB174F6D9A00DEB920 /* WTCourseHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCourseHeaderView.m; sourceTree = "<group>"; };
 		E172AFFD174F6DAC00DEB920 /* WTCourseHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTCourseHeaderView.xib; sourceTree = "<group>"; };
+		E172AFFF174FD88000DEB920 /* WTActivityImageRollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTActivityImageRollView.h; sourceTree = "<group>"; };
+		E172B000174FD88000DEB920 /* WTActivityImageRollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTActivityImageRollView.m; sourceTree = "<group>"; };
+		E172B002174FD89300DEB920 /* WTActivityHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTActivityHeaderView.h; sourceTree = "<group>"; };
+		E172B003174FD89300DEB920 /* WTActivityHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTActivityHeaderView.m; sourceTree = "<group>"; };
+		E172B005174FD8A800DEB920 /* WTActivityHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTActivityHeaderView.xib; sourceTree = "<group>"; };
+		E172B007174FD8B500DEB920 /* WTActivityImageRollView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTActivityImageRollView.xib; sourceTree = "<group>"; };
 		E1767A4416D14D2700E58CCC /* WTBlackMoreIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTBlackMoreIndicator.png; sourceTree = "<group>"; };
 		E1767A4516D14D2700E58CCC /* WTBlackMoreIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTBlackMoreIndicator@2x.png"; sourceTree = "<group>"; };
 		E1767A4616D14D2700E58CCC /* WTBlueMoreIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTBlueMoreIndicator.png; sourceTree = "<group>"; };
@@ -1639,6 +1649,12 @@
 				E11825DB17154AB500B4B9BF /* WTActivityDetailDescriptionView.h */,
 				E11825DC17154AB500B4B9BF /* WTActivityDetailDescriptionView.m */,
 				E11825DE17154AD400B4B9BF /* WTActivityDetailDescriptionView.xib */,
+				E172B002174FD89300DEB920 /* WTActivityHeaderView.h */,
+				E172B003174FD89300DEB920 /* WTActivityHeaderView.m */,
+				E172B005174FD8A800DEB920 /* WTActivityHeaderView.xib */,
+				E172AFFF174FD88000DEB920 /* WTActivityImageRollView.h */,
+				E172B000174FD88000DEB920 /* WTActivityImageRollView.m */,
+				E172B007174FD8B500DEB920 /* WTActivityImageRollView.xib */,
 			);
 			name = Activity;
 			sourceTree = "<group>";
@@ -3130,6 +3146,8 @@
 				E1983140174CE41800C64CCE /* WTNewsImageShadow@2x.png in Resources */,
 				E1983145174D2CBC00C64CCE /* WTOtherUserProfileView.xib in Resources */,
 				E172AFFE174F6DAC00DEB920 /* WTCourseHeaderView.xib in Resources */,
+				E172B006174FD8A800DEB920 /* WTActivityHeaderView.xib in Resources */,
+				E172B008174FD8B500DEB920 /* WTActivityImageRollView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3308,6 +3326,8 @@
 				E1DA84CD174B52A20038B1E4 /* Advertisement.m in Sources */,
 				E1983144174D2CBC00C64CCE /* WTOtherUserProfileView.m in Sources */,
 				E172AFFC174F6D9A00DEB920 /* WTCourseHeaderView.m in Sources */,
+				E172B001174FD88000DEB920 /* WTActivityImageRollView.m in Sources */,
+				E172B004174FD89300DEB920 /* WTActivityHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
