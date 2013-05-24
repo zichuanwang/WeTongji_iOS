@@ -13,6 +13,8 @@
 
 @interface WTCourseDetialViewController : WTDetailViewController
 
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+
 + (WTCourseDetialViewController *)createCourseDetailViewControllerWithCourse:(Course *)course
                                                                  backBarButtonText:(NSString *)backBarButtonText;
 

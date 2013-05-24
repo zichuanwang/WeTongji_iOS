@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class Course;
+
 @interface WTCourseHeaderView : UIView
+
+@property (nonatomic, strong) UIButton *friendCountButton;
+@property (nonatomic, strong) UIButton *participateButton;
+@property (nonatomic, strong) UIButton *inviteButton;
+
++ (WTCourseHeaderView *)createHeaderViewWithCourse:(Course *)course;
 
 @end

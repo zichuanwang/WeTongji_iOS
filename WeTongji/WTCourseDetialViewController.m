@@ -8,6 +8,7 @@
 
 #import "WTCourseDetialViewController.h"
 #import "Course+Addition.h"
+#import "WTCourseHeaderView.h"
 
 @interface WTCourseDetialViewController ()
 
@@ -20,7 +21,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    [self configureHeaderView];
+    [self configureScrollView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,6 +38,17 @@
     result.backBarButtonText = backBarButtonText;
     
     return result;
+}
+
+#pragma mark - UI methods
+
+- (void)configureHeaderView {
+    WTCourseHeaderView *headerView = [WTCourseHeaderView createHeaderViewWithCourse:self.course];
+    [self.scrollView addSubview:headerView];
+}
+
+- (void)configureScrollView {
+    self.scrollView.alwaysBounceVertical = YES;
 }
 
 @end

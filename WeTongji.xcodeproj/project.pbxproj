@@ -304,6 +304,8 @@
 		E172B006174FD8A800DEB920 /* WTActivityHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E172B005174FD8A800DEB920 /* WTActivityHeaderView.xib */; };
 		E172B008174FD8B500DEB920 /* WTActivityImageRollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E172B007174FD8B500DEB920 /* WTActivityImageRollView.xib */; };
 		E172B00B174FE98100DEB920 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E172B00A174FE98100DEB920 /* User.m */; };
+		E172B00E174FF5EA00DEB920 /* WTDisableButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E172B00C174FF5EA00DEB920 /* WTDisableButton.png */; };
+		E172B00F174FF5EA00DEB920 /* WTDisableButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E172B00D174FF5EA00DEB920 /* WTDisableButton@2x.png */; };
 		E1767A4A16D14D2700E58CCC /* WTBlackMoreIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4416D14D2700E58CCC /* WTBlackMoreIndicator.png */; };
 		E1767A4B16D14D2700E58CCC /* WTBlackMoreIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4516D14D2700E58CCC /* WTBlackMoreIndicator@2x.png */; };
 		E1767A4C16D14D2700E58CCC /* WTBlueMoreIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4616D14D2700E58CCC /* WTBlueMoreIndicator.png */; };
@@ -982,6 +984,8 @@
 		E172B007174FD8B500DEB920 /* WTActivityImageRollView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTActivityImageRollView.xib; sourceTree = "<group>"; };
 		E172B009174FE98100DEB920 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		E172B00A174FE98100DEB920 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		E172B00C174FF5EA00DEB920 /* WTDisableButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTDisableButton.png; sourceTree = "<group>"; };
+		E172B00D174FF5EA00DEB920 /* WTDisableButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTDisableButton@2x.png"; sourceTree = "<group>"; };
 		E1767A4416D14D2700E58CCC /* WTBlackMoreIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTBlackMoreIndicator.png; sourceTree = "<group>"; };
 		E1767A4516D14D2700E58CCC /* WTBlackMoreIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTBlackMoreIndicator@2x.png"; sourceTree = "<group>"; };
 		E1767A4616D14D2700E58CCC /* WTBlueMoreIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTBlueMoreIndicator.png; sourceTree = "<group>"; };
@@ -1828,6 +1832,8 @@
 			children = (
 				E14FA6AF1681F7FC008A8D33 /* WTCommentButton.png */,
 				E14FA6B11681F7FC008A8D33 /* WTCommentButton@2x.png */,
+				E172B00C174FF5EA00DEB920 /* WTDisableButton.png */,
+				E172B00D174FF5EA00DEB920 /* WTDisableButton@2x.png */,
 				E14FA6741680A9F2008A8D33 /* WTFocusButton.png */,
 				E14FA6771680A9F3008A8D33 /* WTFocusButton@2x.png */,
 				E14FA6BB16820010008A8D33 /* WTLikeNormalButton.png */,
@@ -1893,18 +1899,18 @@
 		E14FA67D1680B9BB008A8D33 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				E172AFF9174F6D8000DEB920 /* Course */,
 				E11825DA17154A8000B4B9BF /* Activity */,
 				E17F9E7317130C4100DC6AB6 /* Banner */,
 				E1428693171AE02F006AB739 /* Billboard */,
+				E172AFF9174F6D8000DEB920 /* Course */,
 				E1E647BD1722D8DD00EB4C8D /* DetailImage */,
 				E17F9E6B1712C14800DC6AB6 /* Home */,
-				E177038D173F885C0086E550 /* User */,
 				E1CD3F371720643B00359A79 /* News */,
 				E142869E171BE090006AB739 /* Now */,
-				E17F9E7217130C3800DC6AB6 /* Other */,
 				03EE1090174534630062A06B /* Organization */,
+				E17F9E7217130C3800DC6AB6 /* Other */,
 				E115FA9A173A3D0900DE5649 /* Search */,
+				E177038D173F885C0086E550 /* User */,
 				E17F9E71171302A100DC6AB6 /* Widget */,
 			);
 			name = CustomViews;
@@ -3144,6 +3150,8 @@
 				E172AFFE174F6DAC00DEB920 /* WTCourseHeaderView.xib in Resources */,
 				E172B006174FD8A800DEB920 /* WTActivityHeaderView.xib in Resources */,
 				E172B008174FD8B500DEB920 /* WTActivityImageRollView.xib in Resources */,
+				E172B00E174FF5EA00DEB920 /* WTDisableButton.png in Resources */,
+				E172B00F174FF5EA00DEB920 /* WTDisableButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
