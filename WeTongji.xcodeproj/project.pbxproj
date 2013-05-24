@@ -297,6 +297,8 @@
 		E16E96211733ADC30055DE27 /* WTTicketIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961F1733ADC30055DE27 /* WTTicketIcon.png */; };
 		E16E96221733ADC30055DE27 /* WTTicketIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E96201733ADC30055DE27 /* WTTicketIcon@2x.png */; };
 		E16E962B173430540055DE27 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = E16E962A173430540055DE27 /* News.m */; };
+		E172AFFC174F6D9A00DEB920 /* WTCourseHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E172AFFB174F6D9A00DEB920 /* WTCourseHeaderView.m */; };
+		E172AFFE174F6DAC00DEB920 /* WTCourseHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E172AFFD174F6DAC00DEB920 /* WTCourseHeaderView.xib */; };
 		E1767A4A16D14D2700E58CCC /* WTBlackMoreIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4416D14D2700E58CCC /* WTBlackMoreIndicator.png */; };
 		E1767A4B16D14D2700E58CCC /* WTBlackMoreIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4516D14D2700E58CCC /* WTBlackMoreIndicator@2x.png */; };
 		E1767A4C16D14D2700E58CCC /* WTBlueMoreIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4616D14D2700E58CCC /* WTBlueMoreIndicator.png */; };
@@ -966,6 +968,9 @@
 		E16E96201733ADC30055DE27 /* WTTicketIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTicketIcon@2x.png"; sourceTree = "<group>"; };
 		E16E9629173430540055DE27 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
 		E16E962A173430540055DE27 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
+		E172AFFA174F6D9A00DEB920 /* WTCourseHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCourseHeaderView.h; sourceTree = "<group>"; };
+		E172AFFB174F6D9A00DEB920 /* WTCourseHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCourseHeaderView.m; sourceTree = "<group>"; };
+		E172AFFD174F6DAC00DEB920 /* WTCourseHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTCourseHeaderView.xib; sourceTree = "<group>"; };
 		E1767A4416D14D2700E58CCC /* WTBlackMoreIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTBlackMoreIndicator.png; sourceTree = "<group>"; };
 		E1767A4516D14D2700E58CCC /* WTBlackMoreIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTBlackMoreIndicator@2x.png"; sourceTree = "<group>"; };
 		E1767A4616D14D2700E58CCC /* WTBlueMoreIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTBlueMoreIndicator.png; sourceTree = "<group>"; };
@@ -1874,6 +1879,7 @@
 		E14FA67D1680B9BB008A8D33 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				E172AFF9174F6D8000DEB920 /* Course */,
 				E11825DA17154A8000B4B9BF /* Activity */,
 				E17F9E7317130C4100DC6AB6 /* Banner */,
 				E1428693171AE02F006AB739 /* Billboard */,
@@ -1910,6 +1916,16 @@
 				E1528D6A16C5533C00BD2B42 /* WTNewsSettingConfig.plist */,
 			);
 			name = Config;
+			sourceTree = "<group>";
+		};
+		E172AFF9174F6D8000DEB920 /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				E172AFFA174F6D9A00DEB920 /* WTCourseHeaderView.h */,
+				E172AFFB174F6D9A00DEB920 /* WTCourseHeaderView.m */,
+				E172AFFD174F6DAC00DEB920 /* WTCourseHeaderView.xib */,
+			);
+			name = Course;
 			sourceTree = "<group>";
 		};
 		E177038D173F885C0086E550 /* User */ = {
@@ -3113,6 +3129,7 @@
 				E198313F174CE41800C64CCE /* WTNewsImageShadow.png in Resources */,
 				E1983140174CE41800C64CCE /* WTNewsImageShadow@2x.png in Resources */,
 				E1983145174D2CBC00C64CCE /* WTOtherUserProfileView.xib in Resources */,
+				E172AFFE174F6DAC00DEB920 /* WTCourseHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3290,6 +3307,7 @@
 				E1F0AE3C174A4E6D00EA2CED /* WTStarDetailViewController.m in Sources */,
 				E1DA84CD174B52A20038B1E4 /* Advertisement.m in Sources */,
 				E1983144174D2CBC00C64CCE /* WTOtherUserProfileView.m in Sources */,
+				E172AFFC174F6D9A00DEB920 /* WTCourseHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

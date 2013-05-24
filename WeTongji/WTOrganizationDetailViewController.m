@@ -14,12 +14,13 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface WTOrganizationDetailViewController ()
+
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, weak) IBOutlet UIView *organizationHeaderView;
 @property (nonatomic, weak) IBOutlet UIImageView *logoImageView;
+@property (nonatomic, weak) IBOutlet UIView *logoContainerView;
 @property (nonatomic, weak) IBOutlet UILabel *organizationNameLabel;
 
-@property (nonatomic, strong) WTBannerContainerView *bannerView;
 @property (nonatomic, strong) WTOrganizationProfileView *profileView;
 @property (nonatomic, strong) Organization *org;
 
@@ -64,7 +65,6 @@
 
 - (void)configureUI {
     [self configureOrganizationHeaderView];
-    [self configureBannerView];
     [self configureProfileView];
     [self configureScrollView];
 }
@@ -77,58 +77,32 @@
 }
 
 - (void)configureOrganizationHeaderView {
-    self.organizationHeaderView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTGrayPanel"]];
-    self.organizationHeaderView.layer.shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1.0f].CGColor;
-    self.organizationHeaderView.layer.shadowOffset = CGSizeMake(0, 1.0f);
-    self.organizationHeaderView.layer.shadowOpacity = 0.25f;
-    self.organizationHeaderView.layer.shadowRadius = 0;
-    
-    [self configureOrganizationLogoAndName];
+    [self configureOrganizationName];
+    [self configureOrganizationLogo];
 }
 
-- (void)configureOrganizationLogoAndName {
+- (void)configureOrganizationLogo {
+    self.logoContainerView.layer.masksToBounds = YES;
+    self.logoContainerView.layer.cornerRadius = 6.0f;
     [self.logoImageView loadImageWithImageURLString:self.org.avatar];
-    
+}
+
+- (void)configureOrganizationName {
+    self.organizationNameLabel.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.organizationNameLabel.layer.shadowOffset = CGSizeMake(0, 1.0f);
+    self.organizationNameLabel.layer.shadowOpacity = 0.3f;
+    self.organizationNameLabel.layer.shadowRadius = 1.0f;
     self.organizationNameLabel.text = self.org.name;
     [self.organizationNameLabel sizeToFit];
     [self.organizationNameLabel resetCenterX:self.view.bounds.size.width / 2];
 }
 
-- (void)configureBannerView {
-    self.bannerView = [WTBannerContainerView createBannerContainerView];
-    [self.bannerView
-     resetOrigin:CGPointMake(0, self.organizationHeaderView.frame.origin.y + self.organizationHeaderView.frame.size.height)];
-    [self.scrollView insertSubview:self.bannerView atIndex:0];
-    
-    [self configureTestBanner];
-}
-
 - (void)configureProfileView {
     self.profileView = [WTOrganizationProfileView createProfileViewWithOrganization:self.org];
-    [self.profileView resetOriginY:self.bannerView.frame.origin.y + self.bannerView.frame.size.height];
+    [self.profileView resetOriginY:self.organizationHeaderView.frame.origin.y + self.organizationHeaderView.frame.size.height];
     [self.scrollView addSubview:self.profileView];
-}
-
-- (void)configureTestBanner {
-    NSArray *orgNameArray = @[@"WeTongji Dev Team", @"Tongji Apple Club", @"Apple Inc."];
-    NSArray *titleArray = @[@"WeTongji 3.0 Coming Soon", @"Enroll 2012", @"WWDC 2011"];
-    for(int i = 0; i < orgNameArray.count; i++) {
-        NSString *imageName = [NSString stringWithFormat:@"WTTestBanner%d", i + 1];
-        UIImage *image = [UIImage imageNamed:imageName];
-        
-        [self.bannerView addItemViewWithImage:image
-                         titleText:titleArray[i]
-                  organizationName:orgNameArray[i]
-                             style:WTBannerItemViewStyleBlue];
-    }
 }
 
 #pragma mark - Actions
 
-- (void)viewDidUnload {
-    [self setLogoImageView:nil];
-    [self setOrganizationHeaderView:nil];
-    [self setOrganizationNameLabel:nil];
-    [super viewDidUnload];
-}
 @end
