@@ -26,6 +26,7 @@
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *likedBillboardPostLabel;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *likedOrganizationLabel;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *likedPersonLabel;
+@property (nonatomic, weak) IBOutlet UIButton *friendButton;
 
 + (WTCurrentUserProfileView *)createProfileViewWithUser:(User *)user;
 

@@ -18,6 +18,7 @@
 #import "UIImage+ProportionalFill.h"
 #import "User+Addition.h"
 #import "WTMeSettingViewController.h"
+#import "WTFriendListViewController.h"
 
 @interface WTMeViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, WTInnerSettingViewControllerDelegate, WTRootNavigationControllerDelegate>
 
@@ -90,6 +91,8 @@
     [profileView resetOriginY:self.profileHeaderView.frame.size.height];
     [self.scrollView addSubview:profileView];
     self.profileView = profileView;
+    
+    [profileView.friendButton addTarget:self action:@selector(didClickFriendButton:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)configureScrollView {
@@ -112,6 +115,12 @@
 }
 
 #pragma mark - Actions
+
+- (void)didClickFriendButton:(UIButton *)sender {
+    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
+    WTFriendListViewController *vc = [WTFriendListViewController createViewControllerWithUser:currentUser backButtonText:currentUser.name];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 - (void)didClickSettingButton:(UIButton *)sender {
     WTRootNavigationController *nav = (WTRootNavigationController *)self.navigationController;

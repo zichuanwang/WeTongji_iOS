@@ -303,6 +303,7 @@
 		E172B004174FD89300DEB920 /* WTActivityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E172B003174FD89300DEB920 /* WTActivityHeaderView.m */; };
 		E172B006174FD8A800DEB920 /* WTActivityHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E172B005174FD8A800DEB920 /* WTActivityHeaderView.xib */; };
 		E172B008174FD8B500DEB920 /* WTActivityImageRollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E172B007174FD8B500DEB920 /* WTActivityImageRollView.xib */; };
+		E172B00B174FE98100DEB920 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E172B00A174FE98100DEB920 /* User.m */; };
 		E1767A4A16D14D2700E58CCC /* WTBlackMoreIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4416D14D2700E58CCC /* WTBlackMoreIndicator.png */; };
 		E1767A4B16D14D2700E58CCC /* WTBlackMoreIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4516D14D2700E58CCC /* WTBlackMoreIndicator@2x.png */; };
 		E1767A4C16D14D2700E58CCC /* WTBlueMoreIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = E1767A4616D14D2700E58CCC /* WTBlueMoreIndicator.png */; };
@@ -357,7 +358,6 @@
 		E179668B1728302A00761BD5 /* WTBillboardCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17966891728302A00761BD5 /* WTBillboardCommentViewController.xib */; };
 		E179668E1728314400761BD5 /* WTBillboardCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E179668D1728314400761BD5 /* WTBillboardCommentCell.m */; };
 		E17966901728315600761BD5 /* WTBillboardCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E179668F1728315600761BD5 /* WTBillboardCommentCell.xib */; };
-		E17966961728353B00761BD5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E17966951728353B00761BD5 /* User.m */; };
 		E179669917283D3500761BD5 /* BillboardComment.m in Sources */ = {isa = PBXBuildFile; fileRef = E179669817283D3500761BD5 /* BillboardComment.m */; };
 		E179669F1728458A00761BD5 /* NSAttributedString+WTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E179669E1728458900761BD5 /* NSAttributedString+WTAddition.m */; };
 		E179D63D172127E800C6D789 /* WTNewsImageRollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E179D63C172127E800C6D789 /* WTNewsImageRollView.m */; };
@@ -980,6 +980,8 @@
 		E172B003174FD89300DEB920 /* WTActivityHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTActivityHeaderView.m; sourceTree = "<group>"; };
 		E172B005174FD8A800DEB920 /* WTActivityHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTActivityHeaderView.xib; sourceTree = "<group>"; };
 		E172B007174FD8B500DEB920 /* WTActivityImageRollView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTActivityImageRollView.xib; sourceTree = "<group>"; };
+		E172B009174FE98100DEB920 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		E172B00A174FE98100DEB920 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		E1767A4416D14D2700E58CCC /* WTBlackMoreIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTBlackMoreIndicator.png; sourceTree = "<group>"; };
 		E1767A4516D14D2700E58CCC /* WTBlackMoreIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTBlackMoreIndicator@2x.png"; sourceTree = "<group>"; };
 		E1767A4616D14D2700E58CCC /* WTBlueMoreIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTBlueMoreIndicator.png; sourceTree = "<group>"; };
@@ -1044,8 +1046,6 @@
 		E179668C1728314400761BD5 /* WTBillboardCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBillboardCommentCell.h; sourceTree = "<group>"; };
 		E179668D1728314400761BD5 /* WTBillboardCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTBillboardCommentCell.m; sourceTree = "<group>"; };
 		E179668F1728315600761BD5 /* WTBillboardCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTBillboardCommentCell.xib; sourceTree = "<group>"; };
-		E17966941728353B00761BD5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		E17966951728353B00761BD5 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		E179669717283D3500761BD5 /* BillboardComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillboardComment.h; sourceTree = "<group>"; };
 		E179669817283D3500761BD5 /* BillboardComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillboardComment.m; sourceTree = "<group>"; };
 		E179669D1728458900761BD5 /* NSAttributedString+WTAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+WTAddition.h"; sourceTree = "<group>"; };
@@ -2609,10 +2609,10 @@
 				E1157DD0173B6E7B00E62295 /* Organization.m */,
 				E1EF0E7517381CE100959DD0 /* Star.h */,
 				E1EF0E7617381CE100959DD0 /* Star.m */,
-				E17966941728353B00761BD5 /* User.h */,
-				E17966951728353B00761BD5 /* User.m */,
 				E1DA84CB174B52A20038B1E4 /* Advertisement.h */,
 				E1DA84CC174B52A20038B1E4 /* Advertisement.m */,
+				E172B009174FE98100DEB920 /* User.h */,
+				E172B00A174FE98100DEB920 /* User.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3285,7 +3285,6 @@
 				E12E248B17274CB100EFA9B5 /* WTBillboardDetailHeaderView.m in Sources */,
 				E179668A1728302A00761BD5 /* WTBillboardCommentViewController.m in Sources */,
 				E179668E1728314400761BD5 /* WTBillboardCommentCell.m in Sources */,
-				E17966961728353B00761BD5 /* User.m in Sources */,
 				E179669917283D3500761BD5 /* BillboardComment.m in Sources */,
 				E179669F1728458A00761BD5 /* NSAttributedString+WTAddition.m in Sources */,
 				E1FC01A6172FEB2300D0776C /* BillboardPost.m in Sources */,
@@ -3324,6 +3323,7 @@
 				E172AFFC174F6D9A00DEB920 /* WTCourseHeaderView.m in Sources */,
 				E172B001174FD88000DEB920 /* WTActivityImageRollView.m in Sources */,
 				E172B004174FD89300DEB920 /* WTActivityHeaderView.m in Sources */,
+				E172B00B174FE98100DEB920 /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

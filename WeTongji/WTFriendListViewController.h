@@ -11,6 +11,7 @@
 
 @interface WTFriendListViewController : WTCoreDataTableViewController
 
-+ (void)show;
++ (WTFriendListViewController *)createViewControllerWithUser:(User *)user
+                                              backButtonText:(NSString *)backButtonText;
 
 @end

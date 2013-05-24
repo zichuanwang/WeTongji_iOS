@@ -275,10 +275,6 @@
     return self.tableView;
 }
 
-- (NSString *)userDefaultKey {
-    return @"WTActivityController";
-}
-
 #pragma mark - WTDragToLoadDecoratorDelegate
 
 - (void)dragToLoadDecoratorDidDragUp {    

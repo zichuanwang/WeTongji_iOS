@@ -13,6 +13,20 @@
 
 @implementation WTResourceFactory
 
++ (UIButton *)createDisableButtonWithText:(NSString *)text {
+    UIButton *button = [[UIButton alloc] init];
+    [WTResourceFactory configureDisableButton:button text:text];
+    button.selected = YES;
+    return button;
+}
+
++ (UIBarButtonItem *)createAddFriendBarButtonWithTarget:(id)target
+                                                 action:(SEL)action {
+    UIButton *addFriendButton = [WTResourceFactory createAddFriendButtonWithTarget:target action:action];
+    UIBarButtonItem *result = [WTResourceFactory createBarButtonWithButton:addFriendButton];
+    return result;
+}
+
 + (UIButton *)createAddFriendButtonWithTarget:(id)target
                                        action:(SEL)action {
     UIButton *button = [WTResourceFactory createNormalButtonWithText:@""];
@@ -224,6 +238,23 @@
     button.selected = YES;
     return button;
 }
+
++ (void)configureDisableButton:(UIButton *)button
+                          text:(NSString *)text {
+    [WTResourceFactory configureButton:button
+                                  text:text
+                            selectText:nil
+                           normalImage:[UIImage imageNamed:@"WTDisableButton"]
+                        highlightImage:[UIImage imageNamed:@"WTDisableButton"]
+                           selectImage:[UIImage imageNamed:@"WTDisableButton"]
+                      normalTitleColor:[UIColor clearColor]
+                     normalShadowColor:[UIColor colorWithRed:159.0f / 255 green:159.0f / 255 blue:159.0f / 255 alpha:1.0f]
+                   highlightTitleColor:[UIColor clearColor]
+                  highlightShadowColor:[UIColor colorWithRed:159.0f / 255 green:159.0f / 255 blue:159.0f / 255 alpha:1.0f]
+                      selectTitleColor:[UIColor clearColor]
+                     selectShadowColor:[UIColor colorWithRed:159.0f / 255 green:159.0f / 255 blue:159.0f / 255 alpha:1.0f]];
+}
+
 
 + (void)configureFocusButton:(UIButton *)button
                         text:(NSString *)text {

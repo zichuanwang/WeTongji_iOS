@@ -7,11 +7,20 @@
 //
 
 #import "WTFriendListViewController.h"
-#import "WTRootNavigationController.h"
-#import "UIApplication+WTAddition.h"
 #import "WTResourceFactory.h"
+#import "Object+Addtion.h"
+#import "Controller+Addition.h"
+#import "User+Addition.h"
+#import "WTUserCell.h"
+#import "WTUserDetailViewController.h"
+#import "WTDragToLoadDecorator.h"
 
-@interface WTFriendListViewController ()
+@interface WTFriendListViewController () <WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
+
+@property (nonatomic, strong) User *user;
+@property (nonatomic, copy) NSString *backButtonText;
+@property (nonatomic, strong) WTDragToLoadDecorator *dragToLoadDecorator;
+@property (nonatomic, assign) NSInteger nextPage;
 
 @end
 
@@ -22,6 +31,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.nextPage = 2;
     }
     return self;
 }
@@ -31,6 +41,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self configureNavigationBar];
+    [self configureDragToLoadDecorator];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [self.dragToLoadDecorator stopObservingChangesInDragToLoadScrollView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,36 +63,86 @@
     // Dispose of any resources that can be recreated.
 }
 
++ (WTFriendListViewController *)createViewControllerWithUser:(User *)user
+                                              backButtonText:(NSString *)backButtonText {
+    WTFriendListViewController *vc = [[WTFriendListViewController alloc] init];
+    
+    vc.user = user;
+    
+    vc.backButtonText = backButtonText;
+    
+    return vc;
+}
+
+#pragma mark - Data load methods
+
+- (void)loadMoreDataWithSuccessBlock:(void (^)(void))success
+                        failureBlock:(void (^)(void))failure {
+    WTRequest * request = [WTRequest requestWithSuccessBlock:^(id responseData) {
+        WTLOG(@"Get friends list: %@", responseData);
+        
+        //NSDictionary *resultDict = (NSDictionary *)responseData;
+//        NSString *nextPage = resultDict[@"NextPager"];
+//        self.nextPage = nextPage.integerValue;
+//        
+//        if (self.nextPage == 0) {
+//            [self.dragToLoadDecorator setBottomViewDisabled:YES];
+//        } else {
+//            [self.dragToLoadDecorator setBottomViewDisabled:NO];
+//        }
+        
+        if (success)
+            success();
+        
+    } failureBlock:^(NSError * error) {
+        WTLOGERROR(@"Get friends list:%@", error.localizedDescription);
+        
+        if (failure)
+            failure();
+        
+        [WTErrorHandler handleError:error];
+    }];
+    [request getFriendsList];
+    [[WTClient sharedClient] enqueueRequest:request];
+}
+
+- (void)clearAllData {
+    [Object setAllObjectsFreeFromHolder:[self class]];
+}
+
 #pragma mark - UI methods
 
 - (void)configureNavigationBar {
-    UIBarButtonItem *cancalBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:NSLocalizedString(@"Cancel", nil) target:self action:@selector(didClickCancelButton:)];
+    UIBarButtonItem *cancalBarButtonItem = [WTResourceFactory createBackBarButtonWithText:self.backButtonText target:self action:@selector(didClickCancelButton:)];
     self.navigationItem.leftBarButtonItem = cancalBarButtonItem;
+    
+    self.navigationItem.rightBarButtonItem = [WTResourceFactory createAddFriendBarButtonWithTarget:self action:@selector(didClickAddFriendButton:)];
+    
+    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Friends List", nil)];
+}
+
+- (void)configureDragToLoadDecorator {
+    self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
+    [self.dragToLoadDecorator setTopViewLoading:YES];
+    [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
 }
 
 #pragma mark - Actions
 
 - (void)didClickCancelButton:(UIButton *)sender {
-    [self dismissView];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
-+ (void)show {
-    WTFriendListViewController *vc = [[WTFriendListViewController alloc] init];
-    WTRootNavigationController *nav = [[WTRootNavigationController alloc] initWithRootViewController:vc];
+- (void)didClickAddFriendButton:(UIButton *)sender {
     
-    UIViewController *rootVC = [UIApplication sharedApplication].rootTabBarController;
-    [rootVC presentViewController:nav animated:YES completion:nil];
-}
-
-- (void)dismissView {
-    UIViewController *rootVC = [UIApplication sharedApplication].rootTabBarController;
-    [rootVC dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - CoreDataTableViewController methods
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    
+    WTUserCell *userCell = (WTUserCell *)cell;
+    User *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [userCell configureCellWithIndexPath:indexPath user:user];
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {
@@ -76,11 +150,53 @@
     
     NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     
-    [request setSortDescriptors:[NSArray arrayWithObject:nameDescriptor]];
+    [request setSortDescriptors:@[nameDescriptor]];
+    
+    [request setPredicate:[NSPredicate predicateWithFormat:@"(SELF in %@) AND (SELF in %@)", self.user.friends, [Controller controllerModelForClass:[self class]]]];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    return @"WTUserCell";
+}
+
+- (void)fetchedResultsControllerDidPerformFetch {
+    if ([self.fetchedResultsController.sections.lastObject numberOfObjects] == 0) {
+        [self.dragToLoadDecorator setTopViewLoading:YES];
+    }
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    User *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    WTUserDetailViewController *vc = [WTUserDetailViewController createDetailViewControllerWithUser:user backBarButtonText:NSLocalizedString(@"Friends List", nil)];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - WTDragToLoadDecoratorDataSource
+
+- (UIScrollView *)dragToLoadScrollView {
+    return self.tableView;
+}
+
+#pragma mark - WTDragToLoadDecoratorDelegate
+
+- (void)dragToLoadDecoratorDidDragUp {
+    [self loadMoreDataWithSuccessBlock:^{
+        [self.dragToLoadDecorator bottomViewLoadFinished:YES];
+    } failureBlock:^{
+        [self.dragToLoadDecorator bottomViewLoadFinished:NO];
+    }];
+}
+
+- (void)dragToLoadDecoratorDidDragDown {
+    self.nextPage = 1;
+    [self loadMoreDataWithSuccessBlock:^{
+        [self clearAllData];
+        [self.dragToLoadDecorator topViewLoadFinished:YES];
+    } failureBlock:^{
+        [self.dragToLoadDecorator topViewLoadFinished:NO];
+    }];
 }
 
 @end

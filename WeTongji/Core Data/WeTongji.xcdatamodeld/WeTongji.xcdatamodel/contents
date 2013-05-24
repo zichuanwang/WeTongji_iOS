@@ -127,6 +127,7 @@
         <attribute name="studyPlan" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="wechatAccount" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="billboardComments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BillboardComment" inverseName="author" inverseEntity="BillboardComment" syncable="YES"/>
+        <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="friends" inverseEntity="User" syncable="YES"/>
         <relationship name="receivedNotifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notification" inverseName="owner" inverseEntity="Notification" syncable="YES"/>
         <relationship name="scheduledEvents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="scheduledBy" inverseEntity="Event" syncable="YES"/>
         <relationship name="sentNotifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notification" inverseName="sender" inverseEntity="Notification" syncable="YES"/>
@@ -148,6 +149,6 @@
         <element name="Object" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Organization" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Star" positionX="160" positionY="192" width="128" height="195"/>
-        <element name="User" positionX="160" positionY="192" width="128" height="345"/>
+        <element name="User" positionX="160" positionY="192" width="128" height="360"/>
     </elements>
 </model>

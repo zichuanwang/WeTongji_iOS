@@ -14,6 +14,8 @@
 
 + (UIButton *)createFocusButtonWithText:(NSString *)text;
 
++ (UIButton *)createDisableButtonWithText:(NSString *)text;
+
 + (UIButton *)createTranslucentButtonWithText:(NSString *)text;
 
 + (UIBarButtonItem *)createBackBarButtonWithText:(NSString *)text
@@ -54,5 +56,8 @@
 
 + (UIButton *)createAddFriendButtonWithTarget:(id)target
                                        action:(SEL)action;
+
++ (UIBarButtonItem *)createAddFriendBarButtonWithTarget:(id)target
+                                                 action:(SEL)action;
 
 @end

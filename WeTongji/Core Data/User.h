@@ -2,7 +2,7 @@
 //  User.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-4-24.
+//  Created by 王 紫川 on 13-5-25.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "Object.h"
 
-@class BillboardComment, Event, Notification;
+@class BillboardComment, Event, Notification, User;
 
 @interface User : Object
 
@@ -30,13 +30,19 @@
 @property (nonatomic, retain) NSString * studentNumber;
 @property (nonatomic, retain) NSNumber * studyPlan;
 @property (nonatomic, retain) NSString * wechatAccount;
+@property (nonatomic, retain) NSSet *billboardComments;
 @property (nonatomic, retain) NSSet *receivedNotifications;
 @property (nonatomic, retain) NSSet *scheduledEvents;
 @property (nonatomic, retain) NSSet *sentNotifications;
-@property (nonatomic, retain) NSSet *billboardComments;
+@property (nonatomic, retain) NSSet *friends;
 @end
 
 @interface User (CoreDataGeneratedAccessors)
+
+- (void)addBillboardCommentsObject:(BillboardComment *)value;
+- (void)removeBillboardCommentsObject:(BillboardComment *)value;
+- (void)addBillboardComments:(NSSet *)values;
+- (void)removeBillboardComments:(NSSet *)values;
 
 - (void)addReceivedNotificationsObject:(Notification *)value;
 - (void)removeReceivedNotificationsObject:(Notification *)value;
@@ -53,9 +59,9 @@
 - (void)addSentNotifications:(NSSet *)values;
 - (void)removeSentNotifications:(NSSet *)values;
 
-- (void)addBillboardCommentsObject:(BillboardComment *)value;
-- (void)removeBillboardCommentsObject:(BillboardComment *)value;
-- (void)addBillboardComments:(NSSet *)values;
-- (void)removeBillboardComments:(NSSet *)values;
+- (void)addFriendsObject:(User *)value;
+- (void)removeFriendsObject:(User *)value;
+- (void)addFriends:(NSSet *)values;
+- (void)removeFriends:(NSSet *)values;
 
 @end
