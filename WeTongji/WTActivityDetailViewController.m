@@ -9,7 +9,6 @@
 #import "WTActivityDetailViewController.h"
 #import "WTResourceFactory.h"
 #import "WTLikeButtonView.h"
-#import "WTBannerView.h"
 #import "Activity+Addition.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import "NSString+WTAddition.h"
@@ -17,13 +16,14 @@
 #import "WTActivityDetailDescriptionView.h"
 #import "WTDetailImageViewController.h"
 #import "WTActivityHeaderView.h"
+#import "WTActivityImageRollView.h"
 
 @interface WTActivityDetailViewController () <WTDetaiImageViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic, weak) WTActivityHeaderView *headerView;
-@property (nonatomic, strong) WTBannerContainerView *bannerView;
+@property (nonatomic, strong) WTActivityImageRollView *imageRollView;
 @property (nonatomic, strong) WTActivityDetailDescriptionView *detailDescriptionView;
 
 @property (nonatomic, strong) Activity *activity;
@@ -69,7 +69,7 @@
 - (void)configureUI {
     [self configureLikeButton];
     [self configureHeaderView];
-    [self configureBannerView];
+    [self configureImageRollView];
     [self configureDetailDescriptionView];
     [self configureScrollView];
 }
@@ -97,20 +97,18 @@
     [self.likeButtonContainerView setLikeCount:self.activity.likeCount.integerValue];
 }
 
-#pragma mark Configure banner view
+#pragma mark Configure image roll view
 
-- (void)configureBannerView {
+- (void)configureImageRollView {
     if (self.activity.image) {
-        self.bannerView = [WTBannerContainerView createBannerContainerView];
-        [self.bannerView resetOrigin:CGPointMake(0, self.headerView.frame.origin.y + self.headerView.frame.size.height)];
-        [self.bannerView addItemViewWithImageURL:self.activity.image
-                                       titleText:self.activity.what
-                                organizationName:self.activity.organizer
-                                           style:WTBannerItemViewStyleClear];
-        [self.scrollView insertSubview:self.bannerView atIndex:0];
+        // TODO:
+        self.imageRollView = [WTActivityImageRollView createImageRollViewWithImageURLStringArray:@[self.activity.image]];
+        [self.imageRollView resetOrigin:CGPointMake(0, self.headerView.frame.origin.y + self.headerView.frame.size.height)];
+
+        [self.scrollView insertSubview:self.imageRollView atIndex:0];
         
-        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTagBannerView:)];
-        [self.bannerView.bannerScrollView addGestureRecognizer:tapGestureRecognizer];
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTagImageRollView:)];
+        [self.imageRollView.scrollView addGestureRecognizer:tapGestureRecognizer];
     }
 }
 
@@ -119,8 +117,8 @@
 - (void)configureDetailDescriptionView {
     self.detailDescriptionView = [WTActivityDetailDescriptionView createDetailDescriptionView];
     [self.detailDescriptionView configureViewWithManagedObject:self.activity];
-    if (self.bannerView) {
-        [self.detailDescriptionView resetOriginY:self.bannerView.frame.origin.y + self.bannerView.frame.size.height];
+    if (self.imageRollView) {
+        [self.detailDescriptionView resetOriginY:self.imageRollView.frame.origin.y + self.imageRollView.frame.size.height];
     } else {
         [self.detailDescriptionView resetOriginY:self.headerView.frame.size.height];
     }
@@ -142,14 +140,14 @@
 
 #pragma mark - Handle gesture methods
 
-- (void)didTagBannerView:(UITapGestureRecognizer *)gesture {
-    WTBannerItemView *currentBannerItemView = [self.bannerView currentItemView];
-    UIImageView *currentBannerImageView = currentBannerItemView.imageView;
-    CGRect imageViewFrame = [self.view convertRect:currentBannerImageView.frame fromView:currentBannerImageView.superview];
+- (void)didTagImageRollView:(UITapGestureRecognizer *)gesture {
+    WTActivityImageRollItemView *currentImageRollItemView = [self.imageRollView currentItemView];
+    UIImageView *currentImageView = currentImageRollItemView.imageView;
+    CGRect imageViewFrame = [self.view convertRect:currentImageView.frame fromView:currentImageView.superview];
     imageViewFrame.origin.y += 64.0f;
     
     [WTDetailImageViewController showDetailImageViewWithImageURLString:self.activity.image
-                                                         fromImageView:currentBannerImageView
+                                                         fromImageView:currentImageView
                                                               fromRect:imageViewFrame
                                                               delegate:self];
 }
@@ -233,9 +231,9 @@
 #pragma mark - WTDetailImageViewControllerDelegate
 
 - (void)detailImageViewControllerDidDismiss:(NSUInteger)currentPage {
-    self.bannerView.bannerScrollView.contentOffset = CGPointMake(self.bannerView.frame.size.width * currentPage, 0);
-    self.bannerView.bannerPageControl.currentPage = currentPage;
-    [self.bannerView reloadItemImages];
+    self.imageRollView.scrollView.contentOffset = CGPointMake(self.imageRollView.frame.size.width * currentPage, 0);
+    self.imageRollView.pageControl.currentPage = currentPage;
+    [self.imageRollView reloadItemImages];
 }
 
 @end

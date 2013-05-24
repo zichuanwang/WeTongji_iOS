@@ -54,7 +54,15 @@
 }
 
 + (WTBannerContainerView *)createBannerContainerView {
-    return [[[NSBundle mainBundle] loadNibNamed:@"WTBannerContainerView" owner:self options:nil] lastObject];
+    WTBannerContainerView *result = nil;
+    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"WTBannerView" owner:self options:nil];
+    for (UIView *view in views) {
+        if ([view isKindOfClass:[WTBannerContainerView class]]) {
+            result = (WTBannerContainerView *)view;
+            break;
+        }
+    }
+    return result;
 }
 
 - (void)configureBannerContainerViewHeight:(CGFloat)height {
@@ -89,50 +97,11 @@
     }
 }
 
-- (WTBannerItemView *)addItemViewWithImage:(UIImage *)image
-                   titleText:(NSString *)title
-            organizationName:(NSString *)organization
-                       style:(WTBannerItemViewStyle)style {
-    WTBannerItemView *result = [self addItemViewWithTitleText:title
-                                             organizationName:organization
-                                                        style:style];
-    
-    result.imageView.image = image;
-    return result;
-}
-
-- (WTBannerItemView *)addItemViewWithImageURL:(NSString *)imageURLString
-                      titleText:(NSString *)title
-               organizationName:(NSString *)organization
-                          style:(WTBannerItemViewStyle)style {
-    WTBannerItemView *result = [self addItemViewWithTitleText:title
-                                             organizationName:organization
-                                                        style:style];
-    
-    [result.imageView loadImageWithImageURLString:imageURLString];
-    result.imageURLString = imageURLString;
-    
-    return result;
-}
-
 - (WTBannerItemView *)addItemViewWithModelObject:(Object *)object {
     self.bannerItemCount = self.bannerItemCount + 1;
     NSInteger index = self.bannerItemCount - 1;
     WTBannerItemView *itemView = self.bannerItemViewArray[index];
     [itemView configureViewWithModelObject:self.bannerObjectArray[index]];
-    itemView.style = WTBannerItemViewStyleBlue;
-    
-    return itemView;
-}
-
-- (WTBannerItemView *)addItemViewWithTitleText:(NSString *)title
-                organizationName:(NSString *)organization
-                           style:(WTBannerItemViewStyle)style {
-    self.bannerItemCount = self.bannerItemCount + 1;
-    WTBannerItemView *itemView = self.bannerItemViewArray[self.bannerItemCount - 1];
-    itemView.titleLabel.text = title;
-    itemView.organizationNameLabel.text = organization;
-    itemView.style = style;
     
     return itemView;
 }
@@ -189,7 +158,7 @@
 #pragma mark - UI methods
 
 - (WTBannerItemView *)createBannerItemViewAtIndex:(NSUInteger)index {
-    WTBannerItemView *result = [[[NSBundle mainBundle] loadNibNamed:@"WTBannerItemView" owner:self options:nil] lastObject];
+    WTBannerItemView *result = [WTBannerItemView createBannerItemView];
     [result resetOrigin:CGPointMake(self.bannerScrollView.frame.size.width * index, 0)];
     result.backgroundColor = [UIColor clearColor];
     return result;
@@ -254,6 +223,18 @@
 
 @implementation WTBannerItemView
 
++ (WTBannerItemView *)createBannerItemView {
+    WTBannerItemView *result = nil;
+    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"WTBannerView" owner:self options:nil];
+    for (UIView *view in views) {
+        if ([view isKindOfClass:[WTBannerItemView class]]) {
+            result = (WTBannerItemView *)view;
+            break;
+        }
+    }
+    return result;
+}
+
 - (void)awakeFromNib {
     self.organizationNameLabelOriginY = self.organizationNameLabel.frame.origin.y;
     self.titleLabelOriginY = self.titleLabel.frame.origin.y;
@@ -288,23 +269,6 @@
     
     self.formerTitleLabelOriginY = titleLabelOriginY;
     self.formerOrganizationNameLabelOriginY = organizationNameLabelOriginY;
-}
-
-- (void)setStyle:(WTBannerItemViewStyle)style {
-    switch (style) {
-        case WTBannerItemViewStyleBlue:
-        {
-            self.labelContainerView.hidden = NO;
-        }
-            break;
-        case WTBannerItemViewStyleClear:
-        {
-            self.labelContainerView.hidden = YES;
-        }
-            break;
-        default:
-            break;
-    }
 }
 
 - (void)configureViewWithModelObject:(Object *)object {

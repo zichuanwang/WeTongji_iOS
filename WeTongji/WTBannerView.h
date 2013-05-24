@@ -8,11 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum {
-    WTBannerItemViewStyleBlue,
-    WTBannerItemViewStyleClear,
-} WTBannerItemViewStyle;
-
 #define BANNER_VIEW_ORIGINAL_HIEHGT     130.0f
 #define BANNER_VIEW_ORIGINAL_WIDTH      320.0f
 
@@ -29,20 +24,6 @@ typedef enum {
 @property (nonatomic, weak) id<WTBannerContainerViewDelegate> delegate;
 
 + (WTBannerContainerView *)createBannerContainerView;
-
-- (WTBannerItemView *)addItemViewWithImageURL:(NSString *)imageURLString
-                      titleText:(NSString *)title
-               organizationName:(NSString *)organization
-                          style:(WTBannerItemViewStyle)style;
-
-- (WTBannerItemView *)addItemViewWithImage:(UIImage *)image
-                   titleText:(NSString *)title
-            organizationName:(NSString *)organization
-                       style:(WTBannerItemViewStyle)style;
-
-- (WTBannerItemView *)itemViewAtIndex:(NSUInteger)index;
-
-- (WTBannerItemView *)currentItemView;
 
 - (void)configureBannerWithObjectsArray:(NSArray *)objectsArray;
 
@@ -65,8 +46,9 @@ typedef enum {
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UIView *labelContainerView;
-@property (nonatomic, assign) WTBannerItemViewStyle style;
 @property (nonatomic, copy) NSString *imageURLString;
+
++ (WTBannerItemView *)createBannerItemView;
 
 - (void)configureBannerItemViewHeight:(CGFloat)height
                          enlargeRatio:(float)enlargeRatio
