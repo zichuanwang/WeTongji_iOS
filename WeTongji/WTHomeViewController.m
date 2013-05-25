@@ -117,6 +117,9 @@
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Get home recommendation succuess:%@", responseObject);
         
+        [self.scrollView setScrollEnabled:NO];
+        [self.scrollView setScrollEnabled:YES];
+        
         NSDictionary *resultDict = (NSDictionary *)responseObject;
         
         // Refill home select views
