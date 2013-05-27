@@ -154,9 +154,6 @@
     if (sender.selected) {
         [self showIntroViewAnimation];
         [self.view endEditing:YES];
-        
-        NSLog(@"self frame%@", NSStringFromCGRect(self.view.frame));
-        NSLog(@"intro frame:%@", NSStringFromCGRect(self.introViewController.view.frame));
     } else {
         [self hideIntroViewAnimation];
         [self.accountTextField becomeFirstResponder];
@@ -188,15 +185,6 @@
 
 #pragma mark - Logic methods
 
-- (void)showLoginFailedAlertView:(NSError *)error {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登录失败"
-                                                    message:error.localizedDescription
-                                                   delegate:nil
-                                          cancelButtonTitle:@"好"
-                                          otherButtonTitles: nil];
-    [alert show];
-}
-
 - (void)configureFlurryUserData:(User *)user {
     [Flurry setGender:user.gender];
     [Flurry setUserID:user.studentNumber];
@@ -208,14 +196,14 @@
     self.isLoggingIn = YES;
     WTClient *client = [WTClient sharedClient];
     WTRequest *request = [WTRequest requestWithSuccessBlock: ^(id responseData) {
+        WTLOG(@"Login success:%@", responseData);
         User *user = [User insertUser:[responseData objectForKey:@"User"]];
         [WTCoreDataManager sharedManager].currentUser = user;
         [self configureFlurryUserData:user];
         [self dismissView];
-        self.isLoggingIn = NO;
     } failureBlock:^(NSError * error) {
-        [self showLoginFailedAlertView:error];
         self.isLoggingIn = NO;
+        [WTErrorHandler handleError:error];
     }];
     [request login:self.accountTextField.text password:self.passwordTextField.text];
     [client enqueueRequest:request];

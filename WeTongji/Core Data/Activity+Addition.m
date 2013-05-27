@@ -63,6 +63,8 @@
     
     Activity *result = [[[WTCoreDataManager sharedManager].managedObjectContext executeFetchRequest:request error:NULL] lastObject];
     
+    WTLOG(@"activityWithID:%@, pointer:%p", activityID, result);
+    
     return result;
 }
 

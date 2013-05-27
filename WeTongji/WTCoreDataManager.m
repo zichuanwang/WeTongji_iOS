@@ -40,6 +40,8 @@
 - (User *)currentUser {
     if (!_currentUser) {
         _currentUser = [User userWithID:[NSUserDefaults getCurrentUserID]];
+        if (_currentUser)
+            [NSNotificationCenter postCurrentUserDidChangeNotification];
     }
     return _currentUser;
 }

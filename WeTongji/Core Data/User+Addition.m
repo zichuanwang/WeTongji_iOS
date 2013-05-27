@@ -44,6 +44,14 @@
     result.enrollYear = @([[NSString stringWithFormat:@"%@", dict[@"Year"]] integerValue]);
     result.qqAccount = [NSString stringWithFormat:@"%@", dict[@"QQ"]];
     
+    BOOL isCurrentUserFriend = [[NSString stringWithFormat:@"%@", dict[@"IsFriend"]] boolValue];
+    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
+    if (isCurrentUserFriend) {
+        [currentUser addFriendsObject:result];
+    } else {
+        [currentUser removeFriendsObject:result];
+    }
+    
     return result;
 }
 

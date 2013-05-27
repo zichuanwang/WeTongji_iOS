@@ -17,6 +17,8 @@
     
     if (error.code == ErrorCodeUserSessionExpired || error.code == ErrorCodeNeedUserLogin) {
         [WTLoginViewController showWithIntro:NO];
+    } else {
+        [[[UIAlertView alloc] initWithTitle:@"请求失败" message:error.localizedDescription delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil] show];
     }
 }
 

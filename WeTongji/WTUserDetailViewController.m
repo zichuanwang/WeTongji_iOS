@@ -10,6 +10,7 @@
 #import "User+Addition.h"
 #import "WTUserProfileHeaderView.h"
 #import "WTOtherUserProfileView.h"
+#import "WTCoreDataManager.h"
 
 @interface WTUserDetailViewController ()
 
@@ -86,13 +87,19 @@
 #pragma mark - Actions
 
 - (void)didClickChangeRelationshipButton:(UIButton *)sender {
+    BOOL isFriend = [[WTCoreDataManager sharedManager].currentUser.friends containsObject:self.user];
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Add friend success:%@", responseObject);
+        [[[UIAlertView alloc] initWithTitle:@"注意" message:@"已发送好友添加请求。" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil] show];
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Add friend failure:%@", error.localizedDescription);
         [WTErrorHandler handleError:error];
-    }]; 
-    [request inviteFriend:self.user.identifier];
+    }];
+    if (isFriend)
+        [request removeFriend:self.user.identifier];
+    else
+        [request inviteFriend:self.user.identifier];
+    [[WTClient sharedClient] enqueueRequest:request];
 }
 
 @end

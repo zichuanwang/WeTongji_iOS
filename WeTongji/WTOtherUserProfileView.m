@@ -57,7 +57,7 @@
     self.weiboLabel.text = sinaWeiboName;
     self.qqLabel.text = self.user.qqAccount;
     // TODO:
-    self.dormLabel.text = self.user.department;
+    self.dormLabel.text = @"";
 }
 
 - (void)configureFirstSectionLabels {

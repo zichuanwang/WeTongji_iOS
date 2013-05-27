@@ -58,11 +58,12 @@
         self.genderIndicatorImageView.image = [UIImage imageNamed:@"WTGenderWhiteFemaleIcon"];
     }
     
-    if ([user.identifier isEqualToString:[WTCoreDataManager sharedManager].currentUser.identifier]) {
+    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
+    if ([user.identifier isEqualToString:currentUser.identifier]) {
         [self.functionButton setTitle:NSLocalizedString(@"New Avatar", nil) forState:UIControlStateNormal];
     } else {
-        // TODO: 判断是否为好友
-        if (YES) {
+        // 判断是否为好友
+        if (![currentUser.friends containsObject:self.user]) {
             [self.functionButton setTitle:NSLocalizedString(@"Add Friend", nil) forState:UIControlStateNormal];
         } else {
             [self.functionButton setTitle:NSLocalizedString(@"Delete Friend", nil) forState:UIControlStateNormal];
