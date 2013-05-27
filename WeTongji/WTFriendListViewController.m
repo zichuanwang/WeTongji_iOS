@@ -83,9 +83,10 @@
             success();
                 
         NSDictionary *resultDict = (NSDictionary *)responseData;
-        NSArray *friendsArray = resultDict[@"Friends"];
+        NSArray *friendsArray = resultDict[@"Users"];
         for (NSDictionary *infoDict in friendsArray) {
             User *friend = [User insertUser:infoDict];
+            [self.user addFriendsObject:friend];
             [friend setObjectHeldByHolder:[self class]];
         }
         

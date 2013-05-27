@@ -51,7 +51,7 @@
     self.phoneLabel.text = self.user.phoneNumber;
     self.emailLabel.text = self.user.emailAddress;
     NSString *sinaWeiboName = self.user.sinaWeiboName;
-    if ([sinaWeiboName characterAtIndex:0] != '@') {
+    if (sinaWeiboName.length > 0 && [sinaWeiboName characterAtIndex:0] != '@') {
         sinaWeiboName = [NSString stringWithFormat:@"@%@", sinaWeiboName];
     }
     self.weiboLabel.text = sinaWeiboName;
