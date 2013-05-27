@@ -76,9 +76,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
-
 - (void)clearAllData {
      [Object setAllObjectsFreeFromHolder:[self class]];
 }
@@ -160,8 +157,7 @@
 - (void)configureRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"Star" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
-    // TODO:
-    NSSortDescriptor *updateTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"identifier" ascending:NO];
+    NSSortDescriptor *updateTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createdAt" ascending:NO];
   
     [request setSortDescriptors:@[updateTimeDescriptor]];
 }

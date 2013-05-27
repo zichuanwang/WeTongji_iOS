@@ -101,6 +101,7 @@
         <attribute name="avatar" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="canLike" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="imageArray" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="jobTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="likeCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -148,7 +149,7 @@
         <element name="Notification" positionX="-119" positionY="-126" width="128" height="90"/>
         <element name="Object" positionX="-135" positionY="84" width="128" height="105"/>
         <element name="Organization" positionX="-423" positionY="-126" width="128" height="105"/>
-        <element name="Star" positionX="-270" positionY="-126" width="128" height="195"/>
+        <element name="Star" positionX="-270" positionY="-126" width="128" height="210"/>
         <element name="User" positionX="-423" positionY="-9" width="128" height="360"/>
     </elements>
 </model>

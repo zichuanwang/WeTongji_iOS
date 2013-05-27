@@ -9,6 +9,7 @@
 #import "Star+Addition.h"
 #import "WTCoreDataManager.h"
 #import "Object+Addtion.h"
+#import "NSString+WTAddition.h"
 
 @implementation Star (Addition)
 
@@ -43,6 +44,8 @@
     result.name = [NSString stringWithFormat:@"%@", dict[@"Name"]];
     result.motto = [NSString stringWithFormat:@"%@", dict[@"Words"]];
     result.starNumber = [NSString stringWithFormat:@"%@", dict[@"NO"]];
+    result.createdAt = [[NSString stringWithFormat:@"%@", dict[@"CreatedAt"]] convertToDate];
+    NSLog(@"create at:%@", result.createdAt);
     
     return result;
 }
