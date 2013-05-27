@@ -38,7 +38,7 @@
 + (BillboardPost *)insertBillboardPost:(NSDictionary *)dict {
     NSString *postID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
-    if (!postID || [postID isEqualToString:@""]) {
+    if (!postID || [postID isEqualToString:@"(null)"]) {
         return nil;
     }
     

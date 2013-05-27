@@ -23,7 +23,7 @@
     for (int i = 0; i < 5; i++) {
         NSString *notificationID = [NSString stringWithFormat:@"%d", i];
         
-        if (!notificationID || [notificationID isEqualToString:@""]) {
+        if (!notificationID || [notificationID isEqualToString:@"(null)"]) {
             continue;
         }
         

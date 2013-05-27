@@ -20,7 +20,6 @@
 @property (nonatomic, strong) User *user;
 @property (nonatomic, copy) NSString *backButtonText;
 @property (nonatomic, strong) WTDragToLoadDecorator *dragToLoadDecorator;
-@property (nonatomic, assign) NSInteger nextPage;
 
 @end
 
@@ -31,7 +30,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.nextPage = 2;
     }
     return self;
 }
@@ -81,18 +79,15 @@
     WTRequest * request = [WTRequest requestWithSuccessBlock:^(id responseData) {
         WTLOG(@"Get friends list: %@", responseData);
         
-        //NSDictionary *resultDict = (NSDictionary *)responseData;
-//        NSString *nextPage = resultDict[@"NextPager"];
-//        self.nextPage = nextPage.integerValue;
-//        
-//        if (self.nextPage == 0) {
-//            [self.dragToLoadDecorator setBottomViewDisabled:YES];
-//        } else {
-//            [self.dragToLoadDecorator setBottomViewDisabled:NO];
-//        }
-        
         if (success)
             success();
+                
+        NSDictionary *resultDict = (NSDictionary *)responseData;
+        NSArray *friendsArray = resultDict[@"Friends"];
+        for (NSDictionary *infoDict in friendsArray) {
+            User *friend = [User insertUser:infoDict];
+            [friend setObjectHeldByHolder:[self class]];
+        }
         
     } failureBlock:^(NSError * error) {
         WTLOGERROR(@"Get friends list:%@", error.localizedDescription);
@@ -107,6 +102,7 @@
 }
 
 - (void)clearAllData {
+    [self.user removeFriends:self.user.friends];
     [Object setAllObjectsFreeFromHolder:[self class]];
 }
 
@@ -123,7 +119,7 @@
 
 - (void)configureDragToLoadDecorator {
     self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
-    [self.dragToLoadDecorator setTopViewLoading:YES];
+    [self.dragToLoadDecorator setBottomViewDisabled:YES immediately:YES];
     [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
 }
 
@@ -152,7 +148,7 @@
     
     [request setSortDescriptors:@[nameDescriptor]];
     
-    [request setPredicate:[NSPredicate predicateWithFormat:@"(SELF in %@) AND (SELF in %@)", self.user.friends, [Controller controllerModelForClass:[self class]]]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"(SELF in %@) AND (SELF in %@)", self.user.friends, [Controller controllerModelForClass:[self class]].hasObjects]];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
@@ -181,16 +177,7 @@
 
 #pragma mark - WTDragToLoadDecoratorDelegate
 
-- (void)dragToLoadDecoratorDidDragUp {
-    [self loadMoreDataWithSuccessBlock:^{
-        [self.dragToLoadDecorator bottomViewLoadFinished:YES];
-    } failureBlock:^{
-        [self.dragToLoadDecorator bottomViewLoadFinished:NO];
-    }];
-}
-
 - (void)dragToLoadDecoratorDidDragDown {
-    self.nextPage = 1;
     [self loadMoreDataWithSuccessBlock:^{
         [self clearAllData];
         [self.dragToLoadDecorator topViewLoadFinished:YES];

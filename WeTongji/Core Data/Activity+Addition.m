@@ -16,7 +16,7 @@
 + (Activity *)insertActivity:(NSDictionary *)dict {
     NSString *activityID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
-    if (!activityID || [activityID isEqualToString:@""]) {
+    if (!activityID || [activityID isEqualToString:@"(null)"]) {
         return nil;
     }
     

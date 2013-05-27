@@ -18,7 +18,7 @@
 + (Course *)insertCourse:(NSDictionary *)dict {
     NSString *courseID = [NSString stringWithFormat:@"%@", dict[@"NO"]];
     
-    if (!courseID || [courseID isEqualToString:@""]) {
+    if (!courseID || [courseID isEqualToString:@"(null)"]) {
         return nil;
     }
     

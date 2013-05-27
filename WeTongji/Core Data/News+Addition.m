@@ -16,7 +16,7 @@
 + (News *)insertNews:(NSDictionary *)dict {
     NSString *newsID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
-    if (!newsID || [newsID isEqualToString:@""]) {
+    if (!newsID || [newsID isEqualToString:@"(null)"]) {
         return nil;
     }
     

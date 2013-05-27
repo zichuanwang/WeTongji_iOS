@@ -15,7 +15,7 @@
 + (Star *)insertStar:(NSDictionary *)dict {
     NSString *starID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
-    if (!starID || [starID isEqualToString:@""]) {
+    if (!starID || [starID isEqualToString:@"(null)"]) {
         return nil;
     }
     

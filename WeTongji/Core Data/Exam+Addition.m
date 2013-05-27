@@ -15,7 +15,7 @@
 + (Exam *)insertExam:(NSDictionary *)dict {
     NSString *examID = [NSString stringWithFormat:@"%@", dict[@"NO"]];
     
-    if (!examID || [examID isEqualToString:@""]) {
+    if (!examID || [examID isEqualToString:@"(null)"]) {
         return nil;
     }
     

@@ -14,7 +14,7 @@
 + (Organization *)insertOrganization:(NSDictionary *)dict {
     NSString *orgID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
-    if (!orgID || [orgID isEqualToString:@""]) {
+    if (!orgID || [orgID isEqualToString:@"(null)"]) {
         return nil;
     }
     

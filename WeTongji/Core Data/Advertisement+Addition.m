@@ -14,7 +14,7 @@
 + (Advertisement *)insertAdvertisement:(NSDictionary *)dict {
     NSString *adID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
-    if (!adID || [adID isEqualToString:@""]) {
+    if (!adID || [adID isEqualToString:@"(null)"]) {
         return nil;
     }
     

@@ -18,7 +18,7 @@
     
     NSString *userID = [NSString stringWithFormat:@"%@", dict[@"UID"]];
     
-    if (!userID || [userID isEqualToString:@""]) {
+    if (!userID || [userID isEqualToString:@"(null)"]) {
         return nil;
     }
     
@@ -39,9 +39,9 @@
     result.major = [NSString stringWithFormat:@"%@", dict[@"Major"]];
     result.studentNumber = [NSString stringWithFormat:@"%@", dict[@"NO"]];
     result.phoneNumber = [NSString stringWithFormat:@"%@", dict[@"Phone"]];
-    result.studyPlan = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@", dict[@"Plan"]] integerValue]];
+    result.studyPlan = @([[NSString stringWithFormat:@"%@", dict[@"Plan"]] integerValue]);
     result.sinaWeiboName = [NSString stringWithFormat:@"%@", dict[@"SinaWeibo"]];
-    result.enrollYear = [NSNumber numberWithInteger:[[NSString stringWithFormat:@"%@", dict[@"Year"]] integerValue]];
+    result.enrollYear = @([[NSString stringWithFormat:@"%@", dict[@"Year"]] integerValue]);
     result.qqAccount = [NSString stringWithFormat:@"%@", dict[@"QQ"]];
     
     return result;
