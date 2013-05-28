@@ -8,7 +8,7 @@
 
 #import "WTCommentViewController.h"
 #import "WTResourceFactory.h"
-#import "Object+Addtion.h"
+#import "Object+Addition.h"
 #import "UIApplication+WTAddition.h"
 #import "WTNavigationViewController.h"
 

@@ -11,7 +11,7 @@
 #import "Event+Addition.h"
 #import "NSString+WTAddition.h"
 #import "NSAttributedString+WTAddition.h"
-#import "Object+Addtion.h"
+#import "Object+Addition.h"
 
 @interface WTHomeNowContainerView ()
 

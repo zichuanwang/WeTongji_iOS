@@ -7,7 +7,7 @@
 //
 
 #import "Event+Addition.h"
-#import "Object+Addtion.h"
+#import "Object+Addition.h"
 #import "NSString+WTAddition.h"
 #import "WTCoreDataManager.h"
 

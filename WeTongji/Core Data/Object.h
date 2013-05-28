@@ -2,7 +2,7 @@
 //  Object.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-5-28.
+//  Created by 王 紫川 on 13-5-29.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSString * objectClass;
 @property (nonatomic, retain) NSDate * updatedAt;
 @property (nonatomic, retain) NSNumber * likeCount;
+@property (nonatomic, retain) NSNumber * commentCount;
 @property (nonatomic, retain) NSSet *belongToControllers;
 @property (nonatomic, retain) NSSet *comments;
 @property (nonatomic, retain) User *likedBy;

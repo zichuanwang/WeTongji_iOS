@@ -7,7 +7,7 @@
 //
 
 #import "News+Addition.h"
-#import "Object+Addtion.h"
+#import "Object+Addition.h"
 #import "WTCoreDataManager.h"
 #import "NSString+WTAddition.h"
 

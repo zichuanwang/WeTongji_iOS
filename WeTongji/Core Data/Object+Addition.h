@@ -1,5 +1,5 @@
 //
-//  Object+Addtion.h
+//  Object+Addition.h
 //  WeTongji
 //
 //  Created by 王 紫川 on 13-5-5.
@@ -8,7 +8,7 @@
 
 #import "Object.h"
 
-@interface Object (Addtion)
+@interface Object (Addition)
 
 @property (nonatomic, assign) BOOL liked;
 

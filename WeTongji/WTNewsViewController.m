@@ -9,7 +9,7 @@
 #import "WTNewsViewController.h"
 #import "WTResourceFactory.h"
 #import "News+Addition.h"
-#import "Object+Addtion.h"
+#import "Object+Addition.h"
 #import "Controller+Addition.h"
 #import "WTNewsCell.h"
 #import "WTNewsSettingViewController.h"

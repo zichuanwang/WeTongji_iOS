@@ -11,7 +11,7 @@
 #import "WTResourceFactory.h"
 #import "WTActivityCell.h"
 #import "Activity+Addition.h"
-#import "Object+Addtion.h"
+#import "Object+Addition.h"
 #import "WTActivityDetailViewController.h"
 #import "WTActivitySettingViewController.h"
 #import "NSUserDefaults+WTAddition.h"

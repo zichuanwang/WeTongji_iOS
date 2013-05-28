@@ -17,7 +17,6 @@
         <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="BillboardPost" representedClassName="BillboardPost" parentEntity="Object" syncable="YES">
-        <attribute name="commentCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
@@ -80,6 +79,7 @@
         <relationship name="sender" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="sentNotifications" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Object" representedClassName="Object" isAbstract="YES" syncable="YES">
+        <attribute name="commentCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="identifier" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="likeCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="objectClass" optional="YES" attributeType="String" syncable="YES"/>
@@ -134,7 +134,7 @@
         <element name="ActivityInvitationNotification" positionX="-126" positionY="-9" width="128" height="45"/>
         <element name="Advertisement" positionX="358" positionY="189" width="128" height="120"/>
         <element name="Comment" positionX="358" positionY="57" width="128" height="105"/>
-        <element name="BillboardPost" positionX="360" positionY="-117" width="128" height="120"/>
+        <element name="BillboardPost" positionX="360" positionY="-117" width="128" height="105"/>
         <element name="Controller" positionX="43" positionY="96" width="128" height="75"/>
         <element name="Course" positionX="43" positionY="225" width="128" height="180"/>
         <element name="Event" positionX="-135" positionY="261" width="128" height="135"/>
@@ -143,7 +143,7 @@
         <element name="InvitationNotification" positionX="43" positionY="-123" width="128" height="60"/>
         <element name="News" positionX="205" positionY="-120" width="128" height="270"/>
         <element name="Notification" positionX="-119" positionY="-126" width="128" height="90"/>
-        <element name="Object" positionX="-135" positionY="84" width="128" height="150"/>
+        <element name="Object" positionX="-135" positionY="84" width="128" height="165"/>
         <element name="Organization" positionX="-423" positionY="-126" width="128" height="105"/>
         <element name="Star" positionX="-270" positionY="-126" width="128" height="180"/>
         <element name="User" positionX="-423" positionY="-9" width="128" height="375"/>

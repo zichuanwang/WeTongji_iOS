@@ -8,7 +8,7 @@
 
 #import "Star+Addition.h"
 #import "WTCoreDataManager.h"
-#import "Object+Addtion.h"
+#import "Object+Addition.h"
 #import "NSString+WTAddition.h"
 
 @implementation Star (Addition)

@@ -8,7 +8,7 @@
 
 #import "WTFriendListViewController.h"
 #import "WTResourceFactory.h"
-#import "Object+Addtion.h"
+#import "Object+Addition.h"
 #import "Controller+Addition.h"
 #import "User+Addition.h"
 #import "WTUserCell.h"

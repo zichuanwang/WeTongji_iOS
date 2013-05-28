@@ -10,7 +10,7 @@
 #import "WTDragToLoadDecorator.h"
 #import "WTCommentCell.h"
 #import "BillboardPost+Addition.h"
-#import "Object+Addtion.h"
+#import "Object+Addition.h"
 #import "Comment+Addition.h"
 #import "NSString+WTAddition.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
@@ -19,7 +19,7 @@
 
 @property (nonatomic, strong) WTDragToLoadDecorator *dragToLoadDecorator;
 
-@property (nonatomic, weak) BillboardPost *post;
+@property (nonatomic, strong) BillboardPost *post;
 
 @property (nonatomic, assign) NSInteger nextPage;
 
@@ -93,8 +93,7 @@
         NSArray *commentsInfoArray = responseObject[@"Comments"];
         for (NSDictionary *info in commentsInfoArray) {
             Comment *comment = [Comment insertComment:info];
-            comment.belongTo = self.post;
-            //[self.post addCommentsObject:comment];
+            [[WTCoreDataManager sharedManager].currentUser addCommentsObject:comment];
         }
     } failureBlock:^(NSError *error) {
         if (failure)

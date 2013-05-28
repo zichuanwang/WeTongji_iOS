@@ -13,7 +13,7 @@
 #import "WTDragToLoadDecorator.h"
 #import "NSString+WTAddition.h"
 #import "WTStarCell.h"
-#import "Object+Addtion.h"
+#import "Object+Addition.h"
 #import "Star+Addition.h"
 #import "WTStarDetailViewController.h"
 

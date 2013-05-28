@@ -15,7 +15,7 @@
 #import "WTNowActivityCell.h"
 #import "WTNowCourseCell.h"
 #import "Event+Addition.h"
-#import "Object+Addtion.h"
+#import "Object+Addition.h"
 #import "NSNotificationCenter+WTAddition.h"
 #import "WTDragToLoadDecorator.h"
 #import "WTNowViewController.h"

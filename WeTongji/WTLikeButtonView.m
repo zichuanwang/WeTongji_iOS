@@ -7,7 +7,7 @@
 //
 
 #import "WTLikeButtonView.h"
-#import "Object+Addtion.h"
+#import "Object+Addition.h"
 
 @interface WTLikeButtonView ()
 

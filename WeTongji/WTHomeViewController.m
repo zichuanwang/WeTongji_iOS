@@ -15,7 +15,7 @@
 #import "Star+Addition.h"
 #import "Course+Addition.h"
 #import "Organization+Addition.h"
-#import "Object+Addtion.h"
+#import "Object+Addition.h"
 #import "Organization+Addition.h"
 #import "Advertisement+Addition.h"
 #import "WTNewsDetailViewController.h"

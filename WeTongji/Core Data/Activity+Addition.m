@@ -9,7 +9,7 @@
 #import "Activity+Addition.h"
 #import "WTCoreDataManager.h"
 #import "NSString+WTAddition.h"
-#import "Object+Addtion.h"
+#import "Object+Addition.h"
 
 @implementation Activity (Addition)
 
