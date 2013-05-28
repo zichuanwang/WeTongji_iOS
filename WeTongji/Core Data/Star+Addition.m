@@ -28,7 +28,6 @@
     }
     
     result.avatar = [NSString stringWithFormat:@"%@", dict[@"Avatar"]];
-    result.canLike = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"CanLike"]]).boolValue);
     result.content = [NSString stringWithFormat:@"%@", dict[@"Description"]];
     
     NSArray *imageArray = dict[@"Images"];
@@ -45,7 +44,14 @@
     result.motto = [NSString stringWithFormat:@"%@", dict[@"Words"]];
     result.starNumber = [NSString stringWithFormat:@"%@", dict[@"NO"]];
     result.createdAt = [[NSString stringWithFormat:@"%@", dict[@"CreatedAt"]] convertToDate];
-    NSLog(@"create at:%@", result.createdAt);
+    
+    BOOL canLike = [[NSString stringWithFormat:@"%@", dict[@"CanLike"]] boolValue];
+    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
+    if (!canLike) {
+        [currentUser addLikedObjectsObject:result];
+    } else {
+        [currentUser removeLikedObjectsObject:result];
+    }
     
     return result;
 }

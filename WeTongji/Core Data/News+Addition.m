@@ -32,7 +32,6 @@
     result.content = [[NSString stringWithFormat:@"%@", dict[@"Context"]] clearAllBacklashR];
     result.summary = [NSString stringWithFormat:@"%@", dict[@"Summary"]];
     result.publishDate = [[NSString stringWithFormat:@"%@", [dict objectForKey:@"CreatedAt"]] convertToDate];
-    result.canLike = @([[NSString stringWithFormat:@"%@", dict[@"CanLike"]] boolValue]);
     result.likeCount = @([[NSString stringWithFormat:@"%@", dict[@"Like"]] integerValue]);
     result.readCount = @([[NSString stringWithFormat:@"%@", dict[@"Read"]] integerValue]);
     result.organizer = [NSString stringWithFormat:@"%@", dict[@"Organizer"]];
@@ -64,6 +63,14 @@
         result.category = @(NewsShowTypeAdministrativeAffairs);
     else {
         NSAssert(NO, @"Error");
+    }
+    
+    BOOL canLike = [[NSString stringWithFormat:@"%@", dict[@"CanLike"]] boolValue];
+    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
+    if (!canLike) {
+        [currentUser addLikedObjectsObject:result];
+    } else {
+        [currentUser removeLikedObjectsObject:result];
     }
     
     result.publishDay = [result.publishDate convertToYearMonthDayString];

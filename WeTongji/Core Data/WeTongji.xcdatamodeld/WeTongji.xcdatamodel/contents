@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12A256" minimumToolsVersion="Xcode 4.5" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Activity" representedClassName="Activity" parentEntity="Event" syncable="YES">
-        <attribute name="canLike" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="canSchedule" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="category" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="likeCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="organizer" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="organizerAvatar" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -19,19 +16,18 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="BillboardComment" representedClassName="BillboardComment" parentEntity="Object" syncable="YES">
-        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="author" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="billboardComments" inverseEntity="User" syncable="YES"/>
-        <relationship name="belongTo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BillboardPost" inverseName="comments" inverseEntity="BillboardPost" syncable="YES"/>
-    </entity>
     <entity name="BillboardPost" representedClassName="BillboardPost" parentEntity="Object" syncable="YES">
         <attribute name="commentCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BillboardComment" inverseName="belongTo" inverseEntity="BillboardComment" syncable="YES"/>
+    </entity>
+    <entity name="Comment" representedClassName="Comment" parentEntity="Object" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="author" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="publishedComments" inverseEntity="User" syncable="YES"/>
+        <relationship name="belongTo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Object" inverseName="comments" inverseEntity="Object" syncable="YES"/>
     </entity>
     <entity name="Controller" representedClassName="Controller" syncable="YES">
         <attribute name="identifier" attributeType="String" indexed="YES" syncable="YES"/>
@@ -62,12 +58,10 @@
         <attribute name="accepted" optional="YES" attributeType="Boolean" syncable="YES"/>
     </entity>
     <entity name="News" representedClassName="News" parentEntity="Object" syncable="YES">
-        <attribute name="canLike" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="category" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hasTicket" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="imageArray" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="likeCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="organizer" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="organizerAvatar" optional="YES" attributeType="String" syncable="YES"/>
@@ -87,9 +81,12 @@
     </entity>
     <entity name="Object" representedClassName="Object" isAbstract="YES" syncable="YES">
         <attribute name="identifier" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="likeCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="objectClass" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="belongToControllers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Controller" inverseName="hasObjects" inverseEntity="Controller" syncable="YES"/>
+        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="belongTo" inverseEntity="Comment" syncable="YES"/>
+        <relationship name="likedBy" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="likedObjects" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Organization" representedClassName="Organization" parentEntity="Object" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
@@ -99,12 +96,10 @@
     </entity>
     <entity name="Star" representedClassName="Star" parentEntity="Object" syncable="YES">
         <attribute name="avatar" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="canLike" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="imageArray" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="jobTitle" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="likeCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="motto" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="starNumber" optional="YES" attributeType="String" syncable="YES"/>
@@ -127,29 +122,30 @@
         <attribute name="studentNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="studyPlan" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="wechatAccount" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="billboardComments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BillboardComment" inverseName="author" inverseEntity="BillboardComment" syncable="YES"/>
         <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="friends" inverseEntity="User" syncable="YES"/>
+        <relationship name="likedObjects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Object" inverseName="likedBy" inverseEntity="Object" syncable="YES"/>
+        <relationship name="publishedComments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="author" inverseEntity="Comment" syncable="YES"/>
         <relationship name="receivedNotifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notification" inverseName="owner" inverseEntity="Notification" syncable="YES"/>
         <relationship name="scheduledEvents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="scheduledBy" inverseEntity="Event" syncable="YES"/>
         <relationship name="sentNotifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notification" inverseName="sender" inverseEntity="Notification" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Activity" positionX="205" positionY="216" width="128" height="180"/>
+        <element name="Activity" positionX="205" positionY="216" width="128" height="135"/>
         <element name="ActivityInvitationNotification" positionX="-126" positionY="-9" width="128" height="45"/>
         <element name="Advertisement" positionX="358" positionY="189" width="128" height="120"/>
-        <element name="BillboardComment" positionX="358" positionY="57" width="128" height="105"/>
-        <element name="BillboardPost" positionX="360" positionY="-117" width="128" height="135"/>
+        <element name="Comment" positionX="358" positionY="57" width="128" height="105"/>
+        <element name="BillboardPost" positionX="360" positionY="-117" width="128" height="120"/>
         <element name="Controller" positionX="43" positionY="96" width="128" height="75"/>
         <element name="Course" positionX="43" positionY="225" width="128" height="180"/>
         <element name="Event" positionX="-135" positionY="261" width="128" height="135"/>
         <element name="Exam" positionX="369" positionY="351" width="128" height="45"/>
         <element name="FriendInvitationNotification" positionX="43" positionY="-9" width="128" height="45"/>
         <element name="InvitationNotification" positionX="43" positionY="-123" width="128" height="60"/>
-        <element name="News" positionX="205" positionY="-120" width="128" height="300"/>
+        <element name="News" positionX="205" positionY="-120" width="128" height="270"/>
         <element name="Notification" positionX="-119" positionY="-126" width="128" height="90"/>
-        <element name="Object" positionX="-135" positionY="84" width="128" height="105"/>
+        <element name="Object" positionX="-135" positionY="84" width="128" height="150"/>
         <element name="Organization" positionX="-423" positionY="-126" width="128" height="105"/>
-        <element name="Star" positionX="-270" positionY="-126" width="128" height="210"/>
-        <element name="User" positionX="-423" positionY="-9" width="128" height="360"/>
+        <element name="Star" positionX="-270" positionY="-126" width="128" height="180"/>
+        <element name="User" positionX="-423" positionY="-9" width="128" height="375"/>
     </elements>
 </model>

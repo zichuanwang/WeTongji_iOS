@@ -2,7 +2,7 @@
 //  News.m
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-5-4.
+//  Created by 王 紫川 on 13-5-28.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -11,22 +11,20 @@
 
 @implementation News
 
-@dynamic canLike;
+@dynamic category;
 @dynamic content;
+@dynamic hasTicket;
 @dynamic imageArray;
-@dynamic likeCount;
+@dynamic location;
 @dynamic organizer;
 @dynamic organizerAvatar;
+@dynamic phoneNumber;
 @dynamic publishDate;
 @dynamic publishDay;
 @dynamic readCount;
 @dynamic source;
 @dynamic summary;
-@dynamic title;
-@dynamic category;
-@dynamic hasTicket;
-@dynamic location;
-@dynamic phoneNumber;
 @dynamic ticketInfo;
+@dynamic title;
 
 @end

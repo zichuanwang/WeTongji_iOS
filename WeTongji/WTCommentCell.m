@@ -1,19 +1,19 @@
 //
-//  WTBillboardCommentCell.m
+//  WTCommentCell.m
 //  WeTongji
 //
 //  Created by 王 紫川 on 13-4-24.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
-#import "WTBillboardCommentCell.h"
+#import "WTCommentCell.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIImageView+AsyncLoading.h"
-#import "BillboardComment.h"
-#import "User.h"
+#import "Comment+Addition.h"
+#import "User+Addition.h"
 #import "NSString+WTAddition.h"
 
-@implementation WTBillboardCommentCell
+@implementation WTCommentCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -40,7 +40,7 @@
     self.avatarContainerView.layer.cornerRadius = 3.0f;
 }
 
-- (void)configureViewWithBillboardComment:(BillboardComment *)comment {
+- (void)configureViewWithComment:(Comment *)comment {
     self.authorLabel.text = comment.author.name;
     self.timeLabel.text = [comment.createdAt convertToYearMonthDayWeekString];
     [self.avatarImageView loadImageWithImageURLString:comment.author.avatar];

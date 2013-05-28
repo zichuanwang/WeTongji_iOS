@@ -2,14 +2,15 @@
 //  User.m
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-5-25.
+//  Created by 王 紫川 on 13-5-28.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
 #import "User.h"
-#import "BillboardComment.h"
+#import "Comment.h"
 #import "Event.h"
 #import "Notification.h"
+#import "Object.h"
 #import "User.h"
 
 
@@ -31,10 +32,11 @@
 @dynamic studentNumber;
 @dynamic studyPlan;
 @dynamic wechatAccount;
-@dynamic billboardComments;
+@dynamic publishedComments;
+@dynamic friends;
 @dynamic receivedNotifications;
 @dynamic scheduledEvents;
 @dynamic sentNotifications;
-@dynamic friends;
+@dynamic likedObjects;
 
 @end

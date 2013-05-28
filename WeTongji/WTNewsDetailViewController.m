@@ -62,7 +62,6 @@
     [self configureBriefIntroductionView];
     [self configureDetailView];
     [self configureScrollView];
-    [self configureLikeButton];    
 }
 
 - (void)configureScrollView {
@@ -129,29 +128,7 @@
     self.contentLabel.automaticallyAddLinksForType = NSTextCheckingTypeLink;
 }
 
-- (void)configureLikeButton {
-    self.likeButtonContainerView.likeButton.selected = !self.news.canLike.boolValue;
-    [self.likeButtonContainerView setLikeCount:self.news.likeCount.integerValue];
-}
-
 #pragma mark - Actions
-
-- (void)didClickLikeButton:(UIButton *)sender {
-    sender.selected = !sender.selected;
-    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
-        WTLOG(@"Set news liked:%d succeeded", sender.selected);
-        self.news.likeCount = @(self.news.likeCount.integerValue + (sender.selected ? 1 : (-1)));
-        [self.likeButtonContainerView setLikeCount:self.news.likeCount.integerValue];
-        self.news.canLike = @(!sender.selected);
-    } failureBlock:^(NSError *error) {
-        WTLOGERROR(@"Set news liked:%d, reason:%@", sender.selected, error.localizedDescription);
-        sender.selected = !sender.selected;
-        
-        [WTErrorHandler handleError:error];
-    }];
-    [request setInformationLiked:sender.selected informationID:self.news.identifier];
-    [[WTClient sharedClient] enqueueRequest:request];
-}
 
 #pragma mark - Handle gesture methods
 
@@ -172,6 +149,12 @@
     self.imageRollView.scrollView.contentOffset = CGPointMake(self.imageRollView.scrollView.frame.size.width * currentPage, 0);
     self.imageRollView.pageControl.currentPage = currentPage;
     [self.imageRollView reloadItemImages];
+}
+
+#pragma mark - Methods to overwrite
+
+- (Object *)targetObject {
+    return self.news;
 }
 
 @end

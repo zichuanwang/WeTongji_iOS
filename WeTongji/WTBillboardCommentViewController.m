@@ -8,9 +8,10 @@
 
 #import "WTBillboardCommentViewController.h"
 #import "WTDragToLoadDecorator.h"
-#import "WTBillboardCommentCell.h"
+#import "WTCommentCell.h"
 #import "BillboardPost+Addition.h"
 #import "Object+Addtion.h"
+#import "Comment+Addition.h"
 #import "NSString+WTAddition.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
 
@@ -79,12 +80,22 @@
 
 #pragma mark - Logic methods
 
+- (void)clearAllData {
+    [self.post removeComments:self.post.comments];
+}
+
 - (void)reloadDataWithSuccessBlock:(void (^)(void))success
                       failureBlock:(void (^)(void))failure {
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Get comments success:%@", responseObject);
         if (success)
             success();
+        NSArray *commentsInfoArray = responseObject[@"Comments"];
+        for (NSDictionary *info in commentsInfoArray) {
+            Comment *comment = [Comment insertComment:info];
+            comment.belongTo = self.post;
+            //[self.post addCommentsObject:comment];
+        }
     } failureBlock:^(NSError *error) {
         if (failure)
             failure();
@@ -105,6 +116,7 @@
 - (void)dragToLoadDecoratorDidDragDown {
     self.nextPage = 1;
     [self reloadDataWithSuccessBlock:^{
+        [self clearAllData];
         [self.dragToLoadDecorator topViewLoadFinished:YES];
     } failureBlock:^{
         [self.dragToLoadDecorator topViewLoadFinished:NO];
@@ -144,14 +156,14 @@
 #pragma mark - CoreDataTableViewController methods
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    WTBillboardCommentCell *commentCell = (WTBillboardCommentCell *)cell;
+    WTCommentCell *commentCell = (WTCommentCell *)cell;
     
-    BillboardComment *comment = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [commentCell configureViewWithBillboardComment:comment];
+    Comment *comment = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [commentCell configureViewWithComment:comment];
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {
-    [request setEntity:[NSEntityDescription entityForName:@"BillboardComment" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
+    [request setEntity:[NSEntityDescription entityForName:@"Comment" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
     request.predicate = [NSPredicate predicateWithFormat:@"SELF in %@", self.post.comments];
     
@@ -160,7 +172,7 @@
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
-    return @"WTBillboardCommentCell";
+    return @"WTCommentCell";
 }
 
 - (NSString *)customSectionNameKeyPath {

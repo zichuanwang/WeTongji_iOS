@@ -67,7 +67,6 @@
 #pragma mark - UI methods
 
 - (void)configureUI {
-    [self configureLikeButton];
     [self configureHeaderView];
     [self configureImageRollView];
     [self configureDetailDescriptionView];
@@ -88,13 +87,6 @@
     [self.headerView.inviteButton addTarget:self action:@selector(didClickInviteButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.headerView.participateButton addTarget:self action:@selector(didClickParticipateButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.headerView.friendCountButton addTarget:self action:@selector(didClickFriendCountButton:) forControlEvents:UIControlEventTouchUpInside];
-}
-
-#pragma mark Configure like button 
-
-- (void)configureLikeButton {
-    self.likeButtonContainerView.likeButton.selected = !self.activity.canLike.boolValue;
-    [self.likeButtonContainerView setLikeCount:self.activity.likeCount.integerValue];
 }
 
 #pragma mark Configure image roll view
@@ -154,23 +146,6 @@
 
 #pragma mark - Actions
 
-- (void)didClickLikeButton:(UIButton *)sender {
-    sender.selected = !sender.selected;
-    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
-        WTLOG(@"Set activitiy liked:%d succeeded", sender.selected);
-        self.activity.likeCount = @(self.activity.likeCount.integerValue + (sender.selected ? 1 : (-1)));
-        [self.likeButtonContainerView setLikeCount:self.activity.likeCount.integerValue];
-        self.activity.canLike = @(!sender.selected);
-    } failureBlock:^(NSError *error) {
-        WTLOGERROR(@"Set activitiy liked:%d, reason:%@", sender.selected, error.localizedDescription);
-        sender.selected = !sender.selected;
-        
-        [WTErrorHandler handleError:error];
-    }];
-    [request setActivitiyLiked:sender.selected activityID:self.activity.identifier];
-    [[WTClient sharedClient] enqueueRequest:request];
-}
-
 - (void)didClickInviteButton:(UIButton *)sender {
     NSLog(@"Invite button clicked");
 }
@@ -185,18 +160,16 @@
     
     if (participated) {
         [self.headerView.inviteButton fadeIn];
-        [[WTCoreDataManager sharedManager].currentUser addScheduledEventsObject:self.activity];
     }
     else {
         [self.headerView.inviteButton fadeOut];
-        [[WTCoreDataManager sharedManager].currentUser removeScheduledEventsObject:self.activity];
     }
     
     sender.userInteractionEnabled = NO;
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Set activitiy scheduled:%d succeeded", participated);
         sender.userInteractionEnabled = YES;
-        self.activity.canSchedule = @(!self.activity.canSchedule.boolValue);
+        self.activity.scheduled = !self.activity.scheduled;
         
         
     } failureBlock:^(NSError *error) {
@@ -234,6 +207,12 @@
     self.imageRollView.scrollView.contentOffset = CGPointMake(self.imageRollView.frame.size.width * currentPage, 0);
     self.imageRollView.pageControl.currentPage = currentPage;
     [self.imageRollView reloadItemImages];
+}
+
+#pragma mark - Methods to overwrite
+
+- (Object *)targetObject {
+    return self.activity;
 }
 
 @end

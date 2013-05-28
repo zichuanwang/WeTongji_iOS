@@ -33,8 +33,6 @@
     result.where = [NSString stringWithFormat:@"%@", dict[@"Location"]];
     result.organizer = [NSString stringWithFormat:@"%@", dict[@"Organizer"]];
     result.what = [NSString stringWithFormat:@"%@", dict[@"Title"]];
-    result.canSchedule = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"CanSchedule"]]).boolValue);
-    result.canLike = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"CanLike"]]).boolValue);
     [result configureActivityCategory:((NSString *)[NSString stringWithFormat:@"%@", dict[@"Channel_Id"]]).integerValue];
     
     result.createdAt = [[NSString stringWithFormat:@"%@", dict[@"CreatedAt"]] convertToDate];
@@ -46,8 +44,20 @@
     result.likeCount = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"Like"]]).integerValue);
     result.organizerAvatar = [NSString stringWithFormat:@"%@", dict[@"OrganizerAvatar"]];
     
-    if (!result.canSchedule.boolValue) {
-        [[WTCoreDataManager sharedManager].currentUser addScheduledEventsObject:result];
+    
+    BOOL canSchedule = ((NSString *)[NSString stringWithFormat:@"%@", dict[@"CanSchedule"]]).boolValue;
+    BOOL canLike = ((NSString *)[NSString stringWithFormat:@"%@", dict[@"CanLike"]]).boolValue;
+    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
+    if (!canSchedule) {
+        [currentUser addScheduledEventsObject:result];
+    } else {
+        [currentUser removeScheduledEventsObject:result];
+    }
+    if (!canLike) {
+        [currentUser addLikedObjectsObject:result];
+    } else {
+        NSLog(@"liked:%@", result);
+        [currentUser removeLikedObjectsObject:result];
     }
     
     result.beginDay = [result.beginTime convertToYearMonthDayString];
@@ -62,9 +72,7 @@
     [request setPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", activityID]];
     
     Activity *result = [[[WTCoreDataManager sharedManager].managedObjectContext executeFetchRequest:request error:NULL] lastObject];
-    
-    WTLOG(@"activityWithID:%@, pointer:%p", activityID, result);
-    
+        
     return result;
 }
 

@@ -72,7 +72,7 @@
     UIBarButtonItem *barCommentButton = [[UIBarButtonItem alloc] initWithCustomView:commentButton];
     UIBarButtonItem *barMoreButton = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
     
-    WTLikeButtonView *likeButtonContainerView = [WTLikeButtonView createLikeButtonViewWithTarget:self action:@selector(didClickLikeButton:)];
+    WTLikeButtonView *likeButtonContainerView = [WTLikeButtonView createLikeButtonViewWithObject:[self targetObject]];
     self.likeButtonContainerView = likeButtonContainerView;
     
     UIBarButtonItem *barLikeButton = [[UIBarButtonItem alloc] initWithCustomView:likeButtonContainerView];
@@ -105,16 +105,16 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)didClickLikeButton:(UIButton *)sender {
-    
-}
-
 - (void)didClickCommentButton:(UIButton *)sender {
     
 }
 
 - (void)didClickMoreButton:(UIButton *)sender {
     
+}
+
+- (Object *)targetObject {
+    return nil;
 }
 
 @end

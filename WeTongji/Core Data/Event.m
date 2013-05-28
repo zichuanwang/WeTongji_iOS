@@ -2,7 +2,7 @@
 //  Event.m
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-4-17.
+//  Created by 王 紫川 on 13-5-28.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -12,11 +12,11 @@
 
 @implementation Event
 
+@dynamic beginDay;
 @dynamic beginTime;
 @dynamic endTime;
 @dynamic what;
 @dynamic where;
-@dynamic beginDay;
 @dynamic scheduledBy;
 
 @end

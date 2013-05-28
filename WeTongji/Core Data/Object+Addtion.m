@@ -11,6 +11,9 @@
 #import "Controller+Addition.h"
 #import "BillboardPost.h"
 #import "Activity.h"
+#import "News.h"
+#import "Star.h"
+#import "Organization.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
 
 @implementation Object (Addtion)
@@ -56,8 +59,29 @@
     NSInteger modelType = -1;
     if ([self isKindOfClass:[BillboardPost class]]) {
         modelType = WTSDKBillboard;
+    } else if ([self isKindOfClass:[Activity class]]) {
+        modelType = WTSDKActivity;
+    } else if ([self isKindOfClass:[News class]]) {
+        modelType = WTSDKInformation;
+    } else if ([self isKindOfClass:[Star class]]) {
+        modelType = WTSDKStar;
+    } else if ([self isKindOfClass:[Organization class]]) {
+        modelType = WTSDKOrganization;
     }
     return modelType;
+}
+
+- (BOOL)liked {
+    return [[WTCoreDataManager sharedManager].currentUser.likedObjects containsObject:self];
+}
+
+- (void)setLiked:(BOOL)liked {
+    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
+    if (liked) {
+        [currentUser addLikedObjectsObject:self];
+    } else {
+        [currentUser removeLikedObjectsObject:self];
+    }
 }
 
 @end

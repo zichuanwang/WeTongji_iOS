@@ -153,10 +153,6 @@
     self.bannerScrollView.contentSize = CGSizeMake(self.bannerScrollView.frame.size.width * bannerItemCount, self.bannerScrollView.frame.size.height);
     
     [self.rightShadowImageView resetOrigin:CGPointMake(bannerItemCount == 0 ? self.bannerScrollView.frame.size.width : self.bannerScrollView.contentSize.width, 0)];
-    
-    for (WTBannerItemView *itemView in self.bannerItemViewArray) {
-        WTLOG(@"item view frame:%@", NSStringFromCGRect(itemView.frame));
-    }
 }
 
 #pragma mark - UI methods

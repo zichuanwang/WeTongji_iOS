@@ -112,4 +112,10 @@
                                                               delegate:nil];
 }
 
+#pragma mark - Methods to overwrite
+
+- (Object *)targetObject {
+    return self.post;
+}
+
 @end

@@ -76,7 +76,7 @@
     
     [self addSubview:self.inviteButton];
     
-    if (self.activity.canSchedule.boolValue) {
+    if (!self.activity.scheduled) {
         self.inviteButton.alpha = 0;
     }
 }
@@ -90,8 +90,7 @@
     [self.participateButton resetOrigin:CGPointMake(311.0f - self.participateButton.frame.size.width, MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y)];
     self.participateButton.autoresizingMask |= UIViewAutoresizingFlexibleTopMargin;
     
-    [self configureParticipateButtonStatus:!self.activity.canSchedule.boolValue];
-    
+    [self configureParticipateButtonStatus:self.activity.scheduled];
     
     [self addSubview:self.participateButton];
 }

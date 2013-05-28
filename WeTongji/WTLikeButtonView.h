@@ -8,14 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Object;
+
 @interface WTLikeButtonView : UIView
 
-@property (nonatomic, strong) UIButton *likeButton;
-
-+ (WTLikeButtonView *)createLikeButtonViewWithTarget:(id)target action:(SEL)action;
-
-- (void)setLikeCount:(NSUInteger)likeCount;
-
-- (NSUInteger)getLikeCount;
++ (WTLikeButtonView *)createLikeButtonViewWithObject:(Object *)object;
 
 @end

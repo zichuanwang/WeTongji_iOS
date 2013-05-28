@@ -2,7 +2,7 @@
 //  Advertisement.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-5-21.
+//  Created by 王 紫川 on 13-5-28.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -13,10 +13,10 @@
 
 @interface Advertisement : Object
 
+@property (nonatomic, retain) NSString * bgColorHex;
 @property (nonatomic, retain) NSString * image;
 @property (nonatomic, retain) NSString * publisher;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * website;
-@property (nonatomic, retain) NSString * bgColorHex;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  WTBillboardCommentCell.h
+//  WTCommentCell.h
 //  WeTongji
 //
 //  Created by 王 紫川 on 13-4-24.
@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class BillboardComment;
+@class Comment;
 
-@interface WTBillboardCommentCell : UITableViewCell
+@interface WTCommentCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UIImageView *avatarImageView;
 @property (nonatomic, weak) IBOutlet UIView *avatarContainerView;
@@ -18,6 +18,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *timeLabel;
 @property (nonatomic, weak) IBOutlet UILabel *commentLabel;
 
-- (void)configureViewWithBillboardComment:(BillboardComment *)comment;
+- (void)configureViewWithComment:(Comment *)comment;
 
 @end

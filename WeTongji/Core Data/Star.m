@@ -2,7 +2,7 @@
 //  Star.m
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-5-27.
+//  Created by 王 紫川 on 13-5-28.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -12,11 +12,9 @@
 @implementation Star
 
 @dynamic avatar;
-@dynamic canLike;
 @dynamic content;
 @dynamic imageArray;
 @dynamic jobTitle;
-@dynamic likeCount;
 @dynamic motto;
 @dynamic name;
 @dynamic starNumber;

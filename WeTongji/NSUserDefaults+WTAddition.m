@@ -221,7 +221,6 @@
             [result addObject:@(showType)];
         }
     }
-    WTLOG(@"Activity show types set:%@", result);
     return result;
 }
 

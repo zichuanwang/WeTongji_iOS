@@ -2,7 +2,7 @@
 //  User.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-5-25.
+//  Created by 王 紫川 on 13-5-28.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "Object.h"
 
-@class BillboardComment, Event, Notification, User;
+@class Comment, Event, Notification, Object, User;
 
 @interface User : Object
 
@@ -30,19 +30,25 @@
 @property (nonatomic, retain) NSString * studentNumber;
 @property (nonatomic, retain) NSNumber * studyPlan;
 @property (nonatomic, retain) NSString * wechatAccount;
-@property (nonatomic, retain) NSSet *billboardComments;
+@property (nonatomic, retain) NSSet *publishedComments;
+@property (nonatomic, retain) NSSet *friends;
 @property (nonatomic, retain) NSSet *receivedNotifications;
 @property (nonatomic, retain) NSSet *scheduledEvents;
 @property (nonatomic, retain) NSSet *sentNotifications;
-@property (nonatomic, retain) NSSet *friends;
+@property (nonatomic, retain) NSSet *likedObjects;
 @end
 
 @interface User (CoreDataGeneratedAccessors)
 
-- (void)addBillboardCommentsObject:(BillboardComment *)value;
-- (void)removeBillboardCommentsObject:(BillboardComment *)value;
-- (void)addBillboardComments:(NSSet *)values;
-- (void)removeBillboardComments:(NSSet *)values;
+- (void)addPublishedCommentsObject:(Comment *)value;
+- (void)removePublishedCommentsObject:(Comment *)value;
+- (void)addPublishedComments:(NSSet *)values;
+- (void)removePublishedComments:(NSSet *)values;
+
+- (void)addFriendsObject:(User *)value;
+- (void)removeFriendsObject:(User *)value;
+- (void)addFriends:(NSSet *)values;
+- (void)removeFriends:(NSSet *)values;
 
 - (void)addReceivedNotificationsObject:(Notification *)value;
 - (void)removeReceivedNotificationsObject:(Notification *)value;
@@ -59,9 +65,9 @@
 - (void)addSentNotifications:(NSSet *)values;
 - (void)removeSentNotifications:(NSSet *)values;
 
-- (void)addFriendsObject:(User *)value;
-- (void)removeFriendsObject:(User *)value;
-- (void)addFriends:(NSSet *)values;
-- (void)removeFriends:(NSSet *)values;
+- (void)addLikedObjectsObject:(Object *)value;
+- (void)removeLikedObjectsObject:(Object *)value;
+- (void)addLikedObjects:(NSSet *)values;
+- (void)removeLikedObjects:(NSSet *)values;
 
 @end

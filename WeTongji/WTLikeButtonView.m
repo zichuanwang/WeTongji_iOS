@@ -7,19 +7,23 @@
 //
 
 #import "WTLikeButtonView.h"
+#import "Object+Addtion.h"
 
 @interface WTLikeButtonView ()
 
+@property (nonatomic, strong) UIButton *likeButton;
 @property (nonatomic, strong) UILabel *likeCountLabel;
+
+@property (nonatomic, weak) Object *object;
 
 @end
 
 @implementation WTLikeButtonView
 
-+ (WTLikeButtonView *)createLikeButtonViewWithTarget:(id)target action:(SEL)action {
++ (WTLikeButtonView *)createLikeButtonViewWithObject:(Object *)object {
     WTLikeButtonView *result = [[WTLikeButtonView alloc] init];
     [result configureLikeButton];
-    [result.likeButton addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    [result configureViewWithObject:object];
     return result;
 }
 
@@ -29,6 +33,12 @@
 
 - (NSUInteger)getLikeCount {
     return self.likeCountLabel.text.integerValue;
+}
+
+- (void)configureViewWithObject:(Object *)object {
+    self.likeButton.selected = object.liked;
+    [self setLikeCount:object.likeCount.integerValue];
+    self.object = object;
 }
 
 - (void)configureLikeButton {
@@ -63,6 +73,28 @@
     [self addSubview:likeFlagBg];
     [self addSubview:likeButton];
     [self addSubview:likeCountLabel];
+    
+    [self.likeButton addTarget:self action:@selector(didClickLikeButton:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)didClickLikeButton:(UIButton *)sender {
+    self.userInteractionEnabled = NO;
+    sender.selected = !sender.selected;
+    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        WTLOG(@"Set object liked:%d succeeded", sender.selected);
+        self.object.likeCount = @(self.object.likeCount.integerValue + (sender.selected ? 1 : (-1)));
+        [self setLikeCount:self.object.likeCount.integerValue];
+        self.object.liked = sender.selected;
+        self.userInteractionEnabled = YES;
+    } failureBlock:^(NSError *error) {
+        WTLOGERROR(@"Set object liked:%d, reason:%@", sender.selected, error.localizedDescription);
+        sender.selected = !sender.selected;
+        
+        [WTErrorHandler handleError:error];
+        self.userInteractionEnabled = YES;
+    }];
+    [request setObjectliked:sender.selected model:[self.object getObjectModelType] modelID:self.object.identifier];
+    [[WTClient sharedClient] enqueueRequest:request];
 }
 
 @end

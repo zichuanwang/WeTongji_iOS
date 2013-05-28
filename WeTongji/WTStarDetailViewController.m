@@ -49,4 +49,10 @@
     return result;
 }
 
+#pragma mark - Methods to overwrite
+
+- (Object *)targetObject {
+    return self.star;
+}
+
 @end
