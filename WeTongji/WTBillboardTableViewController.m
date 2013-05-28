@@ -78,7 +78,7 @@
         for (NSDictionary *dict in resultArray) {
             [BillboardPost insertBillboardPost:dict];
         }
-        _noAnimationFlag = YES;
+        _noAnimationFlag = NO;
 
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Error:%@", error.localizedDescription);

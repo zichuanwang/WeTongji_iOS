@@ -131,10 +131,10 @@ static int kDragToLoadDecoratorObservingContext;
         
         // Trick, 在Loading完成后通常会ReloadData, 引发BottomViewLoading, 所以此处
         // 提前禁用掉对ScrollView的Observe
-//        [self stopObservingChangesInDragToLoadScrollView];
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 500 * NSEC_PER_MSEC), dispatch_get_current_queue(), ^{
-//            [self startObservingChangesInDragToLoadScrollView];
-//        });
+        [self stopObservingChangesInDragToLoadScrollView];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 500 * NSEC_PER_MSEC), dispatch_get_current_queue(), ^{
+            [self startObservingChangesInDragToLoadScrollView];
+        });
     }
 }
 
