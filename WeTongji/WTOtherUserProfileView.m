@@ -45,7 +45,7 @@
     self.qqDisplayLabel.text = NSLocalizedString(@"QQ", nil);
     self.dormDisplayLabel.text = NSLocalizedString(@"Dorm", nil);
     
-    self.birthdayLabel.text = [NSString yearMonthDayConvertFromDate:self.user.birthday];
+    self.birthdayLabel.text = [self.user.birthday convertToYearMonthDayWeekString];
     self.studentNumberLabel.text = self.user.studentNumber;
     self.majorLabel.text = self.user.major;
     self.phoneLabel.text = self.user.phoneNumber;

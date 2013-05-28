@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIImageView+AsyncLoading.h"
 #import "OHAttributedLabel.h"
+#import "NSString+WTAddition.h"
 
 @interface WTBillboardDetailHeaderView ()
 
@@ -166,7 +167,7 @@
 }
 
 - (void)configureViewWithBillboardPost:(BillboardPost *)post {
-    
+    self.timeLabel.text = [post.createdAt convertToYearMonthDayWeekTimeString];
 }
 
 - (void)configureAvatarContainerView {

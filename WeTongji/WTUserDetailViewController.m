@@ -90,7 +90,7 @@
     BOOL isFriend = [[WTCoreDataManager sharedManager].currentUser.friends containsObject:self.user];
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Add friend success:%@", responseObject);
-        [[[UIAlertView alloc] initWithTitle:@"注意" message:@"已发送好友添加请求。" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil] show];
+        [[[UIAlertView alloc] initWithTitle:@"注意" message:isFriend ? @"已删除好友" : @"已发送好友添加请求。" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil] show];
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Add friend failure:%@", error.localizedDescription);
         [WTErrorHandler handleError:error];

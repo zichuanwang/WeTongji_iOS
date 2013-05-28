@@ -43,7 +43,7 @@
 
 - (void)awakeFromFetch {
     [super awakeFromFetch];
-    self.beginDay = [NSString yearMonthDayConvertFromDate:self.beginTime];
+    self.beginDay = [self.beginTime convertToYearMonthDayString];
 }
 
 + (void)setCurrentUserScheduledEventsFreeFromHolder:(Class)holderClass
@@ -68,25 +68,12 @@
 
 #pragma mark - Properties
 
-- (BOOL)isEventStartToday {
-    NSDateComponents *todayComponents = [[NSCalendar currentCalendar] components:NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSTimeZoneCalendarUnit fromDate:[NSDate date]];
-    NSDateComponents *oneDay = [[NSDateComponents alloc] init];
-    oneDay.day = 1;
-    NSDate *lastMidnight = [[NSCalendar currentCalendar] dateFromComponents:todayComponents];
-    NSDate *nextMidnight = [[NSCalendar currentCalendar] dateByAddingComponents:oneDay toDate:lastMidnight options:NSWrapCalendarComponents];
-    return ([self.beginTime compare:lastMidnight] == NSOrderedDescending && [self.endTime compare:nextMidnight] == NSOrderedAscending);
-}
-
 - (NSString *)yearMonthDayBeginToEndTimeString {
-    if ([self isEventStartToday]) {
-        return [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Today", nil), [NSString timeConvertFromBeginDate:self.beginTime endDate:self.endTime]];
-    } else {
-        return [NSString yearMonthDayWeekTimeConvertFromBeginDate:self.beginTime endDate:self.endTime];
-    }
+    return [NSString yearMonthDayWeekTimeStringConvertFromBeginDate:self.beginTime endDate:self.endTime];
 }
 
 - (NSString *)beginToEndTimeString {
-    return [NSString timeConvertFromBeginDate:self.beginTime endDate:self.endTime];
+    return [NSString timeStringConvertFromBeginDate:self.beginTime endDate:self.endTime];
 }
 
 @end

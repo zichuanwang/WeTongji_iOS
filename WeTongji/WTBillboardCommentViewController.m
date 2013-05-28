@@ -9,14 +9,18 @@
 #import "WTBillboardCommentViewController.h"
 #import "WTDragToLoadDecorator.h"
 #import "WTBillboardCommentCell.h"
-#import "BillboardPost.h"
+#import "BillboardPost+Addition.h"
+#import "Object+Addtion.h"
 #import "NSString+WTAddition.h"
+#import <WeTongjiSDK/WeTongjiSDK.h>
 
 @interface WTBillboardCommentViewController () <WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
 @property (nonatomic, strong) WTDragToLoadDecorator *dragToLoadDecorator;
 
 @property (nonatomic, weak) BillboardPost *post;
+
+@property (nonatomic, assign) NSInteger nextPage;
 
 @end
 
@@ -27,6 +31,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.nextPage = 2;
     }
     return self;
 }
@@ -76,8 +81,17 @@
 
 - (void)reloadDataWithSuccessBlock:(void (^)(void))success
                       failureBlock:(void (^)(void))failure {
-    if (failure)
-        failure();
+    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        WTLOG(@"Get comments success:%@", responseObject);
+        if (success)
+            success();
+    } failureBlock:^(NSError *error) {
+        if (failure)
+            failure();
+        [WTErrorHandler handleError:error];
+    }];
+    [request getCommentsForModel:[self.post getObjectModelType] modelID:self.post.identifier page:self.nextPage];
+    [[WTClient sharedClient] enqueueRequest:request];
 }
 
 #pragma mark - WTDragToLoadDecoratorDataSource
@@ -89,10 +103,19 @@
 #pragma mark - WTDragToLoadDecoratorDelegate
 
 - (void)dragToLoadDecoratorDidDragDown {
+    self.nextPage = 1;
     [self reloadDataWithSuccessBlock:^{
         [self.dragToLoadDecorator topViewLoadFinished:YES];
     } failureBlock:^{
         [self.dragToLoadDecorator topViewLoadFinished:NO];
+    }];
+}
+
+- (void)dragToLoadDecoratorDidDragUp {
+    [self reloadDataWithSuccessBlock:^{
+        [self.dragToLoadDecorator bottomViewLoadFinished:YES];
+    } failureBlock:^{
+        [self.dragToLoadDecorator bottomViewLoadFinished:NO];
     }];
 }
 

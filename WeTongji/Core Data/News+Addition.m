@@ -66,7 +66,7 @@
         NSAssert(NO, @"Error");
     }
     
-    result.publishDay = [NSString yearMonthDayConvertFromDate:result.publishDate];
+    result.publishDay = [result.publishDate convertToYearMonthDayString];
     
     return result;
 }
@@ -97,11 +97,11 @@
 
 - (void)awakeFromFetch {
     [super awakeFromFetch];
-    self.publishDay = [NSString yearMonthDayConvertFromDate:self.publishDate];
+    self.publishDay = [self.publishDate convertToYearMonthDayString];
 }
 
 - (NSString *)yearMonthDayTimePublishTimeString {
-    return [NSString yearMonthDayTimeConvertFromDate:self.publishDate];
+    return [self.publishDate convertToYearMonthDayTimeString];
 }
 
 - (NSString *)categoryString {

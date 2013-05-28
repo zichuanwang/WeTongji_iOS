@@ -76,14 +76,31 @@
 #pragma mark - Actions
 
 - (void)didClickCancelButton:(UIButton *)sender {
-    [[UIApplication sharedApplication].rootTabBarController dismissViewControllerAnimated:YES completion:nil];
+    [self dismissView];
 }
 
 - (void)didClickPostButton:(UIButton *)sender {
-    
+    NSString *commentBody = self.contentTextView.text;
+    if ([commentBody isEqualToString:@""]) {
+        [[[UIAlertView alloc] initWithTitle:@"错误" message:@"请输入内容。" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil] show];
+    } else {
+        WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+            WTLOG(@"Comment success:%@", responseObject);
+            [self dismissView];
+        } failureBlock:^(NSError *error) {
+            [WTErrorHandler handleError:error];
+        }];
+        
+        [request commentModel:[self.commentObject getObjectModelType] modelID:self.commentObject.identifier commentBody:commentBody];
+        [[WTClient sharedClient] enqueueRequest:request];
+    }
 }
 
 #pragma mark - UI methods 
+
+- (void)dismissView {
+    [[UIApplication sharedApplication].rootTabBarController dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)configureNavigationBar {
     self.navigationItem.leftBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:NSLocalizedString(@"Cancel", nil) target:self action:@selector(didClickCancelButton:)];

@@ -59,7 +59,7 @@
                       failureBlock:(void (^)(void))failure {
     
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
-        // WTLOG(@"Billboard:%@", responseObject);
+        WTLOG(@"Billboard:%@", responseObject);
         
         NSDictionary *resultDict = (NSDictionary *)responseObject;
         NSString *nextPage = resultDict[@"NextPager"];
@@ -78,13 +78,15 @@
         for (NSDictionary *dict in resultArray) {
             [BillboardPost insertBillboardPost:dict];
         }
-        _noAnimationFlag = NO;
+        _noAnimationFlag = YES;
 
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Error:%@", error.localizedDescription);
         
         if (failure)
             failure();
+        
+        [WTErrorHandler handleError:error];
     }];
     [request getBillboardPostsInPage:self.nextPage];
     [[WTClient sharedClient] enqueueRequest:request];

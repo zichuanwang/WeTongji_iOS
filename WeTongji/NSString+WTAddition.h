@@ -6,33 +6,25 @@
 //  Copyright (c) 2012年 Tongji Apple Club. All rights reserved.
 //
 
-
+#import "NSDate+WTAddition.h"
 
 @interface NSString (WTAddition)
 
 - (NSDate *)convertToDate;
-+ (NSString *)yearMonthDayConvertFromDate:(NSDate *)date;
-+ (NSString *)yearMonthDayWeekConvertFromDate:(NSDate *)date;
-+ (NSString *)yearMonthDayWeekTimeConvertFromDate:(NSDate *)date;
-+ (NSString *)weekConvertFromDate:(NSDate *)date;
-+ (NSString *)yearMonthDayTimeConvertFromDate:(NSDate *)date;
-+ (NSString *)yearMonthDayWeekTimeConvertFromBeginDate:(NSDate *)begin
-                                               endDate:(NSDate *)end;
 
-+ (NSString *)timeConvertFromDate:(NSDate *)date;
-+ (NSString *)timeConvertFromBeginDate:(NSDate *)begin endDate:(NSDate *)end;
-+ (NSString *)weekDayConvertFromInteger:(NSInteger)weekday;
++ (NSString *)yearMonthDayWeekTimeStringConvertFromBeginDate:(NSDate *)begin
+                                                     endDate:(NSDate *)end;
++ (NSString *)timeStringConvertFromBeginDate:(NSDate *)begin
+                                     endDate:(NSDate *)end;
++ (NSString *)weekStringConvertFromInteger:(NSInteger)week;
 
 - (BOOL)isSuitableForPassword;
-+ (NSString *)getTodayBeginDayFormatString;
-+ (NSString *)getTomorrowBeginDayFormatString;
 - (BOOL)isGIFURL;
 - (BOOL)isEmptyImageURL;
 - (NSString *)clearAllBacklashR;
 
 + (NSString *)friendCountStringConvertFromCountNumber:(NSNumber *)countNumber;
 + (NSString *)commentCountStringConvertFromCountNumber:(NSNumber *)countNumber;
-
 + (NSString *)searchCategoryStringForCategory:(NSInteger)category;
 
 - (UIColor *)converHexStringToColorWithAlpha:(CGFloat)alpha;

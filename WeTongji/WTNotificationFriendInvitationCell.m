@@ -168,8 +168,8 @@
         User *sender = friendInvitation.sender;
         [self configureNotificationMessageWithSenderName:sender.name];
         
-        NSLog(@"shit:%@", [NSString yearMonthDayWeekTimeConvertFromDate:notification.sendTime]);
-        self.timeLabel.text = [NSString yearMonthDayWeekTimeConvertFromDate:notification.sendTime];
+        NSLog(@"shit:%@", [notification.sendTime convertToYearMonthDayWeekTimeString]);
+        self.timeLabel.text = [notification.sendTime convertToYearMonthDayWeekTimeString];
         
         if (friendInvitation.accepted.boolValue) {
             [self.timeLabel resetOriginY:self.frame.size.height - 13.0f - self.timeLabel.frame.size.height];

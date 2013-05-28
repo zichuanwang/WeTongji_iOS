@@ -23,99 +23,49 @@
     return date;
 }
 
-+ (NSString *)yearMonthDayConvertFromDate:(NSDate *)date {
-    NSDateFormatter *form = [[NSDateFormatter alloc] init];
-    
-    NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
-    if ([language isEqualToString:@"en"]) {
-        [form setDateFormat:@"M-d-yyyy"];
-    } else if ([language isEqualToString:@"zh-Hans"]) {
-        [form setDateFormat:@"yyyy-M-d"];
-    } else {
-        [form setDateFormat:@"yyyy-M-d"];
-    }
-    
-    NSString *result = [form stringFromDate:date];
-    return result;
-}
-
-+ (NSString *)weekDayConvertFromInteger:(NSInteger)weekday {
-    NSString *weekdayStr = nil;
-    switch (weekday) {
++ (NSString *)weekStringConvertFromInteger:(NSInteger)week {
+    NSString *result = nil;
+    switch (week) {
         case 1:
-            weekdayStr = NSLocalizedString(@"Sun", nil);
+            result = NSLocalizedString(@"Sun", nil);
             break;
         case 2:
-            weekdayStr = NSLocalizedString(@"Mon", nil);;
+            result = NSLocalizedString(@"Mon", nil);;
             break;
         case 3:
-            weekdayStr = NSLocalizedString(@"Tue", nil);
+            result = NSLocalizedString(@"Tue", nil);
             break;
         case 4:
-            weekdayStr = NSLocalizedString(@"Wed", nil);
+            result = NSLocalizedString(@"Wed", nil);
             break;
         case 5:
-            weekdayStr = NSLocalizedString(@"Thu", nil);
+            result = NSLocalizedString(@"Thu", nil);
             break;
         case 6:
-            weekdayStr = NSLocalizedString(@"Fri", nil);
+            result = NSLocalizedString(@"Fri", nil);
             break;
         case 7:
-            weekdayStr = NSLocalizedString(@"Sat", nil);
+            result = NSLocalizedString(@"Sat", nil);
             break;
             
         default:
             break;
     }
-    return weekdayStr;
-}
-
-+ (NSString *)weekConvertFromDate:(NSDate *)date {
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *comps = [[NSDateComponents alloc] init];
-    NSInteger unitFlags = NSWeekdayCalendarUnit;
-    comps = [calendar components:unitFlags fromDate:date];
-    int weekday = [comps weekday];
-    
-    return [NSString weekDayConvertFromInteger:weekday];
-}
-
-+ (NSString *)yearMonthDayWeekConvertFromDate:(NSDate *)date {
-    NSString *result = [NSString yearMonthDayConvertFromDate:date];
-    result = [NSString stringWithFormat:@"%@ %@", result, [NSString weekConvertFromDate:date]];
     return result;
 }
 
-+ (NSString *)yearMonthDayTimeConvertFromDate:(NSDate *)date {
-    NSString *result = [NSString yearMonthDayConvertFromDate:date];
-    result = [NSString stringWithFormat:@"%@ %@", result, [NSString timeConvertFromDate:date]];
++ (NSString *)timeStringConvertFromBeginDate:(NSDate *)begin
+                                     endDate:(NSDate *)end {
+    NSString *result = [begin convertToTimeString];
+    result = [NSString stringWithFormat:@"%@ - %@", result, [end convertToTimeString]];
     return result;
 }
 
-+ (NSString *)yearMonthDayWeekTimeConvertFromDate:(NSDate *)date {
-    NSString *result = [NSString yearMonthDayWeekConvertFromDate:date];
-    result = [NSString stringWithFormat:@"%@ %@", result, [NSString timeConvertFromDate:date]];
-    return result;
-}
-
-+ (NSString *)timeConvertFromDate:(NSDate *)date {
-    NSDateFormatter *form = [[NSDateFormatter alloc] init];
-    [form setDateFormat:@"HH:mm"];
-    NSString *result = [form stringFromDate:date];
-    return result;
-}
-
-+ (NSString *)timeConvertFromBeginDate:(NSDate *)begin endDate:(NSDate *)end {
-    NSString *timeStr = [NSString timeConvertFromDate:begin];
-    timeStr = [NSString stringWithFormat:@"%@ - %@", timeStr, [NSString timeConvertFromDate:end]];
-    return timeStr;
-}
-
-+ (NSString *)yearMonthDayWeekTimeConvertFromBeginDate:(NSDate *)begin
++ (NSString *)yearMonthDayWeekTimeStringConvertFromBeginDate:(NSDate *)begin
                                                endDate:(NSDate *)end {
-    NSString *timeStr = [NSString yearMonthDayWeekTimeConvertFromDate:begin];
-    timeStr = [NSString stringWithFormat:@"%@ - %@", timeStr, [NSString timeConvertFromDate:end]];
-    return timeStr;
+    NSString *result = [begin convertToYearMonthDayWeekTimeString];
+    result = [NSString stringWithFormat:@"%@ - %@", result, [end convertToTimeString]];
+    return result;
 }
 
 - (BOOL)isSuitableForPassword {
@@ -129,14 +79,6 @@
         }
     }
     return result;
-}
-
-+ (NSString *)getTodayBeginDayFormatString {
-    return [NSString yearMonthDayWeekConvertFromDate:[NSDate date]];
-}
-
-+ (NSString *)getTomorrowBeginDayFormatString {
-    return [NSString yearMonthDayWeekConvertFromDate:[[NSDate date] dateByAddingTimeInterval:60 * 60 * 24]];
 }
 
 - (BOOL)isGIFURL {

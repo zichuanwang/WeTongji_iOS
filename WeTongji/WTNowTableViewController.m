@@ -186,9 +186,9 @@
     Event *firstEventInSection = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
     
     UILabel *weekDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 0, tableView.bounds.size.width, sectionHeaderHeight)];
-    weekDayLabel.text = [NSString weekConvertFromDate:firstEventInSection.beginTime];
+    weekDayLabel.text = [firstEventInSection.beginTime convertToWeekString];
     weekDayLabel.font = [UIFont boldSystemFontOfSize:12.0f];
-    if ([[NSString yearMonthDayConvertFromDate:firstEventInSection.beginTime] isEqualToString:[NSString yearMonthDayConvertFromDate:[NSDate date]]])
+    if ([firstEventInSection.beginTime isDateInToday])
         weekDayLabel.textColor = WTBlueColor;
     else
         weekDayLabel.textColor = WTSectionHeaderViewGrayColor;
@@ -196,7 +196,7 @@
     
     UILabel *yearMonthDayLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width - 10.0f, sectionHeaderHeight)];
     yearMonthDayLabel.textAlignment = NSTextAlignmentRight;
-    yearMonthDayLabel.text = [NSString yearMonthDayConvertFromDate:firstEventInSection.beginTime];
+    yearMonthDayLabel.text = [firstEventInSection.beginTime convertToYearMonthDayString];
     yearMonthDayLabel.font = [UIFont boldSystemFontOfSize:12.0f];
     yearMonthDayLabel.textColor = WTSectionHeaderViewGrayColor;
     yearMonthDayLabel.backgroundColor = [UIColor clearColor];

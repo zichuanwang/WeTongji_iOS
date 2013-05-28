@@ -19,4 +19,6 @@
 + (NSArray *)getAllObjectsHeldByHolder:(Class)holderClass
                       objectEntityName:(NSString *)entityName;
 
+- (NSInteger)getObjectModelType;
+
 @end

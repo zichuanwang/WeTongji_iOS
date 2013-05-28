@@ -36,7 +36,7 @@
     result.point = [NSNumber numberWithFloat: [[NSString stringWithFormat:@"%@", dict[@"Point"]] floatValue]];
     result.required = [NSString stringWithFormat:@"%@", dict[@"Required"]];
     
-    result.beginDay = [NSString yearMonthDayConvertFromDate:result.beginTime];
+    result.beginDay = [result.beginTime convertToYearMonthDayString];
 
     return result;
 }

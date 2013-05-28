@@ -42,7 +42,7 @@
 
 - (void)configureViewWithBillboardComment:(BillboardComment *)comment {
     self.authorLabel.text = comment.author.name;
-    self.timeLabel.text = [NSString yearMonthDayConvertFromDate:comment.createdAt];
+    self.timeLabel.text = [comment.createdAt convertToYearMonthDayWeekString];
     [self.avatarImageView loadImageWithImageURLString:comment.author.avatar];
 }
 

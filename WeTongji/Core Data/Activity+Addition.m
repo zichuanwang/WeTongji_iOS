@@ -50,7 +50,7 @@
         [[WTCoreDataManager sharedManager].currentUser addScheduledEventsObject:result];
     }
     
-    result.beginDay = [NSString yearMonthDayConvertFromDate:result.beginTime];
+    result.beginDay = [result.beginTime convertToYearMonthDayString];
     
     return result;
 }

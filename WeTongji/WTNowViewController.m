@@ -82,7 +82,7 @@
 }
 
 - (void)setBarTitleViewDisplayTime:(NSDate *)time {
-    self.barTitleView.timeLabel.text = [NSString timeConvertFromDate:time];
+    self.barTitleView.timeLabel.text = [time convertToTimeString];
 }
 
 #pragma mark - Properties

@@ -51,7 +51,7 @@
     result.weekType = [NSString stringWithFormat:@"%@", dict[@"WeekType"]];
     result.weekDay = [NSString stringWithFormat:@"%@", dict[@"WeekDay"]];
     
-    result.beginDay = [NSString yearMonthDayConvertFromDate:result.beginTime];
+    result.beginDay = [result.beginTime convertToYearMonthDayString];
     
     return result;
 }

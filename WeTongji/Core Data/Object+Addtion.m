@@ -9,6 +9,9 @@
 #import "Object+Addtion.h"
 #import "WTCoreDataManager.h"
 #import "Controller+Addition.h"
+#import "BillboardPost.h"
+#import "Activity.h"
+#import <WeTongjiSDK/WeTongjiSDK.h>
 
 @implementation Object (Addtion)
 
@@ -47,6 +50,14 @@
 + (void)setAllObjectsFreeFromHolder:(Class)holderClass {
     Controller *controller = [Controller controllerModelForClass:holderClass];
     [controller removeHasObjects:controller.hasObjects];
+}
+
+- (NSInteger)getObjectModelType {
+    NSInteger modelType = -1;
+    if ([self isKindOfClass:[BillboardPost class]]) {
+        modelType = WTSDKBillboard;
+    }
+    return modelType;
 }
 
 @end
