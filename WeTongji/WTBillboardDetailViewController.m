@@ -11,6 +11,7 @@
 #import "WTBillboardDetailHeaderView.h"
 #import "WTBillboardCommentViewController.h"
 #import "WTCommentViewController.h"
+#import "WTDetailImageViewController.h"
 
 @interface WTBillboardDetailViewController () <WTBillboardCommentViewControllerDataSource>
 
@@ -66,6 +67,12 @@
 
 - (void)configureHeaderView {
     self.headerView = [WTBillboardDetailHeaderView createDetailHeaderViewWithBillboardPost:self.post];
+    
+    if (self.post.image) {
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTagImageRollView:)];
+        WTImageBillboardDetailHeaderView *imageHeaderView = (WTImageBillboardDetailHeaderView *)self.headerView.postContentView;
+        [imageHeaderView.postImageView addGestureRecognizer:tapGestureRecognizer];
+    }
 }
 
 - (void)configureCommentViewController {
@@ -89,6 +96,20 @@
 
 - (void)didClickCommentButton:(UIButton *)sender {
     [WTCommentViewController showViewControllerWithCommentObject:self.post];
+}
+
+#pragma mark - Handle gesture methods
+
+- (void)didTagImageRollView:(UITapGestureRecognizer *)gesture {
+    WTImageBillboardDetailHeaderView *imageHeaderView = (WTImageBillboardDetailHeaderView *)self.headerView.postContentView;
+    UIImageView *currentImageView =imageHeaderView.postImageView;
+    CGRect imageViewFrame = [self.view convertRect:currentImageView.frame fromView:currentImageView.superview];
+    imageViewFrame.origin.y += 64.0f;
+    
+    [WTDetailImageViewController showDetailImageViewWithImageURLString:self.post.image
+                                                         fromImageView:currentImageView
+                                                              fromRect:imageViewFrame
+                                                              delegate:nil];
 }
 
 @end

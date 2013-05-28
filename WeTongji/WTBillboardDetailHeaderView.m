@@ -17,7 +17,6 @@
 
 @property (nonatomic, weak) BillboardPost *post;
 @property (nonatomic, weak) WTBillboardDetailAuthorView *authorView;
-@property (nonatomic, weak) UIView *postContentView;
 
 @end
 

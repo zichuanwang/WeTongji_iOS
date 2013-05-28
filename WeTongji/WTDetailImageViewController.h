@@ -32,6 +32,7 @@
 
 @protocol WTDetaiImageViewControllerDelegate <NSObject>
 
+@optional
 - (void)detailImageViewControllerDidDismiss:(NSUInteger)currentPage;
 
 @end
