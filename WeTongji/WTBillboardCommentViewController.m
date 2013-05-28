@@ -93,7 +93,8 @@
         NSArray *commentsInfoArray = responseObject[@"Comments"];
         for (NSDictionary *info in commentsInfoArray) {
             Comment *comment = [Comment insertComment:info];
-            [[WTCoreDataManager sharedManager].currentUser addCommentsObject:comment];
+            WTLOG(@"comment class:%@", NSStringFromClass([comment class]));
+            [self.post addCommentsObject:comment];
         }
     } failureBlock:^(NSError *error) {
         if (failure)

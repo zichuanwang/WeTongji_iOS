@@ -13,6 +13,8 @@
 
 #define FLURRY_API_KEY @"SMBC9798JNZG6WQ7FDRJ"
 
+#import "Comment+Addition.h"
+
 @implementation WTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -31,7 +33,12 @@
     WTLOG(@"Current memory cache usage:%d", [[NSURLCache sharedURLCache] currentMemoryUsage] / 1024);
     
     [UIApplication showTopCorner];
-        
+    
+    Comment *comment = [Comment createTestComment];    
+    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
+    if (currentUser)
+        comment.owner = currentUser;
+    
     return YES;
 }
 

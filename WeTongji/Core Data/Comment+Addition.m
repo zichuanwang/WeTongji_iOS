@@ -12,6 +12,16 @@
 
 @implementation Comment (Addition)
 
++ (Comment *)createTestComment {
+    NSString *commentID = @"test";
+    Comment *result = [Comment commmentWithID:commentID];
+    if (!result) {
+        result = [NSEntityDescription insertNewObjectForEntityForName:@"Comment" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
+        result.identifier = commentID;
+    }
+    return result;
+}
+
 + (Comment *)insertComment:(NSDictionary *)dict {
     NSString *commentID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
@@ -23,12 +33,10 @@
     if (!result) {
         result = [NSEntityDescription insertNewObjectForEntityForName:@"Comment" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
         result.identifier = commentID;
-        result.objectClass = NSStringFromClass([Comment class]);
     }
     
-    result.updatedAt = [NSDate date];
     result.createdAt = [[NSString stringWithFormat:@"%@", dict[@"PublishedAt"]] convertToDate];
-    result.comment = [NSString stringWithFormat:@"%@", dict[@"Body"]];
+    result.content = [NSString stringWithFormat:@"%@", dict[@"Body"]];
     
     return result;
 }

@@ -71,6 +71,8 @@
     return modelType;
 }
 
+#pragma mark - Properties
+
 - (BOOL)liked {
     return [[WTCoreDataManager sharedManager].currentUser.likedObjects containsObject:self];
 }

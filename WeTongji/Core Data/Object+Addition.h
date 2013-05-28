@@ -10,7 +10,9 @@
 
 @interface Object (Addition)
 
-@property (nonatomic, assign) BOOL liked;
+- (void)setLiked:(BOOL)liked;
+
+- (BOOL)liked;
 
 - (void)setObjectHeldByHolder:(Class)holderClass;
 

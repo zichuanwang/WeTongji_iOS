@@ -13,11 +13,11 @@
 
 @interface Object : NSManagedObject
 
+@property (nonatomic, retain) NSNumber * commentCount;
 @property (nonatomic, retain) NSString * identifier;
+@property (nonatomic, retain) NSNumber * likeCount;
 @property (nonatomic, retain) NSString * objectClass;
 @property (nonatomic, retain) NSDate * updatedAt;
-@property (nonatomic, retain) NSNumber * likeCount;
-@property (nonatomic, retain) NSNumber * commentCount;
 @property (nonatomic, retain) NSSet *belongToControllers;
 @property (nonatomic, retain) NSSet *comments;
 @property (nonatomic, retain) User *likedBy;

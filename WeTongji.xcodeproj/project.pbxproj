@@ -100,6 +100,23 @@
 		E10C423016AB051A0084337C /* WTSwitchCover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E10C422A16AB051A0084337C /* WTSwitchCover@2x.png */; };
 		E10C423116AB051A0084337C /* WTSwitchHandler.png in Resources */ = {isa = PBXBuildFile; fileRef = E10C422B16AB051A0084337C /* WTSwitchHandler.png */; };
 		E10C423216AB051A0084337C /* WTSwitchHandler@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E10C422C16AB051A0084337C /* WTSwitchHandler@2x.png */; };
+		E10E22B21755204E00DCF724 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E22B11755204E00DCF724 /* User.m */; };
+		E10E22B51755206600DCF724 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E22B41755206600DCF724 /* News.m */; };
+		E10E22B81755206700DCF724 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E22B71755206700DCF724 /* Notification.m */; };
+		E10E22BB1755206700DCF724 /* InvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E22BA1755206700DCF724 /* InvitationNotification.m */; };
+		E10E22BE1755206700DCF724 /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E22BD1755206700DCF724 /* Organization.m */; };
+		E10E22C11755206700DCF724 /* ActivityInvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E22C01755206700DCF724 /* ActivityInvitationNotification.m */; };
+		E10E22C41755206700DCF724 /* Advertisement.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E22C31755206700DCF724 /* Advertisement.m */; };
+		E10E22C71755206800DCF724 /* BillboardPost.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E22C61755206800DCF724 /* BillboardPost.m */; };
+		E10E22CA1755206800DCF724 /* FriendInvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E22C91755206800DCF724 /* FriendInvitationNotification.m */; };
+		E10E22CD1755206800DCF724 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E22CC1755206800DCF724 /* Activity.m */; };
+		E10E22D31755206800DCF724 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E22D21755206800DCF724 /* Controller.m */; };
+		E10E22D61755206900DCF724 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E22D51755206900DCF724 /* Course.m */; };
+		E10E22D91755206900DCF724 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E22D81755206900DCF724 /* Event.m */; };
+		E10E22DC1755206900DCF724 /* Exam.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E22DB1755206900DCF724 /* Exam.m */; };
+		E10E22E21755206900DCF724 /* Star.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E22E11755206900DCF724 /* Star.m */; };
+		E10E22F417553E1200DCF724 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E22F317553E1200DCF724 /* Comment.m */; };
+		E10E22F717553E1400DCF724 /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E22F617553E1400DCF724 /* Object.m */; };
 		E1106D9E1726F45000C00D81 /* WTNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1106D9D1726F44F00C00D81 /* WTNavigationViewController.m */; };
 		E1132E6416C6304A004CB808 /* WTInnerModalGroupTableViewBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E6216C6304A004CB808 /* WTInnerModalGroupTableViewBg.png */; };
 		E1132E6516C6304A004CB808 /* WTInnerModalGroupTableViewBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E6316C6304A004CB808 /* WTInnerModalGroupTableViewBg@2x.png */; };
@@ -207,7 +224,6 @@
 		E13B0E6D16A4476000A45079 /* User+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0E6C16A4476000A45079 /* User+Addition.m */; };
 		E13B0E7516A448C100A45079 /* News+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0E7416A448C100A45079 /* News+Addition.m */; };
 		E13B0EA516A45F4B00A45079 /* WTDebugTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0EA416A45F4B00A45079 /* WTDebugTool.m */; };
-		E13B0EB316A4665A00A45079 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0EB216A4665A00A45079 /* Image.m */; };
 		E13B0EC516A468B800A45079 /* WTTableViewSectionBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0EC316A468B800A45079 /* WTTableViewSectionBg.png */; };
 		E13B0EC616A468B800A45079 /* WTTableViewSectionBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0EC416A468B800A45079 /* WTTableViewSectionBg@2x.png */; };
 		E13B0ED316A4704900A45079 /* NSString+WTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0ED216A4704900A45079 /* NSString+WTAddition.m */; };
@@ -215,23 +231,6 @@
 		E13B0EDD16A486F300A45079 /* WTTableViewSeperatorUnit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0EDB16A486F300A45079 /* WTTableViewSeperatorUnit@2x.png */; };
 		E140C7991754950C005C56B7 /* NSDate+WTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E140C7981754950B005C56B7 /* NSDate+WTAddition.m */; };
 		E140C7BA1754F8A5005C56B7 /* Comment+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E140C7B91754F8A3005C56B7 /* Comment+Addition.m */; };
-		E140C7CF1754FFDF005C56B7 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = E140C7CE1754FFDD005C56B7 /* Controller.m */; };
-		E140C7D21754FFE5005C56B7 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = E140C7D11754FFE5005C56B7 /* Activity.m */; };
-		E140C7D81754FFF1005C56B7 /* ActivityInvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E140C7D71754FFF1005C56B7 /* ActivityInvitationNotification.m */; };
-		E140C7DB17550000005C56B7 /* Advertisement.m in Sources */ = {isa = PBXBuildFile; fileRef = E140C7DA1754FFF4005C56B7 /* Advertisement.m */; };
-		E140C7E11755001F005C56B7 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = E140C7E01755001F005C56B7 /* Event.m */; };
-		E140C7E417550022005C56B7 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = E140C7E317550022005C56B7 /* Course.m */; };
-		E140C7E717550026005C56B7 /* FriendInvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E140C7E617550025005C56B7 /* FriendInvitationNotification.m */; };
-		E140C7EA17550028005C56B7 /* Exam.m in Sources */ = {isa = PBXBuildFile; fileRef = E140C7E917550028005C56B7 /* Exam.m */; };
-		E140C7ED1755002A005C56B7 /* InvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E140C7EC1755002A005C56B7 /* InvitationNotification.m */; };
-		E140C7F01755002C005C56B7 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = E140C7EF1755002B005C56B7 /* News.m */; };
-		E140C7F31755003F005C56B7 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = E140C7F21755003E005C56B7 /* Notification.m */; };
-		E140C7F917550045005C56B7 /* Star.m in Sources */ = {isa = PBXBuildFile; fileRef = E140C7F817550045005C56B7 /* Star.m */; };
-		E140C7FF17550049005C56B7 /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = E140C7FE17550047005C56B7 /* Organization.m */; };
-		E140C80B17550B81005C56B7 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = E140C80A17550B80005C56B7 /* Comment.m */; };
-		E140C81117550B8A005C56B7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E140C81017550B89005C56B7 /* User.m */; };
-		E140C81417550D82005C56B7 /* BillboardPost.m in Sources */ = {isa = PBXBuildFile; fileRef = E140C81317550D82005C56B7 /* BillboardPost.m */; };
-		E140C81717550ED1005C56B7 /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E140C81617550ED0005C56B7 /* Object.m */; };
 		E140ED9E16E90831004E2DA9 /* WTSearchBarNormalBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E140ED9C16E90831004E2DA9 /* WTSearchBarNormalBg.png */; };
 		E140ED9F16E90831004E2DA9 /* WTSearchBarNormalBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E140ED9D16E90831004E2DA9 /* WTSearchBarNormalBg@2x.png */; };
 		E140EDA216E90A23004E2DA9 /* WTSearchBarNormalSearchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E140EDA016E90A23004E2DA9 /* WTSearchBarNormalSearchIcon.png */; };
@@ -724,6 +723,40 @@
 		E10C422A16AB051A0084337C /* WTSwitchCover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTSwitchCover@2x.png"; sourceTree = "<group>"; };
 		E10C422B16AB051A0084337C /* WTSwitchHandler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTSwitchHandler.png; sourceTree = "<group>"; };
 		E10C422C16AB051A0084337C /* WTSwitchHandler@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTSwitchHandler@2x.png"; sourceTree = "<group>"; };
+		E10E22B01755204E00DCF724 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		E10E22B11755204E00DCF724 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		E10E22B31755206600DCF724 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
+		E10E22B41755206600DCF724 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
+		E10E22B61755206700DCF724 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
+		E10E22B71755206700DCF724 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
+		E10E22B91755206700DCF724 /* InvitationNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationNotification.h; sourceTree = "<group>"; };
+		E10E22BA1755206700DCF724 /* InvitationNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationNotification.m; sourceTree = "<group>"; };
+		E10E22BC1755206700DCF724 /* Organization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Organization.h; sourceTree = "<group>"; };
+		E10E22BD1755206700DCF724 /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Organization.m; sourceTree = "<group>"; };
+		E10E22BF1755206700DCF724 /* ActivityInvitationNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityInvitationNotification.h; sourceTree = "<group>"; };
+		E10E22C01755206700DCF724 /* ActivityInvitationNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityInvitationNotification.m; sourceTree = "<group>"; };
+		E10E22C21755206700DCF724 /* Advertisement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Advertisement.h; sourceTree = "<group>"; };
+		E10E22C31755206700DCF724 /* Advertisement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Advertisement.m; sourceTree = "<group>"; };
+		E10E22C51755206800DCF724 /* BillboardPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillboardPost.h; sourceTree = "<group>"; };
+		E10E22C61755206800DCF724 /* BillboardPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillboardPost.m; sourceTree = "<group>"; };
+		E10E22C81755206800DCF724 /* FriendInvitationNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendInvitationNotification.h; sourceTree = "<group>"; };
+		E10E22C91755206800DCF724 /* FriendInvitationNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendInvitationNotification.m; sourceTree = "<group>"; };
+		E10E22CB1755206800DCF724 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
+		E10E22CC1755206800DCF724 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
+		E10E22D11755206800DCF724 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
+		E10E22D21755206800DCF724 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
+		E10E22D41755206900DCF724 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		E10E22D51755206900DCF724 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		E10E22D71755206900DCF724 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		E10E22D81755206900DCF724 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		E10E22DA1755206900DCF724 /* Exam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exam.h; sourceTree = "<group>"; };
+		E10E22DB1755206900DCF724 /* Exam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exam.m; sourceTree = "<group>"; };
+		E10E22E01755206900DCF724 /* Star.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Star.h; sourceTree = "<group>"; };
+		E10E22E11755206900DCF724 /* Star.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Star.m; sourceTree = "<group>"; };
+		E10E22F217553E1200DCF724 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		E10E22F317553E1200DCF724 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		E10E22F517553E1300DCF724 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
+		E10E22F617553E1400DCF724 /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
 		E1106D9C1726F44E00C00D81 /* WTNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNavigationViewController.h; sourceTree = "<group>"; };
 		E1106D9D1726F44F00C00D81 /* WTNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNavigationViewController.m; sourceTree = "<group>"; };
 		E1132E6216C6304A004CB808 /* WTInnerModalGroupTableViewBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTInnerModalGroupTableViewBg.png; sourceTree = "<group>"; };
@@ -856,8 +889,6 @@
 		E13B0E7416A448C100A45079 /* News+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "News+Addition.m"; sourceTree = "<group>"; };
 		E13B0EA316A45F4B00A45079 /* WTDebugTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTDebugTool.h; sourceTree = "<group>"; };
 		E13B0EA416A45F4B00A45079 /* WTDebugTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTDebugTool.m; sourceTree = "<group>"; };
-		E13B0EB116A4665900A45079 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
-		E13B0EB216A4665A00A45079 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		E13B0EC316A468B800A45079 /* WTTableViewSectionBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTableViewSectionBg.png; sourceTree = "<group>"; };
 		E13B0EC416A468B800A45079 /* WTTableViewSectionBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTableViewSectionBg@2x.png"; sourceTree = "<group>"; };
 		E13B0ED116A4704900A45079 /* NSString+WTAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+WTAddition.h"; sourceTree = "<group>"; };
@@ -868,40 +899,6 @@
 		E140C7981754950B005C56B7 /* NSDate+WTAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WTAddition.m"; sourceTree = "<group>"; };
 		E140C7B81754F8A1005C56B7 /* Comment+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Comment+Addition.h"; sourceTree = "<group>"; };
 		E140C7B91754F8A3005C56B7 /* Comment+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Comment+Addition.m"; sourceTree = "<group>"; };
-		E140C7CD1754FFDC005C56B7 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
-		E140C7CE1754FFDD005C56B7 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
-		E140C7D01754FFE2005C56B7 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
-		E140C7D11754FFE5005C56B7 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
-		E140C7D61754FFEF005C56B7 /* ActivityInvitationNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityInvitationNotification.h; sourceTree = "<group>"; };
-		E140C7D71754FFF1005C56B7 /* ActivityInvitationNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityInvitationNotification.m; sourceTree = "<group>"; };
-		E140C7D91754FFF3005C56B7 /* Advertisement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Advertisement.h; sourceTree = "<group>"; };
-		E140C7DA1754FFF4005C56B7 /* Advertisement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Advertisement.m; sourceTree = "<group>"; };
-		E140C7DF1755001E005C56B7 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		E140C7E01755001F005C56B7 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		E140C7E217550021005C56B7 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
-		E140C7E317550022005C56B7 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
-		E140C7E517550024005C56B7 /* FriendInvitationNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendInvitationNotification.h; sourceTree = "<group>"; };
-		E140C7E617550025005C56B7 /* FriendInvitationNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendInvitationNotification.m; sourceTree = "<group>"; };
-		E140C7E817550027005C56B7 /* Exam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exam.h; sourceTree = "<group>"; };
-		E140C7E917550028005C56B7 /* Exam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exam.m; sourceTree = "<group>"; };
-		E140C7EB17550029005C56B7 /* InvitationNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationNotification.h; sourceTree = "<group>"; };
-		E140C7EC1755002A005C56B7 /* InvitationNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationNotification.m; sourceTree = "<group>"; };
-		E140C7EE1755002B005C56B7 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
-		E140C7EF1755002B005C56B7 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
-		E140C7F11755003D005C56B7 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
-		E140C7F21755003E005C56B7 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
-		E140C7F717550044005C56B7 /* Star.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Star.h; sourceTree = "<group>"; };
-		E140C7F817550045005C56B7 /* Star.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Star.m; sourceTree = "<group>"; };
-		E140C7FD17550047005C56B7 /* Organization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Organization.h; sourceTree = "<group>"; };
-		E140C7FE17550047005C56B7 /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Organization.m; sourceTree = "<group>"; };
-		E140C80917550B7F005C56B7 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
-		E140C80A17550B80005C56B7 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
-		E140C80F17550B88005C56B7 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		E140C81017550B89005C56B7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		E140C81217550D82005C56B7 /* BillboardPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillboardPost.h; sourceTree = "<group>"; };
-		E140C81317550D82005C56B7 /* BillboardPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillboardPost.m; sourceTree = "<group>"; };
-		E140C81517550ED0005C56B7 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
-		E140C81617550ED0005C56B7 /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
 		E140ED9C16E90831004E2DA9 /* WTSearchBarNormalBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTSearchBarNormalBg.png; sourceTree = "<group>"; };
 		E140ED9D16E90831004E2DA9 /* WTSearchBarNormalBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTSearchBarNormalBg@2x.png"; sourceTree = "<group>"; };
 		E140EDA016E90A23004E2DA9 /* WTSearchBarNormalSearchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTSearchBarNormalSearchIcon.png; sourceTree = "<group>"; };
@@ -2591,42 +2588,40 @@
 		E1D3743D1694C3D90012E30A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E140C7D01754FFE2005C56B7 /* Activity.h */,
-				E140C7D11754FFE5005C56B7 /* Activity.m */,
-				E140C7D61754FFEF005C56B7 /* ActivityInvitationNotification.h */,
-				E140C7D71754FFF1005C56B7 /* ActivityInvitationNotification.m */,
-				E140C7D91754FFF3005C56B7 /* Advertisement.h */,
-				E140C7DA1754FFF4005C56B7 /* Advertisement.m */,
-				E140C80917550B7F005C56B7 /* Comment.h */,
-				E140C80A17550B80005C56B7 /* Comment.m */,
-				E140C7CD1754FFDC005C56B7 /* Controller.h */,
-				E140C7CE1754FFDD005C56B7 /* Controller.m */,
-				E140C7E217550021005C56B7 /* Course.h */,
-				E140C7E317550022005C56B7 /* Course.m */,
-				E140C7DF1755001E005C56B7 /* Event.h */,
-				E140C7E01755001F005C56B7 /* Event.m */,
-				E140C7E817550027005C56B7 /* Exam.h */,
-				E140C7E917550028005C56B7 /* Exam.m */,
-				E140C7E517550024005C56B7 /* FriendInvitationNotification.h */,
-				E140C7E617550025005C56B7 /* FriendInvitationNotification.m */,
-				E13B0EB116A4665900A45079 /* Image.h */,
-				E13B0EB216A4665A00A45079 /* Image.m */,
-				E140C7EB17550029005C56B7 /* InvitationNotification.h */,
-				E140C7EC1755002A005C56B7 /* InvitationNotification.m */,
-				E140C7EE1755002B005C56B7 /* News.h */,
-				E140C7EF1755002B005C56B7 /* News.m */,
-				E140C7F11755003D005C56B7 /* Notification.h */,
-				E140C7F21755003E005C56B7 /* Notification.m */,
-				E140C7FD17550047005C56B7 /* Organization.h */,
-				E140C7FE17550047005C56B7 /* Organization.m */,
-				E140C7F717550044005C56B7 /* Star.h */,
-				E140C7F817550045005C56B7 /* Star.m */,
-				E140C80F17550B88005C56B7 /* User.h */,
-				E140C81017550B89005C56B7 /* User.m */,
-				E140C81217550D82005C56B7 /* BillboardPost.h */,
-				E140C81317550D82005C56B7 /* BillboardPost.m */,
-				E140C81517550ED0005C56B7 /* Object.h */,
-				E140C81617550ED0005C56B7 /* Object.m */,
+				E10E22CB1755206800DCF724 /* Activity.h */,
+				E10E22CC1755206800DCF724 /* Activity.m */,
+				E10E22BF1755206700DCF724 /* ActivityInvitationNotification.h */,
+				E10E22C01755206700DCF724 /* ActivityInvitationNotification.m */,
+				E10E22C21755206700DCF724 /* Advertisement.h */,
+				E10E22C31755206700DCF724 /* Advertisement.m */,
+				E10E22C51755206800DCF724 /* BillboardPost.h */,
+				E10E22C61755206800DCF724 /* BillboardPost.m */,
+				E10E22D11755206800DCF724 /* Controller.h */,
+				E10E22D21755206800DCF724 /* Controller.m */,
+				E10E22D41755206900DCF724 /* Course.h */,
+				E10E22D51755206900DCF724 /* Course.m */,
+				E10E22D71755206900DCF724 /* Event.h */,
+				E10E22D81755206900DCF724 /* Event.m */,
+				E10E22DA1755206900DCF724 /* Exam.h */,
+				E10E22DB1755206900DCF724 /* Exam.m */,
+				E10E22C81755206800DCF724 /* FriendInvitationNotification.h */,
+				E10E22C91755206800DCF724 /* FriendInvitationNotification.m */,
+				E10E22B91755206700DCF724 /* InvitationNotification.h */,
+				E10E22BA1755206700DCF724 /* InvitationNotification.m */,
+				E10E22B31755206600DCF724 /* News.h */,
+				E10E22B41755206600DCF724 /* News.m */,
+				E10E22B61755206700DCF724 /* Notification.h */,
+				E10E22B71755206700DCF724 /* Notification.m */,
+				E10E22BC1755206700DCF724 /* Organization.h */,
+				E10E22BD1755206700DCF724 /* Organization.m */,
+				E10E22E01755206900DCF724 /* Star.h */,
+				E10E22E11755206900DCF724 /* Star.m */,
+				E10E22B01755204E00DCF724 /* User.h */,
+				E10E22B11755204E00DCF724 /* User.m */,
+				E10E22F217553E1200DCF724 /* Comment.h */,
+				E10E22F317553E1200DCF724 /* Comment.m */,
+				E10E22F517553E1300DCF724 /* Object.h */,
+				E10E22F617553E1400DCF724 /* Object.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3234,7 +3229,6 @@
 				E13B0E6D16A4476000A45079 /* User+Addition.m in Sources */,
 				E13B0E7516A448C100A45079 /* News+Addition.m in Sources */,
 				E13B0EA516A45F4B00A45079 /* WTDebugTool.m in Sources */,
-				E13B0EB316A4665A00A45079 /* Image.m in Sources */,
 				E13B0ED316A4704900A45079 /* NSString+WTAddition.m in Sources */,
 				E10C422316AB03410084337C /* WTSwitch.m in Sources */,
 				A1ADA9DB16AC460500E3A62E /* WTActivityViewController.m in Sources */,
@@ -3327,23 +3321,23 @@
 				E172B004174FD89300DEB920 /* WTActivityHeaderView.m in Sources */,
 				E140C7991754950C005C56B7 /* NSDate+WTAddition.m in Sources */,
 				E140C7BA1754F8A5005C56B7 /* Comment+Addition.m in Sources */,
-				E140C7CF1754FFDF005C56B7 /* Controller.m in Sources */,
-				E140C7D21754FFE5005C56B7 /* Activity.m in Sources */,
-				E140C7D81754FFF1005C56B7 /* ActivityInvitationNotification.m in Sources */,
-				E140C7DB17550000005C56B7 /* Advertisement.m in Sources */,
-				E140C7E11755001F005C56B7 /* Event.m in Sources */,
-				E140C7E417550022005C56B7 /* Course.m in Sources */,
-				E140C7E717550026005C56B7 /* FriendInvitationNotification.m in Sources */,
-				E140C7EA17550028005C56B7 /* Exam.m in Sources */,
-				E140C7ED1755002A005C56B7 /* InvitationNotification.m in Sources */,
-				E140C7F01755002C005C56B7 /* News.m in Sources */,
-				E140C7F31755003F005C56B7 /* Notification.m in Sources */,
-				E140C7F917550045005C56B7 /* Star.m in Sources */,
-				E140C7FF17550049005C56B7 /* Organization.m in Sources */,
-				E140C80B17550B81005C56B7 /* Comment.m in Sources */,
-				E140C81117550B8A005C56B7 /* User.m in Sources */,
-				E140C81417550D82005C56B7 /* BillboardPost.m in Sources */,
-				E140C81717550ED1005C56B7 /* Object.m in Sources */,
+				E10E22B21755204E00DCF724 /* User.m in Sources */,
+				E10E22B51755206600DCF724 /* News.m in Sources */,
+				E10E22B81755206700DCF724 /* Notification.m in Sources */,
+				E10E22BB1755206700DCF724 /* InvitationNotification.m in Sources */,
+				E10E22BE1755206700DCF724 /* Organization.m in Sources */,
+				E10E22C11755206700DCF724 /* ActivityInvitationNotification.m in Sources */,
+				E10E22C41755206700DCF724 /* Advertisement.m in Sources */,
+				E10E22C71755206800DCF724 /* BillboardPost.m in Sources */,
+				E10E22CA1755206800DCF724 /* FriendInvitationNotification.m in Sources */,
+				E10E22CD1755206800DCF724 /* Activity.m in Sources */,
+				E10E22D31755206800DCF724 /* Controller.m in Sources */,
+				E10E22D61755206900DCF724 /* Course.m in Sources */,
+				E10E22D91755206900DCF724 /* Event.m in Sources */,
+				E10E22DC1755206900DCF724 /* Exam.m in Sources */,
+				E10E22E21755206900DCF724 /* Star.m in Sources */,
+				E10E22F417553E1200DCF724 /* Comment.m in Sources */,
+				E10E22F717553E1400DCF724 /* Object.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

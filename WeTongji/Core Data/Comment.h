@@ -2,7 +2,7 @@
 //  Comment.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-5-28.
+//  Created by 王 紫川 on 13-5-29.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -14,9 +14,9 @@
 
 @interface Comment : Object
 
-@property (nonatomic, retain) NSString * comment;
+@property (nonatomic, retain) NSString * content;
 @property (nonatomic, retain) NSDate * createdAt;
+@property (nonatomic, retain) Object *owner;
 @property (nonatomic, retain) User *author;
-@property (nonatomic, retain) Object *belongTo;
 
 @end

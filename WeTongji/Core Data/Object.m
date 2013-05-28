@@ -14,11 +14,11 @@
 
 @implementation Object
 
+@dynamic commentCount;
 @dynamic identifier;
+@dynamic likeCount;
 @dynamic objectClass;
 @dynamic updatedAt;
-@dynamic likeCount;
-@dynamic commentCount;
 @dynamic belongToControllers;
 @dynamic comments;
 @dynamic likedBy;

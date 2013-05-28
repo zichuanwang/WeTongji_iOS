@@ -12,4 +12,6 @@
 
 + (Comment *)insertComment:(NSDictionary *)dict;
 
++ (Comment *)createTestComment;
+
 @end
