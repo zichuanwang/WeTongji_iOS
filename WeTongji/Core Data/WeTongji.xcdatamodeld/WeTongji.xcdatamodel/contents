@@ -29,6 +29,7 @@
         <relationship name="owner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CommentableObject" inverseName="comments" inverseEntity="CommentableObject" syncable="YES"/>
     </entity>
     <entity name="CommentableObject" representedClassName="CommentableObject" parentEntity="Object" syncable="YES">
+        <attribute name="commentCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="comments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Comment" inverseName="owner" inverseEntity="Comment" syncable="YES"/>
     </entity>
     <entity name="Controller" representedClassName="Controller" syncable="YES">
@@ -82,7 +83,6 @@
         <relationship name="sender" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="sentNotifications" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Object" representedClassName="Object" syncable="YES">
-        <attribute name="commentCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="identifier" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="likeCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="objectClass" optional="YES" attributeType="String" syncable="YES"/>
@@ -145,10 +145,10 @@
         <element name="InvitationNotification" positionX="43" positionY="-123" width="128" height="60"/>
         <element name="News" positionX="205" positionY="-120" width="128" height="270"/>
         <element name="Notification" positionX="-119" positionY="-126" width="128" height="90"/>
-        <element name="Object" positionX="-135" positionY="84" width="128" height="150"/>
+        <element name="Object" positionX="-135" positionY="84" width="128" height="135"/>
         <element name="Organization" positionX="-423" positionY="-126" width="128" height="105"/>
         <element name="Star" positionX="-270" positionY="-126" width="128" height="180"/>
         <element name="User" positionX="-423" positionY="-9" width="128" height="375"/>
-        <element name="CommentableObject" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="CommentableObject" positionX="160" positionY="192" width="128" height="75"/>
     </elements>
 </model>

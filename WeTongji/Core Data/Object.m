@@ -2,7 +2,7 @@
 //  Object.m
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-5-29.
+//  Created by 王 紫川 on 13-5-30.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -13,7 +13,6 @@
 
 @implementation Object
 
-@dynamic commentCount;
 @dynamic identifier;
 @dynamic likeCount;
 @dynamic objectClass;

@@ -93,7 +93,6 @@
         NSArray *commentsInfoArray = responseObject[@"Comments"];
         for (NSDictionary *info in commentsInfoArray) {
             Comment *comment = [Comment insertComment:info];
-            WTLOG(@"comment class:%@", NSStringFromClass([comment class]));
             [self.post addCommentsObject:comment];
         }
     } failureBlock:^(NSError *error) {
@@ -137,6 +136,7 @@
     UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTTableViewTopLineSectionBg"]];
     CGFloat sectionHeaderHeight = bgImageView.frame.size.height;
     
+    // TODO:
     NSUInteger numberOfComments = [self.fetchedResultsController.sections[section] numberOfObjects];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, sectionHeaderHeight)];

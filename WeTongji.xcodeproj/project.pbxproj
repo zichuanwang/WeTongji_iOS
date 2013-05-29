@@ -116,9 +116,9 @@
 		E10E23061755B0F700DCF724 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E23051755B0F700DCF724 /* User.m */; };
 		E10E23091755B0F800DCF724 /* BillboardPost.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E23081755B0F800DCF724 /* BillboardPost.m */; };
 		E10E230C1755B0F800DCF724 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E230B1755B0F800DCF724 /* Comment.m */; };
-		E10E230F1755B0F800DCF724 /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E230E1755B0F800DCF724 /* Object.m */; };
-		E10E23121755B1A000DCF724 /* CommentableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E23111755B1A000DCF724 /* CommentableObject.m */; };
 		E10E231517566C8A00DCF724 /* WTHighlightableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E231417566C8A00DCF724 /* WTHighlightableCell.m */; };
+		E10E2318175674BE00DCF724 /* CommentableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E2317175674BE00DCF724 /* CommentableObject.m */; };
+		E10E231B175674C000DCF724 /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E231A175674BF00DCF724 /* Object.m */; };
 		E1106D9E1726F45000C00D81 /* WTNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1106D9D1726F44F00C00D81 /* WTNavigationViewController.m */; };
 		E1132E6416C6304A004CB808 /* WTInnerModalGroupTableViewBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E6216C6304A004CB808 /* WTInnerModalGroupTableViewBg.png */; };
 		E1132E6516C6304A004CB808 /* WTInnerModalGroupTableViewBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E6316C6304A004CB808 /* WTInnerModalGroupTableViewBg@2x.png */; };
@@ -757,12 +757,12 @@
 		E10E23081755B0F800DCF724 /* BillboardPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillboardPost.m; sourceTree = "<group>"; };
 		E10E230A1755B0F800DCF724 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		E10E230B1755B0F800DCF724 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
-		E10E230D1755B0F800DCF724 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
-		E10E230E1755B0F800DCF724 /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
-		E10E23101755B1A000DCF724 /* CommentableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentableObject.h; sourceTree = "<group>"; };
-		E10E23111755B1A000DCF724 /* CommentableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentableObject.m; sourceTree = "<group>"; };
 		E10E231317566C8900DCF724 /* WTHighlightableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTHighlightableCell.h; sourceTree = "<group>"; };
 		E10E231417566C8A00DCF724 /* WTHighlightableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTHighlightableCell.m; sourceTree = "<group>"; };
+		E10E2316175674BE00DCF724 /* CommentableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentableObject.h; sourceTree = "<group>"; };
+		E10E2317175674BE00DCF724 /* CommentableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentableObject.m; sourceTree = "<group>"; };
+		E10E2319175674BF00DCF724 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
+		E10E231A175674BF00DCF724 /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
 		E1106D9C1726F44E00C00D81 /* WTNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNavigationViewController.h; sourceTree = "<group>"; };
 		E1106D9D1726F44F00C00D81 /* WTNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNavigationViewController.m; sourceTree = "<group>"; };
 		E1132E6216C6304A004CB808 /* WTInnerModalGroupTableViewBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTInnerModalGroupTableViewBg.png; sourceTree = "<group>"; };
@@ -2622,16 +2622,16 @@
 				E10E22B41755206600DCF724 /* News.m */,
 				E10E22B61755206700DCF724 /* Notification.h */,
 				E10E22B71755206700DCF724 /* Notification.m */,
-				E10E230D1755B0F800DCF724 /* Object.h */,
-				E10E230E1755B0F800DCF724 /* Object.m */,
 				E10E22BC1755206700DCF724 /* Organization.h */,
 				E10E22BD1755206700DCF724 /* Organization.m */,
 				E10E22E01755206900DCF724 /* Star.h */,
 				E10E22E11755206900DCF724 /* Star.m */,
 				E10E23041755B0F700DCF724 /* User.h */,
 				E10E23051755B0F700DCF724 /* User.m */,
-				E10E23101755B1A000DCF724 /* CommentableObject.h */,
-				E10E23111755B1A000DCF724 /* CommentableObject.m */,
+				E10E2316175674BE00DCF724 /* CommentableObject.h */,
+				E10E2317175674BE00DCF724 /* CommentableObject.m */,
+				E10E2319175674BF00DCF724 /* Object.h */,
+				E10E231A175674BF00DCF724 /* Object.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3347,9 +3347,9 @@
 				E10E23061755B0F700DCF724 /* User.m in Sources */,
 				E10E23091755B0F800DCF724 /* BillboardPost.m in Sources */,
 				E10E230C1755B0F800DCF724 /* Comment.m in Sources */,
-				E10E230F1755B0F800DCF724 /* Object.m in Sources */,
-				E10E23121755B1A000DCF724 /* CommentableObject.m in Sources */,
 				E10E231517566C8A00DCF724 /* WTHighlightableCell.m in Sources */,
+				E10E2318175674BE00DCF724 /* CommentableObject.m in Sources */,
+				E10E231B175674C000DCF724 /* Object.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

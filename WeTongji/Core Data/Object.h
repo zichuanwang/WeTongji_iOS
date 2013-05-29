@@ -2,7 +2,7 @@
 //  Object.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-5-29.
+//  Created by 王 紫川 on 13-5-30.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -13,7 +13,6 @@
 
 @interface Object : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * commentCount;
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSNumber * likeCount;
 @property (nonatomic, retain) NSString * objectClass;
