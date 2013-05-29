@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "Object.h"
+#import "CommentableObject.h"
 
 @class User;
 
-@interface Event : Object
+@interface Event : CommentableObject
 
 @property (nonatomic, retain) NSString * beginDay;
 @property (nonatomic, retain) NSDate * beginTime;

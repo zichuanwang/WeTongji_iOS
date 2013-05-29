@@ -41,6 +41,7 @@
 }
 
 - (void)configureViewWithComment:(Comment *)comment {
+    self.commentLabel.text = comment.content;
     self.authorLabel.text = comment.author.name;
     self.timeLabel.text = [comment.createdAt convertToYearMonthDayWeekString];
     [self.avatarImageView loadImageWithImageURLString:comment.author.avatar];

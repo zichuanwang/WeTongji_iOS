@@ -176,7 +176,7 @@
 }
 
 - (NSString *)customSectionNameKeyPath {
-    return @"belongTo";
+    return @"objectClass";
 }
 
 @end

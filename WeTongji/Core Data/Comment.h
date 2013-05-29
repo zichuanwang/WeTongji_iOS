@@ -10,13 +10,13 @@
 #import <CoreData/CoreData.h>
 #import "Object.h"
 
-@class Object, User;
+@class CommentableObject, User;
 
 @interface Comment : Object
 
 @property (nonatomic, retain) NSString * content;
 @property (nonatomic, retain) NSDate * createdAt;
-@property (nonatomic, retain) Object *owner;
 @property (nonatomic, retain) User *author;
+@property (nonatomic, retain) CommentableObject *owner;
 
 @end

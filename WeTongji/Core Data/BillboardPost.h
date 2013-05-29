@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "Object.h"
+#import "CommentableObject.h"
 
 
-@interface BillboardPost : Object
+@interface BillboardPost : CommentableObject
 
 @property (nonatomic, retain) NSString * content;
 @property (nonatomic, retain) NSDate * createdAt;

@@ -34,11 +34,6 @@
     
     [UIApplication showTopCorner];
     
-    Comment *comment = [Comment createTestComment];    
-    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
-    if (currentUser)
-        comment.owner = currentUser;
-    
     return YES;
 }
 

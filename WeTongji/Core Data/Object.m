@@ -7,7 +7,6 @@
 //
 
 #import "Object.h"
-#import "Comment.h"
 #import "Controller.h"
 #import "User.h"
 
@@ -20,7 +19,6 @@
 @dynamic objectClass;
 @dynamic updatedAt;
 @dynamic belongToControllers;
-@dynamic comments;
 @dynamic likedBy;
 
 @end
