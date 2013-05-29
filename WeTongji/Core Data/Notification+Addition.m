@@ -43,9 +43,11 @@
 }
 
 + (void)insertNotifications:(NSDictionary *)dict {
-    NSArray *friendInvitationArray = dict[@"FriendInvites"];
-    for (NSDictionary *friendInvitationDict in friendInvitationArray) {
-        [Notification insertFriendInvitationNotification:friendInvitationDict];
+    NSArray *notificationsInfoArray = dict[@"Notifications"];
+    for (NSDictionary *info in notificationsInfoArray) {
+        NSString *notificationType = [NSString stringWithFormat:@"%@", info[@"SourceType"]];
+        if ([notificationType isEqualToString:@"FriendInvite"])
+            [Notification insertFriendInvitationNotification:info];
     }
 }
 
@@ -63,14 +65,13 @@
     }
     
     result.sendTime = [[NSString stringWithFormat:@"%@", dict[@"SentAt"]] convertToDate];
-    NSString *senderName = [NSString stringWithFormat:@"%@", dict[@"From"]];
+    NSString *senderName = [NSString stringWithFormat:@"%@", dict[@"Title"]];
     result.sender = [User createTestUserWithName:senderName];
     
-    NSString *acceptDateString = [NSString stringWithFormat:@"%@", dict[@"AcceptedAt"]];
-    if ([acceptDateString isEqualToString:@"<null>"]) {
-        result.accepted = @(NO);
-    } else {
+    if (dict[@"AcceptedAt"]) {
         result.accepted = @(YES);
+    } else {
+        result.accepted = @(NO);
     }
     
     return result;

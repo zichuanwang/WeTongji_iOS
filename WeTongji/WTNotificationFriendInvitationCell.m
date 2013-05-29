@@ -114,14 +114,7 @@
 
 - (IBAction)didClickAcceptButton:(UIButton *)sender {
     FriendInvitationNotification *friendInvitation = (FriendInvitationNotification *)self.notification;
-    
-    // Test code:
-    friendInvitation.accepted = @(YES);
-    [self hideButtons:YES];
-    [self showAcceptIcon];
-    [self.delegate cellHeightDidChange];
-    return;
-    
+
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         NSLog(@"Accept friend invitation:%@", responseObject);
         friendInvitation.accepted = @(YES);
@@ -130,6 +123,7 @@
         [self.delegate cellHeightDidChange];
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Accept friend invitation:%@", error.localizedDescription);
+        [WTErrorHandler handleError:error];
     }];
     [request acceptFriendInvitation:friendInvitation.identifier];
     [[WTClient sharedClient] enqueueRequest:request];
@@ -138,15 +132,12 @@
 - (IBAction)didClickIgnoreButton:(UIButton *)sender {
     FriendInvitationNotification *friendInvitation = (FriendInvitationNotification *)self.notification;
     
-    // Test code:
-    [Notification deleteNotificationWithID:friendInvitation.identifier];
-    return;
-    
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
-        NSLog(@"Accept friend invitation:%@", responseObject);
+        NSLog(@"Reject friend invitation success:%@", responseObject);
         [Notification deleteNotificationWithID:friendInvitation.identifier];
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Reject friend invitation:%@", error.localizedDescription);
+        [WTErrorHandler handleError:error];
     }];
     [request ignoreFriendInvitation:friendInvitation.identifier];
     [[WTClient sharedClient] enqueueRequest:request];
@@ -168,7 +159,6 @@
         User *sender = friendInvitation.sender;
         [self configureNotificationMessageWithSenderName:sender.name];
         
-        NSLog(@"shit:%@", [notification.sendTime convertToYearMonthDayWeekTimeString]);
         self.timeLabel.text = [notification.sendTime convertToYearMonthDayWeekTimeString];
         
         if (friendInvitation.accepted.boolValue) {
@@ -180,6 +170,9 @@
         }
         
         [self resetHeight:[WTNotificationFriendInvitationCell cellHeightWithNotificationObject:friendInvitation]];
+        
+        [self.ignoreButton setTitle:NSLocalizedString(@"Ignore", nil) forState:UIControlStateNormal];
+        [self.acceptButton setTitle:NSLocalizedString(@"Accept", nil) forState:UIControlStateNormal];
     }
 }
 
