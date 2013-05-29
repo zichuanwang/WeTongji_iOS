@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WTHighlightableCell.h"
 
 @class OHAttributedLabel;
 
-@interface WTSearchHintCell : UITableViewCell
+@interface WTSearchHintCell : WTHighlightableCell
 
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *label;
 @property (nonatomic, weak) IBOutlet UIView *containerView;
-@property (nonatomic, weak) IBOutlet UIView *highlightBgView;
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
                      searchKeyword:(NSString *)keyword;

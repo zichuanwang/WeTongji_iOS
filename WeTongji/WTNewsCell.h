@@ -7,18 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WTHighlightableCell.h"
 
 @class News;
 
-@interface WTNewsCell : UITableViewCell
+@interface WTNewsCell : WTHighlightableCell
 
 @property (nonatomic, weak) IBOutlet UILabel *categoryLabel;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *summaryLabel;
 @property (nonatomic, weak) IBOutlet UIView *containerView;
-@property (nonatomic, weak) IBOutlet UIImageView *topSeperatorImageView;
-@property (nonatomic, weak) IBOutlet UIView *highlightBgView;
-@property (nonatomic, weak) IBOutlet UIImageView *disclosureImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *ticketIconImageView;
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath

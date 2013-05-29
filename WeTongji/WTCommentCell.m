@@ -15,20 +15,16 @@
 
 @implementation WTCommentCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)configureCellWithHighlightStatus:(BOOL)highlighted {
+    [super configureCellWithHighlightStatus:highlighted];
+    self.commentLabel.highlighted = highlighted;
+    self.timeLabel.highlighted = highlighted;
+    self.authorLabel.highlighted = highlighted;
+    
+    CGSize labelShadowOffset = highlighted ? CGSizeZero : CGSizeMake(0, 1.0f);
+    self.commentLabel.shadowOffset = labelShadowOffset;
+    self.timeLabel.shadowOffset = labelShadowOffset;
+    self.authorLabel.shadowOffset = labelShadowOffset;
 }
 
 - (void)awakeFromNib {
@@ -40,7 +36,8 @@
     self.avatarContainerView.layer.cornerRadius = 3.0f;
 }
 
-- (void)configureViewWithComment:(Comment *)comment {
+- (void)configureViewWithIndexPath:(NSIndexPath *)indexPath comment:(Comment *)comment {
+    [super configureCellWithIndexPath:indexPath];
     self.commentLabel.text = comment.content;
     self.authorLabel.text = comment.author.name;
     self.timeLabel.text = [comment.createdAt convertToYearMonthDayWeekString];

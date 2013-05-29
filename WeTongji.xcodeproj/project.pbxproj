@@ -118,6 +118,7 @@
 		E10E230C1755B0F800DCF724 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E230B1755B0F800DCF724 /* Comment.m */; };
 		E10E230F1755B0F800DCF724 /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E230E1755B0F800DCF724 /* Object.m */; };
 		E10E23121755B1A000DCF724 /* CommentableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E23111755B1A000DCF724 /* CommentableObject.m */; };
+		E10E231517566C8A00DCF724 /* WTHighlightableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E231417566C8A00DCF724 /* WTHighlightableCell.m */; };
 		E1106D9E1726F45000C00D81 /* WTNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1106D9D1726F44F00C00D81 /* WTNavigationViewController.m */; };
 		E1132E6416C6304A004CB808 /* WTInnerModalGroupTableViewBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E6216C6304A004CB808 /* WTInnerModalGroupTableViewBg.png */; };
 		E1132E6516C6304A004CB808 /* WTInnerModalGroupTableViewBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E6316C6304A004CB808 /* WTInnerModalGroupTableViewBg@2x.png */; };
@@ -760,6 +761,8 @@
 		E10E230E1755B0F800DCF724 /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
 		E10E23101755B1A000DCF724 /* CommentableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentableObject.h; sourceTree = "<group>"; };
 		E10E23111755B1A000DCF724 /* CommentableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentableObject.m; sourceTree = "<group>"; };
+		E10E231317566C8900DCF724 /* WTHighlightableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTHighlightableCell.h; sourceTree = "<group>"; };
+		E10E231417566C8A00DCF724 /* WTHighlightableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTHighlightableCell.m; sourceTree = "<group>"; };
 		E1106D9C1726F44E00C00D81 /* WTNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNavigationViewController.h; sourceTree = "<group>"; };
 		E1106D9D1726F44F00C00D81 /* WTNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNavigationViewController.m; sourceTree = "<group>"; };
 		E1132E6216C6304A004CB808 /* WTInnerModalGroupTableViewBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTInnerModalGroupTableViewBg.png; sourceTree = "<group>"; };
@@ -2471,21 +2474,14 @@
 				A1ADA9DE16AC58E300E3A62E /* WTActivityCell.h */,
 				A1ADA9DF16AC58E400E3A62E /* WTActivityCell.m */,
 				A1ADA9E416AC5AE400E3A62E /* WTActivityCell.xib */,
-				E4D164271744D7B000F11A2C /* WTStarCell.h */,
-				E4D164281744D7B000F11A2C /* WTStarCell.m */,
-				E4D1642A1744D7DB00F11A2C /* WTStarCell.xib */,
 				E10C24FC171AC7010009C673 /* WTBillboardCell.h */,
 				E10C24FD171AC7010009C673 /* WTBillboardCell.m */,
 				E10C24FF171AC73D0009C673 /* WTBillboardCell.xib */,
 				E179668C1728314400761BD5 /* WTCommentCell.h */,
 				E179668D1728314400761BD5 /* WTCommentCell.m */,
 				E179668F1728315600761BD5 /* WTCommentCell.xib */,
-				E177E63416EE172C0029130F /* WTUserCell.h */,
-				E177E63516EE172C0029130F /* WTUserCell.m */,
-				E177E63616EE172C0029130F /* WTUserCell.xib */,
-				E1BFFE0C17415F93004EF0D6 /* WTOrganizationCell.h */,
-				E1BFFE0D17415F93004EF0D6 /* WTOrganizationCell.m */,
-				E1BFFE0E17415F93004EF0D6 /* WTOrganizationCell.xib */,
+				E10E231317566C8900DCF724 /* WTHighlightableCell.h */,
+				E10E231417566C8A00DCF724 /* WTHighlightableCell.m */,
 				E13B0E4F16A2E16C00A45079 /* WTNewsCell.h */,
 				E13B0E5016A2E16C00A45079 /* WTNewsCell.m */,
 				E13B0E5216A2E18800A45079 /* WTNewsCell.xib */,
@@ -2511,12 +2507,21 @@
 				E14286A5171C5871006AB739 /* WTNowWeekCell.h */,
 				E14286A6171C5871006AB739 /* WTNowWeekCell.m */,
 				E14286A8171C5892006AB739 /* WTNowWeekCell.xib */,
+				E1BFFE0C17415F93004EF0D6 /* WTOrganizationCell.h */,
+				E1BFFE0D17415F93004EF0D6 /* WTOrganizationCell.m */,
+				E1BFFE0E17415F93004EF0D6 /* WTOrganizationCell.xib */,
 				E115FAA0173A3DE900DE5649 /* WTSearchHintCell.h */,
 				E115FAA1173A3DE900DE5649 /* WTSearchHintCell.m */,
 				E115FAA3173A3DFF00DE5649 /* WTSearchHintCell.xib */,
 				E177037F173EBA240086E550 /* WTSearchHistoryCell.h */,
 				E1770380173EBA240086E550 /* WTSearchHistoryCell.m */,
 				E1770382173EBA340086E550 /* WTSearchHistoryCell.xib */,
+				E4D164271744D7B000F11A2C /* WTStarCell.h */,
+				E4D164281744D7B000F11A2C /* WTStarCell.m */,
+				E4D1642A1744D7DB00F11A2C /* WTStarCell.xib */,
+				E177E63416EE172C0029130F /* WTUserCell.h */,
+				E177E63516EE172C0029130F /* WTUserCell.m */,
+				E177E63616EE172C0029130F /* WTUserCell.xib */,
 			);
 			name = CustomCells;
 			sourceTree = "<group>";
@@ -3344,6 +3349,7 @@
 				E10E230C1755B0F800DCF724 /* Comment.m in Sources */,
 				E10E230F1755B0F800DCF724 /* Object.m in Sources */,
 				E10E23121755B1A000DCF724 /* CommentableObject.m in Sources */,
+				E10E231517566C8A00DCF724 /* WTHighlightableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

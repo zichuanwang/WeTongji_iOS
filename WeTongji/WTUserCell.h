@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WTHighlightableCell.h"
 
 @class User;
 
-@interface WTUserCell : UITableViewCell
+@interface WTUserCell : WTHighlightableCell
 
 @property (nonatomic, weak) IBOutlet UIImageView *genderImageView;
 @property (nonatomic, weak) IBOutlet UILabel *schoolLabel;
@@ -18,8 +19,6 @@
 @property (nonatomic, weak) IBOutlet UIView *containerView;
 @property (nonatomic, weak) IBOutlet UIView *avatarContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *avatarImageView;
-@property (nonatomic, weak) IBOutlet UIView *highlightBgView;
-@property (nonatomic, weak) IBOutlet UIImageView *disclosureImageView;
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
                               user:(User *)user;

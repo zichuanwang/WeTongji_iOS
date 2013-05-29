@@ -7,18 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WTHighlightableCell.h"
 
 @class Star;
 
-@interface WTStarCell : UITableViewCell
+@interface WTStarCell : WTHighlightableCell
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mottoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *starNumberLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *topSeperatorImageView;
-@property (weak, nonatomic) IBOutlet UIView *highlightedBgView;
-@property (weak, nonatomic) IBOutlet UIImageView *disclosureImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UIView *avatarContainerView;
 

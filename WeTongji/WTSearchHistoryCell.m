@@ -11,45 +11,18 @@
 
 @implementation WTSearchHistoryCell
 
-- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
-    if (self.highlighted == highlighted)
-        return;
-    [super setHighlighted:highlighted animated:animated];
-    
-    if (!highlighted && animated) {
-        [UIView animateWithDuration:0.5f animations:^{
-            [self configureCell:highlighted];
-        }];
-    } else {
-        [self configureCell:highlighted];
-    }
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    if (self.selected == selected)
-        return;
-    [super setSelected:selected animated:animated];
-    
-    [self setHighlighted:selected animated:animated];
-}
-
-- (void)configureCell:(BOOL)highlighted {
+- (void)configureCellWithHighlightStatus:(BOOL)highlighted {
+    [super configureCellWithHighlightStatus:highlighted];
     self.searchKeywordLabel.highlighted = highlighted;
     
     CGSize labelShadowOffset = highlighted ? CGSizeZero : CGSizeMake(0, 1.0f);
     self.searchKeywordLabel.shadowOffset = labelShadowOffset;
-    
-    self.highlightBgView.alpha = highlighted ? 1.0f : 0;
 }
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
                      searchKeyword:(NSString *)keyword
                     searchCategory:(NSInteger)category {
-    if (indexPath.row % 2) {
-        self.containerView.backgroundColor = WTCellBackgroundColor1;
-    } else {
-        self.containerView.backgroundColor = WTCellBackgroundColor2;
-    }
+    [super configureCellWithIndexPath:indexPath];
     
     if (keyword) {
         self.searchCategoryTagContainerView.hidden = NO;

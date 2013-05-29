@@ -150,10 +150,11 @@
             Star *star = [Star insertStar:starInfoDict];
             [star setObjectHeldByHolder:[WTHomeSelectContainerView class]];
         }
-        
-        NSDictionary *newestOrgDict = resultDict[@"AccountNewest"];
-        Organization *newestOrg = [Organization insertOrganization:newestOrgDict];
-        [newestOrg setObjectHeldByHolder:[WTHomeSelectContainerView class]];
+
+        // 不加载最新组织
+//        NSDictionary *newestOrgDict = resultDict[@"AccountNewest"];
+//        Organization *newestOrg = [Organization insertOrganization:newestOrgDict];
+//        [newestOrg setObjectHeldByHolder:[WTHomeSelectContainerView class]];
         
         NSDictionary *popularOrgDict = resultDict[@"AccountPopulor"];
         Organization *popularOrg = [Organization insertOrganization:popularOrgDict];

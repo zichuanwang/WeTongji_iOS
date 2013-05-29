@@ -13,29 +13,8 @@
 
 #define NEWS_TITLE_SUMMARY_LABEL_MARGIN 4.0f
 
-- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
-    if (self.highlighted == highlighted)
-        return;
-    [super setHighlighted:highlighted animated:animated];
-    
-    if (!highlighted && animated) {
-        [UIView animateWithDuration:0.5f animations:^{
-            [self configureCell:highlighted];
-        }];
-    } else {
-        [self configureCell:highlighted];
-    }
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    if (self.selected == selected)
-        return;
-    [super setSelected:selected animated:animated];
-    
-    [self setHighlighted:selected animated:animated];
-}
-
-- (void)configureCell:(BOOL)highlighted {
+- (void)configureCellWithHighlightStatus:(BOOL)highlighted {
+    [super configureCellWithHighlightStatus:highlighted];
     self.titleLabel.highlighted = highlighted;
     self.categoryLabel.highlighted = highlighted;
     self.summaryLabel.highlighted = highlighted;
@@ -44,24 +23,11 @@
     self.titleLabel.shadowOffset = labelShadowOffset;
     self.categoryLabel.shadowOffset = labelShadowOffset;
     self.summaryLabel.shadowOffset = labelShadowOffset;
-    
-    self.highlightBgView.alpha = highlighted ? 1.0f : 0;
-    self.disclosureImageView.highlighted = highlighted;
 }
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
                               news:(News *)news {
-    if (indexPath.row % 2) {
-        self.containerView.backgroundColor = WTCellBackgroundColor1;
-    } else {
-        self.containerView.backgroundColor = WTCellBackgroundColor2;
-    }
-    
-    if (indexPath.row == 0) {
-        self.topSeperatorImageView.hidden = YES;
-    } else {
-        self.topSeperatorImageView.hidden = NO;
-    }
+    [super configureCellWithIndexPath:indexPath];
     
     if (news.hasTicket.boolValue) {
         self.ticketIconImageView.hidden = NO;

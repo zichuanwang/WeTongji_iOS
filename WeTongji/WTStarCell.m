@@ -13,41 +13,8 @@
 
 @implementation WTStarCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    if (self.selected == selected)
-        return;
-    [super setSelected:selected animated:animated];
-    
-    [self setHighlighted:selected animated:animated];
-    // Configure the view for the selected state
-}
-
-
-- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
-    if (self.highlighted == highlighted)
-        return;
-    [super setHighlighted:highlighted animated:animated];
-    
-    if (!highlighted && animated) {
-        [UIView animateWithDuration:0.5f animations:^{
-            [self configureCell:highlighted];
-        }];
-    } else {
-        [self configureCell:highlighted];
-    }
-}
-
-- (void)configureCell:(BOOL)highlighted {
+- (void)configureCellWithHighlightStatus:(BOOL)highlighted {
+    [super configureCellWithHighlightStatus:highlighted];
     self.nameLabel.highlighted = highlighted;
     self.starNumberLabel.highlighted = highlighted;
     self.mottoLabel.highlighted = highlighted;
@@ -56,25 +23,11 @@
     self.nameLabel.shadowOffset = labelShadowOffset;
     self.starNumberLabel.shadowOffset = labelShadowOffset;
     self.mottoLabel.shadowOffset = labelShadowOffset;
-    
-    self.highlightedBgView.alpha = highlighted ? 1.0f : 0;
-    self.disclosureImageView.highlighted = highlighted;
 }
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
-                              Star:(Star *)star;
-{
-    if (indexPath.row % 2) {
-        self.containerView.backgroundColor = WTCellBackgroundColor1;
-    } else {
-        self.containerView.backgroundColor = WTCellBackgroundColor2;
-    }
-    
-    if (indexPath.row == 0) {
-        self.topSeperatorImageView.hidden = YES;
-    } else {
-        self.topSeperatorImageView.hidden = NO;
-    }
+                              Star:(Star *)star {
+    [super configureCellWithIndexPath:indexPath];
     
     self.avatarContainerView.layer.masksToBounds = YES;
     self.avatarContainerView.layer.cornerRadius = 6.0f;

@@ -29,7 +29,7 @@
         <relationship name="owner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CommentableObject" inverseName="comments" inverseEntity="CommentableObject" syncable="YES"/>
     </entity>
     <entity name="CommentableObject" representedClassName="CommentableObject" parentEntity="Object" syncable="YES">
-        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="owner" inverseEntity="Comment" syncable="YES"/>
+        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Comment" inverseName="owner" inverseEntity="Comment" syncable="YES"/>
     </entity>
     <entity name="Controller" representedClassName="Controller" syncable="YES">
         <attribute name="identifier" attributeType="String" indexed="YES" syncable="YES"/>

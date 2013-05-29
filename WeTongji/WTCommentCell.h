@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WTHighlightableCell.h"
 
 @class Comment;
 
-@interface WTCommentCell : UITableViewCell
+@interface WTCommentCell : WTHighlightableCell
 
 @property (nonatomic, weak) IBOutlet UIImageView *avatarImageView;
 @property (nonatomic, weak) IBOutlet UIView *avatarContainerView;
@@ -18,6 +19,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *timeLabel;
 @property (nonatomic, weak) IBOutlet UILabel *commentLabel;
 
-- (void)configureViewWithComment:(Comment *)comment;
+- (void)configureViewWithIndexPath:(NSIndexPath *)indexPath comment:(Comment *)comment;
 
 @end

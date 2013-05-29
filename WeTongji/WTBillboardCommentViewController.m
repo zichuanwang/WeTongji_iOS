@@ -134,7 +134,7 @@
 #pragma mark - UITableViewDelegate
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTTableViewSectionBg"]];
+    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTTableViewTopLineSectionBg"]];
     CGFloat sectionHeaderHeight = bgImageView.frame.size.height;
     
     NSUInteger numberOfComments = [self.fetchedResultsController.sections[section] numberOfObjects];
@@ -159,7 +159,7 @@
     WTCommentCell *commentCell = (WTCommentCell *)cell;
     
     Comment *comment = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [commentCell configureViewWithComment:comment];
+    [commentCell configureViewWithIndexPath:indexPath comment:comment];
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {

@@ -12,27 +12,12 @@
 
 @interface WTActivityCell ()
 
-@property (nonatomic, weak) IBOutlet UIView *containerView;
-
 @end
 
 @implementation WTActivityCell
 
-- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {    
-    if (self.highlighted == highlighted)
-        return;
-    [super setHighlighted:highlighted animated:animated];
-   
-    if (!highlighted && animated) {
-        [UIView animateWithDuration:0.5f animations:^{
-            [self configureCell:highlighted];
-        }];
-    } else {
-        [self configureCell:highlighted];
-    }
-}
-
-- (void)configureCell:(BOOL)highlighted {
+- (void)configureCellWithHighlightStatus:(BOOL)highlighted {
+    [super configureCellWithHighlightStatus:highlighted];
     self.titleLabel.highlighted = highlighted;
     self.timeLabel.highlighted = highlighted;
     self.locationLabel.highlighted = highlighted;
@@ -41,32 +26,10 @@
     self.titleLabel.shadowOffset = labelShadowOffset;
     self.timeLabel.shadowOffset = labelShadowOffset;
     self.locationLabel.shadowOffset = labelShadowOffset;
-    
-    self.highlightBgView.alpha = highlighted ? 1.0f : 0;
-    self.disclosureImageView.highlighted = highlighted;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    if (self.selected == selected)
-        return;
-    [super setSelected:selected animated:animated];
-    
-    [self setHighlighted:selected animated:animated];
 }
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath activity:(Activity *)activity {
-    if (indexPath.row % 2) {
-        self.containerView.backgroundColor = WTCellBackgroundColor1;
-    } else {
-        self.containerView.backgroundColor = WTCellBackgroundColor2;
-    }
-    
-    if (indexPath.row == 0) {
-        self.topSeperatorImageView.hidden = YES;
-    } else {
-        self.topSeperatorImageView.hidden = NO;
-    }
-    
+    [super configureCellWithIndexPath:indexPath];
     self.titleLabel.text = activity.what;
     self.timeLabel.text = activity.yearMonthDayBeginToEndTimeString;
     self.locationLabel.text = activity.where;

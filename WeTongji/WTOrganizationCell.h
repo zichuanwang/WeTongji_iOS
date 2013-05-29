@@ -7,18 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WTHighlightableCell.h"
 
 @class Organization;
 
-@interface WTOrganizationCell : UITableViewCell
+@interface WTOrganizationCell : WTHighlightableCell
 
 @property (nonatomic, weak) IBOutlet UILabel *aboutLabel;
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 @property (nonatomic, weak) IBOutlet UIView *containerView;
 @property (nonatomic, weak) IBOutlet UIView *avatarContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *avatarImageView;
-@property (nonatomic, weak) IBOutlet UIView *highlightBgView;
-@property (nonatomic, weak) IBOutlet UIImageView *disclosureImageView;
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
                       organization:(Organization *)org;
