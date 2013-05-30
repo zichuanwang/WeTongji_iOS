@@ -155,6 +155,7 @@
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Load search result failure:%@", error.localizedDescription);
         [self.dragToLoadDecorator topViewLoadFinished:NO];
+        [WTErrorHandler handleError:error];
     }];
     [request getSearchResultInCategory:self.searchCategory keyword:self.searchKeyword];
     [[WTClient sharedClient] enqueueRequest:request];
@@ -255,6 +256,8 @@
     else if ([object isKindOfClass:[Organization class]])
         return 78.0f;
     else if ([object isKindOfClass:[User class]])
+        return 78.0f;
+    else if ([object isKindOfClass:[Star class]])
         return 78.0f;
     else
         return 0;
