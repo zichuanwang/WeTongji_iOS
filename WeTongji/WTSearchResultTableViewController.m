@@ -20,12 +20,14 @@
 #import "WTActivityCell.h"
 #import "WTOrganizationCell.h"
 #import "WTUserCell.h"
+#import "WTStarCell.h"
 #import "WTNewsDetailViewController.h"
 #import "WTActivityDetailViewController.h"
 #import "WTOrganizationDetailViewController.h"
 #import "WTUserDetailViewController.h"
 #import "NSUserDefaults+WTAddition.h"
 #import "UIApplication+WTAddition.h"
+#import "WTStarDetailViewController.h"
 
 @interface WTSearchResultTableViewController () <WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
@@ -188,6 +190,9 @@
     } else if ([object isKindOfClass:[User class]]) {
         WTUserCell *userCell = (WTUserCell *)cell;
         [userCell configureCellWithIndexPath:indexPath user:(User *)object];
+    } else if ([object isKindOfClass:[Star class]]) {
+        WTStarCell *starCell = (WTStarCell *)cell;
+        [starCell configureCellWithIndexPath:indexPath Star:(Star *)object];
     }
 }
 
@@ -211,6 +216,8 @@
         return @"WTOrganizationCell";
     else if ([object isKindOfClass:[User class]])
         return @"WTUserCell";
+    else if ([object isKindOfClass:[Star class]])
+        return @"WTStarCell";
     else
         return nil;
 }
@@ -270,6 +277,8 @@
             return;
         }
         vc = [WTUserDetailViewController createDetailViewControllerWithUser:(User *)object backBarButtonText:backBarButtonText];
+    } else if ([object isKindOfClass:[Star class]]) {
+        vc = [WTStarDetailViewController createDetailViewControllerWithStar:(Star *)object backBarButtonText:backBarButtonText];
     } else {
         return;
     }
