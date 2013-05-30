@@ -70,8 +70,10 @@
 #pragma mark - Handle Notifications
 
 - (void)handleCurrentUserDidChangeNotification:(NSNotification *)notification {
-    self.fetchedResultsController = nil;
-    [self.tableView reloadData];
+    if ([WTCoreDataManager sharedManager].currentUser) {
+        self.fetchedResultsController = nil;
+        [self.tableView reloadData];
+    }
 }
 
 #pragma mark - Logic methods
