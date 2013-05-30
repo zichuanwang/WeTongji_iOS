@@ -43,6 +43,7 @@
     // Do any additional setup after loading the view from its nib.
     [self configureTableViewHeaderView];
     [self configureDragToLoadDecorator];
+    [self.dragToLoadDecorator setTopViewLoading:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,7 +72,6 @@
 
 - (void)configureDragToLoadDecorator {
     self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
-    [self.dragToLoadDecorator setBottomViewDisabled:YES immediately:YES];
 }
 
 - (void)configureTableViewHeaderView {
@@ -88,13 +88,26 @@
                       failureBlock:(void (^)(void))failure {
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Get comments success:%@", responseObject);
+        
+        NSDictionary *resultDict = (NSDictionary *)responseObject;
+        NSString *nextPage = resultDict[@"NextPager"];
+        self.nextPage = nextPage.integerValue;
+        
+        if (self.nextPage == 0) {
+            [self.dragToLoadDecorator setBottomViewDisabled:YES];
+        } else {
+            [self.dragToLoadDecorator setBottomViewDisabled:NO];
+        }
+        
         if (success)
             success();
-        NSArray *commentsInfoArray = responseObject[@"Comments"];
+        
+        NSArray *commentsInfoArray = resultDict[@"Comments"];
         for (NSDictionary *info in commentsInfoArray) {
             Comment *comment = [Comment insertComment:info];
             [self.post addCommentsObject:comment];
         }
+        
     } failureBlock:^(NSError *error) {
         if (failure)
             failure();

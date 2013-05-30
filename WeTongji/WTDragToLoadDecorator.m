@@ -103,7 +103,7 @@ static int kDragToLoadDecoratorObservingContext;
     [scrollView addSubview:result.topView];
     
     // Configure bottom view
-    [result.bottomView resetOriginY:scrollView.frame.size.height];
+    [result.bottomView resetOriginY:scrollView.frame.size.height * 2];
     [scrollView addSubview:result.bottomView];
     
     result.topViewState = TopViewStateNormal;
@@ -177,6 +177,7 @@ static int kDragToLoadDecoratorObservingContext;
     if (animated) {
         [UIView animateWithDuration:0.25f animations:^{
             UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
+            WTLOG(@"ScrollView content inset:%@", NSStringFromUIEdgeInsets(scrollView.contentInset));
             UIEdgeInsets inset = scrollView.contentInset;
             inset.top = self.topView.frame.size.height + self.scrollViewOriginalContentInset.top;
             scrollView.contentInset = inset;
@@ -362,7 +363,8 @@ static int kDragToLoadDecoratorObservingContext;
     if (scrollView.contentSize.height == 0) {
         [self.bottomView resetOriginY:scrollView.frame.size.height];
     } else if (scrollView.contentSize.height < scrollView.frame.size.height) {
-        self.bottomViewState = BottomViewStateLoading;
+        if (self.topViewState != TopViewStateLoading)
+            self.bottomViewState = BottomViewStateLoading;
     } else {
         [self resetBottomViewOriginY];
     }

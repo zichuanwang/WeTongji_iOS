@@ -164,7 +164,6 @@
     self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
     [self.dragToLoadDecorator setTopViewLoading:YES];
     [self.dragToLoadDecorator setBottomViewDisabled:YES immediately:YES];
-    [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
 }
 
 #pragma mark - Actions

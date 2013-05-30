@@ -77,6 +77,7 @@
 
 - (void)configureCommentViewController {
     self.commentViewController = [WTBillboardCommentViewController createCommentViewControllerWithBillboardPost:self.post dataSource:self];
+    [self.commentViewController.view resetHeight:self.view.frame.size.height];
     [self.view addSubview:self.commentViewController.view];
 }
 
