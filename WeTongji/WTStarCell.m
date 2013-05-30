@@ -36,15 +36,13 @@
     self.nameLabel.text = star.name;
     self.mottoLabel.text = star.motto;
     
-    if(indexPath.row == 0) {
-        self.starNumberLabel.text = @"本期人物";
-        self.starNumberLabel.textColor = [UIColor colorWithRed:234.0f / 255 green:82.0f / 255 blue:81.0f / 255 alpha:1.0f];
-    }
-    else {
-        self.starNumberLabel.text = [NSString stringWithFormat:@"第%@期", star.starNumber];
-        self.starNumberLabel.textColor = [UIColor colorWithRed:12.0f / 255 green:192.0f / 255 blue:203.0f / 255 alpha:1.0f];
-    }
+    self.starNumberLabel.text = [NSString stringWithFormat:@"第%@期", star.starNumber];
+    self.starNumberLabel.textColor = [UIColor colorWithRed:12.0f / 255 green:192.0f / 255 blue:203.0f / 255 alpha:1.0f];
 }
 
+- (void)configureCurrentStarCell {
+    self.starNumberLabel.text = NSLocalizedString(@"Current Star", nil);
+    self.starNumberLabel.textColor = [UIColor colorWithRed:234.0f / 255 green:82.0f / 255 blue:81.0f / 255 alpha:1.0f];
+}
 
 @end

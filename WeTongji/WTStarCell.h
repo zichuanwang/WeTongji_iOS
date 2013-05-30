@@ -22,4 +22,7 @@
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
                               Star:(Star *)star;
+
+- (void)configureCurrentStarCell;
+
 @end

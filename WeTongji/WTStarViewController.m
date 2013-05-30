@@ -147,6 +147,10 @@
     Star *star = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     [starCell configureCellWithIndexPath:indexPath Star:star];
+    
+    if (indexPath.row == 0) {
+        [starCell configureCurrentStarCell];
+    }
 }
 
 - (void)insertCellAtIndexPath:(NSIndexPath *)indexPath {
