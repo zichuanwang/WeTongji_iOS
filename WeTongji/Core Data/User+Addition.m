@@ -34,15 +34,32 @@
     result.birthday = [[NSString stringWithFormat:@"%@", dict[@"Birthday"]] convertToDate];
     result.department = [NSString stringWithFormat:@"%@", dict[@"Department"]];
     result.name = [NSString stringWithFormat:@"%@", dict[@"Name"]];
-    result.emailAddress = [NSString stringWithFormat:@"%@", dict[@"Email"]];
     result.gender = [NSString stringWithFormat:@"%@", dict[@"Gender"]];
     result.major = [NSString stringWithFormat:@"%@", dict[@"Major"]];
     result.studentNumber = [NSString stringWithFormat:@"%@", dict[@"NO"]];
-    result.phoneNumber = [NSString stringWithFormat:@"%@", dict[@"Phone"]];
     result.studyPlan = @([[NSString stringWithFormat:@"%@", dict[@"Plan"]] integerValue]);
-    result.sinaWeiboName = [NSString stringWithFormat:@"%@", dict[@"SinaWeibo"]];
     result.enrollYear = @([[NSString stringWithFormat:@"%@", dict[@"Year"]] integerValue]);
+    
+    result.emailAddress = [NSString stringWithFormat:@"%@", dict[@"Email"]];
+    if ([result.emailAddress isEqualToString:@"<null>"]) {
+        result.emailAddress = nil;
+    }
+    
+    result.phoneNumber = [NSString stringWithFormat:@"%@", dict[@"Phone"]];
+    if ([result.phoneNumber isEqualToString:@"<null>"]) {
+        result.phoneNumber = nil;
+    }
+    
+    result.sinaWeiboName = [NSString stringWithFormat:@"%@", dict[@"SinaWeibo"]];
+    result.sinaWeiboName = [NSString stringWithFormat:@"%@", dict[@"Phone"]];
+    if ([result.sinaWeiboName isEqualToString:@"<null>"]) {
+        result.sinaWeiboName = nil;
+    }
+    
     result.qqAccount = [NSString stringWithFormat:@"%@", dict[@"QQ"]];
+    if ([result.qqAccount isEqualToString:@"<null>"]) {
+        result.qqAccount = nil;
+    }
     
     BOOL isCurrentUserFriend = [[NSString stringWithFormat:@"%@", dict[@"IsFriend"]] boolValue];
     User *currentUser = [WTCoreDataManager sharedManager].currentUser;
