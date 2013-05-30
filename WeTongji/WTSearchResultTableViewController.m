@@ -9,6 +9,8 @@
 #import "WTSearchResultTableViewController.h"
 #import "WTDragToLoadDecorator.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
+#import "NSUserDefaults+WTAddition.h"
+
 #import "News+Addition.h"
 #import "Activity+Addition.h"
 #import "Star+Addition.h"
@@ -16,18 +18,6 @@
 #import "Object+Addition.h"
 #import "Controller+Addition.h"
 #import "User+Addition.h"
-#import "WTNewsCell.h"
-#import "WTActivityCell.h"
-#import "WTOrganizationCell.h"
-#import "WTUserCell.h"
-#import "WTStarCell.h"
-#import "WTNewsDetailViewController.h"
-#import "WTActivityDetailViewController.h"
-#import "WTOrganizationDetailViewController.h"
-#import "WTUserDetailViewController.h"
-#import "NSUserDefaults+WTAddition.h"
-#import "UIApplication+WTAddition.h"
-#import "WTStarDetailViewController.h"
 
 @interface WTSearchResultTableViewController () <WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
@@ -177,26 +167,6 @@
 
 #pragma mark - CoreDataTableViewController methods
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    Object *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    if ([object isKindOfClass:[News class]]) {
-        WTNewsCell *newsCell = (WTNewsCell *)cell;
-        [newsCell configureCellWithIndexPath:indexPath news:(News *)object];
-    } else if ([object isKindOfClass:[Activity class]]) {
-        WTActivityCell *activityCell = (WTActivityCell *)cell;
-        [activityCell configureCellWithIndexPath:indexPath activity:(Activity *)object];
-    } else if ([object isKindOfClass:[Organization class]]) {
-        WTOrganizationCell *orgCell = (WTOrganizationCell *)cell;
-        [orgCell configureCellWithIndexPath:indexPath organization:(Organization *)object];
-    } else if ([object isKindOfClass:[User class]]) {
-        WTUserCell *userCell = (WTUserCell *)cell;
-        [userCell configureCellWithIndexPath:indexPath user:(User *)object];
-    } else if ([object isKindOfClass:[Star class]]) {
-        WTStarCell *starCell = (WTStarCell *)cell;
-        [starCell configureCellWithIndexPath:indexPath Star:(Star *)object];
-    }
-}
-
 - (void)configureRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"Object" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     NSSortDescriptor *updatedAtDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updatedAt" ascending:NO];
@@ -205,22 +175,6 @@
     
     
     [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@", [Controller controllerModelForClass:[self class]].hasObjects]];
-}
-
-- (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
-    Object *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    if ([object isKindOfClass:[News class]])
-        return @"WTNewsCell";
-    else if ([object isKindOfClass:[Activity class]])
-        return @"WTActivityCell";
-    else if ([object isKindOfClass:[Organization class]])
-        return @"WTOrganizationCell";
-    else if ([object isKindOfClass:[User class]])
-        return @"WTUserCell";
-    else if ([object isKindOfClass:[Star class]])
-        return @"WTStarCell";
-    else
-        return nil;
 }
 
 - (NSString *)customSectionNameKeyPath {
@@ -247,46 +201,10 @@
     return headerView;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Object *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    if ([object isKindOfClass:[News class]])
-        return 105.0f;
-    else if ([object isKindOfClass:[Activity class]])
-        return 92.0f;
-    else if ([object isKindOfClass:[Organization class]])
-        return 78.0f;
-    else if ([object isKindOfClass:[User class]])
-        return 78.0f;
-    else if ([object isKindOfClass:[Star class]])
-        return 78.0f;
-    else
-        return 0;
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Object *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    UIViewController *vc = nil;
-    NSString *backBarButtonText = NSLocalizedString(@"Search", nil);
-    if ([object isKindOfClass:[News class]]) {
-        vc = [WTNewsDetailViewController createDetailViewControllerWithNews:(News *)object backBarButtonText:backBarButtonText];
-    } else if ([object isKindOfClass:[Activity class]]) {
-        vc = [WTActivityDetailViewController createDetailViewControllerWithActivity:(Activity *)object backBarButtonText:backBarButtonText];
-    } else if ([object isKindOfClass:[Organization class]]) {
-        vc = [WTOrganizationDetailViewController createDetailViewControllerWithOrganization:(Organization *)object backBarButtonText:backBarButtonText];
-    } else if ([object isKindOfClass:[User class]]) {
-        // 如果是当前用户, 则进行Tab跳转
-        if ([[WTCoreDataManager sharedManager].currentUser.identifier isEqualToString:object.identifier]) {
-            [[UIApplication sharedApplication].rootTabBarController clickTabWithName:WTRootTabBarViewControllerMe];
-            return;
-        }
-        vc = [WTUserDetailViewController createDetailViewControllerWithUser:(User *)object backBarButtonText:backBarButtonText];
-    } else if ([object isKindOfClass:[Star class]]) {
-        vc = [WTStarDetailViewController createDetailViewControllerWithStar:(Star *)object backBarButtonText:backBarButtonText];
-    } else {
-        return;
-    }
-
-    [self.delegate wantToPushViewController:vc];
+    UIViewController *vc = [super detailViewControllerForIndexPath:indexPath];
+    if (vc)
+        [self.delegate wantToPushViewController:vc];
 }
 
 @end

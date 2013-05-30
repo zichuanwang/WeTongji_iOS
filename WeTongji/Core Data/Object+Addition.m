@@ -71,4 +71,20 @@
     return modelType;
 }
 
++ (NSInteger)convertObjectClassToModelType:(NSString *)objectClass {
+    NSInteger modelType = -1;
+    if ([objectClass isEqualToString:@"BillboardPost"]) {
+        modelType = WTSDKBillboard;
+    } else if ([objectClass isEqualToString:@"Activity"]) {
+        modelType = WTSDKActivity;
+    } else if ([objectClass isEqualToString:@"News"]) {
+        modelType = WTSDKInformation;
+    } else if ([objectClass isEqualToString:@"Star"]) {
+        modelType = WTSDKStar;
+    } else if ([objectClass isEqualToString:@"Organization"]) {
+        modelType = WTSDKOrganization;
+    }
+    return modelType;
+}
+
 @end

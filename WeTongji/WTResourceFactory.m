@@ -131,7 +131,10 @@
     titleLabel.text = text;
     [titleLabel sizeToFit];
     
-    [titleLabel resetWidth:100.0f];
+    [titleLabel resetWidth:120.0f];
+    
+    titleLabel.adjustsFontSizeToFitWidth = YES;
+    [titleLabel setMinimumFontSize:12.0f];
     
     UIView *titleContainerView = [[UIView alloc] initWithFrame:titleLabel.frame];
     [titleLabel resetOriginY:0];

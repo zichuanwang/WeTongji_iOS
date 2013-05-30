@@ -19,6 +19,7 @@
 #import "User+Addition.h"
 #import "WTMeSettingViewController.h"
 #import "WTFriendListViewController.h"
+#import "WTLikeListViewController.h"
 
 @interface WTMeViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, WTInnerSettingViewControllerDelegate, WTRootNavigationControllerDelegate>
 
@@ -93,6 +94,11 @@
     self.profileView = profileView;
     
     [profileView.friendButton addTarget:self action:@selector(didClickFriendButton:) forControlEvents:UIControlEventTouchUpInside];
+    [profileView.likedActiviyButton addTarget:self action:@selector(didClickLikedActivityButton:) forControlEvents:UIControlEventTouchUpInside];
+    [profileView.likedNewsButton addTarget:self action:@selector(didClickLikedNewsButton:) forControlEvents:UIControlEventTouchUpInside];
+    [profileView.likedBillboardPostButton addTarget:self action:@selector(didClickLikedBillboardPostButton:) forControlEvents:UIControlEventTouchUpInside];
+    [profileView.likedOrganizationButton addTarget:self action:@selector(didClickLikedOrganizationButton:) forControlEvents:UIControlEventTouchUpInside];
+    [profileView.likedUserButton addTarget:self action:@selector(didClickLikedUserButton:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)configureScrollView {
@@ -115,6 +121,36 @@
 }
 
 #pragma mark - Actions
+
+- (void)didClickLikedActivityButton:(UIButton *)sender {
+    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
+    WTLikeListViewController *vc = [WTLikeListViewController createViewControllerWithUser:currentUser likeObjectClass:@"Activity" backButtonText:currentUser.name];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)didClickLikedNewsButton:(UIButton *)sender {
+    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
+    WTLikeListViewController *vc = [WTLikeListViewController createViewControllerWithUser:currentUser likeObjectClass:@"News" backButtonText:currentUser.name];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)didClickLikedBillboardPostButton:(UIButton *)sender {
+    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
+    WTLikeListViewController *vc = [WTLikeListViewController createViewControllerWithUser:currentUser likeObjectClass:@"BillboardPost" backButtonText:currentUser.name];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)didClickLikedOrganizationButton:(UIButton *)sender {
+    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
+    WTLikeListViewController *vc = [WTLikeListViewController createViewControllerWithUser:currentUser likeObjectClass:@"Organization" backButtonText:currentUser.name];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)didClickLikedUserButton:(UIButton *)sender {
+    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
+    WTLikeListViewController *vc = [WTLikeListViewController createViewControllerWithUser:currentUser likeObjectClass:@"User" backButtonText:currentUser.name];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 - (void)didClickFriendButton:(UIButton *)sender {
     User *currentUser = [WTCoreDataManager sharedManager].currentUser;

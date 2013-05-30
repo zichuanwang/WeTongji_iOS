@@ -21,4 +21,6 @@
 
 - (NSInteger)getObjectModelType;
 
++ (NSInteger)convertObjectClassToModelType:(NSString *)objectClass;
+
 @end

@@ -121,7 +121,10 @@
 		E10E2357175737BF00DCF724 /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E2356175737BF00DCF724 /* Object.m */; };
 		E10E235A175739E000DCF724 /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E2359175739E000DCF724 /* Organization.m */; };
 		E10E235D17573A2600DCF724 /* LikeableObject+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E235C17573A2600DCF724 /* LikeableObject+Addition.m */; };
+		E10E236E17577F3500DCF724 /* WTLikeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E236C17577F3500DCF724 /* WTLikeListViewController.m */; };
+		E10E236F17577F3500DCF724 /* WTLikeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10E236D17577F3500DCF724 /* WTLikeListViewController.xib */; };
 		E1106D9E1726F45000C00D81 /* WTNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1106D9D1726F44F00C00D81 /* WTNavigationViewController.m */; };
+		E110F6D11757AEB500F19B7D /* WTShowAllKindsOfCellsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E110F6D01757AEB500F19B7D /* WTShowAllKindsOfCellsViewController.m */; };
 		E1132E6416C6304A004CB808 /* WTInnerModalGroupTableViewBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E6216C6304A004CB808 /* WTInnerModalGroupTableViewBg.png */; };
 		E1132E6516C6304A004CB808 /* WTInnerModalGroupTableViewBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E6316C6304A004CB808 /* WTInnerModalGroupTableViewBg@2x.png */; };
 		E1132E6D16C632F6004CB808 /* WTEventIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1132E6716C632F6004CB808 /* WTEventIcon.png */; };
@@ -769,8 +772,13 @@
 		E10E2359175739E000DCF724 /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Organization.m; sourceTree = "<group>"; };
 		E10E235B17573A2500DCF724 /* LikeableObject+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LikeableObject+Addition.h"; sourceTree = "<group>"; };
 		E10E235C17573A2600DCF724 /* LikeableObject+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LikeableObject+Addition.m"; sourceTree = "<group>"; };
+		E10E236B17577F3500DCF724 /* WTLikeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTLikeListViewController.h; sourceTree = "<group>"; };
+		E10E236C17577F3500DCF724 /* WTLikeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTLikeListViewController.m; sourceTree = "<group>"; };
+		E10E236D17577F3500DCF724 /* WTLikeListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTLikeListViewController.xib; sourceTree = "<group>"; };
 		E1106D9C1726F44E00C00D81 /* WTNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNavigationViewController.h; sourceTree = "<group>"; };
 		E1106D9D1726F44F00C00D81 /* WTNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNavigationViewController.m; sourceTree = "<group>"; };
+		E110F6CF1757AEB500F19B7D /* WTShowAllKindsOfCellsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTShowAllKindsOfCellsViewController.h; sourceTree = "<group>"; };
+		E110F6D01757AEB500F19B7D /* WTShowAllKindsOfCellsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTShowAllKindsOfCellsViewController.m; sourceTree = "<group>"; };
 		E1132E6216C6304A004CB808 /* WTInnerModalGroupTableViewBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTInnerModalGroupTableViewBg.png; sourceTree = "<group>"; };
 		E1132E6316C6304A004CB808 /* WTInnerModalGroupTableViewBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTInnerModalGroupTableViewBg@2x.png"; sourceTree = "<group>"; };
 		E1132E6716C632F6004CB808 /* WTEventIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTEventIcon.png; sourceTree = "<group>"; };
@@ -1481,6 +1489,16 @@
 			name = Switch;
 			sourceTree = "<group>";
 		};
+		E10E236A17577F1E00DCF724 /* Like */ = {
+			isa = PBXGroup;
+			children = (
+				E10E236B17577F3500DCF724 /* WTLikeListViewController.h */,
+				E10E236C17577F3500DCF724 /* WTLikeListViewController.m */,
+				E10E236D17577F3500DCF724 /* WTLikeListViewController.xib */,
+			);
+			name = Like;
+			sourceTree = "<group>";
+		};
 		E1132E6616C632EA004CB808 /* Icon */ = {
 			isa = PBXGroup;
 			children = (
@@ -1638,6 +1656,7 @@
 		E117038E1651EFD900D82F4A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E10E236A17577F1E00DCF724 /* Like */,
 				E1250C0A16859A1D00802808 /* Activity */,
 				E1D3741316942E350012E30A /* Billboard */,
 				E1157DD9173B7CD700E62295 /* Comment */,
@@ -2420,6 +2439,8 @@
 				E1CD3F35171FF7E600359A79 /* WTDetailViewController.m */,
 				E1106D9C1726F44E00C00D81 /* WTNavigationViewController.h */,
 				E1106D9D1726F44F00C00D81 /* WTNavigationViewController.m */,
+				E110F6CF1757AEB500F19B7D /* WTShowAllKindsOfCellsViewController.h */,
+				E110F6D01757AEB500F19B7D /* WTShowAllKindsOfCellsViewController.m */,
 			);
 			name = Root;
 			sourceTree = "<group>";
@@ -3177,6 +3198,7 @@
 				E172B008174FD8B500DEB920 /* WTActivityImageRollView.xib in Resources */,
 				E172B00E174FF5EA00DEB920 /* WTDisableButton.png in Resources */,
 				E172B00F174FF5EA00DEB920 /* WTDisableButton@2x.png in Resources */,
+				E10E236F17577F3500DCF724 /* WTLikeListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3362,6 +3384,8 @@
 				E10E2357175737BF00DCF724 /* Object.m in Sources */,
 				E10E235A175739E000DCF724 /* Organization.m in Sources */,
 				E10E235D17573A2600DCF724 /* LikeableObject+Addition.m in Sources */,
+				E10E236E17577F3500DCF724 /* WTLikeListViewController.m in Sources */,
+				E110F6D11757AEB500F19B7D /* WTShowAllKindsOfCellsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

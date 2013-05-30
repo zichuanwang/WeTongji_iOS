@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WTCoreDataTableViewController.h"
+#import "WTShowAllKindsOfCellsViewController.h"
 
 @protocol WTSearchResultTableViewControllerDelegate <NSObject>
 
@@ -15,7 +15,7 @@
 
 @end
 
-@interface WTSearchResultTableViewController : WTCoreDataTableViewController
+@interface WTSearchResultTableViewController : WTShowAllKindsOfCellsViewController
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 
