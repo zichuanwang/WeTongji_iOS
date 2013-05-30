@@ -13,7 +13,6 @@
 @implementation Object
 
 @dynamic identifier;
-@dynamic likeCount;
 @dynamic objectClass;
 @dynamic updatedAt;
 @dynamic belongToControllers;

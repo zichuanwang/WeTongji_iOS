@@ -12,7 +12,7 @@
 @class Activity;
 @class Star;
 @class Organization;
-@class Object;
+@class LikeableObject;
 
 
 @interface WTHomeSelectItemView : UIView
@@ -24,7 +24,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *bgCoverButton;
 @property (nonatomic, strong) UIButton *showCategoryButton;
 
-- (void)updateItemViewWithInfoObject:(Object *)infoObject;
+- (void)updateItemViewWithInfoObject:(LikeableObject *)infoObject;
 
 @end
 

@@ -14,6 +14,7 @@
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import "NSString+WTAddition.h"
 #import "WTDragToLoadDecorator.h"
+#import "NSNotificationCenter+WTAddition.h"
 
 @interface WTInnerNotificationTableViewController () <WTWaterflowDecoratorDataSource, WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
@@ -41,6 +42,8 @@
     self.tableView.alwaysBounceVertical = YES;
     
     self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
+    
+    [NSNotificationCenter registerCurrentUserDidChangeNotificationWithSelector:@selector(handleCurrentUserDidChangeNotification:) target:self];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -64,6 +67,13 @@
     [self.dragToLoadDecorator stopObservingChangesInDragToLoadScrollView];
 }
 
+#pragma mark - Handle Notifications
+
+- (void)handleCurrentUserDidChangeNotification:(NSNotification *)notification {
+    self.fetchedResultsController = nil;
+    [self.tableView reloadData];
+}
+
 #pragma mark - Logic methods
 
 - (void)loadMoreDataWithSuccessBlock:(void (^)(void))success
@@ -85,7 +95,8 @@
         if (success)
             success();
         
-        [Notification insertNotifications:responseObject];
+        NSSet *notificationsSet = [Notification insertNotifications:responseObject];
+        [[WTCoreDataManager sharedManager].currentUser addReceivedNotifications:notificationsSet];
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Get notification list failure:%@", error.localizedDescription);
         
@@ -100,7 +111,6 @@
 
 - (void)clearAllData {
     [Notification clearAllNotifications];
-    
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -147,6 +157,8 @@
     
     NSSortDescriptor *sortByPublishTime = [[NSSortDescriptor alloc] initWithKey:@"sendTime" ascending:NO];
     [request setSortDescriptors:@[sortByPublishTime]];
+
+    [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@", [WTCoreDataManager sharedManager].currentUser.receivedNotifications]];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {

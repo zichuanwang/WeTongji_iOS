@@ -8,6 +8,8 @@
 
 #import "WTRootViewController.h"
 #import "WTInnerNotificationViewController.h"
+#import "WTCoreDataManager.h"
+#import "WTLoginViewController.h"
 
 @interface WTRootViewController ()
 
@@ -56,6 +58,10 @@
 #pragma mark - Actions
 
 - (void)didClickNotificationButton:(WTNotificationBarButton *)sender {
+    if (![WTCoreDataManager sharedManager].currentUser) {
+        [WTLoginViewController showWithIntro:NO];
+        return;
+    }
     
     WTRootNavigationController *nav = (WTRootNavigationController *)self.navigationController;
     

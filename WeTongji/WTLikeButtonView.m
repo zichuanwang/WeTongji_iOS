@@ -7,6 +7,7 @@
 //
 
 #import "WTLikeButtonView.h"
+#import "LikeableObject+Addition.h"
 #import "Object+Addition.h"
 
 @interface WTLikeButtonView ()
@@ -14,13 +15,13 @@
 @property (nonatomic, strong) UIButton *likeButton;
 @property (nonatomic, strong) UILabel *likeCountLabel;
 
-@property (nonatomic, weak) Object *object;
+@property (nonatomic, weak) LikeableObject *object;
 
 @end
 
 @implementation WTLikeButtonView
 
-+ (WTLikeButtonView *)createLikeButtonViewWithObject:(Object *)object {
++ (WTLikeButtonView *)createLikeButtonViewWithObject:(LikeableObject *)object {
     WTLikeButtonView *result = [[WTLikeButtonView alloc] init];
     [result configureLikeButton];
     [result configureViewWithObject:object];
@@ -35,7 +36,7 @@
     return self.likeCountLabel.text.integerValue;
 }
 
-- (void)configureViewWithObject:(Object *)object {
+- (void)configureViewWithObject:(LikeableObject *)object {
     self.likeButton.selected = object.liked;
     [self setLikeCount:object.likeCount.integerValue];
     self.object = object;

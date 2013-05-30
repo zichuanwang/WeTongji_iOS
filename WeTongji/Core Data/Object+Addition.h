@@ -10,10 +10,6 @@
 
 @interface Object (Addition)
 
-- (void)setLiked:(BOOL)liked;
-
-- (BOOL)liked;
-
 - (void)setObjectHeldByHolder:(Class)holderClass;
 
 - (void)setObjectFreeFromHolder:(Class)holderClass;

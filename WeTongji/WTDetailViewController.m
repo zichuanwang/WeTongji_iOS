@@ -113,7 +113,7 @@
     
 }
 
-- (Object *)targetObject {
+- (LikeableObject *)targetObject {
     return nil;
 }
 

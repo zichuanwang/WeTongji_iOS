@@ -71,19 +71,4 @@
     return modelType;
 }
 
-#pragma mark - Properties
-
-- (BOOL)liked {
-    return [[WTCoreDataManager sharedManager].currentUser.likedObjects containsObject:self];
-}
-
-- (void)setLiked:(BOOL)liked {
-    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
-    if (liked) {
-        [currentUser addLikedObjectsObject:self];
-    } else {
-        [currentUser removeLikedObjectsObject:self];
-    }
-}
-
 @end

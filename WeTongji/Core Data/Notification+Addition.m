@@ -42,13 +42,17 @@
     return resultArray;
 }
 
-+ (void)insertNotifications:(NSDictionary *)dict {
++ (NSSet *)insertNotifications:(NSDictionary *)dict {
+    NSMutableSet *result = [NSMutableSet set];
     NSArray *notificationsInfoArray = dict[@"Notifications"];
     for (NSDictionary *info in notificationsInfoArray) {
         NSString *notificationType = [NSString stringWithFormat:@"%@", info[@"SourceType"]];
-        if ([notificationType isEqualToString:@"FriendInvite"])
-            [Notification insertFriendInvitationNotification:info];
+        if ([notificationType isEqualToString:@"FriendInvite"]) {
+            Notification *notification = [Notification insertFriendInvitationNotification:info];
+            [result addObject:notification];
+        }
     }
+    return result;
 }
 
 + (FriendInvitationNotification *)insertFriendInvitationNotification:(NSDictionary *)dict {

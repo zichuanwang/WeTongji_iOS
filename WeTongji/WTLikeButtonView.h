@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class Object;
+@class LikeableObject;
 
 @interface WTLikeButtonView : UIView
 
-+ (WTLikeButtonView *)createLikeButtonViewWithObject:(Object *)object;
++ (WTLikeButtonView *)createLikeButtonViewWithObject:(LikeableObject *)object;
 
 @end

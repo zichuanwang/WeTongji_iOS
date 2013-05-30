@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "LikeableObject.h"
 
 
-@interface Organization : NSManagedObject
+@interface Organization : LikeableObject
 
 @property (nonatomic, retain) NSString * about;
 @property (nonatomic, retain) NSString * administrator;

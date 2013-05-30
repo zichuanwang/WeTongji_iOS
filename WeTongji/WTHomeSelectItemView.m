@@ -64,7 +64,7 @@ typedef enum {
     self.showCategoryButton = showCategoryButton;
 }
 
-- (void)createLikeButtonViewWithTargetObject:(Object *)targetObject {
+- (void)createLikeButtonViewWithTargetObject:(LikeableObject *)targetObject {
     WTLikeButtonView *likeButtonView = [WTLikeButtonView createLikeButtonViewWithObject:targetObject];
     [likeButtonView resetOrigin:CGPointMake(242.0f, -1.0f)];
     self.likeButtonView = likeButtonView;

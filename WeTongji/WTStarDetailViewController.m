@@ -51,7 +51,7 @@
 
 #pragma mark - Methods to overwrite
 
-- (Object *)targetObject {
+- (LikeableObject *)targetObject {
     return self.star;
 }
 

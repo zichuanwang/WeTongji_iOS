@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class WTLikeButtonView;
-@class Object;
+@class LikeableObject;
 
 @interface WTDetailViewController : UIViewController
 
@@ -21,6 +21,6 @@
 
 - (void)didClickMoreButton:(UIButton *)sender;
 
-- (Object *)targetObject;
+- (LikeableObject *)targetObject;
 
 @end

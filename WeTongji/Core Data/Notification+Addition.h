@@ -18,7 +18,7 @@
 
 - (CGFloat)cellHeight;
 
-+ (void)insertNotifications:(NSDictionary *)dict;
++ (NSSet *)insertNotifications:(NSDictionary *)dict;
 
 + (void)clearAllNotifications;
 

@@ -14,7 +14,6 @@
 @interface Object : NSManagedObject
 
 @property (nonatomic, retain) NSString * identifier;
-@property (nonatomic, retain) NSNumber * likeCount;
 @property (nonatomic, retain) NSString * objectClass;
 @property (nonatomic, retain) NSDate * updatedAt;
 @property (nonatomic, retain) NSSet *belongToControllers;
