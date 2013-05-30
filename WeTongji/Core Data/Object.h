@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Controller, User;
+@class Controller;
 
 @interface Object : NSManagedObject
 
@@ -18,7 +18,6 @@
 @property (nonatomic, retain) NSString * objectClass;
 @property (nonatomic, retain) NSDate * updatedAt;
 @property (nonatomic, retain) NSSet *belongToControllers;
-@property (nonatomic, retain) User *likedBy;
 @end
 
 @interface Object (CoreDataGeneratedAccessors)

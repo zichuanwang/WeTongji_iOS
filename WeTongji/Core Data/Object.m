@@ -8,7 +8,6 @@
 
 #import "Object.h"
 #import "Controller.h"
-#import "User.h"
 
 
 @implementation Object
@@ -18,6 +17,5 @@
 @dynamic objectClass;
 @dynamic updatedAt;
 @dynamic belongToControllers;
-@dynamic likedBy;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  ActivityInvitationNotification.h
+//  LikeableObject.h
 //  WeTongji
 //
 //  Created by 王 紫川 on 13-5-30.
@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "InvitationNotification.h"
+#import "Object.h"
 
+@class User;
 
-@interface ActivityInvitationNotification : InvitationNotification
+@interface LikeableObject : Object
 
+@property (nonatomic, retain) NSNumber * likeCount;
+@property (nonatomic, retain) User *likedBy;
 
 @end

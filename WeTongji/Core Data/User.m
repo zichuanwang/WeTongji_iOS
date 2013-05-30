@@ -2,15 +2,15 @@
 //  User.m
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-5-29.
+//  Created by 王 紫川 on 13-5-30.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
 #import "User.h"
 #import "Comment.h"
 #import "Event.h"
+#import "LikeableObject.h"
 #import "Notification.h"
-#import "Object.h"
 #import "User.h"
 
 
