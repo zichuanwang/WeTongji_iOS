@@ -28,6 +28,7 @@
 #import "WTStarViewController.h"
 #import "WTHomeSelectContainerView.h"
 #import "WTHomeNowView.h"
+#import "UIImage+ScreenShoot.h"
 
 @interface WTHomeViewController () <WTHomeSelectContainerViewDelegate, WTHomeNowContainerViewDelegate, WTBannerContainerViewDelegate>
 
@@ -117,8 +118,9 @@
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Get home recommendation succuess:%@", responseObject);
         
-        [self.scrollView setScrollEnabled:NO];
-        [self.scrollView setScrollEnabled:YES];
+        [self adjustScrollView];
+        
+        [self reloadHomeSelectItemAnimation];
         
         NSDictionary *resultDict = (NSDictionary *)responseObject;
         
@@ -195,6 +197,26 @@
 }
 
 #pragma mark - UI methods
+
+- (void)adjustScrollView {
+    [self.scrollView setScrollEnabled:NO];
+    [self.scrollView setScrollEnabled:YES];
+    self.scrollView.contentOffset = CGPointZero;
+    [self scrollViewDidScroll:self.scrollView];
+}
+
+- (void)reloadHomeSelectItemAnimation {
+    self.view.userInteractionEnabled = NO;
+    UIImageView *screenShootImageView = [[UIImageView alloc] initWithImage:[UIImage screenShoot]];
+    [screenShootImageView resetSize:[UIScreen mainScreen].bounds.size];
+    [[UIApplication sharedApplication].keyWindow addSubview:screenShootImageView];
+    [UIView animateWithDuration:0.5f animations:^{
+        screenShootImageView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [screenShootImageView removeFromSuperview];
+        self.view.userInteractionEnabled = YES;
+    }];
+}
 
 - (void)configureScrollView {
     self.scrollView.alwaysBounceVertical = YES;

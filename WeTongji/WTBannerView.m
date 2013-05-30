@@ -236,9 +236,6 @@
 }
 
 - (void)awakeFromNib {
-    self.organizationNameLabelOriginY = self.organizationNameLabel.frame.origin.y;
-    self.titleLabelOriginY = self.titleLabel.frame.origin.y;
-    
     self.titleLabel.layer.masksToBounds = NO;
     self.titleLabel.layer.shadowColor = [UIColor blackColor].CGColor;
     self.titleLabel.layer.shadowOpacity = 0.4f;
@@ -293,6 +290,15 @@
         self.organizationNameLabel.text = ad.publisher;
         self.labelContainerView.backgroundColor = [ad.bgColorHex converHexStringToColorWithAlpha:0.6f];
     }
+    
+    CGPoint titleLabelCenter = self.titleLabel.center;
+    [self.titleLabel sizeToFit];
+    self.titleLabel.center = titleLabelCenter;
+    WTLOG(@"title label height:%f", self.titleLabel.frame.size.height);
+    [self.organizationNameLabel resetOriginY:self.titleLabel.frame.size.height + self.titleLabel.frame.origin.y];
+    
+    self.organizationNameLabelOriginY = self.organizationNameLabel.frame.origin.y;
+    self.titleLabelOriginY = self.titleLabel.frame.origin.y;
     
     [self.imageView loadImageWithImageURLString:self.imageURLString];
 }
