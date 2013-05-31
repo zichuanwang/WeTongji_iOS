@@ -17,6 +17,8 @@
 
 @property (nonatomic, strong) WTInnerNotificationTableViewController *tableViewController;
 
+@property (nonatomic, assign) BOOL isVisible;
+
 @end
 
 @implementation WTInnerNotificationViewController
@@ -51,6 +53,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [NSNotificationCenter postUserDidCheckNotificationsNotification];
+    self.isVisible = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    self.isVisible = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,7 +91,8 @@
         [[WTCoreDataManager sharedManager].currentUser addReceivedNotifications:notificationsSet];
         
         if (notificationsSet.count != 0) {
-            [NSNotificationCenter postDidLoadUnreadNotificationsNotification];
+            if (!self.isVisible)
+                [NSNotificationCenter postDidLoadUnreadNotificationsNotification];
         }
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Get notification list failure:%@", error.localizedDescription);
