@@ -20,4 +20,14 @@
 + (void)registerCurrentUserDidChangeNotificationWithSelector:(SEL)aSelector
                                                       target:(id)aTarget;
 
++ (void)postDidLoadUnreadNotificationsNotification;
+
++ (void)registerDidLoadUnreadNotificationsNotificationWithSelector:(SEL)aSelector
+                                                            target:(id)aTarget;
+
++ (void)postUserDidCheckNotificationsNotification;
+
++ (void)registerUserDidCheckNotificationsNotificationWithSelector:(SEL)aSelector
+                                                           target:(id)aTarget;
+
 @end

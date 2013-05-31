@@ -107,7 +107,7 @@
         
         [WTErrorHandler handleError:error];
     }];
-    [request getNotificationInPage:self.nextPage];
+    [request getNotificationsInPage:self.nextPage];
     [[WTClient sharedClient] enqueueRequest:request];
 }
 

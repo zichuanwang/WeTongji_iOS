@@ -294,7 +294,6 @@
     CGPoint titleLabelCenter = self.titleLabel.center;
     [self.titleLabel sizeToFit];
     self.titleLabel.center = titleLabelCenter;
-    WTLOG(@"title label height:%f", self.titleLabel.frame.size.height);
     [self.organizationNameLabel resetOriginY:self.titleLabel.frame.size.height + self.titleLabel.frame.origin.y];
     
     self.organizationNameLabelOriginY = self.organizationNameLabel.frame.origin.y;

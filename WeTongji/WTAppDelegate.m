@@ -10,10 +10,9 @@
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import "WTCoreDataManager.h"
 #import "UIApplication+WTAddition.h"
+#import "WTInnerNotificationViewController.h"
 
 #define FLURRY_API_KEY @"SMBC9798JNZG6WQ7FDRJ"
-
-#import "Comment+Addition.h"
 
 @implementation WTAppDelegate
 
@@ -33,6 +32,7 @@
     WTLOG(@"Current memory cache usage:%d", [[NSURLCache sharedURLCache] currentMemoryUsage] / 1024);
     
     [UIApplication showTopCorner];
+    [WTInnerNotificationViewController sharedViewController];
     
     return YES;
 }

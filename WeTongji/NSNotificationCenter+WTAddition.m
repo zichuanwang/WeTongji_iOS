@@ -10,6 +10,8 @@
 
 #define kWTInnerSettingItemDidModify    @"WTInnerSettingItemDidModify"
 #define kWTCurrentUserDidChange         @"WTCurrentUserDidChange"
+#define kWTDidLoadUnreadNotifications   @"WTDidLoadUnreadNotifications"
+#define kWTUserDidCheckNotifications    @"WTUserDidCheckNotifications"
 
 @implementation NSNotificationCenter (WTAddition)
 
@@ -34,6 +36,30 @@
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:aTarget selector:aSelector
                    name:kWTCurrentUserDidChange
+                 object:nil];
+}
+
++ (void)postDidLoadUnreadNotificationsNotification {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kWTDidLoadUnreadNotifications object:nil userInfo:nil];
+}
+
++ (void)registerDidLoadUnreadNotificationsNotificationWithSelector:(SEL)aSelector
+                                                      target:(id)aTarget {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:aTarget selector:aSelector
+                   name:kWTDidLoadUnreadNotifications
+                 object:nil];
+}
+
++ (void)postUserDidCheckNotificationsNotification {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kWTUserDidCheckNotifications object:nil userInfo:nil];
+}
+
++ (void)registerUserDidCheckNotificationsNotificationWithSelector:(SEL)aSelector
+                                                            target:(id)aTarget {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:aTarget selector:aSelector
+                   name:kWTUserDidCheckNotifications
                  object:nil];
 }
 

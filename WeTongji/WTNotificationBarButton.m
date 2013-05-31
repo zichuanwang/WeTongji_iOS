@@ -7,6 +7,9 @@
 //
 
 #import "WTNotificationBarButton.h"
+#import "NSNotificationCenter+WTAddition.h"
+
+static BOOL isNotificationBarButtonShining = NO;
 
 @interface WTNotificationBarButton()
 
@@ -32,6 +35,13 @@
     result.targetAction = action;
     [result.button addTarget:result action:@selector(didClickButton:) forControlEvents:UIControlEventTouchUpInside];
     
+    [NSNotificationCenter registerUserDidCheckNotificationsNotificationWithSelector:@selector(handleUserDidCheckNotificationsNotification:) target:result];
+    [NSNotificationCenter registerDidLoadUnreadNotificationsNotificationWithSelector:@selector(handleDidLoadUnreadNotificationsNotification:) target:result];
+    
+    if (isNotificationBarButtonShining) {
+        [result startShine];
+    }
+    
     return result;
 }
 
@@ -44,13 +54,20 @@
 #pragma clang diagnostic pop
 }
 
+#pragma mark - Handle notifications methods
+
+- (void)handleUserDidCheckNotificationsNotification:(NSNotification *)notification {
+    [self stopShine];
+}
+
+- (void)handleDidLoadUnreadNotificationsNotification:(NSNotification *)notification {
+    [self startShine];
+}
+
 #pragma mark - Properties
 
 - (void)setSelected:(BOOL)selected {
     [self.button setSelected:!selected];
-    
-    if (selected)
-        [self stopShine];
 }
 
 - (BOOL)isSelected {
@@ -120,11 +137,13 @@
     self.shining = YES;
     [self startShineAnimation];
     self.shineImageView.hidden = NO;
+    isNotificationBarButtonShining = YES;
 }
 
 - (void)stopShine {
     self.shineImageView.hidden = YES;
     self.shining = NO;
+    isNotificationBarButtonShining = NO;
 }
 
 #pragma mark - Action
