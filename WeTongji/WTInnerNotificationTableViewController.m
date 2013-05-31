@@ -149,9 +149,7 @@
     notificationCell.delegate = self;
     [notificationCell configureUIWithNotificaitonObject:notification];
     
-    [self.tableView bringSubviewToFront:cell];
-    
-    NSLog(@"row:%d, noti_id:%@, date:%@", indexPath.row, notification.identifier, [notification.sendTime convertToYearMonthDayTimeString]);
+    [self.tableView bringSubviewToFront:cell];    
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {

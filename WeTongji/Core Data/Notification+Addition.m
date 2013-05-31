@@ -48,7 +48,9 @@
     for (NSDictionary *info in notificationsInfoArray) {
         NSString *notificationType = [NSString stringWithFormat:@"%@", info[@"SourceType"]];
         if ([notificationType isEqualToString:@"FriendInvite"]) {
-            Notification *notification = [Notification insertFriendInvitationNotification:info];
+            NSMutableDictionary *friendInviteInfo = [NSMutableDictionary dictionaryWithDictionary:info[@"SourceDetails"]];
+            friendInviteInfo[@"Id"] = info[@"SourceId"];
+            Notification *notification = [Notification insertFriendInvitationNotification:friendInviteInfo];
             [result addObject:notification];
         }
     }
@@ -69,13 +71,13 @@
     }
     
     result.sendTime = [[NSString stringWithFormat:@"%@", dict[@"SentAt"]] convertToDate];
-    NSString *senderName = [NSString stringWithFormat:@"%@", dict[@"Title"]];
+    NSString *senderName = [NSString stringWithFormat:@"%@", dict[@"From"]];
     result.sender = [User createTestUserWithName:senderName];
     
-    if (dict[@"AcceptedAt"]) {
-        result.accepted = @(YES);
-    } else {
+    if ([[NSString stringWithFormat:@"%@", dict[@"AcceptedAt"]] isEqualToString:@"<null>"]) {
         result.accepted = @(NO);
+    } else {
+        result.accepted = @(YES);
     }
     
     return result;

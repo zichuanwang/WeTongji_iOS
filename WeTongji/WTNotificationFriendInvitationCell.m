@@ -44,8 +44,8 @@
 #pragma mark - Class methods
 
 + (CGFloat)cellHeightWithNotificationObject:(FriendInvitationNotification *)notification {
-    NSString *contentString = [WTNotificationFriendInvitationCell generateNotificationContentStringWithSenderName:notification.sender.name];
-    CGFloat contentLabelRealHeight = [WTNotificationFriendInvitationCell calculateLabelHeightWithText:contentString font:[UIFont boldSystemFontOfSize:14.0f] labelWidth:FI_CELL_CONTENT_LABEL_WIDTH];
+    NSAttributedString *contentAttributedString = [WTNotificationFriendInvitationCell generateNotificationContentAttributedStringWithSenderName:notification.sender.name];
+    CGFloat contentLabelRealHeight = [contentAttributedString sizeConstrainedToSize:CGSizeMake(FI_CELL_CONTENT_LABEL_WIDTH, 20000.0f)].height;
     CGFloat contentLabelGrowHeight = contentLabelRealHeight - FI_CELL_CONTENT_LABEL_ORIGINAL_HEIGHT;
     if (notification.accepted.boolValue) {
         return FI_CELL_FULL_HEIGHT - FI_CELL_BUTTON_CONTAINER_VIEW_HEIGHT + contentLabelGrowHeight;
@@ -68,18 +68,12 @@
         paragraphStyle.lineSpacing = FI_CELL_CONTENT_LABEL_LINE_SPACING;
     }];
     
+    WTLOG(@"message content string length:%d", messageContentString.length);
     return messageContentString;
 }
 
 + (NSString *)generateNotificationContentStringWithSenderName:(NSString *)senderName {
     return [NSString stringWithFormat:@"%@ %@", senderName, NSLocalizedString(@"wants to be in your friend list.", nil)];
-}
-
-+ (CGFloat)calculateLabelHeightWithText:(NSString *)text font:(UIFont *)font labelWidth:(CGFloat)labelWidth {
-    CGSize realSize = [text sizeWithFont:font];
-    float lineNumber = ceilf(realSize.width / labelWidth);
-    CGFloat resultHeight = realSize.height * lineNumber + FI_CELL_CONTENT_LABEL_LINE_SPACING * (lineNumber - 1);
-    return resultHeight;
 }
 
 #pragma mark - UI methods
@@ -146,7 +140,6 @@
 #pragma mark - UI methods
 
 - (void)configureNotificationMessageWithSenderName:(NSString *)senderName {
-    
     self.notificationContentLabel.attributedText = [WTNotificationFriendInvitationCell generateNotificationContentAttributedStringWithSenderName:senderName];
 }
 
@@ -162,14 +155,14 @@
         self.timeLabel.text = [notification.sendTime convertToYearMonthDayWeekTimeString];
         
         if (friendInvitation.accepted.boolValue) {
-            [self.timeLabel resetOriginY:self.frame.size.height - 13.0f - self.timeLabel.frame.size.height];
             [self hideButtons:NO];
         } else {
-            [self.timeLabel resetOriginY:self.frame.size.height - 63.0f - self.timeLabel.frame.size.height];
             [self showButtons];
         }
         
-        [self resetHeight:[WTNotificationFriendInvitationCell cellHeightWithNotificationObject:friendInvitation]];
+        CGFloat cellHeight = [WTNotificationFriendInvitationCell cellHeightWithNotificationObject:friendInvitation];
+        [self resetHeight:cellHeight];
+        [self.messageContainerView resetHeight:friendInvitation.accepted.boolValue ? cellHeight : cellHeight - FI_CELL_BUTTON_CONTAINER_VIEW_HEIGHT];
         
         [self.ignoreButton setTitle:NSLocalizedString(@"Ignore", nil) forState:UIControlStateNormal];
         [self.acceptButton setTitle:NSLocalizedString(@"Accept", nil) forState:UIControlStateNormal];
