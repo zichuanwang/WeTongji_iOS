@@ -78,7 +78,7 @@
     self.schoolLabel.layer.shadowOffset = CGSizeMake(0, 1.0f);
     self.schoolLabel.layer.shadowRadius = 1.0f;
     
-    self.mottoLabel.text = user.name;
+    self.mottoLabel.text = [NSString stringWithFormat:@"\"%@\"", user.motto];
     
     self.mottoLabel.layer.masksToBounds = NO;
     self.mottoLabel.layer.shadowColor = [UIColor blackColor].CGColor;

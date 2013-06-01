@@ -16,32 +16,6 @@
 
 @implementation Notification (Addition)
 
-+ (NSArray *)createTestFriendInvitationNotifications {
-    NSMutableArray *resultArray = [NSMutableArray array];
-    NSArray *testUserArray = [User createTestUsers];
-    
-    for (int i = 0; i < 5; i++) {
-        NSString *notificationID = [NSString stringWithFormat:@"%d", i];
-        
-        if (!notificationID || [notificationID isEqualToString:@"(null)"]) {
-            continue;
-        }
-        
-        FriendInvitationNotification *result = (FriendInvitationNotification *)[Notification notificationWithID:notificationID];
-        if (!result) {
-            result = [NSEntityDescription insertNewObjectForEntityForName:@"FriendInvitationNotification" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
-            result.identifier = notificationID;
-            result.sendTime = [NSDate date];
-            result.sender = testUserArray[i];
-        }
-    
-        result.accepted = @(NO);
-        
-        [resultArray addObject:result];
-    }
-    return resultArray;
-}
-
 + (NSSet *)insertNotifications:(NSDictionary *)dict {
     NSMutableSet *result = [NSMutableSet set];
     NSArray *notificationsInfoArray = dict[@"Notifications"];

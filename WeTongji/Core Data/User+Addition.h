@@ -14,8 +14,4 @@
 
 + (User *)userWithID:(NSString *)userID;
 
-+ (NSArray *)createTestUsers;
-
-+ (User *)createTestUserWithName:(NSString *)name;
-
 @end

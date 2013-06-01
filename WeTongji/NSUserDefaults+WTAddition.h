@@ -93,4 +93,26 @@ typedef enum {
 
 - (NSArray *)getSearchHistoryArray;
 
+#pragma mark Current user info
+
+- (void)setCurrentUserMotto:(NSString *)motto;
+
+- (void)setCurrentUserPhone:(NSString *)phone;
+
+- (void)setCurrentUserEmail:(NSString *)email;
+
+- (void)setCurrentUserSinaWeibo:(NSString *)sinaWeibo;
+
+- (void)setCurrentUserQQ:(NSString *)QQ;
+
+- (NSString *)getCurrentUserMotto;
+
+- (NSString *)getCurrentUserPhone;
+
+- (NSString *)getCurrentUserEmail;
+
+- (NSString *)getCurrentUserSinaWeibo;
+
+- (NSString *)getCurrentUserQQ;
+
 @end

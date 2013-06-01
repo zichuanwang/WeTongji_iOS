@@ -115,11 +115,15 @@
         <attribute name="birthday" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="birthPlace" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="department" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dormBuilding" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dormDistribute" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dormRoom" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="emailAddress" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="enrollYear" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="loginTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="major" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="motto" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="qqAccount" optional="YES" attributeType="String" syncable="YES"/>
@@ -154,6 +158,6 @@
         <element name="Object" positionX="-135" positionY="84" width="128" height="105"/>
         <element name="Organization" positionX="-423" positionY="-126" width="128" height="105"/>
         <element name="Star" positionX="-270" positionY="-126" width="128" height="180"/>
-        <element name="User" positionX="-423" positionY="-9" width="128" height="390"/>
+        <element name="User" positionX="-423" positionY="-9" width="128" height="450"/>
     </elements>
 </model>

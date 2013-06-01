@@ -10,8 +10,6 @@
 
 @interface Notification (Addition)
 
-+ (NSArray *)createTestFriendInvitationNotifications;
-
 + (void)deleteNotificationWithID:(NSString *)notificationID;
 
 - (NSString *)customCellClassName;

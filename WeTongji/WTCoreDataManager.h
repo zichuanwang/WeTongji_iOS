@@ -19,6 +19,8 @@
 
 + (WTCoreDataManager *)sharedManager;
 
+- (BOOL)isCurrentUserInfoDifferentFromDefaultInfo;
+
 - (void)eraseAllData;
 - (void)saveContext;
 

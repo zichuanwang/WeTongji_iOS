@@ -48,6 +48,7 @@
 @interface WTSettingGroupTableView : UIView <WTInnerSettingItem>
 
 @property (nonatomic, strong) IBOutlet UILabel *headerLabel;
+@property (nonatomic, strong) IBOutlet UIView *cellContainerView;
 @property (nonatomic, strong) IBOutlet UIImageView *bgImageView;
 
 + (WTSettingGroupTableView *)createGroupTableView:(NSDictionary *)tableViewInfo;
@@ -73,5 +74,14 @@
 
 + (WTSettingButtonCell *)createButtonCell:(NSDictionary *)cellInfo
                                    target:(id)target;
+
+@end
+
+@interface WTSettingTextFieldCell : UIView <WTInnerSettingItem>
+
+@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) IBOutlet UITextField *textField;
+
++ (WTSettingTextFieldCell *)createTextFieldCell:(NSDictionary *)cellInfo;
 
 @end

@@ -4,6 +4,57 @@
 <array>
 	<dict>
 		<key>TableViewType</key>
+		<string>TableViewTypeTextField</string>
+		<key>TableViewContent</key>
+		<array>
+			<dict>
+				<key>CellTitle</key>
+				<string>Motto</string>
+				<key>CellAccessoryType</key>
+				<string>CellAccessoryTypeTextField</string>
+				<key>UserDefaultKey</key>
+				<string>CurrentUserMotto</string>
+			</dict>
+			<dict>
+				<key>CellTitle</key>
+				<string>Phone</string>
+				<key>CellAccessoryType</key>
+				<string>CellAccessoryTypeTextField</string>
+				<key>UserDefaultKey</key>
+				<string>CurrentUserPhone</string>
+			</dict>
+			<dict>
+				<key>CellTitle</key>
+				<string>Email</string>
+				<key>CellAccessoryType</key>
+				<string>CellAccessoryTypeTextField</string>
+				<key>UserDefaultKey</key>
+				<string>CurrentUserEmail</string>
+			</dict>
+			<dict>
+				<key>CellTitle</key>
+				<string>Sina Weibo</string>
+				<key>CellAccessoryType</key>
+				<string>CellAccessoryTypeTextField</string>
+				<key>UserDefaultKey</key>
+				<string>CurrentUserSinaWeibo</string>
+			</dict>
+			<dict>
+				<key>CellTitle</key>
+				<string>QQ</string>
+				<key>CellAccessoryType</key>
+				<string>CellAccessoryTypeTextField</string>
+				<key>UserDefaultKey</key>
+				<string>CurrentUserQQ</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>TableViewType</key>
+		<string>TableViewTypeSeparator</string>
+	</dict>
+	<dict>
+		<key>TableViewType</key>
 		<string>TableViewTypePlain</string>
 		<key>TableViewContent</key>
 		<array>

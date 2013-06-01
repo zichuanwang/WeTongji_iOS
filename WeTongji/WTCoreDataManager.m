@@ -10,6 +10,7 @@
 #import "User+Addition.h"
 #import <WeTongjiSDK/NSUserDefaults+WTSDKAddition.h>
 #import "NSNotificationCenter+WTAddition.h"
+#import "NSUserDefaults+WTAddition.h"
 
 @interface WTCoreDataManager()
 
@@ -35,11 +36,36 @@
     return manager;
 }
 
+- (void)configureCurrentUserDefaultInfo {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setCurrentUserMotto:_currentUser.motto];
+    [defaults setCurrentUserPhone:_currentUser.phoneNumber];
+    [defaults setCurrentUserEmail:_currentUser.emailAddress];
+    [defaults setCurrentUserQQ:_currentUser.qqAccount];
+    [defaults setCurrentUserSinaWeibo:_currentUser.sinaWeiboName];
+}
+
+- (BOOL)isCurrentUserInfoDifferentFromDefaultInfo {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (![[defaults getCurrentUserMotto] isEqualToString:self.currentUser.motto])
+        return YES;
+    if (![[defaults getCurrentUserPhone] isEqualToString:self.currentUser.phoneNumber])
+        return YES;
+    if (![[defaults getCurrentUserEmail] isEqualToString:self.currentUser.emailAddress])
+        return YES;
+    if (![[defaults getCurrentUserQQ] isEqualToString:self.currentUser.qqAccount])
+        return YES;
+    if (![[defaults getCurrentUserSinaWeibo] isEqualToString:self.currentUser.sinaWeiboName])
+        return YES;
+    return NO;
+}
+
 #pragma mark - Properties
 
 - (User *)currentUser {
     if (!_currentUser) {
         _currentUser = [User userWithID:[NSUserDefaults getCurrentUserID]];
+        [self configureCurrentUserDefaultInfo];
         if (_currentUser)
             [NSNotificationCenter postCurrentUserDidChangeNotification];
     }
@@ -49,6 +75,7 @@
 - (void)setCurrentUser:(User *)currentUser {
     if (![_currentUser.identifier isEqualToString:currentUser.identifier]) {
         _currentUser = currentUser;
+        [self configureCurrentUserDefaultInfo];
         [NSNotificationCenter postCurrentUserDidChangeNotification];
     }
 }

@@ -107,7 +107,6 @@
 		E10E232A1757366400DCF724 /* InvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E23291757366400DCF724 /* InvitationNotification.m */; };
 		E10E232D1757366400DCF724 /* LikeableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E232C1757366400DCF724 /* LikeableObject.m */; };
 		E10E23301757366400DCF724 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E232F1757366400DCF724 /* Event.m */; };
-		E10E23331757366500DCF724 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E23321757366500DCF724 /* User.m */; };
 		E10E23361757366500DCF724 /* ActivityInvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E23351757366500DCF724 /* ActivityInvitationNotification.m */; };
 		E10E23391757366500DCF724 /* CommentableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E23381757366500DCF724 /* CommentableObject.m */; };
 		E10E233C1757366500DCF724 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E233B1757366500DCF724 /* Notification.m */; };
@@ -308,6 +307,7 @@
 		E15BBF241717D5F40021CCCD /* WTRoundCornerPanelCuppedBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E15BBF221717D5F40021CCCD /* WTRoundCornerPanelCuppedBg.png */; };
 		E15BBF251717D5F40021CCCD /* WTRoundCornerPanelCuppedBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E15BBF231717D5F40021CCCD /* WTRoundCornerPanelCuppedBg@2x.png */; };
 		E15C3D1A16C37B3200A91AAF /* WTConfigLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = E15C3D1916C37B3200A91AAF /* WTConfigLoader.m */; };
+		E15E4DA0175A60BC00BBAE9A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4D9F175A60BC00BBAE9A /* User.m */; };
 		E16D5DCA174619A900740D79 /* Advertisement+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E16D5DC9174619A900740D79 /* Advertisement+Addition.m */; };
 		E16E961D1733AA550055DE27 /* WTOrangeBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961B1733AA550055DE27 /* WTOrangeBg.png */; };
 		E16E961E1733AA550055DE27 /* WTOrangeBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961C1733AA550055DE27 /* WTOrangeBg@2x.png */; };
@@ -744,8 +744,6 @@
 		E10E232C1757366400DCF724 /* LikeableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeableObject.m; sourceTree = "<group>"; };
 		E10E232E1757366400DCF724 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		E10E232F1757366400DCF724 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		E10E23311757366500DCF724 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		E10E23321757366500DCF724 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		E10E23341757366500DCF724 /* ActivityInvitationNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityInvitationNotification.h; sourceTree = "<group>"; };
 		E10E23351757366500DCF724 /* ActivityInvitationNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityInvitationNotification.m; sourceTree = "<group>"; };
 		E10E23371757366500DCF724 /* CommentableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentableObject.h; sourceTree = "<group>"; };
@@ -1006,6 +1004,8 @@
 		E15BBF231717D5F40021CCCD /* WTRoundCornerPanelCuppedBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTRoundCornerPanelCuppedBg@2x.png"; sourceTree = "<group>"; };
 		E15C3D1816C37B3200A91AAF /* WTConfigLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTConfigLoader.h; sourceTree = "<group>"; };
 		E15C3D1916C37B3200A91AAF /* WTConfigLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTConfigLoader.m; sourceTree = "<group>"; };
+		E15E4D9E175A60BC00BBAE9A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		E15E4D9F175A60BC00BBAE9A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		E16D5DC8174619A900740D79 /* Advertisement+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Advertisement+Addition.h"; sourceTree = "<group>"; };
 		E16D5DC9174619A900740D79 /* Advertisement+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Advertisement+Addition.m"; sourceTree = "<group>"; };
 		E16E961B1733AA550055DE27 /* WTOrangeBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTOrangeBg.png; sourceTree = "<group>"; };
@@ -2657,10 +2657,10 @@
 				E10E2356175737BF00DCF724 /* Object.m */,
 				E10E23401757366600DCF724 /* Star.h */,
 				E10E23411757366600DCF724 /* Star.m */,
-				E10E23311757366500DCF724 /* User.h */,
-				E10E23321757366500DCF724 /* User.m */,
 				E10E2358175739E000DCF724 /* Organization.h */,
 				E10E2359175739E000DCF724 /* Organization.m */,
+				E15E4D9E175A60BC00BBAE9A /* User.h */,
+				E15E4D9F175A60BC00BBAE9A /* User.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3370,7 +3370,6 @@
 				E10E232A1757366400DCF724 /* InvitationNotification.m in Sources */,
 				E10E232D1757366400DCF724 /* LikeableObject.m in Sources */,
 				E10E23301757366400DCF724 /* Event.m in Sources */,
-				E10E23331757366500DCF724 /* User.m in Sources */,
 				E10E23361757366500DCF724 /* ActivityInvitationNotification.m in Sources */,
 				E10E23391757366500DCF724 /* CommentableObject.m in Sources */,
 				E10E233C1757366500DCF724 /* Notification.m in Sources */,
@@ -3386,6 +3385,7 @@
 				E10E235D17573A2600DCF724 /* LikeableObject+Addition.m in Sources */,
 				E10E236E17577F3500DCF724 /* WTLikeListViewController.m in Sources */,
 				E110F6D11757AEB500F19B7D /* WTShowAllKindsOfCellsViewController.m in Sources */,
+				E15E4DA0175A60BC00BBAE9A /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

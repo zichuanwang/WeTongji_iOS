@@ -276,4 +276,57 @@
     return [self arrayForKey:kSearchHistoryArray];
 }
 
+#pragma mark - Current user info
+
+#define kCurrentUserMotto       @"CurrentUserMotto"
+#define kCurrentUserPhone       @"CurrentUserPhone"
+#define kCurrentUserEmail       @"CurrentUserEmail"
+#define kCurrentUserSinaWeibo   @"CurrentUserSinaWeibo"
+#define kCurrentUserQQ          @"CurrentUserQQ"
+
+- (void)setCurrentUserMotto:(NSString *)motto {
+    [self setObject:motto forKey:kCurrentUserMotto];
+    [self synchronize];
+}
+
+- (void)setCurrentUserPhone:(NSString *)phone {
+    [self setObject:phone forKey:kCurrentUserPhone];
+    [self synchronize];
+}
+
+- (void)setCurrentUserEmail:(NSString *)email {
+    [self setObject:email forKey:kCurrentUserEmail];
+    [self synchronize];
+}
+
+- (void)setCurrentUserSinaWeibo:(NSString *)sinaWeibo {
+    [self setObject:sinaWeibo forKey:kCurrentUserSinaWeibo];
+    [self synchronize];
+}
+
+- (void)setCurrentUserQQ:(NSString *)QQ {
+    [self setObject:QQ forKey:kCurrentUserQQ];
+    [self synchronize];
+}
+
+- (NSString *)getCurrentUserMotto {
+    return [self stringForKey:kCurrentUserMotto];
+}
+
+- (NSString *)getCurrentUserPhone {
+    return [self stringForKey:kCurrentUserPhone];
+}
+
+- (NSString *)getCurrentUserEmail {
+    return [self stringForKey:kCurrentUserEmail];
+}
+
+- (NSString *)getCurrentUserSinaWeibo {
+    return [self stringForKey:kCurrentUserSinaWeibo];
+}
+
+- (NSString *)getCurrentUserQQ {
+    return [self stringForKey:kCurrentUserQQ];
+}
+
 @end

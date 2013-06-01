@@ -26,6 +26,7 @@
 #define kTableViewTypeGroup                 @"TableViewTypeGroup"
 #define kTableViewTypeSeparator             @"TableViewTypeSeparator"
 #define kTableViewTypeButton                @"TableViewTypeButton"
+#define kTableViewTypeTextField             @"TableViewTypeTextField"
 
 #define kTableViewSectionHeader             @"TableViewSectionHeader"
 #define kTableViewSupportsMultiSelection    @"TableViewSupportsMultiSelection"

@@ -20,6 +20,7 @@
 #import "WTMeSettingViewController.h"
 #import "WTFriendListViewController.h"
 #import "WTLikeListViewController.h"
+#import "NSUserDefaults+WTAddition.h"
 
 @interface WTMeViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, WTInnerSettingViewControllerDelegate, WTRootNavigationControllerDelegate>
 
@@ -229,12 +230,26 @@
 #pragma mark - WTInnerSettingViewControllerDelegate
 
 - (void)innerSettingViewController:(WTInnerSettingViewController *)controller didFinishSetting:(BOOL)modified {
-    if (modified) {
+    if ([WTClient sharedClient].usingTestServer != [NSUserDefaults useTestServer]) {
         [WTClient refreshSharedClient];
     }
     
     if (![WTCoreDataManager sharedManager].currentUser) {
         [[UIApplication sharedApplication].rootTabBarController clickTabWithName:WTRootTabBarViewControllerHome];
+        return;
+    }
+    
+    if ([[WTCoreDataManager sharedManager] isCurrentUserInfoDifferentFromDefaultInfo]) {
+        WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+            WTLOG(@"Update user info success:%@", responseObject);
+            [WTCoreDataManager sharedManager].currentUser = [User insertUser:responseObject[@"User"]];
+            [self configureProfileHeaderView];
+        } failureBlock:^(NSError *error) {
+            [WTErrorHandler handleError:error];
+        }];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [request updateUserEmail:[defaults getCurrentUserEmail] weiboName:[defaults getCurrentUserSinaWeibo] phoneNum:[defaults getCurrentUserPhone] qqAccount:[defaults getCurrentUserQQ] motto:[defaults getCurrentUserMotto]];
+        [[WTClient sharedClient] enqueueRequest:request];
     }
 }
 

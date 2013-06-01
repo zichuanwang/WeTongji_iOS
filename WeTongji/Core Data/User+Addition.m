@@ -39,6 +39,7 @@
     result.studentNumber = [NSString stringWithFormat:@"%@", dict[@"NO"]];
     result.studyPlan = @([[NSString stringWithFormat:@"%@", dict[@"Plan"]] integerValue]);
     result.enrollYear = @([[NSString stringWithFormat:@"%@", dict[@"Year"]] integerValue]);
+    result.motto = [NSString stringWithFormat:@"%@", dict[@"Words"]];
     
     result.emailAddress = [NSString stringWithFormat:@"%@", dict[@"Email"]];
     if ([result.emailAddress isEqualToString:@"<null>"]) {
@@ -70,40 +71,6 @@
     }
     
     return result;
-}
-
-+ (User *)createTestUserWithName:(NSString *)name {
-    User *result = [User userWithID:name];
-    if (!result) {
-        result = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
-        result.identifier = name;
-    }
-    result.name = name;
-    return result;
-}
-
-+ (NSArray *)createTestUsers {
-    NSMutableArray *resultArray = [NSMutableArray array];
-    
-    NSArray *testUserNameArray = @[@"唐雅怡", @"冯泽西", @"蔡思雨", @"周杰伦", @"方璐"];
-    
-    for (int i = 0; i < 5; i++) {
-        NSString *userID = [NSString stringWithFormat:@"%d", i];
-        
-        if (!userID || [userID isEqualToString:@""]) {
-            continue;
-        }
-        
-        User *result = [User userWithID:userID];
-        if (!result) {
-            result = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
-            result.identifier = userID;
-        }
-        
-        result.name = testUserNameArray[i];
-        [resultArray addObject:result];
-    }
-    return resultArray;
 }
 
 + (User *)userWithID:(NSString *)userID {

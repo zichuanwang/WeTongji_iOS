@@ -121,8 +121,9 @@
             
         } else if ([tableViewType isEqualToString:kTableViewTypeSeparator]) {
             UIImageView *separatorImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTInnerModalSeparator"]];
-            originY += 6;
-            [separatorImageView resetOrigin:CGPointMake(0, originY)];
+            originY += self.scrollView.contentInset.top;
+            [separatorImageView resetCenterY:originY];
+            originY += self.scrollView.contentInset.top;
             [self.scrollView addSubview:separatorImageView];
         } else if ([tableViewType isEqualToString:kTableViewTypeButton]) {
             NSArray *contentArray = dict[kTableViewContent];
@@ -132,6 +133,15 @@
                 originY += buttonCell.frame.size.height;
                 [self.scrollView addSubview:buttonCell];
                 [self.innerSettingItems addObject:buttonCell];
+            }
+        } else if ([tableViewType isEqualToString:kTableViewTypeTextField]) {
+            NSArray *contentArray = dict[kTableViewContent];
+            for (NSDictionary *cellDict in contentArray) {
+                WTSettingTextFieldCell *textFieldCell = [WTSettingTextFieldCell createTextFieldCell:cellDict];
+                [textFieldCell resetOriginY:originY];
+                originY += textFieldCell.frame.size.height;
+                [self.scrollView addSubview:textFieldCell];
+                [self.innerSettingItems addObject:textFieldCell];
             }
         }
     }
@@ -213,7 +223,7 @@
 - (void)createSwitch {
     self.selectSwitch = [WTSwitch createSwitchWithDelegate:self];
     [self.selectSwitch resetCenterY:self.frame.size.height / 2];
-    [self.selectSwitch resetOriginX:self.frame.size.width - self.selectSwitch.frame.size.width - 12];
+    [self.selectSwitch resetOriginX:self.frame.size.width - self.selectSwitch.frame.size.width - 12.0f];
     [self addSubview:self.selectSwitch];
 }
 
@@ -263,7 +273,7 @@
     NSString *headerTitle = NSLocalizedString(tableViewInfo[kTableViewSectionHeader], nil);
     result.headerLabel.text = headerTitle;
     
-    result.bgImageView.image = [result.bgImageView.image resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
+    result.bgImageView.image = [result.bgImageView.image resizableImageWithCapInsets:UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f)];
     result.supportMultiSelection = [tableViewInfo[kTableViewSupportsMultiSelection] boolValue];
     result.userDefaultKey = tableViewInfo[kUserDefaultKey];
     
@@ -308,7 +318,7 @@
     [self.cellInfoArray addObject:cellInfo];
     [self.cellArray addObject:cell];
     
-    [self addSubview:cell];
+    [self.cellContainerView addSubview:cell];
     
     [self configureTableView];
     
@@ -324,12 +334,12 @@
 }
 
 - (void)configureTableView {
-    [self resetHeight:40 + 5 + 44 * self.cellInfoArray.count];
+    [self resetHeight:44.0f * self.cellInfoArray.count + (self.frame.size.height - self.cellContainerView.frame.size.height)];
     
     for (int index = 0; index < self.cellArray.count; index++) {
         WTSettingGroupCell *cell = self.cellArray[index];
         cell.separatorImageView.hidden = NO;
-        [cell resetOriginY:40 + index * 44];
+        [cell resetOriginY:index * 44.0f];
         cell.cellButton.tag = index;
         
     }
@@ -435,17 +445,61 @@
     }
     
     UIImage *buttonBgImage = [result.button backgroundImageForState:UIControlStateNormal];
-    buttonBgImage = [buttonBgImage resizableImageWithCapInsets:UIEdgeInsetsMake(6.0, 8.0f, 6.0, 8.0f)];
+    buttonBgImage = [buttonBgImage resizableImageWithCapInsets:UIEdgeInsetsMake(18.0f, 10.0f, 18.0f, 10.0f)];
     [result.button setBackgroundImage:buttonBgImage forState:UIControlStateNormal];
     
     NSString *buttonTitle = NSLocalizedString(cellInfo[kButtonTitle], nil);
-    WTLOG(@"button title:%@", buttonTitle);
     [result.button setTitle:buttonTitle forState:UIControlStateNormal];
     
     NSString *buttonTarget = cellInfo[kButtonTarget];
     [result.button addTarget:target action:NSSelectorFromString(buttonTarget) forControlEvents:UIControlEventTouchUpInside];
     
     return result;
+}
+
+@end
+
+@interface WTSettingTextFieldCell ()
+
+@property (nonatomic, copy) NSString *userDefaultKey;
+@property (nonatomic, copy) NSString *originalContent;
+@property (nonatomic, assign) BOOL dirty;
+
+@end
+
+@implementation WTSettingTextFieldCell
+
++ (WTSettingTextFieldCell *)createTextFieldCell:(NSDictionary *)cellInfo {
+    WTSettingTextFieldCell *result = nil;
+    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"WTSettingCells" owner:self options:nil];
+    for (UIView *view in views) {
+        if ([view isKindOfClass:[WTSettingTextFieldCell class]]) {
+            result = (WTSettingTextFieldCell *)view;
+            break;
+        }
+    }
+    
+    result.userDefaultKey = cellInfo[kUserDefaultKey];
+    NSString *title = NSLocalizedString(cellInfo[kCellTitle], nil);
+    result.titleLabel.text = title;
+    NSString *content = [[NSUserDefaults standardUserDefaults] stringForKey:result.userDefaultKey];
+    result.textField.text = content;
+    result.originalContent = content;
+    
+    [result.textField addTarget:result action:@selector(textFieldValueDidChange:) forControlEvents:UIControlEventEditingChanged];
+    
+    return result;
+}
+
+- (void)textFieldValueDidChange:(UITextField *)sender {
+    [[NSUserDefaults standardUserDefaults] setObject:sender.text forKey:self.userDefaultKey];
+    self.dirty = ![self.originalContent isEqualToString:sender.text];
+}
+
+#pragma mark - WTInnerSettingItem
+
+- (BOOL)isDirty {
+    return self.dirty;
 }
 
 @end
