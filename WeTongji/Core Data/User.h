@@ -2,7 +2,7 @@
 //  User.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-5-30.
+//  Created by 王 紫川 on 13-6-1.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "LikeableObject.h"
 
-@class Comment, Event, LikeableObject, Notification, User;
+@class BillboardPost, Comment, Event, LikeableObject, Notification, User;
 
 @interface User : LikeableObject
 
@@ -36,6 +36,7 @@
 @property (nonatomic, retain) NSSet *receivedNotifications;
 @property (nonatomic, retain) NSSet *scheduledEvents;
 @property (nonatomic, retain) NSSet *sentNotifications;
+@property (nonatomic, retain) NSSet *publishedBillboardPosts;
 @end
 
 @interface User (CoreDataGeneratedAccessors)
@@ -69,5 +70,10 @@
 - (void)removeSentNotificationsObject:(Notification *)value;
 - (void)addSentNotifications:(NSSet *)values;
 - (void)removeSentNotifications:(NSSet *)values;
+
+- (void)addPublishedBillboardPostsObject:(BillboardPost *)value;
+- (void)removePublishedBillboardPostsObject:(BillboardPost *)value;
+- (void)addPublishedBillboardPosts:(NSSet *)values;
+- (void)removePublishedBillboardPosts:(NSSet *)values;
 
 @end

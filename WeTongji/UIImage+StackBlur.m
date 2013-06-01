@@ -47,7 +47,7 @@ either expressed or implied, of the FreeBSD Project.
 // http://incubator.quasimondo.com/processing/fast_blur_deluxe.php
 // by  Mario Klingemann
 
-- (UIImage*) stackBlur:(NSUInteger)inradius
+- (UIImage*)stackBlur:(NSUInteger)inradius
 {
 	int radius=inradius; // Transform unsigned into signed for further operations
 	
@@ -302,7 +302,7 @@ either expressed or implied, of the FreeBSD Project.
 }
 
 
-- (UIImage *) normalize {
+- (UIImage *)normalize {
     
     CGColorSpaceRef genericColorSpace = CGColorSpaceCreateDeviceRGB();
     CGContextRef thumbBitmapCtxt = CGBitmapContextCreate(NULL,

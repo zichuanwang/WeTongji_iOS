@@ -101,8 +101,25 @@
     self.buttonContainerView.alpha = 1;
 }
 
-- (void)showAcceptIcon {
+- (void)showAcceptedIconAnimated:(BOOL)animated {
+    self.acceptedIconImageView.hidden = NO;
+    NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    if ([language isEqualToString:@"zh-Hans"]) {
+        self.acceptedIconImageView.image = [UIImage imageNamed:@"WTInvitationAcceptedIconCN"];
+    } else {
+        self.acceptedIconImageView.image = [UIImage imageNamed:@"WTInvitationAcceptedIconEN"];
+    }
     
+    if (animated) {
+        self.acceptedIconImageView.transform = CGAffineTransformMakeScale(1.5f, 1.5f);
+        [UIView animateWithDuration:0.15f animations:^{
+            self.acceptedIconImageView.transform = CGAffineTransformIdentity;
+        }];
+    }
+}
+
+- (void)hideAcceptedIcon {
+    self.acceptedIconImageView.hidden = YES;
 }
 
 #pragma mark - Actions
@@ -114,7 +131,7 @@
         NSLog(@"Accept friend invitation:%@", responseObject);
         friendInvitation.accepted = @(YES);
         [self hideButtons:YES];
-        [self showAcceptIcon];
+        [self showAcceptedIconAnimated:YES];
         [self.delegate cellHeightDidChange];
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Accept friend invitation:%@", error.localizedDescription);
@@ -157,8 +174,10 @@
         
         if (friendInvitation.accepted.boolValue) {
             [self hideButtons:NO];
+            [self showAcceptedIconAnimated:NO];
         } else {
             [self showButtons];
+            [self hideAcceptedIcon];
         }
         
         CGFloat cellHeight = [WTNotificationFriendInvitationCell cellHeightWithNotificationObject:friendInvitation];

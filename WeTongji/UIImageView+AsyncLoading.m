@@ -43,8 +43,10 @@
                                  if (success) {
                                      success(image);
                                  } else {
-                                     weakSelf.image = image;
-                                     [self fadeIn];
+                                     if (weakSelf.image != image) {
+                                         weakSelf.image = image;
+                                         [self fadeIn];
+                                     }
                                  }
                                  
                                  // WTLOG(@"Current disk cache usage:%d", [[NSURLCache sharedURLCache] currentDiskUsage] / 1024);

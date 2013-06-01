@@ -8,6 +8,7 @@
 
 #import "BillboardPost+Addition.h"
 #import "WTCoreDataManager.h"
+#import "User+Addition.h"
 #import "NSString+WTAddition.h"
 
 @implementation BillboardPost (Addition)
@@ -61,6 +62,8 @@
     result.createdAt = [[NSString stringWithFormat:@"%@", dict[@"PublishedAt"]] convertToDate];
     result.commentCount = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"CommentsCount"]]).integerValue);
     
+    User *user = [User insertUser:dict[@"UserDetails"]];
+    result.author = user;
     return result;
 }
 

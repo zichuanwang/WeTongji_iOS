@@ -8,6 +8,7 @@
 
 #import "Comment+Addition.h"
 #import "WTCoreDataManager.h"
+#import "User+Addition.h"
 #import "NSString+WTAddition.h"
 
 @implementation Comment (Addition)
@@ -30,6 +31,9 @@
     
     result.createdAt = [[NSString stringWithFormat:@"%@", dict[@"PublishedAt"]] convertToDate];
     result.content = [NSString stringWithFormat:@"%@", dict[@"Body"]];
+    
+    User *user = [User insertUser:dict[@"UserDetails"]];
+    result.author = user;
     
     return result;
 }

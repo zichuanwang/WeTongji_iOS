@@ -15,6 +15,7 @@
 
 @property (nonatomic, weak) IBOutlet UIButton *acceptButton;
 @property (nonatomic, weak) IBOutlet UIButton *ignoreButton;
+@property (nonatomic, weak) IBOutlet UIImageView *acceptedIconImageView;
 @property (nonatomic, weak) IBOutlet UIView *buttonContainerView;
 @property (nonatomic, weak) IBOutlet UIView *messageContainerView;
 

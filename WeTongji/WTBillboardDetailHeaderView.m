@@ -7,7 +7,8 @@
 //
 
 #import "WTBillboardDetailHeaderView.h"
-#import "BillboardPost.h"
+#import "BillboardPost+Addition.h"
+#import "User+Addition.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIImageView+AsyncLoading.h"
 #import "OHAttributedLabel.h"
@@ -167,6 +168,8 @@
 
 - (void)configureViewWithBillboardPost:(BillboardPost *)post {
     self.timeLabel.text = [post.createdAt convertToYearMonthDayWeekTimeString];
+    self.authorNameLabel.text = post.author.name;
+    [self.avatarImageView loadImageWithImageURLString:post.author.avatar];
 }
 
 - (void)configureAvatarContainerView {
