@@ -80,7 +80,10 @@
     self.schoolLabel.layer.shadowOffset = CGSizeMake(0, 1.0f);
     self.schoolLabel.layer.shadowRadius = 1.0f;
     
-    self.mottoLabel.text = [NSString stringWithFormat:@"\"%@\"", user.motto];
+    if (user.motto)
+        self.mottoLabel.text = [NSString stringWithFormat:@"\"%@\"", user.motto];
+    else
+        self.mottoLabel.text = nil;
     
     self.mottoLabel.layer.masksToBounds = NO;
     self.mottoLabel.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -90,7 +93,7 @@
     
     [self.mottoLabel sizeToFit];
     [self.mottoLabel resetHeight:self.mottoLabel.frame.size.height > MOTTO_LABEL_MAX_HEIGHT ? MOTTO_LABEL_MAX_HEIGHT : self.mottoLabel.frame.size.height];
-    [self.personalInfoContainerView resetOriginY:self.mottoLabel.frame.size.height + self.mottoLabel.frame.origin.y + 12.0f];
+    [self.personalInfoContainerView resetOriginY:self.mottoLabel.frame.size.height + self.mottoLabel.frame.origin.y + (self.mottoLabel.frame.size.height == 0 ? 0 : 12.0f)];
 }
 
 - (void)configureAvatarBgImageViewWithAvatarImage:(UIImage *)image
