@@ -36,6 +36,8 @@
 @property (nonatomic, strong) WTHomeNowContainerView *nowContainerView;
 @property (nonatomic, strong) NSMutableArray *homeSelectViewArray;
 
+@property (nonatomic, assign) BOOL isVisible;
+
 @property (nonatomic, assign) BOOL shouldLoadHomeItems;
 @property (nonatomic, strong) NSTimer *loadHomeItemsTimer;
 
@@ -79,6 +81,12 @@
         [self loadHomeSelectedItems];
         self.shouldLoadHomeItems = NO;
     }
+
+    self.isVisible = YES;
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    self.isVisible = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -120,7 +128,8 @@
         
         [self adjustScrollView];
         
-        [self reloadHomeSelectItemAnimation];
+        if (self.isVisible)
+            [self reloadHomeSelectItemAnimation];
         
         NSDictionary *resultDict = (NSDictionary *)responseObject;
         
