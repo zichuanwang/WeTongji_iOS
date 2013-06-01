@@ -9,9 +9,10 @@
 #import "WTNotificationFriendInvitationCell.h"
 #import "FriendInvitationNotification.h"
 #import "Notification+Addition.h"
-#import "User.h"
+#import "User+Addition.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import "NSString+WTAddition.h"
+#import "UIImageView+AsyncLoading.h"
 
 #define FI_CELL_FULL_HEIGHT                     120.0f
 #define FI_CELL_BUTTON_CONTAINER_VIEW_HEIGHT    50.0f
@@ -166,6 +167,8 @@
         
         [self.ignoreButton setTitle:NSLocalizedString(@"Ignore", nil) forState:UIControlStateNormal];
         [self.acceptButton setTitle:NSLocalizedString(@"Accept", nil) forState:UIControlStateNormal];
+        
+        [self.avatarImageView loadImageWithImageURLString:friendInvitation.sender.avatar];
     }
 }
 

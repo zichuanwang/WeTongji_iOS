@@ -71,8 +71,7 @@
     }
     
     result.sendTime = [[NSString stringWithFormat:@"%@", dict[@"SentAt"]] convertToDate];
-    NSString *senderName = [NSString stringWithFormat:@"%@", dict[@"From"]];
-    result.sender = [User createTestUserWithName:senderName];
+    result.sender = [User insertUser:dict[@"UserDetails"]];
     
     if ([[NSString stringWithFormat:@"%@", dict[@"AcceptedAt"]] isEqualToString:@"<null>"]) {
         result.accepted = @(NO);
