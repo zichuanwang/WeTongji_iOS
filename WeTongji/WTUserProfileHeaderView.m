@@ -46,6 +46,8 @@
     } failure:nil];
 }
 
+#define MOTTO_LABEL_MAX_HEIGHT 76.0f
+
 - (void)configureViewWithUser:(User *)user {
     
     self.user = user;
@@ -87,6 +89,7 @@
     self.mottoLabel.layer.shadowRadius = 1.0f;
     
     [self.mottoLabel sizeToFit];
+    [self.mottoLabel resetHeight:self.mottoLabel.frame.size.height > MOTTO_LABEL_MAX_HEIGHT ? MOTTO_LABEL_MAX_HEIGHT : self.mottoLabel.frame.size.height];
     [self.personalInfoContainerView resetOriginY:self.mottoLabel.frame.size.height + self.mottoLabel.frame.origin.y + 12.0f];
 }
 
