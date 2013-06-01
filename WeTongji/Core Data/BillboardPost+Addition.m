@@ -48,11 +48,15 @@
         result.identifier = postID;
         result.objectClass = NSStringFromClass([BillboardPost class]);
     }
-    result.content = [NSString stringWithFormat:@"%@", dict[@"Body"]];
-    result.title = [NSString stringWithFormat:@"%@", dict[@"Title"]];
+    if ([[NSString stringWithFormat:@"%@", dict[@"Title"]] length] > 0)
+        result.title = [NSString stringWithFormat:@"%@", dict[@"Title"]];
     result.image = [NSString stringWithFormat:@"%@", dict[@"Image"]];
     if ([result.image isEmptyImageURL])
         result.image = nil;
+    
+    if (result.image == nil && [[NSString stringWithFormat:@"%@", dict[@"Body"]] length] > 0) {
+        result.content = [NSString stringWithFormat:@"%@", dict[@"Body"]];
+    }
     
     result.createdAt = [[NSString stringWithFormat:@"%@", dict[@"PublishedAt"]] convertToDate];
     result.commentCount = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"CommentsCount"]]).integerValue);

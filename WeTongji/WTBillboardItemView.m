@@ -84,20 +84,22 @@ enum {
     if (self.plainTitleLabel.frame.size.height > PLAIN_TITLE_LABEL_MAX_HEIGHT)
         [self.plainTitleLabel resetHeight:PLAIN_TITLE_LABEL_MAX_HEIGHT];
     
-    NSMutableAttributedString *contentAttributedString = [NSMutableAttributedString attributedStringWithString:self.post.content];
-    
-    [contentAttributedString setAttributes:[self.plainContentLabel.attributedText attributesAtIndex:0 effectiveRange:NULL] range:NSMakeRange(0, contentAttributedString.length)];
-    
-    [contentAttributedString modifyParagraphStylesWithBlock:^(OHParagraphStyle *paragraphStyle) {
-        paragraphStyle.lineSpacing = PLAIN_CONTENT_LABEL_LINE_SPACING;
-    }];
-    
-    self.plainContentLabel.attributedText = contentAttributedString;
-    
-    [self.plainContentLabel resetHeight:self.plainTextContainerView.frame.size.height - self.plainTitleLabel.frame.size.height - self.plainTitleLabel.frame.origin.y - PLAIN_CONTENT_LABEL_BOTTOM_INDENT];
-    [self.plainContentLabel resetOriginY:self.plainTitleLabel.frame.origin.y + self.plainTitleLabel.frame.size.height + PLAIN_CONTENT_LABEL_TOP_INDENT];
-    
-    self.plainContentLabel.automaticallyAddLinksForType = 0;
+    if (self.post.content.length > 0) {
+        NSMutableAttributedString *contentAttributedString = [NSMutableAttributedString attributedStringWithString:self.post.content];
+        
+        [contentAttributedString setAttributes:[self.plainContentLabel.attributedText attributesAtIndex:0 effectiveRange:NULL] range:NSMakeRange(0, contentAttributedString.length)];
+        
+        [contentAttributedString modifyParagraphStylesWithBlock:^(OHParagraphStyle *paragraphStyle) {
+            paragraphStyle.lineSpacing = PLAIN_CONTENT_LABEL_LINE_SPACING;
+        }];
+        
+        self.plainContentLabel.attributedText = contentAttributedString;
+        
+        [self.plainContentLabel resetHeight:self.plainTextContainerView.frame.size.height - self.plainTitleLabel.frame.size.height - self.plainTitleLabel.frame.origin.y - PLAIN_CONTENT_LABEL_BOTTOM_INDENT];
+        [self.plainContentLabel resetOriginY:self.plainTitleLabel.frame.origin.y + self.plainTitleLabel.frame.size.height + PLAIN_CONTENT_LABEL_TOP_INDENT];
+        
+        self.plainContentLabel.automaticallyAddLinksForType = 0;
+    }
 }
 
 #pragma mark - Actions

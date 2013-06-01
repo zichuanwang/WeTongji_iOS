@@ -78,6 +78,22 @@
 }
 
 - (void)didClickPostButton:(UIButton *)sender {
+    if (self.titleTextField.text.length == 0) {
+        [[[UIAlertView alloc] initWithTitle:@"错误" message:@"请输入标题" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil] show];
+        return;
+    }
+    if ([self isKindOfClass:[WTBillboardPostImageViewController class]]) {
+        if (self.postImageView.image == nil) {
+            [[[UIAlertView alloc] initWithTitle:@"错误" message:@"请添加照片" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil] show];
+            return;
+        }
+    } else if ([self isKindOfClass:[WTBillboardPostPlainTextViewController class]]) {
+        if (self.contentTextView.text.length == 0) {
+            [[[UIAlertView alloc] initWithTitle:@"错误" message:@"请输入内容" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil] show];
+            return;
+        }
+    }
+    
     sender.userInteractionEnabled = NO;
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         [self dismissView];
