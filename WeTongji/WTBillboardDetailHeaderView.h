@@ -27,6 +27,7 @@
 @interface WTBillboardDetailHeaderView : UIView
 
 @property (nonatomic, weak) UIView *postContentView;
+@property (nonatomic, readonly) WTBillboardDetailAuthorView *authorView;
 
 + (WTBillboardDetailHeaderView *)createDetailHeaderViewWithBillboardPost:(BillboardPost *)post;
 

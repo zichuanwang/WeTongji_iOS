@@ -10,6 +10,7 @@
 
 #define BUTTON_WIDTH_INCREMENT      30.0f
 #define MIN_BACK_BAR_BUTTON_WIDTH   59.0f
+#define MAX_BACK_BAR_BUTTON_WIDTH   100.0f
 
 @implementation WTResourceFactory
 
@@ -204,9 +205,12 @@
     
     button.titleLabel.font = [UIFont boldSystemFontOfSize:12];
     button.titleLabel.shadowOffset = CGSizeMake(0, 1);
+    button.titleLabel.lineBreakMode = NSLineBreakByTruncatingMiddle;
     
     CGFloat titleLabelWidth = [text sizeWithFont:button.titleLabel.font].width + BUTTON_WIDTH_INCREMENT;
     titleLabelWidth = titleLabelWidth < MIN_BACK_BAR_BUTTON_WIDTH ? MIN_BACK_BAR_BUTTON_WIDTH : titleLabelWidth;
+    titleLabelWidth = titleLabelWidth > MAX_BACK_BAR_BUTTON_WIDTH ? MAX_BACK_BAR_BUTTON_WIDTH : titleLabelWidth;
+    
     [button resetSize:CGSizeMake(titleLabelWidth, barBarNormalButtonImage.size.height)];
     
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];

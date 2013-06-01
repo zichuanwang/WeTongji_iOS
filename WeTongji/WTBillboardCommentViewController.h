@@ -9,19 +9,23 @@
 #import "WTCoreDataTableViewController.h"
 
 @class BillboardPost;
-@protocol WTBillboardCommentViewControllerDataSource;
+@class Comment;
+
+@protocol WTBillboardCommentViewControllerDelegate;
 
 @interface WTBillboardCommentViewController : WTCoreDataTableViewController
 
-@property (nonatomic, weak) id<WTBillboardCommentViewControllerDataSource> dataSource;
+@property (nonatomic, weak) id<WTBillboardCommentViewControllerDelegate> delegate;
 
 + (WTBillboardCommentViewController *)createCommentViewControllerWithBillboardPost:(BillboardPost *)post
-                                                                        dataSource:(id<WTBillboardCommentViewControllerDataSource>)dataSource;
+                                                                          delegate:(id<WTBillboardCommentViewControllerDelegate>)delegate;
 
 @end
 
-@protocol WTBillboardCommentViewControllerDataSource <NSObject>
+@protocol WTBillboardCommentViewControllerDelegate <NSObject>
 
 - (UIView *)commentViewControllerTableViewHeaderView;
+
+- (void)didSelectComment:(Comment *)comment;
 
 @end

@@ -61,10 +61,10 @@
 }
 
 + (WTBillboardCommentViewController *)createCommentViewControllerWithBillboardPost:(BillboardPost *)post
-                                                                        dataSource:(id<WTBillboardCommentViewControllerDataSource>)dataSource {
+                                                                        delegate:(id<WTBillboardCommentViewControllerDelegate>)delegate {
     WTBillboardCommentViewController *result = [[WTBillboardCommentViewController alloc] init];
     result.post = post;
-    result.dataSource = dataSource;
+    result.delegate = delegate;
     return result;
 }
 
@@ -75,7 +75,7 @@
 }
 
 - (void)configureTableViewHeaderView {
-    self.tableView.tableHeaderView = [self.dataSource commentViewControllerTableViewHeaderView];
+    self.tableView.tableHeaderView = [self.delegate commentViewControllerTableViewHeaderView];
 }
 
 #pragma mark - Logic methods
@@ -144,6 +144,11 @@
 }
 
 #pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Comment *comment = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self.delegate didSelectComment:comment];
+}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTTableViewTopLineSectionBg"]];

@@ -7,13 +7,15 @@
 //
 
 #import "WTBillboardDetailViewController.h"
-#import "BillboardPost.h"
+#import "BillboardPost+Addition.h"
+#import "Comment+Addition.h"
 #import "WTBillboardDetailHeaderView.h"
 #import "WTBillboardCommentViewController.h"
 #import "WTCommentViewController.h"
 #import "WTDetailImageViewController.h"
+#import "WTUserDetailViewController.h"
 
-@interface WTBillboardDetailViewController () <WTBillboardCommentViewControllerDataSource>
+@interface WTBillboardDetailViewController () <WTBillboardCommentViewControllerDelegate>
 
 @property (nonatomic, strong) BillboardPost *post;
 @property (nonatomic, strong) WTBillboardDetailHeaderView *headerView;
@@ -63,6 +65,14 @@
     return result;
 }
 
+#pragma mark - Gesture recognizer
+
+- (void)didTapAuthorView:(UITapGestureRecognizer *)tap {
+    WTUserDetailViewController *vc = [WTUserDetailViewController createDetailViewControllerWithUser:self.post.author backBarButtonText:self.post.title];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
 #pragma mark - UI methods
 
 - (void)configureHeaderView {
@@ -73,24 +83,26 @@
         WTImageBillboardDetailHeaderView *imageHeaderView = (WTImageBillboardDetailHeaderView *)self.headerView.postContentView;
         [imageHeaderView.postImageView addGestureRecognizer:tapGestureRecognizer];
     }
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapAuthorView:)];
+    [self.headerView.authorView addGestureRecognizer:tap];
 }
 
 - (void)configureCommentViewController {
-    self.commentViewController = [WTBillboardCommentViewController createCommentViewControllerWithBillboardPost:self.post dataSource:self];
+    self.commentViewController = [WTBillboardCommentViewController createCommentViewControllerWithBillboardPost:self.post delegate:self];
     [self.commentViewController.view resetHeight:self.view.frame.size.height];
     [self.view addSubview:self.commentViewController.view];
 }
 
-#pragma mark - Actions
-
-- (void)didClickLikeButton:(UIButton *)sender {
-    
-}
-
-#pragma mark - WTBillboardCommentViewControllerDataSource
+#pragma mark - WTBillboardCommentViewControllerDelegate
 
 - (UIView *)commentViewControllerTableViewHeaderView {
     return self.headerView;
+}
+
+- (void)didSelectComment:(Comment *)comment {
+    WTUserDetailViewController *vc = [WTUserDetailViewController createDetailViewControllerWithUser:comment.author backBarButtonText:self.post.title];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - Overwrite super class methods
