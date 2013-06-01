@@ -70,7 +70,7 @@ enum {
 }
 
 #define PLAIN_CONTENT_LABEL_LINE_SPACING    4.0f
-#define PLAIN_CONTENT_LABEL_BOTTOM_INDENT   8.0f
+#define PLAIN_CONTENT_LABEL_BOTTOM_INDENT   6.0f
 #define PLAIN_CONTENT_LABEL_TOP_INDENT      6.0f
 #define PLAIN_TITLE_LABEL_MAX_HEIGHT        46.0f
 
@@ -95,8 +95,8 @@ enum {
         
         self.plainContentLabel.attributedText = contentAttributedString;
         
-        [self.plainContentLabel resetHeight:self.plainTextContainerView.frame.size.height - self.plainTitleLabel.frame.size.height - self.plainTitleLabel.frame.origin.y - PLAIN_CONTENT_LABEL_BOTTOM_INDENT];
         [self.plainContentLabel resetOriginY:self.plainTitleLabel.frame.origin.y + self.plainTitleLabel.frame.size.height + PLAIN_CONTENT_LABEL_TOP_INDENT];
+        [self.plainContentLabel resetHeight:self.plainTextContainerView.frame.size.height - self.plainContentLabel.frame.origin.y - PLAIN_CONTENT_LABEL_BOTTOM_INDENT];
         
         self.plainContentLabel.automaticallyAddLinksForType = 0;
     }
