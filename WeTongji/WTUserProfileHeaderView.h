@@ -23,6 +23,7 @@ typedef enum {
 @property (nonatomic, weak) IBOutlet UIImageView *avatarBgImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *avatarBgPlaceholderImageView;
 @property (nonatomic, weak) IBOutlet UILabel *mottoLabel;
+@property (nonatomic, weak) IBOutlet UILabel *userNameLabel;
 @property (nonatomic, weak) IBOutlet UIView *personalInfoContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *genderIndicatorImageView;
 @property (nonatomic, weak) IBOutlet UILabel *schoolLabel;

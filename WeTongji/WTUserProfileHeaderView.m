@@ -46,7 +46,7 @@
     } failure:nil];
 }
 
-#define MOTTO_LABEL_MAX_HEIGHT 76.0f
+#define MOTTO_LABEL_MAX_HEIGHT 57.0f
 
 - (void)configureViewWithUser:(User *)user {
     
@@ -80,20 +80,36 @@
     self.schoolLabel.layer.shadowOffset = CGSizeMake(0, 1.0f);
     self.schoolLabel.layer.shadowRadius = 1.0f;
     
-    if (user.motto)
-        self.mottoLabel.text = [NSString stringWithFormat:@"\"%@\"", user.motto];
-    else
-        self.mottoLabel.text = nil;
+    if ([WTCoreDataManager sharedManager].currentUser != user) {
+        self.userNameLabel.text = user.name;
+        
+        self.userNameLabel.layer.masksToBounds = NO;
+        self.userNameLabel.layer.shadowColor = [UIColor blackColor].CGColor;
+        self.userNameLabel.layer.shadowOpacity = 0.3f;
+        self.userNameLabel.layer.shadowOffset = CGSizeMake(0, 1.0f);
+        self.userNameLabel.layer.shadowRadius = 1.0f;
+    } else {
+        self.userNameLabel.text = nil;
+    }
+    [self.userNameLabel sizeToFit];
     
-    self.mottoLabel.layer.masksToBounds = NO;
-    self.mottoLabel.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.mottoLabel.layer.shadowOpacity = 0.3f;
-    self.mottoLabel.layer.shadowOffset = CGSizeMake(0, 1.0f);
-    self.mottoLabel.layer.shadowRadius = 1.0f;
+    if (user.motto) {
+        self.mottoLabel.text = [NSString stringWithFormat:@"\"%@\"", user.motto];
+        
+        self.mottoLabel.layer.masksToBounds = NO;
+        self.mottoLabel.layer.shadowColor = [UIColor blackColor].CGColor;
+        self.mottoLabel.layer.shadowOpacity = 0.3f;
+        self.mottoLabel.layer.shadowOffset = CGSizeMake(0, 1.0f);
+        self.mottoLabel.layer.shadowRadius = 1.0f;
+    } else {
+        self.mottoLabel.text = nil;
+    }
     
     [self.mottoLabel sizeToFit];
     [self.mottoLabel resetHeight:self.mottoLabel.frame.size.height > MOTTO_LABEL_MAX_HEIGHT ? MOTTO_LABEL_MAX_HEIGHT : self.mottoLabel.frame.size.height];
-    [self.personalInfoContainerView resetOriginY:self.mottoLabel.frame.size.height + self.mottoLabel.frame.origin.y + (self.mottoLabel.frame.size.height == 0 ? 0 : 12.0f)];
+    [self.mottoLabel resetOriginY:self.userNameLabel.frame.size.height + self.userNameLabel.frame.origin.y + (self.userNameLabel.frame.size.height == 0 ? 0 : 12.0f)];
+    
+    [self.personalInfoContainerView resetOriginY:self.mottoLabel.frame.size.height + self.mottoLabel.frame.origin.y + (self.mottoLabel.frame.size.height == 0 ? 0 : 20.0f)];
 }
 
 - (void)configureAvatarBgImageViewWithAvatarImage:(UIImage *)image
