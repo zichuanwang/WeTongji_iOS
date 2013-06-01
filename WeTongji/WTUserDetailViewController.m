@@ -46,6 +46,9 @@
 
 + (WTUserDetailViewController *)createDetailViewControllerWithUser:(User *)user
                                                  backBarButtonText:(NSString *)backBarButtonText {
+    if ([[WTCoreDataManager sharedManager].currentUser.identifier isEqualToString:user.identifier])
+        return nil;
+    
     WTUserDetailViewController *result = [[WTUserDetailViewController alloc] init];
 
     result.user = user;

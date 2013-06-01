@@ -14,6 +14,7 @@
 #import "WTCommentViewController.h"
 #import "WTDetailImageViewController.h"
 #import "WTUserDetailViewController.h"
+#import "UIApplication+WTAddition.h"
 
 @interface WTBillboardDetailViewController () <WTBillboardCommentViewControllerDelegate>
 
@@ -68,6 +69,10 @@
 #pragma mark - Gesture recognizer
 
 - (void)didTapAuthorView:(UITapGestureRecognizer *)tap {
+    if ([[WTCoreDataManager sharedManager].currentUser.identifier isEqualToString:self.post.author.identifier]) {
+        [[UIApplication sharedApplication].rootTabBarController clickTabWithName:WTRootTabBarViewControllerMe];
+        return;
+    }
     WTUserDetailViewController *vc = [WTUserDetailViewController createDetailViewControllerWithUser:self.post.author backBarButtonText:self.post.title];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -101,6 +106,10 @@
 }
 
 - (void)didSelectComment:(Comment *)comment {
+    if ([[WTCoreDataManager sharedManager].currentUser.identifier isEqualToString:self.post.author.identifier]) {
+        [[UIApplication sharedApplication].rootTabBarController clickTabWithName:WTRootTabBarViewControllerMe];
+        return;
+    }
     WTUserDetailViewController *vc = [WTUserDetailViewController createDetailViewControllerWithUser:comment.author backBarButtonText:self.post.title];
     [self.navigationController pushViewController:vc animated:YES];
 }
