@@ -52,7 +52,8 @@
 
 + (void)setAllObjectsFreeFromHolder:(Class)holderClass {
     Controller *controller = [Controller controllerModelForClass:holderClass];
-    for (Object *object in controller.hasObjects) {
+    NSSet *hasObjectsSet = [NSSet setWithSet:controller.hasObjects];
+    for (Object *object in hasObjectsSet) {
         [object setObjectFreeFromHolder:holderClass];
     }
 }
