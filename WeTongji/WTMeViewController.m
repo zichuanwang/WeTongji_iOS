@@ -243,7 +243,7 @@
         WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
             WTLOG(@"Update user info success:%@", responseObject);
             [WTCoreDataManager sharedManager].currentUser = [User insertUser:responseObject[@"User"]];
-            [self configureProfileHeaderView];
+            [self.profileHeaderView updateView];
         } failureBlock:^(NSError *error) {
             [WTErrorHandler handleError:error];
         }];

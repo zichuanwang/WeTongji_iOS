@@ -118,7 +118,7 @@
         vc = [WTOrganizationDetailViewController createDetailViewControllerWithOrganization:(Organization *)object backBarButtonText:backBarButtonText];
     } else if ([object isKindOfClass:[User class]]) {
         // 如果是当前用户, 则进行Tab跳转
-        if ([[WTCoreDataManager sharedManager].currentUser.identifier isEqualToString:object.identifier]) {
+        if ([WTCoreDataManager sharedManager].currentUser == object) {
             [[UIApplication sharedApplication].rootTabBarController clickTabWithName:WTRootTabBarViewControllerMe];
             return nil;
         }

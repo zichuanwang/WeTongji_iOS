@@ -49,6 +49,8 @@
                                 fromImageView:(UIImageView *)fromImageView
                                      fromRect:(CGRect)fromRect
                                      delegate:(id<WTDetailImageViewControllerDelegate>)delegate {
+    if (!imageURLString)
+        return;
     [WTDetailImageViewController showDetailImageViewWithImageURLArray:@[imageURLString]
                                                           currentPage:0
                                                         fromImageView:fromImageView

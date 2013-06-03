@@ -73,7 +73,7 @@
 #pragma mark - Gesture recognizer
 
 - (void)didTapAuthorView:(UITapGestureRecognizer *)tap {
-    if ([[WTCoreDataManager sharedManager].currentUser.identifier isEqualToString:self.post.author.identifier]) {
+    if ([WTCoreDataManager sharedManager].currentUser == self.post.author) {
         [[UIApplication sharedApplication].rootTabBarController clickTabWithName:WTRootTabBarViewControllerMe];
         return;
     }

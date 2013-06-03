@@ -21,15 +21,6 @@
 
 @implementation WTUserProfileHeaderView
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
 - (void)configureAvatarImageView {
     self.avatarContainerView.layer.masksToBounds = YES;
     self.avatarContainerView.layer.cornerRadius = 6.0f;
@@ -47,10 +38,7 @@
 
 #define MOTTO_LABEL_MAX_HEIGHT 57.0f
 
-- (void)configureView {
-    
-    [self configureAvatarImageView];
-    
+- (void)configureInfoView {
     if ([self.user.gender isEqualToString:@"男"]) {
         self.genderIndicatorImageView.image = [UIImage imageNamed:@"WTGenderWhiteMaleIcon"];
     } else {
@@ -58,7 +46,7 @@
     }
     
     User *currentUser = [WTCoreDataManager sharedManager].currentUser;
-    if ([self.user.identifier isEqualToString:currentUser.identifier]) {
+    if (self.user == currentUser) {
         [self.functionButton setTitle:NSLocalizedString(@"New Avatar", nil) forState:UIControlStateNormal];
     } else {
         // 判断是否为好友
@@ -109,6 +97,11 @@
     [self.personalInfoContainerView resetOriginY:self.mottoLabel.frame.size.height + self.mottoLabel.frame.origin.y + (self.mottoLabel.frame.size.height == 0 ? 0 : 20.0f)];
 }
 
+- (void)configureView {
+    [self configureAvatarImageView];
+    [self configureInfoView];
+}
+
 - (void)configureAvatarBgImageViewWithAvatarImage:(UIImage *)image
                                        completion:(void (^)(UIImage *bgImage))completion {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -151,6 +144,7 @@
     if (!self.avatarImageView.image) {
         [self configureAvatarImageView];
     }
+    [self configureInfoView];
 }
 
 @end
