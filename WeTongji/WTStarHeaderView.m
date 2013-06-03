@@ -62,7 +62,7 @@
     [self.starNameLabel sizeToFit];
     
     if (self.star.motto) {
-        self.mottoLabel.text = [NSString stringWithFormat:@"\"%@\"", self.star.motto];
+        self.mottoLabel.text = [NSString stringWithFormat:@"“%@”", self.star.motto];
         
         self.mottoLabel.layer.masksToBounds = NO;
         self.mottoLabel.layer.shadowColor = [UIColor blackColor].CGColor;

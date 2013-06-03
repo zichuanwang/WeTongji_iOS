@@ -106,7 +106,7 @@
 }
 
 - (void)didSelectComment:(Comment *)comment {
-    if ([[WTCoreDataManager sharedManager].currentUser.identifier isEqualToString:self.post.author.identifier]) {
+    if ([WTCoreDataManager sharedManager].currentUser == comment.author) {
         [[UIApplication sharedApplication].rootTabBarController clickTabWithName:WTRootTabBarViewControllerMe];
         return;
     }
