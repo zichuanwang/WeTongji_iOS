@@ -10,6 +10,7 @@
 #import "WTCoreDataManager.h"
 #import "NSString+WTAddition.h"
 #import "Object+Addition.h"
+#import "Organization+Addition.h"
 
 @implementation Activity (Addition)
 
@@ -31,7 +32,6 @@
     result.beginTime = [[NSString stringWithFormat:@"%@", dict[@"Begin"]] convertToDate];
     result.endTime = [[NSString stringWithFormat:@"%@", dict[@"End"]] convertToDate];
     result.where = [NSString stringWithFormat:@"%@", dict[@"Location"]];
-    result.organizer = [NSString stringWithFormat:@"%@", dict[@"Organizer"]];
     result.what = [NSString stringWithFormat:@"%@", dict[@"Title"]];
     [result configureActivityCategory:((NSString *)[NSString stringWithFormat:@"%@", dict[@"Channel_Id"]]).integerValue];
     
@@ -41,9 +41,7 @@
     if ([result.image isEmptyImageURL])
         result.image = nil;
     
-    result.likeCount = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"Like"]]).integerValue);
-    result.organizerAvatar = [NSString stringWithFormat:@"%@", dict[@"OrganizerAvatar"]];
-    
+    result.likeCount = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"Like"]]).integerValue);    
     
     BOOL canSchedule = ((NSString *)[NSString stringWithFormat:@"%@", dict[@"CanSchedule"]]).boolValue;
     BOOL canLike = ((NSString *)[NSString stringWithFormat:@"%@", dict[@"CanLike"]]).boolValue;
@@ -56,11 +54,12 @@
     if (!canLike) {
         [currentUser addLikedObjectsObject:result];
     } else {
-        NSLog(@"liked:%@", result);
         [currentUser removeLikedObjectsObject:result];
     }
     
     result.beginDay = [result.beginTime convertToYearMonthDayString];
+    
+    result.author = [Organization insertOrganization:dict[@"AccountDetails"]];
     
     return result;
 }

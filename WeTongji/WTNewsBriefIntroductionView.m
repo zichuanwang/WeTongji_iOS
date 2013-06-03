@@ -8,6 +8,7 @@
 
 #import "WTNewsBriefIntroductionView.h"
 #import "News+Addition.h"
+#import "Organization+Addition.h"
 #import "UIImageView+AsyncLoading.h"
 #import <QuartzCore/QuartzCore.h>
 #import "WTResourceFactory.h"
@@ -219,14 +220,14 @@
 
 - (void)configureView {
     self.titleLabel.text = self.news.title;
-    self.publisherLabel.text = self.news.organizer;
+    self.publisherLabel.text = self.news.author.name;
     self.publishTimeLabel.text = self.news.publishDay;
     
     CGFloat titleLabelOriginalHeight = self.titleLabel.frame.size.height;
     [self.titleLabel sizeToFit];
     [self resetHeight:self.frame.size.height + self.titleLabel.frame.size.height - titleLabelOriginalHeight];
     
-    [self.avatarImageView loadImageWithImageURLString:self.news.organizerAvatar];
+    [self.avatarImageView loadImageWithImageURLString:self.news.author.avatar];
 }
 
 - (void)awakeFromNib {

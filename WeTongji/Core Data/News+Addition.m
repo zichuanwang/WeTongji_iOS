@@ -10,6 +10,7 @@
 #import "Object+Addition.h"
 #import "WTCoreDataManager.h"
 #import "NSString+WTAddition.h"
+#import "Organization+Addition.h"
 
 @implementation News (Addition)
 
@@ -34,8 +35,6 @@
     result.publishDate = [[NSString stringWithFormat:@"%@", [dict objectForKey:@"CreatedAt"]] convertToDate];
     result.likeCount = @([[NSString stringWithFormat:@"%@", dict[@"Like"]] integerValue]);
     result.readCount = @([[NSString stringWithFormat:@"%@", dict[@"Read"]] integerValue]);
-    result.organizer = [NSString stringWithFormat:@"%@", dict[@"Organizer"]];
-    result.organizerAvatar = [NSString stringWithFormat:@"%@", dict[@"OrganizerAvatar"]];
     result.source = [NSString stringWithFormat:@"%@", dict[@"Source"]];
     
     result.hasTicket = @([[NSString stringWithFormat:@"%@", dict[@"HasTicket"]] boolValue]);
@@ -74,6 +73,8 @@
     }
     
     result.publishDay = [result.publishDate convertToYearMonthDayString];
+    
+    result.author = [Organization insertOrganization:dict[@"AccountDetails"]];
     
     return result;
 }

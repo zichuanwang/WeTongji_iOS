@@ -17,6 +17,7 @@
 #import "WTDetailImageViewController.h"
 #import "WTActivityHeaderView.h"
 #import "WTActivityImageRollView.h"
+#import "WTOrganizationDetailViewController.h"
 
 @interface WTActivityDetailViewController () <WTDetaiImageViewControllerDelegate>
 
@@ -115,6 +116,8 @@
         [self.detailDescriptionView resetOriginY:self.headerView.frame.size.height];
     }
     [self.scrollView insertSubview:self.detailDescriptionView atIndex:0];
+    
+    [self.detailDescriptionView.organizerButton addTarget:self action:@selector(didClickOrganizerButton:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -145,6 +148,11 @@
 }
 
 #pragma mark - Actions
+
+- (void)didClickOrganizerButton:(UIButton *)sender {
+    WTOrganizationDetailViewController *vc = [WTOrganizationDetailViewController createDetailViewControllerWithOrganization:self.activity.author backBarButtonText:self.activity.what];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 - (void)didClickInviteButton:(UIButton *)sender {
     NSLog(@"Invite button clicked");

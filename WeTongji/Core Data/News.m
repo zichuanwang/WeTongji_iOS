@@ -2,11 +2,12 @@
 //  News.m
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-5-30.
+//  Created by 王 紫川 on 13-6-3.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
 #import "News.h"
+#import "Organization.h"
 
 
 @implementation News
@@ -16,8 +17,6 @@
 @dynamic hasTicket;
 @dynamic imageArray;
 @dynamic location;
-@dynamic organizer;
-@dynamic organizerAvatar;
 @dynamic phoneNumber;
 @dynamic publishDate;
 @dynamic publishDay;
@@ -26,5 +25,6 @@
 @dynamic summary;
 @dynamic ticketInfo;
 @dynamic title;
+@dynamic author;
 
 @end

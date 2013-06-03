@@ -7,7 +7,8 @@
 //
 
 #import "WTActivityDetailDescriptionView.h"
-#import "Activity.h"
+#import "Activity+Addition.h"
+#import "Organization+Addition.h"
 #import "OHAttributedLabel.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIImageView+AsyncLoading.h"
@@ -26,9 +27,9 @@
 - (void)configureViewWithManagedObject:(id)object {
     if ([object isKindOfClass:[Activity class]]) {
         Activity *activity = (Activity *)object;
-        [self configureOrganizerDisplayLabelAndButton:activity.organizer];
+        [self configureOrganizerDisplayLabelAndButton:activity.author.name];
         [self configureContentView:activity.content];
-        [self configureOrganizerAvatar:activity.organizerAvatar];
+        [self configureOrganizerAvatar:activity.author.avatar];
         
         [self resetHeight:self.contentContainerView.frame.origin.y + self.contentContainerView.frame.size.height];
     }

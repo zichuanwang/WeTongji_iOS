@@ -13,6 +13,7 @@
 #import "News+Addition.h"
 #import "Advertisement+Addition.h"
 #import "NSString+WTAddition.h"
+#import "Organization+Addition.h"
 
 @interface WTBannerContainerView()
 
@@ -273,7 +274,7 @@
         Activity *activity = (Activity *)object;
         self.imageURLString = activity.image;
         self.titleLabel.text = activity.what;
-        self.organizationNameLabel.text = activity.organizer;
+        self.organizationNameLabel.text = activity.author.name;
     } else if ([object isKindOfClass:[News class]]) {
         News *news = (News *)object;
         NSArray *imageArray = news.imageArray;
@@ -282,7 +283,7 @@
         }
         self.titleLabel.text = news.title;
         // TODO: 根据新闻类别配置orgName
-        self.organizationNameLabel.text = news.organizer;
+        self.organizationNameLabel.text = news.author.name;
     } else if ([object isKindOfClass:[Advertisement class]]) {
         Advertisement *ad = (Advertisement *)object;
         self.imageURLString = ad.image;

@@ -43,6 +43,10 @@
     [self configureCommentViewController];    
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self.commentViewController viewWillAppear:YES];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [self.commentViewController viewDidAppear:animated];
 }

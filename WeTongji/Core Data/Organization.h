@@ -2,7 +2,7 @@
 //  Organization.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-5-30.
+//  Created by 王 紫川 on 13-6-3.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "LikeableObject.h"
 
+@class Activity, News;
 
 @interface Organization : LikeableObject
 
@@ -17,5 +18,20 @@
 @property (nonatomic, retain) NSString * administrator;
 @property (nonatomic, retain) NSString * avatar;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSSet *publishedActivities;
+@property (nonatomic, retain) NSSet *publishedNews;
+@end
+
+@interface Organization (CoreDataGeneratedAccessors)
+
+- (void)addPublishedActivitiesObject:(Activity *)value;
+- (void)removePublishedActivitiesObject:(Activity *)value;
+- (void)addPublishedActivities:(NSSet *)values;
+- (void)removePublishedActivities:(NSSet *)values;
+
+- (void)addPublishedNewsObject:(News *)value;
+- (void)removePublishedNewsObject:(News *)value;
+- (void)addPublishedNews:(NSSet *)values;
+- (void)removePublishedNews:(NSSet *)values;
 
 @end
