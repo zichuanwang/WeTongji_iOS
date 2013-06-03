@@ -188,7 +188,7 @@
                                    action:(SEL)action {
     UIButton *button = [[UIButton alloc] init];
     [button setTitle:text forState:UIControlStateNormal];
-    button.titleEdgeInsets = UIEdgeInsetsMake(0, 18.0f, 0, 12.0f);
+    button.titleEdgeInsets = UIEdgeInsetsMake(0, 14.0f, 0, 8.0f);
     
     UIEdgeInsets bgImageEdgeInsets = UIEdgeInsetsMake(0.0, 14.0, 0.0, 6.0);
     UIImage *barBarNormalButtonImage = [[UIImage imageNamed:@"WTNavigationBarBackNormalButton"] resizableImageWithCapInsets:bgImageEdgeInsets];
