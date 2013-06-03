@@ -40,7 +40,7 @@
     result.studyPlan = @([[NSString stringWithFormat:@"%@", dict[@"Plan"]] integerValue]);
     result.enrollYear = @([[NSString stringWithFormat:@"%@", dict[@"Year"]] integerValue]);
     result.motto = [NSString stringWithFormat:@"%@", dict[@"Words"]];
-    if ([result.motto isEqualToString:@"<null>"]) {
+    if ([result.motto isEqualToString:@"<null>"] || [result.motto isEqualToString:@"(null)"]) {
         result.motto = nil;
     }
     

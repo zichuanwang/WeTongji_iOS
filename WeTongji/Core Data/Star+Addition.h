@@ -10,6 +10,9 @@
 
 @interface Star (Addition)
 
+@property (nonatomic, readonly) NSArray *imageURLStringArray;
+@property (nonatomic, readonly) NSArray *imageDescriptionArray;
+
 + (Star *)insertStar:(NSDictionary *)dict;
 
 + (Star *)starWithID:(NSString *)starID;

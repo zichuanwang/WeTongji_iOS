@@ -2,7 +2,7 @@
 //  Star.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-5-30.
+//  Created by 王 紫川 on 13-6-3.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -16,7 +16,7 @@
 @property (nonatomic, retain) NSString * avatar;
 @property (nonatomic, retain) NSString * content;
 @property (nonatomic, retain) NSDate * createdAt;
-@property (nonatomic, retain) id imageArray;
+@property (nonatomic, retain) id imageInfoDict;
 @property (nonatomic, retain) NSString * jobTitle;
 @property (nonatomic, retain) NSString * motto;
 @property (nonatomic, retain) NSString * name;

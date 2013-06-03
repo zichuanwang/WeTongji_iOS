@@ -16,7 +16,7 @@
 #import "WTDetailImageViewController.h"
 #import "WTOrganizationDetailViewController.h"
 
-@interface WTNewsDetailViewController () <WTDetaiImageViewControllerDelegate>
+@interface WTNewsDetailViewController () <WTDetailImageViewControllerDelegate>
 
 @property (nonatomic, strong) WTNewsBriefIntroductionView *briefIntroductionView;
 @property (nonatomic, strong) News *news;
@@ -151,6 +151,8 @@
                                                              fromRect:imageViewFrame
                                                              delegate:self];
 }
+
+#pragma mark - WTDetailImageViewControllerDelegate
 
 - (void)detailImageViewControllerDidDismiss:(NSUInteger)currentPage {
     self.imageRollView.scrollView.contentOffset = CGPointMake(self.imageRollView.scrollView.frame.size.width * currentPage, 0);

@@ -162,9 +162,10 @@
 - (void)configureRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"Star" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
-    NSSortDescriptor *updateTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createdAt" ascending:NO];
+    NSSortDescriptor *createTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createdAt" ascending:NO];
+    NSSortDescriptor *starNumberDescriptor = [[NSSortDescriptor alloc] initWithKey:@"starNumber" ascending:NO];
   
-    [request setSortDescriptors:@[updateTimeDescriptor]];
+    [request setSortDescriptors:@[createTimeDescriptor, starNumberDescriptor]];
     
     [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@", [Controller controllerModelForClass:[self class]].hasObjects]];
 }

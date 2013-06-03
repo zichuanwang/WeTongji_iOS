@@ -30,11 +30,11 @@
     result.avatar = [NSString stringWithFormat:@"%@", dict[@"Avatar"]];
     result.content = [[NSString stringWithFormat:@"%@", dict[@"Description"]] clearAllBacklashR];
     
-    NSArray *imageArray = dict[@"Images"];
-    if (imageArray.count == 0) {
-        result.imageArray = nil;
+    NSDictionary *imageInfoDict = dict[@"Images"];
+    if (imageInfoDict.count == 0) {
+        result.imageInfoDict = nil;
     } else {
-        result.imageArray = imageArray;
+        result.imageInfoDict = imageInfoDict;
     }
 
     result.jobTitle = [NSString stringWithFormat:@"%@", dict[@"JobTitle"]];
@@ -65,6 +65,24 @@
     Star *result = [[[WTCoreDataManager sharedManager].managedObjectContext executeFetchRequest:request error:NULL] lastObject];
     
     return result;
+}
+
+- (NSArray *)imageDescriptionArray {
+    NSMutableArray *imageDescriptionArray = [NSMutableArray array];
+    NSDictionary *imageInfoDict = self.imageInfoDict;
+    [imageInfoDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [imageDescriptionArray addObject:[NSString stringWithFormat:@"%@", obj]];
+    }];
+    return imageDescriptionArray;
+}
+
+- (NSArray *)imageURLStringArray {
+    NSMutableArray *imageURLStringArray = [NSMutableArray array];
+    NSDictionary *imageInfoDict = self.imageInfoDict;
+    [imageInfoDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        [imageURLStringArray addObject:[NSString stringWithFormat:@"%@", key]];
+    }];
+    return imageURLStringArray;
 }
 
 @end

@@ -28,9 +28,10 @@
 
 @interface WTActivityImageRollItemView : UIView
 
-@property (nonatomic, copy) NSString *imageURLString;
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 
 + (WTActivityImageRollItemView *)createItemViewWithImageURLString:(NSString *)imageURLString;
+
+- (void)reloadImage;
 
 @end

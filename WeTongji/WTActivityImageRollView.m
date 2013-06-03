@@ -27,9 +27,7 @@
 
 - (void)reloadItemImages {
     for (WTActivityImageRollItemView *itemView in self.itemViewArray) {
-        [itemView.imageView loadImageWithImageURLString:itemView.imageURLString success:^(UIImage *image) {
-            itemView.imageView.image = image;
-        } failure:nil];
+        [itemView reloadImage];
     }
 }
 
@@ -56,7 +54,6 @@
 
 - (void)addImageViewWithImageURLString:(NSString *)imageURLString {
     WTActivityImageRollItemView *itemView = [WTActivityImageRollItemView createItemViewWithImageURLString:imageURLString];
-    itemView.imageURLString = imageURLString;
     
     [itemView resetOriginX:self.itemViewArray.count * self.scrollView.frame.size.width];
     
@@ -87,6 +84,8 @@
 
 @interface WTActivityImageRollItemView ()
 
+@property (nonatomic, copy) NSString *imageURLString;
+
 @end
 
 @implementation WTActivityImageRollItemView
@@ -100,13 +99,19 @@
             break;
         }
     }
-    [result loadImageWithImageURLString:imageURLString];
     
+    result.imageURLString = imageURLString;
+    
+    [result.imageView loadImageWithImageURLString:imageURLString];
+        
     return result;
 }
 
-- (void)loadImageWithImageURLString:(NSString *)imageURLString {
-    [self.imageView loadImageWithImageURLString:imageURLString];
+- (void)reloadImage {
+    if (!self.imageView.image)
+        [self.imageView loadImageWithImageURLString:self.imageURLString success:^(UIImage *image) {
+            self.imageView.image = image;
+        } failure:nil];
 }
 
 @end

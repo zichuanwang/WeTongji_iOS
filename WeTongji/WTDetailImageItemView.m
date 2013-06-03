@@ -54,6 +54,7 @@
     [self.activityIndicator startAnimating];
     [self.imageView loadImageWithImageURLString:imageURLString success:^(UIImage *image) {
         self.imageView.image = image;
+        self.imageView.alpha = 1.0f;
         
         self.activityIndicator.hidden = YES;
         [self.activityIndicator stopAnimating];

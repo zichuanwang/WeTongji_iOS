@@ -19,7 +19,7 @@
 #import "WTActivityImageRollView.h"
 #import "WTOrganizationDetailViewController.h"
 
-@interface WTActivityDetailViewController () <WTDetaiImageViewControllerDelegate>
+@interface WTActivityDetailViewController () <WTDetailImageViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 

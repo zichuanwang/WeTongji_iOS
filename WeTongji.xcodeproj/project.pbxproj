@@ -109,7 +109,6 @@
 		E10E23391757366500DCF724 /* CommentableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E23381757366500DCF724 /* CommentableObject.m */; };
 		E10E233C1757366500DCF724 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E233B1757366500DCF724 /* Notification.m */; };
 		E10E233F1757366500DCF724 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E233E1757366500DCF724 /* Controller.m */; };
-		E10E23421757366600DCF724 /* Star.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E23411757366600DCF724 /* Star.m */; };
 		E10E23481757366600DCF724 /* Advertisement.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E23471757366600DCF724 /* Advertisement.m */; };
 		E10E234B1757366600DCF724 /* BillboardPost.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E234A1757366600DCF724 /* BillboardPost.m */; };
 		E10E234E1757366600DCF724 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E234D1757366600DCF724 /* Comment.m */; };
@@ -316,6 +315,7 @@
 		E15E4DBB175C970A00BBAE9A /* WTStarDetailDescriptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DBA175C970A00BBAE9A /* WTStarDetailDescriptionView.xib */; };
 		E15E4DBF175C973500BBAE9A /* WTStarImageRollView.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DBD175C973400BBAE9A /* WTStarImageRollView.m */; };
 		E15E4DC0175C973500BBAE9A /* WTStarImageRollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DBE175C973400BBAE9A /* WTStarImageRollView.xib */; };
+		E15E4DC3175CA61C00BBAE9A /* Star.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DC2175CA61B00BBAE9A /* Star.m */; };
 		E16D5DCA174619A900740D79 /* Advertisement+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E16D5DC9174619A900740D79 /* Advertisement+Addition.m */; };
 		E16E961D1733AA550055DE27 /* WTOrangeBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961B1733AA550055DE27 /* WTOrangeBg.png */; };
 		E16E961E1733AA550055DE27 /* WTOrangeBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961C1733AA550055DE27 /* WTOrangeBg@2x.png */; };
@@ -756,8 +756,6 @@
 		E10E233B1757366500DCF724 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		E10E233D1757366500DCF724 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
 		E10E233E1757366500DCF724 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
-		E10E23401757366600DCF724 /* Star.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Star.h; sourceTree = "<group>"; };
-		E10E23411757366600DCF724 /* Star.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Star.m; sourceTree = "<group>"; };
 		E10E23461757366600DCF724 /* Advertisement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Advertisement.h; sourceTree = "<group>"; };
 		E10E23471757366600DCF724 /* Advertisement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Advertisement.m; sourceTree = "<group>"; };
 		E10E23491757366600DCF724 /* BillboardPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillboardPost.h; sourceTree = "<group>"; };
@@ -1026,6 +1024,8 @@
 		E15E4DBC175C973400BBAE9A /* WTStarImageRollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTStarImageRollView.h; sourceTree = "<group>"; };
 		E15E4DBD175C973400BBAE9A /* WTStarImageRollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTStarImageRollView.m; sourceTree = "<group>"; };
 		E15E4DBE175C973400BBAE9A /* WTStarImageRollView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTStarImageRollView.xib; sourceTree = "<group>"; };
+		E15E4DC1175CA61B00BBAE9A /* Star.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Star.h; sourceTree = "<group>"; };
+		E15E4DC2175CA61B00BBAE9A /* Star.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Star.m; sourceTree = "<group>"; };
 		E16D5DC8174619A900740D79 /* Advertisement+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Advertisement+Addition.h"; sourceTree = "<group>"; };
 		E16D5DC9174619A900740D79 /* Advertisement+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Advertisement+Addition.m"; sourceTree = "<group>"; };
 		E16E961B1733AA550055DE27 /* WTOrangeBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTOrangeBg.png; sourceTree = "<group>"; };
@@ -2691,8 +2691,6 @@
 				E10E233B1757366500DCF724 /* Notification.m */,
 				E10E2355175737BF00DCF724 /* Object.h */,
 				E10E2356175737BF00DCF724 /* Object.m */,
-				E10E23401757366600DCF724 /* Star.h */,
-				E10E23411757366600DCF724 /* Star.m */,
 				E15E4D9E175A60BC00BBAE9A /* User.h */,
 				E15E4D9F175A60BC00BBAE9A /* User.m */,
 				E15E4DA7175C798400BBAE9A /* Activity.h */,
@@ -2701,6 +2699,8 @@
 				E15E4DAB175C798700BBAE9A /* Organization.m */,
 				E15E4DAD175C798800BBAE9A /* News.h */,
 				E15E4DAE175C798800BBAE9A /* News.m */,
+				E15E4DC1175CA61B00BBAE9A /* Star.h */,
+				E15E4DC2175CA61B00BBAE9A /* Star.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3416,7 +3416,6 @@
 				E10E23391757366500DCF724 /* CommentableObject.m in Sources */,
 				E10E233C1757366500DCF724 /* Notification.m in Sources */,
 				E10E233F1757366500DCF724 /* Controller.m in Sources */,
-				E10E23421757366600DCF724 /* Star.m in Sources */,
 				E10E23481757366600DCF724 /* Advertisement.m in Sources */,
 				E10E234B1757366600DCF724 /* BillboardPost.m in Sources */,
 				E10E234E1757366600DCF724 /* Comment.m in Sources */,
@@ -3434,6 +3433,7 @@
 				E15E4DB6175C8E8100BBAE9A /* WTOrganizationHeaderView.m in Sources */,
 				E15E4DB9175C96F100BBAE9A /* WTStarDetailDescriptionView.m in Sources */,
 				E15E4DBF175C973500BBAE9A /* WTStarImageRollView.m in Sources */,
+				E15E4DC3175CA61C00BBAE9A /* Star.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

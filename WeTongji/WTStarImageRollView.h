@@ -16,7 +16,7 @@
 @property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
 @property (nonatomic, weak) IBOutlet UIImageView *rightShadowImageView;
 
-+ (WTStarImageRollView *)createImageRollViewWithImageURLStringArray:(NSArray *)imageURLArray;
++ (WTStarImageRollView *)createImageRollViewWithImageURLStringArray:(NSArray *)imageURLArray imageDescriptionArray:(NSArray *)descriptionArray;
 
 - (WTStarImageRollItemView *)currentItemView;
 
@@ -28,9 +28,11 @@
 
 @interface WTStarImageRollItemView : UIView
 
-@property (nonatomic, copy) NSString *imageURLString;
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
+@property (nonatomic, weak) IBOutlet UILabel *descriptionLabel;
 
-+ (WTStarImageRollItemView *)createItemViewWithImageURLString:(NSString *)imageURLString;
++ (WTStarImageRollItemView *)createItemViewWithImageURLString:(NSString *)imageURLString imageDescription:(NSString *)description;
+
+- (void)reloadImage;
 
 @end

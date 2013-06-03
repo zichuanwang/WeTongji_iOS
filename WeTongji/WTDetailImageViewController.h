@@ -8,29 +8,29 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol WTDetaiImageViewControllerDelegate;
+@protocol WTDetailImageViewControllerDelegate;
 
 @interface WTDetailImageViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet UIView *bgView;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
-@property (nonatomic, weak) id<WTDetaiImageViewControllerDelegate> delegate;
+@property (nonatomic, weak) id<WTDetailImageViewControllerDelegate> delegate;
 
 + (void)showDetailImageViewWithImageURLString:(NSString *)imageURLString
                                 fromImageView:(UIImageView *)fromImageView
                                      fromRect:(CGRect)fromRect
-                                     delegate:(id<WTDetaiImageViewControllerDelegate>)delegate;
+                                     delegate:(id<WTDetailImageViewControllerDelegate>)delegate;
 
 + (void)showDetailImageViewWithImageURLArray:(NSArray *)imageURLArray
                                  currentPage:(NSUInteger)currentPage
                                fromImageView:(UIImageView *)fromImageView
                                     fromRect:(CGRect)fromRect
-                                    delegate:(id<WTDetaiImageViewControllerDelegate>)delegate;
+                                    delegate:(id<WTDetailImageViewControllerDelegate>)delegate;
 
 @end
 
-@protocol WTDetaiImageViewControllerDelegate <NSObject>
+@protocol WTDetailImageViewControllerDelegate <NSObject>
 
 @optional
 - (void)detailImageViewControllerDidDismiss:(NSUInteger)currentPage;

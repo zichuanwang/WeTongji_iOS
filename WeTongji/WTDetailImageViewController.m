@@ -48,7 +48,7 @@
 + (void)showDetailImageViewWithImageURLString:(NSString *)imageURLString
                                 fromImageView:(UIImageView *)fromImageView
                                      fromRect:(CGRect)fromRect
-                                     delegate:(id<WTDetaiImageViewControllerDelegate>)delegate {
+                                     delegate:(id<WTDetailImageViewControllerDelegate>)delegate {
     [WTDetailImageViewController showDetailImageViewWithImageURLArray:@[imageURLString]
                                                           currentPage:0
                                                         fromImageView:fromImageView
@@ -60,7 +60,7 @@
                                  currentPage:(NSUInteger)currentPage
                                fromImageView:(UIImageView *)fromImageView
                                     fromRect:(CGRect)fromRect
-                                    delegate:(id<WTDetaiImageViewControllerDelegate>)delegate {
+                                    delegate:(id<WTDetailImageViewControllerDelegate>)delegate {
     WTDetailImageViewController *vc = [WTDetailImageViewController createDetailImageViewControllerWithImageURLArray:imageURLArray];
     vc.initPage = currentPage;
     vc.showFromImageView = fromImageView;

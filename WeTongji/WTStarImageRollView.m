@@ -27,13 +27,11 @@
 
 - (void)reloadItemImages {
     for (WTStarImageRollItemView *itemView in self.itemViewArray) {
-        [itemView.imageView loadImageWithImageURLString:itemView.imageURLString success:^(UIImage *image) {
-            itemView.imageView.image = image;
-        } failure:nil];
+        [itemView reloadImage];
     }
 }
 
-+ (WTStarImageRollView *)createImageRollViewWithImageURLStringArray:(NSArray *)imageURLArray {
++ (WTStarImageRollView *)createImageRollViewWithImageURLStringArray:(NSArray *)imageURLArray imageDescriptionArray:(NSArray *)descriptionArray {
     WTStarImageRollView *result = nil;
     NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"WTStarImageRollView" owner:nil options:nil];
     for (UIView *view in views) {
@@ -44,8 +42,8 @@
     }
     result.itemViewArray = [NSMutableArray arrayWithCapacity:4];
     
-    for (NSString *imageURLString in imageURLArray) {
-        [result addImageViewWithImageURLString:imageURLString];
+    for (NSInteger i = 0; i < imageURLArray.count; i++) {
+        [result addImageViewWithImageURLString:imageURLArray[i] description:descriptionArray[i]];
     }
     
     result.scrollView.contentSize = CGSizeMake(result.scrollView.frame.size.width * result.itemViewArray.count, result.scrollView.frame.size.height);
@@ -54,9 +52,8 @@
     return result;
 }
 
-- (void)addImageViewWithImageURLString:(NSString *)imageURLString {
-    WTStarImageRollItemView *itemView = [WTStarImageRollItemView createItemViewWithImageURLString:imageURLString];
-    itemView.imageURLString = imageURLString;
+- (void)addImageViewWithImageURLString:(NSString *)imageURLString description:(NSString *)description {
+    WTStarImageRollItemView *itemView = [WTStarImageRollItemView createItemViewWithImageURLString:imageURLString imageDescription:description];
     
     [itemView resetOriginX:self.itemViewArray.count * self.scrollView.frame.size.width];
     
@@ -87,11 +84,14 @@
 
 @interface WTStarImageRollItemView ()
 
+@property (nonatomic, copy) NSString *imageURLString;
+@property (nonatomic, copy) NSString *descriptionString;
+
 @end
 
 @implementation WTStarImageRollItemView
 
-+ (WTStarImageRollItemView *)createItemViewWithImageURLString:(NSString *)imageURLString {
++ (WTStarImageRollItemView *)createItemViewWithImageURLString:(NSString *)imageURLString imageDescription:(NSString *)description {
     WTStarImageRollItemView *result = nil;
     NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"WTStarImageRollView" owner:nil options:nil];
     for (UIView *view in views) {
@@ -100,13 +100,29 @@
             break;
         }
     }
-    [result loadImageWithImageURLString:imageURLString];
+    
+    result.imageURLString = imageURLString;
+    result.descriptionString = description;
+    
+    [result configureView];
     
     return result;
 }
 
-- (void)loadImageWithImageURLString:(NSString *)imageURLString {
-    [self.imageView loadImageWithImageURLString:imageURLString];
+- (void)configureView {
+    [self.imageView loadImageWithImageURLString:self.imageURLString];
+    
+    CGFloat descriptionLabelOriginalWidth = self.descriptionLabel.frame.size.width;
+    self.descriptionLabel.text = self.descriptionString;
+    [self.descriptionLabel sizeToFit];
+    [self.descriptionLabel resetWidth:descriptionLabelOriginalWidth];
+}
+
+- (void)reloadImage {
+    if (!self.imageView.image)
+        [self.imageView loadImageWithImageURLString:self.imageURLString success:^(UIImage *image) {
+            self.imageView.image = image;
+        } failure:nil];
 }
 
 @end

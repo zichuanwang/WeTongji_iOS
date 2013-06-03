@@ -37,9 +37,7 @@
 
 - (void)reloadItemImages {
     for (WTNewsImageRollItemView *itemView in self.itemViewArray) {
-        [itemView.imageView loadImageWithImageURLString:itemView.imageURLString success:^(UIImage *image) {
-            itemView.imageView.image = image;
-        } failure:nil];
+        [itemView reloadImage];
     }
 }
 
@@ -66,7 +64,6 @@
 
 - (void)addImageViewWithImageURLString:(NSString *)imageURLString {
     WTNewsImageRollItemView *itemView = [WTNewsImageRollItemView createItemViewWithImageURLString:imageURLString];
-    itemView.imageURLString = imageURLString;
     
     itemView.center = CGPointMake((self.scrollView.frame.size.width * (self.itemViewArray.count * 2 + 1)) / 2, self.scrollView.frame.size.height / 2);
     [self.scrollView addSubview:itemView];
@@ -92,6 +89,12 @@
 
 @end
 
+@interface WTNewsImageRollItemView ()
+
+@property (nonatomic, copy) NSString *imageURLString;
+
+@end
+
 @implementation WTNewsImageRollItemView
 
 + (WTNewsImageRollItemView *)createItemViewWithImageURLString:(NSString *)imageURLString {
@@ -103,13 +106,19 @@
             break;
         }
     }
-    [result loadImageWithImageURLString:imageURLString];
+    
+    result.imageURLString = imageURLString;
+    
+    [result.imageView loadImageWithImageURLString:imageURLString];
     
     return result;
 }
 
-- (void)loadImageWithImageURLString:(NSString *)imageURLString {
-    [self.imageView loadImageWithImageURLString:imageURLString];
+- (void)reloadImage {
+    if (!self.imageView.image)
+        [self.imageView loadImageWithImageURLString:self.imageURLString success:^(UIImage *image) {
+            self.imageView.image = image;
+        } failure:nil];
 }
 
 @end

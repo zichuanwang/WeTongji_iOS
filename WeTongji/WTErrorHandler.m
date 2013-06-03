@@ -11,14 +11,16 @@
 #import "UIApplication+WTAddition.h"
 #import "WTLoginViewController.h"
 
-@implementation WTErrorHandler
+@implementation WTErrorHandler 
 
 + (void)handleError:(NSError *)error {
     
     if (error.code == ErrorCodeUserSessionExpired || error.code == ErrorCodeNeedUserLogin) {
         [WTLoginViewController showWithIntro:NO];
+    } else if (error.code == 4) {
+        // 缺少必要的系统参数
     } else {
-        [[[UIAlertView alloc] initWithTitle:@"请求失败" message:error.localizedDescription delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil] show];
+        [[[UIAlertView alloc] initWithTitle:@"请求失败" message:error.localizedDescription delegate:self cancelButtonTitle:@"好" otherButtonTitles:nil] show];
     }
 }
 
