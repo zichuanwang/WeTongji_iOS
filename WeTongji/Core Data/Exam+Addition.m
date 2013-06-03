@@ -33,7 +33,7 @@
     result.endTime = [[NSString stringWithFormat:@"%@", dict[@"End"]] convertToDate];
     
     result.hours = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"Hours"]] intValue]];
-    result.point = [NSNumber numberWithFloat: [[NSString stringWithFormat:@"%@", dict[@"Point"]] floatValue]];
+    result.credit = [NSNumber numberWithFloat: [[NSString stringWithFormat:@"%@", dict[@"Point"]] floatValue]];
     result.required = [NSString stringWithFormat:@"%@", dict[@"Required"]];
     
     result.beginDay = [result.beginTime convertToYearMonthDayString];

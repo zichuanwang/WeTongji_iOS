@@ -45,7 +45,7 @@
                        [Course getDayTimeIntervalFromSection:result.sectionEnd.intValue]];
     
     result.hours = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"Hours"]] intValue]];
-    result.point = [NSNumber numberWithFloat: [[NSString stringWithFormat:@"%@", dict[@"Point"]] floatValue]];
+    result.credit = [NSNumber numberWithFloat: [[NSString stringWithFormat:@"%@", dict[@"Point"]] floatValue]];
     result.required = [NSString stringWithFormat:@"%@", dict[@"Required"]];
     
     result.weekType = [NSString stringWithFormat:@"%@", dict[@"WeekType"]];
