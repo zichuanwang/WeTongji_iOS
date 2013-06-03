@@ -308,6 +308,8 @@
 		E15BBF251717D5F40021CCCD /* WTRoundCornerPanelCuppedBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E15BBF231717D5F40021CCCD /* WTRoundCornerPanelCuppedBg@2x.png */; };
 		E15C3D1A16C37B3200A91AAF /* WTConfigLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = E15C3D1916C37B3200A91AAF /* WTConfigLoader.m */; };
 		E15E4DA0175A60BC00BBAE9A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4D9F175A60BC00BBAE9A /* User.m */; };
+		E15E4DA4175B21DD00BBAE9A /* WTStarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DA3175B21DD00BBAE9A /* WTStarHeaderView.m */; };
+		E15E4DA6175B23FE00BBAE9A /* WTStarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DA5175B23FE00BBAE9A /* WTStarHeaderView.xib */; };
 		E16D5DCA174619A900740D79 /* Advertisement+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E16D5DC9174619A900740D79 /* Advertisement+Addition.m */; };
 		E16E961D1733AA550055DE27 /* WTOrangeBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961B1733AA550055DE27 /* WTOrangeBg.png */; };
 		E16E961E1733AA550055DE27 /* WTOrangeBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961C1733AA550055DE27 /* WTOrangeBg@2x.png */; };
@@ -1006,6 +1008,9 @@
 		E15C3D1916C37B3200A91AAF /* WTConfigLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTConfigLoader.m; sourceTree = "<group>"; };
 		E15E4D9E175A60BC00BBAE9A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		E15E4D9F175A60BC00BBAE9A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		E15E4DA2175B21DD00BBAE9A /* WTStarHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTStarHeaderView.h; sourceTree = "<group>"; };
+		E15E4DA3175B21DD00BBAE9A /* WTStarHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTStarHeaderView.m; sourceTree = "<group>"; };
+		E15E4DA5175B23FE00BBAE9A /* WTStarHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTStarHeaderView.xib; sourceTree = "<group>"; };
 		E16D5DC8174619A900740D79 /* Advertisement+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Advertisement+Addition.h"; sourceTree = "<group>"; };
 		E16D5DC9174619A900740D79 /* Advertisement+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Advertisement+Addition.m"; sourceTree = "<group>"; };
 		E16E961B1733AA550055DE27 /* WTOrangeBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTOrangeBg.png; sourceTree = "<group>"; };
@@ -1933,6 +1938,7 @@
 		E14FA67D1680B9BB008A8D33 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				E15E4DA1175B21B500BBAE9A /* Star */,
 				E11825DA17154A8000B4B9BF /* Activity */,
 				E17F9E7317130C4100DC6AB6 /* Banner */,
 				E1428693171AE02F006AB739 /* Billboard */,
@@ -1970,6 +1976,16 @@
 				E1528D6A16C5533C00BD2B42 /* WTNewsSettingConfig.plist */,
 			);
 			name = Config;
+			sourceTree = "<group>";
+		};
+		E15E4DA1175B21B500BBAE9A /* Star */ = {
+			isa = PBXGroup;
+			children = (
+				E15E4DA2175B21DD00BBAE9A /* WTStarHeaderView.h */,
+				E15E4DA3175B21DD00BBAE9A /* WTStarHeaderView.m */,
+				E15E4DA5175B23FE00BBAE9A /* WTStarHeaderView.xib */,
+			);
+			name = Star;
 			sourceTree = "<group>";
 		};
 		E172AFF9174F6D8000DEB920 /* Course */ = {
@@ -3199,6 +3215,7 @@
 				E172B00E174FF5EA00DEB920 /* WTDisableButton.png in Resources */,
 				E172B00F174FF5EA00DEB920 /* WTDisableButton@2x.png in Resources */,
 				E10E236F17577F3500DCF724 /* WTLikeListViewController.xib in Resources */,
+				E15E4DA6175B23FE00BBAE9A /* WTStarHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3386,6 +3403,7 @@
 				E10E236E17577F3500DCF724 /* WTLikeListViewController.m in Sources */,
 				E110F6D11757AEB500F19B7D /* WTShowAllKindsOfCellsViewController.m in Sources */,
 				E15E4DA0175A60BC00BBAE9A /* User.m in Sources */,
+				E15E4DA4175B21DD00BBAE9A /* WTStarHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -60,7 +60,7 @@
     [senderNameString setTextBold:YES range:NSMakeRange(0, senderNameString.length)];
     [senderNameString setTextColor:[UIColor whiteColor]];
     [senderNameString setFont:[UIFont boldSystemFontOfSize:14.0f]];
-    NSMutableAttributedString* messageContentString = [NSMutableAttributedString attributedStringWithString:NSLocalizedString(@"wants to be in your friend list.", nil)];
+    NSMutableAttributedString* messageContentString = [NSMutableAttributedString attributedStringWithString:NSLocalizedString(@"wants to be your friend.", nil)];
     [messageContentString setTextColor:WTNotificationCellLightGrayColor];
     [messageContentString setFont:[UIFont systemFontOfSize:14.0f]];
     [messageContentString insertAttributedString:senderNameString atIndex:0];
@@ -74,7 +74,7 @@
 }
 
 + (NSString *)generateNotificationContentStringWithSenderName:(NSString *)senderName {
-    return [NSString stringWithFormat:@"%@ %@", senderName, NSLocalizedString(@"wants to be in your friend list.", nil)];
+    return [NSString stringWithFormat:@"%@ %@", senderName, NSLocalizedString(@"wants to be your friend.", nil)];
 }
 
 #pragma mark - UI methods

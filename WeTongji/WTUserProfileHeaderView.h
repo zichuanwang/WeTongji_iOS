@@ -8,11 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum {
-    ProfileHeaderViewTypeSelf,
-    ProfileHeaderViewTypeFriend,
-} ProfileHeaderViewType;
-
 @class User;
 
 @interface WTUserProfileHeaderView : UIView
@@ -28,8 +23,6 @@ typedef enum {
 @property (nonatomic, weak) IBOutlet UIImageView *genderIndicatorImageView;
 @property (nonatomic, weak) IBOutlet UILabel *schoolLabel;
 @property (nonatomic, weak) IBOutlet UIButton *functionButton;
-
-@property (nonatomic, assign) ProfileHeaderViewType type;
 
 + (WTUserProfileHeaderView *)createProfileHeaderViewWithUser:(User *)user;
 

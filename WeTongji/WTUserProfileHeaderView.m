@@ -11,7 +11,6 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIImageView+AsyncLoading.h"
 #import "UIImage+StackBlur.h"
-#import "UIImage+ProportionalFill.h"
 #import "WTCoreDataManager.h"
 
 @interface WTUserProfileHeaderView ()
@@ -48,20 +47,18 @@
 
 #define MOTTO_LABEL_MAX_HEIGHT 57.0f
 
-- (void)configureViewWithUser:(User *)user {
+- (void)configureView {
     
-    self.user = user;
-
     [self configureAvatarImageView];
     
-    if ([user.gender isEqualToString:@"男"]) {
+    if ([self.user.gender isEqualToString:@"男"]) {
         self.genderIndicatorImageView.image = [UIImage imageNamed:@"WTGenderWhiteMaleIcon"];
     } else {
         self.genderIndicatorImageView.image = [UIImage imageNamed:@"WTGenderWhiteFemaleIcon"];
     }
     
     User *currentUser = [WTCoreDataManager sharedManager].currentUser;
-    if ([user.identifier isEqualToString:currentUser.identifier]) {
+    if ([self.user.identifier isEqualToString:currentUser.identifier]) {
         [self.functionButton setTitle:NSLocalizedString(@"New Avatar", nil) forState:UIControlStateNormal];
     } else {
         // 判断是否为好友
@@ -72,7 +69,7 @@
         }
     }
     
-    self.schoolLabel.text = user.department;
+    self.schoolLabel.text = self.user.department;
     
     self.schoolLabel.layer.masksToBounds = NO;
     self.schoolLabel.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -80,8 +77,8 @@
     self.schoolLabel.layer.shadowOffset = CGSizeMake(0, 1.0f);
     self.schoolLabel.layer.shadowRadius = 1.0f;
     
-    if ([WTCoreDataManager sharedManager].currentUser != user) {
-        self.userNameLabel.text = user.name;
+    if ([WTCoreDataManager sharedManager].currentUser != self.user) {
+        self.userNameLabel.text = self.user.name;
         
         self.userNameLabel.layer.masksToBounds = NO;
         self.userNameLabel.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -93,8 +90,8 @@
     }
     [self.userNameLabel sizeToFit];
     
-    if (user.motto) {
-        self.mottoLabel.text = [NSString stringWithFormat:@"\"%@\"", user.motto];
+    if (self.user.motto) {
+        self.mottoLabel.text = [NSString stringWithFormat:@"\"%@\"", self.user.motto];
         
         self.mottoLabel.layer.masksToBounds = NO;
         self.mottoLabel.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -124,12 +121,16 @@
     });
 }
 
+#pragma mark - Factory methods
+
 + (WTUserProfileHeaderView *)createProfileHeaderViewWithUser:(User *)user {
     WTUserProfileHeaderView *result = [[NSBundle mainBundle] loadNibNamed:@"WTUserProfileHeaderView" owner:nil options:nil].lastObject;
-
-    [result configureViewWithUser:user];
+    result.user = user;
+    [result configureView];
     return result;
 }
+
+#pragma mark - Public methods
 
 - (void)updateAvatarImage:(UIImage *)image {
     

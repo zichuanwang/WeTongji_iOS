@@ -12,6 +12,8 @@
 
 @interface WTStarDetailViewController : WTDetailViewController
 
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+
 + (WTStarDetailViewController *)createDetailViewControllerWithStar:(Star *)star
                                                  backBarButtonText:(NSString *)backBarButtonText;
 
