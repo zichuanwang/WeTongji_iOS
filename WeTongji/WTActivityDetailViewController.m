@@ -18,8 +18,9 @@
 #import "WTActivityHeaderView.h"
 #import "WTActivityImageRollView.h"
 #import "WTOrganizationDetailViewController.h"
+#import "WTSelectFriendsViewController.h"
 
-@interface WTActivityDetailViewController () <WTDetailImageViewControllerDelegate>
+@interface WTActivityDetailViewController () <WTDetailImageViewControllerDelegate, WTSelectFriendsViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
@@ -154,7 +155,7 @@
 }
 
 - (void)didClickInviteButton:(UIButton *)sender {
-    NSLog(@"Invite button clicked");
+    [WTSelectFriendsViewController showWithDelegate:self];
 }
 
 - (void)didClickFriendCountButton:(UIButton *)sender {
@@ -220,6 +221,24 @@
 
 - (LikeableObject *)targetObject {
     return self.activity;
+}
+
+#pragma mark - WTSelectFriendsViewControllerDelegate
+
+- (void)selectFriendViewControllerDidDismiss:(WTSelectFriendsViewController *)vc {
+    if (vc.selectedFriendsArray.count == 0) {
+        return;
+    }
+    
+    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        WTLOG(@"Activity invite success:%@", responseObject);
+        [[[UIAlertView alloc] initWithTitle:@"注意" message:@"邀请好友成功" delegate:nil cancelButtonTitle:@"号" otherButtonTitles:nil] show];
+    } failureBlock:^(NSError *error) {
+        [WTErrorHandler handleError:error];
+    }];
+    User *user = vc.selectedFriendsArray.lastObject;
+    [request activityInvite:self.activity.identifier inviteUserID:user.identifier];
+    [[WTClient sharedClient] enqueueRequest:request];
 }
 
 @end

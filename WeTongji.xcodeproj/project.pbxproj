@@ -318,6 +318,14 @@
 		E15E4DC6175CB9C300BBAE9A /* WTCourseProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DC5175CB9C300BBAE9A /* WTCourseProfileView.m */; };
 		E15E4DC8175CB9E300BBAE9A /* WTCourseProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DC7175CB9E300BBAE9A /* WTCourseProfileView.xib */; };
 		E15E4DCB175CBA7000BBAE9A /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DCA175CBA6F00BBAE9A /* Course.m */; };
+		E15E4DCF175D0B3E00BBAE9A /* WTSelectFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DCD175D0B3E00BBAE9A /* WTSelectFriendsViewController.m */; };
+		E15E4DD0175D0B3E00BBAE9A /* WTSelectFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DCE175D0B3E00BBAE9A /* WTSelectFriendsViewController.xib */; };
+		E15E4DD4175D0CA300BBAE9A /* WTSelectUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DD2175D0CA000BBAE9A /* WTSelectUserCell.m */; };
+		E15E4DD5175D0CA300BBAE9A /* WTSelectUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DD3175D0CA100BBAE9A /* WTSelectUserCell.xib */; };
+		E15E4DDA175D0D6900BBAE9A /* WTCheckmarkHighlightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DD6175D0D6900BBAE9A /* WTCheckmarkHighlightButton.png */; };
+		E15E4DDB175D0D6900BBAE9A /* WTCheckmarkHighlightButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DD7175D0D6900BBAE9A /* WTCheckmarkHighlightButton@2x.png */; };
+		E15E4DDC175D0D6900BBAE9A /* WTCheckmarkNormalButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DD8175D0D6900BBAE9A /* WTCheckmarkNormalButton.png */; };
+		E15E4DDD175D0D6900BBAE9A /* WTCheckmarkNormalButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DD9175D0D6900BBAE9A /* WTCheckmarkNormalButton@2x.png */; };
 		E16D5DCA174619A900740D79 /* Advertisement+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E16D5DC9174619A900740D79 /* Advertisement+Addition.m */; };
 		E16E961D1733AA550055DE27 /* WTOrangeBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961B1733AA550055DE27 /* WTOrangeBg.png */; };
 		E16E961E1733AA550055DE27 /* WTOrangeBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961C1733AA550055DE27 /* WTOrangeBg@2x.png */; };
@@ -1031,6 +1039,16 @@
 		E15E4DC7175CB9E300BBAE9A /* WTCourseProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTCourseProfileView.xib; sourceTree = "<group>"; };
 		E15E4DC9175CBA6F00BBAE9A /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
 		E15E4DCA175CBA6F00BBAE9A /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		E15E4DCC175D0B3E00BBAE9A /* WTSelectFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSelectFriendsViewController.h; sourceTree = "<group>"; };
+		E15E4DCD175D0B3E00BBAE9A /* WTSelectFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSelectFriendsViewController.m; sourceTree = "<group>"; };
+		E15E4DCE175D0B3E00BBAE9A /* WTSelectFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSelectFriendsViewController.xib; sourceTree = "<group>"; };
+		E15E4DD1175D0C9F00BBAE9A /* WTSelectUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSelectUserCell.h; sourceTree = "<group>"; };
+		E15E4DD2175D0CA000BBAE9A /* WTSelectUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSelectUserCell.m; sourceTree = "<group>"; };
+		E15E4DD3175D0CA100BBAE9A /* WTSelectUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSelectUserCell.xib; sourceTree = "<group>"; };
+		E15E4DD6175D0D6900BBAE9A /* WTCheckmarkHighlightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTCheckmarkHighlightButton.png; sourceTree = "<group>"; };
+		E15E4DD7175D0D6900BBAE9A /* WTCheckmarkHighlightButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTCheckmarkHighlightButton@2x.png"; sourceTree = "<group>"; };
+		E15E4DD8175D0D6900BBAE9A /* WTCheckmarkNormalButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTCheckmarkNormalButton.png; sourceTree = "<group>"; };
+		E15E4DD9175D0D6900BBAE9A /* WTCheckmarkNormalButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTCheckmarkNormalButton@2x.png"; sourceTree = "<group>"; };
 		E16D5DC8174619A900740D79 /* Advertisement+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Advertisement+Addition.h"; sourceTree = "<group>"; };
 		E16D5DC9174619A900740D79 /* Advertisement+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Advertisement+Addition.m"; sourceTree = "<group>"; };
 		E16E961B1733AA550055DE27 /* WTOrangeBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTOrangeBg.png; sourceTree = "<group>"; };
@@ -1892,6 +1910,10 @@
 		E14FA67C1680A9F7008A8D33 /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				E15E4DD6175D0D6900BBAE9A /* WTCheckmarkHighlightButton.png */,
+				E15E4DD7175D0D6900BBAE9A /* WTCheckmarkHighlightButton@2x.png */,
+				E15E4DD8175D0D6900BBAE9A /* WTCheckmarkNormalButton.png */,
+				E15E4DD9175D0D6900BBAE9A /* WTCheckmarkNormalButton@2x.png */,
 				E14FA6AF1681F7FC008A8D33 /* WTCommentButton.png */,
 				E14FA6B11681F7FC008A8D33 /* WTCommentButton@2x.png */,
 				E172B00C174FF5EA00DEB920 /* WTDisableButton.png */,
@@ -2060,6 +2082,9 @@
 				E177E62F16EE11720029130F /* WTFriendListViewController.h */,
 				E177E63016EE11720029130F /* WTFriendListViewController.m */,
 				E177E63116EE11720029130F /* WTFriendListViewController.xib */,
+				E15E4DCC175D0B3E00BBAE9A /* WTSelectFriendsViewController.h */,
+				E15E4DCD175D0B3E00BBAE9A /* WTSelectFriendsViewController.m */,
+				E15E4DCE175D0B3E00BBAE9A /* WTSelectFriendsViewController.xib */,
 			);
 			name = Friends;
 			sourceTree = "<group>";
@@ -2597,6 +2622,9 @@
 				E177E63416EE172C0029130F /* WTUserCell.h */,
 				E177E63516EE172C0029130F /* WTUserCell.m */,
 				E177E63616EE172C0029130F /* WTUserCell.xib */,
+				E15E4DD1175D0C9F00BBAE9A /* WTSelectUserCell.h */,
+				E15E4DD2175D0CA000BBAE9A /* WTSelectUserCell.m */,
+				E15E4DD3175D0CA100BBAE9A /* WTSelectUserCell.xib */,
 			);
 			name = CustomCells;
 			sourceTree = "<group>";
@@ -3252,6 +3280,12 @@
 				E15E4DBB175C970A00BBAE9A /* WTStarDetailDescriptionView.xib in Resources */,
 				E15E4DC0175C973500BBAE9A /* WTStarImageRollView.xib in Resources */,
 				E15E4DC8175CB9E300BBAE9A /* WTCourseProfileView.xib in Resources */,
+				E15E4DD0175D0B3E00BBAE9A /* WTSelectFriendsViewController.xib in Resources */,
+				E15E4DD5175D0CA300BBAE9A /* WTSelectUserCell.xib in Resources */,
+				E15E4DDA175D0D6900BBAE9A /* WTCheckmarkHighlightButton.png in Resources */,
+				E15E4DDB175D0D6900BBAE9A /* WTCheckmarkHighlightButton@2x.png in Resources */,
+				E15E4DDC175D0D6900BBAE9A /* WTCheckmarkNormalButton.png in Resources */,
+				E15E4DDD175D0D6900BBAE9A /* WTCheckmarkNormalButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3444,6 +3478,8 @@
 				E15E4DC3175CA61C00BBAE9A /* Star.m in Sources */,
 				E15E4DC6175CB9C300BBAE9A /* WTCourseProfileView.m in Sources */,
 				E15E4DCB175CBA7000BBAE9A /* Course.m in Sources */,
+				E15E4DCF175D0B3E00BBAE9A /* WTSelectFriendsViewController.m in Sources */,
+				E15E4DD4175D0CA300BBAE9A /* WTSelectUserCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

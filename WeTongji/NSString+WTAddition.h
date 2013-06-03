@@ -26,6 +26,7 @@
 + (NSString *)friendCountStringConvertFromCountNumber:(NSNumber *)countNumber;
 + (NSString *)commentCountStringConvertFromCountNumber:(NSNumber *)countNumber;
 + (NSString *)searchCategoryStringForCategory:(NSInteger)category;
++ (NSString *)inviteStringConvertFromCount:(NSInteger)count;
 
 - (UIColor *)converHexStringToColorWithAlpha:(CGFloat)alpha;
 
