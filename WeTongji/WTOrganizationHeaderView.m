@@ -61,7 +61,7 @@
     self.orgNameLabel.layer.shadowRadius = 1.0f;
     [self.orgNameLabel sizeToFit];
     
-    if (self.org.description) {
+    if (self.org.about) {
         self.descriptionLabel.text = [NSString stringWithFormat:@"“%@”", self.org.about];
         
         self.descriptionLabel.layer.masksToBounds = NO;
