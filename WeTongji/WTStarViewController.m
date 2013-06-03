@@ -175,7 +175,7 @@
 }
 
 - (void)fetchedResultsControllerDidPerformFetch {
-    if ([self.fetchedResultsController.sections.lastObject numberOfObjects] == 0) {
+    if ([self.fetchedResultsController.sections.lastObject numberOfObjects] <= 1) {
         [self.dragToLoadDecorator setTopViewLoading:YES];
     }
 }

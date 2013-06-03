@@ -310,6 +310,8 @@
 		E15E4DA9175C798400BBAE9A /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DA8175C798400BBAE9A /* Activity.m */; };
 		E15E4DAC175C798700BBAE9A /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DAB175C798700BBAE9A /* Organization.m */; };
 		E15E4DAF175C798900BBAE9A /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DAE175C798800BBAE9A /* News.m */; };
+		E15E4DB5175C8E7C00BBAE9A /* WTOrganizationHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DB2175C8E7200BBAE9A /* WTOrganizationHeaderView.xib */; };
+		E15E4DB6175C8E8100BBAE9A /* WTOrganizationHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DB1175C8E7100BBAE9A /* WTOrganizationHeaderView.m */; };
 		E16D5DCA174619A900740D79 /* Advertisement+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E16D5DC9174619A900740D79 /* Advertisement+Addition.m */; };
 		E16E961D1733AA550055DE27 /* WTOrangeBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961B1733AA550055DE27 /* WTOrangeBg.png */; };
 		E16E961E1733AA550055DE27 /* WTOrangeBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961C1733AA550055DE27 /* WTOrangeBg@2x.png */; };
@@ -1011,6 +1013,9 @@
 		E15E4DAB175C798700BBAE9A /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Organization.m; sourceTree = "<group>"; };
 		E15E4DAD175C798800BBAE9A /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
 		E15E4DAE175C798800BBAE9A /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
+		E15E4DB0175C8E7100BBAE9A /* WTOrganizationHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTOrganizationHeaderView.h; sourceTree = "<group>"; };
+		E15E4DB1175C8E7100BBAE9A /* WTOrganizationHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTOrganizationHeaderView.m; sourceTree = "<group>"; };
+		E15E4DB2175C8E7200BBAE9A /* WTOrganizationHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTOrganizationHeaderView.xib; sourceTree = "<group>"; };
 		E16D5DC8174619A900740D79 /* Advertisement+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Advertisement+Addition.h"; sourceTree = "<group>"; };
 		E16D5DC9174619A900740D79 /* Advertisement+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Advertisement+Addition.m"; sourceTree = "<group>"; };
 		E16E961B1733AA550055DE27 /* WTOrangeBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTOrangeBg.png; sourceTree = "<group>"; };
@@ -1418,6 +1423,9 @@
 		03EE1090174534630062A06B /* Organization */ = {
 			isa = PBXGroup;
 			children = (
+				E15E4DB0175C8E7100BBAE9A /* WTOrganizationHeaderView.h */,
+				E15E4DB1175C8E7100BBAE9A /* WTOrganizationHeaderView.m */,
+				E15E4DB2175C8E7200BBAE9A /* WTOrganizationHeaderView.xib */,
 				03EE1093174535770062A06B /* WTOrganizationProfileView.h */,
 				03EE1094174535770062A06B /* WTOrganizationProfileView.m */,
 				03EE1091174534A20062A06B /* WTOrganizationProfileView.xib */,
@@ -1938,7 +1946,6 @@
 		E14FA67D1680B9BB008A8D33 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				E15E4DA1175B21B500BBAE9A /* Star */,
 				E11825DA17154A8000B4B9BF /* Activity */,
 				E17F9E7317130C4100DC6AB6 /* Banner */,
 				E1428693171AE02F006AB739 /* Billboard */,
@@ -1950,6 +1957,7 @@
 				03EE1090174534630062A06B /* Organization */,
 				E17F9E7217130C3800DC6AB6 /* Other */,
 				E115FA9A173A3D0900DE5649 /* Search */,
+				E15E4DA1175B21B500BBAE9A /* Star */,
 				E177038D173F885C0086E550 /* User */,
 				E17F9E71171302A100DC6AB6 /* Widget */,
 			);
@@ -3216,6 +3224,7 @@
 				E172B00F174FF5EA00DEB920 /* WTDisableButton@2x.png in Resources */,
 				E10E236F17577F3500DCF724 /* WTLikeListViewController.xib in Resources */,
 				E15E4DA6175B23FE00BBAE9A /* WTStarHeaderView.xib in Resources */,
+				E15E4DB5175C8E7C00BBAE9A /* WTOrganizationHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3404,6 +3413,7 @@
 				E15E4DA9175C798400BBAE9A /* Activity.m in Sources */,
 				E15E4DAC175C798700BBAE9A /* Organization.m in Sources */,
 				E15E4DAF175C798900BBAE9A /* News.m in Sources */,
+				E15E4DB6175C8E8100BBAE9A /* WTOrganizationHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

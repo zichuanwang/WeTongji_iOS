@@ -11,17 +11,15 @@
 #import "UIImageView+AsyncLoading.h"
 #import "WTBannerView.h"
 #import "WTOrganizationProfileView.h"
+#import "WTOrganizationHeaderView.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface WTOrganizationDetailViewController ()
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
-@property (nonatomic, weak) IBOutlet UIView *organizationHeaderView;
-@property (nonatomic, weak) IBOutlet UIImageView *logoImageView;
-@property (nonatomic, weak) IBOutlet UIView *logoContainerView;
-@property (nonatomic, weak) IBOutlet UILabel *organizationNameLabel;
 
-@property (nonatomic, strong) WTOrganizationProfileView *profileView;
+@property (nonatomic, weak) WTOrganizationProfileView *profileView;
+@property (nonatomic, weak) WTOrganizationHeaderView *headerView;
 @property (nonatomic, strong) Organization *org;
 
 @end
@@ -64,7 +62,7 @@
 #pragma mark - UI methods
 
 - (void)configureUI {
-    [self configureOrganizationHeaderView];
+    [self configureHeaderView];
     [self configureProfileView];
     [self configureScrollView];
 }
@@ -76,31 +74,17 @@
                                              self.profileView.frame.origin.y + self.profileView.frame.size.height);
 }
 
-- (void)configureOrganizationHeaderView {
-    [self configureOrganizationName];
-    [self configureOrganizationLogo];
-}
-
-- (void)configureOrganizationLogo {
-    self.logoContainerView.layer.masksToBounds = YES;
-    self.logoContainerView.layer.cornerRadius = 6.0f;
-    [self.logoImageView loadImageWithImageURLString:self.org.avatar];
-}
-
-- (void)configureOrganizationName {
-    self.organizationNameLabel.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.organizationNameLabel.layer.shadowOffset = CGSizeMake(0, 1.0f);
-    self.organizationNameLabel.layer.shadowOpacity = 0.3f;
-    self.organizationNameLabel.layer.shadowRadius = 1.0f;
-    self.organizationNameLabel.text = self.org.name;
-    [self.organizationNameLabel sizeToFit];
-    [self.organizationNameLabel resetCenterX:self.view.bounds.size.width / 2];
+- (void)configureHeaderView {
+    WTOrganizationHeaderView *headerView = [WTOrganizationHeaderView createHeaderViewWithOrganization:self.org];
+    [self.scrollView addSubview:headerView];
+    self.headerView = headerView;
 }
 
 - (void)configureProfileView {
-    self.profileView = [WTOrganizationProfileView createProfileViewWithOrganization:self.org];
-    [self.profileView resetOriginY:self.organizationHeaderView.frame.origin.y + self.organizationHeaderView.frame.size.height];
-    [self.scrollView addSubview:self.profileView];
+    WTOrganizationProfileView *profileView = [WTOrganizationProfileView createProfileViewWithOrganization:self.org];
+    [profileView resetOriginY:self.headerView.frame.origin.y + self.headerView.frame.size.height];
+    [self.scrollView addSubview:profileView];
+    self.profileView = profileView;
 }
 
 #pragma mark - Actions

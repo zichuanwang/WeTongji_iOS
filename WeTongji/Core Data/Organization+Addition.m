@@ -29,6 +29,9 @@
     result.name = [NSString stringWithFormat:@"%@", dict[@"Display"]];
     result.administrator = [NSString stringWithFormat:@"%@", dict[@"Name"]];
     result.about = [NSString stringWithFormat:@"%@", dict[@"Description"]];
+    if ([result.about isEqualToString:@"<null>"]) {
+        result.about = nil;
+    }
         
     return result;
 }
