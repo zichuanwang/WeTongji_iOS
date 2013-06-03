@@ -42,6 +42,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    WTLOG(@"Now Table View Did Applear");
     [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
 }
 
@@ -60,6 +61,7 @@
 }
 
 - (void)updateTableViewController {
+    [self viewDidAppear:YES];
     [self updateNowBarTitleViewTimeDisplay];
 }
 
@@ -151,7 +153,6 @@
 
 - (void)configureDragToLoadDecorator {
     self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
-    [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
     [self.dragToLoadDecorator setBottomViewDisabled:YES immediately:YES];
 }
 
