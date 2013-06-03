@@ -187,14 +187,14 @@
                                    target:(id)target
                                    action:(SEL)action {
     UIButton *button = [[UIButton alloc] init];
-    text = [NSString stringWithFormat:@"  %@", text];
     [button setTitle:text forState:UIControlStateNormal];
+    button.titleEdgeInsets = UIEdgeInsetsMake(0, 18.0f, 0, 12.0f);
     
-    UIEdgeInsets insets = UIEdgeInsetsMake(0.0, 14.0, 0.0, 6.0);
-    UIImage *barBarNormalButtonImage = [[UIImage imageNamed:@"WTNavigationBarBackNormalButton"] resizableImageWithCapInsets:insets];
+    UIEdgeInsets bgImageEdgeInsets = UIEdgeInsetsMake(0.0, 14.0, 0.0, 6.0);
+    UIImage *barBarNormalButtonImage = [[UIImage imageNamed:@"WTNavigationBarBackNormalButton"] resizableImageWithCapInsets:bgImageEdgeInsets];
     [button setBackgroundImage:barBarNormalButtonImage forState:UIControlStateNormal];
     
-    UIImage *barBarHighlightButtonImage = [[UIImage imageNamed:@"WTNavigationBarBackHighlightButton"] resizableImageWithCapInsets:insets];
+    UIImage *barBarHighlightButtonImage = [[UIImage imageNamed:@"WTNavigationBarBackHighlightButton"] resizableImageWithCapInsets:bgImageEdgeInsets];
     [button setBackgroundImage:barBarHighlightButtonImage forState:UIControlStateHighlighted];
     
     [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
