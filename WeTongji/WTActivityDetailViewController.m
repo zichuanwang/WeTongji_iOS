@@ -108,8 +108,7 @@
 #pragma mark Configure detail descriptioin view
 
 - (void)configureDetailDescriptionView {
-    self.detailDescriptionView = [WTActivityDetailDescriptionView createDetailDescriptionView];
-    [self.detailDescriptionView configureViewWithManagedObject:self.activity];
+    self.detailDescriptionView = [WTActivityDetailDescriptionView createDetailDescriptionViewWithActivity:self.activity];
     if (self.imageRollView) {
         [self.detailDescriptionView resetOriginY:self.imageRollView.frame.origin.y + self.imageRollView.frame.size.height];
     } else {

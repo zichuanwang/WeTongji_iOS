@@ -9,11 +9,13 @@
 #import "WTStarDetailViewController.h"
 #import "Star+Addition.h"
 #import "WTStarHeaderView.h"
+#import "WTStarDetailDescriptionView.h"
 
 @interface WTStarDetailViewController ()
 
 @property (nonatomic, strong) Star *star;
 @property (nonatomic, weak) WTStarHeaderView *headerView;
+@property (nonatomic, weak) WTStarDetailDescriptionView *detailView;
 
 @end
 
@@ -56,6 +58,7 @@
 
 - (void)configureUI {
     [self configureHeaderView];
+    [self configureDetailDescriptionView];
     [self configureScrollView];
 }
 
@@ -65,9 +68,16 @@
     self.headerView = headerView;    
 }
 
+- (void)configureDetailDescriptionView {
+    WTStarDetailDescriptionView *detailView = [WTStarDetailDescriptionView createDetailDescriptionViewWithStar:self.star];
+    [detailView resetOriginY:self.headerView.frame.size.height];
+    [self.scrollView addSubview:detailView];
+    self.detailView = detailView;
+}
+
 - (void)configureScrollView {
     self.scrollView.alwaysBounceVertical = YES;
-    // self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, self.profileView.frame.origin.y + self.profileView.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, self.detailView.frame.origin.y + self.detailView.frame.size.height);
 }
 
 #pragma mark - Methods to overwrite

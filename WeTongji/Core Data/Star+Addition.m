@@ -28,7 +28,7 @@
     }
     
     result.avatar = [NSString stringWithFormat:@"%@", dict[@"Avatar"]];
-    result.content = [NSString stringWithFormat:@"%@", dict[@"Description"]];
+    result.content = [[NSString stringWithFormat:@"%@", dict[@"Description"]] clearAllBacklashR];
     
     NSArray *imageArray = dict[@"Images"];
     if (imageArray.count == 0) {

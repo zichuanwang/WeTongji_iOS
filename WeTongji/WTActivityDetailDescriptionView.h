@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class OHAttributedLabel;
+@class Activity;
 
 @interface WTActivityDetailDescriptionView : UIView
 
@@ -20,8 +21,6 @@
 @property (nonatomic, weak) IBOutlet UIView *organizerAvatarContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *organizerAvatarImageView;
 
-+ (WTActivityDetailDescriptionView *)createDetailDescriptionView;
-
-- (void)configureViewWithManagedObject:(id)object;
++ (WTActivityDetailDescriptionView *)createDetailDescriptionViewWithActivity:(Activity *)activity;
 
 @end
