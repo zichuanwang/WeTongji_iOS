@@ -52,7 +52,9 @@
 
 + (void)setAllObjectsFreeFromHolder:(Class)holderClass {
     Controller *controller = [Controller controllerModelForClass:holderClass];
-    [controller removeHasObjects:controller.hasObjects];
+    for (Object *object in controller.hasObjects) {
+        [object setObjectFreeFromHolder:holderClass];
+    }
 }
 
 - (NSInteger)getObjectModelType {

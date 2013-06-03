@@ -14,6 +14,7 @@
 #import "NSString+WTAddition.h"
 #import "WTStarCell.h"
 #import "Object+Addition.h"
+#import "Controller+Addition.h"
 #import "Star+Addition.h"
 #import "WTStarDetailViewController.h"
 
@@ -164,6 +165,8 @@
     NSSortDescriptor *updateTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createdAt" ascending:NO];
   
     [request setSortDescriptors:@[updateTimeDescriptor]];
+    
+    [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@", [Controller controllerModelForClass:[self class]].hasObjects]];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
