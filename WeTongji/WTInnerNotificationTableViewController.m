@@ -107,6 +107,7 @@
                 ActivityInvitationNotification *activityInvitation = (ActivityInvitationNotification *)notification;
                 [(Object *)activityInvitation.activity setObjectHeldByHolder:[self class]];
             }
+            [notification.sender setObjectHeldByHolder:[self class]];
         }
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Get notification list failure:%@", error.localizedDescription);
