@@ -29,11 +29,11 @@
     [activityTitleString setTextColor:[UIColor whiteColor]];
     [activityTitleString setFont:[UIFont boldSystemFontOfSize:14.0f]];
     
-    NSMutableAttributedString* messageContentString = [NSMutableAttributedString attributedStringWithString:NSLocalizedString(@"invites you to", nil)];
+    NSMutableAttributedString* messageContentString = [NSMutableAttributedString attributedStringWithString:NSLocalizedString(@"invites you to.", nil)];
     [messageContentString setTextColor:WTNotificationCellLightGrayColor];
     [messageContentString setFont:[UIFont systemFontOfSize:14.0f]];
     [messageContentString insertAttributedString:senderNameString atIndex:0];
-    [messageContentString insertAttributedString:activityTitleString atIndex:messageContentString.length];
+    [messageContentString insertAttributedString:activityTitleString atIndex:messageContentString.length - 1];
     
     [messageContentString modifyParagraphStylesWithBlock:^(OHParagraphStyle *paragraphStyle) {
         paragraphStyle.lineSpacing = CONTENT_LABEL_LINE_SPACING;

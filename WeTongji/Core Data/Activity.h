@@ -19,6 +19,14 @@
 @property (nonatomic, retain) NSDate * createdAt;
 @property (nonatomic, retain) NSString * image;
 @property (nonatomic, retain) Organization *author;
-@property (nonatomic, retain) ActivityInvitationNotification *relatedActivityInvitations;
+@property (nonatomic, retain) NSSet *relatedActivityInvitations;
+@end
+
+@interface Activity (CoreDataGeneratedAccessors)
+
+- (void)addRelatedActivityInvitationsObject:(ActivityInvitationNotification *)value;
+- (void)removeRelatedActivityInvitationsObject:(ActivityInvitationNotification *)value;
+- (void)addRelatedActivityInvitations:(NSSet *)values;
+- (void)removeRelatedActivityInvitations:(NSSet *)values;
 
 @end

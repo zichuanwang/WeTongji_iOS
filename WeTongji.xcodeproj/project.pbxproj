@@ -323,7 +323,6 @@
 		E15E4DDB175D0D6900BBAE9A /* WTCheckmarkHighlightButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DD7175D0D6900BBAE9A /* WTCheckmarkHighlightButton@2x.png */; };
 		E15E4DDC175D0D6900BBAE9A /* WTCheckmarkNormalButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DD8175D0D6900BBAE9A /* WTCheckmarkNormalButton.png */; };
 		E15E4DDD175D0D6900BBAE9A /* WTCheckmarkNormalButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DD9175D0D6900BBAE9A /* WTCheckmarkNormalButton@2x.png */; };
-		E15E4DE0175DD86600BBAE9A /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DDF175DD86500BBAE9A /* Activity.m */; };
 		E15E4DE3175DD86B00BBAE9A /* ActivityInvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DE2175DD86A00BBAE9A /* ActivityInvitationNotification.m */; };
 		E15E4DE9175DDA5300BBAE9A /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DE8175DDA5200BBAE9A /* Notification.m */; };
 		E15E4DEE175DDBF900BBAE9A /* WTInvitationAcceptedIconCN.png in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DEA175DDBF900BBAE9A /* WTInvitationAcceptedIconCN.png */; };
@@ -331,6 +330,7 @@
 		E15E4DF0175DDBF900BBAE9A /* WTInvitationAcceptedIconEN.png in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DEC175DDBF900BBAE9A /* WTInvitationAcceptedIconEN.png */; };
 		E15E4DF1175DDBF900BBAE9A /* WTInvitationAcceptedIconEN@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DED175DDBF900BBAE9A /* WTInvitationAcceptedIconEN@2x.png */; };
 		E15E4DF4175DDDC600BBAE9A /* WTNotificationInvitationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DF3175DDDC300BBAE9A /* WTNotificationInvitationCell.m */; };
+		E15E4DF7175E057000BBAE9A /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DF6175E056F00BBAE9A /* Activity.m */; };
 		E16D5DCA174619A900740D79 /* Advertisement+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E16D5DC9174619A900740D79 /* Advertisement+Addition.m */; };
 		E16E961D1733AA550055DE27 /* WTOrangeBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961B1733AA550055DE27 /* WTOrangeBg.png */; };
 		E16E961E1733AA550055DE27 /* WTOrangeBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961C1733AA550055DE27 /* WTOrangeBg@2x.png */; };
@@ -1048,8 +1048,6 @@
 		E15E4DD7175D0D6900BBAE9A /* WTCheckmarkHighlightButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTCheckmarkHighlightButton@2x.png"; sourceTree = "<group>"; };
 		E15E4DD8175D0D6900BBAE9A /* WTCheckmarkNormalButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTCheckmarkNormalButton.png; sourceTree = "<group>"; };
 		E15E4DD9175D0D6900BBAE9A /* WTCheckmarkNormalButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTCheckmarkNormalButton@2x.png"; sourceTree = "<group>"; };
-		E15E4DDE175DD86400BBAE9A /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
-		E15E4DDF175DD86500BBAE9A /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
 		E15E4DE1175DD86900BBAE9A /* ActivityInvitationNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityInvitationNotification.h; sourceTree = "<group>"; };
 		E15E4DE2175DD86A00BBAE9A /* ActivityInvitationNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityInvitationNotification.m; sourceTree = "<group>"; };
 		E15E4DE7175DDA5100BBAE9A /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
@@ -1060,6 +1058,8 @@
 		E15E4DED175DDBF900BBAE9A /* WTInvitationAcceptedIconEN@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTInvitationAcceptedIconEN@2x.png"; sourceTree = "<group>"; };
 		E15E4DF2175DDDC000BBAE9A /* WTNotificationInvitationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNotificationInvitationCell.h; sourceTree = "<group>"; };
 		E15E4DF3175DDDC300BBAE9A /* WTNotificationInvitationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNotificationInvitationCell.m; sourceTree = "<group>"; };
+		E15E4DF5175E056E00BBAE9A /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
+		E15E4DF6175E056F00BBAE9A /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
 		E16D5DC8174619A900740D79 /* Advertisement+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Advertisement+Addition.h"; sourceTree = "<group>"; };
 		E16D5DC9174619A900740D79 /* Advertisement+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Advertisement+Addition.m"; sourceTree = "<group>"; };
 		E16E961B1733AA550055DE27 /* WTOrangeBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTOrangeBg.png; sourceTree = "<group>"; };
@@ -2716,8 +2716,6 @@
 		E1D3743D1694C3D90012E30A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E15E4DDE175DD86400BBAE9A /* Activity.h */,
-				E15E4DDF175DD86500BBAE9A /* Activity.m */,
 				E15E4DE1175DD86900BBAE9A /* ActivityInvitationNotification.h */,
 				E15E4DE2175DD86A00BBAE9A /* ActivityInvitationNotification.m */,
 				E10E23461757366600DCF724 /* Advertisement.h */,
@@ -2754,6 +2752,8 @@
 				E15E4D9F175A60BC00BBAE9A /* User.m */,
 				E15E4DE7175DDA5100BBAE9A /* Notification.h */,
 				E15E4DE8175DDA5200BBAE9A /* Notification.m */,
+				E15E4DF5175E056E00BBAE9A /* Activity.h */,
+				E15E4DF6175E056F00BBAE9A /* Activity.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3498,10 +3498,10 @@
 				E15E4DCB175CBA7000BBAE9A /* Course.m in Sources */,
 				E15E4DCF175D0B3E00BBAE9A /* WTSelectFriendsViewController.m in Sources */,
 				E15E4DD4175D0CA300BBAE9A /* WTSelectUserCell.m in Sources */,
-				E15E4DE0175DD86600BBAE9A /* Activity.m in Sources */,
 				E15E4DE3175DD86B00BBAE9A /* ActivityInvitationNotification.m in Sources */,
 				E15E4DE9175DDA5300BBAE9A /* Notification.m in Sources */,
 				E15E4DF4175DDDC600BBAE9A /* WTNotificationInvitationCell.m in Sources */,
+				E15E4DF7175E057000BBAE9A /* Activity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

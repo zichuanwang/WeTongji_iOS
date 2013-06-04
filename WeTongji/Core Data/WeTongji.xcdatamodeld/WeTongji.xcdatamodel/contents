@@ -6,7 +6,7 @@
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="author" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="publishedActivities" inverseEntity="Organization" syncable="YES"/>
-        <relationship name="relatedActivityInvitations" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityInvitationNotification" inverseName="activity" inverseEntity="ActivityInvitationNotification" syncable="YES"/>
+        <relationship name="relatedActivityInvitations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityInvitationNotification" inverseName="activity" inverseEntity="ActivityInvitationNotification" syncable="YES"/>
     </entity>
     <entity name="ActivityInvitationNotification" representedClassName="ActivityInvitationNotification" parentEntity="InvitationNotification" syncable="YES">
         <relationship name="activity" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" inverseName="relatedActivityInvitations" inverseEntity="Activity" syncable="YES"/>

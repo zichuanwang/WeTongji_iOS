@@ -15,6 +15,9 @@
 #import "NSString+WTAddition.h"
 #import "WTDragToLoadDecorator.h"
 #import "NSNotificationCenter+WTAddition.h"
+#import "ActivityInvitationNotification.h"
+#import "Object+Addition.h"
+#import "Controller+Addition.h"
 
 @interface WTInnerNotificationTableViewController () <WTWaterflowDecoratorDataSource, WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
@@ -99,6 +102,12 @@
         
         NSSet *notificationsSet = [Notification insertNotifications:responseObject];
         [[WTCoreDataManager sharedManager].currentUser addReceivedNotifications:notificationsSet];
+        for (Notification *notification in notificationsSet) {
+            if ([notification isKindOfClass:[ActivityInvitationNotification class]]) {
+                ActivityInvitationNotification *activityInvitation = (ActivityInvitationNotification *)notification;
+                [(Object *)activityInvitation.activity setObjectHeldByHolder:[self class]];
+            }
+        }
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Get notification list failure:%@", error.localizedDescription);
         
@@ -112,6 +121,7 @@
 }
 
 - (void)clearAllData {
+    [Object setAllObjectsFreeFromHolder:[self class]];
     [Notification clearAllNotifications];
 }
 
