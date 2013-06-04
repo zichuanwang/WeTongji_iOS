@@ -42,6 +42,15 @@
     return messageContentString;
 }
 
+- (void)configureTypeIconImageView {
+    ActivityInvitationNotification *activityInvitation = (ActivityInvitationNotification *)self.notification;
+    if (activityInvitation.accepted.boolValue) {
+        self.notificationTypeIconImageView.image = [UIImage imageNamed:@"WTNotificationAcceptIcon"];
+    } else {
+        self.notificationTypeIconImageView.image = [UIImage imageNamed:@"WTNotificationQuestionIcon"];
+    }
+}
+
 #pragma mark - Actions
 
 - (IBAction)didClickAcceptButton:(UIButton *)sender {
@@ -52,6 +61,7 @@
         activityInvitation.accepted = @(YES);
         [self hideButtonsAnimated:YES];
         [self showAcceptedIconAnimated:YES];
+        [self configureTypeIconImageView];
         [self.delegate cellHeightDidChange];
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Accept activity invitation:%@", error.localizedDescription);
@@ -73,6 +83,11 @@
     }];
     [request ignoreActivityInvitation:activityInvitation.sourceID];
     [[WTClient sharedClient] enqueueRequest:request];
+}
+
+- (void)configureUIWithNotificaitonObject:(Notification *)notification {
+    [super configureUIWithNotificaitonObject:notification];
+    [self configureTypeIconImageView];
 }
 
 @end
