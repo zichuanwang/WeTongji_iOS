@@ -105,4 +105,10 @@
     [[WTClient sharedClient] enqueueRequest:request];
 }
 
+#pragma mark - Methods to overwrite
+
+- (LikeableObject *)targetObject {
+    return self.user;
+}
+
 @end

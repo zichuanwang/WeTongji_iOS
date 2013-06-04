@@ -99,15 +99,9 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E125548E16491530006D42F5"
-            BuildableName = "WeTongji.app"
-            BlueprintName = "WeTongji"
-            ReferencedContainer = "container:WeTongji.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
+      <PathRunnable
+         FilePath = "/Users/bluebitch/Library/Developer/Xcode/DerivedData/WeTongji-haxzmecxsluyiegvzukrqyecviwx/Build/Products/Release-iphoneos/WeTongji.app">
+      </PathRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
