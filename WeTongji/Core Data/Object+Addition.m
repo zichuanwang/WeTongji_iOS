@@ -70,6 +70,8 @@
         modelType = WTSDKStar;
     } else if ([self isKindOfClass:[Organization class]]) {
         modelType = WTSDKOrganization;
+    } else if ([self isKindOfClass:[User class]]) {
+        modelType = WTSDKUser;
     }
     return modelType;
 }

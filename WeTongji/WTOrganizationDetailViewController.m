@@ -89,4 +89,10 @@
 
 #pragma mark - Actions
 
+#pragma mark - Methods to overwrite
+
+- (LikeableObject *)targetObject {
+    return self.org;
+}
+
 @end
