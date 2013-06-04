@@ -36,7 +36,8 @@
     } failure:nil];
 }
 
-#define MOTTO_LABEL_MAX_HEIGHT 57.0f
+#define MOTTO_LABEL_MAX_HEIGHT      57.0f
+#define MOTTO_LABEL_ORIGINAL_WIDTH  200.0f
 
 - (void)configureInfoView {
     if ([self.user.gender isEqualToString:@"男"]) {
@@ -76,6 +77,7 @@
     } else {
         self.userNameLabel.text = nil;
     }
+    [self.mottoLabel resetWidth:MOTTO_LABEL_ORIGINAL_WIDTH];
     [self.userNameLabel sizeToFit];
     
     if (self.user.motto) {
