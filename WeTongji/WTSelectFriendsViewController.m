@@ -48,8 +48,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-+ (WTSelectFriendsViewController *)showWithDelegate:(id)delegate {
++ (WTSelectFriendsViewController *)showWithDelegate:(id<WTSelectFriendsViewControllerDelegate>)delegate {
     WTSelectFriendsViewController *vc = [[WTSelectFriendsViewController alloc] init];
+    
+    vc.delegate = delegate;
+    
     WTNavigationViewController *nav = [[WTNavigationViewController alloc] initWithRootViewController:vc];
     
     UIViewController *rootVC = [UIApplication sharedApplication].rootTabBarController;
@@ -65,13 +68,15 @@
     self.navigationItem.leftBarButtonItem = cancalBarButtonItem;
     
     UIButton *finishSelectButton = [WTResourceFactory createFocusButtonWithText:NSLocalizedString(@"Invite", nil)];
-    finishSelectButton.enabled = NO;
+    finishSelectButton.alpha = 0.5f;
+    finishSelectButton.userInteractionEnabled = NO;
     [finishSelectButton addTarget:self action:@selector(didClickFinishSelectButton:) forControlEvents:UIControlEventTouchUpInside];
-    // finishSelectButton.selected = NO;
     self.finishSelectButton = finishSelectButton;
     
     UIBarButtonItem *introBarButtonItem = [WTResourceFactory createBarButtonWithButton:finishSelectButton];
     self.navigationItem.rightBarButtonItem = introBarButtonItem;
+    
+    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Invite Friends", nil)];
 }
 
 - (void)dismissView {
@@ -83,10 +88,12 @@
 
 - (void)updateFinishSelectButton {
     if (self.selectedFriendsArray.count > 0) {
-        self.finishSelectButton.enabled = YES;
+        self.finishSelectButton.alpha = 1.0f;
+        self.finishSelectButton.userInteractionEnabled = YES;
         [self.finishSelectButton setTitle:[NSString inviteStringConvertFromCount:self.selectedFriendsArray.count] forState:UIControlStateNormal];
     } else {
-        self.finishSelectButton.enabled = NO;
+        self.finishSelectButton.alpha = 0.5f;
+        self.finishSelectButton.userInteractionEnabled = NO;
         [self.finishSelectButton setTitle:NSLocalizedString(@"Invite", nil) forState:UIControlStateNormal];
     }
 }
@@ -118,7 +125,7 @@
     
     [request setSortDescriptors:@[nameDescriptor]];
     
-    [request setPredicate:[NSPredicate predicateWithFormat:@"(SELF in %@)", [WTCoreDataManager sharedManager].currentUser]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"(SELF in %@)", [WTCoreDataManager sharedManager].currentUser.friends]];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
@@ -132,6 +139,8 @@
     [self.selectedFriendsArray addObject:user];
     WTSelectUserCell *userCell = (WTSelectUserCell *)[tableView cellForRowAtIndexPath:indexPath];
     userCell.checkmarkButton.selected = YES;
+    
+    [self updateFinishSelectButton];
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -139,6 +148,8 @@
     [self.selectedFriendsArray removeObject:user];
     WTSelectUserCell *userCell = (WTSelectUserCell *)[tableView cellForRowAtIndexPath:indexPath];
     userCell.checkmarkButton.selected = NO;
+    
+    [self updateFinishSelectButton];
 }
 
 @end

@@ -189,7 +189,7 @@
     NSString *result = nil;
     NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
     if ([language isEqualToString:@"zh-Hans"]) {
-        result = [NSString stringWithFormat:@"邀请%d位", count];
+        result = [NSString stringWithFormat:@"邀请 %d 位", count];
     } else {
         result = [NSString stringWithFormat:@"Invite %d", count];
     }

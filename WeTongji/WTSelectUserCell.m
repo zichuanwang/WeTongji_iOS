@@ -10,4 +10,12 @@
 
 @implementation WTSelectUserCell
 
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    if (self.selected == selected)
+        return;
+    [super setSelected:selected animated:animated];
+    
+    [self setHighlighted:NO animated:animated];
+}
+
 @end
