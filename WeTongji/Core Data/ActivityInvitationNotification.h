@@ -2,7 +2,7 @@
 //  ActivityInvitationNotification.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-5-30.
+//  Created by 王 紫川 on 13-6-4.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -10,8 +10,10 @@
 #import <CoreData/CoreData.h>
 #import "InvitationNotification.h"
 
+@class Activity;
 
 @interface ActivityInvitationNotification : InvitationNotification
 
+@property (nonatomic, retain) Activity *activity;
 
 @end

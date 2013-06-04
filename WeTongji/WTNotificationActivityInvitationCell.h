@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "WTNotificationCell.h"
+#import "WTNotificationInvitationCell.h"
 
-@interface WTNotificationActivityInvitationCell : WTNotificationCell
+@interface WTNotificationActivityInvitationCell : WTNotificationInvitationCell
+
++ (NSMutableAttributedString *)generateNotificationContentAttributedStringWithSenderName:(NSString *)senderName
+                                                                           activityTitle:(NSString *)activityTitle;
 
 @end

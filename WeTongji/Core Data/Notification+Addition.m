@@ -13,6 +13,7 @@
 #import "User+Addition.h"
 #import "WTNotificationFriendInvitationCell.h"
 #import "NSString+WTAddition.h"
+#import "Activity+Addition.h"
 
 @implementation Notification (Addition)
 
@@ -23,18 +24,51 @@
         NSString *notificationType = [NSString stringWithFormat:@"%@", info[@"SourceType"]];
         if ([notificationType isEqualToString:@"FriendInvite"]) {
             NSMutableDictionary *friendInviteInfo = [NSMutableDictionary dictionaryWithDictionary:info[@"SourceDetails"]];
-            friendInviteInfo[@"Id"] = info[@"SourceId"];
+            friendInviteInfo[@"Id"] = info[@"Id"];
+            friendInviteInfo[@"SourceId"] = info[@"SourceId"];
             Notification *notification = [Notification insertFriendInvitationNotification:friendInviteInfo];
+            [result addObject:notification];
+        } else if ([notificationType isEqualToString:@"ActivityInvite"]) {
+            NSMutableDictionary *activityInviteInfo = [NSMutableDictionary dictionaryWithDictionary:info[@"SourceDetails"]];
+            activityInviteInfo[@"Id"] = info[@"Id"];
+            activityInviteInfo[@"SourceId"] = info[@"SourceId"];
+            Notification *notification = [Notification insertActivityInvitationNotification:activityInviteInfo];
             [result addObject:notification];
         }
     }
     return result;
 }
 
++ (ActivityInvitationNotification *)insertActivityInvitationNotification:(NSDictionary *)dict {
+    NSString *notificationID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
+    
+    if (!notificationID || [notificationID isEqualToString:@"(null)"]) {
+        return nil;
+    }
+    
+    ActivityInvitationNotification *result = (ActivityInvitationNotification *)[Notification notificationWithID:notificationID];
+    if (!result) {
+        result = [NSEntityDescription insertNewObjectForEntityForName:@"ActivityInvitationNotification" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
+        result.identifier = notificationID;
+    }
+    result.sourceID = [NSString stringWithFormat:@"%@", dict[@"SourceId"]];
+    result.sendTime = [[NSString stringWithFormat:@"%@", dict[@"SentAt"]] convertToDate];
+    result.sender = [User insertUser:dict[@"UserDetails"]];
+    result.activity = [Activity insertActivity:dict[@"ActivityDetails"]];
+    
+    if ([[NSString stringWithFormat:@"%@", dict[@"AcceptedAt"]] isEqualToString:@"<null>"]) {
+        result.accepted = @(NO);
+    } else {
+        result.accepted = @(YES);
+    }
+    
+    return result;
+}
+
 + (FriendInvitationNotification *)insertFriendInvitationNotification:(NSDictionary *)dict {
     NSString *notificationID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
-    if (!notificationID || [notificationID isEqualToString:@""]) {
+    if (!notificationID || [notificationID isEqualToString:@"null"]) {
         return nil;
     }
     
@@ -44,6 +78,7 @@
         result.identifier = notificationID;
     }
     
+    result.sourceID = [NSString stringWithFormat:@"%@", dict[@"SourceId"]];
     result.sendTime = [[NSString stringWithFormat:@"%@", dict[@"SentAt"]] convertToDate];
     result.sender = [User insertUser:dict[@"UserDetails"]];
     
@@ -56,11 +91,11 @@
     return result;
 }
 
-+ (Notification *)notificationWithID:(NSString *)activityID {
++ (Notification *)notificationWithID:(NSString *)notificationID {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     
     [request setEntity:[NSEntityDescription entityForName:@"Notification" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
-    [request setPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", activityID]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"identifier == %@", notificationID]];
     
     Notification *result = [[[WTCoreDataManager sharedManager].managedObjectContext executeFetchRequest:request error:NULL] lastObject];
     
@@ -95,9 +130,9 @@
 }
 
 - (CGFloat)cellHeight {
-    if ([self isMemberOfClass:[FriendInvitationNotification class]]) {
-        FriendInvitationNotification *invitation = (FriendInvitationNotification *)self;
-        return [WTNotificationFriendInvitationCell cellHeightWithNotificationObject:invitation];
+    if ([self isKindOfClass:[InvitationNotification class]]) {
+        InvitationNotification *invitation = (InvitationNotification *)self;
+        return [WTNotificationInvitationCell cellHeightWithNotificationObject:invitation];
     } else {
         return 0;
     }

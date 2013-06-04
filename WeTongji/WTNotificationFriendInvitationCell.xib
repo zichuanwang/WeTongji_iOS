@@ -205,7 +205,7 @@
 												<int key="NSvFlags">292</int>
 												<string key="NSFrame">{{206, 12}, {98, 51}}</string>
 												<reference key="NSSuperview" ref="289719342"/>
-												<reference key="NSNextKeyView" ref="520324568"/>
+												<reference key="NSNextKeyView"/>
 												<string key="NSReuseIdentifierKey">_NS:9</string>
 												<bool key="IBUIUserInteractionEnabled">NO</bool>
 												<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -310,26 +310,11 @@
 										<reference key="IBUIBackgroundColor" ref="260702830"/>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 									</object>
-									<object class="IBUIImageView" id="520324568">
-										<reference key="NSNextResponder" ref="331011886"/>
-										<int key="NSvFlags">-2147483351</int>
-										<string key="NSFrame">{{294, 52}, {12, 16}}</string>
-										<reference key="NSSuperview" ref="331011886"/>
-										<reference key="NSNextKeyView" ref="423621682"/>
-										<string key="NSReuseIdentifierKey">_NS:9</string>
-										<bool key="IBUIUserInteractionEnabled">NO</bool>
-										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-										<object class="NSCustomResource" key="IBUIImage">
-											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">WTNotificationMoreIndicator.png</string>
-										</object>
-									</object>
 									<object class="IBUIImageView" id="323004349">
 										<reference key="NSNextResponder" ref="331011886"/>
 										<int key="NSvFlags">268</int>
 										<string key="NSFrame">{{0, 119}, {320, 2}}</string>
 										<reference key="NSSuperview" ref="331011886"/>
-										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -505,7 +490,6 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="289719342"/>
 							<reference ref="423621682"/>
-							<reference ref="520324568"/>
 							<reference ref="323004349"/>
 						</array>
 						<reference key="parent" ref="879968996"/>
@@ -590,11 +574,6 @@
 						<reference key="parent" ref="423621682"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">16</int>
-						<reference key="object" ref="520324568"/>
-						<reference key="parent" ref="331011886"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">17</int>
 						<reference key="object" ref="323004349"/>
 						<reference key="parent" ref="331011886"/>
@@ -613,7 +592,6 @@
 				<string key="14.CustomClassName">WTNotificationFriendInvitationCell</string>
 				<string key="14.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="15.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="16.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="17.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="18.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="19.CustomClassName">OHAttributedLabel</string>
@@ -654,7 +632,6 @@
 			<string key="WTInvitationAcceptedIconCN.png">{96, 51}</string>
 			<string key="WTNotificationAddIcon.png">{30, 30}</string>
 			<string key="WTNotificationCellButton.png">{150, 36}</string>
-			<string key="WTNotificationMoreIndicator.png">{12, 16}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>

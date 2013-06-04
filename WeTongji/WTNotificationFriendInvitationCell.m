@@ -12,13 +12,6 @@
 #import "User+Addition.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import "NSString+WTAddition.h"
-#import "UIImageView+AsyncLoading.h"
-
-#define FI_CELL_FULL_HEIGHT                     120.0f
-#define FI_CELL_BUTTON_CONTAINER_VIEW_HEIGHT    50.0f
-#define FI_CELL_CONTENT_LABEL_WIDTH             232.0f
-#define FI_CELL_CONTENT_LABEL_ORIGINAL_HEIGHT   18.0f
-#define FI_CELL_CONTENT_LABEL_LINE_SPACING      8.0f
 
 @interface WTNotificationFriendInvitationCell()
 
@@ -26,34 +19,7 @@
 
 @implementation WTNotificationFriendInvitationCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 #pragma mark - Class methods
-
-+ (CGFloat)cellHeightWithNotificationObject:(FriendInvitationNotification *)notification {
-    NSAttributedString *contentAttributedString = [WTNotificationFriendInvitationCell generateNotificationContentAttributedStringWithSenderName:notification.sender.name];
-    CGFloat contentLabelRealHeight = [contentAttributedString sizeConstrainedToSize:CGSizeMake(FI_CELL_CONTENT_LABEL_WIDTH, 20000.0f)].height;
-    CGFloat contentLabelGrowHeight = contentLabelRealHeight - FI_CELL_CONTENT_LABEL_ORIGINAL_HEIGHT;
-    if (notification.accepted.boolValue) {
-        return FI_CELL_FULL_HEIGHT - FI_CELL_BUTTON_CONTAINER_VIEW_HEIGHT + contentLabelGrowHeight;
-    } else {
-        return FI_CELL_FULL_HEIGHT + contentLabelGrowHeight;
-    }
-}
 
 + (NSMutableAttributedString *)generateNotificationContentAttributedStringWithSenderName:(NSString *)senderName {
     NSMutableAttributedString* senderNameString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@"%@ ", senderName]];
@@ -66,60 +32,10 @@
     [messageContentString insertAttributedString:senderNameString atIndex:0];
     
     [messageContentString modifyParagraphStylesWithBlock:^(OHParagraphStyle *paragraphStyle) {
-        paragraphStyle.lineSpacing = FI_CELL_CONTENT_LABEL_LINE_SPACING;
+        paragraphStyle.lineSpacing = CONTENT_LABEL_LINE_SPACING;
     }];
     
-    WTLOG(@"message content string length:%d", messageContentString.length);
     return messageContentString;
-}
-
-+ (NSString *)generateNotificationContentStringWithSenderName:(NSString *)senderName {
-    return [NSString stringWithFormat:@"%@ %@", senderName, NSLocalizedString(@"wants to be your friend.", nil)];
-}
-
-#pragma mark - UI methods
-
-- (void)hideButtons:(BOOL)animated {
-    if (animated) {
-        UIViewAutoresizing notificationContentLabelResizing = self.notificationContentLabel.autoresizingMask;
-        UIViewAutoresizing timeLabelResizing = self.timeLabel.autoresizingMask;
-        
-        self.notificationContentLabel.autoresizingMask = self.avatarContainerView.autoresizingMask;
-        self.timeLabel.autoresizingMask = self.avatarContainerView.autoresizingMask;
-        
-        [self.buttonContainerView fadeOutWithCompletion:^{
-            self.notificationContentLabel.autoresizingMask = notificationContentLabelResizing;
-            self.timeLabel.autoresizingMask = timeLabelResizing;
-        }];
-    }
-    else {
-        self.buttonContainerView.alpha = 0;
-    }
-}
-
-- (void)showButtons {
-    self.buttonContainerView.alpha = 1;
-}
-
-- (void)showAcceptedIconAnimated:(BOOL)animated {
-    self.acceptedIconImageView.hidden = NO;
-    NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
-    if ([language isEqualToString:@"zh-Hans"]) {
-        self.acceptedIconImageView.image = [UIImage imageNamed:@"WTInvitationAcceptedIconCN"];
-    } else {
-        self.acceptedIconImageView.image = [UIImage imageNamed:@"WTInvitationAcceptedIconEN"];
-    }
-    
-    if (animated) {
-        self.acceptedIconImageView.transform = CGAffineTransformMakeScale(1.5f, 1.5f);
-        [UIView animateWithDuration:0.15f animations:^{
-            self.acceptedIconImageView.transform = CGAffineTransformIdentity;
-        }];
-    }
-}
-
-- (void)hideAcceptedIcon {
-    self.acceptedIconImageView.hidden = YES;
 }
 
 #pragma mark - Actions
@@ -130,14 +46,14 @@
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         NSLog(@"Accept friend invitation:%@", responseObject);
         friendInvitation.accepted = @(YES);
-        [self hideButtons:YES];
+        [self hideButtonsAnimated:YES];
         [self showAcceptedIconAnimated:YES];
         [self.delegate cellHeightDidChange];
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Accept friend invitation:%@", error.localizedDescription);
         [WTErrorHandler handleError:error];
     }];
-    [request acceptFriendInvitation:friendInvitation.identifier];
+    [request acceptFriendInvitation:friendInvitation.sourceID];
     [[WTClient sharedClient] enqueueRequest:request];
 }
 
@@ -151,44 +67,8 @@
         WTLOGERROR(@"Reject friend invitation:%@", error.localizedDescription);
         [WTErrorHandler handleError:error];
     }];
-    [request ignoreFriendInvitation:friendInvitation.identifier];
+    [request ignoreFriendInvitation:friendInvitation.sourceID];
     [[WTClient sharedClient] enqueueRequest:request];
-}
-
-#pragma mark - UI methods
-
-- (void)configureNotificationMessageWithSenderName:(NSString *)senderName {
-    self.notificationContentLabel.attributedText = [WTNotificationFriendInvitationCell generateNotificationContentAttributedStringWithSenderName:senderName];
-}
-
-#pragma mark - Methods to overwrite
-
-- (void)configureUIWithNotificaitonObject:(Notification *)notification {
-    if ([notification isMemberOfClass:[FriendInvitationNotification class]]) {
-        self.notification = notification;
-        FriendInvitationNotification *friendInvitation = (FriendInvitationNotification *)notification;
-        User *sender = friendInvitation.sender;
-        [self configureNotificationMessageWithSenderName:sender.name];
-        
-        self.timeLabel.text = [notification.sendTime convertToYearMonthDayWeekTimeString];
-        
-        if (friendInvitation.accepted.boolValue) {
-            [self hideButtons:NO];
-            [self showAcceptedIconAnimated:NO];
-        } else {
-            [self showButtons];
-            [self hideAcceptedIcon];
-        }
-        
-        CGFloat cellHeight = [WTNotificationFriendInvitationCell cellHeightWithNotificationObject:friendInvitation];
-        [self resetHeight:cellHeight];
-        [self.messageContainerView resetHeight:friendInvitation.accepted.boolValue ? cellHeight : cellHeight - FI_CELL_BUTTON_CONTAINER_VIEW_HEIGHT];
-        
-        [self.ignoreButton setTitle:NSLocalizedString(@"Ignore", nil) forState:UIControlStateNormal];
-        [self.acceptButton setTitle:NSLocalizedString(@"Accept", nil) forState:UIControlStateNormal];
-        
-        [self.avatarImageView loadImageWithImageURLString:friendInvitation.sender.avatar];
-    }
 }
 
 @end

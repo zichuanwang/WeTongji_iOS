@@ -8,6 +8,10 @@
 
 #import "WTNotificationCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "User+Addition.h"
+#import "Notification+Addition.h"
+#import "NSString+WTAddition.h"
+#import "UIImageView+AsyncLoading.h"
 
 @implementation WTNotificationCell
 
@@ -41,7 +45,9 @@
 #pragma mark - Methods to overwrite
 
 - (void)configureUIWithNotificaitonObject:(Notification *)notification {
-    
+    self.notification = notification;
+    [self.avatarImageView loadImageWithImageURLString:notification.sender.avatar];
+    self.timeLabel.text = [notification.sendTime convertToYearMonthDayWeekTimeString];
 }
 
 @end

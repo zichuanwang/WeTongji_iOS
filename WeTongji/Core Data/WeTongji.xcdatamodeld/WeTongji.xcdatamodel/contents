@@ -6,8 +6,11 @@
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="author" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="publishedActivities" inverseEntity="Organization" syncable="YES"/>
+        <relationship name="relatedActivityInvitations" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityInvitationNotification" inverseName="activity" inverseEntity="ActivityInvitationNotification" syncable="YES"/>
     </entity>
-    <entity name="ActivityInvitationNotification" representedClassName="ActivityInvitationNotification" parentEntity="InvitationNotification" syncable="YES"/>
+    <entity name="ActivityInvitationNotification" representedClassName="ActivityInvitationNotification" parentEntity="InvitationNotification" syncable="YES">
+        <relationship name="activity" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" inverseName="relatedActivityInvitations" inverseEntity="Activity" syncable="YES"/>
+    </entity>
     <entity name="Advertisement" representedClassName="Advertisement" parentEntity="Object" syncable="YES">
         <attribute name="bgColorHex" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
@@ -82,6 +85,7 @@
     </entity>
     <entity name="Notification" representedClassName="Notification" parentEntity="Object" syncable="YES">
         <attribute name="sendTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="sourceID" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="owner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="receivedNotifications" inverseEntity="User" syncable="YES"/>
         <relationship name="sender" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="sentNotifications" inverseEntity="User" syncable="YES"/>
     </entity>
@@ -140,8 +144,8 @@
         <relationship name="sentNotifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notification" inverseName="sender" inverseEntity="Notification" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Activity" positionX="205" positionY="216" width="128" height="120"/>
-        <element name="ActivityInvitationNotification" positionX="-126" positionY="-9" width="128" height="45"/>
+        <element name="Activity" positionX="205" positionY="216" width="128" height="135"/>
+        <element name="ActivityInvitationNotification" positionX="-126" positionY="-9" width="128" height="60"/>
         <element name="Advertisement" positionX="358" positionY="189" width="128" height="120"/>
         <element name="BillboardPost" positionX="360" positionY="-117" width="128" height="120"/>
         <element name="Comment" positionX="160" positionY="192" width="128" height="105"/>
@@ -154,7 +158,7 @@
         <element name="InvitationNotification" positionX="43" positionY="-123" width="128" height="60"/>
         <element name="LikeableObject" positionX="160" positionY="192" width="128" height="75"/>
         <element name="News" positionX="205" positionY="-120" width="128" height="255"/>
-        <element name="Notification" positionX="-119" positionY="-126" width="128" height="90"/>
+        <element name="Notification" positionX="-119" positionY="-126" width="128" height="105"/>
         <element name="Object" positionX="-135" positionY="84" width="128" height="105"/>
         <element name="Organization" positionX="-423" positionY="-126" width="128" height="135"/>
         <element name="Star" positionX="-270" positionY="-126" width="128" height="180"/>
