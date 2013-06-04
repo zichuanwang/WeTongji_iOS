@@ -232,7 +232,7 @@
     
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Activity invite success:%@", responseObject);
-        [[[UIAlertView alloc] initWithTitle:@"注意" message:@"邀请好友成功" delegate:nil cancelButtonTitle:@"号" otherButtonTitles:nil] show];
+        [[[UIAlertView alloc] initWithTitle:@"注意" message:@"邀请好友成功" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil] show];
     } failureBlock:^(NSError *error) {
         [WTErrorHandler handleError:error];
     }];

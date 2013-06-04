@@ -11,6 +11,7 @@
 #import <WeTongjiSDK/NSUserDefaults+WTSDKAddition.h>
 #import "NSNotificationCenter+WTAddition.h"
 #import "NSUserDefaults+WTAddition.h"
+#import "Object+Addition.h"
 
 @interface WTCoreDataManager()
 
@@ -65,6 +66,7 @@
 - (User *)currentUser {
     if (!_currentUser) {
         _currentUser = [User userWithID:[NSUserDefaults getCurrentUserID]];
+        [_currentUser setObjectHeldByHolder:[self class]];
         [self configureCurrentUserDefaultInfo];
         if (_currentUser)
             [NSNotificationCenter postCurrentUserDidChangeNotification];
@@ -73,8 +75,10 @@
 }
 
 - (void)setCurrentUser:(User *)currentUser {
-    if (![_currentUser.identifier isEqualToString:currentUser.identifier]) {
+    if (_currentUser != currentUser) {
+        [_currentUser setObjectFreeFromHolder:[self class]];
         _currentUser = currentUser;
+        [currentUser setObjectHeldByHolder:[self class]];
         [self configureCurrentUserDefaultInfo];
         [NSNotificationCenter postCurrentUserDidChangeNotification];
     }
