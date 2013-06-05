@@ -168,8 +168,8 @@
 //        [newestOrg setObjectHeldByHolder:[WTHomeSelectContainerView class]];
         
         NSDictionary *popularOrgDict = resultDict[@"AccountPopulor"];
-        Organization *popularOrg = [Organization insertOrganization:popularOrgDict];
-        [popularOrg setObjectHeldByHolder:[WTHomeSelectContainerView class]];
+        Organization *org = [Organization insertOrganization:popularOrgDict];
+        [org setObjectHeldByHolder:[WTHomeSelectContainerView class]];
         
         [self fillHomeSelectViews];
         

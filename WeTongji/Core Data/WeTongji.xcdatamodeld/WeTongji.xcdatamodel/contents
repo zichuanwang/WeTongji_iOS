@@ -137,11 +137,11 @@
         <attribute name="wechatAccount" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="friends" inverseEntity="User" syncable="YES"/>
         <relationship name="likedObjects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LikeableObject" inverseName="likedBy" inverseEntity="LikeableObject" syncable="YES"/>
-        <relationship name="publishedBillboardPosts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BillboardPost" inverseName="author" inverseEntity="BillboardPost" syncable="YES"/>
-        <relationship name="publishedComments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="author" inverseEntity="Comment" syncable="YES"/>
-        <relationship name="receivedNotifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notification" inverseName="owner" inverseEntity="Notification" syncable="YES"/>
+        <relationship name="publishedBillboardPosts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BillboardPost" inverseName="author" inverseEntity="BillboardPost" syncable="YES"/>
+        <relationship name="publishedComments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Comment" inverseName="author" inverseEntity="Comment" syncable="YES"/>
+        <relationship name="receivedNotifications" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Notification" inverseName="owner" inverseEntity="Notification" syncable="YES"/>
         <relationship name="scheduledEvents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="scheduledBy" inverseEntity="Event" syncable="YES"/>
-        <relationship name="sentNotifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notification" inverseName="sender" inverseEntity="Notification" syncable="YES"/>
+        <relationship name="sentNotifications" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Notification" inverseName="sender" inverseEntity="Notification" syncable="YES"/>
     </entity>
     <elements>
         <element name="Activity" positionX="205" positionY="216" width="128" height="135"/>

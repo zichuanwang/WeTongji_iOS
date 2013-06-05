@@ -44,6 +44,9 @@
     [self removeBelongToControllersObject:controller];
     
     if (self.belongToControllers.count == 0) {
+        if ([self isKindOfClass:[User class]] || [self isKindOfClass:[Organization class]]) {
+            return;
+        }
         WTLOG(@"Delete object:%@", NSStringFromClass([self class]));
         NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
         [context deleteObject:self];

@@ -11,6 +11,8 @@
 #import "BillboardPost+Addition.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import "WTDragToLoadDecorator.h"
+#import "Object+Addition.h"
+#import "Controller+Addition.h"
 
 @interface WTBillboardTableViewController () <WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
@@ -76,7 +78,8 @@
         
         NSArray *resultArray = resultDict[@"Stories"];
         for (NSDictionary *dict in resultArray) {
-            [BillboardPost insertBillboardPost:dict];
+            BillboardPost *post = [BillboardPost insertBillboardPost:dict];
+            [post setObjectHeldByHolder:[self class]];
         }
         _noAnimationFlag = NO;
 
@@ -93,7 +96,7 @@
 }
 
 - (void)clearAllData {
-    [BillboardPost clearAllBillboardPosts];
+    [Object setAllObjectsFreeFromHolder:[self class]];
 }
 
 - (NSInteger)numberOfRowsInTableView {
@@ -177,6 +180,8 @@
     NSSortDescriptor *createTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createdAt" ascending:NO];
     
     [request setSortDescriptors:[NSArray arrayWithObject:createTimeDescriptor]];
+    
+    [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@", [Controller controllerModelForClass:[self class]].hasObjects]];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {

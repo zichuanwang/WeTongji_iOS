@@ -66,7 +66,6 @@
 - (User *)currentUser {
     if (!_currentUser) {
         _currentUser = [User userWithID:[NSUserDefaults getCurrentUserID]];
-        [_currentUser setObjectHeldByHolder:[self class]];
         [self configureCurrentUserDefaultInfo];
         if (_currentUser)
             [NSNotificationCenter postCurrentUserDidChangeNotification];
@@ -76,9 +75,7 @@
 
 - (void)setCurrentUser:(User *)currentUser {
     if (_currentUser != currentUser) {
-        [_currentUser setObjectFreeFromHolder:[self class]];
         _currentUser = currentUser;
-        [currentUser setObjectHeldByHolder:[self class]];
         [self configureCurrentUserDefaultInfo];
         [NSNotificationCenter postCurrentUserDidChangeNotification];
     }

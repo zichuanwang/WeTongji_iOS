@@ -9,7 +9,6 @@
 #import "WTFriendListViewController.h"
 #import "WTResourceFactory.h"
 #import "Object+Addition.h"
-#import "Controller+Addition.h"
 #import "User+Addition.h"
 #import "WTUserCell.h"
 #import "WTUserDetailViewController.h"
@@ -87,7 +86,6 @@
         for (NSDictionary *infoDict in friendsArray) {
             User *friend = [User insertUser:infoDict];
             [self.user addFriendsObject:friend];
-            [friend setObjectHeldByHolder:[self class]];
         }
         
     } failureBlock:^(NSError * error) {
@@ -147,8 +145,8 @@
     NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     
     [request setSortDescriptors:@[nameDescriptor]];
-    
-    [request setPredicate:[NSPredicate predicateWithFormat:@"(SELF in %@) AND (SELF in %@)", self.user.friends, [Controller controllerModelForClass:[self class]].hasObjects]];
+
+    [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@", self.user.friends]];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {

@@ -9,7 +9,6 @@
 #import "WTLikeListViewController.h"
 #import "WTDragToLoadDecorator.h"
 #import "WTResourceFactory.h"
-#import "Controller+Addition.h"
 #import "Object+Addition.h"
 
 #import "News+Addition.h"

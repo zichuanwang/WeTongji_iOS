@@ -503,6 +503,11 @@
 		E1B89295169181CB009D901C /* WTBottomShadowUnit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B89293169181CA009D901C /* WTBottomShadowUnit@2x.png */; };
 		E1B89298169184E2009D901C /* WTTestBanner3.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B89296169184E0009D901C /* WTTestBanner3.png */; };
 		E1B89299169184E2009D901C /* WTTestBanner2.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B89297169184E0009D901C /* WTTestBanner2.png */; };
+		E1BB2C38175F1E57003608B8 /* WTMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BB2C36175F1E57003608B8 /* WTMapViewController.m */; };
+		E1BB2C39175F1E57003608B8 /* WTMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1BB2C37175F1E57003608B8 /* WTMapViewController.xib */; };
+		E1BB2C3B175F1EA2003608B8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1BB2C3A175F1EA2003608B8 /* MapKit.framework */; };
+		E1BB2C3D175F2129003608B8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1BB2C3C175F2129003608B8 /* CoreLocation.framework */; };
+		E1BB2C40175F2310003608B8 /* WTLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BB2C3F175F2310003608B8 /* WTLocationManager.m */; };
 		E1BFFDFC17415201004EF0D6 /* WTAddFriendNormalIconCN.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFFDF417415201004EF0D6 /* WTAddFriendNormalIconCN.png */; };
 		E1BFFDFD17415201004EF0D6 /* WTAddFriendNormalIconCN@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFFDF517415201004EF0D6 /* WTAddFriendNormalIconCN@2x.png */; };
 		E1BFFDFE17415201004EF0D6 /* WTAddFriendNormalIconEN.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFFDF617415201004EF0D6 /* WTAddFriendNormalIconEN.png */; };
@@ -1273,6 +1278,13 @@
 		E1B89293169181CA009D901C /* WTBottomShadowUnit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTBottomShadowUnit@2x.png"; sourceTree = "<group>"; };
 		E1B89296169184E0009D901C /* WTTestBanner3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTestBanner3.png; sourceTree = "<group>"; };
 		E1B89297169184E0009D901C /* WTTestBanner2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTestBanner2.png; sourceTree = "<group>"; };
+		E1BB2C35175F1E57003608B8 /* WTMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTMapViewController.h; sourceTree = "<group>"; };
+		E1BB2C36175F1E57003608B8 /* WTMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTMapViewController.m; sourceTree = "<group>"; };
+		E1BB2C37175F1E57003608B8 /* WTMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTMapViewController.xib; sourceTree = "<group>"; };
+		E1BB2C3A175F1EA2003608B8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E1BB2C3C175F2129003608B8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E1BB2C3E175F2310003608B8 /* WTLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTLocationManager.h; sourceTree = "<group>"; };
+		E1BB2C3F175F2310003608B8 /* WTLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTLocationManager.m; sourceTree = "<group>"; };
 		E1BFFDF417415201004EF0D6 /* WTAddFriendNormalIconCN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTAddFriendNormalIconCN.png; sourceTree = "<group>"; };
 		E1BFFDF517415201004EF0D6 /* WTAddFriendNormalIconCN@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTAddFriendNormalIconCN@2x.png"; sourceTree = "<group>"; };
 		E1BFFDF617415201004EF0D6 /* WTAddFriendNormalIconEN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTAddFriendNormalIconEN.png; sourceTree = "<group>"; };
@@ -1420,6 +1432,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1BB2C3D175F2129003608B8 /* CoreLocation.framework in Frameworks */,
+				E1BB2C3B175F1EA2003608B8 /* MapKit.framework in Frameworks */,
 				E17703B2173FC4070086E550 /* AVFoundation.framework in Frameworks */,
 				E17703B0173FC3FB0086E550 /* OpenGLES.framework in Frameworks */,
 				E17703AE173FC3ED0086E550 /* CoreVideo.framework in Frameworks */,
@@ -1717,6 +1731,7 @@
 		E117038E1651EFD900D82F4A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E1BB2C34175F1E34003608B8 /* Map */,
 				E1250C0A16859A1D00802808 /* Activity */,
 				E1D3741316942E350012E30A /* Billboard */,
 				E1157DD9173B7CD700E62295 /* Comment */,
@@ -1806,6 +1821,7 @@
 				E17703B1173FC4050086E550 /* AVFoundation.framework */,
 				E1D374711694CB140012E30A /* CoreData.framework */,
 				E125549716491530006D42F5 /* CoreGraphics.framework */,
+				E1BB2C3C175F2129003608B8 /* CoreLocation.framework */,
 				E17703AB173FC3DD0086E550 /* CoreMedia.framework */,
 				E1D373CE169350AE0012E30A /* CoreText.framework */,
 				E17703AD173FC3EA0086E550 /* CoreVideo.framework */,
@@ -1813,6 +1829,7 @@
 				E11A7F4B16FC08050068C074 /* libFlurry.a */,
 				E1D373F116935DD30012E30A /* libOHAttributedLabel.a */,
 				E1C033E016692590004738EF /* libxml2.dylib */,
+				E1BB2C3A175F1EA2003608B8 /* MapKit.framework */,
 				E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */,
 				E17703AF173FC3F80086E550 /* OpenGLES.framework */,
 				E14F96511696FD660048414D /* QuartzCore.framework */,
@@ -2310,6 +2327,8 @@
 				E188223016802AD700A41F47 /* WTResourceFactory.m */,
 				E14F9E7517193383009AFABA /* WTErrorHandler.h */,
 				E14F9E7617193383009AFABA /* WTErrorHandler.m */,
+				E1BB2C3E175F2310003608B8 /* WTLocationManager.h */,
+				E1BB2C3F175F2310003608B8 /* WTLocationManager.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -2510,6 +2529,16 @@
 				E1AEA9881691AFBC007DFA4C /* WTTopShadow@2x.png */,
 			);
 			name = Shadow;
+			sourceTree = "<group>";
+		};
+		E1BB2C34175F1E34003608B8 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				E1BB2C35175F1E57003608B8 /* WTMapViewController.h */,
+				E1BB2C36175F1E57003608B8 /* WTMapViewController.m */,
+				E1BB2C37175F1E57003608B8 /* WTMapViewController.xib */,
+			);
+			name = Map;
 			sourceTree = "<group>";
 		};
 		E1C53DCD16523DA60011C8A1 /* Root */ = {
@@ -3307,6 +3336,7 @@
 				E15E4DEF175DDBF900BBAE9A /* WTInvitationAcceptedIconCN@2x.png in Resources */,
 				E15E4DF0175DDBF900BBAE9A /* WTInvitationAcceptedIconEN.png in Resources */,
 				E15E4DF1175DDBF900BBAE9A /* WTInvitationAcceptedIconEN@2x.png in Resources */,
+				E1BB2C39175F1E57003608B8 /* WTMapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3502,6 +3532,8 @@
 				E15E4DE9175DDA5300BBAE9A /* Notification.m in Sources */,
 				E15E4DF4175DDDC600BBAE9A /* WTNotificationInvitationCell.m in Sources */,
 				E15E4DF7175E057000BBAE9A /* Activity.m in Sources */,
+				E1BB2C38175F1E57003608B8 /* WTMapViewController.m in Sources */,
+				E1BB2C40175F2310003608B8 /* WTLocationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

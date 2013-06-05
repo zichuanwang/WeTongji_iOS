@@ -76,7 +76,10 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <PathRunnable
+         FilePath = "/Users/bluebitch/Library/Developer/Xcode/DerivedData/WeTongji-haxzmecxsluyiegvzukrqyecviwx/Build/Products/Debug-iphoneos/WeTongji.app">
+      </PathRunnable>
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E125548E16491530006D42F5"
@@ -84,7 +87,7 @@
             BlueprintName = "WeTongji"
             ReferencedContainer = "container:WeTongji.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
          <AdditionalOption
             key = "NSZombieEnabled"
