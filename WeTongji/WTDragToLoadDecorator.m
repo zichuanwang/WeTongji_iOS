@@ -58,11 +58,11 @@ static int kDragToLoadDecoratorObservingContext;
         return;
     self.alreadyObservingDragToLoadScrollView = YES;
     
+    [self scrollViewContentSizeDidChange];
+    
     UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
     [scrollView addObserver:self forKeyPath:@"contentSize" options:0 context:&kDragToLoadDecoratorObservingContext];
     [scrollView addObserver:self forKeyPath:@"contentOffset" options:0 context:&kDragToLoadDecoratorObservingContext];
-    
-    [self scrollViewContentSizeDidChange];
 }
 
 - (void)stopObservingChangesInDragToLoadScrollView {
@@ -128,13 +128,6 @@ static int kDragToLoadDecoratorObservingContext;
         }];
         
         [self.topView stopLoadingAnimation];
-        
-        // Trick, 在Loading完成后通常会ReloadData, 引发BottomViewLoading, 所以此处
-        // 提前禁用掉对ScrollView的Observe
-        [self stopObservingChangesInDragToLoadScrollView];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 500 * NSEC_PER_MSEC), dispatch_get_current_queue(), ^{
-            [self startObservingChangesInDragToLoadScrollView];
-        });
     }
 }
 
@@ -360,11 +353,8 @@ static int kDragToLoadDecoratorObservingContext;
 
 - (void)scrollViewContentSizeDidChange {
     UIScrollView *scrollView = [self.dataSource dragToLoadScrollView];
-    if (scrollView.contentSize.height == 0) {
+    if (scrollView.contentSize.height < scrollView.frame.size.height) {
         [self.bottomView resetOriginY:scrollView.frame.size.height];
-    } else if (scrollView.contentSize.height < scrollView.frame.size.height) {
-        if (self.topViewState != TopViewStateLoading)
-            self.bottomViewState = BottomViewStateLoading;
     } else {
         [self resetBottomViewOriginY];
     }
