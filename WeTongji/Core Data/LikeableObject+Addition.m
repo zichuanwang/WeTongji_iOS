@@ -35,12 +35,18 @@
     if (!currentUser)
         return;
     if (liked) {
+        if ([currentUser.likedObjects containsObject:self])
+            return;
         WTLOG(@"add like object:%@, model:%@", self.identifier, self.objectClass);
         [currentUser addLikedObjectsObject:self];
     } else {
+        if (![currentUser.likedObjects containsObject:self])
+            return;
+        WTLOG(@"remove like object:%@, model:%@", self.identifier, self.objectClass);
         [currentUser removeLikedObjectsObject:self];
     }
     
+    return;
     NSInteger likeCountIncrement = liked ? 1 : -1;
     if ([self isKindOfClass:[BillboardPost class]]) {
         currentUser.likedBillboardCount = @(currentUser.likedBillboardCount.integerValue + likeCountIncrement);
