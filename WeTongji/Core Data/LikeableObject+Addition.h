@@ -12,4 +12,6 @@
 
 @property (nonatomic) BOOL liked;
 
+- (void)configureLikeInfo:(NSDictionary *)dict;
+
 @end

@@ -11,6 +11,7 @@
 #import "WTCoreDataManager.h"
 #import "NSString+WTAddition.h"
 #import "Organization+Addition.h"
+#import "LikeableObject+Addition.h"
 
 @implementation News (Addition)
 
@@ -33,7 +34,6 @@
     result.content = [[NSString stringWithFormat:@"%@", dict[@"Context"]] clearAllBacklashR];
     result.summary = [NSString stringWithFormat:@"%@", dict[@"Summary"]];
     result.publishDate = [[NSString stringWithFormat:@"%@", [dict objectForKey:@"CreatedAt"]] convertToDate];
-    result.likeCount = @([[NSString stringWithFormat:@"%@", dict[@"Like"]] integerValue]);
     result.readCount = @([[NSString stringWithFormat:@"%@", dict[@"Read"]] integerValue]);
     result.source = [NSString stringWithFormat:@"%@", dict[@"Source"]];
     
@@ -64,13 +64,7 @@
         NSAssert(NO, @"Error");
     }
     
-    BOOL canLike = [[NSString stringWithFormat:@"%@", dict[@"CanLike"]] boolValue];
-    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
-    if (!canLike) {
-        [currentUser addLikedObjectsObject:result];
-    } else {
-        [currentUser removeLikedObjectsObject:result];
-    }
+    [result configureLikeInfo:dict];
     
     result.publishDay = [result.publishDate convertToYearMonthDayString];
     

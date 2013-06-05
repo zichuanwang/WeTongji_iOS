@@ -8,6 +8,7 @@
 
 #import "Organization+Addition.h"
 #import "WTCoreDataManager.h"
+#import "LikeableObject+Addition.h"
 
 @implementation Organization (Addition)
 
@@ -32,6 +33,8 @@
     if ([result.about isEqualToString:@"<null>"]) {
         result.about = nil;
     }
+    
+    [result configureLikeInfo:dict];
         
     return result;
 }

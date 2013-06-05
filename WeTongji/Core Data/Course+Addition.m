@@ -9,6 +9,7 @@
 #import "Course+Addition.h"
 #import "NSString+WTAddition.h"
 #import "WTCoreDataManager.h"
+#import "LikeableObject+Addition.h"
 
 #define DAY_TIME_INTERVAL (60 * 60 * 24)
 #define HOUR_TIME_INTERVAL (60 * 60)
@@ -52,6 +53,8 @@
     result.weekDay = [NSString stringWithFormat:@"%@", dict[@"WeekDay"]];
     
     result.beginDay = [result.beginTime convertToYearMonthDayString];
+    
+    [result configureLikeInfo:dict];
     
     return result;
 }

@@ -35,4 +35,6 @@
 
 + (WTCurrentUserProfileView *)createProfileViewWithUser:(User *)user;
 
+- (void)updateView;
+
 @end

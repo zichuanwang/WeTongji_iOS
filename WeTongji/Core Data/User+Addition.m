@@ -9,6 +9,7 @@
 #import "User+Addition.h"
 #import "WTCoreDataManager.h"
 #import "NSString+WTAddition.h"
+#import "LikeableObject+Addition.h"
 
 @implementation User (Addition)
 
@@ -72,6 +73,18 @@
     } else {
         [currentUser removeFriendsObject:result];
     }
+    
+    NSDictionary *likedCountInfo = dict[@"LikeCount"];
+    result.likedActivityCount = @([[NSString stringWithFormat:@"%@", likedCountInfo[@"Activity"]] integerValue]);
+    result.likedBillboardCount = @([[NSString stringWithFormat:@"%@", likedCountInfo[@"Story"]] integerValue]);
+    result.likedNewsCount = @([[NSString stringWithFormat:@"%@", likedCountInfo[@"Information"]] integerValue]);
+    result.likedOrganizationCount = @([[NSString stringWithFormat:@"%@", likedCountInfo[@"Account"]] integerValue]);
+    result.likedStarCount = @([[NSString stringWithFormat:@"%@", likedCountInfo[@"Person"]] integerValue]);
+    result.likedUserCount = @([[NSString stringWithFormat:@"%@", likedCountInfo[@"User"]] integerValue]);
+    
+    result.friendCount = @([[NSString stringWithFormat:@"%@", dict[@"FriendCount"]] integerValue]);
+    
+    [result configureLikeInfo:dict];
     
     return result;
 }

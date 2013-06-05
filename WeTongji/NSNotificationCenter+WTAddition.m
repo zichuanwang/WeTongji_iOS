@@ -8,10 +8,11 @@
 
 #import "NSNotificationCenter+WTAddition.h"
 
-#define kWTInnerSettingItemDidModify    @"WTInnerSettingItemDidModify"
-#define kWTCurrentUserDidChange         @"WTCurrentUserDidChange"
-#define kWTDidLoadUnreadNotifications   @"WTDidLoadUnreadNotifications"
-#define kWTUserDidCheckNotifications    @"WTUserDidCheckNotifications"
+#define kWTInnerSettingItemDidModify        @"WTInnerSettingItemDidModify"
+#define kWTCurrentUserDidChange             @"WTCurrentUserDidChange"
+#define kWTDidLoadUnreadNotifications       @"WTDidLoadUnreadNotifications"
+#define kWTUserDidCheckNotifications        @"WTUserDidCheckNotifications"
+#define kWTCurrentUserLikeCountDidChange    @"WTCurrentUserLikeCountDidChange"
 
 @implementation NSNotificationCenter (WTAddition)
 
@@ -60,6 +61,18 @@
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:aTarget selector:aSelector
                    name:kWTUserDidCheckNotifications
+                 object:nil];
+}
+
++ (void)postCurrentUserLikeCountDidChangeNotification {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kWTCurrentUserLikeCountDidChange object:nil userInfo:nil];
+}
+
++ (void)registerCurrentUserLikeCountDidChangeNotificationWithSelector:(SEL)aSelector
+                                                               target:(id)aTarget {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:aTarget selector:aSelector
+                   name:kWTCurrentUserLikeCountDidChange
                  object:nil];
 }
 

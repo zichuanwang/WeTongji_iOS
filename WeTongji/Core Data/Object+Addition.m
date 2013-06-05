@@ -91,6 +91,8 @@
         modelType = WTSDKStar;
     } else if ([objectClass isEqualToString:@"Organization"]) {
         modelType = WTSDKOrganization;
+    } else if ([objectClass isEqualToString:@"User"]) {
+        modelType = WTSDKUser;
     }
     return modelType;
 }

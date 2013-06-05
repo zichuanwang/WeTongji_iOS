@@ -30,4 +30,9 @@
 + (void)registerUserDidCheckNotificationsNotificationWithSelector:(SEL)aSelector
                                                            target:(id)aTarget;
 
++ (void)postCurrentUserLikeCountDidChangeNotification;
+
++ (void)registerCurrentUserLikeCountDidChangeNotificationWithSelector:(SEL)aSelector
+                                                               target:(id)aTarget;
+
 @end

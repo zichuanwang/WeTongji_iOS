@@ -21,12 +21,15 @@
 #import "WTFriendListViewController.h"
 #import "WTLikeListViewController.h"
 #import "NSUserDefaults+WTAddition.h"
+#import "WTDragToLoadDecorator.h"
 
-@interface WTMeViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, WTInnerSettingViewControllerDelegate, WTRootNavigationControllerDelegate>
+@interface WTMeViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, WTInnerSettingViewControllerDelegate, WTRootNavigationControllerDelegate, WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
 @property (nonatomic, weak) WTUserProfileHeaderView *profileHeaderView;
 @property (nonatomic, weak) WTCurrentUserProfileView *profileView;
 @property (nonatomic, readonly) UIButton *settingButton;
+
+@property (nonatomic, strong) WTDragToLoadDecorator *dragToLoadDecorator;
 
 @end
 
@@ -46,8 +49,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self configureUI];
+    [self configureDragToLoadDecorator];
     
     [NSNotificationCenter registerCurrentUserDidChangeNotificationWithSelector:@selector(hanldeCurrentUserDidChangeNotification:) target:self];
+    
+    [NSNotificationCenter registerCurrentUserLikeCountDidChangeNotificationWithSelector:@selector(handleCurrentUserLikeCountDidChangeNotification:) target:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -56,15 +62,20 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [self.scrollView resetHeight:self.view.frame.size.height];
+    [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidDisappear:(BOOL)animated {
+    [self.dragToLoadDecorator stopObservingChangesInDragToLoadScrollView];
 }
 
 #pragma mark - Notification handler
+
+- (void)handleCurrentUserLikeCountDidChangeNotification:(NSNotification *)notification {
+    if ([WTCoreDataManager sharedManager].currentUser) {
+        [self.profileView updateView];
+    }
+}
 
 - (void)hanldeCurrentUserDidChangeNotification:(NSNotification *)notification {
     if ([WTCoreDataManager sharedManager].currentUser) {
@@ -85,6 +96,11 @@
     [self configureProfileHeaderView];
     [self configureProfileView];
     [self configureScrollView];
+}
+
+- (void)configureDragToLoadDecorator {
+    self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
+    [self.dragToLoadDecorator setBottomViewDisabled:YES immediately:YES];
 }
 
 - (void)configureProfileView {
@@ -261,6 +277,28 @@
     } else if (self.notificationButton.selected == YES) {
         self.notificationButton.selected = NO;
     }
+}
+
+#pragma mark - WTDragToLoadDecoratorDataSource
+
+- (UIScrollView *)dragToLoadScrollView {
+    return self.scrollView;
+}
+
+#pragma mark - WTDragToLoadDecoratorDelegate
+
+- (void)dragToLoadDecoratorDidDragDown {
+    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        WTLOG(@"get user info success:%@", responseObject);
+        [User insertUser:responseObject[@"User"]];
+        [self.profileView updateView];
+        [self.dragToLoadDecorator topViewLoadFinished:YES];
+    } failureBlock:^(NSError *error) {
+        [WTErrorHandler handleError:error];
+        [self.dragToLoadDecorator topViewLoadFinished:NO];
+    }];
+    [request getUserInformation];
+    [[WTClient sharedClient] enqueueRequest:request];
 }
 
 @end

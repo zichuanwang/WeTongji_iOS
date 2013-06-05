@@ -10,6 +10,7 @@
 #import "WTCoreDataManager.h"
 #import "User+Addition.h"
 #import "NSString+WTAddition.h"
+#import "LikeableObject+Addition.h"
 
 @implementation BillboardPost (Addition)
 
@@ -41,6 +42,9 @@
     
     User *user = [User insertUser:dict[@"UserDetails"]];
     result.author = user;
+    
+    [result configureLikeInfo:dict];
+    
     return result;
 }
 

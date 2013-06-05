@@ -37,6 +37,10 @@
 
 #pragma mark - UI methods
 
+- (void)updateView {
+    [self configureLabels];
+}
+
 - (void)configureView {
     [self configureFirstSectionView];
     [self configureSecondSectionView];
@@ -44,7 +48,15 @@
 }
 
 - (void)configureLabels {
-    NSArray *countNumberArray = @[@(2), @(4), @(3), @(1), @(24), @(33), @(122), @(22)];
+    NSArray *countNumberArray = @[self.user.friendCount,
+                                  @(4),
+                                  @(3),
+                                  self.user.likedActivityCount,
+                                  self.user.likedNewsCount,
+                                  self.user.likedBillboardCount,
+                                  self.user.likedOrganizationCount,
+                                  self.user.likedUserCount];
+    
     NSArray *descriptionArray = @[NSLocalizedString(@" Friends", nil),
                                   NSLocalizedString(@" Billboard Posts", nil),
                                   NSLocalizedString(@" Questions", nil),

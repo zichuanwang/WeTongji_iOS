@@ -11,6 +11,7 @@
 #import "NSString+WTAddition.h"
 #import "Object+Addition.h"
 #import "Organization+Addition.h"
+#import "LikeableObject+Addition.h"
 
 @implementation Activity (Addition)
 
@@ -41,25 +42,19 @@
     if ([result.image isEmptyImageURL])
         result.image = nil;
     
-    result.likeCount = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"Like"]]).integerValue);    
-    
-    BOOL canSchedule = ((NSString *)[NSString stringWithFormat:@"%@", dict[@"CanSchedule"]]).boolValue;
-    BOOL canLike = ((NSString *)[NSString stringWithFormat:@"%@", dict[@"CanLike"]]).boolValue;
     User *currentUser = [WTCoreDataManager sharedManager].currentUser;
+    BOOL canSchedule = ((NSString *)[NSString stringWithFormat:@"%@", dict[@"CanSchedule"]]).boolValue;
     if (!canSchedule) {
         [currentUser addScheduledEventsObject:result];
     } else {
         [currentUser removeScheduledEventsObject:result];
     }
-    if (!canLike) {
-        [currentUser addLikedObjectsObject:result];
-    } else {
-        [currentUser removeLikedObjectsObject:result];
-    }
     
     result.beginDay = [result.beginTime convertToYearMonthDayString];
     
     result.author = [Organization insertOrganization:dict[@"AccountDetails"]];
+    
+    [result configureLikeInfo:dict];
     
     return result;
 }

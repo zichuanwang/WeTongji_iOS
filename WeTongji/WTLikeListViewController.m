@@ -101,39 +101,37 @@
         if (success)
             success();
         
-        NSArray *activityInfoArray = resultDict[@"Activities"];
-        for (NSDictionary *infoDict in activityInfoArray) {
-            Activity *activity = [Activity insertActivity:infoDict];
-            [self.user addLikedObjectsObject:activity];
-            [activity setObjectHeldByHolder:[self class]];
-        }
-        
-        NSArray *newsInfoArray = resultDict[@"Information"];
-        for (NSDictionary *infoDict in newsInfoArray) {
-            News *news = [News insertNews:infoDict];
-            [self.user addLikedObjectsObject:news];
-            [news setObjectHeldByHolder:[self class]];
-        }
-        
-        NSArray *starInfoArray = resultDict[@"Person"];
-        for (NSDictionary *infoDict in starInfoArray) {
-            Star *star = [Star insertStar:infoDict];
-            [self.user addLikedObjectsObject:star];
-            [star setObjectHeldByHolder:[self class]];
-        }
-        
-        NSArray *orgInfoArray = resultDict[@"Accounts"];
-        for (NSDictionary *infoDict in orgInfoArray) {
-            Organization *org = [Organization insertOrganization:infoDict];
-            [self.user addLikedObjectsObject:org];
-            [org setObjectHeldByHolder:[self class]];
-        }
-        
-        NSArray *userArray = resultDict[@"Users"];
-        for (NSDictionary *infoDict in userArray) {
-            User *user = [User insertUser:infoDict];
-            [self.user addLikedObjectsObject:user];
-            [user setObjectHeldByHolder:[self class]];
+        NSArray *likedObjectsInfoArray = resultDict[@"Like"];
+        for (NSDictionary *likedObjectInfo in likedObjectsInfoArray) {
+            
+            NSDictionary *modelDetailsInfo = likedObjectInfo[@"ModelDetails"];
+            if (modelDetailsInfo.count == 0)
+                continue;
+            
+            NSString *modelType = [NSString stringWithFormat:@"%@", likedObjectInfo[@"Model"]];
+            
+            if ([modelType isEqualToString:@"Activity"]) {
+                Activity *activity = [Activity insertActivity:modelDetailsInfo];
+                    [self.user addLikedObjectsObject:activity];
+                [activity setObjectHeldByHolder:[self class]];
+            } else if ([modelType isEqualToString:@"Information"]) {
+                News *news = [News insertNews:modelDetailsInfo];
+                [self.user addLikedObjectsObject:news];
+                [news setObjectHeldByHolder:[self class]];
+            } else if ([modelType isEqualToString:@"Person"]) {
+                Star *star = [Star insertStar:modelDetailsInfo];
+                [self.user addLikedObjectsObject:star];
+                [star setObjectHeldByHolder:[self class]];
+            } else if ([modelType isEqualToString:@"Account"]) {
+                Organization *org = [Organization insertOrganization:modelDetailsInfo];
+                [self.user addLikedObjectsObject:org];
+                [org setObjectHeldByHolder:[self class]];
+            } else if ([modelType isEqualToString:@"User"]) {
+                User *user = [User insertUser:modelDetailsInfo];
+                WTLOG(@"%@", user.studentNumber);
+                [self.user addLikedObjectsObject:user];
+                [user setObjectHeldByHolder:[self class]];
+            }
         }
         
     } failureBlock:^(NSError * error) {

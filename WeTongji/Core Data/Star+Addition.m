@@ -10,6 +10,7 @@
 #import "WTCoreDataManager.h"
 #import "Object+Addition.h"
 #import "NSString+WTAddition.h"
+#import "LikeableObject+Addition.h"
 
 @implementation Star (Addition)
 
@@ -38,20 +39,13 @@
     }
 
     result.jobTitle = [NSString stringWithFormat:@"%@", dict[@"JobTitle"]];
-    result.likeCount = @(((NSString *)[NSString stringWithFormat:@"%@", dict[@"Like"]]).integerValue);
     result.studentNumber = [NSString stringWithFormat:@"%@", dict[@"StudentNO"]];
     result.name = [NSString stringWithFormat:@"%@", dict[@"Name"]];
     result.motto = [NSString stringWithFormat:@"%@", dict[@"Words"]];
     result.starNumber = [NSString stringWithFormat:@"%@", dict[@"NO"]];
     result.createdAt = [[NSString stringWithFormat:@"%@", dict[@"CreatedAt"]] convertToDate];
     
-    BOOL canLike = [[NSString stringWithFormat:@"%@", dict[@"CanLike"]] boolValue];
-    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
-    if (!canLike) {
-        [currentUser addLikedObjectsObject:result];
-    } else {
-        [currentUser removeLikedObjectsObject:result];
-    }
+    [result configureLikeInfo:dict];
     
     return result;
 }

@@ -300,7 +300,6 @@
 		E15BBF241717D5F40021CCCD /* WTRoundCornerPanelCuppedBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E15BBF221717D5F40021CCCD /* WTRoundCornerPanelCuppedBg.png */; };
 		E15BBF251717D5F40021CCCD /* WTRoundCornerPanelCuppedBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E15BBF231717D5F40021CCCD /* WTRoundCornerPanelCuppedBg@2x.png */; };
 		E15C3D1A16C37B3200A91AAF /* WTConfigLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = E15C3D1916C37B3200A91AAF /* WTConfigLoader.m */; };
-		E15E4DA0175A60BC00BBAE9A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4D9F175A60BC00BBAE9A /* User.m */; };
 		E15E4DA4175B21DD00BBAE9A /* WTStarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DA3175B21DD00BBAE9A /* WTStarHeaderView.m */; };
 		E15E4DA6175B23FE00BBAE9A /* WTStarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DA5175B23FE00BBAE9A /* WTStarHeaderView.xib */; };
 		E15E4DAC175C798700BBAE9A /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DAB175C798700BBAE9A /* Organization.m */; };
@@ -490,6 +489,7 @@
 		E199053616B7CDCE00F2C787 /* WTGrayPanel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E199053416B7CDCE00F2C787 /* WTGrayPanel@2x.png */; };
 		E1A5816216F0F8EB00551149 /* WTDragToLoadDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A5816116F0F8EB00551149 /* WTDragToLoadDecorator.m */; };
 		E1A5816416F0FA6700551149 /* WTDragToLoadDecorator.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A5816316F0FA6700551149 /* WTDragToLoadDecorator.xib */; };
+		E1A5EF8B175FB3200090C0B3 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A5EF8A175FB3200090C0B3 /* User.m */; };
 		E1AEA9891691AFBC007DFA4C /* WTTopShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AEA9871691AFBB007DFA4C /* WTTopShadow.png */; };
 		E1AEA98A1691AFBC007DFA4C /* WTTopShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AEA9881691AFBC007DFA4C /* WTTopShadow@2x.png */; };
 		E1AEA98F1691B3BA007DFA4C /* WTLeftShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AEA98B1691B3BA007DFA4C /* WTLeftShadow.png */; };
@@ -1018,8 +1018,6 @@
 		E15BBF231717D5F40021CCCD /* WTRoundCornerPanelCuppedBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTRoundCornerPanelCuppedBg@2x.png"; sourceTree = "<group>"; };
 		E15C3D1816C37B3200A91AAF /* WTConfigLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTConfigLoader.h; sourceTree = "<group>"; };
 		E15C3D1916C37B3200A91AAF /* WTConfigLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTConfigLoader.m; sourceTree = "<group>"; };
-		E15E4D9E175A60BC00BBAE9A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		E15E4D9F175A60BC00BBAE9A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		E15E4DA2175B21DD00BBAE9A /* WTStarHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTStarHeaderView.h; sourceTree = "<group>"; };
 		E15E4DA3175B21DD00BBAE9A /* WTStarHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTStarHeaderView.m; sourceTree = "<group>"; };
 		E15E4DA5175B23FE00BBAE9A /* WTStarHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTStarHeaderView.xib; sourceTree = "<group>"; };
@@ -1265,6 +1263,8 @@
 		E1A5816016F0F8EB00551149 /* WTDragToLoadDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTDragToLoadDecorator.h; sourceTree = "<group>"; };
 		E1A5816116F0F8EB00551149 /* WTDragToLoadDecorator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTDragToLoadDecorator.m; sourceTree = "<group>"; };
 		E1A5816316F0FA6700551149 /* WTDragToLoadDecorator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTDragToLoadDecorator.xib; sourceTree = "<group>"; };
+		E1A5EF89175FB3200090C0B3 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		E1A5EF8A175FB3200090C0B3 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		E1AEA9871691AFBB007DFA4C /* WTTopShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTopShadow.png; sourceTree = "<group>"; };
 		E1AEA9881691AFBC007DFA4C /* WTTopShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTopShadow@2x.png"; sourceTree = "<group>"; };
 		E1AEA98B1691B3BA007DFA4C /* WTLeftShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTLeftShadow.png; sourceTree = "<group>"; };
@@ -2777,12 +2777,12 @@
 				E15E4DAB175C798700BBAE9A /* Organization.m */,
 				E15E4DC1175CA61B00BBAE9A /* Star.h */,
 				E15E4DC2175CA61B00BBAE9A /* Star.m */,
-				E15E4D9E175A60BC00BBAE9A /* User.h */,
-				E15E4D9F175A60BC00BBAE9A /* User.m */,
 				E15E4DE7175DDA5100BBAE9A /* Notification.h */,
 				E15E4DE8175DDA5200BBAE9A /* Notification.m */,
 				E15E4DF5175E056E00BBAE9A /* Activity.h */,
 				E15E4DF6175E056F00BBAE9A /* Activity.m */,
+				E1A5EF89175FB3200090C0B3 /* User.h */,
+				E1A5EF8A175FB3200090C0B3 /* User.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3516,7 +3516,6 @@
 				E10E235D17573A2600DCF724 /* LikeableObject+Addition.m in Sources */,
 				E10E236E17577F3500DCF724 /* WTLikeListViewController.m in Sources */,
 				E110F6D11757AEB500F19B7D /* WTShowAllKindsOfCellsViewController.m in Sources */,
-				E15E4DA0175A60BC00BBAE9A /* User.m in Sources */,
 				E15E4DA4175B21DD00BBAE9A /* WTStarHeaderView.m in Sources */,
 				E15E4DAC175C798700BBAE9A /* Organization.m in Sources */,
 				E15E4DAF175C798900BBAE9A /* News.m in Sources */,
@@ -3534,6 +3533,7 @@
 				E15E4DF7175E057000BBAE9A /* Activity.m in Sources */,
 				E1BB2C38175F1E57003608B8 /* WTMapViewController.m in Sources */,
 				E1BB2C40175F2310003608B8 /* WTLocationManager.m in Sources */,
+				E1A5EF8B175FB3200090C0B3 /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

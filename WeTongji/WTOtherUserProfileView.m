@@ -61,7 +61,7 @@
 }
 
 - (void)configureFirstSectionLabels {
-    NSArray *countNumberArray = @[@(2), @(4)];
+    NSArray *countNumberArray = @[self.user.friendCount, @(4)];
     NSArray *descriptionArray = @[NSLocalizedString(@" Friends", nil),
                                   NSLocalizedString(@" Activities", nil)];
     NSArray *labels = @[self.friendLabel,

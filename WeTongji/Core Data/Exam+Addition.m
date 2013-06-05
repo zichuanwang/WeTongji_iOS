@@ -9,6 +9,7 @@
 #import "Exam+Addition.h"
 #import "WTCoreDataManager.h"
 #import "NSString+WTAddition.h"
+#import "LikeableObject+Addition.h"
 
 @implementation Exam (Addition)
 
@@ -37,6 +38,8 @@
     result.required = [NSString stringWithFormat:@"%@", dict[@"Required"]];
     
     result.beginDay = [result.beginTime convertToYearMonthDayString];
+    
+    [result configureLikeInfo:dict];
 
     return result;
 }
