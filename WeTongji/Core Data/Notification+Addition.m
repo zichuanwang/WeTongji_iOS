@@ -22,14 +22,24 @@
     NSArray *notificationsInfoArray = dict[@"Notifications"];
     for (NSDictionary *info in notificationsInfoArray) {
         NSString *notificationType = [NSString stringWithFormat:@"%@", info[@"SourceType"]];
+        NSDictionary *sourceDetailsInfo = info[@"SourceDetails"];
+        
+        // TODO:
+        if (sourceDetailsInfo[@"RejectedAt"]) {
+            if (![[NSString stringWithFormat:@"%@", sourceDetailsInfo[@"RejectedAt"]] isEqualToString:@"<null>"]) {
+                WTLOGERROR(@"Rejected at is not null");
+                continue;
+            }
+        }
+        
         if ([notificationType isEqualToString:@"FriendInvite"]) {
-            NSMutableDictionary *friendInviteInfo = [NSMutableDictionary dictionaryWithDictionary:info[@"SourceDetails"]];
+            NSMutableDictionary *friendInviteInfo = [NSMutableDictionary dictionaryWithDictionary:sourceDetailsInfo];
             friendInviteInfo[@"Id"] = info[@"Id"];
             friendInviteInfo[@"SourceId"] = info[@"SourceId"];
             Notification *notification = [Notification insertFriendInvitationNotification:friendInviteInfo];
             [result addObject:notification];
         } else if ([notificationType isEqualToString:@"ActivityInvite"]) {
-            NSMutableDictionary *activityInviteInfo = [NSMutableDictionary dictionaryWithDictionary:info[@"SourceDetails"]];
+            NSMutableDictionary *activityInviteInfo = [NSMutableDictionary dictionaryWithDictionary:sourceDetailsInfo];
             activityInviteInfo[@"Id"] = info[@"Id"];
             activityInviteInfo[@"SourceId"] = info[@"SourceId"];
             Notification *notification = [Notification insertActivityInvitationNotification:activityInviteInfo];

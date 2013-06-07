@@ -205,7 +205,7 @@
         self.isLoggingIn = NO;
         [WTErrorHandler handleError:error];
     }];
-    [request login:self.accountTextField.text password:self.passwordTextField.text];
+    [request loginWithStudentNumber:self.accountTextField.text password:self.passwordTextField.text];
     [client enqueueRequest:request];
 }
 
