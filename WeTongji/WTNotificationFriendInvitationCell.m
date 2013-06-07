@@ -12,6 +12,7 @@
 #import "User+Addition.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import "NSString+WTAddition.h"
+#import "WTCoreDataManager.h"
 
 @interface WTNotificationFriendInvitationCell()
 
@@ -48,6 +49,7 @@
         friendInvitation.accepted = @(YES);
         [self hideButtonsAnimated:YES];
         [self showAcceptedIconAnimated:YES];
+        [[WTCoreDataManager sharedManager].currentUser addFriendsObject:friendInvitation.sender];
         [self.delegate cellHeightDidChange];
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Accept friend invitation:%@", error.localizedDescription);

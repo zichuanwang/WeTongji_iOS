@@ -12,6 +12,7 @@
 #import "Notification+Addition.h"
 #import "Activity+Addition.h"
 #import "User+Addition.h"
+#import "WTCoreDataManager.h"
 
 @implementation WTNotificationActivityInvitationCell
 
@@ -62,6 +63,7 @@
         [self hideButtonsAnimated:YES];
         [self showAcceptedIconAnimated:YES];
         [self configureTypeIconImageView];
+        [[WTCoreDataManager sharedManager].currentUser addScheduledEventsObject:activityInvitation.activity];
         [self.delegate cellHeightDidChange];
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Accept activity invitation:%@", error.localizedDescription);
