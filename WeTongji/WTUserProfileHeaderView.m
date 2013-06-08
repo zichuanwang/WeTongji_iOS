@@ -53,24 +53,26 @@
     }
 }
 
-- (void)configureInfoView {
+- (void)configureGenderIndicatorImageView {
     if ([self.user.gender isEqualToString:@"男"]) {
         self.genderIndicatorImageView.image = [UIImage imageNamed:@"WTGenderWhiteMaleIcon"];
     } else {
         self.genderIndicatorImageView.image = [UIImage imageNamed:@"WTGenderWhiteFemaleIcon"];
     }
-    
+}
+
+- (void)configureSchoolLabel {
     self.schoolLabel.text = self.user.department;
-    
     self.schoolLabel.layer.masksToBounds = NO;
     self.schoolLabel.layer.shadowColor = [UIColor blackColor].CGColor;
     self.schoolLabel.layer.shadowOpacity = 0.3f;
     self.schoolLabel.layer.shadowOffset = CGSizeMake(0, 1.0f);
     self.schoolLabel.layer.shadowRadius = 1.0f;
-    
+}
+
+- (void)configureUserNameLabel {
     if ([WTCoreDataManager sharedManager].currentUser != self.user) {
         self.userNameLabel.text = self.user.name;
-        
         self.userNameLabel.layer.masksToBounds = NO;
         self.userNameLabel.layer.shadowColor = [UIColor blackColor].CGColor;
         self.userNameLabel.layer.shadowOpacity = 0.3f;
@@ -79,12 +81,13 @@
     } else {
         self.userNameLabel.text = nil;
     }
-    [self.mottoLabel resetWidth:MOTTO_LABEL_ORIGINAL_WIDTH];
     [self.userNameLabel sizeToFit];
-    
+}
+
+- (void)configureMottoLabel {
+    [self.mottoLabel resetWidth:MOTTO_LABEL_ORIGINAL_WIDTH];
     if (self.user.motto) {
         self.mottoLabel.text = [NSString stringWithFormat:@"“%@”", self.user.motto];
-        
         self.mottoLabel.layer.masksToBounds = NO;
         self.mottoLabel.layer.shadowColor = [UIColor blackColor].CGColor;
         self.mottoLabel.layer.shadowOpacity = 0.3f;
@@ -97,8 +100,19 @@
     [self.mottoLabel sizeToFit];
     [self.mottoLabel resetHeight:self.mottoLabel.frame.size.height > MOTTO_LABEL_MAX_HEIGHT ? MOTTO_LABEL_MAX_HEIGHT : self.mottoLabel.frame.size.height];
     [self.mottoLabel resetOriginY:self.userNameLabel.frame.size.height + self.userNameLabel.frame.origin.y + (self.userNameLabel.frame.size.height == 0 ? 0 : 12.0f)];
-    
+}
+
+- (void)configurePersonalInfoContainerView {
+    [self configureGenderIndicatorImageView];
+    [self configureSchoolLabel];
     [self.personalInfoContainerView resetOriginY:self.mottoLabel.frame.size.height + self.mottoLabel.frame.origin.y + (self.mottoLabel.frame.size.height == 0 ? 0 : 20.0f)];
+}
+
+- (void)configureInfoView {
+    [self configureFunctionButton];
+    [self configureUserNameLabel];
+    [self configureMottoLabel];
+    [self configurePersonalInfoContainerView];
 }
 
 - (void)configureView {
