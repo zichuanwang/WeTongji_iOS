@@ -24,7 +24,7 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     request.entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:context];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"updatedAt" ascending:YES]];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"updatedAt" ascending:YES]];
     
     Controller *controller = [Controller controllerModelForClass:holderClass];
     [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@", controller.hasObjects]];

@@ -124,7 +124,7 @@
 
 - (void)loadHomeSelectedItems {
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
-        WTLOG(@"Get home recommendation succuess:%@", responseObject);
+        // WTLOG(@"Get home recommendation succuess:%@", responseObject);
         
         [self adjustScrollView];
         
@@ -149,7 +149,6 @@
         }
         
         NSObject *starInfoObject = resultDict[@"Person"];
-        
         if ([starInfoObject isKindOfClass:[NSArray class]]) {
             NSArray *starInfoArray = (NSArray *)starInfoObject;
             for (NSDictionary *infoDict in starInfoArray) {
@@ -161,11 +160,6 @@
             Star *star = [Star insertStar:starInfoDict];
             [star setObjectHeldByHolder:[WTHomeSelectContainerView class]];
         }
-
-        // 不加载最新组织
-//        NSDictionary *newestOrgDict = resultDict[@"AccountNewest"];
-//        Organization *newestOrg = [Organization insertOrganization:newestOrgDict];
-//        [newestOrg setObjectHeldByHolder:[WTHomeSelectContainerView class]];
         
         NSDictionary *popularOrgDict = resultDict[@"AccountPopulor"];
         Organization *org = [Organization insertOrganization:popularOrgDict];
@@ -257,10 +251,14 @@
 
 - (void)fillHomeSelectViews {
     WTHomeSelectContainerView *activitySelectContainerView = self.homeSelectViewArray[0];
-    [activitySelectContainerView configureItemInfoArray:[Object getAllObjectsHeldByHolder:[WTHomeSelectContainerView class] objectEntityName:@"Activity"]];
+    NSArray *activityArray = [Object getAllObjectsHeldByHolder:[WTHomeSelectContainerView class] objectEntityName:@"Activity"];
+    activityArray = [activityArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"likeCount" ascending:NO]]];
+    [activitySelectContainerView configureItemInfoArray:activityArray];
     
     WTHomeSelectContainerView *newsSelectContainerView = self.homeSelectViewArray[1];
-    [newsSelectContainerView configureItemInfoArray:[Object getAllObjectsHeldByHolder:[WTHomeSelectContainerView class] objectEntityName:@"News"]];
+    NSArray *newsArray = [Object getAllObjectsHeldByHolder:[WTHomeSelectContainerView class] objectEntityName:@"News"];
+    newsArray = [activityArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"likeCount" ascending:NO]]];
+    [newsSelectContainerView configureItemInfoArray:newsArray];
     
     WTHomeSelectContainerView *featuredSelectContainerView = self.homeSelectViewArray[2];
     NSMutableArray *featurerSelectInfoArray = [NSMutableArray arrayWithArray:[Object getAllObjectsHeldByHolder:[WTHomeSelectContainerView class] objectEntityName:@"Star"]];
@@ -298,10 +296,7 @@
 }
 
 - (void)fillBannerView {
-    NSArray *bannerObjectArray = [Object getAllObjectsHeldByHolder:[WTBannerContainerView class] objectEntityName:@"Object"];
-    NSSortDescriptor *updatedAtDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"updatedAt" ascending:YES];
-    bannerObjectArray = [bannerObjectArray sortedArrayUsingDescriptors:@[updatedAtDescriptor]];
-    [self.bannerContainerView configureBannerWithObjectsArray:bannerObjectArray];
+    [self.bannerContainerView configureBannerWithObjectsArray:[Object getAllObjectsHeldByHolder:[WTBannerContainerView class] objectEntityName:@"Object"]];
 }
 
 - (void)updateBannerView {
