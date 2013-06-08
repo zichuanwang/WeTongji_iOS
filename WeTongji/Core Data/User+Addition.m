@@ -57,7 +57,6 @@
     }
     
     result.sinaWeiboName = [NSString stringWithFormat:@"%@", dict[@"SinaWeibo"]];
-    result.sinaWeiboName = [NSString stringWithFormat:@"%@", dict[@"Phone"]];
     if ([result.sinaWeiboName isEqualToString:@"<null>"]) {
         result.sinaWeiboName = nil;
     }
