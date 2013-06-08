@@ -26,6 +26,7 @@
         result.objectClass = NSStringFromClass([Organization class]);
     }
     
+    result.updatedAt = [NSDate date];
     result.avatar = [NSString stringWithFormat:@"%@", dict[@"Image"]];
     result.name = [NSString stringWithFormat:@"%@", dict[@"Display"]];
     result.administrator = [NSString stringWithFormat:@"%@", dict[@"Name"]];

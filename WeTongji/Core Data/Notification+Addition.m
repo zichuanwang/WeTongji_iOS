@@ -60,7 +60,10 @@
     if (!result) {
         result = [NSEntityDescription insertNewObjectForEntityForName:@"ActivityInvitationNotification" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
         result.identifier = notificationID;
+        result.objectClass = NSStringFromClass([ActivityInvitationNotification class]);
     }
+    
+    result.updatedAt = [NSDate date];
     result.sourceID = [NSString stringWithFormat:@"%@", dict[@"SourceId"]];
     result.sendTime = [[NSString stringWithFormat:@"%@", dict[@"SentAt"]] convertToDate];
     result.sender = [User insertUser:dict[@"UserDetails"]];
@@ -86,8 +89,10 @@
     if (!result) {
         result = [NSEntityDescription insertNewObjectForEntityForName:@"FriendInvitationNotification" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
         result.identifier = notificationID;
+        result.objectClass = NSStringFromClass([FriendInvitationNotification class]);
     }
     
+    result.updatedAt = [NSDate date];
     result.sourceID = [NSString stringWithFormat:@"%@", dict[@"SourceId"]];
     result.sendTime = [[NSString stringWithFormat:@"%@", dict[@"SentAt"]] convertToDate];
     result.sender = [User insertUser:dict[@"UserDetails"]];

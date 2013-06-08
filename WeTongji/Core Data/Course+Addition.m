@@ -32,6 +32,7 @@
         result.objectClass = NSStringFromClass([Course class]);
     }
 
+    result.updatedAt = [NSDate date];
     result.what = [NSString stringWithFormat:@"%@", dict[@"Name"]];
     result.where = [NSString stringWithFormat:@"%@", dict[@"Location"]];
     

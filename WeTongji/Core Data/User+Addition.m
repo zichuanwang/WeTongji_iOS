@@ -31,6 +31,7 @@
         result.objectClass = NSStringFromClass([User class]);
     }
     
+    result.updatedAt = [NSDate date];
     result.avatar = [NSString stringWithFormat:@"%@", dict[@"Avatar"]];
     result.birthday = [[NSString stringWithFormat:@"%@", dict[@"Birthday"]] convertToDate];
     result.department = [NSString stringWithFormat:@"%@", dict[@"Department"]];

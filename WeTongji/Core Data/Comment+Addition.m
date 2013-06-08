@@ -28,7 +28,6 @@
     }
     
     result.updatedAt = [NSDate date];
-    
     result.createdAt = [[NSString stringWithFormat:@"%@", dict[@"PublishedAt"]] convertToDate];
     result.content = [NSString stringWithFormat:@"%@", dict[@"Body"]];
     

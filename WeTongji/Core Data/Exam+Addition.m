@@ -27,6 +27,8 @@
         result.identifier = examID;
         result.objectClass = NSStringFromClass([Exam class]);
     }
+    
+    result.updatedAt = [NSDate date];
     result.what = [NSString stringWithFormat:@"%@", dict[@"Name"]];
     result.teacher = [NSString stringWithFormat:@"%@", dict[@"Teacher"]];
     result.where = [NSString stringWithFormat:@"%@", dict[@"Location"]];

@@ -27,6 +27,8 @@
         result.identifier = postID;
         result.objectClass = NSStringFromClass([BillboardPost class]);
     }
+    
+    result.updatedAt = [NSDate date];
     if ([[NSString stringWithFormat:@"%@", dict[@"Title"]] length] > 0)
         result.title = [NSString stringWithFormat:@"%@", dict[@"Title"]];
     result.image = [NSString stringWithFormat:@"%@", dict[@"Image"]];

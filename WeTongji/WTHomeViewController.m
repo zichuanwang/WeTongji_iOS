@@ -124,7 +124,7 @@
 
 - (void)loadHomeSelectedItems {
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
-        // WTLOG(@"Get home recommendation succuess:%@", responseObject);
+        WTLOG(@"Get home recommendation succuess:%@", responseObject);
         
         [self adjustScrollView];
         
@@ -298,7 +298,10 @@
 }
 
 - (void)fillBannerView {
-    [self.bannerContainerView configureBannerWithObjectsArray:[Object getAllObjectsHeldByHolder:[WTBannerContainerView class] objectEntityName:@"Object"]];
+    NSArray *bannerObjectArray = [Object getAllObjectsHeldByHolder:[WTBannerContainerView class] objectEntityName:@"Object"];
+    NSSortDescriptor *updatedAtDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"updatedAt" ascending:YES];
+    bannerObjectArray = [bannerObjectArray sortedArrayUsingDescriptors:@[updatedAtDescriptor]];
+    [self.bannerContainerView configureBannerWithObjectsArray:bannerObjectArray];
 }
 
 - (void)updateBannerView {

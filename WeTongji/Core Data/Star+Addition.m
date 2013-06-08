@@ -28,6 +28,7 @@
         result.objectClass = NSStringFromClass([Star class]);
     }
     
+    result.updatedAt = [NSDate date];
     result.avatar = [NSString stringWithFormat:@"%@", dict[@"Avatar"]];
     result.content = [[NSString stringWithFormat:@"%@", dict[@"Description"]] clearAllBacklashR];
     
