@@ -257,7 +257,7 @@
     
     WTHomeSelectContainerView *newsSelectContainerView = self.homeSelectViewArray[1];
     NSArray *newsArray = [Object getAllObjectsHeldByHolder:[WTHomeSelectContainerView class] objectEntityName:@"News"];
-    newsArray = [activityArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"likeCount" ascending:NO]]];
+    newsArray = [newsArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"likeCount" ascending:NO]]];
     [newsSelectContainerView configureItemInfoArray:newsArray];
     
     WTHomeSelectContainerView *featuredSelectContainerView = self.homeSelectViewArray[2];
