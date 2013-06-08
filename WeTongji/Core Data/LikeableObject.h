@@ -2,7 +2,7 @@
 //  LikeableObject.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-5-30.
+//  Created by 王 紫川 on 13-6-8.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -15,6 +15,14 @@
 @interface LikeableObject : Object
 
 @property (nonatomic, retain) NSNumber * likeCount;
-@property (nonatomic, retain) User *likedBy;
+@property (nonatomic, retain) NSSet *likedBy;
+@end
+
+@interface LikeableObject (CoreDataGeneratedAccessors)
+
+- (void)addLikedByObject:(User *)value;
+- (void)removeLikedByObject:(User *)value;
+- (void)addLikedBy:(NSSet *)values;
+- (void)removeLikedBy:(NSSet *)values;
 
 @end

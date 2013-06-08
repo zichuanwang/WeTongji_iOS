@@ -30,4 +30,6 @@
 
 - (void)updateView;
 
+- (void)configureFunctionButton;
+
 @end

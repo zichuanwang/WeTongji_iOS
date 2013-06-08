@@ -39,13 +39,7 @@
 #define MOTTO_LABEL_MAX_HEIGHT      57.0f
 #define MOTTO_LABEL_ORIGINAL_WIDTH  200.0f
 
-- (void)configureInfoView {
-    if ([self.user.gender isEqualToString:@"男"]) {
-        self.genderIndicatorImageView.image = [UIImage imageNamed:@"WTGenderWhiteMaleIcon"];
-    } else {
-        self.genderIndicatorImageView.image = [UIImage imageNamed:@"WTGenderWhiteFemaleIcon"];
-    }
-    
+- (void)configureFunctionButton {
     User *currentUser = [WTCoreDataManager sharedManager].currentUser;
     if (self.user == currentUser) {
         [self.functionButton setTitle:NSLocalizedString(@"New Avatar", nil) forState:UIControlStateNormal];
@@ -56,6 +50,14 @@
         } else {
             [self.functionButton setTitle:NSLocalizedString(@"Delete Friend", nil) forState:UIControlStateNormal];
         }
+    }
+}
+
+- (void)configureInfoView {
+    if ([self.user.gender isEqualToString:@"男"]) {
+        self.genderIndicatorImageView.image = [UIImage imageNamed:@"WTGenderWhiteMaleIcon"];
+    } else {
+        self.genderIndicatorImageView.image = [UIImage imageNamed:@"WTGenderWhiteFemaleIcon"];
     }
     
     self.schoolLabel.text = self.user.department;

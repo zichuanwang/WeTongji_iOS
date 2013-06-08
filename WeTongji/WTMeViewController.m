@@ -228,6 +228,7 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
+    self.profileHeaderView.functionButton.userInteractionEnabled = NO;
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Upload avatar success:%@", responseObject);
         NSDictionary *responseDict = responseObject;
@@ -235,9 +236,12 @@
         [WTCoreDataManager sharedManager].currentUser = currentUser;
         
         [self.profileHeaderView updateAvatarImage:edittedImage];
+        
+        self.profileHeaderView.functionButton.userInteractionEnabled = YES;
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Upload avatar failure:%@", error.description);
         [WTErrorHandler handleError:error];
+        self.profileHeaderView.functionButton.userInteractionEnabled = YES;
     }];
     [request updateUserAvatar:edittedImage];
     [[WTClient sharedClient] enqueueRequest:request];

@@ -65,7 +65,7 @@
     </entity>
     <entity name="LikeableObject" representedClassName="LikeableObject" isAbstract="YES" parentEntity="Object" syncable="YES">
         <attribute name="likeCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="likedBy" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="likedObjects" inverseEntity="User" syncable="YES"/>
+        <relationship name="likedBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="likedObjects" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="News" representedClassName="News" parentEntity="CommentableObject" syncable="YES">
         <attribute name="category" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>

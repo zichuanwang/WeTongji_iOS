@@ -80,13 +80,15 @@
         
         if (success)
             success();
-                
+        
         NSDictionary *resultDict = (NSDictionary *)responseData;
         NSArray *friendsArray = resultDict[@"Users"];
         for (NSDictionary *infoDict in friendsArray) {
             User *friend = [User insertUser:infoDict];
             [self.user addFriendsObject:friend];
         }
+        
+        _noAnimationFlag = NO;
         
     } failureBlock:^(NSError * error) {
         WTLOGERROR(@"Get friends list:%@", error.localizedDescription);
@@ -102,7 +104,6 @@
 
 - (void)clearAllData {
     [self.user removeFriends:self.user.friends];
-    [Object setAllObjectsFreeFromHolder:[self class]];
 }
 
 #pragma mark - UI methods
@@ -134,6 +135,7 @@
 #pragma mark - CoreDataTableViewController methods
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    WTLOG(@"configure friend list cell at indexpath:%d", indexPath.row);
     WTUserCell *userCell = (WTUserCell *)cell;
     User *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [userCell configureCellWithIndexPath:indexPath user:user];
@@ -177,6 +179,7 @@
 
 - (void)dragToLoadDecoratorDidDragDown {
     [self loadMoreDataWithSuccessBlock:^{
+        _noAnimationFlag = YES;
         [self clearAllData];
         [self.dragToLoadDecorator topViewLoadFinished:YES];
     } failureBlock:^{
