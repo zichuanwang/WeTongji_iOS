@@ -29,6 +29,8 @@
     
     result.activity = activity;
     
+    result.activityOutdated = ([activity.endTime compare:[NSDate date]] == NSOrderedAscending);
+    
     [result configureView];
     
     return result;
@@ -82,7 +84,11 @@
 }
 
 - (void)configureParticipateButton {
-    self.participateButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Participate", nil)];
+    
+    if (!self.activityOutdated)
+        self.participateButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Participate", nil)];
+    else
+        self.participateButton = [WTResourceFactory createDisableButtonWithText:NSLocalizedString(@"Participated", nil)];
     
     if (self.participateButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
         [self.participateButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];
@@ -119,13 +125,6 @@
     CGFloat titleLabelOriginalHeight = self.activityTitleLabel.frame.size.height;
     [self.activityTitleLabel sizeToFit];
     [self resetHeight:self.frame.size.height + self.activityTitleLabel.frame.size.height - titleLabelOriginalHeight];
-    
-    if (!self.showingBottomButtons) {
-        self.activityTimeLabel.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
-        self.activityLocationButton.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
-        self.activityLocationDisclosureImageView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin;
-        [self resetHeight:self.frame.size.height - BRIEF_DESCRIPTION_VIEW_BOTTOM_BUTTONS_HEIGHT];
-    }
 }
 
 - (void)configureBackgroundColor {
@@ -133,11 +132,10 @@
 }
 
 - (void)configureBottomButtons {
-    self.showingBottomButtons = ([self.activity.endTime compare:[NSDate date]] == NSOrderedDescending);
-    if (self.showingBottomButtons) {
+    [self configureParticipateButton];
+    [self configureFriendCountButton];
+    if (!self.activityOutdated) {
         [self configureInviteButton];
-        [self configureParticipateButton];
-        [self configureFriendCountButton];
     }
 }
 

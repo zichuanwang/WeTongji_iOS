@@ -18,6 +18,7 @@
     UIButton *button = [[UIButton alloc] init];
     [WTResourceFactory configureDisableButton:button text:text];
     button.selected = YES;
+    button.userInteractionEnabled = NO;
     return button;
 }
 

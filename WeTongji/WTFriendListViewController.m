@@ -29,6 +29,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        _noAnimationFlag = YES;
     }
     return self;
 }
@@ -87,9 +88,7 @@
             User *friend = [User insertUser:infoDict];
             [self.user addFriendsObject:friend];
         }
-        
-        _noAnimationFlag = NO;
-        
+                
     } failureBlock:^(NSError * error) {
         WTLOGERROR(@"Get friends list:%@", error.localizedDescription);
         
@@ -179,7 +178,6 @@
 
 - (void)dragToLoadDecoratorDidDragDown {
     [self loadMoreDataWithSuccessBlock:^{
-        _noAnimationFlag = YES;
         [self clearAllData];
         [self.dragToLoadDecorator topViewLoadFinished:YES];
     } failureBlock:^{

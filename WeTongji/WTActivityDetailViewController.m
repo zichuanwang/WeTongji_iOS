@@ -123,7 +123,7 @@
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (self.headerView.showingBottomButtons) {
+    if (!self.headerView.activityOutdated) {
         CGFloat briefDescriptionViewTopIndent = self.headerView.frame.size.height - HEADER_VIEW_BOTTOM_INDENT;
         if (scrollView.contentOffset.y > briefDescriptionViewTopIndent) {
             [self.headerView resetOriginY:scrollView.contentOffset.y - briefDescriptionViewTopIndent];
@@ -237,7 +237,7 @@
         [WTErrorHandler handleError:error];
     }];
     User *user = vc.selectedFriendsArray.lastObject;
-    [request activityInvite:self.activity.identifier inviteUserID:user.identifier];
+    [request activityInvite:self.activity.identifier inviteUserIDArray:@[user.identifier]];
     [[WTClient sharedClient] enqueueRequest:request];
 }
 

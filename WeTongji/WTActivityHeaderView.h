@@ -18,7 +18,7 @@
 @property (nonatomic, strong) UIButton *participateButton;
 @property (nonatomic, strong) UIButton *inviteButton;
 
-@property (nonatomic, assign) BOOL showingBottomButtons;
+@property (nonatomic, assign) BOOL activityOutdated;
 
 + (WTActivityHeaderView *)createHeaderViewWithActivity:(Activity *)activity;
 

@@ -106,7 +106,7 @@
     if (isFriend)
         [request removeFriend:self.user.identifier];
     else
-        [request inviteFriend:self.user.identifier];
+        [request inviteFriends:@[self.user.identifier]];
     [[WTClient sharedClient] enqueueRequest:request];
 }
 
