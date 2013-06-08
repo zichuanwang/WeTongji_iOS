@@ -85,18 +85,18 @@
 
 - (void)configureParticipateButton {
     
-    if (!self.activityOutdated)
+    if (!self.activityOutdated) {
         self.participateButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Participate", nil)];
-    else
-        self.participateButton = [WTResourceFactory createDisableButtonWithText:NSLocalizedString(@"Participated", nil)];
+        [self configureParticipateButtonStatus:self.activity.scheduled];
+    } else {
+        self.participateButton = [WTResourceFactory createDisableButtonWithText:self.activity.scheduled ? NSLocalizedString(@"Participated", nil) : NSLocalizedString(@"Outdated", nil)];
+    }
     
     if (self.participateButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
         [self.participateButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];
     
     [self.participateButton resetOrigin:CGPointMake(311.0f - self.participateButton.frame.size.width, MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y)];
     self.participateButton.autoresizingMask |= UIViewAutoresizingFlexibleTopMargin;
-    
-    [self configureParticipateButtonStatus:self.activity.scheduled];
     
     [self addSubview:self.participateButton];
 }
