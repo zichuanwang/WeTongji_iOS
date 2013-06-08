@@ -148,11 +148,13 @@
     self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"News", nil)];
     self.navigationItem.leftBarButtonItem = [WTResourceFactory createLogoBackBarButtonWithTarget:self
                                                                                           action:@selector(didClickBackButton:)];
-    self.navigationItem.rightBarButtonItem = [WTResourceFactory createFilterBarButtonWithTarget:self
-                                                                                         action:@selector(didClickFilterButton:)];
-    
+    [self configureFilterBarButton];
+}
+
+- (void)configureFilterBarButton {
     BOOL isNewsSettingDifferentFromDefaultValue = [[NSUserDefaults standardUserDefaults] isNewsSettingDifferentFromDefaultValue];
-    [WTResourceFactory configureFilterBarButton:self.navigationItem.rightBarButtonItem modified:isNewsSettingDifferentFromDefaultValue];
+    self.navigationItem.rightBarButtonItem = [WTResourceFactory createFilterBarButtonWithTarget:self
+                                                                                         action:@selector(didClickFilterButton:) focus:isNewsSettingDifferentFromDefaultValue];
 }
 
 #pragma mark - Actions
@@ -264,6 +266,7 @@
 #pragma mark - WTRootNavigationControllerDelegate
 
 - (void)didHideInnderModalViewController {
+    [self configureFilterBarButton];
     self.filterButton.selected = YES;
 }
 

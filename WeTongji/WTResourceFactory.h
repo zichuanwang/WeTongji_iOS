@@ -36,10 +36,8 @@
                                                 action:(SEL)action;
 
 + (UIBarButtonItem *)createFilterBarButtonWithTarget:(id)target
-                                            action:(SEL)action;
-
-+ (void)configureFilterBarButton:(UIBarButtonItem *)barButton
-                        modified:(BOOL)modified;
+                                              action:(SEL)action
+                                               focus:(BOOL)focus;
 
 + (UIBarButtonItem *)createNewPostBarButtonWithTarget:(id)target
                                                action:(SEL)action;

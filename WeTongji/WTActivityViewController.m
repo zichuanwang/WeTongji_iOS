@@ -145,11 +145,14 @@
     self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Activities", nil)];
     self.navigationItem.leftBarButtonItem = [WTResourceFactory createLogoBackBarButtonWithTarget:self
                                                                                           action:@selector(didClickBackButton:)];
-    self.navigationItem.rightBarButtonItem = [WTResourceFactory createFilterBarButtonWithTarget:self
-                                                                                         action:@selector(didClickFilterButton:)];
-    
+    [self configureFilterBarButton];
+}
+
+- (void)configureFilterBarButton {
     BOOL isActivitySettingDifferentFromDefaultValue = [[NSUserDefaults standardUserDefaults] isActivitySettingDifferentFromDefaultValue];
-    [WTResourceFactory configureFilterBarButton:self.navigationItem.rightBarButtonItem modified:isActivitySettingDifferentFromDefaultValue];
+    self.navigationItem.rightBarButtonItem = [WTResourceFactory createFilterBarButtonWithTarget:self
+                                                                                         action:@selector(didClickFilterButton:)
+                                                                                          focus:isActivitySettingDifferentFromDefaultValue];
 }
 
 - (void)configureTableView {
@@ -255,6 +258,7 @@
 #pragma mark - WTRootNavigationControllerDelegate
 
 - (void)didHideInnderModalViewController {
+    [self configureFilterBarButton];
     self.filterButton.selected = YES;
 }
 

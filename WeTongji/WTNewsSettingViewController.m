@@ -46,9 +46,4 @@
     return [[NSUserDefaults standardUserDefaults] isNewsSettingDifferentFromDefaultValue];
 }
 
-- (void)settingItemDidModify {
-    [super settingItemDidModify];
-    [WTResourceFactory configureFilterBarButton:self.callBarButtonItem modified:[self isSettingDifferentFromDefaultValue]];
-}
-
 @end

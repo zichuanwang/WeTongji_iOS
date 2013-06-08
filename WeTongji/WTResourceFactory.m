@@ -81,45 +81,18 @@
 }
 
 + (UIBarButtonItem *)createFilterBarButtonWithTarget:(id)target
-                                              action:(SEL)action {
-    UIButton *button = [WTResourceFactory createNormalButtonWithText:@""];
+                                              action:(SEL)action
+                                               focus:(BOOL)focus {
+    UIButton *button =  focus ? [WTResourceFactory createFocusButtonWithText:@""] : [WTResourceFactory createNormalButtonWithText:@""];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     UIImage *filterNormalIconImage = [UIImage imageNamed:@"WTFilterSelectIcon"];
     [button setImage:filterNormalIconImage forState:UIControlStateNormal];
     [button setImage:filterNormalIconImage forState:UIControlStateHighlighted];
-    UIImage *filterSelectIconImage = [UIImage imageNamed:@"WTFilterNormalIcon"];
+    UIImage *filterSelectIconImage = focus ? [UIImage imageNamed:@"WTFilterSelectIcon"] : [UIImage imageNamed:@"WTFilterNormalIcon"];
     [button setImage:filterSelectIconImage forState:UIControlStateSelected];
     
     [button resetWidth:filterNormalIconImage.size.width];
     return [WTResourceFactory createBarButtonWithButton:button];
-}
-
-+ (void)configureFilterBarButton:(UIBarButtonItem *)barButton
-                        modified:(BOOL)modified {
-    UIButton *filterButton = barButton.customView.subviews.lastObject;
-    UIImage *normalBgImage = nil;
-    UIImage *selectBgImage = nil;
-    UIImage *filterNormalIconImage = nil;
-    UIImage *filterSelectIconImage = nil;
-    
-    if (modified) {
-        normalBgImage = [UIImage imageNamed:@"WTFocusButton"];
-        selectBgImage = [UIImage imageNamed:@"WTFocusButton"];
-        filterNormalIconImage = [UIImage imageNamed:@"WTFilterSelectIcon"];
-        filterSelectIconImage = [UIImage imageNamed:@"WTFilterSelectIcon"];
-    } else {
-        normalBgImage = [UIImage imageNamed:@"WTSelectButton"];
-        selectBgImage = [UIImage imageNamed:@"WTNormalButton"];
-        filterNormalIconImage = [UIImage imageNamed:@"WTFilterSelectIcon"];
-        filterSelectIconImage = [UIImage imageNamed:@"WTFilterNormalIcon"];
-    }
-    [filterButton setBackgroundImage:normalBgImage forState:UIControlStateNormal];
-    [filterButton setBackgroundImage:normalBgImage forState:UIControlStateHighlighted];
-    [filterButton setBackgroundImage:selectBgImage forState:UIControlStateSelected];
-    
-    [filterButton setImage:filterNormalIconImage forState:UIControlStateNormal];
-    [filterButton setImage:filterNormalIconImage forState:UIControlStateHighlighted];
-    [filterButton setImage:filterSelectIconImage forState:UIControlStateSelected];
 }
 
 + (UIView *)createNavigationBarTitleViewWithText:(NSString *)text {
