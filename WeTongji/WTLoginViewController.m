@@ -19,7 +19,6 @@
 @interface WTLoginViewController ()
 
 @property (nonatomic, strong) UIButton *forgetPasswordButton;
-@property (nonatomic, strong) UIButton *introButton;
 @property (nonatomic, strong) WTLoginIntroViewController *introViewController;
 @property (nonatomic, assign) BOOL showIntro;
 @property (nonatomic, assign) BOOL isLoggingIn;
@@ -49,10 +48,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     if (self.showIntro) {
-        self.introButton.selected = YES;
         [self.view addSubview:self.introViewController.view];
         [self.introViewController resetFrame:self.view.frame];
-        self.showIntro = NO;
     }
 }
 
@@ -104,23 +101,24 @@
     [self.signUpButton setTitle:NSLocalizedString(@"Sign Up", nil) forState:UIControlStateNormal];
 }
 
-- (void)configureNavigationBar {
-    UIBarButtonItem *cancalBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:NSLocalizedString(@"Not now", nil) target:self action:@selector(didClickCancelButton:)];
-    self.navigationItem.leftBarButtonItem = cancalBarButtonItem;
-    
+- (void)configureShowIntroBarButton {
     UIButton *introButton = [WTResourceFactory createFocusButtonWithText:NSLocalizedString(@"Log In / Sign Up", nil)];
+    introButton.selected = self.showIntro;
     [introButton addTarget:self action:@selector(didClickIntroButton:) forControlEvents:UIControlEventTouchUpInside];
-    introButton.selected = NO;
-    self.introButton = introButton;
-    
     UIBarButtonItem *introBarButtonItem = [WTResourceFactory createBarButtonWithButton:introButton];
     self.navigationItem.rightBarButtonItem = introBarButtonItem;
 }
 
+- (void)configureNavigationBar {
+    UIBarButtonItem *cancalBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:NSLocalizedString(@"Not now", nil) target:self action:@selector(didClickCancelButton:)];
+    self.navigationItem.leftBarButtonItem = cancalBarButtonItem;
+    
+    [self configureShowIntroBarButton];
+}
+
 #pragma mark - Animations
 
-- (void)showIntroViewAnimation {
-    self.introButton.userInteractionEnabled = NO;
+- (void)showIntroViewAnimationWithCompletion:(void (^)(void))completion {
     [self.view addSubview:self.introViewController.view];
     [self.introViewController resetFrame:self.view.frame];
     
@@ -128,17 +126,20 @@
     [UIView animateWithDuration:0.25f animations:^{
         [self.introViewController.view resetOriginY:0];
     } completion:^(BOOL finished) {
-        self.introButton.userInteractionEnabled = YES;
+        if (completion) {
+            completion();
+        }
     }];
 }
 
-- (void)hideIntroViewAnimation {
-    self.introButton.userInteractionEnabled = NO;
+- (void)hideIntroViewAnimationWithCompletion:(void (^)(void))completion {
     [UIView animateWithDuration:0.25 animations:^{
         [self.introViewController.view resetOriginY:self.view.frame.size.height];
     } completion:^(BOOL finished) {
         [self.introViewController.view removeFromSuperview];
-        self.introButton.userInteractionEnabled = YES;
+        if (completion) {
+            completion();
+        }
     }];
 }
 
@@ -150,12 +151,19 @@
 
 - (void)didClickIntroButton:(UIButton *)sender {
     sender.selected = !sender.selected;
+    self.showIntro = sender.selected;
+    
+    sender.userInteractionEnabled = NO;
     
     if (sender.selected) {
-        [self showIntroViewAnimation];
+        [self showIntroViewAnimationWithCompletion:^{
+            sender.userInteractionEnabled = YES;
+        }];
         [self.view endEditing:YES];
     } else {
-        [self hideIntroViewAnimation];
+        [self hideIntroViewAnimationWithCompletion:^{
+            sender.userInteractionEnabled = YES;
+        }];
         [self.accountTextField becomeFirstResponder];
     }
 }
@@ -200,13 +208,17 @@
         User *user = [User insertUser:[responseData objectForKey:@"User"]];
         [WTCoreDataManager sharedManager].currentUser = user;
         [self configureFlurryUserData:user];
+        [self configureShowIntroBarButton];
         [self dismissView];
     } failureBlock:^(NSError * error) {
         self.isLoggingIn = NO;
         [WTErrorHandler handleError:error];
+        [self configureShowIntroBarButton];
     }];
     [request loginWithStudentNumber:self.accountTextField.text password:self.passwordTextField.text];
     [client enqueueRequest:request];
+    
+    [WTResourceFactory configureActivityIndicatorBarButton:self.navigationItem.rightBarButtonItem activityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
 }
 
 #pragma mark - UITextViewDelegate

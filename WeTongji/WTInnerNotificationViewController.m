@@ -85,6 +85,8 @@
 }
 
 - (void)loadUnreadNotifications {
+    if (![WTCoreDataManager sharedManager].currentUser)
+        return;
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Get notification list succese:%@", responseObject);
         NSSet *notificationsSet = [Notification insertNotifications:responseObject];

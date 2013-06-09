@@ -224,7 +224,6 @@
                           text:(NSString *)text {
     [WTResourceFactory configureButton:button
                                   text:text
-                            selectText:nil
                            normalImage:[UIImage imageNamed:@"WTDisableButton"]
                         highlightImage:[UIImage imageNamed:@"WTDisableButton"]
                            selectImage:[UIImage imageNamed:@"WTDisableButton"]
@@ -241,7 +240,6 @@
                         text:(NSString *)text {
     [WTResourceFactory configureButton:button
                                   text:text
-                            selectText:nil
                            normalImage:[UIImage imageNamed:@"WTSelectButton"]
                         highlightImage:[UIImage imageNamed:@"WTSelectButton"]
                            selectImage:[UIImage imageNamed:@"WTFocusButton"]
@@ -257,7 +255,6 @@
                          text:(NSString *)text {
     [WTResourceFactory configureButton:button
                                   text:text
-                            selectText:nil
                            normalImage:[UIImage imageNamed:@"WTSelectButton"]
                         highlightImage:[UIImage imageNamed:@"WTSelectButton"]
                            selectImage:[UIImage imageNamed:@"WTNormalButton"]
@@ -273,7 +270,6 @@
                               text:(NSString *)text {
     [WTResourceFactory configureButton:button
                                   text:text
-                            selectText:nil
                            normalImage:[UIImage imageNamed:@"WTTranslucentNormalButton"]
                         highlightImage:[UIImage imageNamed:@"WTTranslucentHighlightButton"]
                            selectImage:nil
@@ -287,7 +283,6 @@
 
 + (void)configureButton:(UIButton *)button
                          text:(NSString *)text
-                   selectText:(NSString *)selectText
                   normalImage:(UIImage *)normalImage
                highlightImage:(UIImage *)highlightImage
                   selectImage:(UIImage *)selectImage
@@ -339,13 +334,6 @@
     button.titleLabel.shadowOffset = CGSizeMake(0, 1);
     
     CGFloat titleLabelWidth = [text sizeWithFont:button.titleLabel.font].width;
-    
-    if (selectText) {
-        [button setTitle:selectText forState:UIControlStateSelected];
-        CGFloat selectTextWidth = [selectText sizeWithFont:button.titleLabel.font].width;
-        titleLabelWidth = titleLabelWidth < selectTextWidth ? selectTextWidth : titleLabelWidth;
-    }
-    
     [button resetSize:CGSizeMake(titleLabelWidth + BUTTON_WIDTH_INCREMENT, normalImage.size.height)];
 }
 
@@ -377,6 +365,40 @@
     
     [button resetWidth:lockNormalIconImage.size.width];
     return button;
+}
+
++ (void)configureActivityIndicatorBarButton:(UIBarButtonItem *)barButtonItem
+                     activityIndicatorStyle:(UIActivityIndicatorViewStyle)style {
+    UIView *buttonContainerView = barButtonItem.customView;
+    for (UIView *subview in buttonContainerView.subviews) {
+        if ([subview isKindOfClass:[UIButton class]]) {
+            UIButton *button = (UIButton *)subview;
+            [button setImage:nil forState:UIControlStateNormal];
+            [button setImage:nil forState:UIControlStateHighlighted];
+            [button setImage:nil forState:UIControlStateSelected];
+            [button setTitle:@"" forState:UIControlStateNormal];
+            break;
+        }
+    }
+    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:style];
+    activityIndicator.center = CGPointMake(buttonContainerView.frame.size.width / 2, buttonContainerView.frame.size.height / 2);
+    [buttonContainerView addSubview:activityIndicator];
+    buttonContainerView.userInteractionEnabled = NO;
+    [activityIndicator startAnimating];
+}
+
++ (void)configureActivityIndicatorButton:(UIButton *)button
+                  activityIndicatorStyle:(UIActivityIndicatorViewStyle)style {
+    [button setImage:nil forState:UIControlStateNormal];
+    [button setImage:nil forState:UIControlStateHighlighted];
+    [button setImage:nil forState:UIControlStateSelected];
+    [button setTitle:@"" forState:UIControlStateNormal];
+    
+    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:style];
+    activityIndicator.center = CGPointMake(button.frame.size.width / 2, button.frame.size.height / 2);
+    [button addSubview:activityIndicator];
+    button.userInteractionEnabled = NO;
+    [activityIndicator startAnimating];
 }
 
 @end

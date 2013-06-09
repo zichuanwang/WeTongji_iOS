@@ -43,6 +43,12 @@
     User *currentUser = [WTCoreDataManager sharedManager].currentUser;
     if (self.user == currentUser) {
         [self.functionButton setTitle:NSLocalizedString(@"New Avatar", nil) forState:UIControlStateNormal];
+        for (UIView *view in self.functionButton.subviews) {
+            if ([view isKindOfClass:[UIActivityIndicatorView class]]) {
+                [view removeFromSuperview];
+                break;
+            }
+        }
     } else {
         // 判断是否为好友
         if (![currentUser.friends containsObject:self.user]) {

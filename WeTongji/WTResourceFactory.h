@@ -58,4 +58,10 @@
 + (UIBarButtonItem *)createAddFriendBarButtonWithTarget:(id)target
                                                  action:(SEL)action;
 
++ (void)configureActivityIndicatorBarButton:(UIBarButtonItem *)barButtonItem
+                     activityIndicatorStyle:(UIActivityIndicatorViewStyle)style;
+
++ (void)configureActivityIndicatorButton:(UIButton *)button
+                  activityIndicatorStyle:(UIActivityIndicatorViewStyle)style;
+
 @end

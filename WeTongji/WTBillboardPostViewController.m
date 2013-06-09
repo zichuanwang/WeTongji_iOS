@@ -61,10 +61,14 @@
 
 #pragma mark - UI methods
 
+- (void)configurePostBarButton {
+    self.navigationItem.rightBarButtonItem = [WTResourceFactory createFocusBarButtonWithText:NSLocalizedString(@"Post", nil) target:self action:@selector(didClickPostButton:)];
+}
+
 - (void)configureNavigationBar {
     self.navigationItem.leftBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:NSLocalizedString(@"Cancel", nil) target:self action:@selector(didClickCancelButton:)];
     
-    self.navigationItem.rightBarButtonItem = [WTResourceFactory createFocusBarButtonWithText:NSLocalizedString(@"Post", nil) target:self action:@selector(didClickPostButton:)];
+    [self configurePostBarButton];
 }
 
 - (void)dismissView {
@@ -94,15 +98,17 @@
         }
     }
     
-    sender.userInteractionEnabled = NO;
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        [self configurePostBarButton];
         [self dismissView];
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Post failed for reason:%@", error.localizedDescription);
-        sender.userInteractionEnabled = YES;
+        [self configurePostBarButton];
     }];
     [request addBillboardPostWithTitle:self.titleTextField.text content:self.contentTextView.text image:self.postImageView.image];
     [[WTClient sharedClient] enqueueRequest:request];
+    
+    [WTResourceFactory configureActivityIndicatorBarButton:self.navigationItem.rightBarButtonItem activityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
 }
 
 @end

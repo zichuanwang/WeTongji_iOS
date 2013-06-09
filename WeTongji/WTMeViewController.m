@@ -134,6 +134,10 @@
 
 - (void)configureNavigationBar {
     self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:[WTCoreDataManager sharedManager].currentUser.name];
+    [self configureSettingBarButton];
+}
+
+- (void)configureSettingBarButton {
     self.navigationItem.rightBarButtonItem = [WTResourceFactory createSettingBarButtonWithTarget:self action:@selector(didClickSettingButton:)];
 }
 
@@ -228,23 +232,22 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
-    self.profileHeaderView.functionButton.userInteractionEnabled = NO;
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Upload avatar success:%@", responseObject);
         NSDictionary *responseDict = responseObject;
         User *currentUser = [User insertUser:responseDict[@"User"]];
         [WTCoreDataManager sharedManager].currentUser = currentUser;
-        
         [self.profileHeaderView updateAvatarImage:edittedImage];
-        
-        self.profileHeaderView.functionButton.userInteractionEnabled = YES;
+        [self.profileHeaderView configureFunctionButton];
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Upload avatar failure:%@", error.description);
         [WTErrorHandler handleError:error];
-        self.profileHeaderView.functionButton.userInteractionEnabled = YES;
+        [self.profileHeaderView configureFunctionButton];
     }];
     [request updateUserAvatar:edittedImage];
     [[WTClient sharedClient] enqueueRequest:request];
+    
+    [WTResourceFactory configureActivityIndicatorButton:self.profileHeaderView.functionButton activityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
 }
 
 #pragma mark - WTInnerSettingViewControllerDelegate
@@ -264,12 +267,16 @@
             WTLOG(@"Update user info success:%@", responseObject);
             [WTCoreDataManager sharedManager].currentUser = [User insertUser:responseObject[@"User"]];
             [self.profileHeaderView updateView];
+            [self configureSettingBarButton];
         } failureBlock:^(NSError *error) {
             [WTErrorHandler handleError:error];
+            [self configureSettingBarButton];
         }];
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [request updateUserEmail:[defaults getCurrentUserEmail] weiboName:[defaults getCurrentUserSinaWeibo] phoneNum:[defaults getCurrentUserPhone] qqAccount:[defaults getCurrentUserQQ] motto:[defaults getCurrentUserMotto]];
         [[WTClient sharedClient] enqueueRequest:request];
+        
+        [WTResourceFactory configureActivityIndicatorBarButton:self.navigationItem.rightBarButtonItem activityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     }
 }
 
