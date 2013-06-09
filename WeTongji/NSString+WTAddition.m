@@ -196,4 +196,15 @@
     return result;
 }
 
++ (NSString *)deleteFriendStringForFriendName:(NSString *)name {
+    NSString *result = nil;
+    NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    if ([language isEqualToString:@"zh-Hans"]) {
+        result = [NSString stringWithFormat:@"你确定要解除和%@的好友关系吗？", name];
+    } else {
+        result = [NSString stringWithFormat:@"Are you sure you want to remove %@ from your friend list?", name];
+    }
+    return result;
+}
+
 @end

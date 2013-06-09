@@ -11,8 +11,10 @@
 #import "WTUserProfileHeaderView.h"
 #import "WTOtherUserProfileView.h"
 #import "WTCoreDataManager.h"
+#import "WTResourceFactory.h"
+#import "NSString+WTAddition.h"
 
-@interface WTUserDetailViewController ()
+@interface WTUserDetailViewController () <UIAlertViewDelegate>
 
 @property (nonatomic, strong) User *user;
 @property (nonatomic, weak) WTUserProfileHeaderView *profileHeaderView;
@@ -87,33 +89,51 @@
     [headerView.functionButton addTarget:self action:@selector(didClickChangeRelationshipButton:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-#pragma mark - Actions
+#pragma mark - Logic methods
 
-- (void)didClickChangeRelationshipButton:(UIButton *)sender {
-    BOOL isFriend = [[WTCoreDataManager sharedManager].currentUser.friends containsObject:self.user];
-    sender.userInteractionEnabled = NO;
+- (void)changeFriendRelationship:(BOOL)isFriend {
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Add friend success:%@", responseObject);
         [[[UIAlertView alloc] initWithTitle:@"注意" message:isFriend ? @"已删除好友" : @"已发送好友添加请求。" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil] show];
         [[WTCoreDataManager sharedManager].currentUser removeFriendsObject:self.user];
         [self.profileHeaderView configureFunctionButton];
-        sender.userInteractionEnabled = YES;
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Add friend failure:%@", error.localizedDescription);
         [WTErrorHandler handleError:error];
-        sender.userInteractionEnabled = YES;
+        [self.profileHeaderView configureFunctionButton];
     }];
     if (isFriend)
         [request removeFriend:self.user.identifier];
     else
         [request inviteFriends:@[self.user.identifier]];
     [[WTClient sharedClient] enqueueRequest:request];
+    
+    [WTResourceFactory configureActivityIndicatorButton:self.profileHeaderView.functionButton activityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+}
+
+#pragma mark - Actions
+
+- (void)didClickChangeRelationshipButton:(UIButton *)sender {
+    BOOL isFriend = [[WTCoreDataManager sharedManager].currentUser.friends containsObject:self.user];
+    if (!isFriend)
+        [self changeFriendRelationship:NO];
+    else {
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Warning", nil) message:[NSString deleteFriendStringForFriendName:self.user.name] delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil)otherButtonTitles:NSLocalizedString(@"Yes", nil), nil] show];
+    }
 }
 
 #pragma mark - Methods to overwrite
 
 - (LikeableObject *)targetObject {
     return self.user;
+}
+
+#pragma mark - UIActionSheetDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.cancelButtonIndex != buttonIndex) {
+        [self changeFriendRelationship:YES];
+    }
 }
 
 @end
