@@ -10,10 +10,12 @@
 #import "WTCoreDataManager.h"
 #import "FriendInvitationNotification.h"
 #import "ActivityInvitationNotification.h"
+#import "CourseInvitationNotification.h"
 #import "User+Addition.h"
 #import "WTNotificationFriendInvitationCell.h"
 #import "NSString+WTAddition.h"
 #import "Activity+Addition.h"
+#import "Course+Addition.h"
 
 @implementation Notification (Addition)
 
@@ -44,8 +46,43 @@
             activityInviteInfo[@"SourceId"] = info[@"SourceId"];
             Notification *notification = [Notification insertActivityInvitationNotification:activityInviteInfo];
             [result addObject:notification];
+        } else if ([notificationType isEqualToString:@"CourseInvite"]) {
+            NSMutableDictionary *courseInviteInfo = [NSMutableDictionary dictionaryWithDictionary:sourceDetailsInfo];
+            courseInviteInfo[@"Id"] = info[@"Id"];
+            courseInviteInfo[@"SourceId"] = info[@"SourceId"];
+            Notification *notification = [Notification insertCourseInvitationNotification:courseInviteInfo];
+            [result addObject:notification];
         }
     }
+    return result;
+}
+
++ (CourseInvitationNotification *)insertCourseInvitationNotification:(NSDictionary *)dict {
+    NSString *notificationID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
+    
+    if (!notificationID || [notificationID isEqualToString:@"(null)"]) {
+        return nil;
+    }
+    
+    CourseInvitationNotification *result = (CourseInvitationNotification *)[Notification notificationWithID:notificationID];
+    if (!result) {
+        result = [NSEntityDescription insertNewObjectForEntityForName:@"CourseInvitationNotification" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
+        result.identifier = notificationID;
+        result.objectClass = NSStringFromClass([ActivityInvitationNotification class]);
+    }
+    
+    result.updatedAt = [NSDate date];
+    result.sourceID = [NSString stringWithFormat:@"%@", dict[@"SourceId"]];
+    result.sendTime = [[NSString stringWithFormat:@"%@", dict[@"SentAt"]] convertToDate];
+    result.sender = [User insertUser:dict[@"UserDetails"]];
+    result.course = [Course insertCourse:dict[@"CourseDetails"]];
+    
+    if ([[NSString stringWithFormat:@"%@", dict[@"AcceptedAt"]] isEqualToString:@"<null>"]) {
+        result.accepted = @(NO);
+    } else {
+        result.accepted = @(YES);
+    }
+    
     return result;
 }
 
@@ -139,6 +176,8 @@
         return @"WTNotificationFriendInvitationCell";
     } else if ([self isMemberOfClass:[ActivityInvitationNotification class]]) {
         return @"WTNotificationActivityInvitationCell";
+    } else if ([self isMemberOfClass:[CourseInvitationNotification class]]) {
+        return @"WTNotificationCourseInvitationCell";
     } else {
         return nil;
     }

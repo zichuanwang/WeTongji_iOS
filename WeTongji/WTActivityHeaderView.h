@@ -24,4 +24,6 @@
 
 - (void)configureParticipateButtonStatus:(BOOL)participated;
 
+- (void)configureInviteButton;
+
 @end

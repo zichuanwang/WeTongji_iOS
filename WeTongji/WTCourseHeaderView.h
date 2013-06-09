@@ -18,4 +18,6 @@
 
 + (WTCourseHeaderView *)createHeaderViewWithCourse:(Course *)course;
 
+- (void)configureInviteButton;
+
 @end

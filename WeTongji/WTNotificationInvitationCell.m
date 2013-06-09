@@ -9,11 +9,14 @@
 #import "WTNotificationInvitationCell.h"
 #import "WTNotificationActivityInvitationCell.h"
 #import "WTNotificationFriendInvitationCell.h"
+#import "WTNotificationCourseInvitationCell.h"
 #import "OHAttributedLabel.h"
 #import "ActivityInvitationNotification.h"
 #import "FriendInvitationNotification.h"
+#import "CourseInvitationNotification.h"
 #import "Activity+Addition.h"
 #import "User+Addition.h"
+#import "Course+Addition.h"
 
 #define CELL_ORIGINAL_HEIGHT            120.0f
 #define BUTTON_CONTAINER_VIEW_HEIGHT    50.0f
@@ -31,6 +34,9 @@
         result = [WTNotificationActivityInvitationCell generateNotificationContentAttributedStringWithSenderName:activityInvitation.sender.name activityTitle:activityInvitation.activity.what];
     } else if ([notification isKindOfClass:[FriendInvitationNotification class]]) {
         result = [WTNotificationFriendInvitationCell generateNotificationContentAttributedStringWithSenderName:notification.sender.name];
+    } else if ([notification isKindOfClass:[CourseInvitationNotification class]]) {
+        CourseInvitationNotification *courseInvitation = (CourseInvitationNotification *)notification;
+        result = [WTNotificationCourseInvitationCell generateNotificationContentAttributedStringWithSenderName:notification.sender.name courseTitle:courseInvitation.course.what];
     }
     return result;
 }

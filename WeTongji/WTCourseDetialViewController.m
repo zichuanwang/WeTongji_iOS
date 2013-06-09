@@ -10,8 +10,10 @@
 #import "Course+Addition.h"
 #import "WTCourseHeaderView.h"
 #import "WTCourseProfileView.h"
+#import "WTSelectFriendsViewController.h"
+#import "WTResourceFactory.h"
 
-@interface WTCourseDetialViewController ()
+@interface WTCourseDetialViewController () <WTSelectFriendsViewControllerDelegate>
 
 @property (nonatomic, strong) Course *course;
 
@@ -51,7 +53,6 @@
     [self configureScrollView];
 }
 
-
 - (void)configureProfileView {
     WTCourseProfileView *profileView = [WTCourseProfileView createProfileViewWithCourse:self.course];
     [profileView resetOriginY:self.headerView.frame.size.height];
@@ -63,11 +64,41 @@
     WTCourseHeaderView *headerView = [WTCourseHeaderView createHeaderViewWithCourse:self.course];
     [self.scrollView addSubview:headerView];
     self.headerView = headerView;
+    
+    [self.headerView.inviteButton addTarget:self action:@selector(didClickInviteButton:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)configureScrollView {
     self.scrollView.alwaysBounceVertical = YES;
     self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, self.profileView.frame.size.height + self.profileView.frame.origin.y);
+}
+
+#pragma mark - Actions
+
+- (void)didClickInviteButton:(UIButton *)sender {
+    [WTSelectFriendsViewController showWithDelegate:self];
+}
+
+#pragma mark - WTSelectFriendsViewControllerDelegate
+
+- (void)selectFriendViewControllerDidDismiss:(WTSelectFriendsViewController *)vc {
+    if (vc.selectedFriendsArray.count == 0) {
+        return;
+    }
+    
+    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        WTLOG(@"Course invite success:%@", responseObject);
+        [[[UIAlertView alloc] initWithTitle:@"注意" message:@"邀请好友成功" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil] show];
+        [self.headerView configureInviteButton];
+    } failureBlock:^(NSError *error) {
+        [WTErrorHandler handleError:error];
+        [self.headerView configureInviteButton];
+    }];
+    User *user = vc.selectedFriendsArray.lastObject;
+    [request courseInvite:self.course.identifier inviteUserIDArray:@[user.identifier]];
+    [[WTClient sharedClient] enqueueRequest:request];
+    
+    [WTResourceFactory configureActivityIndicatorButton:self.headerView.inviteButton activityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
 }
 
 @end

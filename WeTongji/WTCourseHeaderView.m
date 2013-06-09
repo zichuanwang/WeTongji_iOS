@@ -77,6 +77,19 @@
     [self addSubview:self.participateButton];
 }
 
+- (void)configureInviteButton {
+    [self.inviteButton removeFromSuperview];
+    self.inviteButton = [WTResourceFactory createFocusButtonWithText:NSLocalizedString(@"Invite", nil)];
+    
+    if (self.inviteButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
+        [self.inviteButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];
+    
+    [self.inviteButton resetOrigin:CGPointMake(9.0, MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y)];
+    self.inviteButton.autoresizingMask |= UIViewAutoresizingFlexibleTopMargin;
+    
+    [self addSubview:self.inviteButton];
+}
+
 - (void)configureFriendCountButton {
     NSString *friendCountString = [NSString friendCountStringConvertFromCountNumber:@(3)];
     self.friendCountButton = [WTResourceFactory createNormalButtonWithText:friendCountString];
@@ -110,6 +123,7 @@
 - (void)configureBottomButtons {
     [self configureParticipateButton];
     [self configureFriendCountButton];
+    [self configureInviteButton];
 }
 
 @end

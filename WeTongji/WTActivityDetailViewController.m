@@ -179,7 +179,6 @@
         sender.userInteractionEnabled = YES;
         self.activity.scheduled = !self.activity.scheduled;
         
-        
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Set activitiy scheduled:%d, reason:%@", participated, error.localizedDescription);
         sender.userInteractionEnabled = YES;
@@ -233,12 +232,16 @@
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Activity invite success:%@", responseObject);
         [[[UIAlertView alloc] initWithTitle:@"注意" message:@"邀请好友成功" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil] show];
+        [self.headerView configureInviteButton];
     } failureBlock:^(NSError *error) {
         [WTErrorHandler handleError:error];
+        [self.headerView configureInviteButton];
     }];
     User *user = vc.selectedFriendsArray.lastObject;
     [request activityInvite:self.activity.identifier inviteUserIDArray:@[user.identifier]];
     [[WTClient sharedClient] enqueueRequest:request];
+    
+    [WTResourceFactory configureActivityIndicatorButton:self.headerView.inviteButton activityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
 }
 
 @end

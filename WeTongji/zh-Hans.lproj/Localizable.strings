@@ -164,4 +164,5 @@
 "Type" = "类型";
 
 "Invite Friends" = "邀请好友";
-"invites you to." = "邀请你参加。";
+"invites you to participate in." = "邀请你参加。";
+"invites you to audit." = "邀请你旁听";

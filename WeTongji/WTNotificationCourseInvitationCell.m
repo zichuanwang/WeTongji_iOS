@@ -1,40 +1,40 @@
 //
-//  WTNotificationActivityInvitationCell.m
+//  WTNotificationCourseInvitationCell.m
 //  WeTongji
 //
 //  Created by 王 紫川 on 13-3-3.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
-#import "WTNotificationActivityInvitationCell.h"
+#import "WTNotificationCourseInvitationCell.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
-#import "ActivityInvitationNotification.h"
+#import "CourseInvitationNotification.h"
 #import "Notification+Addition.h"
-#import "Activity+Addition.h"
+#import "Course+Addition.h"
 #import "User+Addition.h"
 #import "WTCoreDataManager.h"
 
-@implementation WTNotificationActivityInvitationCell
+@implementation WTNotificationCourseInvitationCell
 
 #pragma mark - Class methods
 
 + (NSMutableAttributedString *)generateNotificationContentAttributedStringWithSenderName:(NSString *)senderName
-                                                                           activityTitle:(NSString *)activityTitle {
+                                                                             courseTitle:(NSString *)courseTitle {
     NSMutableAttributedString* senderNameString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@"%@ ", senderName]];
     [senderNameString setTextBold:YES range:NSMakeRange(0, senderNameString.length)];
     [senderNameString setTextColor:[UIColor whiteColor]];
     [senderNameString setFont:[UIFont boldSystemFontOfSize:14.0f]];
     
-    NSMutableAttributedString* activityTitleString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@" %@", activityTitle]];
-    [activityTitleString setTextBold:YES range:NSMakeRange(0, senderNameString.length)];
-    [activityTitleString setTextColor:[UIColor whiteColor]];
-    [activityTitleString setFont:[UIFont boldSystemFontOfSize:14.0f]];
+    NSMutableAttributedString* courseTitleString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@" %@", courseTitle]];
+    [courseTitleString setTextBold:YES range:NSMakeRange(0, senderNameString.length)];
+    [courseTitleString setTextColor:[UIColor whiteColor]];
+    [courseTitleString setFont:[UIFont boldSystemFontOfSize:14.0f]];
     
-    NSMutableAttributedString* messageContentString = [NSMutableAttributedString attributedStringWithString:NSLocalizedString(@"invites you to participate in.", nil)];
+    NSMutableAttributedString* messageContentString = [NSMutableAttributedString attributedStringWithString:NSLocalizedString(@"invites you to audit.", nil)];
     [messageContentString setTextColor:WTNotificationCellLightGrayColor];
     [messageContentString setFont:[UIFont systemFontOfSize:14.0f]];
     [messageContentString insertAttributedString:senderNameString atIndex:0];
-    [messageContentString insertAttributedString:activityTitleString atIndex:messageContentString.length - 1];
+    [messageContentString insertAttributedString:courseTitleString atIndex:messageContentString.length - 1];
     
     [messageContentString modifyParagraphStylesWithBlock:^(OHParagraphStyle *paragraphStyle) {
         paragraphStyle.lineSpacing = CONTENT_LABEL_LINE_SPACING;
@@ -44,8 +44,8 @@
 }
 
 - (void)configureTypeIconImageView {
-    ActivityInvitationNotification *activityInvitation = (ActivityInvitationNotification *)self.notification;
-    if (activityInvitation.accepted.boolValue) {
+    CourseInvitationNotification *courseInvitation = (CourseInvitationNotification *)self.notification;
+    if (courseInvitation.accepted.boolValue) {
         self.notificationTypeIconImageView.image = [UIImage imageNamed:@"WTNotificationAcceptIcon"];
     } else {
         self.notificationTypeIconImageView.image = [UIImage imageNamed:@"WTNotificationQuestionIcon"];
@@ -55,35 +55,36 @@
 #pragma mark - Actions
 
 - (IBAction)didClickAcceptButton:(UIButton *)sender {
-    ActivityInvitationNotification *activityInvitation = (ActivityInvitationNotification *)self.notification;
+    CourseInvitationNotification *courseInvitation = (CourseInvitationNotification *)self.notification;
     
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
-        NSLog(@"Accept activity invitation:%@", responseObject);
-        activityInvitation.accepted = @(YES);
+        NSLog(@"Accept course invitation:%@", responseObject);
+        courseInvitation.accepted = @(YES);
         [self hideButtonsAnimated:YES];
         [self showAcceptedIconAnimated:YES];
         [self configureTypeIconImageView];
-        [[WTCoreDataManager sharedManager].currentUser addScheduledEventsObject:activityInvitation.activity];
+        // TODO
+        // [[WTCoreDataManager sharedManager].currentUser addScheduledEventsObject:courseInvitation.course];
         [self.delegate cellHeightDidChange];
     } failureBlock:^(NSError *error) {
-        WTLOGERROR(@"Accept activity invitation:%@", error.localizedDescription);
+        WTLOGERROR(@"Accept course invitation:%@", error.localizedDescription);
         [WTErrorHandler handleError:error];
     }];
-    [request acceptActivityInvitation:activityInvitation.sourceID];
+    [request acceptCourseInvitation:courseInvitation.sourceID];
     [[WTClient sharedClient] enqueueRequest:request];
 }
 
 - (IBAction)didClickIgnoreButton:(UIButton *)sender {
-    ActivityInvitationNotification *activityInvitation = (ActivityInvitationNotification *)self.notification;
+    CourseInvitationNotification *courseInvitation = (CourseInvitationNotification *)self.notification;
     
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
-        NSLog(@"Reject activity invitation success:%@", responseObject);
-        [Notification deleteNotificationWithID:activityInvitation.identifier];
+        NSLog(@"Reject course invitation success:%@", responseObject);
+        [Notification deleteNotificationWithID:courseInvitation.identifier];
     } failureBlock:^(NSError *error) {
-        WTLOGERROR(@"Reject activity invitation:%@", error.localizedDescription);
+        WTLOGERROR(@"Reject course invitation:%@", error.localizedDescription);
         [WTErrorHandler handleError:error];
     }];
-    [request ignoreActivityInvitation:activityInvitation.sourceID];
+    [request ignoreCourseInvitation:courseInvitation.sourceID];
     [[WTClient sharedClient] enqueueRequest:request];
 }
 
