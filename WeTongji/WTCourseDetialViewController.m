@@ -94,8 +94,11 @@
         [WTErrorHandler handleError:error];
         [self.headerView configureInviteButton];
     }];
-    User *user = vc.selectedFriendsArray.lastObject;
-    [request courseInvite:self.course.identifier inviteUserIDArray:@[user.identifier]];
+    NSMutableArray *userIDArray = [NSMutableArray array];
+    for (User *user in vc.selectedFriendsArray) {
+        [userIDArray addObject:user.identifier];
+    }
+    [request courseInvite:self.course.identifier inviteUserIDArray:userIDArray];
     [[WTClient sharedClient] enqueueRequest:request];
     
     [WTResourceFactory configureActivityIndicatorButton:self.headerView.inviteButton activityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
