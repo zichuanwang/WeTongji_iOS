@@ -70,6 +70,8 @@
     [moreButton addTarget:self action:@selector(didClickMoreButton:) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem *barCommentButton = [[UIBarButtonItem alloc] initWithCustomView:commentButton];
+    barCommentButton = nil;
+    
     UIBarButtonItem *barMoreButton = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
     
     WTLikeButtonView *likeButtonContainerView = [WTLikeButtonView createLikeButtonViewWithObject:[self targetObject]];
@@ -77,13 +79,13 @@
     
     UIBarButtonItem *barLikeButton = [[UIBarButtonItem alloc] initWithCustomView:likeButtonContainerView];
     
-    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 160, 44)];
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 110, 44)];
     [toolbar setBackgroundImage:[UIImage imageNamed:@"WTTransparentImage"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     
     NSMutableArray *buttons = [[NSMutableArray alloc] initWithCapacity:5];
     
-    [buttons addObject:barCommentButton];
-    [buttons addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
+//    [buttons addObject:barCommentButton];
+//    [buttons addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
     [buttons addObject:barMoreButton];
     [buttons addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
     [buttons addObject:barLikeButton];

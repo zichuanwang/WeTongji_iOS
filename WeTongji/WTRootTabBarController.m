@@ -88,7 +88,7 @@
 		UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
 		btn.tag = i;
 		[btn addTarget:self action:@selector(didClickTabBarButton:) forControlEvents:UIControlEventTouchUpInside];
-        btn.frame = CGRectMake(64 * i, 0, 64, self.tabBarBgImageView.frame.size.height + 4);
+        btn.frame = CGRectMake(80 * i, 0, 80, self.tabBarBgImageView.frame.size.height + 4);
         UIImage *normalStateImage = nil;
         UIImage *selectStateImage = nil;
 		switch (i) {
@@ -107,12 +107,12 @@
                 selectStateImage = [UIImage imageNamed:@"WTTabBarButtonPowerSearchHl"];
                 break;
             }
+//            case 3: {
+//                normalStateImage = [UIImage imageNamed:@"WTTabBarButtonBillBoard"];
+//                selectStateImage = [UIImage imageNamed:@"WTTabBarButtonBillBoardHl"];
+//                break;
+//            }
             case 3: {
-                normalStateImage = [UIImage imageNamed:@"WTTabBarButtonBillBoard"];
-                selectStateImage = [UIImage imageNamed:@"WTTabBarButtonBillBoardHl"];
-                break;
-            }
-            case 4: {
                 normalStateImage = [UIImage imageNamed:@"WTTabBarButtonMe"];
                 selectStateImage = [UIImage imageNamed:@"WTTabBarButtonMeHl"];
                 break;
