@@ -113,7 +113,7 @@
     [profileView.friendButton addTarget:self action:@selector(didClickFriendButton:) forControlEvents:UIControlEventTouchUpInside];
     [profileView.likedActiviyButton addTarget:self action:@selector(didClickLikedActivityButton:) forControlEvents:UIControlEventTouchUpInside];
     [profileView.likedNewsButton addTarget:self action:@selector(didClickLikedNewsButton:) forControlEvents:UIControlEventTouchUpInside];
-    [profileView.likedBillboardPostButton addTarget:self action:@selector(didClickLikedBillboardPostButton:) forControlEvents:UIControlEventTouchUpInside];
+    [profileView.likedStarButton addTarget:self action:@selector(didClickLikedStarButton:) forControlEvents:UIControlEventTouchUpInside];
     [profileView.likedOrganizationButton addTarget:self action:@selector(didClickLikedOrganizationButton:) forControlEvents:UIControlEventTouchUpInside];
     [profileView.likedUserButton addTarget:self action:@selector(didClickLikedUserButton:) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -158,6 +158,12 @@
 - (void)didClickLikedBillboardPostButton:(UIButton *)sender {
     User *currentUser = [WTCoreDataManager sharedManager].currentUser;
     WTLikeListViewController *vc = [WTLikeListViewController createViewControllerWithUser:currentUser likeObjectClass:@"BillboardPost" backButtonText:currentUser.name];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)didClickLikedStarButton:(UIButton *)sender {
+    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
+    WTLikeListViewController *vc = [WTLikeListViewController createViewControllerWithUser:currentUser likeObjectClass:@"Star" backButtonText:currentUser.name];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

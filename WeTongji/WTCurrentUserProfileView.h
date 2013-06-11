@@ -19,17 +19,17 @@
 @property (nonatomic, weak) IBOutlet UIView *secondSectionContianerView;
 @property (nonatomic, weak) IBOutlet UILabel *myFavoriteDisplayLabel;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *myFriendLabel;
-@property (nonatomic, weak) IBOutlet OHAttributedLabel *myBillboardPostLabel;
-@property (nonatomic, weak) IBOutlet OHAttributedLabel *myQuestionsLabel;
+@property (nonatomic, weak) IBOutlet OHAttributedLabel *myScheduledActivityLabel;
+@property (nonatomic, weak) IBOutlet OHAttributedLabel *myScheduledCourseLabel;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *likedActivityLabel;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *likedNewsLabel;
-@property (nonatomic, weak) IBOutlet OHAttributedLabel *likedBillboardPostLabel;
+@property (nonatomic, weak) IBOutlet OHAttributedLabel *likedStarLabel;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *likedOrganizationLabel;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *likedPersonLabel;
 @property (nonatomic, weak) IBOutlet UIButton *likedActiviyButton;
 @property (nonatomic, weak) IBOutlet UIButton *likedNewsButton;
 @property (nonatomic, weak) IBOutlet UIButton *likedOrganizationButton;
-@property (nonatomic, weak) IBOutlet UIButton *likedBillboardPostButton;
+@property (nonatomic, weak) IBOutlet UIButton *likedStarButton;
 @property (nonatomic, weak) IBOutlet UIButton *likedUserButton;
 @property (nonatomic, weak) IBOutlet UIButton *friendButton;
 

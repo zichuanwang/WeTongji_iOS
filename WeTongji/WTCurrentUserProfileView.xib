@@ -522,6 +522,7 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{44, 188}, {213, 20}}</string>
 										<reference key="NSSuperview" ref="664747738"/>
+										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<reference key="IBUIBackgroundColor" ref="373333238"/>
 										<bool key="IBUIOpaque">NO</bool>
@@ -580,7 +581,7 @@
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										<object class="NSCustomResource" key="IBUIImage">
 											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">WTSilverBillboardIcon.png</string>
+											<string key="NSResourceName">WTSilverStarIcon.png</string>
 										</object>
 									</object>
 									<object class="IBUIImageView" id="480696599">
@@ -735,14 +736,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">likedBillboardPostLabel</string>
-						<reference key="source" ref="191373211"/>
-						<reference key="destination" ref="1030577325"/>
-					</object>
-					<int key="connectionID">35</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">likedNewsLabel</string>
 						<reference key="source" ref="191373211"/>
 						<reference key="destination" ref="652865073"/>
@@ -767,27 +760,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">myBillboardPostLabel</string>
-						<reference key="source" ref="191373211"/>
-						<reference key="destination" ref="679552457"/>
-					</object>
-					<int key="connectionID">39</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">myFriendLabel</string>
 						<reference key="source" ref="191373211"/>
 						<reference key="destination" ref="221301971"/>
 					</object>
 					<int key="connectionID">40</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">myQuestionsLabel</string>
-						<reference key="source" ref="191373211"/>
-						<reference key="destination" ref="798921717"/>
-					</object>
-					<int key="connectionID">41</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -815,14 +792,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">likedBillboardPostButton</string>
-						<reference key="source" ref="191373211"/>
-						<reference key="destination" ref="910131530"/>
-					</object>
-					<int key="connectionID">55</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">likedNewsButton</string>
 						<reference key="source" ref="191373211"/>
 						<reference key="destination" ref="585464960"/>
@@ -844,6 +813,38 @@
 						<reference key="destination" ref="933531146"/>
 					</object>
 					<int key="connectionID">58</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">likedStarButton</string>
+						<reference key="source" ref="191373211"/>
+						<reference key="destination" ref="910131530"/>
+					</object>
+					<int key="connectionID">59</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">likedStarLabel</string>
+						<reference key="source" ref="191373211"/>
+						<reference key="destination" ref="1030577325"/>
+					</object>
+					<int key="connectionID">61</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">myScheduledActivityLabel</string>
+						<reference key="source" ref="191373211"/>
+						<reference key="destination" ref="679552457"/>
+					</object>
+					<int key="connectionID">62</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">myScheduledCourseLabel</string>
+						<reference key="source" ref="191373211"/>
+						<reference key="destination" ref="798921717"/>
+					</object>
+					<int key="connectionID">63</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1145,7 +1146,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">58</int>
+			<int key="maxID">63</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
@@ -1161,10 +1162,10 @@
 			<string key="WTPanelBottomButton.png">{300, 44}</string>
 			<string key="WTPanelMiddleButton.png">{300, 44}</string>
 			<string key="WTPanelTopButton.png">{300, 44}</string>
-			<string key="WTSilverBillboardIcon.png">{20, 46}</string>
 			<string key="WTSilverFlagIcon.png">{20, 46}</string>
 			<string key="WTSilverNewsIcon.png">{20, 46}</string>
 			<string key="WTSilverOrgnizationIcon.png">{20, 46}</string>
+			<string key="WTSilverStarIcon.png">{20, 46}</string>
 			<string key="WTSilverUserIcon.png">{20, 46}</string>
 			<string key="WTSmallLikeIcon.png">{12, 12}</string>
 		</dictionary>

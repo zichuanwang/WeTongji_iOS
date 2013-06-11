@@ -18,7 +18,8 @@
 @property (nonatomic, weak) IBOutlet UIView *firstSectionContianerView;
 @property (nonatomic, weak) IBOutlet UIView *secondSectionContianerView;
 @property (nonatomic, weak) IBOutlet UILabel *detailInformationDisplayLabel;
-@property (nonatomic, weak) IBOutlet OHAttributedLabel *activityLabel;
+@property (nonatomic, weak) IBOutlet OHAttributedLabel *scheduledActivityLabel;
+@property (nonatomic, weak) IBOutlet OHAttributedLabel *scheduledCourseLabel;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *friendLabel;
 @property (nonatomic, weak) IBOutlet UILabel *birthdayLabel;
 @property (nonatomic, weak) IBOutlet UILabel *studentNumberLabel;

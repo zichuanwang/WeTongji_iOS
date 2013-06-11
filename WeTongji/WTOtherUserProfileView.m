@@ -61,11 +61,13 @@
 }
 
 - (void)configureFirstSectionLabels {
-    NSArray *countNumberArray = @[self.user.friendCount, @(4)];
-    NSArray *descriptionArray = @[NSLocalizedString(@" Friends", nil),
-                                  NSLocalizedString(@" Activities", nil)];
+    NSArray *countNumberArray = @[self.user.friendCount, @(4), @(100)];
+    NSArray *descriptionArray = @[self.user.friendCount.integerValue > 1 ? NSLocalizedString(@" Friends", nil) : NSLocalizedString(@" Friend", nil),
+                                  NSLocalizedString(@" Scheduled Activities", nil),
+                                  NSLocalizedString(@" Scheduled Courses", nil)];
     NSArray *labels = @[self.friendLabel,
-                        self.activityLabel];
+                        self.scheduledActivityLabel,
+                        self.scheduledCourseLabel];
     
     for (int i = 0; i < countNumberArray.count; i++) {
         OHAttributedLabel *label = labels[i];

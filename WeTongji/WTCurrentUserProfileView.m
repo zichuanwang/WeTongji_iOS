@@ -53,24 +53,24 @@
                                   @(3),
                                   self.user.likedActivityCount,
                                   self.user.likedNewsCount,
-                                  self.user.likedBillboardCount,
+                                  self.user.likedStarCount,
                                   self.user.likedOrganizationCount,
                                   self.user.likedUserCount];
     
-    NSArray *descriptionArray = @[NSLocalizedString(@" Friends", nil),
-                                  NSLocalizedString(@" Billboard Posts", nil),
-                                  NSLocalizedString(@" Questions", nil),
+    NSArray *descriptionArray = @[self.user.friendCount.integerValue > 1 ? NSLocalizedString(@" Friends", nil) : NSLocalizedString(@" Friend", nil),
+                                  NSLocalizedString(@" Scheduled Activities", nil),
+                                  NSLocalizedString(@" Scheduled Courses", nil),
                                   NSLocalizedString(@" Activities", nil),
                                   NSLocalizedString(@" News", nil),
-                                  NSLocalizedString(@" Billboard Posts", nil),
+                                  NSLocalizedString(@" Stars", nil),
                                   NSLocalizedString(@" Organizations", nil),
                                   NSLocalizedString(@" Users", nil)];
     NSArray *labels = @[self.myFriendLabel,
-                        self.myBillboardPostLabel,
-                        self.myQuestionsLabel,
+                        self.myScheduledActivityLabel,
+                        self.myScheduledCourseLabel,
                         self.likedActivityLabel,
                         self.likedNewsLabel,
-                        self.likedBillboardPostLabel,
+                        self.likedStarLabel,
                         self.likedOrganizationLabel,
                         self.likedPersonLabel];
     
