@@ -90,7 +90,8 @@ static int kDragToLoadDecoratorObservingContext;
 }
 
 + (WTDragToLoadDecorator *)createDecoratorWithDataSource:(id<WTDragToLoadDecoratorDataSource>)dataSource
-                                               delegate:(id<WTDragToLoadDecoratorDelegate>)delegate {
+                                                delegate:(id<WTDragToLoadDecoratorDelegate>)delegate
+                            bottomActivityIndicatorStyle:(UIActivityIndicatorViewStyle)style  {
     WTDragToLoadDecorator *result = [[WTDragToLoadDecorator alloc] init];
     result.dataSource = dataSource;
     result.delegate = delegate;
@@ -105,6 +106,7 @@ static int kDragToLoadDecoratorObservingContext;
     // Configure bottom view
     [result.bottomView resetOriginY:scrollView.frame.size.height * 2];
     [scrollView addSubview:result.bottomView];
+    result.bottomView.activityIndicator.activityIndicatorViewStyle = style;
     
     result.topViewState = TopViewStateNormal;
     result.bottomViewState = BottomViewStateNormal;
@@ -559,6 +561,7 @@ static int kDragToLoadDecoratorObservingContext;
         if ([view isKindOfClass:[WTDragToLoadDecoratorBottomView class]])
             result = (WTDragToLoadDecoratorBottomView *)view;
     }
+    
     return result;
 }
 

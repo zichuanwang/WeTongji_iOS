@@ -43,7 +43,7 @@
     // Do any additional setup after loading the view from its nib.
     self.tableView.alwaysBounceVertical = YES;
     
-    self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
+    self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self bottomActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     
     [NSNotificationCenter registerCurrentUserDidChangeNotificationWithSelector:@selector(handleCurrentUserDidChangeNotification:) target:self];
 }
@@ -173,6 +173,12 @@
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
     Notification *notification = [self.fetchedResultsController objectAtIndexPath:indexPath];
     return [notification customCellClassName];
+}
+
+- (void)fetchedResultsControllerDidPerformFetch {
+    if ([self.fetchedResultsController.sections.lastObject numberOfObjects] == 0) {
+        [self.dragToLoadDecorator setTopViewLoading:YES];
+    }
 }
 
 #pragma mark - WTWaterflowDecoratorDataSource

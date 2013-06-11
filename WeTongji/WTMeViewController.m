@@ -99,7 +99,7 @@
 }
 
 - (void)configureDragToLoadDecorator {
-    self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self];
+    self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self bottomActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [self.dragToLoadDecorator setBottomViewDisabled:YES immediately:YES];
 }
 

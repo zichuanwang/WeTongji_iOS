@@ -35,7 +35,8 @@
 @property (nonatomic, assign) BOOL bottomViewDisabled;
 
 + (WTDragToLoadDecorator *)createDecoratorWithDataSource:(id<WTDragToLoadDecoratorDataSource>)dataSource
-                                                delegate:(id<WTDragToLoadDecoratorDelegate>)delegate;
+                                                delegate:(id<WTDragToLoadDecoratorDelegate>)delegate
+                            bottomActivityIndicatorStyle:(UIActivityIndicatorViewStyle)style;
 
 - (void)setBottomViewDisabled:(BOOL)bottomViewDisabled
                   immediately:(BOOL)immediately;
