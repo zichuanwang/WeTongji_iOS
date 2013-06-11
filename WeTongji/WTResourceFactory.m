@@ -67,7 +67,7 @@
 }
 
 + (UIBarButtonItem *)createNewPostBarButtonWithTarget:(id)target
-                                            action:(SEL)action {
+                                               action:(SEL)action {
     UIButton *button = [WTResourceFactory createNormalButtonWithText:@""];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     UIImage *newPostNormalIconImage = [UIImage imageNamed:@"WTNewPostSelectIcon"];
@@ -127,8 +127,8 @@
 }
 
 + (UIBarButtonItem *)createFocusBarButtonWithText:(NSString *)text
-                                            target:(id)target
-                                            action:(SEL)selector {
+                                           target:(id)target
+                                           action:(SEL)selector {
     UIButton *button = [WTResourceFactory createFocusButtonWithText:text];
     [button addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];
     return [WTResourceFactory createBarButtonWithButton:button];
@@ -158,8 +158,8 @@
 }
 
 + (UIBarButtonItem *)createBackBarButtonWithText:(NSString *)text
-                                   target:(id)target
-                                   action:(SEL)action {
+                                          target:(id)target
+                                          action:(SEL)action {
     UIButton *button = [[UIButton alloc] init];
     [button setTitle:text forState:UIControlStateNormal];
     button.titleEdgeInsets = UIEdgeInsetsMake(0, 14.0f, 0, 8.0f);
@@ -227,12 +227,12 @@
                            normalImage:[UIImage imageNamed:@"WTDisableButton"]
                         highlightImage:[UIImage imageNamed:@"WTDisableButton"]
                            selectImage:[UIImage imageNamed:@"WTDisableButton"]
-                      normalTitleColor:[UIColor clearColor]
-                     normalShadowColor:[UIColor colorWithRed:159.0f / 255 green:159.0f / 255 blue:159.0f / 255 alpha:1.0f]
-                   highlightTitleColor:[UIColor clearColor]
-                  highlightShadowColor:[UIColor colorWithRed:159.0f / 255 green:159.0f / 255 blue:159.0f / 255 alpha:1.0f]
-                      selectTitleColor:[UIColor clearColor]
-                     selectShadowColor:[UIColor colorWithRed:159.0f / 255 green:159.0f / 255 blue:159.0f / 255 alpha:1.0f]];
+                      normalTitleColor:[UIColor colorWithRed:159.0f / 255 green:159.0f / 255 blue:159.0f / 255 alpha:1.0f]
+                     normalShadowColor:[UIColor clearColor]
+                   highlightTitleColor:[UIColor colorWithRed:159.0f / 255 green:159.0f / 255 blue:159.0f / 255 alpha:1.0f]
+                  highlightShadowColor:[UIColor clearColor]
+                      selectTitleColor:[UIColor colorWithRed:159.0f / 255 green:159.0f / 255 blue:159.0f / 255 alpha:1.0f]
+                     selectShadowColor:[UIColor clearColor]];
 }
 
 
@@ -282,16 +282,16 @@
 }
 
 + (void)configureButton:(UIButton *)button
-                         text:(NSString *)text
-                  normalImage:(UIImage *)normalImage
-               highlightImage:(UIImage *)highlightImage
-                  selectImage:(UIImage *)selectImage
-             normalTitleColor:(UIColor *)normalTitleColor
-            normalShadowColor:(UIColor *)normalShadowColor
-          highlightTitleColor:(UIColor *)highlightTitleColor
-         highlightShadowColor:(UIColor *)highlightShadowColor
-             selectTitleColor:(UIColor *)selectTitleColor
-            selectShadowColor:(UIColor *)selectShadowColor {
+                   text:(NSString *)text
+            normalImage:(UIImage *)normalImage
+         highlightImage:(UIImage *)highlightImage
+            selectImage:(UIImage *)selectImage
+       normalTitleColor:(UIColor *)normalTitleColor
+      normalShadowColor:(UIColor *)normalShadowColor
+    highlightTitleColor:(UIColor *)highlightTitleColor
+   highlightShadowColor:(UIColor *)highlightShadowColor
+       selectTitleColor:(UIColor *)selectTitleColor
+      selectShadowColor:(UIColor *)selectShadowColor {
     
     button.adjustsImageWhenHighlighted = NO;
     
