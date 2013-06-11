@@ -329,6 +329,7 @@
 		E15E4DF1175DDBF900BBAE9A /* WTInvitationAcceptedIconEN@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DED175DDBF900BBAE9A /* WTInvitationAcceptedIconEN@2x.png */; };
 		E15E4DF4175DDDC600BBAE9A /* WTNotificationInvitationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DF3175DDDC300BBAE9A /* WTNotificationInvitationCell.m */; };
 		E15E4DF7175E057000BBAE9A /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DF6175E056F00BBAE9A /* Activity.m */; };
+		E16ABDBF1767AA9200ED0CE9 /* WTTransparentImage.png in Resources */ = {isa = PBXBuildFile; fileRef = E16ABDBE1767AA9200ED0CE9 /* WTTransparentImage.png */; };
 		E16D5DCA174619A900740D79 /* Advertisement+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E16D5DC9174619A900740D79 /* Advertisement+Addition.m */; };
 		E16E961D1733AA550055DE27 /* WTOrangeBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961B1733AA550055DE27 /* WTOrangeBg.png */; };
 		E16E961E1733AA550055DE27 /* WTOrangeBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961C1733AA550055DE27 /* WTOrangeBg@2x.png */; };
@@ -1064,6 +1065,7 @@
 		E15E4DF3175DDDC300BBAE9A /* WTNotificationInvitationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNotificationInvitationCell.m; sourceTree = "<group>"; };
 		E15E4DF5175E056E00BBAE9A /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
 		E15E4DF6175E056F00BBAE9A /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
+		E16ABDBE1767AA9200ED0CE9 /* WTTransparentImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTransparentImage.png; sourceTree = "<group>"; };
 		E16D5DC8174619A900740D79 /* Advertisement+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Advertisement+Addition.h"; sourceTree = "<group>"; };
 		E16D5DC9174619A900740D79 /* Advertisement+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Advertisement+Addition.m"; sourceTree = "<group>"; };
 		E16E961B1733AA550055DE27 /* WTOrangeBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTOrangeBg.png; sourceTree = "<group>"; };
@@ -2604,6 +2606,7 @@
 		E1D373A61693473E0012E30A /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				E16ABDBE1767AA9200ED0CE9 /* WTTransparentImage.png */,
 				E12554A916491530006D42F5 /* Default-568h@2x.png */,
 				E12554A516491530006D42F5 /* Default@2x.png */,
 				E12554A716491530006D42F5 /* Default.png */,
@@ -3351,6 +3354,7 @@
 				E15E4DF1175DDBF900BBAE9A /* WTInvitationAcceptedIconEN@2x.png in Resources */,
 				E1BB2C39175F1E57003608B8 /* WTMapViewController.xib in Resources */,
 				E1C97B191764045800F4241B /* WTNotificationCourseInvitationCell.xib in Resources */,
+				E16ABDBF1767AA9200ED0CE9 /* WTTransparentImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -78,8 +78,7 @@
     UIBarButtonItem *barLikeButton = [[UIBarButtonItem alloc] initWithCustomView:likeButtonContainerView];
     
     UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 160, 44)];
-    if (toolbar.subviews.count > 0)
-        [(toolbar.subviews)[0] removeFromSuperview];
+    [toolbar setBackgroundImage:[UIImage imageNamed:@"WTTransparentImage"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     
     NSMutableArray *buttons = [[NSMutableArray alloc] initWithCapacity:5];
     
