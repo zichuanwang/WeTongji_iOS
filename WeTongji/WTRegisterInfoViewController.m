@@ -49,7 +49,7 @@
 #pragma mark - UI methods
 
 - (void)configureNavigationBar {
-    UIBarButtonItem *backBarButtonItem = [WTResourceFactory createBackBarButtonWithText:NSLocalizedString(@"Log In / Sign Up", nil) target:self action:@selector(didClickBackButton:)];
+    UIBarButtonItem *backBarButtonItem = [WTResourceFactory createBackBarButtonWithText:NSLocalizedString(@"Log In / Sign Up", nil) target:self action:@selector(didClickBackButton:) restrictToMaxWidth:NO];
     self.navigationItem.leftBarButtonItem = backBarButtonItem;
     
     UIBarButtonItem *nextBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:NSLocalizedString(@"Next", nil) target:self action:@selector(didClickNextButton:)];

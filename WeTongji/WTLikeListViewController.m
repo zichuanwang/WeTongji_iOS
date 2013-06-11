@@ -169,7 +169,7 @@
     } else {
         objectClassString = NSLocalizedString(self.likeObjectClass, nil);
     }
-    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:[NSString stringWithFormat:@"%@%@", NSLocalizedString(@"My Favorite ", nil), objectClassString]];
+    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:objectClassString];
 }
 
 - (void)configureDragToLoadDecorator {

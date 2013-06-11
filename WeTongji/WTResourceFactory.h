@@ -22,6 +22,11 @@
                                    target:(id)target
                                    action:(SEL)action;
 
++ (UIBarButtonItem *)createBackBarButtonWithText:(NSString *)text
+                                          target:(id)target
+                                          action:(SEL)action
+                              restrictToMaxWidth:(BOOL)restrictToMaxWidth;
+
 + (UIBarButtonItem *)createNormalBarButtonWithText:(NSString *)text
                                             target:(id)target
                                             action:(SEL)action;

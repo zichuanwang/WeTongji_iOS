@@ -160,6 +160,16 @@
 + (UIBarButtonItem *)createBackBarButtonWithText:(NSString *)text
                                           target:(id)target
                                           action:(SEL)action {
+    return [WTResourceFactory createBackBarButtonWithText:text
+                                                   target:target
+                                                   action:action
+                                       restrictToMaxWidth:YES];
+}
+
++ (UIBarButtonItem *)createBackBarButtonWithText:(NSString *)text
+                                          target:(id)target
+                                          action:(SEL)action
+                              restrictToMaxWidth:(BOOL)restrictToMaxWidth {
     UIButton *button = [[UIButton alloc] init];
     [button setTitle:text forState:UIControlStateNormal];
     button.titleEdgeInsets = UIEdgeInsetsMake(0, 14.0f, 0, 8.0f);
@@ -183,7 +193,8 @@
     
     CGFloat titleLabelWidth = [text sizeWithFont:button.titleLabel.font].width + BUTTON_WIDTH_INCREMENT;
     titleLabelWidth = titleLabelWidth < MIN_BACK_BAR_BUTTON_WIDTH ? MIN_BACK_BAR_BUTTON_WIDTH : titleLabelWidth;
-    titleLabelWidth = titleLabelWidth > MAX_BACK_BAR_BUTTON_WIDTH ? MAX_BACK_BAR_BUTTON_WIDTH : titleLabelWidth;
+    if (restrictToMaxWidth)
+        titleLabelWidth = titleLabelWidth > MAX_BACK_BAR_BUTTON_WIDTH ? MAX_BACK_BAR_BUTTON_WIDTH : titleLabelWidth;
     
     [button resetSize:CGSizeMake(titleLabelWidth, barBarNormalButtonImage.size.height)];
     
