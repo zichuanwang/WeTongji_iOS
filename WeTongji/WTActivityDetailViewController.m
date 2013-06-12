@@ -82,6 +82,11 @@
 
 #pragma mark Configure header view
 
+- (void)configureInviteButton {
+    [self.headerView configureInviteButton];
+    [self.headerView.inviteButton addTarget:self action:@selector(didClickInviteButton:) forControlEvents:UIControlEventTouchUpInside];
+}
+
 - (void)configureHeaderView {
     self.headerView = [WTActivityHeaderView createHeaderViewWithActivity:self.activity];
     [self.scrollView addSubview:self.headerView];
@@ -232,10 +237,10 @@
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Activity invite success:%@", responseObject);
         [[[UIAlertView alloc] initWithTitle:@"注意" message:@"邀请好友成功" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil] show];
-        [self.headerView configureInviteButton];
+        [self configureInviteButton];
     } failureBlock:^(NSError *error) {
         [WTErrorHandler handleError:error];
-        [self.headerView configureInviteButton];
+        [self configureInviteButton];
     }];
     NSMutableArray *userIDArray = [NSMutableArray array];
     for (User *user in vc.selectedFriendsArray) {

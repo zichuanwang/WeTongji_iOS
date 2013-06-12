@@ -60,6 +60,11 @@
     self.profileView = profileView;
 }
 
+- (void)configureInviteButton {
+    [self.headerView configureInviteButton];
+    [self.headerView.inviteButton addTarget:self action:@selector(didClickInviteButton:) forControlEvents:UIControlEventTouchUpInside];
+}
+
 - (void)configureHeaderView {
     WTCourseHeaderView *headerView = [WTCourseHeaderView createHeaderViewWithCourse:self.course];
     [self.scrollView addSubview:headerView];
@@ -89,10 +94,10 @@
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Course invite success:%@", responseObject);
         [[[UIAlertView alloc] initWithTitle:@"注意" message:@"邀请好友成功" delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil] show];
-        [self.headerView configureInviteButton];
+        [self configureInviteButton];
     } failureBlock:^(NSError *error) {
         [WTErrorHandler handleError:error];
-        [self.headerView configureInviteButton];
+        [self configureInviteButton];
     }];
     NSMutableArray *userIDArray = [NSMutableArray array];
     for (User *user in vc.selectedFriendsArray) {

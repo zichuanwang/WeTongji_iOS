@@ -58,6 +58,8 @@
             break;
         }
     }
+    
+    self.functionButton.userInteractionEnabled = YES;
 }
 
 - (void)configureGenderIndicatorImageView {
