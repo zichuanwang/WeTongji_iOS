@@ -38,7 +38,7 @@
 
 @property (nonatomic, assign) BOOL shouldLoadHomeItems;
 @property (nonatomic, strong) NSTimer *loadHomeItemsTimer;
-
+@property (nonatomic, assign) BOOL isVisible;
 @property (nonatomic, strong) NSDictionary *homeResponseDict;
 
 @end
@@ -81,10 +81,14 @@
         [self loadHomeSelectedItems];
         self.shouldLoadHomeItems = NO;
     }
+    
+    self.isVisible = YES;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [self refillViews];
+    
+    self.isVisible = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -193,6 +197,9 @@
         // WTLOG(@"Get home recommendation succuess:%@", responseObject);
         
         self.homeResponseDict = (NSDictionary *)responseObject;
+        
+        if (!self.isVisible)
+            [self refillViews];
         
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Get home recommendation failure:%@", error.localizedDescription);
