@@ -36,10 +36,10 @@
 @property (nonatomic, strong) WTHomeNowContainerView *nowContainerView;
 @property (nonatomic, strong) NSMutableArray *homeSelectViewArray;
 
-@property (nonatomic, assign) BOOL isVisible;
-
 @property (nonatomic, assign) BOOL shouldLoadHomeItems;
 @property (nonatomic, strong) NSTimer *loadHomeItemsTimer;
+
+@property (nonatomic, strong) NSDictionary *homeResponseDict;
 
 @end
 
@@ -81,12 +81,10 @@
         [self loadHomeSelectedItems];
         self.shouldLoadHomeItems = NO;
     }
-
-    self.isVisible = YES;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    self.isVisible = NO;
+    [self refillViews];
 }
 
 - (void)didReceiveMemoryWarning
@@ -122,73 +120,79 @@
     [self loadHomeSelectedItems];
 }
 
+- (void)refillViews {
+    if (!self.homeResponseDict)
+        return;
+    
+    [self adjustScrollView];
+    
+    NSDictionary *resultDict = self.homeResponseDict;
+    
+    // Refill home select views
+    [Object setAllObjectsFreeFromHolder:[WTHomeSelectContainerView class]];
+    
+    NSArray *activityInfoArray = resultDict[@"Activities"];
+    for (NSDictionary *infoDict in activityInfoArray) {
+        Activity *activity = [Activity insertActivity:infoDict];
+        [activity setObjectHeldByHolder:[WTHomeSelectContainerView class]];
+    }
+    
+    NSArray *newsInfoArray = resultDict[@"Information"];
+    for (NSDictionary *infoDict in newsInfoArray) {
+        News *news = [News insertNews:infoDict];
+        [news setObjectHeldByHolder:[WTHomeSelectContainerView class]];
+    }
+    
+    NSObject *starInfoObject = resultDict[@"Person"];
+    if ([starInfoObject isKindOfClass:[NSArray class]]) {
+        NSArray *starInfoArray = (NSArray *)starInfoObject;
+        for (NSDictionary *infoDict in starInfoArray) {
+            Star *star = [Star insertStar:infoDict];
+            [star setObjectHeldByHolder:[WTHomeSelectContainerView class]];
+        }
+    } else if ([starInfoObject isKindOfClass:[NSDictionary class]]) {
+        NSDictionary *starInfoDict = (NSDictionary *)starInfoObject;
+        Star *star = [Star insertStar:starInfoDict];
+        [star setObjectHeldByHolder:[WTHomeSelectContainerView class]];
+    }
+    
+    NSDictionary *popularOrgDict = resultDict[@"AccountPopulor"];
+    Organization *org = [Organization insertOrganization:popularOrgDict];
+    [org setObjectHeldByHolder:[WTHomeSelectContainerView class]];
+    
+    [self fillHomeSelectViews];
+    
+    // Refill banner view
+    [Object setAllObjectsFreeFromHolder:[WTBannerContainerView class]];
+    
+    NSDictionary *bannerActivityInfo = resultDict[@"BannerActivity"];
+    if ([bannerActivityInfo isKindOfClass:[NSDictionary class]]) {
+        Activity *bannerActivity = [Activity insertActivity:bannerActivityInfo];
+        [bannerActivity setObjectHeldByHolder:[WTBannerContainerView class]];
+    }
+    
+    NSDictionary *bannerNewsInfo = resultDict[@"BannerInformation"];
+    if ([bannerNewsInfo isKindOfClass:[NSDictionary class]]) {
+        News *bannerNews = [News insertNews:bannerNewsInfo];
+        [bannerNews setObjectHeldByHolder:[WTBannerContainerView class]];
+    }
+    
+    NSArray *bannerAdvertisementArray = resultDict[@"BannerAdvertisements"];
+    for (NSDictionary *adInfo in bannerAdvertisementArray) {
+        Advertisement *ad = [Advertisement insertAdvertisement:adInfo];
+        [ad setObjectHeldByHolder:[WTBannerContainerView class]];
+    }
+    
+    [self fillBannerView];
+    
+    self.homeResponseDict = nil;
+}
+
 - (void)loadHomeSelectedItems {
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         // WTLOG(@"Get home recommendation succuess:%@", responseObject);
         
-        [self adjustScrollView];
-        
-        if (self.isVisible)
-            [self reloadHomeSelectItemAnimation];
-        
-        NSDictionary *resultDict = (NSDictionary *)responseObject;
-        
-        // Refill home select views
-        [Object setAllObjectsFreeFromHolder:[WTHomeSelectContainerView class]];
-        
-        NSArray *activityInfoArray = resultDict[@"Activities"];
-        for (NSDictionary *infoDict in activityInfoArray) {
-            Activity *activity = [Activity insertActivity:infoDict];
-            [activity setObjectHeldByHolder:[WTHomeSelectContainerView class]];
-        }
-        
-        NSArray *newsInfoArray = resultDict[@"Information"];
-        for (NSDictionary *infoDict in newsInfoArray) {
-            News *news = [News insertNews:infoDict];
-            [news setObjectHeldByHolder:[WTHomeSelectContainerView class]];
-        }
-        
-        NSObject *starInfoObject = resultDict[@"Person"];
-        if ([starInfoObject isKindOfClass:[NSArray class]]) {
-            NSArray *starInfoArray = (NSArray *)starInfoObject;
-            for (NSDictionary *infoDict in starInfoArray) {
-                Star *star = [Star insertStar:infoDict];
-                [star setObjectHeldByHolder:[WTHomeSelectContainerView class]];
-            }
-        } else if ([starInfoObject isKindOfClass:[NSDictionary class]]) {
-            NSDictionary *starInfoDict = (NSDictionary *)starInfoObject;
-            Star *star = [Star insertStar:starInfoDict];
-            [star setObjectHeldByHolder:[WTHomeSelectContainerView class]];
-        }
-        
-        NSDictionary *popularOrgDict = resultDict[@"AccountPopulor"];
-        Organization *org = [Organization insertOrganization:popularOrgDict];
-        [org setObjectHeldByHolder:[WTHomeSelectContainerView class]];
-        
-        [self fillHomeSelectViews];
-        
-        // Refill banner view
-        [Object setAllObjectsFreeFromHolder:[WTBannerContainerView class]];
-        
-        NSDictionary *bannerActivityInfo = resultDict[@"BannerActivity"];
-        if ([bannerActivityInfo isKindOfClass:[NSDictionary class]]) {
-            Activity *bannerActivity = [Activity insertActivity:bannerActivityInfo];
-            [bannerActivity setObjectHeldByHolder:[WTBannerContainerView class]];
-        }
-        
-        NSDictionary *bannerNewsInfo = resultDict[@"BannerInformation"];
-        if ([bannerNewsInfo isKindOfClass:[NSDictionary class]]) {
-            News *bannerNews = [News insertNews:bannerNewsInfo];
-            [bannerNews setObjectHeldByHolder:[WTBannerContainerView class]];
-        }
-        
-        NSArray *bannerAdvertisementArray = resultDict[@"BannerAdvertisements"];
-        for (NSDictionary *adInfo in bannerAdvertisementArray) {
-            Advertisement *ad = [Advertisement insertAdvertisement:adInfo];
-            [ad setObjectHeldByHolder:[WTBannerContainerView class]];
-        }
-        
-        [self fillBannerView];
+        self.homeResponseDict = (NSDictionary *)responseObject;
         
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Get home recommendation failure:%@", error.localizedDescription);
