@@ -20,4 +20,6 @@
 
 - (void)configureInviteButton;
 
+- (void)configureParticipateButtonStatus:(BOOL)participated;
+
 @end

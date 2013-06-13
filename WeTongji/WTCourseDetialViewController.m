@@ -69,8 +69,11 @@
     WTCourseHeaderView *headerView = [WTCourseHeaderView createHeaderViewWithCourse:self.course];
     [self.scrollView addSubview:headerView];
     self.headerView = headerView;
-    
     [self.headerView.inviteButton addTarget:self action:@selector(didClickInviteButton:) forControlEvents:UIControlEventTouchUpInside];
+    
+    if (self.course.isAudit) {
+        [self.headerView.participateButton addTarget:self action:@selector(didClickParticipateButton:) forControlEvents:UIControlEventTouchUpInside];
+    }
 }
 
 - (void)configureScrollView {
@@ -79,6 +82,44 @@
 }
 
 #pragma mark - Actions
+
+- (void)didClickParticipateButton:(UIButton *)sender {
+    BOOL participated = sender.selected;
+    [self.headerView configureParticipateButtonStatus:participated];
+    
+    if (participated) {
+        [self.headerView.inviteButton fadeIn];
+    }
+    else {
+        [self.headerView.inviteButton fadeOut];
+    }
+    
+    sender.userInteractionEnabled = NO;
+    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        WTLOG(@"Set course scheduled:%d succeeded", participated);
+        sender.userInteractionEnabled = YES;
+        self.course.scheduled = !self.course.scheduled;
+        
+    } failureBlock:^(NSError *error) {
+        WTLOGERROR(@"Set course scheduled:%d, reason:%@", participated, error.localizedDescription);
+        sender.userInteractionEnabled = YES;
+        [self.headerView configureParticipateButtonStatus:!participated];
+        
+        if (!participated) {
+            [self.headerView.inviteButton fadeIn];
+            [[WTCoreDataManager sharedManager].currentUser addScheduledEventsObject:self.course];
+        }
+        else {
+            [self.headerView.inviteButton fadeOut];
+            [[WTCoreDataManager sharedManager].currentUser removeScheduledEventsObject:self.course];
+        }
+        
+        [WTErrorHandler handleError:error];
+    }];
+    
+    [request setCourseScheduled:participated courseNO:self.course.identifier];
+    [[WTClient sharedClient] enqueueRequest:request];
+}
 
 - (void)didClickInviteButton:(UIButton *)sender {
     [WTSelectFriendsViewController showWithDelegate:self];

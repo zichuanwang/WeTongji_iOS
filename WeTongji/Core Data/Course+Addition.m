@@ -52,8 +52,11 @@
     
     result.weekType = [NSString stringWithFormat:@"%@", dict[@"WeekType"]];
     result.weekDay = [NSString stringWithFormat:@"%@", dict[@"WeekDay"]];
+
+    result.isAudit = @([[NSString stringWithFormat:@"%@", dict[@"IsAudit"]] boolValue]);
     
     result.beginDay = [result.beginTime convertToYearMonthDayString];
+
     
     [result configureLikeInfo:dict];
     
