@@ -25,16 +25,21 @@
 #define DETAIL_VIEW_BOTTOM_INDENT   10.0f
 
 - (void)configureViewWithStar:(Star *)star {
-    [self configureContentLabel:star.content];
+    [self configureContentLabelWithContent:star.content];
+    [self configureBriefIntroductionViewWithBriefIntroduction:star.jobTitle];
     [self configureContentViewBgImageView];
     
     [self resetHeight:self.contentContainerView.frame.origin.y + self.contentContainerView.frame.size.height + DETAIL_VIEW_BOTTOM_INDENT];
 }
 
+- (void)configureBriefIntroductionViewWithBriefIntroduction:(NSString *)briefIntro {
+    self.briefIntroductionDisplayLabel.text = NSLocalizedString(@"Brief Introduction", nil);
+    self.briefIntroductionLabel.text = briefIntro;
+}
+
 #define CONTENT_LABEL_LINE_SPACING 6.0f
 
-
-- (void)configureContentLabel:(NSString *)content {
+- (void)configureContentLabelWithContent:(NSString *)content {
     self.aboutDisplayLabel.text = NSLocalizedString(@"About", nil);
     
     

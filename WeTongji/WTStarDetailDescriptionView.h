@@ -14,6 +14,8 @@
 @interface WTStarDetailDescriptionView : UIView
 
 @property (nonatomic, weak) IBOutlet UIView *contentContainerView;
+@property (nonatomic, weak) IBOutlet UILabel *briefIntroductionDisplayLabel;
+@property (nonatomic, weak) IBOutlet UILabel *briefIntroductionLabel;
 @property (nonatomic, weak) IBOutlet UILabel *aboutDisplayLabel;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *contentLabel;
 
