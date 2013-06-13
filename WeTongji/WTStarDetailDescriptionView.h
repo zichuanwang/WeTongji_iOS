@@ -18,6 +18,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *briefIntroductionLabel;
 @property (nonatomic, weak) IBOutlet UILabel *aboutDisplayLabel;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *contentLabel;
+@property (nonatomic, weak) IBOutlet UIView *briefIntroductionContainerView;
 
 + (WTStarDetailDescriptionView *)createDetailDescriptionViewWithStar:(Star *)star;
 

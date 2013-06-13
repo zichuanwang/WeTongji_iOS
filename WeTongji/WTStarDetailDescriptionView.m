@@ -25,23 +25,27 @@
 #define DETAIL_VIEW_BOTTOM_INDENT   10.0f
 
 - (void)configureViewWithStar:(Star *)star {
-    [self configureContentLabelWithContent:star.content];
     [self configureBriefIntroductionViewWithBriefIntroduction:star.jobTitle];
+    [self configureContentLabelWithContent:star.content];
     [self configureContentViewBgImageView];
     
     [self resetHeight:self.contentContainerView.frame.origin.y + self.contentContainerView.frame.size.height + DETAIL_VIEW_BOTTOM_INDENT];
 }
 
+#define BRIEF_INTRO_LABEL_BOTTOM_PADDING 8.0f
+
 - (void)configureBriefIntroductionViewWithBriefIntroduction:(NSString *)briefIntro {
     self.briefIntroductionDisplayLabel.text = NSLocalizedString(@"Brief Introduction", nil);
     self.briefIntroductionLabel.text = briefIntro;
+    [self.briefIntroductionLabel sizeToFit];
+    [self.briefIntroductionContainerView resetHeight:self.briefIntroductionLabel.frame.origin.y + self.briefIntroductionLabel.frame.size.height + BRIEF_INTRO_LABEL_BOTTOM_PADDING];
 }
 
+#define CONTENT_CONTAINER_VIEW_TOP_INDENT 10.0f
 #define CONTENT_LABEL_LINE_SPACING 6.0f
 
 - (void)configureContentLabelWithContent:(NSString *)content {
     self.aboutDisplayLabel.text = NSLocalizedString(@"About", nil);
-    
     
     NSMutableAttributedString *contentAttributedString = [[NSMutableAttributedString alloc] initWithString:content];
     
@@ -58,6 +62,8 @@
     [self.contentLabel resetHeight:contentLabelHeight];
     
     self.contentLabel.automaticallyAddLinksForType = 0;
+    
+    [self.contentContainerView resetOriginY:self.briefIntroductionContainerView.frame.size.height + CONTENT_CONTAINER_VIEW_TOP_INDENT];
 }
 
 - (void)configureContentViewBgImageView {
