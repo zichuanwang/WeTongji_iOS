@@ -8,10 +8,9 @@
 
 #import "WTStarHeaderView.h"
 #import "Star+Addition.h"
-#import <QuartzCore/QuartzCore.h>
 #import "UIImageView+AsyncLoading.h"
-#import "UIImage+StackBlur.h"
 #import "WTDetailImageViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface WTStarHeaderView ()
 
@@ -36,44 +35,43 @@
 
 #pragma mark - UI methods 
 
-#define MOTTO_LABEL_MAX_HEIGHT 57.0f
+- (void)configureView {
+    [self configureBackgroundColor];
+    [self configureAvatarImageView];
+    [self configureStarNameLabel];
+    [self configureMottoLabel];
+    [self configureViewSize];
+}
+
+- (void)configureViewSize {
+    CGFloat bottomIndent = self.avatarContainerView.frame.origin.y;
+    CGFloat avatarContainerViewBottomLine = self.avatarContainerView.frame.origin.y + self.avatarContainerView.frame.size.height;
+    CGFloat mottoLabelBottomLine = self.mottoLabel.frame.origin.y + self.mottoLabel.frame.size.height;
+    CGFloat bottomLine = fmaxf(avatarContainerViewBottomLine, mottoLabelBottomLine) + bottomIndent;
+    [self resetHeight:bottomLine];
+}
+
+- (void)configureBackgroundColor {
+    self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTGrayPanel"]];
+}
+
+- (void)configureStarNameLabel {
+    self.starNameLabel.text = self.star.name;
+    [self.starNameLabel sizeToFit];
+}
 
 - (void)configureAvatarImageView {
     self.avatarContainerView.layer.masksToBounds = YES;
     self.avatarContainerView.layer.cornerRadius = 6.0f;
     
-    Star *star = self.star;
-    [self.avatarImageView loadImageWithImageURLString:star.avatar success:^(UIImage *image) {
-        self.avatarImageView.image = image;
-        [self.avatarImageView fadeIn];
-        [self configureAvatarBgImageViewWithAvatarImage:image completion:^(UIImage *bgImage) {
-            self.avatarBgImageView.image = bgImage;
-            [self.avatarBgImageView fadeIn];
-        }];
-    } failure:nil];
+    [self.avatarImageView loadImageWithImageURLString:self.star.avatar];
 }
 
-- (void)configureView {
-    
-    [self configureAvatarImageView];
-    
-    self.starNameLabel.text = self.star.name;
-    
-    self.starNameLabel.layer.masksToBounds = NO;
-    self.starNameLabel.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.starNameLabel.layer.shadowOpacity = 0.3f;
-    self.starNameLabel.layer.shadowOffset = CGSizeMake(0, 1.0f);
-    self.starNameLabel.layer.shadowRadius = 1.0f;
-    [self.starNameLabel sizeToFit];
-    
+#define MOTTO_LABEL_MAX_HEIGHT 57.0f
+
+- (void)configureMottoLabel {
     if (self.star.motto) {
         self.mottoLabel.text = [NSString stringWithFormat:@"“%@”", self.star.motto];
-        
-        self.mottoLabel.layer.masksToBounds = NO;
-        self.mottoLabel.layer.shadowColor = [UIColor blackColor].CGColor;
-        self.mottoLabel.layer.shadowOpacity = 0.3f;
-        self.mottoLabel.layer.shadowOffset = CGSizeMake(0, 1.0f);
-        self.mottoLabel.layer.shadowRadius = 1.0f;
     } else {
         self.mottoLabel.text = nil;
     }
@@ -82,18 +80,6 @@
     
     [self.mottoLabel resetHeight:self.mottoLabel.frame.size.height > MOTTO_LABEL_MAX_HEIGHT ? MOTTO_LABEL_MAX_HEIGHT : self.mottoLabel.frame.size.height];
     [self.mottoLabel resetOriginY:self.starNameLabel.frame.size.height + self.starNameLabel.frame.origin.y + (self.starNameLabel.frame.size.height == 0 ? 0 : 12.0f)];
-}
-
-- (void)configureAvatarBgImageViewWithAvatarImage:(UIImage *)image
-                                       completion:(void (^)(UIImage *bgImage))completion {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        UIImage *resultImage = [image stackBlur:4];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (completion) {
-                completion(resultImage);
-            }
-        });
-    });
 }
 
 #pragma mark - Gesture recognizer handler

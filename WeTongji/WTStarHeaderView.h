@@ -14,7 +14,6 @@
 
 @property (nonatomic, weak) IBOutlet UIView *avatarContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *avatarImageView;
-@property (nonatomic, weak) IBOutlet UIImageView *avatarBgImageView;
 @property (nonatomic, weak) IBOutlet UILabel *mottoLabel;
 @property (nonatomic, weak) IBOutlet UILabel *starNameLabel;
 
