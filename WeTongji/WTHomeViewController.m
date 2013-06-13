@@ -200,6 +200,11 @@
         
         if (!self.isVisible)
             [self refillViews];
+        else if (self.isVisible &&
+                 [Object getAllObjectsHeldByHolder:[WTBannerContainerView class] objectEntityName:@"Object"].count == 0) {
+            [self reloadHomeSelectItemAnimation];
+            [self refillViews];
+        }
         
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Get home recommendation failure:%@", error.localizedDescription);
