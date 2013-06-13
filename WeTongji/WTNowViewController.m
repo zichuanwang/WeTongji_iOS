@@ -48,6 +48,10 @@
                                                                         target:self];
     
     self.shouldScrollToNow = YES;
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+        self.tableView.scrollEnabled = NO;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
