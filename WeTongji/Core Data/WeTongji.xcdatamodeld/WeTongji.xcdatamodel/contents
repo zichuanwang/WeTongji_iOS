@@ -43,6 +43,7 @@
         <attribute name="courseDay" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="credit" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="hours" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="isAudit" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="required" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sectionEnd" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="sectionStart" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -162,7 +163,7 @@
         <element name="Comment" positionX="160" positionY="192" width="128" height="105"/>
         <element name="CommentableObject" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Controller" positionX="43" positionY="96" width="128" height="75"/>
-        <element name="Course" positionX="43" positionY="225" width="128" height="195"/>
+        <element name="Course" positionX="43" positionY="225" width="128" height="210"/>
         <element name="CourseInvitationNotification" positionX="160" positionY="192" width="128" height="60"/>
         <element name="Event" positionX="-135" positionY="261" width="128" height="135"/>
         <element name="Exam" positionX="369" positionY="351" width="128" height="45"/>

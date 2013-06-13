@@ -12,6 +12,7 @@
 #import "UIImageView+AsyncLoading.h"
 #import "UIImage+StackBlur.h"
 #import "WTCoreDataManager.h"
+#import "WTDetailImageViewController.h"
 
 @interface WTUserProfileHeaderView ()
 
@@ -147,6 +148,10 @@
     WTUserProfileHeaderView *result = [[NSBundle mainBundle] loadNibNamed:@"WTUserProfileHeaderView" owner:nil options:nil].lastObject;
     result.user = user;
     [result configureView];
+    
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:result action:@selector(didTagAvatarImageView:)];
+    [result.avatarContainerView addGestureRecognizer:tapGestureRecognizer];
+    
     return result;
 }
 
@@ -172,6 +177,19 @@
         [self configureAvatarImageView];
     }
     [self configureInfoView];
+}
+
+#pragma mark - Gesture recognizer handler
+
+- (void)didTagAvatarImageView:(UIGestureRecognizer *)gesture {
+    UIImageView *currentImageView = self.avatarImageView;
+    CGRect imageViewFrame = [self.superview.superview convertRect:currentImageView.frame fromView:currentImageView.superview];
+    imageViewFrame.origin.y += 64.0f;
+    
+    [WTDetailImageViewController showDetailImageViewWithImageURLString:self.user.avatar
+                                                         fromImageView:currentImageView
+                                                              fromRect:imageViewFrame
+                                                              delegate:nil];
 }
 
 @end

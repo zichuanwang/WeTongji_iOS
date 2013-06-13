@@ -142,7 +142,7 @@
 - (void)didTagImageRollView:(UITapGestureRecognizer *)gesture {
     WTNewsImageRollItemView *currentItemView = [self.imageRollView currentItemView];
     UIImageView *currentImageView = currentItemView.imageView;
-    CGRect imageViewFrame = [self.view convertRect:currentImageView.frame fromView:currentImageView];
+    CGRect imageViewFrame = [self.view convertRect:currentImageView.frame fromView:currentImageView.superview];
     imageViewFrame.origin.y += 64.0f;
     
     [WTDetailImageViewController showDetailImageViewWithImageURLArray:self.news.imageArray

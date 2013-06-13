@@ -66,7 +66,12 @@
 #define MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y 83.0f
 
 - (void)configureParticipateButton {
-    self.participateButton = [WTResourceFactory createDisableButtonWithText:NSLocalizedString(@"Participated", nil)];
+    if (!self.course.isAudit.boolValue) {
+        self.participateButton = [WTResourceFactory createDisableButtonWithText:NSLocalizedString(@"Participated", nil)];
+    } else {
+        self.participateButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Audited", nil)];
+        [self configureParticipateButtonStatus:self.course.scheduled];
+    }
     
     if (self.participateButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
         [self.participateButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];
@@ -124,6 +129,17 @@
     [self configureParticipateButton];
     [self configureFriendCountButton];
     [self configureInviteButton];
+}
+
+#pragma mark - Configure button status methods
+
+- (void)configureParticipateButtonStatus:(BOOL)participated {
+    self.participateButton.selected = !participated;
+    if (participated) {
+        [self.participateButton setTitle:NSLocalizedString(@"Audited", nil) forState:UIControlStateNormal];
+    } else {
+        [self.participateButton setTitle:NSLocalizedString(@"Audit", nil) forState:UIControlStateNormal];
+    }
 }
 
 @end

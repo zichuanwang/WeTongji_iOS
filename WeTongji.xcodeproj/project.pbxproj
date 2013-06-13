@@ -311,7 +311,6 @@
 		E15E4DC0175C973500BBAE9A /* WTStarImageRollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DBE175C973400BBAE9A /* WTStarImageRollView.xib */; };
 		E15E4DC6175CB9C300BBAE9A /* WTCourseProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DC5175CB9C300BBAE9A /* WTCourseProfileView.m */; };
 		E15E4DC8175CB9E300BBAE9A /* WTCourseProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DC7175CB9E300BBAE9A /* WTCourseProfileView.xib */; };
-		E15E4DCB175CBA7000BBAE9A /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DCA175CBA6F00BBAE9A /* Course.m */; };
 		E15E4DCF175D0B3E00BBAE9A /* WTSelectFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DCD175D0B3E00BBAE9A /* WTSelectFriendsViewController.m */; };
 		E15E4DD0175D0B3E00BBAE9A /* WTSelectFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15E4DCE175D0B3E00BBAE9A /* WTSelectFriendsViewController.xib */; };
 		E15E4DD4175D0CA300BBAE9A /* WTSelectUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E15E4DD2175D0CA000BBAE9A /* WTSelectUserCell.m */; };
@@ -624,6 +623,7 @@
 		E1F0AE3C174A4E6D00EA2CED /* WTStarDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0AE3A174A4E6D00EA2CED /* WTStarDetailViewController.m */; };
 		E1F0AE3D174A4E6D00EA2CED /* WTStarDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F0AE3B174A4E6D00EA2CED /* WTStarDetailViewController.xib */; };
 		E1FAB93817694A8600F7204F /* Star.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FAB93717694A8600F7204F /* Star.m */; };
+		E1FAB93B176951F700F7204F /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = E1FAB93A176951F700F7204F /* Course.m */; };
 		E47686711745287A003C9627 /* UIImage+StackBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = E47686701745287A003C9627 /* UIImage+StackBlur.m */; };
 		E4D164231744D01700F11A2C /* WTStarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D164211744D01700F11A2C /* WTStarViewController.m */; };
 		E4D164241744D01700F11A2C /* WTStarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4D164221744D01700F11A2C /* WTStarViewController.xib */; };
@@ -1041,8 +1041,6 @@
 		E15E4DC4175CB9C300BBAE9A /* WTCourseProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCourseProfileView.h; sourceTree = "<group>"; };
 		E15E4DC5175CB9C300BBAE9A /* WTCourseProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCourseProfileView.m; sourceTree = "<group>"; };
 		E15E4DC7175CB9E300BBAE9A /* WTCourseProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTCourseProfileView.xib; sourceTree = "<group>"; };
-		E15E4DC9175CBA6F00BBAE9A /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
-		E15E4DCA175CBA6F00BBAE9A /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		E15E4DCC175D0B3E00BBAE9A /* WTSelectFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSelectFriendsViewController.h; sourceTree = "<group>"; };
 		E15E4DCD175D0B3E00BBAE9A /* WTSelectFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSelectFriendsViewController.m; sourceTree = "<group>"; };
 		E15E4DCE175D0B3E00BBAE9A /* WTSelectFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSelectFriendsViewController.xib; sourceTree = "<group>"; };
@@ -1431,6 +1429,8 @@
 		E1F0AE3B174A4E6D00EA2CED /* WTStarDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTStarDetailViewController.xib; sourceTree = "<group>"; };
 		E1FAB93617694A8600F7204F /* Star.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Star.h; sourceTree = "<group>"; };
 		E1FAB93717694A8600F7204F /* Star.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Star.m; sourceTree = "<group>"; };
+		E1FAB939176951F700F7204F /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		E1FAB93A176951F700F7204F /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		E476866F1745287A003C9627 /* UIImage+StackBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+StackBlur.h"; sourceTree = "<group>"; };
 		E47686701745287A003C9627 /* UIImage+StackBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+StackBlur.m"; sourceTree = "<group>"; };
 		E4D164201744D01700F11A2C /* WTStarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTStarViewController.h; sourceTree = "<group>"; };
@@ -2777,8 +2777,6 @@
 				E10E23381757366500DCF724 /* CommentableObject.m */,
 				E10E233D1757366500DCF724 /* Controller.h */,
 				E10E233E1757366500DCF724 /* Controller.m */,
-				E15E4DC9175CBA6F00BBAE9A /* Course.h */,
-				E15E4DCA175CBA6F00BBAE9A /* Course.m */,
 				E10E232E1757366400DCF724 /* Event.h */,
 				E10E232F1757366400DCF724 /* Event.m */,
 				E10E231C1757366200DCF724 /* Exam.h */,
@@ -2805,6 +2803,8 @@
 				E1C97B1B176404DB00F4241B /* CourseInvitationNotification.m */,
 				E1FAB93617694A8600F7204F /* Star.h */,
 				E1FAB93717694A8600F7204F /* Star.m */,
+				E1FAB939176951F700F7204F /* Course.h */,
+				E1FAB93A176951F700F7204F /* Course.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3548,7 +3548,6 @@
 				E15E4DB9175C96F100BBAE9A /* WTStarDetailDescriptionView.m in Sources */,
 				E15E4DBF175C973500BBAE9A /* WTStarImageRollView.m in Sources */,
 				E15E4DC6175CB9C300BBAE9A /* WTCourseProfileView.m in Sources */,
-				E15E4DCB175CBA7000BBAE9A /* Course.m in Sources */,
 				E15E4DCF175D0B3E00BBAE9A /* WTSelectFriendsViewController.m in Sources */,
 				E15E4DD4175D0CA300BBAE9A /* WTSelectUserCell.m in Sources */,
 				E15E4DE3175DD86B00BBAE9A /* ActivityInvitationNotification.m in Sources */,
@@ -3562,6 +3561,7 @@
 				E1C97B181764045800F4241B /* WTNotificationCourseInvitationCell.m in Sources */,
 				E1C97B1C176404DB00F4241B /* CourseInvitationNotification.m in Sources */,
 				E1FAB93817694A8600F7204F /* Star.m in Sources */,
+				E1FAB93B176951F700F7204F /* Course.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

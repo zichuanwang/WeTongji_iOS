@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIImageView+AsyncLoading.h"
 #import "UIImage+StackBlur.h"
+#import "WTDetailImageViewController.h"
 
 @interface WTStarHeaderView ()
 
@@ -26,6 +27,10 @@
     WTStarHeaderView *result = [[NSBundle mainBundle] loadNibNamed:@"WTStarHeaderView" owner:nil options:nil].lastObject;
     result.star = star;
     [result configureView];
+    
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:result action:@selector(didTagAvatarImageView:)];
+    [result.avatarContainerView addGestureRecognizer:tapGestureRecognizer];
+    
     return result;
 }
 
@@ -91,5 +96,17 @@
     });
 }
 
+#pragma mark - Gesture recognizer handler
+
+- (void)didTagAvatarImageView:(UIGestureRecognizer *)gesture {
+    UIImageView *currentImageView = self.avatarImageView;
+    CGRect imageViewFrame = [self.superview.superview convertRect:currentImageView.frame fromView:currentImageView.superview];
+    imageViewFrame.origin.y += 64.0f;
+    
+    [WTDetailImageViewController showDetailImageViewWithImageURLString:self.star.avatar
+                                                         fromImageView:currentImageView
+                                                              fromRect:imageViewFrame
+                                                              delegate:nil];
+}
 
 @end
