@@ -207,4 +207,15 @@
     return result;
 }
 
++ (NSString *)volumeStringForVolumeNumber:(NSNumber *)volume {
+    NSString *result = nil;
+    NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    if ([language isEqualToString:@"zh-Hans"]) {
+        result = [NSString stringWithFormat:@"第%d期", volume.integerValue];
+    } else {
+        result = [NSString stringWithFormat:@"Vol.%d", volume.integerValue];
+    }
+    return result;
+}
+
 @end

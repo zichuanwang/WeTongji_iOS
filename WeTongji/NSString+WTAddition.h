@@ -28,6 +28,7 @@
 + (NSString *)searchCategoryStringForCategory:(NSInteger)category;
 + (NSString *)inviteStringConvertFromCount:(NSInteger)count;
 + (NSString *)deleteFriendStringForFriendName:(NSString *)name;
++ (NSString *)volumeStringForVolumeNumber:(NSNumber *)volume;
 - (UIColor *)converHexStringToColorWithAlpha:(CGFloat)alpha;
 
 @end

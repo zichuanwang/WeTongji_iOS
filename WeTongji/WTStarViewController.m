@@ -163,9 +163,9 @@
     [request setEntity:[NSEntityDescription entityForName:@"Star" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
     NSSortDescriptor *createTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createdAt" ascending:NO];
-    NSSortDescriptor *starNumberDescriptor = [[NSSortDescriptor alloc] initWithKey:@"starNumber" ascending:NO];
+    NSSortDescriptor *volumeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"volume" ascending:NO];
   
-    [request setSortDescriptors:@[createTimeDescriptor, starNumberDescriptor]];
+    [request setSortDescriptors:@[createTimeDescriptor, volumeDescriptor]];
     
     [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@", [Controller controllerModelForClass:[self class]].hasObjects]];
 }

@@ -43,7 +43,7 @@
     result.studentNumber = [NSString stringWithFormat:@"%@", dict[@"StudentNO"]];
     result.name = [NSString stringWithFormat:@"%@", dict[@"Name"]];
     result.motto = [NSString stringWithFormat:@"%@", dict[@"Words"]];
-    result.starNumber = [NSString stringWithFormat:@"%@", dict[@"NO"]];
+    result.volume = @([[NSString stringWithFormat:@"%@", dict[@"NO"]] integerValue]);
     result.createdAt = [[NSString stringWithFormat:@"%@", dict[@"CreatedAt"]] convertToDate];
     
     [result configureLikeInfo:dict];
