@@ -44,10 +44,10 @@
 }
 
 - (void)configureViewSize {
-    CGFloat bottomIndent = self.avatarContainerView.frame.origin.y;
-    CGFloat avatarContainerViewBottomLine = self.avatarContainerView.frame.origin.y + self.avatarContainerView.frame.size.height;
+    CGFloat bottomIndent = self.avatarContainerView.superview.frame.origin.y;
+    CGFloat avatarRootContainerViewBottomLine = self.avatarContainerView.superview.frame.origin.y + self.avatarContainerView.superview.frame.size.height;
     CGFloat mottoLabelBottomLine = self.mottoLabel.frame.origin.y + self.mottoLabel.frame.size.height;
-    CGFloat bottomLine = fmaxf(avatarContainerViewBottomLine, mottoLabelBottomLine) + bottomIndent;
+    CGFloat bottomLine = fmaxf(avatarRootContainerViewBottomLine, mottoLabelBottomLine) + bottomIndent;
     [self resetHeight:bottomLine];
 }
 
