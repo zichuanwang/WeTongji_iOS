@@ -48,7 +48,7 @@
         if (![currentUser.friends containsObject:self.user]) {
             [self.functionButton setTitle:NSLocalizedString(@"Add Friend", nil) forState:UIControlStateNormal];
         } else {
-            [self.functionButton setTitle:NSLocalizedString(@"Delete Friend", nil) forState:UIControlStateNormal];
+            [self.functionButton setTitle:NSLocalizedString(@"Unfriend", nil) forState:UIControlStateNormal];
         }
     }
     
