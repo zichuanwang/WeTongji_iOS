@@ -13,11 +13,14 @@
 @implementation Organization (Addition)
 
 + (Organization *)insertOrganization:(NSDictionary *)dict {
-    NSString *orgID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
+    if (![dict isKindOfClass:[NSDictionary class]])
+        return nil;
     
-    if (!orgID || [orgID isEqualToString:@"(null)"]) {
+    if (!dict[@"Id"]) {
         return nil;
     }
+    
+    NSString *orgID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
     Organization *result = [Organization organizationWithID:orgID];
     if (!result) {

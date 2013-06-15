@@ -36,7 +36,7 @@
         result = [WTNotificationFriendInvitationCell generateNotificationContentAttributedStringWithSenderName:notification.sender.name];
     } else if ([notification isKindOfClass:[CourseInvitationNotification class]]) {
         CourseInvitationNotification *courseInvitation = (CourseInvitationNotification *)notification;
-        result = [WTNotificationCourseInvitationCell generateNotificationContentAttributedStringWithSenderName:notification.sender.name courseTitle:courseInvitation.course.what];
+        result = [WTNotificationCourseInvitationCell generateNotificationContentAttributedStringWithSenderName:notification.sender.name courseTitle:courseInvitation.courseInfo.name];
     }
     return result;
 }

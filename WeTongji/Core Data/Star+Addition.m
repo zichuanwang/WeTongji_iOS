@@ -15,11 +15,14 @@
 @implementation Star (Addition)
 
 + (Star *)insertStar:(NSDictionary *)dict {
-    NSString *starID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
+    if (![dict isKindOfClass:[NSDictionary class]])
+        return nil;
     
-    if (!starID || [starID isEqualToString:@"(null)"]) {
+    if (!dict[@"Id"]) {
         return nil;
     }
+    
+    NSString *starID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
     Star *result = [Star starWithID:starID];
     if (!result) {

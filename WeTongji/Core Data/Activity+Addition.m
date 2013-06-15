@@ -16,12 +16,15 @@
 @implementation Activity (Addition)
 
 + (Activity *)insertActivity:(NSDictionary *)dict {
-    NSString *activityID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
+    if (![dict isKindOfClass:[NSDictionary class]])
+        return nil;
     
-    if (!activityID || [activityID isEqualToString:@"(null)"]) {
+    if (!dict[@"Id"]) {
         return nil;
     }
     
+    NSString *activityID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
+
     Activity *result = [Activity activityWithID:activityID];
     if (!result) {
         result = [NSEntityDescription insertNewObjectForEntityForName:@"Activity" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];

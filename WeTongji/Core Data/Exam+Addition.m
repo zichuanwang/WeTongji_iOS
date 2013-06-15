@@ -14,11 +14,14 @@
 @implementation Exam (Addition)
 
 + (Exam *)insertExam:(NSDictionary *)dict {
-    NSString *examID = [NSString stringWithFormat:@"%@", dict[@"NO"]];
+    if (![dict isKindOfClass:[NSDictionary class]])
+        return nil;
     
-    if (!examID || [examID isEqualToString:@"(null)"]) {
+    if (!dict[@"NO"]) {
         return nil;
     }
+    
+    NSString *examID = [NSString stringWithFormat:@"%@", dict[@"NO"]];
     
     Exam *result = [Exam examWithID:examID];
     if (!result) {
@@ -30,15 +33,7 @@
     
     result.updatedAt = [NSDate date];
     result.what = [NSString stringWithFormat:@"%@", dict[@"Name"]];
-    result.teacher = [NSString stringWithFormat:@"%@", dict[@"Teacher"]];
-    result.where = [NSString stringWithFormat:@"%@", dict[@"Location"]];
-    result.beginTime = [[NSString stringWithFormat:@"%@", dict[@"Begin"]] convertToDate];
-    result.endTime = [[NSString stringWithFormat:@"%@", dict[@"End"]] convertToDate];
-    
-    result.hours = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"Hours"]] intValue]];
-    result.credit = [NSNumber numberWithFloat: [[NSString stringWithFormat:@"%@", dict[@"Point"]] floatValue]];
-    result.required = [NSString stringWithFormat:@"%@", dict[@"Required"]];
-    
+        
     result.beginDay = [result.beginTime convertToYearMonthDayString];
     
     [result configureLikeInfo:dict];

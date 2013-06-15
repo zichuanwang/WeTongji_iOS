@@ -17,11 +17,11 @@
     if (![dict isKindOfClass:[NSDictionary class]])
         return nil;
     
-    NSString *userID = [NSString stringWithFormat:@"%@", dict[@"UID"]];
-    
-    if (!userID || [userID isEqualToString:@"(null)"]) {
+    if (!dict[@"UID"]) {
         return nil;
     }
+    
+    NSString *userID = [NSString stringWithFormat:@"%@", dict[@"UID"]];
     
     User *result = [User userWithID:userID];
     if (!result) {

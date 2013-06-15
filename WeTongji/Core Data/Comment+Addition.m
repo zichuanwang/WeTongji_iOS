@@ -14,11 +14,14 @@
 @implementation Comment (Addition)
 
 + (Comment *)insertComment:(NSDictionary *)dict {
-    NSString *commentID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
+    if (![dict isKindOfClass:[NSDictionary class]])
+        return nil;
     
-    if (!commentID || [commentID isEqualToString:@"(null)"]) {
+    if (!dict[@"Id"]) {
         return nil;
     }
+    
+    NSString *commentID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
     Comment *result = [Comment commmentWithID:commentID];
     if (!result) {

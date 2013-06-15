@@ -15,11 +15,14 @@
 @implementation BillboardPost (Addition)
 
 + (BillboardPost *)insertBillboardPost:(NSDictionary *)dict {
-    NSString *postID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
+    if (![dict isKindOfClass:[NSDictionary class]])
+        return nil;
     
-    if (!postID || [postID isEqualToString:@"(null)"]) {
+    if (!dict[@"Id"]) {
         return nil;
     }
+    
+    NSString *postID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
     BillboardPost *result = [BillboardPost postWithID:postID];
     if (!result) {

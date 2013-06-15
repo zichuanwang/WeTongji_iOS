@@ -16,11 +16,14 @@
 @implementation News (Addition)
 
 + (News *)insertNews:(NSDictionary *)dict {
-    NSString *newsID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
+    if (![dict isKindOfClass:[NSDictionary class]])
+        return nil;
     
-    if (!newsID || [newsID isEqualToString:@"(null)"]) {
+    if (!dict[@"Id"]) {
         return nil;
     }
+    
+    NSString *newsID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
     News *result = [News newsWithID:newsID];
     if (!result) {

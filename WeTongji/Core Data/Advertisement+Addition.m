@@ -12,11 +12,14 @@
 @implementation Advertisement (Addition)
 
 + (Advertisement *)insertAdvertisement:(NSDictionary *)dict {
-    NSString *adID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
+    if (![dict isKindOfClass:[NSDictionary class]])
+        return nil;
     
-    if (!adID || [adID isEqualToString:@"(null)"]) {
+    if (!dict[@"Id"]) {
         return nil;
     }
+    
+    NSString *adID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
     Advertisement *result = [Advertisement advertisementWithID:adID];
     if (!result) {

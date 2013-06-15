@@ -6,7 +6,7 @@
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="author" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="publishedActivities" inverseEntity="Organization" syncable="YES"/>
-        <relationship name="relatedActivityInvitations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityInvitationNotification" inverseName="activity" inverseEntity="ActivityInvitationNotification" syncable="YES"/>
+        <relationship name="relatedActivityInvitations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ActivityInvitationNotification" inverseName="activity" inverseEntity="ActivityInvitationNotification" syncable="YES"/>
     </entity>
     <entity name="ActivityInvitationNotification" representedClassName="ActivityInvitationNotification" parentEntity="InvitationNotification" syncable="YES">
         <relationship name="activity" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" inverseName="relatedActivityInvitations" inverseEntity="Activity" syncable="YES"/>
@@ -40,20 +40,29 @@
         <relationship name="hasObjects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Object" inverseName="belongToControllers" inverseEntity="Object" syncable="YES"/>
     </entity>
     <entity name="Course" representedClassName="Course" parentEntity="Event" syncable="YES">
-        <attribute name="courseDay" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="isAudit" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="info" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CourseInfo" inverseName="instances" inverseEntity="CourseInfo" syncable="YES"/>
+    </entity>
+    <entity name="CourseInfo" representedClassName="CourseInfo" parentEntity="Object" syncable="YES">
         <attribute name="credit" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="hours" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="isAudit" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="required" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="sectionEnd" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="sectionStart" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="teacher" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="weekDay" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="weekType" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="relatedCourseInvitations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CourseInvitationNotification" inverseName="course" inverseEntity="CourseInvitationNotification" syncable="YES"/>
+        <relationship name="instances" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Course" inverseName="info" inverseEntity="Course" syncable="YES"/>
+        <relationship name="relatedCourseInvitations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CourseInvitationNotification" inverseName="courseInfo" inverseEntity="CourseInvitationNotification" syncable="YES"/>
+        <relationship name="timetables" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CourseTimetable" inverseName="belongTo" inverseEntity="CourseTimetable" syncable="YES"/>
     </entity>
     <entity name="CourseInvitationNotification" representedClassName="CourseInvitationNotification" parentEntity="InvitationNotification" syncable="YES">
-        <relationship name="course" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="relatedCourseInvitations" inverseEntity="Course" syncable="YES"/>
+        <relationship name="courseInfo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CourseInfo" inverseName="relatedCourseInvitations" inverseEntity="CourseInfo" syncable="YES"/>
+    </entity>
+    <entity name="CourseTimetable" representedClassName="CourseTimetable" parentEntity="Object" syncable="YES">
+        <attribute name="endSection" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startSection" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="weekDay" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weekType" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="belongTo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CourseInfo" inverseName="timetables" inverseEntity="CourseInfo" syncable="YES"/>
     </entity>
     <entity name="Event" representedClassName="Event" isAbstract="YES" parentEntity="CommentableObject" syncable="YES">
         <attribute name="beginDay" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
@@ -163,7 +172,7 @@
         <element name="Comment" positionX="160" positionY="192" width="128" height="105"/>
         <element name="CommentableObject" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Controller" positionX="43" positionY="96" width="128" height="75"/>
-        <element name="Course" positionX="43" positionY="225" width="128" height="210"/>
+        <element name="Course" positionX="43" positionY="225" width="128" height="75"/>
         <element name="CourseInvitationNotification" positionX="160" positionY="192" width="128" height="60"/>
         <element name="Event" positionX="-135" positionY="261" width="128" height="135"/>
         <element name="Exam" positionX="369" positionY="351" width="128" height="45"/>
@@ -176,5 +185,7 @@
         <element name="Organization" positionX="-423" positionY="-126" width="128" height="135"/>
         <element name="Star" positionX="-270" positionY="-126" width="128" height="180"/>
         <element name="User" positionX="-423" positionY="-9" width="128" height="555"/>
+        <element name="CourseInfo" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="CourseTimetable" positionX="160" positionY="192" width="128" height="135"/>
     </elements>
 </model>

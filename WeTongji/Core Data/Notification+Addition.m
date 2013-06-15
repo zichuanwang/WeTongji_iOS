@@ -58,24 +58,27 @@
 }
 
 + (CourseInvitationNotification *)insertCourseInvitationNotification:(NSDictionary *)dict {
-    NSString *notificationID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
+    if (![dict isKindOfClass:[NSDictionary class]])
+        return nil;
     
-    if (!notificationID || [notificationID isEqualToString:@"(null)"]) {
+    if (!dict[@"Id"]) {
         return nil;
     }
+    
+    NSString *notificationID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
     CourseInvitationNotification *result = (CourseInvitationNotification *)[Notification notificationWithID:notificationID];
     if (!result) {
         result = [NSEntityDescription insertNewObjectForEntityForName:@"CourseInvitationNotification" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
         result.identifier = notificationID;
-        result.objectClass = NSStringFromClass([ActivityInvitationNotification class]);
+        result.objectClass = NSStringFromClass([CourseInvitationNotification class]);
     }
     
     result.updatedAt = [NSDate date];
     result.sourceID = [NSString stringWithFormat:@"%@", dict[@"SourceId"]];
     result.sendTime = [[NSString stringWithFormat:@"%@", dict[@"SentAt"]] convertToDate];
     result.sender = [User insertUser:dict[@"UserDetails"]];
-    result.course = [Course insertCourse:dict[@"CourseDetails"]];
+    result.courseInfo = [CourseInfo insertCourseInfo:dict[@"CourseDetails"]];
     
     if ([[NSString stringWithFormat:@"%@", dict[@"AcceptedAt"]] isEqualToString:@"<null>"]) {
         result.accepted = @(NO);
@@ -87,11 +90,14 @@
 }
 
 + (ActivityInvitationNotification *)insertActivityInvitationNotification:(NSDictionary *)dict {
-    NSString *notificationID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
+    if (![dict isKindOfClass:[NSDictionary class]])
+        return nil;
     
-    if (!notificationID || [notificationID isEqualToString:@"(null)"]) {
+    if (!dict[@"Id"]) {
         return nil;
     }
+    
+    NSString *notificationID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
     ActivityInvitationNotification *result = (ActivityInvitationNotification *)[Notification notificationWithID:notificationID];
     if (!result) {
@@ -116,11 +122,14 @@
 }
 
 + (FriendInvitationNotification *)insertFriendInvitationNotification:(NSDictionary *)dict {
-    NSString *notificationID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
+    if (![dict isKindOfClass:[NSDictionary class]])
+        return nil;
     
-    if (!notificationID || [notificationID isEqualToString:@"null"]) {
+    if (!dict[@"Id"]) {
         return nil;
     }
+    
+    NSString *notificationID = [NSString stringWithFormat:@"%@", dict[@"Id"]];
     
     FriendInvitationNotification *result = (FriendInvitationNotification *)[Notification notificationWithID:notificationID];
     if (!result) {
