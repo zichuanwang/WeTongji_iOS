@@ -19,15 +19,16 @@
 #pragma mark - Class methods
 
 + (NSMutableAttributedString *)generateNotificationContentAttributedStringWithSenderName:(NSString *)senderName
-                                                                           activityTitle:(NSString *)activityTitle {
+                                                                           activityTitle:(NSString *)activityTitle
+                                                                                accepted:(BOOL)accepted {
     NSMutableAttributedString* senderNameString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@"%@ ", senderName]];
     [senderNameString setTextBold:YES range:NSMakeRange(0, senderNameString.length)];
-    [senderNameString setTextColor:[UIColor whiteColor]];
+    [senderNameString setTextColor:accepted ? WTNotificationCellLightGrayColor : [UIColor whiteColor]];
     [senderNameString setFont:[UIFont boldSystemFontOfSize:14.0f]];
     
     NSMutableAttributedString* activityTitleString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@" %@", activityTitle]];
     [activityTitleString setTextBold:YES range:NSMakeRange(0, senderNameString.length)];
-    [activityTitleString setTextColor:[UIColor whiteColor]];
+    [activityTitleString setTextColor:accepted ? WTNotificationCellLightGrayColor : [UIColor whiteColor]];
     [activityTitleString setFont:[UIFont boldSystemFontOfSize:14.0f]];
     
     NSMutableAttributedString* messageContentString = [NSMutableAttributedString attributedStringWithString:NSLocalizedString(@"invites you to participate in.", nil)];

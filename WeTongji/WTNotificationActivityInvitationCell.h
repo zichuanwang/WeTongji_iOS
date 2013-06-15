@@ -13,6 +13,7 @@
 @interface WTNotificationActivityInvitationCell : WTNotificationInvitationCell
 
 + (NSMutableAttributedString *)generateNotificationContentAttributedStringWithSenderName:(NSString *)senderName
-                                                                           activityTitle:(NSString *)activityTitle;
+                                                                           activityTitle:(NSString *)activityTitle
+                                                                                accepted:(BOOL)accepted;
 
 @end

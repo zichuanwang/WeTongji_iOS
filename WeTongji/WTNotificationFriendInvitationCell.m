@@ -22,10 +22,11 @@
 
 #pragma mark - Class methods
 
-+ (NSMutableAttributedString *)generateNotificationContentAttributedStringWithSenderName:(NSString *)senderName {
++ (NSMutableAttributedString *)generateNotificationContentAttributedStringWithSenderName:(NSString *)senderName
+                                                                                accepted:(BOOL)accepted {
     NSMutableAttributedString* senderNameString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@"%@ ", senderName]];
     [senderNameString setTextBold:YES range:NSMakeRange(0, senderNameString.length)];
-    [senderNameString setTextColor:[UIColor whiteColor]];
+    [senderNameString setTextColor:accepted ? WTNotificationCellLightGrayColor : [UIColor whiteColor]];
     [senderNameString setFont:[UIFont boldSystemFontOfSize:14.0f]];
     NSMutableAttributedString* messageContentString = [NSMutableAttributedString attributedStringWithString:NSLocalizedString(@"wants to be your friend.", nil)];
     [messageContentString setTextColor:WTNotificationCellLightGrayColor];

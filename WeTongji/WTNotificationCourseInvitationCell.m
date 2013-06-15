@@ -19,15 +19,16 @@
 #pragma mark - Class methods
 
 + (NSMutableAttributedString *)generateNotificationContentAttributedStringWithSenderName:(NSString *)senderName
-                                                                             courseTitle:(NSString *)courseTitle {
+                                                                             courseTitle:(NSString *)courseTitle
+                                                                                accepted:(BOOL)accepted {
     NSMutableAttributedString* senderNameString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@"%@ ", senderName]];
     [senderNameString setTextBold:YES range:NSMakeRange(0, senderNameString.length)];
-    [senderNameString setTextColor:[UIColor whiteColor]];
+    [senderNameString setTextColor:accepted ? WTNotificationCellLightGrayColor : [UIColor whiteColor]];
     [senderNameString setFont:[UIFont boldSystemFontOfSize:14.0f]];
     
     NSMutableAttributedString* courseTitleString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@" %@", courseTitle]];
     [courseTitleString setTextBold:YES range:NSMakeRange(0, senderNameString.length)];
-    [courseTitleString setTextColor:[UIColor whiteColor]];
+    [courseTitleString setTextColor:accepted ? WTNotificationCellLightGrayColor : [UIColor whiteColor]];
     [courseTitleString setFont:[UIFont boldSystemFontOfSize:14.0f]];
     
     NSMutableAttributedString* messageContentString = [NSMutableAttributedString attributedStringWithString:NSLocalizedString(@"invites you to audit.", nil)];
