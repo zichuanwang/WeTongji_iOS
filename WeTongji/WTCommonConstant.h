@@ -15,6 +15,8 @@
 
 #define WTNotificationCellLightGrayColor [UIColor colorWithRed:177.0f / 255 green:177.0f / 255 blue:177.0f / 255 alpha:1.0f]
 
+#define WTNotificationCellDarkGrayColor [UIColor colorWithRed:106.0f / 255 green:106.0f / 255 blue:106.0f / 255 alpha:1.0f]
+
 #define WTSectionHeaderViewGrayColor [UIColor colorWithRed:131.0f / 255 green:131.0f / 255 blue:131.0f / 255 alpha:1.0f]
 
 #define WTSectionHeaderViewLightGrayColor [UIColor colorWithRed:202.0f / 255 green:202.0f / 255 blue:202.0f / 255 alpha:1.0f]

@@ -26,10 +26,10 @@
                                                                                 accepted:(BOOL)accepted {
     NSMutableAttributedString* senderNameString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@"%@ ", senderName]];
     [senderNameString setTextBold:YES range:NSMakeRange(0, senderNameString.length)];
-    [senderNameString setTextColor:accepted ? WTNotificationCellLightGrayColor : [UIColor whiteColor]];
+    [senderNameString setTextColor:accepted ? WTNotificationCellDarkGrayColor : [UIColor whiteColor]];
     [senderNameString setFont:[UIFont boldSystemFontOfSize:14.0f]];
     NSMutableAttributedString* messageContentString = [NSMutableAttributedString attributedStringWithString:NSLocalizedString(@"wants to be your friend.", nil)];
-    [messageContentString setTextColor:WTNotificationCellLightGrayColor];
+    [messageContentString setTextColor:accepted ? WTNotificationCellDarkGrayColor : WTNotificationCellLightGrayColor];
     [messageContentString setFont:[UIFont systemFontOfSize:14.0f]];
     [messageContentString insertAttributedString:senderNameString atIndex:0];
     

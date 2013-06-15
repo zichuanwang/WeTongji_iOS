@@ -23,16 +23,16 @@
                                                                                 accepted:(BOOL)accepted {
     NSMutableAttributedString* senderNameString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@"%@ ", senderName]];
     [senderNameString setTextBold:YES range:NSMakeRange(0, senderNameString.length)];
-    [senderNameString setTextColor:accepted ? WTNotificationCellLightGrayColor : [UIColor whiteColor]];
+    [senderNameString setTextColor:accepted ? WTNotificationCellDarkGrayColor : [UIColor whiteColor]];
     [senderNameString setFont:[UIFont boldSystemFontOfSize:14.0f]];
     
     NSMutableAttributedString* activityTitleString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@" %@", activityTitle]];
     [activityTitleString setTextBold:YES range:NSMakeRange(0, senderNameString.length)];
-    [activityTitleString setTextColor:accepted ? WTNotificationCellLightGrayColor : [UIColor whiteColor]];
+    [activityTitleString setTextColor:accepted ? WTNotificationCellDarkGrayColor : [UIColor whiteColor]];
     [activityTitleString setFont:[UIFont boldSystemFontOfSize:14.0f]];
     
     NSMutableAttributedString* messageContentString = [NSMutableAttributedString attributedStringWithString:NSLocalizedString(@"invites you to participate in.", nil)];
-    [messageContentString setTextColor:WTNotificationCellLightGrayColor];
+    [messageContentString setTextColor:accepted ? WTNotificationCellDarkGrayColor : WTNotificationCellLightGrayColor];
     [messageContentString setFont:[UIFont systemFontOfSize:14.0f]];
     [messageContentString insertAttributedString:senderNameString atIndex:0];
     [messageContentString insertAttributedString:activityTitleString atIndex:messageContentString.length - 1];

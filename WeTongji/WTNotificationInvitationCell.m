@@ -31,12 +31,12 @@
     NSAttributedString *result = nil;
     if ([notification isKindOfClass:[ActivityInvitationNotification class]]) {
         ActivityInvitationNotification *activityInvitation = (ActivityInvitationNotification *)notification;
-        result = [WTNotificationActivityInvitationCell generateNotificationContentAttributedStringWithSenderName:activityInvitation.sender.name activityTitle:activityInvitation.activity.what accepted:notification.accepted];
+        result = [WTNotificationActivityInvitationCell generateNotificationContentAttributedStringWithSenderName:activityInvitation.sender.name activityTitle:activityInvitation.activity.what accepted:notification.accepted.boolValue];
     } else if ([notification isKindOfClass:[FriendInvitationNotification class]]) {
-        result = [WTNotificationFriendInvitationCell generateNotificationContentAttributedStringWithSenderName:notification.sender.name accepted:notification.accepted];
+        result = [WTNotificationFriendInvitationCell generateNotificationContentAttributedStringWithSenderName:notification.sender.name accepted:notification.accepted.boolValue];
     } else if ([notification isKindOfClass:[CourseInvitationNotification class]]) {
         CourseInvitationNotification *courseInvitation = (CourseInvitationNotification *)notification;
-        result = [WTNotificationCourseInvitationCell generateNotificationContentAttributedStringWithSenderName:notification.sender.name courseTitle:courseInvitation.courseInfo.name accepted:notification.accepted];
+        result = [WTNotificationCourseInvitationCell generateNotificationContentAttributedStringWithSenderName:notification.sender.name courseTitle:courseInvitation.courseInfo.name accepted:notification.accepted.boolValue];
     }
     return result;
 }
