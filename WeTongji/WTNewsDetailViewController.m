@@ -131,7 +131,6 @@
 
 #pragma mark - Actions
 
-// TODO: 添加组织详情跳转接口
 - (void)didClickOrganizerButton:(UIButton *)sender {
     WTOrganizationDetailViewController *vc = [WTOrganizationDetailViewController createDetailViewControllerWithOrganization:self.news.author backBarButtonText:self.news.title];
     [self.navigationController pushViewController:vc animated:YES];

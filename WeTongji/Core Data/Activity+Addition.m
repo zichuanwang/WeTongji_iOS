@@ -73,12 +73,12 @@
     return result;
 }
 
-+ (void)setAllActivitesFreeFromHolder:(Class)holderClass
-                           inCategory:(NSNumber *)category {
++ (void)setOutdatedActivitesFreeFromHolder:(Class)holderClass
+                                inCategory:(NSNumber *)category {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     [request setEntity:[NSEntityDescription entityForName:@"Activity" inManagedObjectContext:context]];
-    [request setPredicate:[NSPredicate predicateWithFormat:@"category == %@", category]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"category == %@ AND updatedAt < %@", category, [NSDate dateWithTimeIntervalSinceNow:-10]]];
     NSArray *allActivities = [context executeFetchRequest:request error:NULL];
     
     for(Activity *item in allActivities) {

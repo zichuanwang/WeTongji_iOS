@@ -12,6 +12,8 @@
 
 - (void)setObjectHeldByHolder:(Class)holderClass;
 
++ (void)setOutdatedObjectsFreeFromHolder:(Class)holderClass;
+
 - (void)setObjectFreeFromHolder:(Class)holderClass;
 
 + (void)setAllObjectsFreeFromHolder:(Class)holderClass;

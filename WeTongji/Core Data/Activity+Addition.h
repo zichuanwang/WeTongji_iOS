@@ -18,8 +18,8 @@
 
 + (Activity *)activityWithID:(NSString *)activityID;
 
-+ (void)setAllActivitesFreeFromHolder:(Class)holderClass
-                           inCategory:(NSNumber *)category;
++ (void)setOutdatedActivitesFreeFromHolder:(Class)holderClass
+                                inCategory:(NSNumber *)category;
 
 + (NSString *)convertCategoryStringFromCategory:(NSNumber *)category;
 

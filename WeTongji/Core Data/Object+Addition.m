@@ -61,6 +61,15 @@
     }
 }
 
++ (void)setOutdatedObjectsFreeFromHolder:(Class)holderClass {
+    Controller *controller = [Controller controllerModelForClass:holderClass];
+    NSSet *hasObjectsSet = [NSSet setWithSet:controller.hasObjects];
+    for (Object *object in hasObjectsSet) {
+        if ([object.updatedAt compare:[NSDate dateWithTimeIntervalSinceNow:-10]] == NSOrderedAscending)
+            [object setObjectFreeFromHolder:holderClass];
+    }
+}
+
 - (NSInteger)getObjectModelType {
     NSInteger modelType = -1;
     if ([self isKindOfClass:[BillboardPost class]]) {

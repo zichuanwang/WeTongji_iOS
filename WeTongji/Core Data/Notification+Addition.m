@@ -16,6 +16,7 @@
 #import "NSString+WTAddition.h"
 #import "Activity+Addition.h"
 #import "Course+Addition.h"
+#import "Object+Addition.h"
 
 @implementation Notification (Addition)
 
@@ -79,6 +80,7 @@
     result.sendTime = [[NSString stringWithFormat:@"%@", dict[@"SentAt"]] convertToDate];
     result.sender = [User insertUser:dict[@"UserDetails"]];
     result.courseInfo = [CourseInfo insertCourseInfo:dict[@"CourseDetails"]];
+    [result.courseInfo setObjectHeldByHolder:[Notification class]];
     
     if ([[NSString stringWithFormat:@"%@", dict[@"AcceptedAt"]] isEqualToString:@"<null>"]) {
         result.accepted = @(NO);
@@ -111,6 +113,7 @@
     result.sendTime = [[NSString stringWithFormat:@"%@", dict[@"SentAt"]] convertToDate];
     result.sender = [User insertUser:dict[@"UserDetails"]];
     result.activity = [Activity insertActivity:dict[@"ActivityDetails"]];
+    [result.activity setObjectHeldByHolder:[Notification class]];
     
     if ([[NSString stringWithFormat:@"%@", dict[@"AcceptedAt"]] isEqualToString:@"<null>"]) {
         result.accepted = @(NO);
@@ -201,13 +204,20 @@
     }
 }
 
-+ (void)clearAllNotifications {
++ (void)clearOutdatedNotifications {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     [request setEntity:[NSEntityDescription entityForName:@"Notification" inManagedObjectContext:context]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"updatedAt < %@", [NSDate dateWithTimeIntervalSinceNow:-10]]];
     NSArray *allNotifications = [context executeFetchRequest:request error:NULL];
     
     for(Notification *item in allNotifications) {
+        if ([item isKindOfClass:[ActivityInvitationNotification class]]) {
+            [((ActivityInvitationNotification *)item).activity setObjectFreeFromHolder:[Notification class]];
+        } else if ([item isKindOfClass:[CourseInvitationNotification class]]) {
+            [((CourseInvitationNotification *)item).courseInfo setObjectFreeFromHolder:[Notification class]];
+        }
+        item.owner = nil;
         [context deleteObject:item];
     }
 }

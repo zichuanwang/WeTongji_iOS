@@ -89,14 +89,14 @@
             [self.dragToLoadDecorator setBottomViewDisabled:NO];
         }
         
-        if (success)
-            success();
-        
         NSArray *resultArray = resultDict[@"Information"];
         for(NSDictionary *dict in resultArray) {
             News *news = [News insertNews:dict];
             [news setObjectHeldByHolder:[self class]];
         }
+        
+        if (success)
+            success();
         
     } failureBlock:^(NSError * error) {
         WTLOGERROR(@"Get news:%@", error.localizedDescription);
@@ -124,10 +124,10 @@
     return vc;
 }
 
-- (void)clearAllData {
+- (void)clearOutdatedData {
     NSSet *newsShowTypesSet = [NSUserDefaults getNewsShowTypesSet];
     for (NSNumber *showTypeNumber in newsShowTypesSet) {
-        [News setAllNewsFreeFromHolder:[self class] inCategory:showTypeNumber];
+        [News setOutdatedNewsFreeFromHolder:[self class] inCategory:showTypeNumber];
     }
 }
 
@@ -304,7 +304,7 @@
 - (void)dragToLoadDecoratorDidDragDown {
     self.nextPage = 1;
     [self loadMoreDataWithSuccessBlock:^{
-        [self clearAllData];
+        [self clearOutdatedData];
         [self.dragToLoadDecorator topViewLoadFinished:YES];
     } failureBlock:^{
         [self.dragToLoadDecorator topViewLoadFinished:NO];

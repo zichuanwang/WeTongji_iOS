@@ -146,10 +146,10 @@
     [[WTClient sharedClient] enqueueRequest:request];
 }
 
-- (void)clearAllData {
+- (void)clearOutdatedData {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:[NSEntityDescription entityForName:self.likeObjectClass inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
-    [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@", self.user.likedObjects]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@ AND updatedAt < %@", self.user.likedObjects, [NSDate dateWithTimeIntervalSinceNow:-10]]];
     NSArray *result = [[WTCoreDataManager sharedManager].managedObjectContext executeFetchRequest:request error:nil];
     for (LikeableObject *object in result) {
         [self.user removeLikedObjectsObject:object];
@@ -217,7 +217,7 @@
 - (void)dragToLoadDecoratorDidDragDown {
     self.nextPage = 1;
     [self loadMoreDataWithSuccessBlock:^{
-        [self clearAllData];
+        [self clearOutdatedData];
         [self.dragToLoadDecorator topViewLoadFinished:YES];
     } failureBlock:^{
         [self.dragToLoadDecorator topViewLoadFinished:NO];

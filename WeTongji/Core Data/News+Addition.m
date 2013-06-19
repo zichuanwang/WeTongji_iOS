@@ -87,12 +87,12 @@
     return result;
 }
 
-+ (void)setAllNewsFreeFromHolder:(Class)holderClass
-                      inCategory:(NSNumber *)category {
++ (void)setOutdatedNewsFreeFromHolder:(Class)holderClass
+                           inCategory:(NSNumber *)category {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     [request setEntity:[NSEntityDescription entityForName:@"News" inManagedObjectContext:context]];
-    [request setPredicate:[NSPredicate predicateWithFormat:@"category == %@", category]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"category == %@ AND updatedAt < %@", category, [NSDate dateWithTimeIntervalSinceNow:-10]]];
     NSArray *allNews = [context executeFetchRequest:request error:NULL];
     
     for(News *item in allNews) {

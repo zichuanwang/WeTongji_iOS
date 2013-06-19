@@ -18,6 +18,6 @@
 
 + (NSSet *)insertNotifications:(NSDictionary *)dict;
 
-+ (void)clearAllNotifications;
++ (void)clearOutdatedNotifications;
 
 @end

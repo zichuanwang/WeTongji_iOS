@@ -96,14 +96,14 @@
             [self.dragToLoadDecorator setBottomViewDisabled:NO];
         }
         
-        if (success)
-            success();
-        
         NSArray *resultArray = resultDict[@"Activities"];
         for (NSDictionary *dict in resultArray) {
             Activity *activity = [Activity insertActivity:dict];
             [activity setObjectHeldByHolder:[self class]];
         }
+        
+        if (success)
+            success();
         
     } failureBlock:^(NSError * error) {
         WTLOGERROR(@"Get activities:%@", error.localizedDescription);
@@ -132,10 +132,10 @@
     return vc;
 }
 
-- (void)clearAllData {
+- (void)clearOutdatedData {
     NSSet *activityShowTypesSet = [NSUserDefaults getActivityShowTypesSet];
     for (NSNumber *showTypeNumber in activityShowTypesSet) {
-        [Activity setAllActivitesFreeFromHolder:[self class] inCategory:showTypeNumber];
+        [Activity setOutdatedActivitesFreeFromHolder:[self class] inCategory:showTypeNumber];
     }
 }
 
@@ -292,7 +292,7 @@
 - (void)dragToLoadDecoratorDidDragDown {
     self.nextPage = 1;
     [self loadMoreDataWithSuccessBlock:^{
-        [self clearAllData];
+        [self clearOutdatedData];
         [self.dragToLoadDecorator topViewLoadFinished:YES];
     } failureBlock:^{
         [self.dragToLoadDecorator topViewLoadFinished:NO];

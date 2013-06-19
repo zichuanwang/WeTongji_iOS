@@ -95,18 +95,16 @@
         } else {
             [self.dragToLoadDecorator setBottomViewDisabled:NO];
         }
-
-        if (success)
-            success();
         
+        WTLOG(@"1.current user received noti:%d", [WTCoreDataManager sharedManager].currentUser.receivedNotifications.count);
         NSSet *notificationsSet = [Notification insertNotifications:responseObject];
         [[WTCoreDataManager sharedManager].currentUser addReceivedNotifications:notificationsSet];
-        for (Notification *notification in notificationsSet) {
-            if ([notification isKindOfClass:[ActivityInvitationNotification class]]) {
-                ActivityInvitationNotification *activityInvitation = (ActivityInvitationNotification *)notification;
-                [(Object *)activityInvitation.activity setObjectHeldByHolder:[self class]];
-            }
-        }
+        WTLOG(@"2.current user received noti:%d", [WTCoreDataManager sharedManager].currentUser.receivedNotifications.count);
+        
+        if (success)
+            success();
+        WTLOG(@"3.current user received noti:%d", [WTCoreDataManager sharedManager].currentUser.receivedNotifications.count);
+        
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Get notification list failure:%@", error.localizedDescription);
         
@@ -119,9 +117,8 @@
     [[WTClient sharedClient] enqueueRequest:request];
 }
 
-- (void)clearAllData {
-    [Object setAllObjectsFreeFromHolder:[self class]];
-    [Notification clearAllNotifications];
+- (void)clearOutdatedData {
+    [Notification clearOutdatedNotifications];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -157,15 +154,13 @@
     WTNotificationCell *notificationCell = (WTNotificationCell *)cell;
     notificationCell.delegate = self;
     [notificationCell configureUIWithNotificaitonObject:notification];
-    
-    [self.tableView bringSubviewToFront:cell];    
 }
 
 - (void)configureRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"Notification" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
-    NSSortDescriptor *sortByPublishTime = [[NSSortDescriptor alloc] initWithKey:@"sendTime" ascending:NO];
-    [request setSortDescriptors:@[sortByPublishTime]];
+    NSSortDescriptor *sortBySendTime = [[NSSortDescriptor alloc] initWithKey:@"sendTime" ascending:NO];
+    [request setSortDescriptors:@[sortBySendTime]];
 
     [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@", [WTCoreDataManager sharedManager].currentUser.receivedNotifications]];
 }
@@ -196,7 +191,6 @@
 - (void)cellHeightDidChange {
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
-    // [self.tableView performSelector:@selector(reloadData) withObject:nil afterDelay:0.25f];
 }
 
 #pragma mark - WTDragToLoadDecoratorDataSource
@@ -218,7 +212,7 @@
 - (void)dragToLoadDecoratorDidDragDown {
     self.nextPage = 1;
     [self loadMoreDataWithSuccessBlock:^{
-        [self clearAllData];
+        [self clearOutdatedData];
         [self.dragToLoadDecorator topViewLoadFinished:YES];
     } failureBlock:^{
         [self.dragToLoadDecorator topViewLoadFinished:NO];

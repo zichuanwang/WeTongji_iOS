@@ -77,7 +77,7 @@
 - (void)loadMoreDataWithSuccessBlock:(void (^)(void))success
                         failureBlock:(void (^)(void))failure {
     WTRequest * request = [WTRequest requestWithSuccessBlock:^(id responseData) {
-        WTLOG(@"Get friends list: %@", responseData);
+        WTLOG(@"Get friend list: %@", responseData);
         
         if (success)
             success();
@@ -90,7 +90,7 @@
         }
                 
     } failureBlock:^(NSError * error) {
-        WTLOGERROR(@"Get friends list:%@", error.localizedDescription);
+        WTLOGERROR(@"Get friend list:%@", error.localizedDescription);
         
         if (failure)
             failure();
@@ -113,7 +113,7 @@
     
     self.navigationItem.rightBarButtonItem = [WTResourceFactory createAddFriendBarButtonWithTarget:self action:@selector(didClickAddFriendButton:)];
     
-    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Friends List", nil)];
+    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Friend List", nil)];
 }
 
 - (void)configureDragToLoadDecorator {
@@ -164,7 +164,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     User *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    WTUserDetailViewController *vc = [WTUserDetailViewController createDetailViewControllerWithUser:user backBarButtonText:NSLocalizedString(@"Friends List", nil)];
+    WTUserDetailViewController *vc = [WTUserDetailViewController createDetailViewControllerWithUser:user backBarButtonText:NSLocalizedString(@"Friend List", nil)];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

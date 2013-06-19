@@ -139,7 +139,8 @@
 }
 
 - (void)updateCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    [self configureCell:[self.tableView cellForRowAtIndexPath:indexPath]
+    if (cell)
+        [self configureCell:[self.tableView cellForRowAtIndexPath:indexPath]
             atIndexPath:indexPath];
 }
 

@@ -10,6 +10,6 @@
 #import "WTRootNavigationController.h"
 #import "WTInnerSettingViewController.h"
 
-@interface WTStarViewController : WTCoreDataTableViewController <WTRootNavigationControllerDelegate, WTInnerSettingViewControllerDelegate>
+@interface WTStarViewController : WTCoreDataTableViewController <WTRootNavigationControllerDelegate>
 
 @end

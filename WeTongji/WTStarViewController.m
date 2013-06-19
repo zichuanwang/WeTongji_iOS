@@ -77,8 +77,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)clearAllData {
-     [Object setAllObjectsFreeFromHolder:[self class]];
+- (void)clearOutdatedData {
+     [Object setOutdatedObjectsFreeFromHolder:[self class]];
 }
 
 #pragma mark - Data load methods
@@ -98,14 +98,14 @@
             [self.dragToLoadDecorator setBottomViewDisabled:NO];
         }
         
-        if (success)
-            success();
-        
         NSArray *resultArray = resultDict[@"People"];
         for (NSDictionary *dict in resultArray) {
             Star *star = [Star insertStar:dict];
             [star setObjectHeldByHolder:[self class]];
         }
+        
+        if (success)
+            success();
         
     } failureBlock:^(NSError * error) {
         WTLOGERROR(@"Get Stars:%@", error.localizedDescription);
@@ -202,17 +202,6 @@
     self.filterButton.selected = YES;
 }
 
-#pragma mark - WTInnerSettingViewControllerDelegate
-
-- (void)innerSettingViewController:(WTInnerSettingViewController *)controller
-                  didFinishSetting:(BOOL)modified {
-    if (modified) {
-        self.fetchedResultsController = nil;
-        [self.tableView reloadData];
-        [self.dragToLoadDecorator setTopViewLoading:NO];
-    }
-}
-
 #pragma mark - WTDragToLoadDecoratorDataSource
 
 - (UIScrollView *)dragToLoadScrollView {
@@ -236,7 +225,7 @@
 - (void)dragToLoadDecoratorDidDragDown {
     self.nextPage = 1;
     [self loadMoreDataWithSuccessBlock:^{
-        [self clearAllData];
+        [self clearOutdatedData];
         [self.dragToLoadDecorator topViewLoadFinished:YES];
     } failureBlock:^{
         [self.dragToLoadDecorator topViewLoadFinished:NO];
