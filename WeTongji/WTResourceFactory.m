@@ -95,6 +95,8 @@
     return [WTResourceFactory createBarButtonWithButton:button];
 }
 
+#define MAX_NAVIGATION_BAR_TITLE_VIEW_WIDTH 180.0f
+
 + (UIView *)createNavigationBarTitleViewWithText:(NSString *)text {
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 44)];
     titleLabel.backgroundColor = [UIColor clearColor];
@@ -106,7 +108,8 @@
     titleLabel.text = text;
     [titleLabel sizeToFit];
     
-    [titleLabel resetWidth:120.0f];
+    if (titleLabel.frame.size.width > MAX_NAVIGATION_BAR_TITLE_VIEW_WIDTH)
+        [titleLabel resetWidth:MAX_NAVIGATION_BAR_TITLE_VIEW_WIDTH];
     
     titleLabel.adjustsFontSizeToFitWidth = YES;
     [titleLabel setMinimumFontSize:12.0f];

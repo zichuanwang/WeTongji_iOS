@@ -139,13 +139,23 @@
 
 #pragma mark - UI methods
 
+- (void)configureNaviationBarTitleView {
+    NSSet *newsShowTypesSet = [NSUserDefaults getNewsShowTypesSet];
+    if (newsShowTypesSet.count == 1) {
+        self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:[News convertCategoryStringFromCategory:newsShowTypesSet.anyObject]];
+    } else {
+        self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"News", nil)];
+    }
+}
+
 - (void)configureTableView {
     self.tableView.alwaysBounceVertical = YES;
     self.tableView.scrollsToTop = NO;
 }
 
 - (void)configureNavigationBar {
-    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"News", nil)];
+    [self configureNaviationBarTitleView];
+    
     self.navigationItem.leftBarButtonItem = [WTResourceFactory createLogoBackBarButtonWithTarget:self
                                                                                           action:@selector(didClickBackButton:)];
     [self configureFilterBarButton];
@@ -275,6 +285,7 @@
 - (void)innerSettingViewController:(WTInnerSettingViewController *)controller
                   didFinishSetting:(BOOL)modified {
     if (modified) {
+        [self configureNaviationBarTitleView];
         self.fetchedResultsController = nil;
         [self.tableView reloadData];
         [self.dragToLoadDecorator setTopViewLoading:NO];

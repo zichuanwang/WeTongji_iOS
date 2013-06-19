@@ -141,8 +141,18 @@
 
 #pragma mark - UI methods
 
+- (void)configureNaviationBarTitleView {
+    NSSet *activityShowTypesSet = [NSUserDefaults getActivityShowTypesSet];
+    if (activityShowTypesSet.count == 1) {
+        self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:[Activity convertCategoryStringFromCategory:activityShowTypesSet.anyObject]];
+    } else {
+        self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Activities", nil)];
+    }
+}
+
 - (void)configureNavigationBar {
-    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Activities", nil)];
+    [self configureNaviationBarTitleView];
+    
     self.navigationItem.leftBarButtonItem = [WTResourceFactory createLogoBackBarButtonWithTarget:self
                                                                                           action:@selector(didClickBackButton:)];
     [self configureFilterBarButton];
@@ -267,6 +277,7 @@
 - (void)innerSettingViewController:(WTInnerSettingViewController *)controller
                   didFinishSetting:(BOOL)modified {
     if (modified) {
+        [self configureNaviationBarTitleView];
         self.fetchedResultsController = nil;
         [self.tableView reloadData];
         [self.dragToLoadDecorator setTopViewLoading:NO];
