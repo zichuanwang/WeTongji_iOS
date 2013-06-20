@@ -63,8 +63,8 @@
 - (void)configureFirstSectionLabels {
     NSArray *countNumberArray = @[self.user.friendCount, @(4), @(100)];
     NSArray *descriptionArray = @[self.user.friendCount.integerValue > 1 ? NSLocalizedString(@" Friends", nil) : NSLocalizedString(@" Friend", nil),
-                                  NSLocalizedString(@" Scheduled Activities", nil),
-                                  NSLocalizedString(@" Scheduled Courses", nil)];
+                                  4 > 1 ? NSLocalizedString(@" Scheduled Activities", nil) : NSLocalizedString(@" Scheduled Activity", nil),
+                                  100 > 1 ? NSLocalizedString(@" Scheduled Courses", nil) : NSLocalizedString(@" Scheduled Course", nil)];
     NSArray *labels = @[self.friendLabel,
                         self.scheduledActivityLabel,
                         self.scheduledCourseLabel];
