@@ -1,5 +1,5 @@
 //
-//  WTCourseDetialViewController.h
+//  WTCourseDetailViewController.h
 //  WeTongji
 //
 //  Created by 王 紫川 on 13-5-9.
@@ -11,11 +11,11 @@
 
 @class Course;
 
-@interface WTCourseDetialViewController : WTDetailViewController
+@interface WTCourseDetailViewController : WTDetailViewController
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
-+ (WTCourseDetialViewController *)createCourseDetailViewControllerWithCourse:(Course *)course
++ (WTCourseDetailViewController *)createCourseDetailViewControllerWithCourse:(Course *)course
                                                                  backBarButtonText:(NSString *)backBarButtonText;
 
 @end

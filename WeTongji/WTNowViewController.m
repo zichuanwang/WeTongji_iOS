@@ -16,7 +16,7 @@
 #import "Activity.h"
 #import "Course.h"
 #import "WTActivityDetailViewController.h"
-#import "WTCourseDetialViewController.h"
+#import "WTCourseDetailViewController.h"
 
 @interface WTNowViewController () <WTNowBarTitleViewDelegate>
 
@@ -39,6 +39,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self updateScheduleSetting];
     
     [self configureNavigationBar];
     [self configureTableView];
@@ -80,7 +82,7 @@
         WTActivityDetailViewController *vc = [WTActivityDetailViewController createDetailViewControllerWithActivity:(Activity *)event backBarButtonText:NSLocalizedString(@"Schedule", nil)];
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([event isKindOfClass:[Course class]]) {
-        WTCourseDetialViewController *vc = [WTCourseDetialViewController createCourseDetailViewControllerWithCourse:(Course *)event backBarButtonText:NSLocalizedString(@"Schedule", nil)];
+        WTCourseDetailViewController *vc = [WTCourseDetailViewController createCourseDetailViewControllerWithCourse:(Course *)event backBarButtonText:NSLocalizedString(@"Schedule", nil)];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -111,6 +113,19 @@
 }
 
 #pragma mark - Logic methods
+
+- (void)updateScheduleSetting {
+    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        WTLOG(@"Get schedule setting:%@", responseObject);
+    } failureBlock:^(NSError *error) {
+        WTLOGERROR(@"Get shedule setting failure:%@", error.localizedDescription);
+    }];
+//    SchoolYearCourseWeekCount = 17;
+//    SchoolYearStartAt = "2013-02-25T00:00:00+08:00";
+//    SchoolYearWeekCount = 19;
+    [request getScheduleSetting];
+    [[WTClient sharedClient] enqueueRequest:request];
+}
 
 - (NSUInteger)currentWeekNumber {
     NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:[semesterBeginTime convertToDate]];

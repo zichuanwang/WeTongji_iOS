@@ -1,19 +1,20 @@
 //
-//  WTCourseDetialViewController.m
+//  WTCourseDetailViewController.m
 //  WeTongji
 //
 //  Created by 王 紫川 on 13-5-9.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
-#import "WTCourseDetialViewController.h"
+#import "WTCourseDetailViewController.h"
 #import "Course+Addition.h"
 #import "WTCourseHeaderView.h"
 #import "WTCourseProfileView.h"
 #import "WTSelectFriendsViewController.h"
 #import "WTResourceFactory.h"
+#import "WTShareEventFriendsViewController.h"
 
-@interface WTCourseDetialViewController () <WTSelectFriendsViewControllerDelegate>
+@interface WTCourseDetailViewController () <WTSelectFriendsViewControllerDelegate>
 
 @property (nonatomic, strong) Course *course;
 
@@ -22,7 +23,7 @@
 
 @end
 
-@implementation WTCourseDetialViewController
+@implementation WTCourseDetailViewController
 
 - (void)viewDidLoad
 {
@@ -36,9 +37,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-+ (WTCourseDetialViewController *)createCourseDetailViewControllerWithCourse:(Course *)course
++ (WTCourseDetailViewController *)createCourseDetailViewControllerWithCourse:(Course *)course
                                                            backBarButtonText:(NSString *)backBarButtonText {
-    WTCourseDetialViewController *result = [[WTCourseDetialViewController alloc] init];
+    WTCourseDetailViewController *result = [[WTCourseDetailViewController alloc] init];
     result.course = course;
     result.backBarButtonText = backBarButtonText;
     
@@ -70,8 +71,9 @@
     [self.scrollView addSubview:headerView];
     self.headerView = headerView;
     [self.headerView.inviteButton addTarget:self action:@selector(didClickInviteButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.headerView.friendCountButton addTarget:self action:@selector(didClickFriendCountButton:) forControlEvents:UIControlEventTouchUpInside];
     
-    if (self.course.isAudit) {
+    if (self.course.info.isAudit) {
         [self.headerView.participateButton addTarget:self action:@selector(didClickParticipateButton:) forControlEvents:UIControlEventTouchUpInside];
     }
 }
@@ -82,6 +84,11 @@
 }
 
 #pragma mark - Actions
+
+- (void)didClickFriendCountButton:(UIButton *)sender {
+    WTShareEventFriendsViewController *vc = [WTShareEventFriendsViewController createViewControllerWithEvent:self.course];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 - (void)didClickParticipateButton:(UIButton *)sender {
     BOOL participated = sender.selected;
@@ -117,7 +124,7 @@
         [WTErrorHandler handleError:error];
     }];
     
-    [request setCourseScheduled:participated courseNO:self.course.identifier];
+    [request setCourseScheduled:participated courseID:self.course.info.identifier];
     [[WTClient sharedClient] enqueueRequest:request];
 }
 
@@ -144,7 +151,7 @@
     for (User *user in vc.selectedFriendsArray) {
         [userIDArray addObject:user.identifier];
     }
-    [request courseInvite:self.course.identifier inviteUserIDArray:userIDArray];
+    [request courseInvite:self.course.info.identifier inviteUserIDArray:userIDArray];
     [[WTClient sharedClient] enqueueRequest:request];
     
     [WTResourceFactory configureActivityIndicatorButton:self.headerView.inviteButton activityIndicatorStyle:UIActivityIndicatorViewStyleWhite];

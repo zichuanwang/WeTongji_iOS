@@ -120,6 +120,13 @@
     [[WTClient sharedClient] enqueueRequest:request];
 }
 
+- (void)clearOutdatedData {
+    NSSet *activityShowTypesSet = [NSUserDefaults getActivityShowTypesSet];
+    for (NSNumber *showTypeNumber in activityShowTypesSet) {
+        [Activity setOutdatedActivitesFreeFromHolder:[self class] inCategory:showTypeNumber];
+    }
+}
+
 #pragma mark - Methods to overwrite
 
 - (NSArray *)activityShowTypes {
@@ -130,13 +137,6 @@
     WTActivitySettingViewController *vc = [[WTActivitySettingViewController alloc] init];
     vc.delegate = self;
     return vc;
-}
-
-- (void)clearOutdatedData {
-    NSSet *activityShowTypesSet = [NSUserDefaults getActivityShowTypesSet];
-    for (NSNumber *showTypeNumber in activityShowTypesSet) {
-        [Activity setOutdatedActivitesFreeFromHolder:[self class] inCategory:showTypeNumber];
-    }
 }
 
 #pragma mark - UI methods

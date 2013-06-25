@@ -103,7 +103,7 @@
 }
 
 - (void)configureFriendCountButton {
-    NSString *friendCountString = [NSString friendCountStringConvertFromCountNumber:@(3)];
+    NSString *friendCountString = [NSString friendCountStringConvertFromCountNumber:self.activity.friendsCount];
     self.friendCountButton = [WTResourceFactory createNormalButtonWithText:friendCountString];
     if (self.friendCountButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
         [self.friendCountButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];

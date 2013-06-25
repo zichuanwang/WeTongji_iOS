@@ -161,7 +161,7 @@
 }
 
 - (void)configureNowItemViewWithEvent:(Event *)event {
-    [self configureFriendCountLabel:@(23)];
+    [self configureFriendCountLabel:event.friendsCount];
     [self configureEventTitle:event.what place:event.where time:event.yearMonthDayBeginToEndTimeString];
 }
 
@@ -174,7 +174,9 @@
 }
 
 - (void)configureFriendCountLabel:(NSNumber *)count {
-
+    
+    self.friendCountLabel.automaticallyAddLinksForType = 0;
+    
     self.friendCountLabel.attributedText = [NSAttributedString friendCountStringConvertFromCountNumber:count font:self.friendCountLabel.font textColor:self.friendCountLabel.textColor];
 }
 

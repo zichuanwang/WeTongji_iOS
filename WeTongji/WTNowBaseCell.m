@@ -43,12 +43,14 @@
     CGFloat nowDisplayLabelHeight = self.nowDisplayLabel.frame.size.height;
     [self.nowDisplayLabel sizeToFit];
     [self.nowDisplayLabel resetHeight:nowDisplayLabelHeight];
+    
+    self.friendsCountLabel.automaticallyAddLinksForType = 0;
 }
 
 - (void)configureCellWithEvent:(Event *)event {
     self.event = event;
     
-    self.friendsCountLabel.attributedText = [NSAttributedString friendCountStringConvertFromCountNumber:@(3) font:self.friendsCountLabel.font textColor:self.friendsCountLabel.textColor];
+    self.friendsCountLabel.attributedText = [NSAttributedString friendCountStringConvertFromCountNumber:self.event.friendsCount font:self.friendsCountLabel.font textColor:self.friendsCountLabel.textColor];
 }
 
 #pragma mark - UI methods

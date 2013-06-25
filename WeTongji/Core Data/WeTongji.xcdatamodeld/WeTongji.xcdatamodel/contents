@@ -40,13 +40,15 @@
         <relationship name="hasObjects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Object" inverseName="belongToControllers" inverseEntity="Object" syncable="YES"/>
     </entity>
     <entity name="Course" representedClassName="Course" parentEntity="Event" syncable="YES">
-        <attribute name="isAudit" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="info" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CourseInfo" inverseName="instances" inverseEntity="CourseInfo" syncable="YES"/>
     </entity>
     <entity name="CourseInfo" representedClassName="CourseInfo" parentEntity="Object" syncable="YES">
+        <attribute name="courseName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="courseNo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="credit" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="friendsCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="hours" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isAudit" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="required" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="teacher" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="instances" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Course" inverseName="info" inverseEntity="Course" syncable="YES"/>
@@ -68,9 +70,10 @@
         <attribute name="beginDay" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
         <attribute name="beginTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="endTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="friendsCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="what" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="where" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="scheduledBy" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="scheduledEvents" inverseEntity="User" syncable="YES"/>
+        <relationship name="scheduledBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="scheduledEvents" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Exam" representedClassName="Exam" parentEntity="Course" syncable="YES"/>
     <entity name="FriendInvitationNotification" representedClassName="FriendInvitationNotification" parentEntity="InvitationNotification" syncable="YES"/>
@@ -172,9 +175,11 @@
         <element name="Comment" positionX="160" positionY="192" width="128" height="105"/>
         <element name="CommentableObject" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Controller" positionX="43" positionY="96" width="128" height="75"/>
-        <element name="Course" positionX="43" positionY="225" width="128" height="75"/>
+        <element name="Course" positionX="43" positionY="225" width="128" height="60"/>
+        <element name="CourseInfo" positionX="160" positionY="192" width="128" height="210"/>
         <element name="CourseInvitationNotification" positionX="160" positionY="192" width="128" height="60"/>
-        <element name="Event" positionX="-135" positionY="261" width="128" height="135"/>
+        <element name="CourseTimetable" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="Event" positionX="-135" positionY="261" width="128" height="150"/>
         <element name="Exam" positionX="369" positionY="351" width="128" height="45"/>
         <element name="FriendInvitationNotification" positionX="43" positionY="-9" width="128" height="45"/>
         <element name="InvitationNotification" positionX="43" positionY="-123" width="128" height="60"/>
@@ -185,7 +190,5 @@
         <element name="Organization" positionX="-423" positionY="-126" width="128" height="135"/>
         <element name="Star" positionX="-270" positionY="-126" width="128" height="180"/>
         <element name="User" positionX="-423" positionY="-9" width="128" height="555"/>
-        <element name="CourseInfo" positionX="160" positionY="192" width="128" height="165"/>
-        <element name="CourseTimetable" positionX="160" positionY="192" width="128" height="135"/>
     </elements>
 </model>

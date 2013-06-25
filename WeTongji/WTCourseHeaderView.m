@@ -66,7 +66,7 @@
 #define MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y 83.0f
 
 - (void)configureParticipateButton {
-    if (!self.course.isAudit.boolValue) {
+    if (!self.course.info.isAudit.boolValue) {
         self.participateButton = [WTResourceFactory createDisableButtonWithText:NSLocalizedString(@"Participated", nil)];
     } else {
         self.participateButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Audited", nil)];
@@ -96,7 +96,7 @@
 }
 
 - (void)configureFriendCountButton {
-    NSString *friendCountString = [NSString friendCountStringConvertFromCountNumber:@(3)];
+    NSString *friendCountString = [NSString friendCountStringConvertFromCountNumber:self.course.friendsCount];
     self.friendCountButton = [WTResourceFactory createNormalButtonWithText:friendCountString];
     if (self.friendCountButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
         [self.friendCountButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];

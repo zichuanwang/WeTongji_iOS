@@ -21,14 +21,22 @@
     if (![dict isKindOfClass:[NSDictionary class]])
         return nil;
     
-    if (!dict[@"NO"]) {
+    CourseInfo *info = [CourseInfo insertCourseInfo:dict[@"CourseDetails"]];
+    if (!info)
         return nil;
-    }
     
-    NSString *courseID = [NSString stringWithFormat:@"%@", dict[@"NO"]];
+    NSString *courseID = info.identifier;
     
     NSDate *courseDay = [[NSString stringWithFormat:@"%@", dict[@"Day"]] convertToDate];
-    Course *result = [Course courseWithCourseID:courseID beginTime:courseDay];
+    NSInteger sectionStart = [[NSString stringWithFormat:@"%@", dict[@"SectionStart"]] integerValue];
+    NSInteger sectionEnd = [[NSString stringWithFormat:@"%@", dict[@"SectionEnd"]] integerValue];
+    NSDate *beginTime = [courseDay dateByAddingTimeInterval:
+                         [Course getDayTimeIntervalFromSection:sectionStart]];
+    NSDate *endTime = [courseDay dateByAddingTimeInterval:
+                       [Course getDayTimeIntervalFromSection:sectionEnd]];
+    
+    
+    Course *result = [Course courseWithCourseID:courseID beginTime:beginTime];
     if (!result) {
         result = [NSEntityDescription insertNewObjectForEntityForName:@"Course"
                                                inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
@@ -37,14 +45,18 @@
     }
 
     result.updatedAt = [NSDate date];
-    result.what = [NSString stringWithFormat:@"%@", dict[@"Name"]];
+    
+    result.info = info;
+    result.beginTime = beginTime;
+    result.endTime = endTime;
+    
+    result.what = info.courseName;
     result.where = [NSString stringWithFormat:@"%@", dict[@"Location"]];
-
-    result.isAudit = @([[NSString stringWithFormat:@"%@", dict[@"IsAudit"]] boolValue]);
+    result.friendsCount = info.friendsCount;
     
     result.beginDay = [result.beginTime convertToYearMonthDayString];
 
-    
+    // TODO:
     [result configureLikeInfo:dict];
     
     return result;
@@ -106,7 +118,7 @@
 @implementation CourseInfo (Addition)
 
 + (CourseInfo *)insertCourseInfo:(NSDictionary *)dict {
-    NSString *courseID = [NSString stringWithFormat:@"%@", dict[@"NO"]];
+    NSString *courseID = [NSString stringWithFormat:@"%@", dict[@"UNO"]];
     
     if ([courseID isEqualToString:@"(null)"]) {
         return nil;
@@ -120,17 +132,28 @@
         result.objectClass = NSStringFromClass([CourseInfo class]);
     }
     
+    result.updatedAt = [NSDate date];
+    
     result.teacher = [NSString stringWithFormat:@"%@", dict[@"Teacher"]];
-    
-    
-//    result.beginTime = [courseDay dateByAddingTimeInterval:
-//                        [Course getDayTimeIntervalFromSection:result.sectionStart.intValue]];
-//    result.endTime = [courseDay dateByAddingTimeInterval:
-//                      [Course getDayTimeIntervalFromSection:result.sectionEnd.intValue]];
-    
-    result.hours = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"Hours"]] intValue]];
-    result.credit = [NSNumber numberWithFloat: [[NSString stringWithFormat:@"%@", dict[@"Point"]] floatValue]];
+    result.hours = @([[NSString stringWithFormat:@"%@", dict[@"Hours"]] integerValue]);
+    result.credit = @([[NSString stringWithFormat:@"%@", dict[@"Point"]] floatValue]);
     result.required = [NSString stringWithFormat:@"%@", dict[@"Required"]];
+    result.isAudit = @([[NSString stringWithFormat:@"%@", dict[@"IsAudit"]] boolValue]);
+    result.courseNo = [NSString stringWithFormat:@"%@", dict[@"NO"]];
+    result.courseName = [NSString stringWithFormat:@"%@", dict[@"Name"]];
+    result.friendsCount = @([[NSString stringWithFormat:@"%@", dict[@"FriendsCount"]] integerValue]);
+    
+    for (NSManagedObject *timetable in result.timetables) {
+        [[WTCoreDataManager sharedManager].managedObjectContext deleteObject:timetable];
+    }
+    NSArray *courseTimetableDictArray = dict[@"Sections"];
+    for (NSDictionary *timetableDict in courseTimetableDictArray) {
+        CourseTimetable *timetable = [CourseTimetable insertCourseTimetable:timetableDict];
+        if (timetable) {
+            [result addTimetablesObject:timetable];
+            timetable.identifier = result.identifier;
+        }
+    }
     
     return result;
 }
@@ -150,14 +173,14 @@
 + (CourseTimetable *)insertCourseTimetable:(NSDictionary *)dict {
     if (!dict || dict.count == 0)
         return nil;
-    CourseTimetable *result = [NSEntityDescription insertNewObjectForEntityForName:@"CourseTimeTable"
+    CourseTimetable *result = [NSEntityDescription insertNewObjectForEntityForName:@"CourseTimetable"
                                                             inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
     
-    result.startSection = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"SectionStart"]] intValue]];
-    result.endSection = [NSNumber numberWithInt: [[NSString stringWithFormat:@"%@", dict[@"SectionEnd"]] intValue]];
-    
+    result.startSection = @([[NSString stringWithFormat:@"%@", dict[@"SectionStart"]] integerValue]);
+    result.endSection = @([[NSString stringWithFormat:@"%@", dict[@"SectionEnd"]] integerValue]);
     result.weekType = [NSString stringWithFormat:@"%@", dict[@"WeekType"]];
     result.weekDay = [NSString stringWithFormat:@"%@", dict[@"WeekDay"]];
+    result.location = [NSString stringWithFormat:@"%@", dict[@"Location"]];
     
     return result;
 }

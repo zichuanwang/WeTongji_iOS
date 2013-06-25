@@ -57,6 +57,8 @@
     
     result.author = [Organization insertOrganization:dict[@"AccountDetails"]];
     
+    result.friendsCount = @([[NSString stringWithFormat:@"%@", dict[@"FriendsCount"]] integerValue]);
+    
     [result configureLikeInfo:dict];
     
     return result;

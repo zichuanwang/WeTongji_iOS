@@ -19,6 +19,7 @@
 #import "WTActivityImageRollView.h"
 #import "WTOrganizationDetailViewController.h"
 #import "WTSelectFriendsViewController.h"
+#import "WTShareEventFriendsViewController.h"
 
 @interface WTActivityDetailViewController () <WTDetailImageViewControllerDelegate, WTSelectFriendsViewControllerDelegate>
 
@@ -164,7 +165,8 @@
 }
 
 - (void)didClickFriendCountButton:(UIButton *)sender {
-    NSLog(@"Friend count button clicked");
+    WTShareEventFriendsViewController *vc = [WTShareEventFriendsViewController createViewControllerWithEvent:self.activity];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didClickParticipateButton:(UIButton *)sender {

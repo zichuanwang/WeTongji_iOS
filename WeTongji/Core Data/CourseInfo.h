@@ -2,7 +2,7 @@
 //  CourseInfo.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-6-13.
+//  Created by 王 紫川 on 13-6-26.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -10,15 +10,18 @@
 #import <CoreData/CoreData.h>
 #import "Object.h"
 
-@class Course, CourseInvitationNotification;
+@class Course, CourseInvitationNotification, CourseTimetable;
 
 @interface CourseInfo : Object
 
-@property (nonatomic, retain) NSString * teacher;
 @property (nonatomic, retain) NSNumber * credit;
-@property (nonatomic, retain) NSString * required;
 @property (nonatomic, retain) NSNumber * hours;
-@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * required;
+@property (nonatomic, retain) NSString * teacher;
+@property (nonatomic, retain) NSString * courseNo;
+@property (nonatomic, retain) NSNumber * isAudit;
+@property (nonatomic, retain) NSString * courseName;
+@property (nonatomic, retain) NSNumber * friendsCount;
 @property (nonatomic, retain) NSSet *instances;
 @property (nonatomic, retain) NSSet *relatedCourseInvitations;
 @property (nonatomic, retain) NSSet *timetables;
@@ -36,8 +39,8 @@
 - (void)addRelatedCourseInvitations:(NSSet *)values;
 - (void)removeRelatedCourseInvitations:(NSSet *)values;
 
-- (void)addTimetablesObject:(NSManagedObject *)value;
-- (void)removeTimetablesObject:(NSManagedObject *)value;
+- (void)addTimetablesObject:(CourseTimetable *)value;
+- (void)removeTimetablesObject:(CourseTimetable *)value;
 - (void)addTimetables:(NSSet *)values;
 - (void)removeTimetables:(NSSet *)values;
 
