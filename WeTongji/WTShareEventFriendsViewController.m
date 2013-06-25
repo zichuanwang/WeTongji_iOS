@@ -93,8 +93,11 @@
 }
 
 - (void)clearAllData {
+    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
+    BOOL currentUserScheduledThisEvent = [self.event.scheduledBy containsObject:currentUser];
     [self.event removeScheduledBy:self.event.scheduledBy];
-    [self.event addScheduledByObject:[WTCoreDataManager sharedManager].currentUser];
+    if (currentUserScheduledThisEvent)
+        [self.event addScheduledByObject:currentUser];
 }
 
 #pragma mark - UI methods
