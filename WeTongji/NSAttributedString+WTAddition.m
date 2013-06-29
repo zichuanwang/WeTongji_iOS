@@ -48,18 +48,16 @@
     NSString *hintString = nil;
     NSMutableAttributedString *result = nil;
     NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
-    if ([language isEqualToString:@"en"]) {
-        hintString = [NSString stringWithFormat:@"Search %@ for %@", category, keyword];
-        result = [NSMutableAttributedString attributedStringWithString:hintString];
-        [result setAttributes:attributes range:NSMakeRange(0, result.length)];
-        [result setTextBold:YES range:NSMakeRange(7, keyword.length)];
-    } else if ([language isEqualToString:@"zh-Hans"]) {
+    if ([language isEqualToString:@"zh-Hans"]) {
         hintString = [NSString stringWithFormat:@"搜索关于“%@”的%@", keyword, category];
         result = [NSMutableAttributedString attributedStringWithString:hintString];
         [result setAttributes:attributes range:NSMakeRange(0, result.length)];
         [result setTextBold:YES range:NSMakeRange(5, keyword.length)];
     } else {
-        
+        hintString = [NSString stringWithFormat:@"Search %@ for %@", category, keyword];
+        result = [NSMutableAttributedString attributedStringWithString:hintString];
+        [result setAttributes:attributes range:NSMakeRange(0, result.length)];
+        [result setTextBold:YES range:NSMakeRange(hintString.length - keyword.length, keyword.length)];
     }
     return result;
 }
