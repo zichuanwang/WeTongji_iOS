@@ -15,8 +15,12 @@
 @property (nonatomic, weak) IBOutlet UIView *avatarContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *avatarImageView;
 @property (nonatomic, weak) IBOutlet UIImageView *avatarBgImageView;
-@property (nonatomic, weak) IBOutlet UILabel *descriptionLabel;
 @property (nonatomic, weak) IBOutlet UILabel *orgNameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *emailLabel;
+@property (nonatomic, weak) IBOutlet UILabel *adminLabel;
+
+@property (nonatomic, weak) IBOutlet UIButton *activityButton;
+@property (nonatomic, weak) IBOutlet UIButton *newsButton;
 
 + (WTOrganizationHeaderView *)createHeaderViewWithOrganization:(Organization *)org;
 

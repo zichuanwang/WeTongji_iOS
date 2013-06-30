@@ -14,10 +14,10 @@
 @interface WTStarDetailDescriptionView : UIView
 
 @property (nonatomic, weak) IBOutlet UIView *contentContainerView;
-@property (nonatomic, weak) IBOutlet UILabel *titleDisplayLabel;
-@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *aboutDisplayLabel;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *contentLabel;
+@property (nonatomic, weak) IBOutlet UILabel *titleDisplayLabel;
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UIView *titleContainerView;
 
 + (WTStarDetailDescriptionView *)createDetailDescriptionViewWithStar:(Star *)star;
