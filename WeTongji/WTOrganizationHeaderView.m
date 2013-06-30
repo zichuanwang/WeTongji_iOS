@@ -67,7 +67,7 @@
     self.emailLabel.layer.shadowOffset = CGSizeMake(0, 1.0f);
     self.emailLabel.layer.shadowRadius = 1.0f;
     [self.emailLabel sizeToFit];
-    [self.emailLabel resetOriginY:self.orgNameLabel.frame.origin.y + self.orgNameLabel.frame.size.height + 8.0f];
+    [self.emailLabel resetOriginY:self.orgNameLabel.frame.origin.y + self.orgNameLabel.frame.size.height + 4.0f];
 }
 
 - (void)configureAdministratorLabel {
@@ -78,8 +78,10 @@
     self.adminLabel.layer.shadowOffset = CGSizeMake(0, 1.0f);
     self.adminLabel.layer.shadowRadius = 1.0f;
     [self.adminLabel sizeToFit];
-    [self.adminLabel resetOriginY:self.emailLabel.frame.origin.y + self.emailLabel.frame.size.height + 8.0f];
+    [self.adminLabel resetOriginY:self.emailLabel.frame.origin.y + self.emailLabel.frame.size.height + 4.0f];
 }
+
+#define MAX_ORG_NAME_LABEL_HEIGHT   48.0f
 
 - (void)configureOrganizationNameLabel {
     self.orgNameLabel.text = self.org.name;
@@ -89,12 +91,15 @@
     self.orgNameLabel.layer.shadowOffset = CGSizeMake(0, 1.0f);
     self.orgNameLabel.layer.shadowRadius = 1.0f;
     [self.orgNameLabel sizeToFit];
+    if (self.orgNameLabel.frame.size.height > MAX_ORG_NAME_LABEL_HEIGHT) {
+        [self.orgNameLabel resetHeight:MAX_ORG_NAME_LABEL_HEIGHT];
+    }
 }
 
 - (void)configureLabels {
     [self configureOrganizationNameLabel];
-    [self configureAdministratorLabel];
     [self configureEmailLabel];
+    [self configureAdministratorLabel];
 }
 
 - (void)configureView {
