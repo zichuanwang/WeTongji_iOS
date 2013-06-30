@@ -256,9 +256,16 @@
 - (void)addSearchHistoryItemWithSearchKeyword:(NSString *)keyword
                                searchCategory:(NSInteger)category {
     
+    NSArray *historyItemsArray = [self getSearchHistoryArray];
+    if (historyItemsArray.count > 0) {
+        NSDictionary *lastHistoryItem = historyItemsArray[0];
+        if ([NSUserDefaults getSearchHistoryCategory:lastHistoryItem] == category && [[NSUserDefaults getSearchHistoryKeyword:lastHistoryItem] isEqualToString:keyword])
+            return;
+    }
+    
     NSDictionary *item = @{kSearchHistoryKeyword : keyword, kSearchHistoryCateogory : @(category)};
     
-    NSMutableArray *searchHistoryArray = [NSMutableArray arrayWithArray:[self getSearchHistoryArray]];
+    NSMutableArray *searchHistoryArray = [NSMutableArray arrayWithArray:historyItemsArray];
     if (searchHistoryArray.count >= SEARCH_HISTORY_ARRAY_MAX_CAPACITY) {
         [searchHistoryArray removeLastObject];
     }
