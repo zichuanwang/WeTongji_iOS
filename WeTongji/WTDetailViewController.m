@@ -12,6 +12,8 @@
 
 @interface WTDetailViewController ()
 
+@property (nonatomic, weak) WTLikeButtonView *likeButtonContainerView;
+
 @end
 
 @implementation WTDetailViewController

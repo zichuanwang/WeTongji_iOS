@@ -118,7 +118,7 @@
     userCell.checkmarkButton.selected = [self.selectedFriendsArray containsObject:user];
 }
 
-- (void)configureRequest:(NSFetchRequest *)request {
+- (void)configureFetchRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
     NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];

@@ -184,7 +184,7 @@
     [commentCell configureViewWithIndexPath:indexPath comment:comment];
 }
 
-- (void)configureRequest:(NSFetchRequest *)request {
+- (void)configureFetchRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"Comment" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
     request.predicate = [NSPredicate predicateWithFormat:@"SELF in %@", self.post.comments];

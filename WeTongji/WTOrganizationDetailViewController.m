@@ -13,6 +13,7 @@
 #import "WTOrganizationProfileView.h"
 #import "WTOrganizationHeaderView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "WTOrganizationActivityViewController.h"
 
 @interface WTOrganizationDetailViewController ()
 
@@ -85,9 +86,21 @@
     [profileView resetOriginY:self.headerView.frame.origin.y + self.headerView.frame.size.height];
     [self.scrollView addSubview:profileView];
     self.profileView = profileView;
+    
+    [self.profileView.newsButton addTarget:self action:@selector(didClickNewsButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.profileView.activityButton addTarget:self action:@selector(didClickActivityButton:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 #pragma mark - Actions
+
+- (void)didClickActivityButton:(UIButton *)sender {
+    WTOrganizationActivityViewController *vc = [WTOrganizationActivityViewController createViewControllerWithOrganization:self.org backBarButtonText:self.org.name];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)didClickNewsButton:(UIButton *)sender {
+    
+}
 
 #pragma mark - Methods to overwrite
 

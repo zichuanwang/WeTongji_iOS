@@ -111,12 +111,7 @@
         if (failure)
             failure();
     }];
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [request getActivitiesInTypes:[self activityShowTypes]
-                      orderMethod:[userDefaults getActivityOrderMethod]
-                       smartOrder:[userDefaults getActivitySmartOrderProperty]
-                       showExpire:![userDefaults getActivityHidePastProperty]
-                             page:self.nextPage];
+    [self configureLoadDataRequest:request];
     [[WTClient sharedClient] enqueueRequest:request];
 }
 
@@ -129,14 +124,13 @@
 
 #pragma mark - Methods to overwrite
 
-- (NSArray *)activityShowTypes {
-    return [NSUserDefaults getActivityShowTypesArray];
-}
-
-- (WTActivitySettingViewController *)createActivitySettingViewController {
-    WTActivitySettingViewController *vc = [[WTActivitySettingViewController alloc] init];
-    vc.delegate = self;
-    return vc;
+- (void)configureLoadDataRequest:(WTRequest *)request {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [request getActivitiesInTypes:[NSUserDefaults getActivityShowTypesArray]
+                      orderMethod:[userDefaults getActivityOrderMethod]
+                       smartOrder:[userDefaults getActivitySmartOrderProperty]
+                       showExpire:![userDefaults getActivityHidePastProperty]
+                             page:self.nextPage];
 }
 
 #pragma mark - UI methods
@@ -183,7 +177,9 @@
     if (sender.selected) {
         sender.selected = NO;
         
-        [nav showInnerModalViewController:[self createActivitySettingViewController] sourceViewController:self disableNavBarType:WTDisableNavBarTypeLeft];
+        WTActivitySettingViewController *vc = [[WTActivitySettingViewController alloc] init];
+        vc.delegate = self;
+        [nav showInnerModalViewController:vc sourceViewController:self disableNavBarType:WTDisableNavBarTypeLeft];
         
     } else {
         [nav hideInnerModalViewController];
@@ -205,7 +201,7 @@
     [self.dragToLoadDecorator scrollViewDidInsertNewCell];
 }
 
-- (void)configureRequest:(NSFetchRequest *)request {
+- (void)configureFetchRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"Activity" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];

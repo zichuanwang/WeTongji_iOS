@@ -184,7 +184,7 @@
 
 #pragma mark - CoreDataTableViewController methods
 
-- (void)configureRequest:(NSFetchRequest *)request {
+- (void)configureFetchRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:self.likeObjectClass inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updatedAt" ascending:YES];

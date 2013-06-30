@@ -42,20 +42,13 @@
     self.avatarContainerView.layer.masksToBounds = YES;
     self.avatarContainerView.layer.cornerRadius = 6.0f;
     
-    Organization *org = self.org;
-    [self.avatarImageView loadImageWithImageURLString:org.avatar success:^(UIImage *image) {
-        self.avatarImageView.image = image;
-        [self.avatarImageView fadeIn];
-        [self configureAvatarBgImageViewWithAvatarImage:image completion:^(UIImage *bgImage) {
-            self.avatarBgImageView.image = bgImage;
-            [self.avatarBgImageView fadeIn];
-        }];
-    } failure:nil];
+    [self.avatarImageView loadImageWithImageURLString:self.org.avatar];
 }
 
 - (void)configureView {
     
     [self configureAvatarImageView];
+    [self configureOrganizerBgImageView];
     
     self.orgNameLabel.text = self.org.name;
     
@@ -84,16 +77,8 @@
     [self.descriptionLabel resetOriginY:self.orgNameLabel.frame.size.height + self.orgNameLabel.frame.origin.y + (self.orgNameLabel.frame.size.height == 0 ? 0 : 12.0f)];
 }
 
-- (void)configureAvatarBgImageViewWithAvatarImage:(UIImage *)image
-                                       completion:(void (^)(UIImage *bgImage))completion {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        UIImage *resultImage = [image stackBlur:4];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (completion) {
-                completion(resultImage);
-            }
-        });
-    });
+- (void)configureOrganizerBgImageView {
+    [self.avatarBgImageView loadImageWithImageURLString:self.org.bgImage];
 }
 
 #pragma mark - Gesture recognizer handler

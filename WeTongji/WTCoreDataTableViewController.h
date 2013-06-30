@@ -18,7 +18,7 @@
 
 // methods to override
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
-- (void)configureRequest:(NSFetchRequest *)request;
+- (void)configureFetchRequest:(NSFetchRequest *)request;
 
 - (void)updateCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)insertCellAtIndexPath:(NSIndexPath *)indexPath;

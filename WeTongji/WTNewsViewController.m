@@ -224,7 +224,7 @@
     [newsCell configureCellWithIndexPath:indexPath news:news];
 }
 
-- (void)configureRequest:(NSFetchRequest *)request {
+- (void)configureFetchRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"News" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];

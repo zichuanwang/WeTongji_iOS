@@ -31,6 +31,7 @@
     
     result.updatedAt = [NSDate date];
     result.avatar = [NSString stringWithFormat:@"%@", dict[@"Image"]];
+    result.bgImage = [NSString stringWithFormat:@"%@", dict[@"Background"]];
     result.name = [NSString stringWithFormat:@"%@", dict[@"Display"]];
     result.administrator = [NSString stringWithFormat:@"%@", dict[@"Name"]];
     result.about = [NSString stringWithFormat:@"%@", dict[@"Description"]];

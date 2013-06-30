@@ -15,6 +15,8 @@
 @property (nonatomic, weak) IBOutlet UIImageView *profileSectionBgImageView;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *activityLabel;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *newsLabel;
+@property (nonatomic, weak) IBOutlet UIButton *activityButton;
+@property (nonatomic, weak) IBOutlet UIButton *newsButton;
 
 + (WTOrganizationProfileView *)createProfileViewWithOrganization:(Organization *)org;
 

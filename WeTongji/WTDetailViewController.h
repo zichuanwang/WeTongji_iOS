@@ -15,7 +15,7 @@
 
 @property (nonatomic, copy) NSString *backBarButtonText;
 
-@property (nonatomic, weak) WTLikeButtonView *likeButtonContainerView;
+@property (nonatomic, readonly) WTLikeButtonView *likeButtonContainerView;
 
 - (void)didClickCommentButton:(UIButton *)sender;
 
