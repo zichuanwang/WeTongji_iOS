@@ -49,8 +49,8 @@
 
 - (void)configureLabels {
     NSArray *countNumberArray = @[self.user.friendCount,
-                                  @(4),
-                                  @(3),
+                                  self.user.scheduledActivityCount,
+                                  self.user.scheduledCourseCount,
                                   self.user.likedActivityCount,
                                   self.user.likedNewsCount,
                                   self.user.likedStarCount,

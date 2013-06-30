@@ -104,24 +104,8 @@
         if (failure)
             failure();
     }];
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [request getInformationInTypes:[self newsShowTypes]
-                       orderMethod:[userDefaults getNewsOrderMethod]
-                        smartOrder:[userDefaults getNewsSmartOrderProperty]
-                              page:self.nextPage];
+    [self configureLoadDataRequest:request];
     [[WTClient sharedClient] enqueueRequest:request];
-}
-
-#pragma mark - Methods to overwrite
-
-- (NSArray *)newsShowTypes {
-    return [NSUserDefaults getNewsShowTypesArray];
-}
-
-- (WTNewsSettingViewController *)createNewsSettingViewController {
-    WTNewsSettingViewController *vc = [[WTNewsSettingViewController alloc] init];
-    vc.delegate = self;
-    return vc;
 }
 
 - (void)clearOutdatedData {
@@ -129,6 +113,16 @@
     for (NSNumber *showTypeNumber in newsShowTypesSet) {
         [News setOutdatedNewsFreeFromHolder:[self class] inCategory:showTypeNumber];
     }
+}
+
+#pragma mark - Methods to overwrite
+
+- (void)configureLoadDataRequest:(WTRequest *)request {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [request getInformationInTypes:[NSUserDefaults getNewsShowTypesArray]
+                       orderMethod:[userDefaults getNewsOrderMethod]
+                        smartOrder:[userDefaults getNewsSmartOrderProperty]
+                              page:self.nextPage];
 }
 
 #pragma mark - Properties
@@ -180,7 +174,9 @@
     if (sender.selected) {
         sender.selected = NO;
 
-        [nav showInnerModalViewController:[self createNewsSettingViewController] sourceViewController:self disableNavBarType:WTDisableNavBarTypeLeft];
+        WTNewsSettingViewController *vc = [[WTNewsSettingViewController alloc] init];
+        vc.delegate = self;
+        [nav showInnerModalViewController:vc sourceViewController:self disableNavBarType:WTDisableNavBarTypeLeft];
         
     } else {
         [nav hideInnerModalViewController];

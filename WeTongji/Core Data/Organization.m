@@ -18,6 +18,8 @@
 @dynamic avatar;
 @dynamic name;
 @dynamic bgImage;
+@dynamic activityCount;
+@dynamic newsCount;
 @dynamic publishedActivities;
 @dynamic publishedNews;
 

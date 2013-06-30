@@ -19,6 +19,8 @@
 @property (nonatomic, retain) NSString * avatar;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * bgImage;
+@property (nonatomic, retain) NSNumber * activityCount;
+@property (nonatomic, retain) NSNumber * newsCount;
 @property (nonatomic, retain) NSSet *publishedActivities;
 @property (nonatomic, retain) NSSet *publishedNews;
 @end

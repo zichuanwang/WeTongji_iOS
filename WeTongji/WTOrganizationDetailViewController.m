@@ -14,6 +14,7 @@
 #import "WTOrganizationHeaderView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "WTOrganizationActivityViewController.h"
+#import "WTOrganizationNewsViewController.h"
 
 @interface WTOrganizationDetailViewController ()
 
@@ -94,12 +95,13 @@
 #pragma mark - Actions
 
 - (void)didClickActivityButton:(UIButton *)sender {
-    WTOrganizationActivityViewController *vc = [WTOrganizationActivityViewController createViewControllerWithOrganization:self.org backBarButtonText:self.org.name];
+    WTOrganizationActivityViewController *vc = [WTOrganizationActivityViewController createViewControllerWithOrganization:self.org];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didClickNewsButton:(UIButton *)sender {
-    
+    WTOrganizationNewsViewController *vc = [WTOrganizationNewsViewController createViewControllerWithOrganization:self.org];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - Methods to overwrite

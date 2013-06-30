@@ -39,6 +39,9 @@
         result.about = nil;
     }
     
+    result.activityCount = @([[NSString stringWithFormat:@"%@", dict[@"ActivitiesCount"]] integerValue]);
+    result.newsCount = @([[NSString stringWithFormat:@"%@", dict[@"InformationCount"]] integerValue]);
+    
     [result configureLikeInfo:dict];
         
     return result;

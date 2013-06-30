@@ -1,27 +1,27 @@
 //
-//  WTOrganizationActivityViewController.m
+//  WTOrganizationNewsViewController.m
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-6-30.
+//  Created by 王 紫川 on 13-7-1.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
-#import "WTOrganizationActivityViewController.h"
+#import "WTOrganizationNewsViewController.h"
 #import "NSUserDefaults+WTAddition.h"
 #import "Organization+Addition.h"
 #import "WTResourceFactory.h"
 
-@interface WTOrganizationActivityViewController ()
+@interface WTOrganizationNewsViewController ()
 
 @property (nonatomic, strong) Organization *org;
 
 @end
 
-@implementation WTOrganizationActivityViewController
+@implementation WTOrganizationNewsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:@"WTActivityViewController" bundle:nibBundleOrNil];
+    self = [super initWithNibName:@"WTNewsViewController" bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -42,11 +42,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-+ (WTOrganizationActivityViewController *)createViewControllerWithOrganization:(Organization *)org {
-    WTOrganizationActivityViewController *result = [[WTOrganizationActivityViewController alloc] init];
++ (WTOrganizationNewsViewController *)createViewControllerWithOrganization:(Organization *)org {
+    WTOrganizationNewsViewController *result = [[WTOrganizationNewsViewController alloc] init];
     
     result.org = org;
-        
+    
     return result;
 }
 
@@ -54,17 +54,16 @@
 
 - (void)configureFetchRequest:(NSFetchRequest *)request {
     [super configureFetchRequest:request];
-    [request setPredicate:[NSCompoundPredicate andPredicateWithSubpredicates:@[request.predicate, [NSPredicate predicateWithFormat:@"SELF in %@", self.org.publishedActivities]]]];
+    [request setPredicate:[NSCompoundPredicate andPredicateWithSubpredicates:@[request.predicate, [NSPredicate predicateWithFormat:@"SELF in %@", self.org.publishedNews]]]];
 }
 
 - (void)configureLoadDataRequest:(WTRequest *)request {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [request getActivitiesInTypes:[NSUserDefaults getActivityShowTypesArray]
-                      orderMethod:[userDefaults getActivityOrderMethod]
-                       smartOrder:[userDefaults getActivitySmartOrderProperty]
-                       showExpire:![userDefaults getActivityHidePastProperty]
-                             page:self.nextPage
-                        byAccount:self.org.identifier];
+    [request getInformationInTypes:[NSUserDefaults getNewsShowTypesArray]
+                       orderMethod:[userDefaults getNewsOrderMethod]
+                        smartOrder:[userDefaults getNewsSmartOrderProperty]
+                              page:self.nextPage
+                         byAccount:self.org.identifier];
 }
 
 @end

@@ -2,7 +2,7 @@
 //  User.m
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-6-6.
+//  Created by 王 紫川 on 13-6-30.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -26,7 +26,14 @@
 @dynamic dormRoom;
 @dynamic emailAddress;
 @dynamic enrollYear;
+@dynamic friendCount;
 @dynamic gender;
+@dynamic likedActivityCount;
+@dynamic likedBillboardCount;
+@dynamic likedNewsCount;
+@dynamic likedOrganizationCount;
+@dynamic likedStarCount;
+@dynamic likedUserCount;
 @dynamic loginTime;
 @dynamic major;
 @dynamic motto;
@@ -37,13 +44,8 @@
 @dynamic studentNumber;
 @dynamic studyPlan;
 @dynamic wechatAccount;
-@dynamic friendCount;
-@dynamic likedOrganizationCount;
-@dynamic likedActivityCount;
-@dynamic likedNewsCount;
-@dynamic likedUserCount;
-@dynamic likedStarCount;
-@dynamic likedBillboardCount;
+@dynamic scheduledCourseCount;
+@dynamic scheduledActivityCount;
 @dynamic friends;
 @dynamic likedObjects;
 @dynamic publishedBillboardPosts;

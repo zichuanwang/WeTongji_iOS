@@ -169,7 +169,7 @@
 
 - (void)configureFetchRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"Object" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
-    NSSortDescriptor *updatedAtDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updatedAt" ascending:NO];
+    NSSortDescriptor *updatedAtDescriptor = [[NSSortDescriptor alloc] initWithKey:@"objectClass" ascending:NO];
     
     [request setSortDescriptors:@[updatedAtDescriptor]];
     

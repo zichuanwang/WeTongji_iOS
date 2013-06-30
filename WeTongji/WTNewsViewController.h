@@ -13,4 +13,6 @@
 
 @interface WTNewsViewController : WTCoreDataTableViewController <WTRootNavigationControllerDelegate, WTInnerSettingViewControllerDelegate>
 
+@property (nonatomic, readonly) NSInteger nextPage;
+
 @end

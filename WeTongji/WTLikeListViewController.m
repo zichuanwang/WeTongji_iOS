@@ -187,7 +187,7 @@
 - (void)configureFetchRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:self.likeObjectClass inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updatedAt" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"objectClass" ascending:YES];
     [request setSortDescriptors:@[sortDescriptor]];
     
     [request setPredicate:[NSPredicate predicateWithFormat:@"(objectClass == %@) AND (SELF in %@) AND (SELF in %@)", self.likeObjectClass, self.user.likedObjects, [Controller controllerModelForClass:[self class]].hasObjects]];

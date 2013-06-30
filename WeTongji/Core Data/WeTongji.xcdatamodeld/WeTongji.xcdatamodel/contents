@@ -114,10 +114,12 @@
     </entity>
     <entity name="Organization" representedClassName="Organization" parentEntity="LikeableObject" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="activityCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="administrator" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="avatar" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="bgImage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="publishedActivities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Activity" inverseName="author" inverseEntity="Activity" syncable="YES"/>
         <relationship name="publishedNews" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="News" inverseName="author" inverseEntity="News" syncable="YES"/>
     </entity>
@@ -156,6 +158,8 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="qqAccount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="scheduledActivityCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="scheduledCourseCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="sinaWeiboName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="studentNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="studyPlan" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -188,8 +192,8 @@
         <element name="News" positionX="205" positionY="-120" width="128" height="255"/>
         <element name="Notification" positionX="-119" positionY="-126" width="128" height="105"/>
         <element name="Object" positionX="-135" positionY="84" width="128" height="105"/>
-        <element name="Organization" positionX="-423" positionY="-126" width="128" height="150"/>
+        <element name="Organization" positionX="-423" positionY="-126" width="128" height="180"/>
         <element name="Star" positionX="-270" positionY="-126" width="128" height="180"/>
-        <element name="User" positionX="-423" positionY="-9" width="128" height="555"/>
+        <element name="User" positionX="-423" positionY="-9" width="128" height="585"/>
     </elements>
 </model>

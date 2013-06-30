@@ -42,9 +42,9 @@
     self.profileSectionBgImageView.image = bgImage;
     
     
-    NSArray *countNumberArray = @[@(2), @(4)];
+    NSArray *countNumberArray = @[self.org.activityCount, self.org.newsCount];
     NSArray *descriptionArray = @[NSLocalizedString(@" Activities", nil),
-                                  NSLocalizedString(@" Club News", nil)];
+                                  NSLocalizedString(@" News", nil)];
     NSArray *labels = @[self.activityLabel,
                         self.newsLabel];
     

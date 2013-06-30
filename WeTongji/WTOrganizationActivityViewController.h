@@ -12,6 +12,6 @@
 
 @interface WTOrganizationActivityViewController : WTActivityViewController
 
-+ (WTOrganizationActivityViewController *)createViewControllerWithOrganization:(Organization *)org backBarButtonText:(NSString *)backBarButtonText;
++ (WTOrganizationActivityViewController *)createViewControllerWithOrganization:(Organization *)org;
 
 @end
