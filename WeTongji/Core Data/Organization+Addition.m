@@ -9,6 +9,7 @@
 #import "Organization+Addition.h"
 #import "WTCoreDataManager.h"
 #import "LikeableObject+Addition.h"
+#import "NSString+WTAddition.h"
 
 @implementation Organization (Addition)
 
@@ -34,7 +35,7 @@
     result.bgImage = [NSString stringWithFormat:@"%@", dict[@"Background"]];
     result.name = [NSString stringWithFormat:@"%@", dict[@"Display"]];
     result.administrator = [NSString stringWithFormat:@"%@", dict[@"Name"]];
-    result.about = [NSString stringWithFormat:@"%@", dict[@"Description"]];
+    result.about = [[NSString stringWithFormat:@"%@", dict[@"Description"]] clearAllBacklashR];
     if ([result.about isEqualToString:@"<null>"]) {
         result.about = nil;
     }
