@@ -15,6 +15,7 @@
 #import "NSString+WTAddition.h"
 #import "WTScheduledActivityViewController.h"
 #import "WTScheduledCourseViewController.h"
+#import "WTFriendListViewController.h"
 
 @interface WTUserDetailViewController () <UIAlertViewDelegate>
 
@@ -78,6 +79,7 @@
     
     [profileView.scheduledActivityButton addTarget:self action:@selector(didClickScheduledActivityButton:) forControlEvents:UIControlEventTouchUpInside];
     [profileView.scheduledCourseButton addTarget:self action:@selector(didClickScheduledCourseButton:) forControlEvents:UIControlEventTouchUpInside];
+    [profileView.friendButton addTarget:self action:@selector(didClickFriendButton:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)configureScrollView {
@@ -125,6 +127,11 @@
     else {
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Warning", nil) message:[NSString deleteFriendStringForFriendName:self.user.name] delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil)otherButtonTitles:NSLocalizedString(@"Yes", nil), nil] show];
     }
+}
+
+- (void)didClickFriendButton:(UIButton *)sender {
+    WTFriendListViewController *vc = [WTFriendListViewController createViewControllerWithUser:self.user backButtonText:self.user.name];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didClickScheduledActivityButton:(UIButton *)sender {

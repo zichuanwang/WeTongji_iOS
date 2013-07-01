@@ -99,7 +99,10 @@
         
         [WTErrorHandler handleError:error];
     }];
-    [request getFriendsList];
+    if ([WTCoreDataManager sharedManager].currentUser == self.user)
+        [request getFriendsList];
+    else
+        [request getFriendsOfUser:self.user.identifier];
     [[WTClient sharedClient] enqueueRequest:request];
 }
 

@@ -39,6 +39,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *dormDisplayLabel;
 @property (nonatomic, weak) IBOutlet UIButton *scheduledActivityButton;
 @property (nonatomic, weak) IBOutlet UIButton *scheduledCourseButton;
+@property (nonatomic, weak) IBOutlet UIButton *friendButton;
 
 + (WTOtherUserProfileView *)createProfileViewWithUser:(User *)user;
 
