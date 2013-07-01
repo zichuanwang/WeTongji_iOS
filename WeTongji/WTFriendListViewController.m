@@ -160,7 +160,7 @@
 }
 
 - (void)fetchedResultsControllerDidPerformFetch {
-    if ([self.fetchedResultsController.sections.lastObject numberOfObjects] == 0) {
+    if ([self.fetchedResultsController.sections.lastObject numberOfObjects] < self.user.friendCount.integerValue) {
         [self.dragToLoadDecorator setTopViewLoading:YES];
     }
 }
