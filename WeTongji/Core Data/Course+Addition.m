@@ -125,7 +125,7 @@
                                ]];
     for (int i = 0; i < timetableArray.count; i++) {
         if (i != 0) {
-            [result appendString:@","];
+            [result appendString:@", "];
         }
         
         CourseTimetable *timetable = timetableArray[i];
@@ -209,19 +209,19 @@
 }
 
 - (void)configureWeekDayWithString:(NSString *)weekDayString {
-    if ([weekDayString isEqualToString:@"周一"]) {
+    if ([weekDayString isEqualToString:@"星期一"]) {
         self.weekDay = @(1);
-    } else if ([weekDayString isEqualToString:@"周二"]) {
+    } else if ([weekDayString isEqualToString:@"星期二"]) {
         self.weekDay = @(2);
-    } else if ([weekDayString isEqualToString:@"周三"]) {
+    } else if ([weekDayString isEqualToString:@"星期三"]) {
         self.weekDay = @(3);
-    } else if ([weekDayString isEqualToString:@"周四"]) {
+    } else if ([weekDayString isEqualToString:@"星期四"]) {
         self.weekDay = @(4);
-    } else if ([weekDayString isEqualToString:@"周五"]) {
+    } else if ([weekDayString isEqualToString:@"星期五"]) {
         self.weekDay = @(5);
-    } else if ([weekDayString isEqualToString:@"周六"]) {
+    } else if ([weekDayString isEqualToString:@"星期六"]) {
         self.weekDay = @(6);
-    } else if ([weekDayString isEqualToString:@"周日"]) {
+    } else if ([weekDayString isEqualToString:@"星期日"]) {
         self.weekDay = @(7);
     }
 }
