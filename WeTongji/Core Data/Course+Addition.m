@@ -15,44 +15,44 @@
 #define HOUR_TIME_INTERVAL (60 * 60)
 #define MINUTE_TIME_INTERVAL 60
 
-@implementation Course (Addition)
+@implementation CourseInstance (Addition)
 
-+ (Course *)insertCourse:(NSDictionary *)dict {
++ (CourseInstance *)insertCourseInstance:(NSDictionary *)dict {
     if (![dict isKindOfClass:[NSDictionary class]])
         return nil;
     
-    CourseInfo *info = [CourseInfo insertCourseInfo:dict[@"CourseDetails"]];
-    if (!info)
+    Course *course = [Course insertCourse:dict[@"CourseDetails"]];
+    if (!course)
         return nil;
     
-    NSString *courseID = info.identifier;
+    NSString *courseID = course.identifier;
     
     NSDate *courseDay = [[NSString stringWithFormat:@"%@", dict[@"Day"]] convertToDate];
     NSInteger sectionStart = [[NSString stringWithFormat:@"%@", dict[@"SectionStart"]] integerValue];
     NSInteger sectionEnd = [[NSString stringWithFormat:@"%@", dict[@"SectionEnd"]] integerValue];
     NSDate *beginTime = [courseDay dateByAddingTimeInterval:
-                         [Course getDayTimeIntervalFromSection:sectionStart]];
+                         [CourseInstance getDayTimeIntervalFromSection:sectionStart]];
     NSDate *endTime = [courseDay dateByAddingTimeInterval:
-                       [Course getDayTimeIntervalFromSection:sectionEnd]];
+                       [CourseInstance getDayTimeIntervalFromSection:sectionEnd]];
     
     
-    Course *result = [Course courseWithCourseID:courseID beginTime:beginTime];
+    CourseInstance *result = [CourseInstance courseInstanceWithCourseID:courseID beginTime:beginTime];
     if (!result) {
-        result = [NSEntityDescription insertNewObjectForEntityForName:@"Course"
+        result = [NSEntityDescription insertNewObjectForEntityForName:@"CourseInstance"
                                                inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
         result.identifier = courseID;
-        result.objectClass = NSStringFromClass([Course class]);
+        result.objectClass = NSStringFromClass([CourseInstance class]);
     }
 
     result.updatedAt = [NSDate date];
     
-    result.info = info;
+    result.course = course;
     result.beginTime = beginTime;
     result.endTime = endTime;
     
-    result.what = info.courseName;
+    result.what = course.courseName;
     result.where = [NSString stringWithFormat:@"%@", dict[@"Location"]];
-    result.friendsCount = info.friendsCount;
+    result.friendsCount = course.friendsCount;
     
     result.beginDay = [result.beginTime convertToYearMonthDayString];
 
@@ -62,9 +62,9 @@
     return result;
 }
 
-+ (Course *)courseWithCourseID:(NSString *)courseID
-                     beginTime:(NSDate *)beginTime {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Course"];
++ (CourseInstance *)courseInstanceWithCourseID:(NSString *)courseID
+                                     beginTime:(NSDate *)beginTime {
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"CourseInstance"];
     request.predicate = [NSPredicate predicateWithFormat:@"identifier == %@ AND beginTime == %@", courseID, beginTime];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     NSArray *matches = [context executeFetchRequest:request error:nil];
@@ -115,21 +115,21 @@
 
 @end
 
-@implementation CourseInfo (Addition)
+@implementation Course (Addition)
 
-+ (CourseInfo *)insertCourseInfo:(NSDictionary *)dict {
++ (Course *)insertCourse:(NSDictionary *)dict {
     NSString *courseID = [NSString stringWithFormat:@"%@", dict[@"UNO"]];
     
     if ([courseID isEqualToString:@"(null)"]) {
         return nil;
     }
     
-    CourseInfo *result = [CourseInfo courseInfoWithCourseID:courseID];
+    Course *result = [Course courseWithCourseID:courseID];
     if (!result) {
-        result = [NSEntityDescription insertNewObjectForEntityForName:@"CourseInfo"
+        result = [NSEntityDescription insertNewObjectForEntityForName:@"Course"
                                                inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext];
         result.identifier = courseID;
-        result.objectClass = NSStringFromClass([CourseInfo class]);
+        result.objectClass = NSStringFromClass([Course class]);
     }
     
     result.updatedAt = [NSDate date];
@@ -158,8 +158,8 @@
     return result;
 }
 
-+ (CourseInfo *)courseInfoWithCourseID:(NSString *)courseID {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"CourseInfo"];
++ (Course *)courseWithCourseID:(NSString *)courseID {
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Course"];
     request.predicate = [NSPredicate predicateWithFormat:@"identifier == %@", courseID];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     NSArray *matches = [context executeFetchRequest:request error:nil];

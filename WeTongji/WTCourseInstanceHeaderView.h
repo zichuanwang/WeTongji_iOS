@@ -1,5 +1,5 @@
 //
-//  WTCourseHeaderView.h
+//  WTCourseInstanceHeaderView.h
 //  WeTongji
 //
 //  Created by 王 紫川 on 13-5-24.
@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@class Course;
+@class CourseInstance;
 
-@interface WTCourseHeaderView : UIView
+@interface WTCourseInstanceHeaderView : UIView
 
 @property (nonatomic, strong) UIButton *friendCountButton;
 @property (nonatomic, strong) UIButton *participateButton;
 @property (nonatomic, strong) UIButton *inviteButton;
 
-+ (WTCourseHeaderView *)createHeaderViewWithCourse:(Course *)course;
++ (WTCourseInstanceHeaderView *)createHeaderViewWithCourseInstance:(CourseInstance *)courseInstance;
 
 - (void)configureInviteButton;
 

@@ -10,6 +10,4 @@
 
 @interface WTTermOfUseViewController : UIViewController
 
-+ (void)show;
-
 @end

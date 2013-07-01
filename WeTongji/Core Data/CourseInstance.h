@@ -1,5 +1,5 @@
 //
-//  Exam.h
+//  CourseInstance.h
 //  WeTongji
 //
 //  Created by 王 紫川 on 13-7-2.
@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "CourseInstance.h"
+#import "Event.h"
 
+@class Course;
 
-@interface Exam : CourseInstance
+@interface CourseInstance : Event
 
+@property (nonatomic, retain) Course *course;
 
 @end

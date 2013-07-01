@@ -7,11 +7,11 @@
 //
 
 #import "CourseInvitationNotification.h"
-#import "CourseInfo.h"
+#import "Course.h"
 
 
 @implementation CourseInvitationNotification
 
-@dynamic courseInfo;
+@dynamic Course;
 
 @end

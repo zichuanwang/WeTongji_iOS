@@ -39,10 +39,7 @@
         <attribute name="identifier" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="hasObjects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Object" inverseName="belongToControllers" inverseEntity="Object" syncable="YES"/>
     </entity>
-    <entity name="Course" representedClassName="Course" parentEntity="Event" syncable="YES">
-        <relationship name="info" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CourseInfo" inverseName="instances" inverseEntity="CourseInfo" syncable="YES"/>
-    </entity>
-    <entity name="CourseInfo" representedClassName="CourseInfo" parentEntity="Object" syncable="YES">
+    <entity name="Course" representedClassName="Course" parentEntity="Object" syncable="YES">
         <attribute name="courseName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="courseNo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="credit" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -51,12 +48,16 @@
         <attribute name="isAudit" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="required" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="teacher" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="instances" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Course" inverseName="info" inverseEntity="Course" syncable="YES"/>
-        <relationship name="relatedCourseInvitations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CourseInvitationNotification" inverseName="courseInfo" inverseEntity="CourseInvitationNotification" syncable="YES"/>
+        <relationship name="instances" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CourseInstance" inverseName="course" inverseEntity="CourseInstance" syncable="YES"/>
+        <relationship name="registeredBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="registeredCourses" inverseEntity="User" syncable="YES"/>
+        <relationship name="relatedCourseInvitations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CourseInvitationNotification" inverseName="course" inverseEntity="CourseInvitationNotification" syncable="YES"/>
         <relationship name="timetables" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CourseTimetable" inverseName="belongTo" inverseEntity="CourseTimetable" syncable="YES"/>
     </entity>
+    <entity name="CourseInstance" representedClassName="CourseInstance" parentEntity="Event" syncable="YES">
+        <relationship name="course" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="instances" inverseEntity="Course" syncable="YES"/>
+    </entity>
     <entity name="CourseInvitationNotification" representedClassName="CourseInvitationNotification" parentEntity="InvitationNotification" syncable="YES">
-        <relationship name="courseInfo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CourseInfo" inverseName="relatedCourseInvitations" inverseEntity="CourseInfo" syncable="YES"/>
+        <relationship name="course" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="relatedCourseInvitations" inverseEntity="Course" syncable="YES"/>
     </entity>
     <entity name="CourseTimetable" representedClassName="CourseTimetable" parentEntity="Object" syncable="YES">
         <attribute name="endSection" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -64,7 +65,7 @@
         <attribute name="startSection" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="weekDay" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="weekType" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="belongTo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="CourseInfo" inverseName="timetables" inverseEntity="CourseInfo" syncable="YES"/>
+        <relationship name="belongTo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="timetables" inverseEntity="Course" syncable="YES"/>
     </entity>
     <entity name="Event" representedClassName="Event" isAbstract="YES" parentEntity="CommentableObject" syncable="YES">
         <attribute name="beginDay" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
@@ -75,7 +76,7 @@
         <attribute name="where" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="scheduledBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="scheduledEvents" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="Exam" representedClassName="Exam" parentEntity="Course" syncable="YES"/>
+    <entity name="Exam" representedClassName="Exam" parentEntity="CourseInstance" syncable="YES"/>
     <entity name="FriendInvitationNotification" representedClassName="FriendInvitationNotification" parentEntity="InvitationNotification" syncable="YES"/>
     <entity name="InvitationNotification" representedClassName="InvitationNotification" parentEntity="Notification" syncable="YES">
         <attribute name="accepted" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -169,6 +170,7 @@
         <relationship name="publishedBillboardPosts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BillboardPost" inverseName="author" inverseEntity="BillboardPost" syncable="YES"/>
         <relationship name="publishedComments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Comment" inverseName="author" inverseEntity="Comment" syncable="YES"/>
         <relationship name="receivedNotifications" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Notification" inverseName="owner" inverseEntity="Notification" syncable="YES"/>
+        <relationship name="registeredCourses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Course" inverseName="registeredBy" inverseEntity="Course" syncable="YES"/>
         <relationship name="scheduledEvents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="scheduledBy" inverseEntity="Event" syncable="YES"/>
         <relationship name="sentNotifications" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Notification" inverseName="sender" inverseEntity="Notification" syncable="YES"/>
     </entity>
@@ -180,8 +182,8 @@
         <element name="Comment" positionX="160" positionY="192" width="128" height="105"/>
         <element name="CommentableObject" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Controller" positionX="43" positionY="96" width="128" height="75"/>
-        <element name="Course" positionX="43" positionY="225" width="128" height="60"/>
-        <element name="CourseInfo" positionX="160" positionY="192" width="128" height="210"/>
+        <element name="Course" positionX="160" positionY="192" width="128" height="225"/>
+        <element name="CourseInstance" positionX="43" positionY="225" width="128" height="60"/>
         <element name="CourseInvitationNotification" positionX="160" positionY="192" width="128" height="60"/>
         <element name="CourseTimetable" positionX="160" positionY="192" width="128" height="135"/>
         <element name="Event" positionX="-135" positionY="261" width="128" height="150"/>
@@ -194,6 +196,6 @@
         <element name="Object" positionX="-135" positionY="84" width="128" height="105"/>
         <element name="Organization" positionX="-423" positionY="-126" width="128" height="180"/>
         <element name="Star" positionX="-270" positionY="-126" width="128" height="180"/>
-        <element name="User" positionX="-423" positionY="-9" width="128" height="585"/>
+        <element name="User" positionX="-423" positionY="-9" width="128" height="600"/>
     </elements>
 </model>

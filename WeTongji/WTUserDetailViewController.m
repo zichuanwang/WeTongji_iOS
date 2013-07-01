@@ -13,7 +13,7 @@
 #import "WTCoreDataManager.h"
 #import "WTResourceFactory.h"
 #import "NSString+WTAddition.h"
-#import "WTUserScheduledActivityViewController.h"
+#import "WTScheduledActivityViewController.h"
 
 @interface WTUserDetailViewController () <UIAlertViewDelegate>
 
@@ -127,7 +127,7 @@
 }
 
 - (void)didClickScheduledActivityButton:(UIButton *)sender {
-    WTUserScheduledActivityViewController *vc = [WTUserScheduledActivityViewController createViewControllerWithUser:self.user];
+    WTScheduledActivityViewController *vc = [WTScheduledActivityViewController createViewControllerWithUser:self.user];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

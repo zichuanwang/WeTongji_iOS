@@ -44,11 +44,11 @@
     self.hoursDisplayLabel.text = NSLocalizedString(@"Hours", nil);
     self.typeDisplayLabel.text = NSLocalizedString(@"Type", nil);
     
-    self.teacherLabel.text = self.course.info.teacher;
-    self.courseNumberLabel.text = self.course.info.courseNo;
-    self.creditLabel.text = [NSString stringWithFormat:@"%.1f", self.course.info.credit.floatValue];
-    self.hoursLabel.text = self.course.info.hours.stringValue;
-    self.typeLabel.text = self.course.info.required;
+    self.teacherLabel.text = self.course.teacher;
+    self.courseNumberLabel.text = self.course.courseNo;
+    self.creditLabel.text = [NSString stringWithFormat:@"%.1f", self.course.credit.floatValue];
+    self.hoursLabel.text = self.course.hours.stringValue;
+    self.typeLabel.text = self.course.required;
 }
 
 @end

@@ -2,16 +2,30 @@
 //  Course.m
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-6-26.
+//  Created by 王 紫川 on 13-7-2.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
 #import "Course.h"
-#import "CourseInfo.h"
+#import "CourseInstance.h"
+#import "CourseInvitationNotification.h"
+#import "CourseTimetable.h"
+#import "User.h"
 
 
 @implementation Course
 
-@dynamic info;
+@dynamic courseName;
+@dynamic courseNo;
+@dynamic credit;
+@dynamic friendsCount;
+@dynamic hours;
+@dynamic isAudit;
+@dynamic required;
+@dynamic teacher;
+@dynamic instances;
+@dynamic registeredBy;
+@dynamic relatedCourseInvitations;
+@dynamic timetables;
 
 @end

@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "Object.h"
 
-@class CourseInfo;
+@class Course;
 
 @interface CourseTimetable : Object
 
@@ -19,6 +19,6 @@
 @property (nonatomic, retain) NSNumber * startSection;
 @property (nonatomic, retain) NSNumber * endSection;
 @property (nonatomic, retain) NSString * location;
-@property (nonatomic, retain) CourseInfo *belongTo;
+@property (nonatomic, retain) Course *belongTo;
 
 @end

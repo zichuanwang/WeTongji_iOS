@@ -79,8 +79,8 @@
     result.sourceID = [NSString stringWithFormat:@"%@", dict[@"SourceId"]];
     result.sendTime = [[NSString stringWithFormat:@"%@", dict[@"SentAt"]] convertToDate];
     result.sender = [User insertUser:dict[@"UserDetails"]];
-    result.courseInfo = [CourseInfo insertCourseInfo:dict[@"CourseDetails"]];
-    [result.courseInfo setObjectHeldByHolder:[Notification class]];
+    result.Course = [Course insertCourse:dict[@"CourseDetails"]];
+    [result.Course setObjectHeldByHolder:[Notification class]];
     
     if ([[NSString stringWithFormat:@"%@", dict[@"AcceptedAt"]] isEqualToString:@"<null>"]) {
         result.accepted = @(NO);
@@ -215,7 +215,7 @@
         if ([item isKindOfClass:[ActivityInvitationNotification class]]) {
             [((ActivityInvitationNotification *)item).activity setObjectFreeFromHolder:[Notification class]];
         } else if ([item isKindOfClass:[CourseInvitationNotification class]]) {
-            [((CourseInvitationNotification *)item).courseInfo setObjectFreeFromHolder:[Notification class]];
+            [((CourseInvitationNotification *)item).Course setObjectFreeFromHolder:[Notification class]];
         }
         item.owner = nil;
         [context deleteObject:item];

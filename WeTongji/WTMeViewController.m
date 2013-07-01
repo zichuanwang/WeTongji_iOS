@@ -22,7 +22,7 @@
 #import "WTLikeListViewController.h"
 #import "NSUserDefaults+WTAddition.h"
 #import "WTDragToLoadDecorator.h"
-#import "WTUserScheduledActivityViewController.h"
+#import "WTScheduledActivityViewController.h"
 
 @interface WTMeViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, WTInnerSettingViewControllerDelegate, WTRootNavigationControllerDelegate, WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
@@ -148,7 +148,7 @@
 #pragma mark - Actions
 
 - (void)didClickScheduledActivityButton:(UIButton *)sender {
-    WTUserScheduledActivityViewController *vc = [WTUserScheduledActivityViewController createViewControllerWithUser:[WTCoreDataManager sharedManager].currentUser];
+    WTScheduledActivityViewController *vc = [WTScheduledActivityViewController createViewControllerWithUser:[WTCoreDataManager sharedManager].currentUser];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

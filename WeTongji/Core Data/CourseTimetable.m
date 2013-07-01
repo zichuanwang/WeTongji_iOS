@@ -7,7 +7,7 @@
 //
 
 #import "CourseTimetable.h"
-#import "CourseInfo.h"
+#import "Course.h"
 
 
 @implementation CourseTimetable

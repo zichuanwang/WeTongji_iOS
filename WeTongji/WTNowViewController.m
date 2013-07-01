@@ -14,9 +14,9 @@
 #import "WTNowWeekCell.h"
 #import "NSString+WTAddition.h"
 #import "Activity.h"
-#import "Course.h"
+#import "CourseInstance.h"
 #import "WTActivityDetailViewController.h"
-#import "WTCourseDetailViewController.h"
+#import "WTCourseInstanceDetailViewController.h"
 
 @interface WTNowViewController () <WTNowBarTitleViewDelegate>
 
@@ -81,8 +81,8 @@
     if ([event isKindOfClass:[Activity class]]) {
         WTActivityDetailViewController *vc = [WTActivityDetailViewController createDetailViewControllerWithActivity:(Activity *)event backBarButtonText:NSLocalizedString(@"Schedule", nil)];
         [self.navigationController pushViewController:vc animated:YES];
-    } else if ([event isKindOfClass:[Course class]]) {
-        WTCourseDetailViewController *vc = [WTCourseDetailViewController createCourseDetailViewControllerWithCourse:(Course *)event backBarButtonText:NSLocalizedString(@"Schedule", nil)];
+    } else if ([event isKindOfClass:[CourseInstance class]]) {
+        WTCourseInstanceDetailViewController *vc = [WTCourseInstanceDetailViewController createDetailViewControllerWithCourseInstance:(CourseInstance *)event backBarButtonText:NSLocalizedString(@"Schedule", nil)];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

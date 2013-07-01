@@ -2,7 +2,7 @@
 //  User.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-6-30.
+//  Created by 王 紫川 on 13-7-2.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "LikeableObject.h"
 
-@class BillboardPost, Comment, Event, LikeableObject, Notification, User;
+@class BillboardPost, Comment, Course, Event, LikeableObject, Notification, User;
 
 @interface User : LikeableObject
 
@@ -37,17 +37,18 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * phoneNumber;
 @property (nonatomic, retain) NSString * qqAccount;
+@property (nonatomic, retain) NSNumber * scheduledActivityCount;
+@property (nonatomic, retain) NSNumber * scheduledCourseCount;
 @property (nonatomic, retain) NSString * sinaWeiboName;
 @property (nonatomic, retain) NSString * studentNumber;
 @property (nonatomic, retain) NSNumber * studyPlan;
 @property (nonatomic, retain) NSString * wechatAccount;
-@property (nonatomic, retain) NSNumber * scheduledCourseCount;
-@property (nonatomic, retain) NSNumber * scheduledActivityCount;
 @property (nonatomic, retain) NSSet *friends;
 @property (nonatomic, retain) NSSet *likedObjects;
 @property (nonatomic, retain) NSSet *publishedBillboardPosts;
 @property (nonatomic, retain) NSSet *publishedComments;
 @property (nonatomic, retain) NSSet *receivedNotifications;
+@property (nonatomic, retain) NSSet *registeredCourses;
 @property (nonatomic, retain) NSSet *scheduledEvents;
 @property (nonatomic, retain) NSSet *sentNotifications;
 @end
@@ -78,6 +79,11 @@
 - (void)removeReceivedNotificationsObject:(Notification *)value;
 - (void)addReceivedNotifications:(NSSet *)values;
 - (void)removeReceivedNotifications:(NSSet *)values;
+
+- (void)addRegisteredCoursesObject:(Course *)value;
+- (void)removeRegisteredCoursesObject:(Course *)value;
+- (void)addRegisteredCourses:(NSSet *)values;
+- (void)removeRegisteredCourses:(NSSet *)values;
 
 - (void)addScheduledEventsObject:(Event *)value;
 - (void)removeScheduledEventsObject:(Event *)value;

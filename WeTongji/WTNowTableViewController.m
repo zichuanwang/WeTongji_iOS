@@ -127,9 +127,10 @@
         
         NSArray *coursesArray = resultDict[@"CourseInstances"];
         for (NSDictionary *dict in coursesArray) {
-            Course *course = [Course insertCourse:dict];
-            [course setObjectHeldByHolder:[self class]];
-            [currentUser addScheduledEventsObject:course];
+            CourseInstance *courseInstance = [CourseInstance insertCourseInstance:dict];
+            [courseInstance setObjectHeldByHolder:[self class]];
+            [currentUser addScheduledEventsObject:courseInstance];
+            [currentUser addRegisteredCoursesObject:courseInstance.course];
         }
         
         NSArray *examsArray = resultDict[@"Exams"];
@@ -239,7 +240,7 @@
     Event *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
     if ([item isKindOfClass:[Activity class]]) {
         return @"WTNowActivityCell";
-    } else if ([item isKindOfClass:[Course class]]){
+    } else if ([item isKindOfClass:[CourseInstance class]]){
         return @"WTNowCourseCell";
     }
     return nil;

@@ -1,33 +1,33 @@
 //
-//  WTCourseHeaderView.m
+//  WTCourseInstanceHeaderView.m
 //  WeTongji
 //
 //  Created by 王 紫川 on 13-5-24.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
-#import "WTCourseHeaderView.h"
+#import "WTCourseInstanceHeaderView.h"
 #import "Course+Addition.h"
 #import "WTResourceFactory.h"
 #import "NSString+WTAddition.h"
 
-@interface WTCourseHeaderView ()
+@interface WTCourseInstanceHeaderView ()
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *timeLabel;
 @property (nonatomic, weak) IBOutlet UIButton *locationButton;
 @property (nonatomic, weak) IBOutlet UIImageView *locationDisclosureImageView;
 
-@property (nonatomic, weak) Course *course;
+@property (nonatomic, weak) CourseInstance *courseInstance;
 
 @end
 
-@implementation WTCourseHeaderView
+@implementation WTCourseInstanceHeaderView
 
-+ (WTCourseHeaderView *)createHeaderViewWithCourse:(Course *)course {
-    WTCourseHeaderView *result = [[NSBundle mainBundle] loadNibNamed:@"WTCourseHeaderView" owner:nil options:nil].lastObject;
++ (WTCourseInstanceHeaderView *)createHeaderViewWithCourseInstance:(CourseInstance *)courseInstance {
+    WTCourseInstanceHeaderView *result = [[NSBundle mainBundle] loadNibNamed:@"WTCourseInstanceHeaderView" owner:nil options:nil].lastObject;
     
-    result.course = course;
+    result.courseInstance = courseInstance;
     
     [result configureView];
     
@@ -45,7 +45,7 @@
 }
 
 - (void)configureLocationButton {
-    [self.locationButton setTitle:self.course.where forState:UIControlStateNormal];
+    [self.locationButton setTitle:self.courseInstance.where forState:UIControlStateNormal];
     CGFloat locationButtonHeight = self.locationButton.frame.size.height;
     CGFloat locationButtonCenterY = self.locationButton.center.y;
     CGFloat locationButtonRightBoundX = self.locationButton.frame.origin.x + self.locationButton.frame.size
@@ -66,11 +66,11 @@
 #define MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y 83.0f
 
 - (void)configureParticipateButton {
-    if (!self.course.info.isAudit.boolValue) {
+    if (!self.courseInstance.course.isAudit.boolValue) {
         self.participateButton = [WTResourceFactory createDisableButtonWithText:NSLocalizedString(@"Participated", nil)];
     } else {
         self.participateButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Audited", nil)];
-        [self configureParticipateButtonStatus:self.course.scheduled];
+        [self configureParticipateButtonStatus:self.courseInstance.scheduled];
     }
     
     if (self.participateButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
@@ -96,7 +96,7 @@
 }
 
 - (void)configureFriendCountButton {
-    NSString *friendCountString = [NSString friendCountStringConvertFromCountNumber:self.course.friendsCount];
+    NSString *friendCountString = [NSString friendCountStringConvertFromCountNumber:self.courseInstance.friendsCount];
     self.friendCountButton = [WTResourceFactory createNormalButtonWithText:friendCountString];
     if (self.friendCountButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
         [self.friendCountButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];
@@ -108,13 +108,13 @@
 }
 
 - (void)configureTimeLabel {
-    self.timeLabel.text = self.course.yearMonthDayBeginToEndTimeString;
+    self.timeLabel.text = self.courseInstance.yearMonthDayBeginToEndTimeString;
 }
 
 #define BRIEF_DESCRIPTION_VIEW_BOTTOM_BUTTONS_HEIGHT    40.0f
 
 - (void)configureTitleLabelAndCalculateHeight {
-    self.titleLabel.text = self.course.what;
+    self.titleLabel.text = self.courseInstance.what;
     
     CGFloat titleLabelOriginalHeight = self.titleLabel.frame.size.height;
     [self.titleLabel sizeToFit];

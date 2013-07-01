@@ -10,10 +10,10 @@
 #import <CoreData/CoreData.h>
 #import "InvitationNotification.h"
 
-@class CourseInfo;
+@class Course;
 
 @interface CourseInvitationNotification : InvitationNotification
 
-@property (nonatomic, retain) CourseInfo *courseInfo;
+@property (nonatomic, retain) Course *Course;
 
 @end

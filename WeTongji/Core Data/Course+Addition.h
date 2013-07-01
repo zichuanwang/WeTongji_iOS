@@ -7,24 +7,24 @@
 //
 
 #import "Course.h"
-#import "CourseInfo.h"
+#import "CourseInstance.h"
 #import "CourseTimetable.h"
 #import "Event+Addition.h"
+
+@interface CourseInstance (Addition)
+
++ (CourseInstance *)insertCourseInstance:(NSDictionary *)dict;
+
++ (CourseInstance *)courseInstanceWithCourseID:(NSString *)courseID
+                                     beginTime:(NSDate *)beginTime;
+
+@end
 
 @interface Course (Addition)
 
 + (Course *)insertCourse:(NSDictionary *)dict;
 
-+ (Course *)courseWithCourseID:(NSString *)courseID
-                     beginTime:(NSDate *)beginTime;
-
-@end
-
-@interface CourseInfo (Addition)
-
-+ (CourseInfo *)insertCourseInfo:(NSDictionary *)dict;
-
-+ (CourseInfo *)courseInfoWithCourseID:(NSString *)courseID;
++ (Course *)courseWithCourseID:(NSString *)courseID;
 
 @end
 

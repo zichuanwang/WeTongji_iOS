@@ -85,9 +85,9 @@
     }];
     if ([self.event isKindOfClass:[Activity class]]) {
         [request getFriendsWithSameActivity:self.event.identifier];
-    } else if ([self.event isKindOfClass:[Course class]]) {
-        Course *course = (Course *)self.event;
-        [request getFriendsWithSameCourse:course.info.identifier];
+    } else if ([self.event isKindOfClass:[CourseInstance class]]) {
+        CourseInstance *courseInstance = (CourseInstance *)self.event;
+        [request getFriendsWithSameCourse:courseInstance.course.identifier];
     }
     [[WTClient sharedClient] enqueueRequest:request];
 }

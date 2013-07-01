@@ -22,7 +22,7 @@
 #import "WTActivityDetailViewController.h"
 #import "WTStarDetailViewController.h"
 #import "WTOrganizationDetailViewController.h"
-#import "WTCourseDetailViewController.h"
+#import "WTCourseInstanceDetailViewController.h"
 #import "WTNewsViewController.h"
 #import "WTActivityViewController.h"
 #import "WTStarViewController.h"
@@ -457,8 +457,8 @@
     if ([event isKindOfClass:[Activity class]]) {
         WTActivityDetailViewController *vc = [WTActivityDetailViewController createDetailViewControllerWithActivity:(Activity *)event backBarButtonText:nil];
         [self.navigationController pushViewController:vc animated:YES];
-    } else if ([event isKindOfClass:[Course class]]) {
-        WTCourseDetailViewController *vc = [WTCourseDetailViewController createCourseDetailViewControllerWithCourse:(Course *)event backBarButtonText:nil];
+    } else if ([event isKindOfClass:[CourseInstance class]]) {
+        WTCourseInstanceDetailViewController *vc = [WTCourseInstanceDetailViewController createDetailViewControllerWithCourseInstance:(CourseInstance *)event backBarButtonText:nil];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
