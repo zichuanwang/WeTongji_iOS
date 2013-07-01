@@ -10,10 +10,14 @@
 #import "WTRootNavigationController.h"
 #import "WTInnerSettingViewController.h"
 
+@class Activity;
+
 @interface WTActivityViewController : WTCoreDataTableViewController <WTRootNavigationControllerDelegate, WTInnerSettingViewControllerDelegate>
 
 @property (nonatomic, readonly) NSInteger nextPage;
 
 - (void)configureLoadDataRequest:(WTRequest *)request;
+
+- (void)configureLoadedActivity:(Activity *)activity;
 
 @end

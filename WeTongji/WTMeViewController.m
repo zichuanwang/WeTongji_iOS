@@ -22,6 +22,7 @@
 #import "WTLikeListViewController.h"
 #import "NSUserDefaults+WTAddition.h"
 #import "WTDragToLoadDecorator.h"
+#import "WTUserScheduledActivityViewController.h"
 
 @interface WTMeViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, WTInnerSettingViewControllerDelegate, WTRootNavigationControllerDelegate, WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
@@ -116,6 +117,9 @@
     [profileView.likedStarButton addTarget:self action:@selector(didClickLikedStarButton:) forControlEvents:UIControlEventTouchUpInside];
     [profileView.likedOrganizationButton addTarget:self action:@selector(didClickLikedOrganizationButton:) forControlEvents:UIControlEventTouchUpInside];
     [profileView.likedUserButton addTarget:self action:@selector(didClickLikedUserButton:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [profileView.scheduledActivityButton addTarget:self action:@selector(didClickScheduledActivityButton:) forControlEvents:UIControlEventTouchUpInside];
+    [profileView.scheduledCourseButton addTarget:self action:@selector(didClickScheduledCourseButton:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)configureScrollView {
@@ -142,6 +146,15 @@
 }
 
 #pragma mark - Actions
+
+- (void)didClickScheduledActivityButton:(UIButton *)sender {
+    WTUserScheduledActivityViewController *vc = [WTUserScheduledActivityViewController createViewControllerWithUser:[WTCoreDataManager sharedManager].currentUser];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)didClickScheduledCourseButton:(UIButton *)sender {
+    
+}
 
 - (void)didClickLikedActivityButton:(UIButton *)sender {
     User *currentUser = [WTCoreDataManager sharedManager].currentUser;

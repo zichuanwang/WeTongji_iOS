@@ -13,6 +13,7 @@
 #import "WTCoreDataManager.h"
 #import "WTResourceFactory.h"
 #import "NSString+WTAddition.h"
+#import "WTUserScheduledActivityViewController.h"
 
 @interface WTUserDetailViewController () <UIAlertViewDelegate>
 
@@ -73,6 +74,9 @@
     [profileView resetOriginY:self.profileHeaderView.frame.size.height];
     [self.scrollView addSubview:profileView];
     self.profileView = profileView;
+    
+    [profileView.scheduledActivityButton addTarget:self action:@selector(didClickScheduledActivityButton:) forControlEvents:UIControlEventTouchUpInside];
+    [profileView.scheduledCourseButton addTarget:self action:@selector(didClickScheduledCourseButton:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)configureScrollView {
@@ -120,6 +124,15 @@
     else {
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Warning", nil) message:[NSString deleteFriendStringForFriendName:self.user.name] delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil)otherButtonTitles:NSLocalizedString(@"Yes", nil), nil] show];
     }
+}
+
+- (void)didClickScheduledActivityButton:(UIButton *)sender {
+    WTUserScheduledActivityViewController *vc = [WTUserScheduledActivityViewController createViewControllerWithUser:[WTCoreDataManager sharedManager].currentUser];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)didClickScheduledCourseButton:(UIButton *)sender {
+    
 }
 
 #pragma mark - Methods to overwrite

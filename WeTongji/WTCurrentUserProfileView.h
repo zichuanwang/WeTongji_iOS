@@ -32,6 +32,8 @@
 @property (nonatomic, weak) IBOutlet UIButton *likedStarButton;
 @property (nonatomic, weak) IBOutlet UIButton *likedUserButton;
 @property (nonatomic, weak) IBOutlet UIButton *friendButton;
+@property (nonatomic, weak) IBOutlet UIButton *scheduledActivityButton;
+@property (nonatomic, weak) IBOutlet UIButton *scheduledCourseButton;
 
 + (WTCurrentUserProfileView *)createProfileViewWithUser:(User *)user;
 

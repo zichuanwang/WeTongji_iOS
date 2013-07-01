@@ -37,6 +37,8 @@
 @property (nonatomic, weak) IBOutlet UILabel *weiboDisplayLabel;
 @property (nonatomic, weak) IBOutlet UILabel *qqDisplayLabel;
 @property (nonatomic, weak) IBOutlet UILabel *dormDisplayLabel;
+@property (nonatomic, weak) IBOutlet UIButton *scheduledActivityButton;
+@property (nonatomic, weak) IBOutlet UIButton *scheduledCourseButton;
 
 + (WTOtherUserProfileView *)createProfileViewWithUser:(User *)user;
 

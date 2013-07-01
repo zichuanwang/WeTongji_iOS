@@ -1,26 +1,26 @@
 //
-//  WTOrganizationActivityViewController.m
+//  WTUserScheduledActivityViewController.m
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-6-30.
+//  Created by 王 紫川 on 13-7-1.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
-#import "WTOrganizationActivityViewController.h"
-#import "NSUserDefaults+WTAddition.h"
-#import "Organization+Addition.h"
+#import "WTUserScheduledActivityViewController.h"
+#import "User+Addition.h"
 #import "WTResourceFactory.h"
+#import "NSUserDefaults+WTAddition.h"
 #import "Controller+Addition.h"
 #import "Activity+Addition.h"
 #import "Object+Addition.h"
 
-@interface WTOrganizationActivityViewController ()
+@interface WTUserScheduledActivityViewController ()
 
-@property (nonatomic, strong) Organization *org;
+@property (nonatomic, strong) User *user;
 
 @end
 
-@implementation WTOrganizationActivityViewController
+@implementation WTUserScheduledActivityViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,20 +36,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.navigationItem.leftBarButtonItem = [WTResourceFactory createBackBarButtonWithText:self.org.name target:self action:@selector(didClickBackButton:)];
+    self.navigationItem.leftBarButtonItem = [WTResourceFactory createBackBarButtonWithText:self.user.name target:self action:@selector(didClickBackButton:)];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-+ (WTOrganizationActivityViewController *)createViewControllerWithOrganization:(Organization *)org {
-    WTOrganizationActivityViewController *result = [[WTOrganizationActivityViewController alloc] init];
++ (WTUserScheduledActivityViewController *)createViewControllerWithUser:(User *)user {
+    WTUserScheduledActivityViewController *result = [[WTUserScheduledActivityViewController alloc] init];
     
-    result.org = org;
-        
+    result.user = user;
+    
     return result;
 }
 
@@ -57,11 +51,12 @@
 
 - (void)configureLoadedActivity:(Activity *)activity {
     [activity setObjectHeldByHolder:[self class]];
+    [activity addScheduledByObject:self.user];
 }
 
 - (void)configureFetchRequest:(NSFetchRequest *)request {
     [super configureFetchRequest:request];
-    [request setPredicate:[NSPredicate predicateWithFormat:@"(category in %@) AND (SELF in %@) AND (SELF in %@)", [NSUserDefaults getActivityShowTypesSet], [Controller controllerModelForClass:[self class]].hasObjects, self.org.publishedActivities]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"(category in %@) AND (SELF in %@) AND (SELF in %@)", [NSUserDefaults getActivityShowTypesSet], [Controller controllerModelForClass:[self class]].hasObjects, self.user.scheduledEvents]];
 }
 
 - (void)clearOutdatedData {
@@ -78,7 +73,7 @@
                        smartOrder:[userDefaults getActivitySmartOrderProperty]
                        showExpire:![userDefaults getActivityHidePastProperty]
                              page:self.nextPage
-                        byAccount:self.org.identifier];
+                  scheduledByUser:self.user.identifier];
 }
 
 @end

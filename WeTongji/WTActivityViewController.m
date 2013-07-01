@@ -99,7 +99,7 @@
         NSArray *resultArray = resultDict[@"Activities"];
         for (NSDictionary *dict in resultArray) {
             Activity *activity = [Activity insertActivity:dict];
-            [activity setObjectHeldByHolder:[self class]];
+            [self configureLoadedActivity:activity];
         }
         
         if (success)
@@ -115,14 +115,11 @@
     [[WTClient sharedClient] enqueueRequest:request];
 }
 
-- (void)clearOutdatedData {
-    NSSet *activityShowTypesSet = [NSUserDefaults getActivityShowTypesSet];
-    for (NSNumber *showTypeNumber in activityShowTypesSet) {
-        [Activity setOutdatedActivitesFreeFromHolder:[self class] inCategory:showTypeNumber];
-    }
-}
-
 #pragma mark - Methods to overwrite
+
+- (void)configureLoadedActivity:(Activity *)activity {
+    [activity setObjectHeldByHolder:[self class]];
+}
 
 - (void)configureLoadDataRequest:(WTRequest *)request {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -131,6 +128,13 @@
                        smartOrder:[userDefaults getActivitySmartOrderProperty]
                        showExpire:![userDefaults getActivityHidePastProperty]
                              page:self.nextPage];
+}
+
+- (void)clearOutdatedData {
+    NSSet *activityShowTypesSet = [NSUserDefaults getActivityShowTypesSet];
+    for (NSNumber *showTypeNumber in activityShowTypesSet) {
+        [Activity setOutdatedActivitesFreeFromHolder:[self class] inCategory:showTypeNumber];
+    }
 }
 
 #pragma mark - UI methods
