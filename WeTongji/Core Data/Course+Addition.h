@@ -22,6 +22,8 @@
 
 @interface Course (Addition)
 
+@property (nonatomic, readonly) NSString *timetableString;
+
 + (Course *)insertCourse:(NSDictionary *)dict;
 
 + (Course *)courseWithCourseID:(NSString *)courseID;

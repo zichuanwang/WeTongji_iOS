@@ -207,8 +207,8 @@
 		E12E249117274E1500EFA9B5 /* WTDetailBillboardImageCover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E248F17274E1500EFA9B5 /* WTDetailBillboardImageCover@2x.png */; };
 		E12E2494172806F800EFA9B5 /* WTAnonymousAvatarPlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E2492172806F800EFA9B5 /* WTAnonymousAvatarPlaceholder.png */; };
 		E12E2495172806F800EFA9B5 /* WTAnonymousAvatarPlaceholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12E2493172806F800EFA9B5 /* WTAnonymousAvatarPlaceholder@2x.png */; };
-		E12FB5D617746CA00077A17D /* WTScheduledCoueseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12FB5D417746CA00077A17D /* WTScheduledCoueseViewController.m */; };
-		E12FB5D717746CA00077A17D /* WTScheduledCoueseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12FB5D517746CA00077A17D /* WTScheduledCoueseViewController.xib */; };
+		E12FB5D617746CA00077A17D /* WTScheduledCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12FB5D417746CA00077A17D /* WTScheduledCourseViewController.m */; };
+		E12FB5D717746CA00077A17D /* WTScheduledCourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12FB5D517746CA00077A17D /* WTScheduledCourseViewController.xib */; };
 		E12FB5DB17746D1F0077A17D /* WTShareEventFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12FB5D917746D1F0077A17D /* WTShareEventFriendsViewController.m */; };
 		E12FB5DC17746D1F0077A17D /* WTShareEventFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12FB5DA17746D1F0077A17D /* WTShareEventFriendsViewController.xib */; };
 		E13652CA1713FD8000ACA92D /* WTTranslucentHighlightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E13652C81713FD8000ACA92D /* WTTranslucentHighlightButton.png */; };
@@ -239,6 +239,8 @@
 		E140EDA716E90B48004E2DA9 /* WTSearchBarSelectSearchIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E140EDA516E90B48004E2DA9 /* WTSearchBarSelectSearchIcon@2x.png */; };
 		E140EDAA16E90B53004E2DA9 /* WTSearchBarSelectBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E140EDA816E90B53004E2DA9 /* WTSearchBarSelectBg.png */; };
 		E140EDAB16E90B53004E2DA9 /* WTSearchBarSelectBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E140EDA916E90B53004E2DA9 /* WTSearchBarSelectBg@2x.png */; };
+		E14264071782151800847C08 /* WTCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E14264061782151800847C08 /* WTCourseCell.m */; };
+		E14264091782154E00847C08 /* WTCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14264081782154E00847C08 /* WTCourseCell.xib */; };
 		E1428692171ADA14006AB739 /* BillboardPost+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E1428691171ADA14006AB739 /* BillboardPost+Addition.m */; };
 		E1428699171AE05F006AB739 /* WTBillboardItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1428695171AE05B006AB739 /* WTBillboardItemView.m */; };
 		E142869A171AE066006AB739 /* WTBillboardItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1428696171AE05B006AB739 /* WTBillboardItemView.xib */; };
@@ -912,9 +914,9 @@
 		E12E248F17274E1500EFA9B5 /* WTDetailBillboardImageCover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTDetailBillboardImageCover@2x.png"; sourceTree = "<group>"; };
 		E12E2492172806F800EFA9B5 /* WTAnonymousAvatarPlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTAnonymousAvatarPlaceholder.png; sourceTree = "<group>"; };
 		E12E2493172806F800EFA9B5 /* WTAnonymousAvatarPlaceholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTAnonymousAvatarPlaceholder@2x.png"; sourceTree = "<group>"; };
-		E12FB5D317746CA00077A17D /* WTScheduledCoueseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTScheduledCoueseViewController.h; sourceTree = "<group>"; };
-		E12FB5D417746CA00077A17D /* WTScheduledCoueseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTScheduledCoueseViewController.m; sourceTree = "<group>"; };
-		E12FB5D517746CA00077A17D /* WTScheduledCoueseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTScheduledCoueseViewController.xib; sourceTree = "<group>"; };
+		E12FB5D317746CA00077A17D /* WTScheduledCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTScheduledCourseViewController.h; sourceTree = "<group>"; };
+		E12FB5D417746CA00077A17D /* WTScheduledCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTScheduledCourseViewController.m; sourceTree = "<group>"; };
+		E12FB5D517746CA00077A17D /* WTScheduledCourseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTScheduledCourseViewController.xib; sourceTree = "<group>"; };
 		E12FB5D817746D1F0077A17D /* WTShareEventFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTShareEventFriendsViewController.h; sourceTree = "<group>"; };
 		E12FB5D917746D1F0077A17D /* WTShareEventFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTShareEventFriendsViewController.m; sourceTree = "<group>"; };
 		E12FB5DA17746D1F0077A17D /* WTShareEventFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTShareEventFriendsViewController.xib; sourceTree = "<group>"; };
@@ -955,6 +957,9 @@
 		E140EDA516E90B48004E2DA9 /* WTSearchBarSelectSearchIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTSearchBarSelectSearchIcon@2x.png"; sourceTree = "<group>"; };
 		E140EDA816E90B53004E2DA9 /* WTSearchBarSelectBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTSearchBarSelectBg.png; sourceTree = "<group>"; };
 		E140EDA916E90B53004E2DA9 /* WTSearchBarSelectBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTSearchBarSelectBg@2x.png"; sourceTree = "<group>"; };
+		E14264051782151800847C08 /* WTCourseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCourseCell.h; sourceTree = "<group>"; };
+		E14264061782151800847C08 /* WTCourseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCourseCell.m; sourceTree = "<group>"; };
+		E14264081782154E00847C08 /* WTCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTCourseCell.xib; sourceTree = "<group>"; };
 		E1428690171ADA14006AB739 /* BillboardPost+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillboardPost+Addition.h"; sourceTree = "<group>"; };
 		E1428691171ADA14006AB739 /* BillboardPost+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillboardPost+Addition.m"; sourceTree = "<group>"; };
 		E1428694171AE05B006AB739 /* WTBillboardItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBillboardItemView.h; sourceTree = "<group>"; };
@@ -1719,9 +1724,9 @@
 		E1157DD3173B79F500E62295 /* Course */ = {
 			isa = PBXGroup;
 			children = (
-				E12FB5D317746CA00077A17D /* WTScheduledCoueseViewController.h */,
-				E12FB5D417746CA00077A17D /* WTScheduledCoueseViewController.m */,
-				E12FB5D517746CA00077A17D /* WTScheduledCoueseViewController.xib */,
+				E12FB5D317746CA00077A17D /* WTScheduledCourseViewController.h */,
+				E12FB5D417746CA00077A17D /* WTScheduledCourseViewController.m */,
+				E12FB5D517746CA00077A17D /* WTScheduledCourseViewController.xib */,
 				E17D0243177A3926000F34ED /* WTCourseInstanceDetailViewController.h */,
 				E1157DD5173B7A3300E62295 /* WTCourseInstanceDetailViewController.m */,
 				E1157DD6173B7A3300E62295 /* WTCourseInstanceDetailViewController.xib */,
@@ -2686,6 +2691,9 @@
 				E179668C1728314400761BD5 /* WTCommentCell.h */,
 				E179668D1728314400761BD5 /* WTCommentCell.m */,
 				E179668F1728315600761BD5 /* WTCommentCell.xib */,
+				E14264051782151800847C08 /* WTCourseCell.h */,
+				E14264061782151800847C08 /* WTCourseCell.m */,
+				E14264081782154E00847C08 /* WTCourseCell.xib */,
 				E10E231317566C8900DCF724 /* WTHighlightableCell.h */,
 				E10E231417566C8A00DCF724 /* WTHighlightableCell.m */,
 				E13B0E4F16A2E16C00A45079 /* WTNewsCell.h */,
@@ -2694,19 +2702,19 @@
 				E10A8D1016E2681B008B72E7 /* WTNotificationActivityInvitationCell.h */,
 				E10A8D1116E2681B008B72E7 /* WTNotificationActivityInvitationCell.m */,
 				E10A8D2616E3ACE7008B72E7 /* WTNotificationActivityInvitationCell.xib */,
+				E10A8D2F16E3B423008B72E7 /* WTNotificationCell.h */,
+				E10A8D3016E3B424008B72E7 /* WTNotificationCell.m */,
 				E1C97B151764045600F4241B /* WTNotificationCourseInvitationCell.h */,
 				E1C97B161764045600F4241B /* WTNotificationCourseInvitationCell.m */,
 				E1C97B171764045700F4241B /* WTNotificationCourseInvitationCell.xib */,
-				E10A8D2F16E3B423008B72E7 /* WTNotificationCell.h */,
-				E10A8D3016E3B424008B72E7 /* WTNotificationCell.m */,
-				E15E4DF2175DDDC000BBAE9A /* WTNotificationInvitationCell.h */,
-				E15E4DF3175DDDC300BBAE9A /* WTNotificationInvitationCell.m */,
 				E10A8D0D16E26770008B72E7 /* WTNotificationFriendInvitationCell.h */,
 				E10A8D0E16E26770008B72E7 /* WTNotificationFriendInvitationCell.m */,
 				E10A8D2716E3ACE7008B72E7 /* WTNotificationFriendInvitationCell.xib */,
 				E10A8D2A16E3B0E0008B72E7 /* WTNotificationInvitationAcceptCell.h */,
 				E10A8D2B16E3B0E1008B72E7 /* WTNotificationInvitationAcceptCell.m */,
 				E10A8D2D16E3B105008B72E7 /* WTNotificationInvitationAcceptCell.xib */,
+				E15E4DF2175DDDC000BBAE9A /* WTNotificationInvitationCell.h */,
+				E15E4DF3175DDDC300BBAE9A /* WTNotificationInvitationCell.m */,
 				039E37FC16970FBB00178F1C /* WTNowActivityCell.h */,
 				039E37FD16970FBB00178F1C /* WTNowActivityCell.m */,
 				039E380216970FF600178F1C /* WTNowActivityCell.xib */,
@@ -2727,15 +2735,15 @@
 				E177037F173EBA240086E550 /* WTSearchHistoryCell.h */,
 				E1770380173EBA240086E550 /* WTSearchHistoryCell.m */,
 				E1770382173EBA340086E550 /* WTSearchHistoryCell.xib */,
+				E15E4DD1175D0C9F00BBAE9A /* WTSelectUserCell.h */,
+				E15E4DD2175D0CA000BBAE9A /* WTSelectUserCell.m */,
+				E15E4DD3175D0CA100BBAE9A /* WTSelectUserCell.xib */,
 				E4D164271744D7B000F11A2C /* WTStarCell.h */,
 				E4D164281744D7B000F11A2C /* WTStarCell.m */,
 				E4D1642A1744D7DB00F11A2C /* WTStarCell.xib */,
 				E177E63416EE172C0029130F /* WTUserCell.h */,
 				E177E63516EE172C0029130F /* WTUserCell.m */,
 				E177E63616EE172C0029130F /* WTUserCell.xib */,
-				E15E4DD1175D0C9F00BBAE9A /* WTSelectUserCell.h */,
-				E15E4DD2175D0CA000BBAE9A /* WTSelectUserCell.m */,
-				E15E4DD3175D0CA100BBAE9A /* WTSelectUserCell.xib */,
 			);
 			name = CustomCells;
 			sourceTree = "<group>";
@@ -3412,9 +3420,10 @@
 				E16ABDBF1767AA9200ED0CE9 /* WTTransparentImage.png in Resources */,
 				E16ABDC21767BE3900ED0CE9 /* WTSilverStarIcon.png in Resources */,
 				E16ABDC31767BE3900ED0CE9 /* WTSilverStarIcon@2x.png in Resources */,
-				E12FB5D717746CA00077A17D /* WTScheduledCoueseViewController.xib in Resources */,
+				E12FB5D717746CA00077A17D /* WTScheduledCourseViewController.xib in Resources */,
 				E12FB5DC17746D1F0077A17D /* WTShareEventFriendsViewController.xib in Resources */,
 				E179FDD91781F22B00D0B979 /* WTTermOfUseViewController.xib in Resources */,
+				E14264091782154E00847C08 /* WTCourseCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3608,7 +3617,7 @@
 				E1C97B181764045800F4241B /* WTNotificationCourseInvitationCell.m in Sources */,
 				E1FAB93817694A8600F7204F /* Star.m in Sources */,
 				E1FAB9471769CECE00F7204F /* CourseTimetable.m in Sources */,
-				E12FB5D617746CA00077A17D /* WTScheduledCoueseViewController.m in Sources */,
+				E12FB5D617746CA00077A17D /* WTScheduledCourseViewController.m in Sources */,
 				E12FB5DB17746D1F0077A17D /* WTShareEventFriendsViewController.m in Sources */,
 				E18CB2F1177A36810044E85E /* Event.m in Sources */,
 				E1EC97B717802BF30058A9F7 /* WTOrganizationActivityViewController.m in Sources */,
@@ -3622,6 +3631,7 @@
 				E16B662917820D9D0097901E /* Exam.m in Sources */,
 				E16B662C17820E190097901E /* CourseInvitationNotification.m in Sources */,
 				E16B66321782110B0097901E /* User.m in Sources */,
+				E14264071782151800847C08 /* WTCourseCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

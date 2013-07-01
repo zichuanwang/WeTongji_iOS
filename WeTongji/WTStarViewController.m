@@ -70,18 +70,17 @@
     [self.dragToLoadDecorator stopObservingChangesInDragToLoadScrollView];
 }
 
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)clearOutdatedData {
-     [Object setOutdatedObjectsFreeFromHolder:[self class]];
-}
-
 #pragma mark - Data load methods
+
+- (void)clearOutdatedData {
+    [Object setOutdatedObjectsFreeFromHolder:[self class]];
+}
 
 - (void)loadMoreDataWithSuccessBlock:(void (^)(void))success
                         failureBlock:(void (^)(void))failure {
@@ -112,6 +111,8 @@
         
         if (failure)
             failure();
+        
+        [WTErrorHandler handleError:error];
     }];
 
     [request getStarsInPage:self.nextPage];
@@ -208,10 +209,6 @@
     return self.tableView;
 }
 
-- (NSString *)userDefaultKey {
-    return @"WTActivityController";
-}
-
 #pragma mark - WTDragToLoadDecoratorDelegate
 
 - (void)dragToLoadDecoratorDidDragUp {
@@ -231,6 +228,5 @@
         [self.dragToLoadDecorator topViewLoadFinished:NO];
     }];
 }
-
 
 @end

@@ -117,6 +117,28 @@
 
 @implementation Course (Addition)
 
+- (NSString *)timetableString {
+    NSMutableString *result = [NSMutableString string];
+    NSArray *timetableArray = [self.timetables sortedArrayUsingDescriptors:@[
+                               [NSSortDescriptor sortDescriptorWithKey:@"weekDay" ascending:YES],
+                               [NSSortDescriptor sortDescriptorWithKey:@"startSection" ascending:YES]
+                               ]];
+    for (int i = 0; i < timetableArray.count; i++) {
+        if (i != 0) {
+            [result appendString:@","];
+        }
+        
+        CourseTimetable *timetable = timetableArray[i];
+        [result appendFormat:@"%@(%@) %d-%d %@", [NSString weekStringConvertFromInteger:timetable.weekDay.integerValue],
+                                                  timetable.weekType,
+                                              timetable.startSection.integerValue,
+                                              timetable.endSection.integerValue,
+                                              timetable.location];
+    }
+    
+    return result;
+}
+
 + (Course *)insertCourse:(NSDictionary *)dict {
     NSString *courseID = [NSString stringWithFormat:@"%@", dict[@"UNO"]];
     
@@ -179,10 +201,29 @@
     result.startSection = @([[NSString stringWithFormat:@"%@", dict[@"SectionStart"]] integerValue]);
     result.endSection = @([[NSString stringWithFormat:@"%@", dict[@"SectionEnd"]] integerValue]);
     result.weekType = [NSString stringWithFormat:@"%@", dict[@"WeekType"]];
-    result.weekDay = [NSString stringWithFormat:@"%@", dict[@"WeekDay"]];
+    NSString *weekDayString = [NSString stringWithFormat:@"%@", dict[@"WeekDay"]];
+    [result configureWeekDayWithString:weekDayString];
     result.location = [NSString stringWithFormat:@"%@", dict[@"Location"]];
     
     return result;
+}
+
+- (void)configureWeekDayWithString:(NSString *)weekDayString {
+    if ([weekDayString isEqualToString:@"周一"]) {
+        self.weekDay = @(1);
+    } else if ([weekDayString isEqualToString:@"周二"]) {
+        self.weekDay = @(2);
+    } else if ([weekDayString isEqualToString:@"周三"]) {
+        self.weekDay = @(3);
+    } else if ([weekDayString isEqualToString:@"周四"]) {
+        self.weekDay = @(4);
+    } else if ([weekDayString isEqualToString:@"周五"]) {
+        self.weekDay = @(5);
+    } else if ([weekDayString isEqualToString:@"周六"]) {
+        self.weekDay = @(6);
+    } else if ([weekDayString isEqualToString:@"周日"]) {
+        self.weekDay = @(7);
+    }
 }
 
 @end

@@ -23,6 +23,7 @@
 #import "NSUserDefaults+WTAddition.h"
 #import "WTDragToLoadDecorator.h"
 #import "WTScheduledActivityViewController.h"
+#import "WTScheduledCourseViewController.h"
 
 @interface WTMeViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, WTInnerSettingViewControllerDelegate, WTRootNavigationControllerDelegate, WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
@@ -153,7 +154,8 @@
 }
 
 - (void)didClickScheduledCourseButton:(UIButton *)sender {
-    
+    WTScheduledCourseViewController *vc = [WTScheduledCourseViewController createViewControllerWithUser:[WTCoreDataManager sharedManager].currentUser];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didClickLikedActivityButton:(UIButton *)sender {

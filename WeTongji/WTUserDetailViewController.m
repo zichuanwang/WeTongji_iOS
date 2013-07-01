@@ -14,6 +14,7 @@
 #import "WTResourceFactory.h"
 #import "NSString+WTAddition.h"
 #import "WTScheduledActivityViewController.h"
+#import "WTScheduledCourseViewController.h"
 
 @interface WTUserDetailViewController () <UIAlertViewDelegate>
 
@@ -132,7 +133,8 @@
 }
 
 - (void)didClickScheduledCourseButton:(UIButton *)sender {
-    
+    WTScheduledCourseViewController *vc = [WTScheduledCourseViewController createViewControllerWithUser:self.user];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - Methods to overwrite

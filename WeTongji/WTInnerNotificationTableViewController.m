@@ -170,6 +170,11 @@
     return [notification customCellClassName];
 }
 
+- (void)insertCellAtIndexPath:(NSIndexPath *)indexPath {
+    [super insertCellAtIndexPath:indexPath];
+    [self.dragToLoadDecorator scrollViewDidInsertNewCell];
+}
+
 - (void)fetchedResultsControllerDidPerformFetch {
     if ([self.fetchedResultsController.sections.lastObject numberOfObjects] == 0) {
         [self.dragToLoadDecorator setTopViewLoading:YES];
