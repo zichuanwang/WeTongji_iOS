@@ -127,7 +127,7 @@
 }
 
 - (void)didClickScheduledActivityButton:(UIButton *)sender {
-    WTUserScheduledActivityViewController *vc = [WTUserScheduledActivityViewController createViewControllerWithUser:[WTCoreDataManager sharedManager].currentUser];
+    WTUserScheduledActivityViewController *vc = [WTUserScheduledActivityViewController createViewControllerWithUser:self.user];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -13,6 +13,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UIApplication+WTAddition.h"
 #import "UIImage+ProportionalFill.h"
+#import "WTTermOfUseViewController.h"
 
 @interface WTRegisterInfoViewController () <OHAttributedLabelDelegate>
 
@@ -52,7 +53,7 @@
     UIBarButtonItem *backBarButtonItem = [WTResourceFactory createBackBarButtonWithText:NSLocalizedString(@"Log In / Sign Up", nil) target:self action:@selector(didClickBackButton:) restrictToMaxWidth:NO];
     self.navigationItem.leftBarButtonItem = backBarButtonItem;
     
-    UIBarButtonItem *nextBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:NSLocalizedString(@"Next", nil) target:self action:@selector(didClickNextButton:)];
+    UIBarButtonItem *nextBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:NSLocalizedString(@"Activate", nil) target:self action:@selector(didClickNextButton:)];
     self.navigationItem.rightBarButtonItem = nextBarButtonItem;
 }
 
@@ -65,23 +66,32 @@
 }
 
 - (void)configureAgreementLabel {
-    NSMutableAttributedString *resultString = [[NSMutableAttributedString alloc] initWithAttributedString:self.agreementDisplayLabel.attributedText];
-    [resultString setTextBold:YES range:NSMakeRange(self.agreementDisplayLabel.attributedText.length - 4, 4)];
-    [resultString setTextIsUnderlined:YES range:NSMakeRange(self.agreementDisplayLabel.attributedText.length - 4, 4)];
+    NSString *agreementString = NSLocalizedString(@"By tapping Activate you are indicating that you have read and agree to Term of Use", nil);
+    NSMutableAttributedString *resultString = [[NSMutableAttributedString alloc] initWithString:agreementString];
+    [resultString setAttributes:[self.agreementDisplayLabel.attributedText attributesAtIndex:0 effectiveRange:NULL] range:NSMakeRange(0, resultString.length)];
     
-    NSRegularExpression* userRegex = [NSRegularExpression regularExpressionWithPattern:@"使用条款" options:0 error:nil];
-    [userRegex enumerateMatchesInString:self.agreementDisplayLabel.text
+    NSString *termOfUseString = NSLocalizedString(@"Term of Use", nil);
+    [resultString setTextBold:YES range:NSMakeRange(resultString.length - termOfUseString.length, termOfUseString.length)];
+    [resultString setTextIsUnderlined:YES range:NSMakeRange(resultString.length - termOfUseString.length, termOfUseString.length)];
+    
+    NSRegularExpression* userRegex = [NSRegularExpression regularExpressionWithPattern:termOfUseString options:0 error:nil];
+    [userRegex enumerateMatchesInString:agreementString
                                 options:0
-                                  range:NSMakeRange(0, self.agreementDisplayLabel.text.length)
-                             usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop) {
+                                  range:NSMakeRange(0, agreementString.length)
+                             usingBlock:^(NSTextCheckingResult *match, NSMatchingFlags flags, BOOL *stop)
+     {
          NSString* linkURLString = [NSString stringWithFormat:@"agreement:agreement"];
          [resultString setLink:[NSURL URLWithString:linkURLString] range:match.range];
+         *stop = YES;
      }];
     
     self.agreementDisplayLabel.attributedText = resultString;
     self.agreementDisplayLabel.delegate = self;
     
     self.agreementDisplayLabel.linkColor = self.accountDisplayLabel.textColor;
+    
+    CGFloat agreementLabelHeight = [resultString sizeConstrainedToSize:CGSizeMake(self.agreementDisplayLabel.frame.size.width, 200000.0f)].height;
+    [self.agreementDisplayLabel resetHeight:agreementLabelHeight];
 }
 
 #pragma mark - Actions
@@ -166,7 +176,8 @@
 - (BOOL)attributedLabel:(OHAttributedLabel *)attributedLabel
        shouldFollowLink:(NSTextCheckingResult *)linkInfo {
 	if ([linkInfo.URL.scheme isEqualToString:@"agreement"]) {
-        // TODO:
+        WTTermOfUseViewController *vc = [[WTTermOfUseViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
     // Prevent the URL from opening in Safari, as we handled it here manually instead
     return NO;

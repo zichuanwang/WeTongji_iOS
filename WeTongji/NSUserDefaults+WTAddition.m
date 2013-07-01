@@ -336,4 +336,15 @@
     return [self stringForKey:kCurrentUserQQ];
 }
 
+#define kLastHomeUpdateTime @"LastHomeUpdateTime"
+
+- (NSTimeInterval)getLastHomeUpdateTime {
+    return [self doubleForKey:kLastHomeUpdateTime];
+}
+
+- (void)setLastHomeUpdateTime:(NSTimeInterval)time {
+    [self setDouble:time forKey:kLastHomeUpdateTime];
+    [self synchronize];
+}
+
 @end

@@ -406,6 +406,8 @@
 		E179D63F172127FC00C6D789 /* WTNewsImageRollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E179D63E172127FC00C6D789 /* WTNewsImageRollView.xib */; };
 		E179D6421721951900C6D789 /* UIImageView+AsyncLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = E179D6411721951900C6D789 /* UIImageView+AsyncLoading.m */; };
 		E179FDD41781AA8700D0B979 /* WTUserScheduledActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E179FDD31781AA8700D0B979 /* WTUserScheduledActivityViewController.m */; };
+		E179FDD81781F22B00D0B979 /* WTTermOfUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E179FDD61781F22A00D0B979 /* WTTermOfUseViewController.m */; };
+		E179FDD91781F22B00D0B979 /* WTTermOfUseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E179FDD71781F22A00D0B979 /* WTTermOfUseViewController.xib */; };
 		E17AE8D8171EE5950026B644 /* WTBillboardPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17AE8D7171EE5950026B644 /* WTBillboardPostViewController.m */; };
 		E17AE8DC171EE5B30026B644 /* WTBillboardPostPlainTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17AE8DA171EE5B30026B644 /* WTBillboardPostPlainTextViewController.m */; };
 		E17AE8DD171EE5B30026B644 /* WTBillboardPostPlainTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17AE8DB171EE5B30026B644 /* WTBillboardPostPlainTextViewController.xib */; };
@@ -1171,6 +1173,9 @@
 		E179D6411721951900C6D789 /* UIImageView+AsyncLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AsyncLoading.m"; sourceTree = "<group>"; };
 		E179FDD21781AA8700D0B979 /* WTUserScheduledActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTUserScheduledActivityViewController.h; sourceTree = "<group>"; };
 		E179FDD31781AA8700D0B979 /* WTUserScheduledActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTUserScheduledActivityViewController.m; sourceTree = "<group>"; };
+		E179FDD51781F22A00D0B979 /* WTTermOfUseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTermOfUseViewController.h; sourceTree = "<group>"; };
+		E179FDD61781F22A00D0B979 /* WTTermOfUseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTermOfUseViewController.m; sourceTree = "<group>"; };
+		E179FDD71781F22A00D0B979 /* WTTermOfUseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTTermOfUseViewController.xib; sourceTree = "<group>"; };
 		E17AE8D6171EE5950026B644 /* WTBillboardPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBillboardPostViewController.h; sourceTree = "<group>"; };
 		E17AE8D7171EE5950026B644 /* WTBillboardPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTBillboardPostViewController.m; sourceTree = "<group>"; };
 		E17AE8D9171EE5B30026B644 /* WTBillboardPostPlainTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBillboardPostPlainTextViewController.h; sourceTree = "<group>"; };
@@ -2475,6 +2480,9 @@
 				E10C1F30171A8F0B0009C673 /* WTRegisterVarifyViewController.h */,
 				E10C1F31171A8F0B0009C673 /* WTRegisterVarifyViewController.m */,
 				E10C1F32171A8F0B0009C673 /* WTRegisterVarifyViewController.xib */,
+				E179FDD51781F22A00D0B979 /* WTTermOfUseViewController.h */,
+				E179FDD61781F22A00D0B979 /* WTTermOfUseViewController.m */,
+				E179FDD71781F22A00D0B979 /* WTTermOfUseViewController.xib */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -3423,6 +3431,7 @@
 				E12FB5D217746C810077A17D /* WTScheduledActivityViewController.xib in Resources */,
 				E12FB5D717746CA00077A17D /* WTScheduledCoueseViewController.xib in Resources */,
 				E12FB5DC17746D1F0077A17D /* WTShareEventFriendsViewController.xib in Resources */,
+				E179FDD91781F22B00D0B979 /* WTTermOfUseViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3630,6 +3639,7 @@
 				E1EC97C0178085D20058A9F7 /* User.m in Sources */,
 				E1EC97C317808F390058A9F7 /* WTOrganizationNewsViewController.m in Sources */,
 				E179FDD41781AA8700D0B979 /* WTUserScheduledActivityViewController.m in Sources */,
+				E179FDD81781F22B00D0B979 /* WTTermOfUseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

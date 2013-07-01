@@ -115,4 +115,8 @@ typedef enum {
 
 - (NSString *)getCurrentUserQQ;
 
+- (NSTimeInterval)getLastHomeUpdateTime;
+
+- (void)setLastHomeUpdateTime:(NSTimeInterval)time;
+
 @end

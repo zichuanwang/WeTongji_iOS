@@ -37,7 +37,7 @@
 @property (nonatomic, strong) NSMutableArray *homeSelectViewArray;
 
 @property (nonatomic, assign) BOOL shouldLoadHomeItems;
-@property (nonatomic, strong) NSTimer *loadHomeItemsTimer;
+@property (nonatomic, assign) BOOL isLoadingHomeItems;
 @property (nonatomic, assign) BOOL isVisible;
 @property (nonatomic, strong) NSDictionary *homeResponseDict;
 
@@ -50,6 +50,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.shouldLoadHomeItems = YES;
     }
     return self;
 }
@@ -64,9 +65,10 @@
     [self configureHomeSelectViews];
     [self configureScrollView];
     
-    [self setUpLoadHomeSelectedItemsTimer];
-    
-    self.scrollView.scrollsToTop = NO;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleApplicationWillEnterForegroundNotification:)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:[UIApplication sharedApplication]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -97,6 +99,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Handel notifications 
+
+#define MIN_UPDATE_HOME_TIME_INTERVAL   (60 * 10)
+
+- (void)handleApplicationWillEnterForegroundNotification:(NSNotification *)notification {
+    WTLOG(@"handleApplicationWillEnterForegroundNotification");
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSTimeInterval lastUpdateTime = [defaults getLastHomeUpdateTime];
+    NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
+    if (lastUpdateTime - currentTime > MIN_UPDATE_HOME_TIME_INTERVAL) {
+        [self loadHomeSelectedItems];
+    }
+}
+
 #pragma mark - Properties
 
 - (NSMutableArray *)homeSelectViewArray {
@@ -107,22 +123,6 @@
 }
 
 #pragma mark - Load data methods
-
-- (void)setUpLoadHomeSelectedItemsTimer {
-    // 设定 10 分钟刷新频率
-    self.loadHomeItemsTimer = [NSTimer scheduledTimerWithTimeInterval:10 * 60
-											  target:self
-											selector:@selector(loadHomeSelectedItemsTimerFired:)
-											userInfo:nil
-											 repeats:YES];
-    
-    // 立即刷新一次
-    [self loadHomeSelectedItems];
-}
-
-- (void)loadHomeSelectedItemsTimerFired:(NSTimer *)timer {
-    [self loadHomeSelectedItems];
-}
 
 - (void)refillViews {
     if (!self.homeResponseDict)
@@ -193,6 +193,10 @@
 }
 
 - (void)loadHomeSelectedItems {
+    if (self.isLoadingHomeItems)
+        return;
+    self.isLoadingHomeItems = YES;
+    
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         // WTLOG(@"Get home recommendation succuess:%@", responseObject);
         
@@ -206,9 +210,15 @@
             [self refillViews];
         }
         
+        NSTimeInterval currentTime = [[NSDate date] timeIntervalSince1970];
+        [[NSUserDefaults standardUserDefaults] setLastHomeUpdateTime:currentTime];
+        
+        self.isLoadingHomeItems = NO;
+        
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Get home recommendation failure:%@", error.localizedDescription);
         self.shouldLoadHomeItems = YES;
+        self.isLoadingHomeItems = NO;
         
     }];
     [request getHomeRecommendation];
