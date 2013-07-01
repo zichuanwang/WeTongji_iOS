@@ -241,6 +241,7 @@
 		E140EDAB16E90B53004E2DA9 /* WTSearchBarSelectBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E140EDA916E90B53004E2DA9 /* WTSearchBarSelectBg@2x.png */; };
 		E14264071782151800847C08 /* WTCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E14264061782151800847C08 /* WTCourseCell.m */; };
 		E14264091782154E00847C08 /* WTCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14264081782154E00847C08 /* WTCourseCell.xib */; };
+		E142640F1782290900847C08 /* CourseInvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E142640E1782290900847C08 /* CourseInvitationNotification.m */; };
 		E1428692171ADA14006AB739 /* BillboardPost+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E1428691171ADA14006AB739 /* BillboardPost+Addition.m */; };
 		E1428699171AE05F006AB739 /* WTBillboardItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1428695171AE05B006AB739 /* WTBillboardItemView.m */; };
 		E142869A171AE066006AB739 /* WTBillboardItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1428696171AE05B006AB739 /* WTBillboardItemView.xib */; };
@@ -337,7 +338,6 @@
 		E16B662017820D8D0097901E /* CourseInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = E16B661F17820D8C0097901E /* CourseInstance.m */; };
 		E16B662617820D8E0097901E /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = E16B662517820D8E0097901E /* Course.m */; };
 		E16B662917820D9D0097901E /* Exam.m in Sources */ = {isa = PBXBuildFile; fileRef = E16B662817820D9D0097901E /* Exam.m */; };
-		E16B662C17820E190097901E /* CourseInvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E16B662B17820E190097901E /* CourseInvitationNotification.m */; };
 		E16B66321782110B0097901E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E16B66311782110B0097901E /* User.m */; };
 		E16D5DCA174619A900740D79 /* Advertisement+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E16D5DC9174619A900740D79 /* Advertisement+Addition.m */; };
 		E16E961D1733AA550055DE27 /* WTOrangeBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961B1733AA550055DE27 /* WTOrangeBg.png */; };
@@ -960,6 +960,8 @@
 		E14264051782151800847C08 /* WTCourseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCourseCell.h; sourceTree = "<group>"; };
 		E14264061782151800847C08 /* WTCourseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCourseCell.m; sourceTree = "<group>"; };
 		E14264081782154E00847C08 /* WTCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTCourseCell.xib; sourceTree = "<group>"; };
+		E142640D1782290900847C08 /* CourseInvitationNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseInvitationNotification.h; sourceTree = "<group>"; };
+		E142640E1782290900847C08 /* CourseInvitationNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseInvitationNotification.m; sourceTree = "<group>"; };
 		E1428690171ADA14006AB739 /* BillboardPost+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillboardPost+Addition.h"; sourceTree = "<group>"; };
 		E1428691171ADA14006AB739 /* BillboardPost+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillboardPost+Addition.m"; sourceTree = "<group>"; };
 		E1428694171AE05B006AB739 /* WTBillboardItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBillboardItemView.h; sourceTree = "<group>"; };
@@ -1088,8 +1090,6 @@
 		E16B662517820D8E0097901E /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		E16B662717820D9D0097901E /* Exam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exam.h; sourceTree = "<group>"; };
 		E16B662817820D9D0097901E /* Exam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exam.m; sourceTree = "<group>"; };
-		E16B662A17820E190097901E /* CourseInvitationNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseInvitationNotification.h; sourceTree = "<group>"; };
-		E16B662B17820E190097901E /* CourseInvitationNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseInvitationNotification.m; sourceTree = "<group>"; };
 		E16B66301782110A0097901E /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		E16B66311782110B0097901E /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		E16D5DC8174619A900740D79 /* Advertisement+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Advertisement+Addition.h"; sourceTree = "<group>"; };
@@ -2836,8 +2836,6 @@
 				E16B662517820D8E0097901E /* Course.m */,
 				E16B661E17820D8C0097901E /* CourseInstance.h */,
 				E16B661F17820D8C0097901E /* CourseInstance.m */,
-				E16B662A17820E190097901E /* CourseInvitationNotification.h */,
-				E16B662B17820E190097901E /* CourseInvitationNotification.m */,
 				E1FAB9451769CECD00F7204F /* CourseTimetable.h */,
 				E1FAB9461769CECE00F7204F /* CourseTimetable.m */,
 				E18CB2EF177A36810044E85E /* Event.h */,
@@ -2862,6 +2860,8 @@
 				E16B66311782110B0097901E /* User.m */,
 				E1FAB93617694A8600F7204F /* Star.h */,
 				E1FAB93717694A8600F7204F /* Star.m */,
+				E142640D1782290900847C08 /* CourseInvitationNotification.h */,
+				E142640E1782290900847C08 /* CourseInvitationNotification.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3629,9 +3629,9 @@
 				E16B662017820D8D0097901E /* CourseInstance.m in Sources */,
 				E16B662617820D8E0097901E /* Course.m in Sources */,
 				E16B662917820D9D0097901E /* Exam.m in Sources */,
-				E16B662C17820E190097901E /* CourseInvitationNotification.m in Sources */,
 				E16B66321782110B0097901E /* User.m in Sources */,
 				E14264071782151800847C08 /* WTCourseCell.m in Sources */,
+				E142640F1782290900847C08 /* CourseInvitationNotification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,7 +2,7 @@
 //  CourseInvitationNotification.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-6-15.
+//  Created by 王 紫川 on 13-7-2.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -14,6 +14,6 @@
 
 @interface CourseInvitationNotification : InvitationNotification
 
-@property (nonatomic, retain) Course *Course;
+@property (nonatomic, retain) Course *course;
 
 @end
