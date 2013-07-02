@@ -8,10 +8,13 @@
 
 #import "WTCourseProfileView.h"
 #import "Course+Addition.h"
+#import "WTCourseTimetableView.h"
 
 @interface WTCourseProfileView ()
 
 @property (nonatomic, weak) Course *course;
+
+@property (nonatomic, weak) WTCourseTimetableContainerView *timetableContainerView;
 
 @end
 
@@ -29,6 +32,16 @@
 - (void)configureView {
     [self configureFirstSectionView];
     [self configureFirstSectionLabels];
+    [self configureTimetableContainerView];
+    
+    [self resetHeight:self.timetableContainerView.frame.size.height + self.timetableContainerView.frame.origin.y];
+}
+
+- (void)configureTimetableContainerView {
+    WTCourseTimetableContainerView *view = [WTCourseTimetableContainerView createViewWithCourse:self.course];
+    [view resetOriginY:self.firstSectionContainerView.frame.size.height];
+    [self addSubview:view];
+    self.timetableContainerView = view;
 }
 
 - (void)configureFirstSectionView {
@@ -38,8 +51,9 @@
 }
 
 - (void)configureFirstSectionLabels {
+    self.courseInformationDisplayLabel.text = NSLocalizedString(@"Course Information", nil);
     self.teacherDisplayLabel.text = NSLocalizedString(@"Teacher", nil);
-    self.courseNumberDisplayLabel.text = NSLocalizedString(@"Course NO.", nil);
+    self.courseNumberDisplayLabel.text = NSLocalizedString(@"Course No.", nil);
     self.creditDisplayLabel.text = NSLocalizedString(@"Credit", nil);
     self.hoursDisplayLabel.text = NSLocalizedString(@"Hours", nil);
     self.typeDisplayLabel.text = NSLocalizedString(@"Type", nil);

@@ -13,6 +13,8 @@
 @interface WTCourseProfileView : UIView
 
 @property (nonatomic, weak) IBOutlet UIImageView *firstSectionBgImageView;
+@property (nonatomic, weak) IBOutlet UIView *firstSectionContainerView;
+@property (nonatomic, weak) IBOutlet UILabel *courseInformationDisplayLabel;
 
 @property (nonatomic, weak) IBOutlet UILabel *teacherDisplayLabel;
 @property (nonatomic, weak) IBOutlet UILabel *courseNumberDisplayLabel;

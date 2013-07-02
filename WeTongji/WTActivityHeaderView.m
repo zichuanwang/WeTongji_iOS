@@ -79,7 +79,7 @@
     
     [self addSubview:self.inviteButton];
     
-    if (!self.activity.scheduled) {
+    if (!self.activity.scheduledByCurrentUser) {
         self.inviteButton.alpha = 0;
     }
 }
@@ -88,9 +88,9 @@
     
     if (!self.activityOutdated) {
         self.participateButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Participate", nil)];
-        [self configureParticipateButtonStatus:self.activity.scheduled];
+        [self configureParticipateButtonStatus:self.activity.scheduledByCurrentUser];
     } else {
-        self.participateButton = [WTResourceFactory createDisableButtonWithText:self.activity.scheduled ? NSLocalizedString(@"Participated", nil) : NSLocalizedString(@"Outdated", nil)];
+        self.participateButton = [WTResourceFactory createDisableButtonWithText:self.activity.scheduledBy ? NSLocalizedString(@"Participated", nil) : NSLocalizedString(@"Outdated", nil)];
     }
     
     if (self.participateButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)

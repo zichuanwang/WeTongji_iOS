@@ -11,6 +11,6 @@
 
 @interface WTShareEventFriendsViewController : WTCoreDataTableViewController
 
-+ (WTShareEventFriendsViewController *)createViewControllerWithEvent:(Event *)event;
++ (WTShareEventFriendsViewController *)createViewControllerWithTargetObject:(Object *)object;
 
 @end

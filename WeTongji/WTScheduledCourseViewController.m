@@ -14,6 +14,7 @@
 #import "WTCourseCell.h"
 #import "WTResourceFactory.h"
 #import "NSString+WTAddition.h"
+#import "WTCourseDetailViewController.h"
 
 @interface WTScheduledCourseViewController () <WTDragToLoadDecoratorDelegate, WTDragToLoadDecoratorDataSource>
 
@@ -166,7 +167,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [[tableView cellForRowAtIndexPath:indexPath] setSelected:YES animated:YES];
     
-    // TODO:
+    Course *course = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    WTCourseDetailViewController *vc = [WTCourseDetailViewController createDetailViewControllerWithCourse:course backBarButtonText:self.user.name];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - WTDragToLoadDecoratorDataSource

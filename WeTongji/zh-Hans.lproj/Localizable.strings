@@ -171,10 +171,15 @@
 "Current Star" = "本期人物";
 
 "Teacher" = "教师";
-"Course NO." = "课号";
+"Course No." = "课号";
 "Credit" = "学分";
 "Hours" = "学时";
 "Type" = "类型";
+"Class time" = "上课时间";
+"Week type" = "单双周";
+"Location" = "地点";
+"Course Information" = "课程信息";
+"Course Timetable" = "课程时间表";
 
 "Invite Friends" = "邀请好友";
 "invites you to participate in." = "邀请你参加。";

@@ -13,7 +13,6 @@
 
 @interface WTCourseInstanceHeaderView ()
 
-@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *timeLabel;
 @property (nonatomic, weak) IBOutlet UIButton *locationButton;
 @property (nonatomic, weak) IBOutlet UIImageView *locationDisclosureImageView;
@@ -34,14 +33,22 @@
     return result;
 }
 
-#pragma mark - UI methods
+#pragma mark - Methods to overwrite
+
+- (Course *)targetCourse {
+    return self.courseInstance.course;
+}
 
 - (void)configureView {
-    [self configureBackgroundColor];
+    [super configureView];
     [self configureLocationButton];
-    [self configureBottomButtons];
     [self configureTimeLabel];
-    [self configureTitleLabelAndCalculateHeight];
+}
+
+#pragma mark - UI methods
+
+- (void)configureTimeLabel {
+    self.timeLabel.text = self.courseInstance.yearMonthDayBeginToEndTimeString;
 }
 
 - (void)configureLocationButton {
@@ -60,86 +67,6 @@
     [self.locationButton resetHeight:locationButtonHeight];
     [self.locationButton resetCenterY:locationButtonCenterY];
     [self.locationButton resetOriginX:locationButtonRightBoundX - self.locationButton.frame.size.width];
-}
-
-#define MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH    85.0f
-#define MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y 83.0f
-
-- (void)configureParticipateButton {
-    if (!self.courseInstance.course.isAudit.boolValue) {
-        self.participateButton = [WTResourceFactory createDisableButtonWithText:NSLocalizedString(@"Participated", nil)];
-    } else {
-        self.participateButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Audited", nil)];
-        [self configureParticipateButtonStatus:self.courseInstance.scheduled];
-    }
-    
-    if (self.participateButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
-        [self.participateButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];
-    
-    [self.participateButton resetOrigin:CGPointMake(311.0f - self.participateButton.frame.size.width, MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y)];
-    self.participateButton.autoresizingMask |= UIViewAutoresizingFlexibleTopMargin;
-    
-    [self addSubview:self.participateButton];
-}
-
-- (void)configureInviteButton {
-    [self.inviteButton removeFromSuperview];
-    self.inviteButton = [WTResourceFactory createFocusButtonWithText:NSLocalizedString(@"Invite", nil)];
-    
-    if (self.inviteButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
-        [self.inviteButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];
-    
-    [self.inviteButton resetOrigin:CGPointMake(9.0, MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y)];
-    self.inviteButton.autoresizingMask |= UIViewAutoresizingFlexibleTopMargin;
-    
-    [self addSubview:self.inviteButton];
-}
-
-- (void)configureFriendCountButton {
-    NSString *friendCountString = [NSString friendCountStringConvertFromCountNumber:self.courseInstance.friendsCount];
-    self.friendCountButton = [WTResourceFactory createNormalButtonWithText:friendCountString];
-    if (self.friendCountButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
-        [self.friendCountButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];
-    
-    [self.friendCountButton resetOrigin:CGPointMake(self.participateButton.frame.origin.x - 8 - self.friendCountButton.frame.size.width, MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y)];
-    self.friendCountButton.autoresizingMask |= UIViewAutoresizingFlexibleTopMargin;
-    
-    [self addSubview:self.friendCountButton];
-}
-
-- (void)configureTimeLabel {
-    self.timeLabel.text = self.courseInstance.yearMonthDayBeginToEndTimeString;
-}
-
-#define BRIEF_DESCRIPTION_VIEW_BOTTOM_BUTTONS_HEIGHT    40.0f
-
-- (void)configureTitleLabelAndCalculateHeight {
-    self.titleLabel.text = self.courseInstance.what;
-    
-    CGFloat titleLabelOriginalHeight = self.titleLabel.frame.size.height;
-    [self.titleLabel sizeToFit];
-    [self resetHeight:self.frame.size.height + self.titleLabel.frame.size.height - titleLabelOriginalHeight];
-}
-
-- (void)configureBackgroundColor {
-    self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTGrayPanel"]];
-}
-
-- (void)configureBottomButtons {
-    [self configureParticipateButton];
-    [self configureFriendCountButton];
-    [self configureInviteButton];
-}
-
-#pragma mark - Configure button status methods
-
-- (void)configureParticipateButtonStatus:(BOOL)participated {
-    self.participateButton.selected = !participated;
-    if (participated) {
-        [self.participateButton setTitle:NSLocalizedString(@"Audited", nil) forState:UIControlStateNormal];
-    } else {
-        [self.participateButton setTitle:NSLocalizedString(@"Audit", nil) forState:UIControlStateNormal];
-    }
 }
 
 @end

@@ -7,13 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WTDetailViewController.h"
+#import "WTCourseBaseDetailViewController.h"
 
 @class CourseInstance;
 
-@interface WTCourseInstanceDetailViewController : WTDetailViewController
-
-@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+@interface WTCourseInstanceDetailViewController : WTCourseBaseDetailViewController
 
 + (WTCourseInstanceDetailViewController *)createDetailViewControllerWithCourseInstance:(CourseInstance *)courseInstance
                                                                      backBarButtonText:(NSString *)backBarButtonText;

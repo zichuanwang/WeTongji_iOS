@@ -127,7 +127,7 @@
 		E1132E7916C65823004CB808 /* NSUserDefaults+WTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E1132E7816C65823004CB808 /* NSUserDefaults+WTAddition.m */; };
 		E1157DCE173B6BBD00E62295 /* Organization+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E1157DCD173B6BBD00E62295 /* Organization+Addition.m */; };
 		E1157DD7173B7A3300E62295 /* WTCourseInstanceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1157DD5173B7A3300E62295 /* WTCourseInstanceDetailViewController.m */; };
-		E1157DD8173B7A3300E62295 /* WTCourseInstanceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1157DD6173B7A3300E62295 /* WTCourseInstanceDetailViewController.xib */; };
+		E1157DD8173B7A3300E62295 /* WTCourseBaseDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1157DD6173B7A3300E62295 /* WTCourseBaseDetailViewController.xib */; };
 		E1157DDD173B7CF000E62295 /* WTCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1157DDB173B7CF000E62295 /* WTCommentViewController.m */; };
 		E1157DDE173B7CF000E62295 /* WTCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1157DDC173B7CF000E62295 /* WTCommentViewController.xib */; };
 		E1157DE5173CCD4B00E62295 /* WTBannerBottomShadowUnit.png in Resources */ = {isa = PBXBuildFile; fileRef = E1157DDF173CCD4B00E62295 /* WTBannerBottomShadowUnit.png */; };
@@ -242,6 +242,13 @@
 		E14264071782151800847C08 /* WTCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E14264061782151800847C08 /* WTCourseCell.m */; };
 		E14264091782154E00847C08 /* WTCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14264081782154E00847C08 /* WTCourseCell.xib */; };
 		E142640F1782290900847C08 /* CourseInvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E142640E1782290900847C08 /* CourseInvitationNotification.m */; };
+		E142641217830C2E00847C08 /* WTCourseHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E142641117830C2D00847C08 /* WTCourseHeaderView.m */; };
+		E142641517830D5C00847C08 /* WTCourseBaseHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E142641417830D5C00847C08 /* WTCourseBaseHeaderView.m */; };
+		E142641717830D6C00847C08 /* WTCourseHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E142641617830D6C00847C08 /* WTCourseHeaderView.xib */; };
+		E142641A17833C0500847C08 /* WTCourseBaseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E142641917833C0500847C08 /* WTCourseBaseDetailViewController.m */; };
+		E142641D17834B9100847C08 /* WTCourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E142641C17834B9100847C08 /* WTCourseDetailViewController.m */; };
+		E142642017834E7800847C08 /* WTCourseTimetableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E142641F17834E7600847C08 /* WTCourseTimetableView.m */; };
+		E142642217834E8C00847C08 /* WTCourseTimetableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E142642117834E8B00847C08 /* WTCourseTimetableView.xib */; };
 		E1428692171ADA14006AB739 /* BillboardPost+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E1428691171ADA14006AB739 /* BillboardPost+Addition.m */; };
 		E1428699171AE05F006AB739 /* WTBillboardItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1428695171AE05B006AB739 /* WTBillboardItemView.m */; };
 		E142869A171AE066006AB739 /* WTBillboardItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1428696171AE05B006AB739 /* WTBillboardItemView.xib */; };
@@ -819,7 +826,7 @@
 		E1157DCC173B6BBD00E62295 /* Organization+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Organization+Addition.h"; sourceTree = "<group>"; };
 		E1157DCD173B6BBD00E62295 /* Organization+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Organization+Addition.m"; sourceTree = "<group>"; };
 		E1157DD5173B7A3300E62295 /* WTCourseInstanceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCourseInstanceDetailViewController.m; sourceTree = "<group>"; };
-		E1157DD6173B7A3300E62295 /* WTCourseInstanceDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTCourseInstanceDetailViewController.xib; sourceTree = "<group>"; };
+		E1157DD6173B7A3300E62295 /* WTCourseBaseDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTCourseBaseDetailViewController.xib; sourceTree = "<group>"; };
 		E1157DDA173B7CF000E62295 /* WTCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCommentViewController.h; sourceTree = "<group>"; };
 		E1157DDB173B7CF000E62295 /* WTCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCommentViewController.m; sourceTree = "<group>"; };
 		E1157DDC173B7CF000E62295 /* WTCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTCommentViewController.xib; sourceTree = "<group>"; };
@@ -962,6 +969,18 @@
 		E14264081782154E00847C08 /* WTCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTCourseCell.xib; sourceTree = "<group>"; };
 		E142640D1782290900847C08 /* CourseInvitationNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseInvitationNotification.h; sourceTree = "<group>"; };
 		E142640E1782290900847C08 /* CourseInvitationNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseInvitationNotification.m; sourceTree = "<group>"; };
+		E142641017830C2D00847C08 /* WTCourseHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCourseHeaderView.h; sourceTree = "<group>"; };
+		E142641117830C2D00847C08 /* WTCourseHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCourseHeaderView.m; sourceTree = "<group>"; };
+		E142641317830D5B00847C08 /* WTCourseBaseHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCourseBaseHeaderView.h; sourceTree = "<group>"; };
+		E142641417830D5C00847C08 /* WTCourseBaseHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCourseBaseHeaderView.m; sourceTree = "<group>"; };
+		E142641617830D6C00847C08 /* WTCourseHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTCourseHeaderView.xib; sourceTree = "<group>"; };
+		E142641817833C0400847C08 /* WTCourseBaseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCourseBaseDetailViewController.h; sourceTree = "<group>"; };
+		E142641917833C0500847C08 /* WTCourseBaseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCourseBaseDetailViewController.m; sourceTree = "<group>"; };
+		E142641B17834B9000847C08 /* WTCourseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCourseDetailViewController.h; sourceTree = "<group>"; };
+		E142641C17834B9100847C08 /* WTCourseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCourseDetailViewController.m; sourceTree = "<group>"; };
+		E142641E17834E7500847C08 /* WTCourseTimetableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCourseTimetableView.h; sourceTree = "<group>"; };
+		E142641F17834E7600847C08 /* WTCourseTimetableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCourseTimetableView.m; sourceTree = "<group>"; };
+		E142642117834E8B00847C08 /* WTCourseTimetableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTCourseTimetableView.xib; sourceTree = "<group>"; };
 		E1428690171ADA14006AB739 /* BillboardPost+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BillboardPost+Addition.h"; sourceTree = "<group>"; };
 		E1428691171ADA14006AB739 /* BillboardPost+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BillboardPost+Addition.m"; sourceTree = "<group>"; };
 		E1428694171AE05B006AB739 /* WTBillboardItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBillboardItemView.h; sourceTree = "<group>"; };
@@ -1729,7 +1748,11 @@
 				E12FB5D517746CA00077A17D /* WTScheduledCourseViewController.xib */,
 				E17D0243177A3926000F34ED /* WTCourseInstanceDetailViewController.h */,
 				E1157DD5173B7A3300E62295 /* WTCourseInstanceDetailViewController.m */,
-				E1157DD6173B7A3300E62295 /* WTCourseInstanceDetailViewController.xib */,
+				E1157DD6173B7A3300E62295 /* WTCourseBaseDetailViewController.xib */,
+				E142641817833C0400847C08 /* WTCourseBaseDetailViewController.h */,
+				E142641917833C0500847C08 /* WTCourseBaseDetailViewController.m */,
+				E142641B17834B9000847C08 /* WTCourseDetailViewController.h */,
+				E142641C17834B9100847C08 /* WTCourseDetailViewController.m */,
 			);
 			name = Course;
 			sourceTree = "<group>";
@@ -2134,12 +2157,20 @@
 		E172AFF9174F6D8000DEB920 /* Course */ = {
 			isa = PBXGroup;
 			children = (
+				E142641317830D5B00847C08 /* WTCourseBaseHeaderView.h */,
+				E142641417830D5C00847C08 /* WTCourseBaseHeaderView.m */,
+				E142641017830C2D00847C08 /* WTCourseHeaderView.h */,
+				E142641117830C2D00847C08 /* WTCourseHeaderView.m */,
+				E142641617830D6C00847C08 /* WTCourseHeaderView.xib */,
 				E172AFFA174F6D9A00DEB920 /* WTCourseInstanceHeaderView.h */,
 				E172AFFB174F6D9A00DEB920 /* WTCourseInstanceHeaderView.m */,
 				E172AFFD174F6DAC00DEB920 /* WTCourseInstanceHeaderView.xib */,
 				E15E4DC4175CB9C300BBAE9A /* WTCourseProfileView.h */,
 				E15E4DC5175CB9C300BBAE9A /* WTCourseProfileView.m */,
 				E15E4DC7175CB9E300BBAE9A /* WTCourseProfileView.xib */,
+				E142641E17834E7500847C08 /* WTCourseTimetableView.h */,
+				E142641F17834E7600847C08 /* WTCourseTimetableView.m */,
+				E142642117834E8B00847C08 /* WTCourseTimetableView.xib */,
 			);
 			name = Course;
 			sourceTree = "<group>";
@@ -3311,7 +3342,7 @@
 				E16E96221733ADC30055DE27 /* WTTicketIcon@2x.png in Resources */,
 				E115FA9F173A3D3C00DE5649 /* WTSearchHintView.xib in Resources */,
 				E115FAA4173A3DFF00DE5649 /* WTSearchHintCell.xib in Resources */,
-				E1157DD8173B7A3300E62295 /* WTCourseInstanceDetailViewController.xib in Resources */,
+				E1157DD8173B7A3300E62295 /* WTCourseBaseDetailViewController.xib in Resources */,
 				E1157DDE173B7CF000E62295 /* WTCommentViewController.xib in Resources */,
 				E1157DE5173CCD4B00E62295 /* WTBannerBottomShadowUnit.png in Resources */,
 				E1157DE6173CCD4B00E62295 /* WTBannerBottomShadowUnit@2x.png in Resources */,
@@ -3424,6 +3455,8 @@
 				E12FB5DC17746D1F0077A17D /* WTShareEventFriendsViewController.xib in Resources */,
 				E179FDD91781F22B00D0B979 /* WTTermOfUseViewController.xib in Resources */,
 				E14264091782154E00847C08 /* WTCourseCell.xib in Resources */,
+				E142641717830D6C00847C08 /* WTCourseHeaderView.xib in Resources */,
+				E142642217834E8C00847C08 /* WTCourseTimetableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3632,6 +3665,11 @@
 				E16B66321782110B0097901E /* User.m in Sources */,
 				E14264071782151800847C08 /* WTCourseCell.m in Sources */,
 				E142640F1782290900847C08 /* CourseInvitationNotification.m in Sources */,
+				E142641217830C2E00847C08 /* WTCourseHeaderView.m in Sources */,
+				E142641517830D5C00847C08 /* WTCourseBaseHeaderView.m in Sources */,
+				E142641A17833C0500847C08 /* WTCourseBaseDetailViewController.m in Sources */,
+				E142641D17834B9100847C08 /* WTCourseDetailViewController.m in Sources */,
+				E142642017834E7800847C08 /* WTCourseTimetableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

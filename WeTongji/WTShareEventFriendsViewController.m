@@ -21,16 +21,20 @@
 
 @property (nonatomic, strong) WTDragToLoadDecorator *dragToLoadDecorator;
 
-@property (nonatomic, weak) Event *event;
+@property (nonatomic, weak) Object *object;
 
 @end
 
 @implementation WTShareEventFriendsViewController
 
-+ (WTShareEventFriendsViewController *)createViewControllerWithEvent:(Event *)event {
++ (WTShareEventFriendsViewController *)createViewControllerWithTargetObject:(Object *)object {
+    if (![object isKindOfClass:[Event class]] && ![object isKindOfClass:[Course class]]) {
+        return nil;
+    }
+    
     WTShareEventFriendsViewController *result = [[WTShareEventFriendsViewController alloc] init];
     
-    result.event = event;
+    result.object = object;
     
     return result;
 }
@@ -73,7 +77,14 @@
         NSArray *friendsArray = resultDict[@"Users"];
         for (NSDictionary *infoDict in friendsArray) {
             User *friend = [User insertUser:infoDict];
-            [self.event addScheduledByObject:friend];
+            if ([self.object isKindOfClass:[Event class]]) {
+                Event *event = (Event *)self.object;
+                [event addScheduledByObject:friend];
+            } else if ([self.object isKindOfClass:[Course class]]) {
+                Course *course = (Course *)self.object;
+                [course addRegisteredByObject:friend];
+            }
+            
             [[WTCoreDataManager sharedManager].currentUser addFriendsObject:friend];
         }
         
@@ -82,30 +93,69 @@
         
         if (failure)
             failure();
+        
+        [WTErrorHandler handleError:error];
     }];
-    if ([self.event isKindOfClass:[Activity class]]) {
-        [request getFriendsWithSameActivity:self.event.identifier];
-    } else if ([self.event isKindOfClass:[CourseInstance class]]) {
-        CourseInstance *courseInstance = (CourseInstance *)self.event;
+    if ([self.object isKindOfClass:[Activity class]]) {
+        [request getFriendsWithSameActivity:self.object.identifier];
+    } else if ([self.object isKindOfClass:[CourseInstance class]]) {
+        CourseInstance *courseInstance = (CourseInstance *)self.object;
         [request getFriendsWithSameCourse:courseInstance.course.identifier];
+    } else if ([self.object isKindOfClass:[Course class]]) {
+        [request getFriendsWithSameCourse:self.object.identifier];
     }
     [[WTClient sharedClient] enqueueRequest:request];
 }
 
 - (void)clearAllData {
-    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
-    BOOL currentUserScheduledThisEvent = [self.event.scheduledBy containsObject:currentUser];
-    [self.event removeScheduledBy:self.event.scheduledBy];
-    if (currentUserScheduledThisEvent)
-        [self.event addScheduledByObject:currentUser];
+    if ([self.object isKindOfClass:[Event class]]) {
+        Event *event = (Event *)self.object;
+        BOOL currentUserScheduledThisEvent = event.scheduledByCurrentUser;
+        [event removeScheduledBy:event.scheduledBy];
+        if (currentUserScheduledThisEvent)
+            event.scheduledByCurrentUser = YES;
+    } else if ([self.object isKindOfClass:[Course class]]) {
+        Course *course = (Course *)self.object;
+        BOOL currentUserRegisteredThisCourse = course.registeredByCurrentUser;
+        [course removeRegisteredBy:course.registeredBy];
+        if (currentUserRegisteredThisCourse)
+            course.registeredByCurrentUser = YES;
+    }
+}
+
+#pragma mark - Logic methods
+
+- (NSString *)targetObjectTitle {
+    NSString *titleString = nil;
+    if ([self.object isKindOfClass:[Event class]]) {
+        Event *event = (Event *)self.object;
+        titleString = event.what;
+    } else if ([self.object isKindOfClass:[Course class]]) {
+        Course *course = (Course *)self.object;
+        titleString = course.courseName;
+    }
+    return titleString;
+}
+
+- (NSNumber *)targetObjectFriendsCount {
+    NSNumber *friendsCount = nil;
+    if ([self.object isKindOfClass:[Event class]]) {
+        Event *event = (Event *)self.object;
+        friendsCount = event.friendsCount;
+    } else if ([self.object isKindOfClass:[Course class]]) {
+        Course *course = (Course *)self.object;
+        friendsCount = course.friendsCount;
+    }
+    return friendsCount;
 }
 
 #pragma mark - UI methods
 
 - (void)configureNavigationBar {
-    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:[NSString friendCountStringConvertFromCountNumber:self.event.friendsCount]];
     
-    self.navigationItem.leftBarButtonItem = [WTResourceFactory createBackBarButtonWithText:self.event.what target:self action:@selector(didClickBackButton:)];
+    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:[NSString friendCountStringConvertFromCountNumber:[self targetObjectFriendsCount]]];
+    
+    self.navigationItem.leftBarButtonItem = [WTResourceFactory createBackBarButtonWithText:[self targetObjectTitle] target:self action:@selector(didClickBackButton:)];
 }
 
 - (void)configureTableView {
@@ -141,7 +191,13 @@
     
     [request setSortDescriptors:@[nameDescriptor]];
     
-    [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@ AND SELF != %@", self.event.scheduledBy, [WTCoreDataManager sharedManager].currentUser]];
+    if ([self.object isKindOfClass:[Event class]]) {
+        Event *event = (Event *)self.object;
+        [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@ AND SELF != %@", event.scheduledBy, [WTCoreDataManager sharedManager].currentUser]];
+    } else if ([self.object isKindOfClass:[Course class]]) {
+        Course *course = (Course *)self.object;
+        [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@ AND SELF != %@", course.registeredBy, [WTCoreDataManager sharedManager].currentUser]];
+    }    
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
@@ -158,7 +214,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     User *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    WTUserDetailViewController *vc = [WTUserDetailViewController createDetailViewControllerWithUser:user backBarButtonText:[NSString friendCountStringConvertFromCountNumber:self.event.friendsCount]];
+    WTUserDetailViewController *vc = [WTUserDetailViewController createDetailViewControllerWithUser:user backBarButtonText:[NSString friendCountStringConvertFromCountNumber:[self targetObjectFriendsCount]]];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -22,6 +22,10 @@
 
 @interface Course (Addition)
 
+@property (nonatomic, assign) BOOL registeredByCurrentUser;
+
+@property (nonatomic, readonly) NSArray *timetableArray;
+
 @property (nonatomic, readonly) NSString *timetableString;
 
 + (Course *)insertCourse:(NSDictionary *)dict;
@@ -31,6 +35,8 @@
 @end
 
 @interface CourseTimetable (Addition)
+
+@property (nonatomic, readonly) NSString *timeString;
 
 + (CourseTimetable *)insertCourseTimetable:(NSDictionary *)dict;
 

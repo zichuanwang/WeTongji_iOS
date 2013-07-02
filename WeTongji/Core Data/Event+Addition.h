@@ -13,7 +13,7 @@
 @property (nonatomic, readonly) NSString *yearMonthDayBeginToEndTimeString;
 @property (nonatomic, readonly) NSString *beginToEndTimeString;
 
-@property (nonatomic, assign) BOOL scheduled;
+@property (nonatomic, assign) BOOL scheduledByCurrentUser;
 
 + (NSArray *)getTodayEvents;
 

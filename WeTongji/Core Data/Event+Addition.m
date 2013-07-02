@@ -76,13 +76,13 @@
     return [NSString timeStringConvertFromBeginDate:self.beginTime endDate:self.endTime];
 }
 
-- (BOOL)scheduled {
+- (BOOL)scheduledByCurrentUser {
     return [[WTCoreDataManager sharedManager].currentUser.scheduledEvents containsObject:self];
 }
 
-- (void)setScheduled:(BOOL)scheduled {
+- (void)setScheduledByCurrentUser:(BOOL)scheduledByCurrentUser {
     User *currentUser = [WTCoreDataManager sharedManager].currentUser;
-    if (scheduled) {
+    if (scheduledByCurrentUser) {
         [currentUser addScheduledEventsObject:self];
     } else {
         [currentUser removeScheduledEventsObject:self];

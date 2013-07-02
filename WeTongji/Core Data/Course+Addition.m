@@ -117,23 +117,51 @@
 
 @implementation Course (Addition)
 
-- (NSString *)timetableString {
-    NSMutableString *result = [NSMutableString string];
+- (BOOL)registeredByCurrentUser {
+    return [[WTCoreDataManager sharedManager].currentUser.registeredCourses containsObject:self];
+}
+
+- (void)setRegisteredByCurrentUser:(BOOL)registeredByCurrentUser {
+    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
+    if (self.registeredByCurrentUser != registeredByCurrentUser) {
+        if (registeredByCurrentUser) {
+            [currentUser addRegisteredCoursesObject:self];
+            // TODO:
+            // 添加课程实例到scheduledEvents
+            [currentUser addScheduledEvents:self.instances];
+        } else {
+            [currentUser removeRegisteredCoursesObject:self];
+            [currentUser removeScheduledEvents:self.instances];
+        }
+    }
+}
+
+- (NSArray *)timetableArray {
     NSArray *timetableArray = [self.timetables sortedArrayUsingDescriptors:@[
                                [NSSortDescriptor sortDescriptorWithKey:@"weekDay" ascending:YES],
                                [NSSortDescriptor sortDescriptorWithKey:@"startSection" ascending:YES]
                                ]];
+    return timetableArray;
+}
+
+- (NSString *)timetableString {
+    NSMutableString *result = [NSMutableString string];
+    NSArray *timetableArray = self.timetableArray;
+    NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    
     for (int i = 0; i < timetableArray.count; i++) {
         if (i != 0) {
             [result appendString:@", "];
         }
         
         CourseTimetable *timetable = timetableArray[i];
-        [result appendFormat:@"%@(%@) %d-%d %@", [NSString weekStringConvertFromInteger:timetable.weekDay.integerValue],
-                                                  timetable.weekType,
-                                              timetable.startSection.integerValue,
-                                              timetable.endSection.integerValue,
-                                              timetable.location];
+        [result appendFormat:@"%@(%@) %d-%d%@ %@",
+         [NSString weekStringConvertFromInteger:timetable.weekDay.integerValue],
+         timetable.weekType,
+         timetable.startSection.integerValue,
+         timetable.endSection.integerValue,
+         [language isEqualToString:@"zh-Hans"] ? @"节" : @"",
+        timetable.location];
     }
     
     return result;
@@ -191,6 +219,15 @@
 @end
 
 @implementation CourseTimetable (Addition)
+
+- (NSString *)timeString {
+    NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    return [NSString stringWithFormat:@"%@ %d-%d%@",
+            [NSString weekStringConvertFromInteger:self.weekDay.integerValue],
+            self.startSection.integerValue,
+            self.endSection.integerValue,
+            [language isEqualToString:@"zh-Hans"] ? @"节" : @""];
+}
 
 + (CourseTimetable *)insertCourseTimetable:(NSDictionary *)dict {
     if (!dict || dict.count == 0)

@@ -165,7 +165,7 @@
 }
 
 - (void)didClickFriendCountButton:(UIButton *)sender {
-    WTShareEventFriendsViewController *vc = [WTShareEventFriendsViewController createViewControllerWithEvent:self.activity];
+    WTShareEventFriendsViewController *vc = [WTShareEventFriendsViewController createViewControllerWithTargetObject:self.activity];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -184,7 +184,7 @@
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Set activitiy scheduled:%d succeeded", participated);
         sender.userInteractionEnabled = YES;
-        self.activity.scheduled = !self.activity.scheduled;
+        self.activity.scheduledByCurrentUser = !self.activity.scheduledByCurrentUser;
         
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Set activitiy scheduled:%d, reason:%@", participated, error.localizedDescription);
