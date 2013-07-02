@@ -62,6 +62,11 @@
 - (void)configureFetchRequest:(NSFetchRequest *)request {
     [super configureFetchRequest:request];
     [request setPredicate:[NSPredicate predicateWithFormat:@"(category in %@) AND (SELF in %@) AND (SELF in %@)", [NSUserDefaults getActivityShowTypesSet], [Controller controllerModelForClass:[self class]].hasObjects, self.org.publishedActivities]];
+    
+    if ([[NSUserDefaults standardUserDefaults] getActivityHidePastProperty]) {
+        [request setPredicate:[NSCompoundPredicate andPredicateWithSubpredicates:@[request.predicate, [NSPredicate predicateWithFormat:@"endTime > %@", [NSDate date]]
+                               ]]];
+    }
 }
 
 - (void)clearOutdatedData {

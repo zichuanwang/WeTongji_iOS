@@ -239,6 +239,11 @@
     [request setSortDescriptors:descriptors];
     
     [request setPredicate:[NSPredicate predicateWithFormat:@"(category in %@) AND (SELF in %@)", [NSUserDefaults getActivityShowTypesSet], [Controller controllerModelForClass:[self class]].hasObjects]];
+    
+    if ([[NSUserDefaults standardUserDefaults] getActivityHidePastProperty]) {
+        [request setPredicate:[NSCompoundPredicate andPredicateWithSubpredicates:@[request.predicate, [NSPredicate predicateWithFormat:@"endTime > %@", [NSDate date]]
+                               ]]];
+    }
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
