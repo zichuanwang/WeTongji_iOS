@@ -145,10 +145,8 @@
 
 #pragma mark - WTSelectFriendsViewControllerDelegate
 
-- (void)selectFriendViewControllerDidDismiss:(WTSelectFriendsViewController *)vc {
-    if (vc.selectedFriendsArray.count == 0) {
-        return;
-    }
+- (void)selectFriendViewController:(WTSelectFriendsViewController *)vc
+                  didSelectFriends:(NSArray *)friendArray {
     
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Course invite success:%@", responseObject);

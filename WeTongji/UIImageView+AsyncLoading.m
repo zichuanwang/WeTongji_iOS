@@ -24,8 +24,6 @@
         self.image = nil;
         return;
     }
-    // WTLOG(@"image URL:%@", imageURLString);
-    //NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:imageURLString] cachePolicy:NSURLRequestReturnCacheDataDontLoad timeoutInterval:60];
     
     if ([NSUserDefaults useTestServer]) {
         NSMutableString *testServerImageURLString = [NSMutableString stringWithString:imageURLString];

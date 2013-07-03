@@ -21,6 +21,11 @@
 
 @protocol WTSelectFriendsViewControllerDelegate <NSObject>
 
-- (void)selectFriendViewControllerDidDismiss:(WTSelectFriendsViewController *)vc;
+- (void)selectFriendViewController:(WTSelectFriendsViewController *)vc
+                  didSelectFriends:(NSArray *)friendArray;
+
+@optional
+
+- (void)selectFriendViewControllerDidCancel:(WTSelectFriendsViewController *)vc;
 
 @end

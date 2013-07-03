@@ -79,13 +79,6 @@
     self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Invite Friends", nil)];
 }
 
-- (void)dismissView {
-    UIViewController *rootVC = [UIApplication sharedApplication].rootTabBarController;
-    [rootVC dismissViewControllerAnimated:YES completion:^{
-        [self.delegate selectFriendViewControllerDidDismiss:self];
-    }];
-}
-
 - (void)updateFinishSelectButton {
     if (self.selectedFriendsArray.count > 0) {
         self.finishSelectButton.alpha = 1.0f;
@@ -101,11 +94,17 @@
 #pragma mark - Actions
 
 - (void)didClickFinishSelectButton:(UIButton *)sender {
-    [self dismissView];
+    UIViewController *rootVC = [UIApplication sharedApplication].rootTabBarController;
+    [rootVC dismissViewControllerAnimated:YES completion:^{
+        [self.delegate selectFriendViewController:self didSelectFriends:self.selectedFriendsArray];
+    }];
 }
 
 - (void)didClickCancelButton:(UIButton *)sender {
-    [self dismissView];
+    UIViewController *rootVC = [UIApplication sharedApplication].rootTabBarController;
+    [rootVC dismissViewControllerAnimated:YES completion:^{
+        [self.delegate selectFriendViewControllerDidCancel:self];
+    }];
 }
 
 #pragma mark - CoreDataTableViewController methods

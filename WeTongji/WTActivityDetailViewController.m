@@ -231,10 +231,8 @@
 
 #pragma mark - WTSelectFriendsViewControllerDelegate
 
-- (void)selectFriendViewControllerDidDismiss:(WTSelectFriendsViewController *)vc {
-    if (vc.selectedFriendsArray.count == 0) {
-        return;
-    }
+- (void)selectFriendViewController:(WTSelectFriendsViewController *)vc
+                  didSelectFriends:(NSArray *)friendArray {
     
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Activity invite success:%@", responseObject);
@@ -245,7 +243,7 @@
         [self configureInviteButton];
     }];
     NSMutableArray *userIDArray = [NSMutableArray array];
-    for (User *user in vc.selectedFriendsArray) {
+    for (User *user in friendArray) {
         [userIDArray addObject:user.identifier];
     }
     [request activityInvite:self.activity.identifier inviteUserIDArray:userIDArray];
