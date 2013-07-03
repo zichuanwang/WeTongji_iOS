@@ -11,7 +11,7 @@
 #import "WTCoreDataManager.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
 
-@interface WTMeSettingViewController ()
+@interface WTMeSettingViewController () <UIScrollViewDelegate, UITextFieldDelegate>
 
 @end
 
@@ -45,6 +45,20 @@
 - (void)didClickLogoutButton:(UIButton *)sender {
     [[WTClient sharedClient] logout];
     [WTCoreDataManager sharedManager].currentUser = nil;
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [super scrollViewDidScroll:scrollView];
+    [self.view endEditing:YES];
+}
+
+#pragma mark - UITextFiledDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    return YES;
 }
 
 @end

@@ -24,7 +24,7 @@
 
 @end
 
-@interface WTInnerSettingViewController : WTInnerModalViewController
+@interface WTInnerSettingViewController : WTInnerModalViewController <UIScrollViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
