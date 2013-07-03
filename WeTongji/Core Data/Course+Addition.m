@@ -141,6 +141,9 @@
                                [NSSortDescriptor sortDescriptorWithKey:@"weekDay" ascending:YES],
                                [NSSortDescriptor sortDescriptorWithKey:@"startSection" ascending:YES]
                                ]];
+    [timetableArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        WTLOG(@"%d", ((CourseTimetable *)obj).weekDay.integerValue);
+    }];
     return timetableArray;
 }
 
@@ -247,19 +250,19 @@
 
 - (void)configureWeekDayWithString:(NSString *)weekDayString {
     if ([weekDayString isEqualToString:@"星期一"]) {
-        self.weekDay = @(1);
-    } else if ([weekDayString isEqualToString:@"星期二"]) {
         self.weekDay = @(2);
-    } else if ([weekDayString isEqualToString:@"星期三"]) {
+    } else if ([weekDayString isEqualToString:@"星期二"]) {
         self.weekDay = @(3);
-    } else if ([weekDayString isEqualToString:@"星期四"]) {
+    } else if ([weekDayString isEqualToString:@"星期三"]) {
         self.weekDay = @(4);
-    } else if ([weekDayString isEqualToString:@"星期五"]) {
+    } else if ([weekDayString isEqualToString:@"星期四"]) {
         self.weekDay = @(5);
-    } else if ([weekDayString isEqualToString:@"星期六"]) {
+    } else if ([weekDayString isEqualToString:@"星期五"]) {
         self.weekDay = @(6);
-    } else if ([weekDayString isEqualToString:@"星期日"]) {
+    } else if ([weekDayString isEqualToString:@"星期六"]) {
         self.weekDay = @(7);
+    } else if ([weekDayString isEqualToString:@"星期日"]) {
+        self.weekDay = @(1);
     }
 }
 
