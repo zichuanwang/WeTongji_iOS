@@ -32,6 +32,7 @@
     [self configureNavigationBar];
     [self configureInfoPanel];
     
+    
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
     
     [self.accountTextField becomeFirstResponder];

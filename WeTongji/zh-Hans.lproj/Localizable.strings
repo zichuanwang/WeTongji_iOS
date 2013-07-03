@@ -201,3 +201,6 @@
 "Provide your Student No. and Name to reset your WeTongji password" = "提供您的学号与姓名来重置您的微同济密码";
 "I see" = "好";
 "Success" = "成功";
+"WeTongji currently support undergraduate and postgraduate users. To activate your WeTongji account, you need to register your @tongji.edu.cn email account first. By providing your Student No. and Name, a verification email will be sent to your Tongji email account upon activation." = " 微同济当前支持本科生和研究生用户使用。要激活您的微同济帐号，您需要首先注册@tongji.edu.cn邮箱。在校验过您的学号与姓名一致后，一封微同济帐号激活确认信会被发送到您的同济邮箱中。";
+"A verification email has been sent to" = "一封激活确认邮件已经发送到";
+"The passwords you entered do not match. Please re-enter your passwords." = "输入的密码不一致。请重新输入密码。";
