@@ -7,10 +7,13 @@
 */
 "Student No." = "学号";
 "Password" = "密码";
+"Repeat Password" = "重复密码";
 "Not now" = "暂不注册";
 "Forgot?" = "忘记密码";
+"Name" = "姓名";
 "Log In / Sign Up" = "登录 / 注册";
 "Sign Up" = "注册新用户";
+"Reset Password" = "重置密码";
 
 "See All Featured" = "全部推荐";
 "Featured" = "推荐";
@@ -189,3 +192,12 @@
 "By tapping Activate you are indicating that you have read and agree to Term of Use" = "点击激活按钮则表明您已阅读并同意\n微同济 使用条款";
 "Activation" = "激活";
 "Activate" = "激活";
+
+"Error" = "错误";
+"Please enter your Student No." = "请输入您的学号";
+"Please enter your Password" = "请输入您的密码";
+"Please enter your Name" = "请输入您的姓名";
+"A reset-password email has been sent to" = "一封重置密码的邮件已经发送到";
+"Provide your Student No. and Name to reset your WeTongji password" = "提供您的学号与姓名来重置您的微同济密码";
+"I see" = "好";
+"Success" = "成功";

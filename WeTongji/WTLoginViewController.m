@@ -14,7 +14,8 @@
 #import "User+Addition.h"
 #import "WTCoreDataManager.h"
 #import "WTLoginIntroViewController.h"
-#import "WTRegisterInfoViewController.h"
+#import "WTActivationViewController.h"
+#import "WTForgetPasswordViewController.h"
 
 @interface WTLoginViewController ()
 
@@ -94,6 +95,7 @@
     self.passwordTextField.placeholder = NSLocalizedString(@"Password", nil);
     
     [self.loginPanelContainerView addSubview:self.forgetPasswordButton];
+    [self.forgetPasswordButton addTarget:self action:@selector(didClickForgetPasswordButton:) forControlEvents:UIControlEventTouchUpInside];
     
     if (!self.showIntro)
         [self.accountTextField becomeFirstResponder];
@@ -145,6 +147,11 @@
 
 #pragma mark - Actions
 
+- (void)didClickForgetPasswordButton:(UIButton *)sender {
+    WTForgetPasswordViewController *vc = [[WTForgetPasswordViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (void)didClickCancelButton:(UIButton *)sender {
     [self dismissView];
 }
@@ -169,7 +176,7 @@
 }
 
 - (IBAction)didClickSignUpButton:(UIButton *)sender {
-    WTRegisterInfoViewController *vc = [[WTRegisterInfoViewController alloc] init];
+    WTActivationViewController *vc = [[WTActivationViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

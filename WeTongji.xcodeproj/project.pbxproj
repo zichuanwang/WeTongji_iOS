@@ -308,6 +308,10 @@
 		E1528D6B16C5533C00BD2B42 /* WTNewsSettingConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1528D6A16C5533C00BD2B42 /* WTNewsSettingConfig.plist */; };
 		E1528D6E16C5608E00BD2B42 /* WTNewsSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1528D6D16C5608E00BD2B42 /* WTNewsSettingViewController.m */; };
 		E1528D7116C561C100BD2B42 /* WTInnerSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1528D7016C561C100BD2B42 /* WTInnerSettingViewController.m */; };
+		E15B4690178494BC00CE55F1 /* WTActivationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E15B468E178494BC00CE55F1 /* WTActivationViewController.m */; };
+		E15B4691178494BC00CE55F1 /* WTActivationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15B468F178494BC00CE55F1 /* WTActivationViewController.xib */; };
+		E15B46951784AE4C00CE55F1 /* WTForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E15B46931784AE4B00CE55F1 /* WTForgetPasswordViewController.m */; };
+		E15B46961784AE4C00CE55F1 /* WTForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15B46941784AE4B00CE55F1 /* WTForgetPasswordViewController.xib */; };
 		E15BBF241717D5F40021CCCD /* WTRoundCornerPanelCuppedBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E15BBF221717D5F40021CCCD /* WTRoundCornerPanelCuppedBg.png */; };
 		E15BBF251717D5F40021CCCD /* WTRoundCornerPanelCuppedBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E15BBF231717D5F40021CCCD /* WTRoundCornerPanelCuppedBg@2x.png */; };
 		E15C3D1A16C37B3200A91AAF /* WTConfigLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = E15C3D1916C37B3200A91AAF /* WTConfigLoader.m */; };
@@ -1056,6 +1060,12 @@
 		E1528D6D16C5608E00BD2B42 /* WTNewsSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNewsSettingViewController.m; sourceTree = "<group>"; };
 		E1528D6F16C561C100BD2B42 /* WTInnerSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTInnerSettingViewController.h; sourceTree = "<group>"; };
 		E1528D7016C561C100BD2B42 /* WTInnerSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTInnerSettingViewController.m; sourceTree = "<group>"; };
+		E15B468D178494BC00CE55F1 /* WTActivationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTActivationViewController.h; sourceTree = "<group>"; };
+		E15B468E178494BC00CE55F1 /* WTActivationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTActivationViewController.m; sourceTree = "<group>"; };
+		E15B468F178494BC00CE55F1 /* WTActivationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTActivationViewController.xib; sourceTree = "<group>"; };
+		E15B46921784AE4A00CE55F1 /* WTForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTForgetPasswordViewController.h; sourceTree = "<group>"; };
+		E15B46931784AE4B00CE55F1 /* WTForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTForgetPasswordViewController.m; sourceTree = "<group>"; };
+		E15B46941784AE4B00CE55F1 /* WTForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTForgetPasswordViewController.xib; sourceTree = "<group>"; };
 		E15BBF221717D5F40021CCCD /* WTRoundCornerPanelCuppedBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTRoundCornerPanelCuppedBg.png; sourceTree = "<group>"; };
 		E15BBF231717D5F40021CCCD /* WTRoundCornerPanelCuppedBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTRoundCornerPanelCuppedBg@2x.png"; sourceTree = "<group>"; };
 		E15C3D1816C37B3200A91AAF /* WTConfigLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTConfigLoader.h; sourceTree = "<group>"; };
@@ -2503,6 +2513,12 @@
 				E179FDD51781F22A00D0B979 /* WTTermOfUseViewController.h */,
 				E179FDD61781F22A00D0B979 /* WTTermOfUseViewController.m */,
 				E179FDD71781F22A00D0B979 /* WTTermOfUseViewController.xib */,
+				E15B468D178494BC00CE55F1 /* WTActivationViewController.h */,
+				E15B468E178494BC00CE55F1 /* WTActivationViewController.m */,
+				E15B468F178494BC00CE55F1 /* WTActivationViewController.xib */,
+				E15B46921784AE4A00CE55F1 /* WTForgetPasswordViewController.h */,
+				E15B46931784AE4B00CE55F1 /* WTForgetPasswordViewController.m */,
+				E15B46941784AE4B00CE55F1 /* WTForgetPasswordViewController.xib */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -3457,6 +3473,8 @@
 				E14264091782154E00847C08 /* WTCourseCell.xib in Resources */,
 				E142641717830D6C00847C08 /* WTCourseHeaderView.xib in Resources */,
 				E142642217834E8C00847C08 /* WTCourseTimetableView.xib in Resources */,
+				E15B4691178494BC00CE55F1 /* WTActivationViewController.xib in Resources */,
+				E15B46961784AE4C00CE55F1 /* WTForgetPasswordViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3670,6 +3688,8 @@
 				E142641A17833C0500847C08 /* WTCourseBaseDetailViewController.m in Sources */,
 				E142641D17834B9100847C08 /* WTCourseDetailViewController.m in Sources */,
 				E142642017834E7800847C08 /* WTCourseTimetableView.m in Sources */,
+				E15B4690178494BC00CE55F1 /* WTActivationViewController.m in Sources */,
+				E15B46951784AE4C00CE55F1 /* WTForgetPasswordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
