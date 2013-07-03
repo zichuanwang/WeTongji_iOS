@@ -30,6 +30,8 @@
 
 @property (nonatomic, weak) id<WTInnerSettingViewControllerDelegate> delegate;
 
+@property (nonatomic, readonly) NSMutableArray *innerSettingItems;
+
 - (NSArray *)loadSettingConfig;
 
 - (void)settingItemDidModify;
