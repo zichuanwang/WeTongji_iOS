@@ -235,13 +235,13 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (textField == self.nameTextField) {
         [self.passwordTextField becomeFirstResponder];
+        [self adjustScrollViewContentOffset];
     } else if (textField == self.passwordTextField) {
         [self.repeatPasswordTextField becomeFirstResponder];
+        [self adjustScrollViewContentOffset];
     } else if (textField == self.repeatPasswordTextField) {
         [self didClickActivateButton:nil];
     }
-    
-    [self adjustScrollViewContentOffset];
     
     return NO;
 }
