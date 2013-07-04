@@ -99,7 +99,8 @@
         [WTErrorHandler handleError:error];
     }];
     
-    [request getCoursesRegisteredByUser:self.user.identifier
+    BOOL isCurrentUser = [WTCoreDataManager sharedManager].currentUser == self.user;
+    [request getCoursesRegisteredByUser:isCurrentUser ? nil : self.user.identifier
                               beginDate:[semesterBeginTime convertToDate]
                                 endDate:[NSDate dateWithTimeInterval:60 * 60 * 24 * 7 * 19 sinceDate:[semesterBeginTime convertToDate]]];
     
