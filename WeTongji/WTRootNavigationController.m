@@ -129,11 +129,11 @@
                 sourceViewController:(UIViewController<WTRootNavigationControllerDelegate> *)sourceController
                    disableNavBarType:(WTDisableNavBarType)type {
     
-    WTRootTabBarController *tabBarVC = [UIApplication sharedApplication].rootTabBarController;
-    [tabBarVC hideTabBar];
-    
     [self.screenShootContainerView resetOriginY:innerController.view.frame.size.height - 41.0f];
     [innerController.view addSubview:self.screenShootContainerView];
+    
+    WTRootTabBarController *tabBarVC = [UIApplication sharedApplication].rootTabBarController;
+    [tabBarVC hideTabBar];
     
     [innerController.view resetOriginY:-innerController.view.frame.size.height + 41.0f];
     [self.topViewController.view addSubview:innerController.view];
@@ -147,7 +147,7 @@
     
     self.view.userInteractionEnabled = NO;
     
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.3f animations:^{
         [innerController.view resetOriginY:0];
     } completion:^(BOOL finished) {
         self.view.userInteractionEnabled = YES;
@@ -161,7 +161,7 @@
     if ([self.innerModalViewController respondsToSelector:@selector(willHideInnderModalViewController)])
         [self.innerModalViewController willHideInnderModalViewController];
     
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.3f animations:^{
         [self.innerModalViewController.view resetOriginY:-self.innerModalViewController.view.frame.size.height + 41.0f];
     } completion:^(BOOL finished) {
         self.view.userInteractionEnabled = YES;
