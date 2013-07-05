@@ -51,6 +51,10 @@
     [self.view addSubview:self.tableViewController.view];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [self.tableViewController viewDidAppear:animated];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [self.tableViewController.view resetHeight:self.view.frame.size.height - 41.0f];
     [NSNotificationCenter postUserDidCheckNotificationsNotification];

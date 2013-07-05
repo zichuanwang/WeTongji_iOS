@@ -13,7 +13,7 @@
 #import "WTNotificationBarButton.h"
 #import "WTInnerModalViewController.h"
 
-@interface WTRootNavigationController ()
+@interface WTRootNavigationController () <UINavigationControllerDelegate>
 
 @property (nonatomic, strong) WTInnerModalViewController *innerModalViewController;
 @property (nonatomic, strong) UIViewController<WTRootNavigationControllerDelegate> *sourceViewController;
@@ -232,6 +232,18 @@
 
 - (void)didSwipeUpScreenShootImageView:(UIGestureRecognizer *)gestureRecognizer {
     [self hideInnerModalViewController];
+}
+
+#pragma mark - Overwrite methods
+
+- (UIViewController *)popViewControllerAnimated:(BOOL)animated {
+    if (self.sourceViewController && self.viewControllers.count > 1) {
+        UIViewController *topViewController = self.viewControllers[self.viewControllers.count - 2];
+        if (self.sourceViewController == topViewController) {
+            [self.innerModalViewController viewDidAppear:YES];
+        }
+    }
+    return [super popViewControllerAnimated:animated];
 }
 
 @end
