@@ -10,8 +10,9 @@
 #import "WTInnerNotificationTableViewController.h"
 #import "Notification+Addition.h"
 #import "NSNotificationCenter+WTAddition.h"
+#import "UIApplication+WTAddition.h"
 
-@interface WTInnerNotificationViewController ()
+@interface WTInnerNotificationViewController () <WTInnerNotificationTableViewControllerDelegate>
 
 @property (nonatomic, strong) NSTimer *loadUnreadNotificationsTimer;
 
@@ -108,8 +109,17 @@
 - (WTInnerNotificationTableViewController *)tableViewController {
     if (!_tableViewController) {
         _tableViewController = [[WTInnerNotificationTableViewController alloc] init];
+        _tableViewController.delegate = self;
     }
     return _tableViewController;
+}
+
+#pragma mark - WTInnerNotificationTableViewControllerDelegate
+
+- (void)innerNotificaionTableViewController:(WTInnerNotificationTableViewController *)vc
+                   wantToPushViewController:(UIViewController *)pushVc {
+    UINavigationController *nav = (UINavigationController *)[UIApplication sharedApplication].rootTabBarController.selectedViewController;
+    [nav pushViewController:pushVc animated:YES];
 }
 
 @end

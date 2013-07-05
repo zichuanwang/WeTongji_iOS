@@ -17,6 +17,7 @@
 #import "NSNotificationCenter+WTAddition.h"
 #import "ActivityInvitationNotification.h"
 #import "Object+Addition.h"
+#import "WTActivityDetailViewController.h"
 
 @interface WTInnerNotificationTableViewController () <WTWaterflowDecoratorDataSource, WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
@@ -131,8 +132,13 @@
     return [notification cellHeight];
 }
 
-- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView bringSubviewToFront:cell];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSNotification *notification = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    if ([notification isKindOfClass:[ActivityInvitationNotification class]]) {
+        ActivityInvitationNotification *activityInvitation = (ActivityInvitationNotification *)notification;
+        WTActivityDetailViewController *vc = [WTActivityDetailViewController createDetailViewControllerWithActivity:activityInvitation.activity backBarButtonText:NSLocalizedString(@"Notification", nil)];
+        [self.delegate innerNotificaionTableViewController:self wantToPushViewController:vc];
+    }
 }
 
 #pragma mark - Properties

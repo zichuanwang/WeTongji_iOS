@@ -10,6 +10,17 @@
 #import "WTCoreDataTableViewController.h"
 #import "WTNotificationCell.h"
 
+@protocol WTInnerNotificationTableViewControllerDelegate;
+
 @interface WTInnerNotificationTableViewController : WTCoreDataTableViewController <WTNotificationCellDelegate>
+
+@property (nonatomic, weak) id<WTInnerNotificationTableViewControllerDelegate> delegate;
+
+@end
+
+@protocol WTInnerNotificationTableViewControllerDelegate <NSObject>
+
+- (void)innerNotificaionTableViewController:(WTInnerNotificationTableViewController *)vc
+                   wantToPushViewController:(UIViewController *)pushVc;
 
 @end
