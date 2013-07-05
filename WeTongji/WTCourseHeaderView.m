@@ -43,8 +43,7 @@
 #pragma mark - UI methods
 
 - (void)configureSemesterLabel {
-    // TODO:
-    // self.semesterLabel.text = @"";
+    self.semesterLabel.text = self.course.yearSemesterString;
 }
 
 @end

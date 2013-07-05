@@ -2,7 +2,7 @@
 //  Course.m
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-7-2.
+//  Created by 王 紫川 on 13-7-5.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -23,6 +23,9 @@
 @dynamic isAudit;
 @dynamic required;
 @dynamic teacher;
+@dynamic year;
+@dynamic semester;
+@dynamic yearSemesterString;
 @dynamic instances;
 @dynamic registeredBy;
 @dynamic relatedCourseInvitations;

@@ -347,7 +347,6 @@
 		E16ABDC31767BE3900ED0CE9 /* WTSilverStarIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16ABDC11767BE3900ED0CE9 /* WTSilverStarIcon@2x.png */; };
 		E16B661A17820D3E0097901E /* WeTongji.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E16B661817820D3E0097901E /* WeTongji.xcdatamodeld */; };
 		E16B662017820D8D0097901E /* CourseInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = E16B661F17820D8C0097901E /* CourseInstance.m */; };
-		E16B662617820D8E0097901E /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = E16B662517820D8E0097901E /* Course.m */; };
 		E16B662917820D9D0097901E /* Exam.m in Sources */ = {isa = PBXBuildFile; fileRef = E16B662817820D9D0097901E /* Exam.m */; };
 		E16B66321782110B0097901E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E16B66311782110B0097901E /* User.m */; };
 		E16D5DCA174619A900740D79 /* Advertisement+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E16D5DC9174619A900740D79 /* Advertisement+Addition.m */; };
@@ -430,6 +429,7 @@
 		E17AE8E2171EE5CD0026B644 /* WTBillboardPostImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17AE8E0171EE5CD0026B644 /* WTBillboardPostImageViewController.xib */; };
 		E17AE8E8171EEAB60026B644 /* WTDetailImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17AE8E6171EEAB60026B644 /* WTDetailImageViewController.m */; };
 		E17AE8E9171EEAB60026B644 /* WTDetailImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17AE8E7171EEAB60026B644 /* WTDetailImageViewController.xib */; };
+		E17BEB91178713260003D58B /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = E17BEB90178713260003D58B /* Course.m */; };
 		E17C664A1716C14400B91B25 /* WTNewPostNormalIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C66461716C14400B91B25 /* WTNewPostNormalIcon.png */; };
 		E17C664B1716C14400B91B25 /* WTNewPostNormalIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C66471716C14400B91B25 /* WTNewPostNormalIcon@2x.png */; };
 		E17C664C1716C14400B91B25 /* WTNewPostSelectIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C66481716C14400B91B25 /* WTNewPostSelectIcon.png */; };
@@ -1115,8 +1115,6 @@
 		E16B661917820D3E0097901E /* WeTongji.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeTongji.xcdatamodel; sourceTree = "<group>"; };
 		E16B661E17820D8C0097901E /* CourseInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseInstance.h; sourceTree = "<group>"; };
 		E16B661F17820D8C0097901E /* CourseInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseInstance.m; sourceTree = "<group>"; };
-		E16B662417820D8D0097901E /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
-		E16B662517820D8E0097901E /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		E16B662717820D9D0097901E /* Exam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exam.h; sourceTree = "<group>"; };
 		E16B662817820D9D0097901E /* Exam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exam.m; sourceTree = "<group>"; };
 		E16B66301782110A0097901E /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -1223,6 +1221,8 @@
 		E17AE8E5171EEAB60026B644 /* WTDetailImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTDetailImageViewController.h; sourceTree = "<group>"; };
 		E17AE8E6171EEAB60026B644 /* WTDetailImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTDetailImageViewController.m; sourceTree = "<group>"; };
 		E17AE8E7171EEAB60026B644 /* WTDetailImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTDetailImageViewController.xib; sourceTree = "<group>"; };
+		E17BEB8F178713260003D58B /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		E17BEB90178713260003D58B /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		E17C66461716C14400B91B25 /* WTNewPostNormalIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNewPostNormalIcon.png; sourceTree = "<group>"; };
 		E17C66471716C14400B91B25 /* WTNewPostNormalIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNewPostNormalIcon@2x.png"; sourceTree = "<group>"; };
 		E17C66481716C14400B91B25 /* WTNewPostSelectIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNewPostSelectIcon.png; sourceTree = "<group>"; };
@@ -2879,8 +2879,6 @@
 				E10E23381757366500DCF724 /* CommentableObject.m */,
 				E10E233D1757366500DCF724 /* Controller.h */,
 				E10E233E1757366500DCF724 /* Controller.m */,
-				E16B662417820D8D0097901E /* Course.h */,
-				E16B662517820D8E0097901E /* Course.m */,
 				E16B661E17820D8C0097901E /* CourseInstance.h */,
 				E16B661F17820D8C0097901E /* CourseInstance.m */,
 				E1FAB9451769CECD00F7204F /* CourseTimetable.h */,
@@ -2909,6 +2907,8 @@
 				E1FAB93717694A8600F7204F /* Star.m */,
 				E142640D1782290900847C08 /* CourseInvitationNotification.h */,
 				E142640E1782290900847C08 /* CourseInvitationNotification.m */,
+				E17BEB8F178713260003D58B /* Course.h */,
+				E17BEB90178713260003D58B /* Course.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3678,7 +3678,6 @@
 				E1F5F39B178208F900D2EC81 /* WTScheduledActivityViewController.m in Sources */,
 				E16B661A17820D3E0097901E /* WeTongji.xcdatamodeld in Sources */,
 				E16B662017820D8D0097901E /* CourseInstance.m in Sources */,
-				E16B662617820D8E0097901E /* Course.m in Sources */,
 				E16B662917820D9D0097901E /* Exam.m in Sources */,
 				E16B66321782110B0097901E /* User.m in Sources */,
 				E14264071782151800847C08 /* WTCourseCell.m in Sources */,
@@ -3690,6 +3689,7 @@
 				E142642017834E7800847C08 /* WTCourseTimetableView.m in Sources */,
 				E15B4690178494BC00CE55F1 /* WTActivationViewController.m in Sources */,
 				E15B46951784AE4C00CE55F1 /* WTForgetPasswordViewController.m in Sources */,
+				E17BEB91178713260003D58B /* Course.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

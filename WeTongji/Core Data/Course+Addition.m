@@ -193,6 +193,11 @@
     result.courseName = [NSString stringWithFormat:@"%@", dict[@"Name"]];
     result.friendsCount = @([[NSString stringWithFormat:@"%@", dict[@"FriendsCount"]] integerValue]);
     
+    result.year = @([[courseID substringToIndex:2] integerValue]);
+    result.semester = @([[courseID substringWithRange:NSMakeRange(2, 2)] integerValue]);
+    WTLOG(@"year:%d, semester:%d", result.year.integerValue, result.semester.integerValue);
+    [result generateYearSemesterString];
+    
     for (NSManagedObject *timetable in result.timetables) {
         [[WTCoreDataManager sharedManager].managedObjectContext deleteObject:timetable];
     }
@@ -214,6 +219,23 @@
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     NSArray *matches = [context executeFetchRequest:request error:nil];
     return [matches lastObject];
+}
+
+- (void)generateYearSemesterString {
+    NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    BOOL isInFirstHalfYear = (self.semester.integerValue == 1);
+    NSInteger beginYear = isInFirstHalfYear ? self.year.integerValue - 1 : self.year.integerValue;
+    NSInteger endYear = beginYear + 1;
+    if ([language isEqualToString:@"zh-Hans"]) {
+        self.yearSemesterString = [NSString stringWithFormat:@"20%d年 - 20%d年 第%@学期", beginYear, endYear, isInFirstHalfYear ? @"二" : @"一"];
+    } else {
+        self.yearSemesterString = [NSString stringWithFormat:@"20%d - 20%d Semester %d", beginYear, endYear, isInFirstHalfYear ? 2 : 1];
+    }
+}
+
+- (void)awakeFromFetch {
+    [super awakeFromFetch];
+    [self generateYearSemesterString];
 }
 
 @end

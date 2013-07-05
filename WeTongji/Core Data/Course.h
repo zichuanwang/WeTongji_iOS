@@ -2,7 +2,7 @@
 //  Course.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-7-2.
+//  Created by 王 紫川 on 13-7-5.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -22,6 +22,9 @@
 @property (nonatomic, retain) NSNumber * isAudit;
 @property (nonatomic, retain) NSString * required;
 @property (nonatomic, retain) NSString * teacher;
+@property (nonatomic, retain) NSNumber * year;
+@property (nonatomic, retain) NSNumber * semester;
+@property (nonatomic, retain) NSString * yearSemesterString;
 @property (nonatomic, retain) NSSet *instances;
 @property (nonatomic, retain) NSSet *registeredBy;
 @property (nonatomic, retain) NSSet *relatedCourseInvitations;

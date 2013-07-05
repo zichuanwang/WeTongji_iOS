@@ -109,7 +109,8 @@
     BOOL isCurrentUser = [WTCoreDataManager sharedManager].currentUser == self.user;
     [request getCoursesRegisteredByUser:isCurrentUser ? nil : self.user.identifier
                               beginDate:[semesterBeginTime convertToDate]
-                                endDate:[NSDate dateWithTimeInterval:60 * 60 * 24 * 7 * 19 sinceDate:[semesterBeginTime convertToDate]]];
+                                endDate:[NSDate dateWithTimeInterval:60 * 60 * 24 * 7 * 19
+                                                           sinceDate:[semesterBeginTime convertToDate]]];
     
     [[WTClient sharedClient] enqueueRequest:request];
 }
@@ -132,6 +133,8 @@
     self.tableView.alwaysBounceVertical = YES;
     
     self.tableView.scrollsToTop = NO;
+    
+    _noAnimationFlag = YES;
 }
 
 #pragma mark - Actions
@@ -153,15 +156,21 @@
 - (void)configureFetchRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"Course" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
+    NSSortDescriptor *yearDescriptor = [[NSSortDescriptor alloc] initWithKey:@"year" ascending:NO];
+    NSSortDescriptor *semesterDescriptor = [[NSSortDescriptor alloc] initWithKey:@"semester" ascending:NO];
     NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"courseName" ascending:YES];
     
-    [request setSortDescriptors:@[nameDescriptor]];
+    [request setSortDescriptors:@[yearDescriptor, semesterDescriptor, nameDescriptor]];
     
     [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@", self.user.registeredCourses]];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
     return @"WTCourseCell";
+}
+
+- (NSString *)customSectionNameKeyPath {
+    return @"yearSemesterString";
 }
 
 - (void)fetchedResultsControllerDidPerformFetch {
@@ -171,6 +180,25 @@
 }
 
 #pragma mark - UITableViewDelegate
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTTableViewSectionBg"]];
+    CGFloat sectionHeaderHeight = bgImageView.frame.size.height;
+    
+    NSString *sectionName = [self.fetchedResultsController.sections[section] name];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 0, tableView.bounds.size.width - 20.0f, sectionHeaderHeight)];
+    label.text = sectionName;
+    label.font = [UIFont boldSystemFontOfSize:12.0f];
+    label.textColor = WTSectionHeaderViewGrayColor;
+    label.backgroundColor = [UIColor clearColor];
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 24.0f)];
+    headerView.backgroundColor = [UIColor clearColor];
+    [headerView addSubview:bgImageView];
+    [headerView addSubview:label];
+    
+    return headerView;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [[tableView cellForRowAtIndexPath:indexPath] setSelected:YES animated:YES];

@@ -47,7 +47,10 @@
         <attribute name="hours" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="isAudit" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="required" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="semester" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="teacher" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="yearSemesterString" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
         <relationship name="instances" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CourseInstance" inverseName="course" inverseEntity="CourseInstance" syncable="YES"/>
         <relationship name="registeredBy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="registeredCourses" inverseEntity="User" syncable="YES"/>
         <relationship name="relatedCourseInvitations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CourseInvitationNotification" inverseName="course" inverseEntity="CourseInvitationNotification" syncable="YES"/>
@@ -182,7 +185,7 @@
         <element name="Comment" positionX="160" positionY="192" width="128" height="105"/>
         <element name="CommentableObject" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Controller" positionX="43" positionY="96" width="128" height="75"/>
-        <element name="Course" positionX="160" positionY="192" width="128" height="225"/>
+        <element name="Course" positionX="160" positionY="192" width="128" height="270"/>
         <element name="CourseInstance" positionX="43" positionY="225" width="128" height="60"/>
         <element name="CourseInvitationNotification" positionX="160" positionY="192" width="128" height="60"/>
         <element name="CourseTimetable" positionX="160" positionY="192" width="128" height="135"/>
