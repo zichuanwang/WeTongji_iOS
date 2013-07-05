@@ -215,9 +215,15 @@
     for(Notification *item in allNotifications) {
         WTLOG(@"Clear notification:%@", item.sendTime);
         if ([item isKindOfClass:[ActivityInvitationNotification class]]) {
-            [((ActivityInvitationNotification *)item).activity setObjectFreeFromHolder:[Notification class]];
+            ActivityInvitationNotification *activityInvitation = (ActivityInvitationNotification *)item;
+            [activityInvitation.activity removeRelatedActivityInvitationsObject:activityInvitation];
+            if (activityInvitation.activity.relatedActivityInvitations.count == 0)
+                [activityInvitation.activity setObjectFreeFromHolder:[Notification class]];
         } else if ([item isKindOfClass:[CourseInvitationNotification class]]) {
-            [((CourseInvitationNotification *)item).course setObjectFreeFromHolder:[Notification class]];
+            CourseInvitationNotification *courseInvitation = (CourseInvitationNotification *)item;
+            [courseInvitation.course removeRelatedCourseInvitationsObject:courseInvitation];
+            if (courseInvitation.course.relatedCourseInvitations.count == 0)
+                [courseInvitation.course setObjectFreeFromHolder:[Notification class]];
         }
         item.owner = nil;
         [context deleteObject:item];
