@@ -90,6 +90,13 @@
         if (success)
             success();
         
+        NSDictionary *responseDict = (NSDictionary *)responseData;
+        NSArray *courseInfoArray = responseDict[@"Courses"];
+        for (NSDictionary *courseInfo in courseInfoArray) {
+            Course *course = [Course insertCourse:courseInfo];
+            [self.user addRegisteredCoursesObject:course];
+        }
+        
     } failureBlock:^(NSError * error) {
         WTLOGERROR(@"Get Courses:%@", error.localizedDescription);
         

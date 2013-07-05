@@ -103,7 +103,8 @@
 - (void)didClickCancelButton:(UIButton *)sender {
     UIViewController *rootVC = [UIApplication sharedApplication].rootTabBarController;
     [rootVC dismissViewControllerAnimated:YES completion:^{
-        [self.delegate selectFriendViewControllerDidCancel:self];
+        if ([self.delegate respondsToSelector:@selector(selectFriendViewControllerDidCancel:)])
+            [self.delegate selectFriendViewControllerDidCancel:self];
     }];
 }
 

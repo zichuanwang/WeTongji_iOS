@@ -96,14 +96,11 @@
             [self.dragToLoadDecorator setBottomViewDisabled:NO];
         }
         
-        WTLOG(@"1.current user received noti:%d", [WTCoreDataManager sharedManager].currentUser.receivedNotifications.count);
         NSSet *notificationsSet = [Notification insertNotifications:responseObject];
         [[WTCoreDataManager sharedManager].currentUser addReceivedNotifications:notificationsSet];
-        WTLOG(@"2.current user received noti:%d", [WTCoreDataManager sharedManager].currentUser.receivedNotifications.count);
         
         if (success)
             success();
-        WTLOG(@"3.current user received noti:%d", [WTCoreDataManager sharedManager].currentUser.receivedNotifications.count);
         
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Get notification list failure:%@", error.localizedDescription);

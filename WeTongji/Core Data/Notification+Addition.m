@@ -34,26 +34,27 @@
 //                continue;
 //            }
 //        }
-        
+        Notification *notification = nil;
         if ([notificationType isEqualToString:@"FriendInvite"]) {
             NSMutableDictionary *friendInviteInfo = [NSMutableDictionary dictionaryWithDictionary:sourceDetailsInfo];
             friendInviteInfo[@"Id"] = info[@"Id"];
             friendInviteInfo[@"SourceId"] = info[@"SourceId"];
-            Notification *notification = [Notification insertFriendInvitationNotification:friendInviteInfo];
+            notification = [Notification insertFriendInvitationNotification:friendInviteInfo];
             [result addObject:notification];
         } else if ([notificationType isEqualToString:@"ActivityInvite"]) {
             NSMutableDictionary *activityInviteInfo = [NSMutableDictionary dictionaryWithDictionary:sourceDetailsInfo];
             activityInviteInfo[@"Id"] = info[@"Id"];
             activityInviteInfo[@"SourceId"] = info[@"SourceId"];
-            Notification *notification = [Notification insertActivityInvitationNotification:activityInviteInfo];
+            notification = [Notification insertActivityInvitationNotification:activityInviteInfo];
             [result addObject:notification];
         } else if ([notificationType isEqualToString:@"CourseInvite"]) {
             NSMutableDictionary *courseInviteInfo = [NSMutableDictionary dictionaryWithDictionary:sourceDetailsInfo];
             courseInviteInfo[@"Id"] = info[@"Id"];
             courseInviteInfo[@"SourceId"] = info[@"SourceId"];
-            Notification *notification = [Notification insertCourseInvitationNotification:courseInviteInfo];
+            notification = [Notification insertCourseInvitationNotification:courseInviteInfo];
             [result addObject:notification];
         }
+        WTLOG(@"Insert notification:%@", notification.sendTime);
     }
     return result;
 }
@@ -208,10 +209,11 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     [request setEntity:[NSEntityDescription entityForName:@"Notification" inManagedObjectContext:context]];
-    [request setPredicate:[NSPredicate predicateWithFormat:@"updatedAt < %@", [NSDate dateWithTimeIntervalSinceNow:-10]]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"updatedAt < %@", [NSDate dateWithTimeIntervalSinceNow:-1]]];
     NSArray *allNotifications = [context executeFetchRequest:request error:NULL];
     
     for(Notification *item in allNotifications) {
+        WTLOG(@"Clear notification:%@", item.sendTime);
         if ([item isKindOfClass:[ActivityInvitationNotification class]]) {
             [((ActivityInvitationNotification *)item).activity setObjectFreeFromHolder:[Notification class]];
         } else if ([item isKindOfClass:[CourseInvitationNotification class]]) {

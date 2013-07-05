@@ -141,9 +141,6 @@
                                [NSSortDescriptor sortDescriptorWithKey:@"weekDay" ascending:YES],
                                [NSSortDescriptor sortDescriptorWithKey:@"startSection" ascending:YES]
                                ]];
-    [timetableArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        WTLOG(@"%d", ((CourseTimetable *)obj).weekDay.integerValue);
-    }];
     return timetableArray;
 }
 

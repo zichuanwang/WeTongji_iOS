@@ -92,7 +92,7 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSManagedObjectContext *context = [WTCoreDataManager sharedManager].managedObjectContext;
     [request setEntity:[NSEntityDescription entityForName:@"News" inManagedObjectContext:context]];
-    [request setPredicate:[NSPredicate predicateWithFormat:@"category == %@ AND updatedAt < %@", category, [NSDate dateWithTimeIntervalSinceNow:-10]]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"category == %@ AND updatedAt < %@", category, [NSDate dateWithTimeIntervalSinceNow:-1]]];
     NSArray *allNews = [context executeFetchRequest:request error:NULL];
     
     for(News *item in allNews) {

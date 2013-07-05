@@ -149,7 +149,7 @@
 - (void)clearOutdatedData {
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:[NSEntityDescription entityForName:self.likeObjectClass inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
-    [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@ AND updatedAt < %@", self.user.likedObjects, [NSDate dateWithTimeIntervalSinceNow:-10]]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@ AND updatedAt < %@", self.user.likedObjects, [NSDate dateWithTimeIntervalSinceNow:-1]]];
     NSArray *result = [[WTCoreDataManager sharedManager].managedObjectContext executeFetchRequest:request error:nil];
     for (LikeableObject *object in result) {
         [self.user removeLikedObjectsObject:object];

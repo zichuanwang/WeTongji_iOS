@@ -65,7 +65,7 @@
     Controller *controller = [Controller controllerModelForClass:holderClass];
     NSSet *hasObjectsSet = [NSSet setWithSet:controller.hasObjects];
     for (Object *object in hasObjectsSet) {
-        if ([object.updatedAt compare:[NSDate dateWithTimeIntervalSinceNow:-10]] == NSOrderedAscending)
+        if ([object.updatedAt compare:[NSDate dateWithTimeIntervalSinceNow:-1]] == NSOrderedAscending)
             [object setObjectFreeFromHolder:holderClass];
     }
 }
