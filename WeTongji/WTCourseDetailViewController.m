@@ -48,4 +48,8 @@
     return self.course;
 }
 
+- (LikeableObject *)targetObject {
+    return self.course;
+}
+
 @end

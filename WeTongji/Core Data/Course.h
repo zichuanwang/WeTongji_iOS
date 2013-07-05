@@ -2,17 +2,17 @@
 //  Course.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-7-5.
+//  Created by 王 紫川 on 13-7-6.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "Object.h"
+#import "LikeableObject.h"
 
 @class CourseInstance, CourseInvitationNotification, CourseTimetable, User;
 
-@interface Course : Object
+@interface Course : LikeableObject
 
 @property (nonatomic, retain) NSString * courseName;
 @property (nonatomic, retain) NSString * courseNo;

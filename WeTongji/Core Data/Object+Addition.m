@@ -84,6 +84,8 @@
         modelType = WTSDKOrganization;
     } else if ([self isKindOfClass:[User class]]) {
         modelType = WTSDKUser;
+    } else if ([self isKindOfClass:[Course class]]) {
+        modelType = WTSDKCourse;
     }
     return modelType;
 }
@@ -102,6 +104,8 @@
         modelType = WTSDKOrganization;
     } else if ([objectClass isEqualToString:@"User"]) {
         modelType = WTSDKUser;
+    } else if ([objectClass isEqualToString:@"Course"]) {
+        modelType = WTSDKCourse;
     }
     return modelType;
 }

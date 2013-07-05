@@ -48,4 +48,8 @@
     return [WTCourseInstanceHeaderView createHeaderViewWithCourseInstance:self.courseInstance];
 }
 
+- (LikeableObject *)targetObject {
+    return self.courseInstance.course;
+}
+
 @end

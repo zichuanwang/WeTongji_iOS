@@ -39,7 +39,7 @@
         <attribute name="identifier" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="hasObjects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Object" inverseName="belongToControllers" inverseEntity="Object" syncable="YES"/>
     </entity>
-    <entity name="Course" representedClassName="Course" parentEntity="Object" syncable="YES">
+    <entity name="Course" representedClassName="Course" parentEntity="LikeableObject" syncable="YES">
         <attribute name="courseName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="courseNo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="credit" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
