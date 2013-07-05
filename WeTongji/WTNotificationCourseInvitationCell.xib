@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">13A476u</string>
+		<string key="IBDocument.SystemVersion">13A497d</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
-		<string key="IBDocument.AppKitVersion">1238.11</string>
-		<string key="IBDocument.HIToolboxVersion">678.00</string>
+		<string key="IBDocument.AppKitVersion">1240</string>
+		<string key="IBDocument.HIToolboxVersion">681.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">2083</string>
@@ -293,7 +293,7 @@
 												<int key="NSvFlags">292</int>
 												<string key="NSFrame">{{206, 12}, {98, 51}}</string>
 												<reference key="NSSuperview" ref="927894533"/>
-												<reference key="NSNextKeyView" ref="139439341"/>
+												<reference key="NSNextKeyView" ref="1069426555"/>
 												<string key="NSReuseIdentifierKey">_NS:9</string>
 												<bool key="IBUIUserInteractionEnabled">NO</bool>
 												<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -321,6 +321,20 @@
 										<object class="NSCustomResource" key="IBUIImage">
 											<string key="NSClassName">NSImage</string>
 											<string key="NSResourceName">WTInnerModalSeparator.png</string>
+										</object>
+									</object>
+									<object class="IBUIImageView" id="1069426555">
+										<reference key="NSNextResponder" ref="970036171"/>
+										<int key="NSvFlags">297</int>
+										<string key="NSFrame">{{298, 52}, {12, 16}}</string>
+										<reference key="NSSuperview" ref="970036171"/>
+										<reference key="NSNextKeyView" ref="139439341"/>
+										<string key="NSReuseIdentifierKey">_NS:9</string>
+										<bool key="IBUIUserInteractionEnabled">NO</bool>
+										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+										<object class="NSCustomResource" key="IBUIImage">
+											<string key="NSClassName">NSImage</string>
+											<string key="NSResourceName">WTNotificationMoreIndicator@2x.png</string>
 										</object>
 									</object>
 								</array>
@@ -491,6 +505,7 @@
 							<reference ref="974125879"/>
 							<reference ref="139439341"/>
 							<reference ref="927894533"/>
+							<reference ref="1069426555"/>
 						</array>
 						<reference key="parent" ref="568936663"/>
 					</object>
@@ -583,6 +598,11 @@
 						<reference key="object" ref="912558707"/>
 						<reference key="parent" ref="139439341"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">43</int>
+						<reference key="object" ref="1069426555"/>
+						<reference key="parent" ref="970036171"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -609,12 +629,13 @@
 				<real value="1" key="29.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="30.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<real value="0.0" key="30.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<string key="43.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">42</int>
+			<int key="maxID">43</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
@@ -631,6 +652,7 @@
 			<string key="WTInnerModalSeparator.png">{320, 2}</string>
 			<string key="WTInvitationAcceptedIconCN.png">{96, 51}</string>
 			<string key="WTNotificationCellButton.png">{150, 36}</string>
+			<string key="WTNotificationMoreIndicator@2x.png">{24, 32}</string>
 			<string key="WTNotificationQuestionIcon.png">{30, 30}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">2083</string>

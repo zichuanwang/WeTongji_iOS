@@ -15,9 +15,11 @@
 #import "NSString+WTAddition.h"
 #import "WTDragToLoadDecorator.h"
 #import "NSNotificationCenter+WTAddition.h"
-#import "ActivityInvitationNotification.h"
+#import "Notification+Addition.h"
 #import "Object+Addition.h"
 #import "WTActivityDetailViewController.h"
+#import "WTCourseDetailViewController.h"
+#import "WTUserDetailViewController.h"
 
 @interface WTInnerNotificationTableViewController () <WTWaterflowDecoratorDataSource, WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
@@ -137,6 +139,14 @@
     if ([notification isKindOfClass:[ActivityInvitationNotification class]]) {
         ActivityInvitationNotification *activityInvitation = (ActivityInvitationNotification *)notification;
         WTActivityDetailViewController *vc = [WTActivityDetailViewController createDetailViewControllerWithActivity:activityInvitation.activity backBarButtonText:NSLocalizedString(@"Notification", nil)];
+        [self.delegate innerNotificaionTableViewController:self wantToPushViewController:vc];
+    } else if ([notification isKindOfClass:[CourseInvitationNotification class]]) {
+        CourseInvitationNotification *courseInvitation = (CourseInvitationNotification *)notification;
+        WTCourseDetailViewController *vc = [WTCourseDetailViewController createDetailViewControllerWithCourse:courseInvitation.course backBarButtonText:NSLocalizedString(@"Notification", nil)];
+        [self.delegate innerNotificaionTableViewController:self wantToPushViewController:vc];
+    } else if ([notification isKindOfClass:[FriendInvitationNotification class]]) {
+        FriendInvitationNotification *friendInvitation = (FriendInvitationNotification *)notification;
+        WTUserDetailViewController *vc = [WTUserDetailViewController createDetailViewControllerWithUser:friendInvitation.sender backBarButtonText:NSLocalizedString(@"Notification", nil)];
         [self.delegate innerNotificaionTableViewController:self wantToPushViewController:vc];
     }
 }

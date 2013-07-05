@@ -7,6 +7,9 @@
 //
 
 #import "Notification.h"
+#import "ActivityInvitationNotification.h"
+#import "CourseInvitationNotification.h"
+#import "FriendInvitationNotification.h"
 
 @interface Notification (Addition)
 

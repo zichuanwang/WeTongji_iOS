@@ -128,14 +128,14 @@
 - (void)showInnerModalViewController:(WTInnerModalViewController *)innerController
                 sourceViewController:(UIViewController<WTRootNavigationControllerDelegate> *)sourceController
                    disableNavBarType:(WTDisableNavBarType)type {
-    CGSize screenSize = [UIScreen mainScreen].bounds.size;
-    [self.screenShootContainerView resetOriginY:screenSize.height - self.screenShootContainerView.frame.size.height];
+    
     WTRootTabBarController *tabBarVC = [UIApplication sharedApplication].rootTabBarController;
     [tabBarVC hideTabBar];
     
-    [self.view insertSubview:self.screenShootContainerView belowSubview:self.navigationBarShadowImageView];
+    [self.screenShootContainerView resetOriginY:innerController.view.frame.size.height - 41.0f];
+    [innerController.view addSubview:self.screenShootContainerView];
     
-    [innerController.view resetOriginY:-innerController.view.frame.size.height];
+    [innerController.view resetOriginY:-innerController.view.frame.size.height + 41.0f];
     [self.topViewController.view addSubview:innerController.view];
     
     self.innerModalViewController = innerController;
@@ -149,7 +149,6 @@
     
     [UIView animateWithDuration:0.3 animations:^{
         [innerController.view resetOriginY:0];
-        [self.screenShootContainerView resetOriginYByOffset:innerController.view.frame.size.height];
     } completion:^(BOOL finished) {
         self.view.userInteractionEnabled = YES;
     }];
@@ -163,8 +162,7 @@
         [self.innerModalViewController willHideInnderModalViewController];
     
     [UIView animateWithDuration:0.3 animations:^{
-        [self.innerModalViewController.view resetOriginY:-self.innerModalViewController.view.frame.size.height];
-        [self.screenShootContainerView resetOriginYByOffset:-self.innerModalViewController.view.frame.size.height];
+        [self.innerModalViewController.view resetOriginY:-self.innerModalViewController.view.frame.size.height + 41.0f];
     } completion:^(BOOL finished) {
         self.view.userInteractionEnabled = YES;
         

@@ -30,7 +30,7 @@
     self.view.backgroundColor = [UIColor blackColor];
     
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
-    [self.view resetHeight:screenSize.height - 20 - 44 - 41];
+    [self.view resetHeight:screenSize.height - 20 - 44];
     
     UIImage *topShadowImage = [UIImage imageNamed:@"WTTopShadow"];
     UIImageView *topShadowImageView = [[UIImageView alloc] initWithImage:topShadowImage];

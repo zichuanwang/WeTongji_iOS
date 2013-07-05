@@ -41,6 +41,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [self.scrollView resetHeight:self.view.frame.size.height - 41.0f];
     [NSNotificationCenter registerInnerSettingItemDidModifyNotificationWithSelector:@selector(settingItemDidModify) target:self];
 }
 
