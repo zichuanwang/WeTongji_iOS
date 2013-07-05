@@ -14,6 +14,7 @@
 #import "News.h"
 #import "Star.h"
 #import "Organization.h"
+#import "Course.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
 
 @implementation Object (Addition)
