@@ -16,6 +16,7 @@
 @property (nonatomic, weak) IBOutlet UIImageView *avatarImageView;
 @property (nonatomic, weak) IBOutlet UILabel *mottoLabel;
 @property (nonatomic, weak) IBOutlet UILabel *starNameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *volumeLabel;
 
 + (WTStarHeaderView *)createHeaderViewWithStar:(Star *)star;
 

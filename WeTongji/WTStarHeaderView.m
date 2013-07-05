@@ -10,6 +10,7 @@
 #import "Star+Addition.h"
 #import "UIImageView+AsyncLoading.h"
 #import "WTDetailImageViewController.h"
+#import "NSString+WTAddition.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface WTStarHeaderView ()
@@ -39,12 +40,17 @@
     [self configureBackgroundColor];
     [self configureAvatarImageView];
     [self configureStarNameLabel];
+    [self configureVolumeLabel];
     [self configureMottoLabel];
     [self configureViewSize];
 }
 
+- (void)configureVolumeLabel {
+    self.volumeLabel.text = [NSString volumeStringForVolumeNumber:self.star.volume];
+}
+
 - (void)configureViewSize {
-    CGFloat bottomIndent = self.avatarContainerView.superview.frame.origin.y;
+    CGFloat bottomIndent = self.avatarContainerView.superview.frame.origin.y + 20.0f;
     CGFloat avatarRootContainerViewBottomLine = self.avatarContainerView.superview.frame.origin.y + self.avatarContainerView.superview.frame.size.height;
     CGFloat mottoLabelBottomLine = self.mottoLabel.frame.origin.y + self.mottoLabel.frame.size.height;
     CGFloat bottomLine = fmaxf(avatarRootContainerViewBottomLine, mottoLabelBottomLine) + bottomIndent;
