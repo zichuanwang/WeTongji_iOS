@@ -10,6 +10,9 @@
 #import "NSUserDefaults+WTAddition.h"
 #import "Organization+Addition.h"
 #import "WTResourceFactory.h"
+#import "Controller+Addition.h"
+#import "Object+Addition.h"
+#import "News+Addition.h"
 
 @interface WTOrganizationNewsViewController ()
 
@@ -34,6 +37,8 @@
 	// Do any additional setup after loading the view.
     
     self.navigationItem.leftBarButtonItem = [WTResourceFactory createBackBarButtonWithText:self.org.name target:self action:@selector(didClickBackButton:)];
+    
+    self.navigationItem.rightBarButtonItem = nil;
 }
 
 + (WTOrganizationNewsViewController *)createViewControllerWithOrganization:(Organization *)org {
@@ -47,17 +52,25 @@
 #pragma mark - Methods to overwrite
 
 - (void)configureFetchRequest:(NSFetchRequest *)request {
-    [super configureFetchRequest:request];
-    [request setPredicate:[NSCompoundPredicate andPredicateWithSubpredicates:@[request.predicate, [NSPredicate predicateWithFormat:@"SELF in %@", self.org.publishedNews]]]];
+    [request setEntity:[NSEntityDescription entityForName:@"News" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
+    
+    NSSortDescriptor *updateTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updatedAt" ascending:YES];
+    NSSortDescriptor *publishDateDescriptor = [[NSSortDescriptor alloc] initWithKey:@"publishDate" ascending:NO];
+    [request setSortDescriptors:@[publishDateDescriptor, updateTimeDescriptor]];
+    
+    [request setPredicate:[NSPredicate predicateWithFormat:@"(SELF in %@) AND (SELF in %@)", self.org.publishedNews, [Controller controllerModelForClass:[self class]].hasObjects]];
 }
 
 - (void)configureLoadDataRequest:(WTRequest *)request {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [request getInformationInTypes:[NSUserDefaults getNewsShowTypesArray]
-                       orderMethod:[userDefaults getNewsOrderMethod]
-                        smartOrder:[userDefaults getNewsSmartOrderProperty]
+    [request getInformationInTypes:[NSUserDefaults getShowAllNewsTypesArray]
+                       orderMethod:NewsOrderByPublishDate
+                        smartOrder:YES
                               page:self.nextPage
                          byAccount:self.org.identifier];
+}
+
+- (void)configureLoadedNews:(News *)news {
+    [news setObjectHeldByHolder:[self class]];
 }
 
 @end

@@ -85,7 +85,7 @@
         NSArray *resultArray = resultDict[@"Information"];
         for(NSDictionary *dict in resultArray) {
             News *news = [News insertNews:dict];
-            [news setObjectHeldByHolder:[self class]];
+            [self configureLoadedNews:news];
         }
         
         if (success)
@@ -109,6 +109,10 @@
 }
 
 #pragma mark - Methods to overwrite
+
+- (void)configureLoadedNews:(News *)news {
+    [news setObjectHeldByHolder:[self class]];
+}
 
 - (void)configureLoadDataRequest:(WTRequest *)request {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];

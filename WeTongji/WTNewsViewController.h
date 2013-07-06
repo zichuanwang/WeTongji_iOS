@@ -11,8 +11,14 @@
 #import "WTRootNavigationController.h"
 #import "WTInnerSettingViewController.h"
 
+@class News;
+
 @interface WTNewsViewController : WTCoreDataTableViewController <WTRootNavigationControllerDelegate, WTInnerSettingViewControllerDelegate>
 
 @property (nonatomic, readonly) NSInteger nextPage;
+
+- (void)configureLoadedNews:(News *)news;
+
+- (void)configureLoadDataRequest:(WTRequest *)request;
 
 @end

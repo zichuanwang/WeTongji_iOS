@@ -37,13 +37,15 @@
 	// Do any additional setup after loading the view.
     
     self.navigationItem.leftBarButtonItem = [WTResourceFactory createBackBarButtonWithText:self.org.name target:self action:@selector(didClickBackButton:)];
+    
+    self.navigationItem.rightBarButtonItem = nil;
 }
 
 + (WTOrganizationActivityViewController *)createViewControllerWithOrganization:(Organization *)org {
     WTOrganizationActivityViewController *result = [[WTOrganizationActivityViewController alloc] init];
     
     result.org = org;
-        
+    
     return result;
 }
 
@@ -54,30 +56,29 @@
 }
 
 - (void)configureFetchRequest:(NSFetchRequest *)request {
-    [super configureFetchRequest:request];
-    [request setPredicate:[NSPredicate predicateWithFormat:@"(category in %@) AND (SELF in %@) AND (SELF in %@)", [NSUserDefaults getActivityShowTypesSet], [Controller controllerModelForClass:[self class]].hasObjects, self.org.publishedActivities]];
+    [request setEntity:[NSEntityDescription entityForName:@"Activity" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
-    if ([[NSUserDefaults standardUserDefaults] getActivityHidePastProperty]) {
-        [request setPredicate:[NSCompoundPredicate andPredicateWithSubpredicates:@[request.predicate, [NSPredicate predicateWithFormat:@"endTime > %@", [NSDate date]]
-                               ]]];
-    }
-}
-
-- (void)clearOutdatedData {
-    NSSet *activityShowTypesSet = [NSUserDefaults getActivityShowTypesSet];
-    for (NSNumber *showTypeNumber in activityShowTypesSet) {
-        [Activity setOutdatedActivitesFreeFromHolder:[self class] inCategory:showTypeNumber];
-    }
-}
-
-- (void)configureLoadDataRequest:(WTRequest *)request {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [request getActivitiesInTypes:[NSUserDefaults getActivityShowTypesArray]
-                      orderMethod:[userDefaults getActivityOrderMethod]
-                       smartOrder:[userDefaults getActivitySmartOrderProperty]
-                       showExpire:![userDefaults getActivityHidePastProperty]
-                             page:self.nextPage
-                        byAccount:self.org.identifier];
-}
-
-@end
+    NSSortDescriptor *updateTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updatedAt" ascending:YES];
+    NSSortDescriptor *beginTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"beginTime" ascending:NO];
+    [request setSortDescriptors:@[beginTimeDescriptor, updateTimeDescriptor]];
+     
+     [request setPredicate:[NSPredicate predicateWithFormat:@"(SELF in %@) AND (SELF in %@)", [Controller controllerModelForClass:[self class]].hasObjects, self.org.publishedActivities]];
+     }
+     
+     - (void)clearOutdatedData {
+         NSSet *activityShowTypesSet = [NSUserDefaults getActivityShowTypesSet];
+         for (NSNumber *showTypeNumber in activityShowTypesSet) {
+             [Activity setOutdatedActivitesFreeFromHolder:[self class] inCategory:showTypeNumber];
+         }
+     }
+     
+     - (void)configureLoadDataRequest:(WTRequest *)request {
+         [request getActivitiesInTypes:[NSUserDefaults getShowAllActivityTypesArray]
+                           orderMethod:ActivityOrderByStartDate
+                            smartOrder:YES
+                            showExpire:YES
+                                  page:self.nextPage
+                             byAccount:self.org.identifier];
+     }
+     
+     @end

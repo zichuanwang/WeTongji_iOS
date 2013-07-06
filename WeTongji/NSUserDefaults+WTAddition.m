@@ -101,6 +101,15 @@
     [self synchronize];
 }
 
++ (NSArray *)getShowAllNewsTypesArray {
+    NSMutableArray *result = [NSMutableArray array];
+    for (int i = 0; i < NewsShowTypesCount; i++) {
+        NSNumber *show = @(YES);
+        [result addObject:show];
+    }
+    return result;
+}
+
 + (NSArray *)getNewsShowTypesArray {
     NSMutableArray *result = [NSMutableArray array];
     NewsShowTypes showTypes = [[NSUserDefaults standardUserDefaults] getNewsShowTypes];
@@ -189,6 +198,15 @@
 
 - (ActivityShowTypes)getActivityShowTypes {
     return [self integerForKey:kActivityShowTypes];
+}
+
++ (NSArray *)getShowAllActivityTypesArray {
+    NSMutableArray *result = [NSMutableArray array];
+    for (int i = 0; i < ActivityShowTypesCount; i++) {
+        NSNumber *show = @(YES);
+        [result addObject:show];
+    }
+    return result;
 }
 
 + (NSArray *)getActivityShowTypesArray {

@@ -37,6 +37,8 @@
 	// Do any additional setup after loading the view.
     
     self.navigationItem.leftBarButtonItem = [WTResourceFactory createBackBarButtonWithText:self.user.name target:self action:@selector(didClickBackButton:)];
+    
+    self.navigationItem.rightBarButtonItem = nil;
 }
 
 + (WTScheduledActivityViewController *)createViewControllerWithUser:(User *)user {
@@ -55,13 +57,13 @@
 }
 
 - (void)configureFetchRequest:(NSFetchRequest *)request {
-    [super configureFetchRequest:request];
-    [request setPredicate:[NSPredicate predicateWithFormat:@"(category in %@) AND (SELF in %@) AND (SELF in %@)", [NSUserDefaults getActivityShowTypesSet], [Controller controllerModelForClass:[self class]].hasObjects, self.user.scheduledEvents]];
+    [request setEntity:[NSEntityDescription entityForName:@"Activity" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
-    if ([[NSUserDefaults standardUserDefaults] getActivityHidePastProperty]) {
-        [request setPredicate:[NSCompoundPredicate andPredicateWithSubpredicates:@[request.predicate, [NSPredicate predicateWithFormat:@"endTime > %@", [NSDate date]]
-                               ]]];
-    }
+    NSSortDescriptor *updateTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updatedAt" ascending:YES];
+    NSSortDescriptor *beginTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"beginTime" ascending:NO];
+    [request setSortDescriptors:@[beginTimeDescriptor, updateTimeDescriptor]];
+    
+    [request setPredicate:[NSPredicate predicateWithFormat:@"(SELF in %@) AND (SELF in %@)", [Controller controllerModelForClass:[self class]].hasObjects, self.user.scheduledEvents]];
 }
 
 - (void)clearOutdatedData {
@@ -72,11 +74,10 @@
 }
 
 - (void)configureLoadDataRequest:(WTRequest *)request {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [request getActivitiesInTypes:[NSUserDefaults getActivityShowTypesArray]
-                      orderMethod:[userDefaults getActivityOrderMethod]
-                       smartOrder:[userDefaults getActivitySmartOrderProperty]
-                       showExpire:![userDefaults getActivityHidePastProperty]
+    [request getActivitiesInTypes:[NSUserDefaults getShowAllActivityTypesArray]
+                      orderMethod:ActivityOrderByStartDate
+                       smartOrder:YES
+                       showExpire:YES
                              page:self.nextPage
                   scheduledByUser:self.user.identifier];
 }

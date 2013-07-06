@@ -49,7 +49,7 @@
 - (void)configureContentLabelWithContent:(NSString *)content {
     self.aboutDisplayLabel.text = NSLocalizedString(@"About", nil);
     
-    NSMutableAttributedString *contentAttributedString = [[NSMutableAttributedString alloc] initWithString:content];
+    NSMutableAttributedString *contentAttributedString = [[NSMutableAttributedString alloc] initWithString:content ? content : @""];
     
     [contentAttributedString setAttributes:[self.contentLabel.attributedText attributesAtIndex:0 effectiveRange:NULL] range:NSMakeRange(0, contentAttributedString.length)];
     
