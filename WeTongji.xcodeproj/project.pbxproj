@@ -349,6 +349,8 @@
 		E16B662017820D8D0097901E /* CourseInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = E16B661F17820D8C0097901E /* CourseInstance.m */; };
 		E16B662917820D9D0097901E /* Exam.m in Sources */ = {isa = PBXBuildFile; fileRef = E16B662817820D9D0097901E /* Exam.m */; };
 		E16B66321782110B0097901E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E16B66311782110B0097901E /* User.m */; };
+		E16D531C1788B10300689645 /* WTLoginIntroImage1.png in Resources */ = {isa = PBXBuildFile; fileRef = E16D531A1788B10300689645 /* WTLoginIntroImage1.png */; };
+		E16D531D1788B10300689645 /* WTLoginIntroImage1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16D531B1788B10300689645 /* WTLoginIntroImage1@2x.png */; };
 		E16D5DCA174619A900740D79 /* Advertisement+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E16D5DC9174619A900740D79 /* Advertisement+Addition.m */; };
 		E16E961D1733AA550055DE27 /* WTOrangeBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961B1733AA550055DE27 /* WTOrangeBg.png */; };
 		E16E961E1733AA550055DE27 /* WTOrangeBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961C1733AA550055DE27 /* WTOrangeBg@2x.png */; };
@@ -631,9 +633,9 @@
 		E1EC97B717802BF30058A9F7 /* WTOrganizationActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EC97B617802BF30058A9F7 /* WTOrganizationActivityViewController.m */; };
 		E1EC97BD178085240058A9F7 /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EC97BC178085240058A9F7 /* Organization.m */; };
 		E1EC97C317808F390058A9F7 /* WTOrganizationNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EC97C217808F390058A9F7 /* WTOrganizationNewsViewController.m */; };
-		E1ED19171719D1E400B0A847 /* WTLoginIntroImage1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1ED19141719D1E400B0A847 /* WTLoginIntroImage1.jpg */; };
-		E1ED19181719D1E400B0A847 /* WTLoginIntroImage2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1ED19151719D1E400B0A847 /* WTLoginIntroImage2.jpg */; };
-		E1ED19191719D1E400B0A847 /* WTLoginIntroImage3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1ED19161719D1E400B0A847 /* WTLoginIntroImage3.jpg */; };
+		E1ED19171719D1E400B0A847 /* WTLoginIntroBgImage1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1ED19141719D1E400B0A847 /* WTLoginIntroBgImage1.jpg */; };
+		E1ED19181719D1E400B0A847 /* WTLoginIntroBgImage2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1ED19151719D1E400B0A847 /* WTLoginIntroBgImage2.jpg */; };
+		E1ED19191719D1E400B0A847 /* WTLoginIntroBgImage3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1ED19161719D1E400B0A847 /* WTLoginIntroBgImage3.jpg */; };
 		E1EF0E741738184B00959DD0 /* Star+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EF0E731738184B00959DD0 /* Star+Addition.m */; };
 		E1F02F4B16F38B5900699C81 /* WTNavigationBarBackHighlightButtonIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F02F4916F38B5800699C81 /* WTNavigationBarBackHighlightButtonIcon.png */; };
 		E1F02F4C16F38B5900699C81 /* WTNavigationBarBackHighlightButtonIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1F02F4A16F38B5900699C81 /* WTNavigationBarBackHighlightButtonIcon@2x.png */; };
@@ -1121,6 +1123,8 @@
 		E16B662817820D9D0097901E /* Exam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exam.m; sourceTree = "<group>"; };
 		E16B66301782110A0097901E /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		E16B66311782110B0097901E /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		E16D531A1788B10300689645 /* WTLoginIntroImage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTLoginIntroImage1.png; sourceTree = "<group>"; };
+		E16D531B1788B10300689645 /* WTLoginIntroImage1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTLoginIntroImage1@2x.png"; sourceTree = "<group>"; };
 		E16D5DC8174619A900740D79 /* Advertisement+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Advertisement+Addition.h"; sourceTree = "<group>"; };
 		E16D5DC9174619A900740D79 /* Advertisement+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Advertisement+Addition.m"; sourceTree = "<group>"; };
 		E16E961B1733AA550055DE27 /* WTOrangeBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTOrangeBg.png; sourceTree = "<group>"; };
@@ -1476,9 +1480,9 @@
 		E1EC97BC178085240058A9F7 /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Organization.m; sourceTree = "<group>"; };
 		E1EC97C117808F390058A9F7 /* WTOrganizationNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTOrganizationNewsViewController.h; sourceTree = "<group>"; };
 		E1EC97C217808F390058A9F7 /* WTOrganizationNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTOrganizationNewsViewController.m; sourceTree = "<group>"; };
-		E1ED19141719D1E400B0A847 /* WTLoginIntroImage1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WTLoginIntroImage1.jpg; sourceTree = "<group>"; };
-		E1ED19151719D1E400B0A847 /* WTLoginIntroImage2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WTLoginIntroImage2.jpg; sourceTree = "<group>"; };
-		E1ED19161719D1E400B0A847 /* WTLoginIntroImage3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WTLoginIntroImage3.jpg; sourceTree = "<group>"; };
+		E1ED19141719D1E400B0A847 /* WTLoginIntroBgImage1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WTLoginIntroBgImage1.jpg; sourceTree = "<group>"; };
+		E1ED19151719D1E400B0A847 /* WTLoginIntroBgImage2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WTLoginIntroBgImage2.jpg; sourceTree = "<group>"; };
+		E1ED19161719D1E400B0A847 /* WTLoginIntroBgImage3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WTLoginIntroBgImage3.jpg; sourceTree = "<group>"; };
 		E1EF0E721738184B00959DD0 /* Star+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Star+Addition.h"; sourceTree = "<group>"; };
 		E1EF0E731738184B00959DD0 /* Star+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Star+Addition.m"; sourceTree = "<group>"; };
 		E1F02F4916F38B5800699C81 /* WTNavigationBarBackHighlightButtonIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNavigationBarBackHighlightButtonIcon.png; sourceTree = "<group>"; };
@@ -2874,13 +2878,15 @@
 				E16ABDBE1767AA9200ED0CE9 /* WTTransparentImage.png */,
 				E12554A916491530006D42F5 /* Default-568h@2x.png */,
 				E12554A516491530006D42F5 /* Default@2x.png */,
+				E16D531A1788B10300689645 /* WTLoginIntroImage1.png */,
+				E16D531B1788B10300689645 /* WTLoginIntroImage1@2x.png */,
 				E12554A716491530006D42F5 /* Default.png */,
 				E1170317165156BE00D82F4A /* icon.png */,
 				E1170315165156A400D82F4A /* icon@2x.png */,
 				E14F964E1696FCF40048414D /* TestAvatar1.png */,
-				E1ED19141719D1E400B0A847 /* WTLoginIntroImage1.jpg */,
-				E1ED19151719D1E400B0A847 /* WTLoginIntroImage2.jpg */,
-				E1ED19161719D1E400B0A847 /* WTLoginIntroImage3.jpg */,
+				E1ED19141719D1E400B0A847 /* WTLoginIntroBgImage1.jpg */,
+				E1ED19151719D1E400B0A847 /* WTLoginIntroBgImage2.jpg */,
+				E1ED19161719D1E400B0A847 /* WTLoginIntroBgImage3.jpg */,
 				E1B8928916917D15009D901C /* WTTestBanner1.png */,
 				E1B89297169184E0009D901C /* WTTestBanner2.png */,
 				E1B89296169184E0009D901C /* WTTestBanner3.png */,
@@ -3399,9 +3405,9 @@
 				E14F9E841719BBE1009AFABA /* WTLoginTourBottomShadow@2x.png in Resources */,
 				E14F9E8D1719CA3F009AFABA /* WTLoginIntroMoreIndicator.png in Resources */,
 				E14F9E8E1719CA3F009AFABA /* WTLoginIntroMoreIndicator@2x.png in Resources */,
-				E1ED19171719D1E400B0A847 /* WTLoginIntroImage1.jpg in Resources */,
-				E1ED19181719D1E400B0A847 /* WTLoginIntroImage2.jpg in Resources */,
-				E1ED19191719D1E400B0A847 /* WTLoginIntroImage3.jpg in Resources */,
+				E1ED19171719D1E400B0A847 /* WTLoginIntroBgImage1.jpg in Resources */,
+				E1ED19181719D1E400B0A847 /* WTLoginIntroBgImage2.jpg in Resources */,
+				E1ED19191719D1E400B0A847 /* WTLoginIntroBgImage3.jpg in Resources */,
 				E10C1F1F171A80FB0009C673 /* WTNowBarTitleViewNextHighlightButton.png in Resources */,
 				E10C1F20171A80FB0009C673 /* WTNowBarTitleViewNextHighlightButton@2x.png in Resources */,
 				E10C1F21171A80FB0009C673 /* WTNowBarTitleViewNextNormalButton.png in Resources */,
@@ -3588,6 +3594,8 @@
 				E15B4691178494BC00CE55F1 /* WTActivationViewController.xib in Resources */,
 				E15B46961784AE4C00CE55F1 /* WTForgetPasswordViewController.xib in Resources */,
 				E17BEB9A178757960003D58B /* WTLoginIntroItemView.xib in Resources */,
+				E16D531C1788B10300689645 /* WTLoginIntroImage1.png in Resources */,
+				E16D531D1788B10300689645 /* WTLoginIntroImage1@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

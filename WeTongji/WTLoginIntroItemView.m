@@ -7,6 +7,7 @@
 //
 
 #import "WTLoginIntroItemView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation WTLoginIntroItemView
 
@@ -31,6 +32,15 @@
 + (WTLoginIntroItemView *)createViewWithImage:(UIImage *)image
                                          text:(NSString *)text {
     WTLoginIntroItemView *result = [[NSBundle mainBundle] loadNibNamed:@"WTLoginIntroItemView" owner:nil options:nil].lastObject;
+    
+    result.imageView.image = image;
+    
+    result.label.text = text;
+    
+    result.label.layer.shadowColor = [UIColor blackColor].CGColor;
+    result.label.layer.shadowOpacity = 0.4f;
+    result.label.layer.shadowOffset = CGSizeMake(0, 1.0f);
+    result.label.layer.shadowRadius = 2.0f;
     
     return result;
 }

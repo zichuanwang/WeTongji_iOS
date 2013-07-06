@@ -469,8 +469,8 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="WTLoginIntroImage1.jpg">{640, 830}</string>
-			<string key="WTLoginIntroImage2.jpg">{640, 830}</string>
+			<string key="WTLoginIntroImage1.jpg">{16, 16}</string>
+			<string key="WTLoginIntroImage2.jpg">{16, 16}</string>
 			<string key="WTLoginIntroMoreIndicator.png">{12, 16}</string>
 			<string key="WTLoginTourBottomShadow.png">{320, 180}</string>
 			<string key="WTLoginTourIcon.png">{60, 50}</string>

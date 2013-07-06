@@ -195,7 +195,7 @@ typedef enum {
     Star *star = (Star *)infoObject;
     if (star.avatar && self.avatarImageView.image == nil) {
         [self.avatarImageView loadImageWithImageURLString:star.avatar];
-    }
+    }    
 }
 
 - (void)configureViewWithStar:(Star *)star {
@@ -234,6 +234,8 @@ typedef enum {
     if (org.avatar && self.avatarImageView.image == nil) {
         [self.avatarImageView loadImageWithImageURLString:org.avatar];
     }
+    
+    [self.likeButtonView configureViewWithObject:org];
 }
 
 - (void)configureViewWithOrganization:(Organization *)org {

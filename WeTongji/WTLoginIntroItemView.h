@@ -10,6 +10,9 @@
 
 @interface WTLoginIntroItemView : UIView
 
+@property (nonatomic, weak) IBOutlet UIImageView *imageView;
+@property (nonatomic, weak) IBOutlet UILabel *label;
+
 + (WTLoginIntroItemView *)createViewWithImage:(UIImage *)image
                                          text:(NSString *)text;
 

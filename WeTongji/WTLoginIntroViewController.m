@@ -67,7 +67,7 @@
         self.currentIntroBgImageIndex = 0;
     }
     
-    self.introBgImageViewA.image = [UIImage imageNamed:[NSString stringWithFormat:@"WTLoginIntroImage%d.jpg", self.currentIntroBgImageIndex + 1]];
+    self.introBgImageViewA.image = [UIImage imageNamed:[NSString stringWithFormat:@"WTLoginIntroBgImage%d.jpg", self.currentIntroBgImageIndex + 1]];
     
     [UIView animateWithDuration:1.0f delay:3.0f options:UIViewAnimationCurveEaseInOut animations:^{
         
@@ -81,8 +81,10 @@
 #pragma mark - UI methods
 
 - (void)configureLoginIntroItemViews {
-    for (int i = 0; i < 4; i++) {
-        WTLoginIntroItemView *itemView = [WTLoginIntroItemView createViewWithImage:nil text:nil];
+    NSArray *introItemTitleArray = @[@"喜欢就点赞"];
+    for (int i = 0; i < 1; i++) {
+        WTLoginIntroItemView *itemView = [WTLoginIntroItemView createViewWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"WTLoginIntroImage%d", i + 1]]
+                                                                              text:introItemTitleArray[i]];
         [itemView resetOriginX:i * itemView.frame.size.width];
         [itemView resetCenterY:self.scrollView.frame.size.height / 2];
         [self.scrollView addSubview:itemView];

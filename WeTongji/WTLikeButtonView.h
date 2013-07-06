@@ -14,4 +14,6 @@
 
 + (WTLikeButtonView *)createLikeButtonViewWithObject:(LikeableObject *)object;
 
+- (void)configureViewWithObject:(LikeableObject *)object;
+
 @end
