@@ -112,10 +112,16 @@
     [self.mottoLabel resetOriginY:self.userNameLabel.frame.size.height + self.userNameLabel.frame.origin.y + (self.userNameLabel.frame.size.height == 0 ? 0 : 12.0f)];
 }
 
+#define MIN_PERSONAL_INFO_CONTAINER_VIEW_BOTTOM_INDENT  10.0f
+
 - (void)configurePersonalInfoContainerView {
     [self configureGenderIndicatorImageView];
     [self configureSchoolLabel];
     [self.personalInfoContainerView resetOriginY:self.mottoLabel.frame.size.height + self.mottoLabel.frame.origin.y + (self.mottoLabel.frame.size.height == 0 ? 0 : 20.0f)];
+    
+    if (self.frame.size.height - self.personalInfoContainerView.frame.origin.y - self.personalInfoContainerView.frame.size.height < MIN_PERSONAL_INFO_CONTAINER_VIEW_BOTTOM_INDENT) {
+        [self.personalInfoContainerView resetOriginY:self.frame.size.height - self.personalInfoContainerView.frame.size.height - MIN_PERSONAL_INFO_CONTAINER_VIEW_BOTTOM_INDENT];
+    }
 }
 
 - (void)configureInfoView {
