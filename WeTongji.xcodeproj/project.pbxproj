@@ -1825,7 +1825,6 @@
 		E117038E1651EFD900D82F4A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E1BB2C34175F1E34003608B8 /* Map */,
 				E1250C0A16859A1D00802808 /* Activity */,
 				E1D3741316942E350012E30A /* Billboard */,
 				E1157DD9173B7CD700E62295 /* Comment */,
@@ -1837,6 +1836,7 @@
 				E14FA6951680DEB1008A8D33 /* InnerModal */,
 				E10E236A17577F1E00DCF724 /* Like */,
 				E1882222168025D200A41F47 /* Login */,
+				E1BB2C34175F1E34003608B8 /* Map */,
 				E1D37420169431ED0012E30A /* Me */,
 				A1DD01CA169F2437009EBE02 /* News */,
 				E1D3741F169431E10012E30A /* Now */,
@@ -2168,6 +2168,152 @@
 				E15E4DBE175C973400BBAE9A /* WTStarImageRollView.xib */,
 			);
 			name = Star;
+			sourceTree = "<group>";
+		};
+		E16D530E178887DD00689645 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				A1ADA9DE16AC58E300E3A62E /* WTActivityCell.h */,
+				A1ADA9DF16AC58E400E3A62E /* WTActivityCell.m */,
+				A1ADA9E416AC5AE400E3A62E /* WTActivityCell.xib */,
+			);
+			name = Activity;
+			sourceTree = "<group>";
+		};
+		E16D530F178887E700689645 /* Billboard */ = {
+			isa = PBXGroup;
+			children = (
+				E10C24FC171AC7010009C673 /* WTBillboardCell.h */,
+				E10C24FD171AC7010009C673 /* WTBillboardCell.m */,
+				E10C24FF171AC73D0009C673 /* WTBillboardCell.xib */,
+			);
+			name = Billboard;
+			sourceTree = "<group>";
+		};
+		E16D5310178887F000689645 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				E179668C1728314400761BD5 /* WTCommentCell.h */,
+				E179668D1728314400761BD5 /* WTCommentCell.m */,
+				E179668F1728315600761BD5 /* WTCommentCell.xib */,
+			);
+			name = Comment;
+			sourceTree = "<group>";
+		};
+		E16D5311178887F800689645 /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				E14264051782151800847C08 /* WTCourseCell.h */,
+				E14264061782151800847C08 /* WTCourseCell.m */,
+				E14264081782154E00847C08 /* WTCourseCell.xib */,
+			);
+			name = Course;
+			sourceTree = "<group>";
+		};
+		E16D53121788880000689645 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				E10E231317566C8900DCF724 /* WTHighlightableCell.h */,
+				E10E231417566C8A00DCF724 /* WTHighlightableCell.m */,
+			);
+			name = Root;
+			sourceTree = "<group>";
+		};
+		E16D53131788880B00689645 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				E13B0E4F16A2E16C00A45079 /* WTNewsCell.h */,
+				E13B0E5016A2E16C00A45079 /* WTNewsCell.m */,
+				E13B0E5216A2E18800A45079 /* WTNewsCell.xib */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		E16D53141788881400689645 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				E10A8D1016E2681B008B72E7 /* WTNotificationActivityInvitationCell.h */,
+				E10A8D1116E2681B008B72E7 /* WTNotificationActivityInvitationCell.m */,
+				E10A8D2616E3ACE7008B72E7 /* WTNotificationActivityInvitationCell.xib */,
+				E10A8D2F16E3B423008B72E7 /* WTNotificationCell.h */,
+				E10A8D3016E3B424008B72E7 /* WTNotificationCell.m */,
+				E1C97B151764045600F4241B /* WTNotificationCourseInvitationCell.h */,
+				E1C97B161764045600F4241B /* WTNotificationCourseInvitationCell.m */,
+				E1C97B171764045700F4241B /* WTNotificationCourseInvitationCell.xib */,
+				E10A8D0D16E26770008B72E7 /* WTNotificationFriendInvitationCell.h */,
+				E10A8D0E16E26770008B72E7 /* WTNotificationFriendInvitationCell.m */,
+				E10A8D2716E3ACE7008B72E7 /* WTNotificationFriendInvitationCell.xib */,
+				E10A8D2A16E3B0E0008B72E7 /* WTNotificationInvitationAcceptCell.h */,
+				E10A8D2B16E3B0E1008B72E7 /* WTNotificationInvitationAcceptCell.m */,
+				E10A8D2D16E3B105008B72E7 /* WTNotificationInvitationAcceptCell.xib */,
+				E15E4DF2175DDDC000BBAE9A /* WTNotificationInvitationCell.h */,
+				E15E4DF3175DDDC300BBAE9A /* WTNotificationInvitationCell.m */,
+			);
+			name = Notification;
+			sourceTree = "<group>";
+		};
+		E16D53151788882600689645 /* Now */ = {
+			isa = PBXGroup;
+			children = (
+				039E37FC16970FBB00178F1C /* WTNowActivityCell.h */,
+				039E37FD16970FBB00178F1C /* WTNowActivityCell.m */,
+				039E380216970FF600178F1C /* WTNowActivityCell.xib */,
+				039E380F1697205000178F1C /* WTNowBaseCell.h */,
+				039E38101697205000178F1C /* WTNowBaseCell.m */,
+				039E37FF16970FD000178F1C /* WTNowCourseCell.h */,
+				039E380016970FD000178F1C /* WTNowCourseCell.m */,
+				039E380D16971F8C00178F1C /* WTNowCourseCell.xib */,
+				E14286A5171C5871006AB739 /* WTNowWeekCell.h */,
+				E14286A6171C5871006AB739 /* WTNowWeekCell.m */,
+				E14286A8171C5892006AB739 /* WTNowWeekCell.xib */,
+			);
+			name = Now;
+			sourceTree = "<group>";
+		};
+		E16D53161788883000689645 /* Organization */ = {
+			isa = PBXGroup;
+			children = (
+				E1BFFE0C17415F93004EF0D6 /* WTOrganizationCell.h */,
+				E1BFFE0D17415F93004EF0D6 /* WTOrganizationCell.m */,
+				E1BFFE0E17415F93004EF0D6 /* WTOrganizationCell.xib */,
+			);
+			name = Organization;
+			sourceTree = "<group>";
+		};
+		E16D53171788883A00689645 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				E115FAA0173A3DE900DE5649 /* WTSearchHintCell.h */,
+				E115FAA1173A3DE900DE5649 /* WTSearchHintCell.m */,
+				E115FAA3173A3DFF00DE5649 /* WTSearchHintCell.xib */,
+				E177037F173EBA240086E550 /* WTSearchHistoryCell.h */,
+				E1770380173EBA240086E550 /* WTSearchHistoryCell.m */,
+				E1770382173EBA340086E550 /* WTSearchHistoryCell.xib */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		E16D53181788884A00689645 /* Star */ = {
+			isa = PBXGroup;
+			children = (
+				E4D164271744D7B000F11A2C /* WTStarCell.h */,
+				E4D164281744D7B000F11A2C /* WTStarCell.m */,
+				E4D1642A1744D7DB00F11A2C /* WTStarCell.xib */,
+			);
+			name = Star;
+			sourceTree = "<group>";
+		};
+		E16D53191788885200689645 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				E15E4DD1175D0C9F00BBAE9A /* WTSelectUserCell.h */,
+				E15E4DD2175D0CA000BBAE9A /* WTSelectUserCell.m */,
+				E15E4DD3175D0CA100BBAE9A /* WTSelectUserCell.xib */,
+				E177E63416EE172C0029130F /* WTUserCell.h */,
+				E177E63516EE172C0029130F /* WTUserCell.m */,
+				E177E63616EE172C0029130F /* WTUserCell.xib */,
+			);
+			name = User;
 			sourceTree = "<group>";
 		};
 		E172AFF9174F6D8000DEB920 /* Course */ = {
@@ -2745,68 +2891,18 @@
 		E1D373F916936B5B0012E30A /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
-				A1ADA9DE16AC58E300E3A62E /* WTActivityCell.h */,
-				A1ADA9DF16AC58E400E3A62E /* WTActivityCell.m */,
-				A1ADA9E416AC5AE400E3A62E /* WTActivityCell.xib */,
-				E10C24FC171AC7010009C673 /* WTBillboardCell.h */,
-				E10C24FD171AC7010009C673 /* WTBillboardCell.m */,
-				E10C24FF171AC73D0009C673 /* WTBillboardCell.xib */,
-				E179668C1728314400761BD5 /* WTCommentCell.h */,
-				E179668D1728314400761BD5 /* WTCommentCell.m */,
-				E179668F1728315600761BD5 /* WTCommentCell.xib */,
-				E14264051782151800847C08 /* WTCourseCell.h */,
-				E14264061782151800847C08 /* WTCourseCell.m */,
-				E14264081782154E00847C08 /* WTCourseCell.xib */,
-				E10E231317566C8900DCF724 /* WTHighlightableCell.h */,
-				E10E231417566C8A00DCF724 /* WTHighlightableCell.m */,
-				E13B0E4F16A2E16C00A45079 /* WTNewsCell.h */,
-				E13B0E5016A2E16C00A45079 /* WTNewsCell.m */,
-				E13B0E5216A2E18800A45079 /* WTNewsCell.xib */,
-				E10A8D1016E2681B008B72E7 /* WTNotificationActivityInvitationCell.h */,
-				E10A8D1116E2681B008B72E7 /* WTNotificationActivityInvitationCell.m */,
-				E10A8D2616E3ACE7008B72E7 /* WTNotificationActivityInvitationCell.xib */,
-				E10A8D2F16E3B423008B72E7 /* WTNotificationCell.h */,
-				E10A8D3016E3B424008B72E7 /* WTNotificationCell.m */,
-				E1C97B151764045600F4241B /* WTNotificationCourseInvitationCell.h */,
-				E1C97B161764045600F4241B /* WTNotificationCourseInvitationCell.m */,
-				E1C97B171764045700F4241B /* WTNotificationCourseInvitationCell.xib */,
-				E10A8D0D16E26770008B72E7 /* WTNotificationFriendInvitationCell.h */,
-				E10A8D0E16E26770008B72E7 /* WTNotificationFriendInvitationCell.m */,
-				E10A8D2716E3ACE7008B72E7 /* WTNotificationFriendInvitationCell.xib */,
-				E10A8D2A16E3B0E0008B72E7 /* WTNotificationInvitationAcceptCell.h */,
-				E10A8D2B16E3B0E1008B72E7 /* WTNotificationInvitationAcceptCell.m */,
-				E10A8D2D16E3B105008B72E7 /* WTNotificationInvitationAcceptCell.xib */,
-				E15E4DF2175DDDC000BBAE9A /* WTNotificationInvitationCell.h */,
-				E15E4DF3175DDDC300BBAE9A /* WTNotificationInvitationCell.m */,
-				039E37FC16970FBB00178F1C /* WTNowActivityCell.h */,
-				039E37FD16970FBB00178F1C /* WTNowActivityCell.m */,
-				039E380216970FF600178F1C /* WTNowActivityCell.xib */,
-				039E380F1697205000178F1C /* WTNowBaseCell.h */,
-				039E38101697205000178F1C /* WTNowBaseCell.m */,
-				039E37FF16970FD000178F1C /* WTNowCourseCell.h */,
-				039E380016970FD000178F1C /* WTNowCourseCell.m */,
-				039E380D16971F8C00178F1C /* WTNowCourseCell.xib */,
-				E14286A5171C5871006AB739 /* WTNowWeekCell.h */,
-				E14286A6171C5871006AB739 /* WTNowWeekCell.m */,
-				E14286A8171C5892006AB739 /* WTNowWeekCell.xib */,
-				E1BFFE0C17415F93004EF0D6 /* WTOrganizationCell.h */,
-				E1BFFE0D17415F93004EF0D6 /* WTOrganizationCell.m */,
-				E1BFFE0E17415F93004EF0D6 /* WTOrganizationCell.xib */,
-				E115FAA0173A3DE900DE5649 /* WTSearchHintCell.h */,
-				E115FAA1173A3DE900DE5649 /* WTSearchHintCell.m */,
-				E115FAA3173A3DFF00DE5649 /* WTSearchHintCell.xib */,
-				E177037F173EBA240086E550 /* WTSearchHistoryCell.h */,
-				E1770380173EBA240086E550 /* WTSearchHistoryCell.m */,
-				E1770382173EBA340086E550 /* WTSearchHistoryCell.xib */,
-				E15E4DD1175D0C9F00BBAE9A /* WTSelectUserCell.h */,
-				E15E4DD2175D0CA000BBAE9A /* WTSelectUserCell.m */,
-				E15E4DD3175D0CA100BBAE9A /* WTSelectUserCell.xib */,
-				E4D164271744D7B000F11A2C /* WTStarCell.h */,
-				E4D164281744D7B000F11A2C /* WTStarCell.m */,
-				E4D1642A1744D7DB00F11A2C /* WTStarCell.xib */,
-				E177E63416EE172C0029130F /* WTUserCell.h */,
-				E177E63516EE172C0029130F /* WTUserCell.m */,
-				E177E63616EE172C0029130F /* WTUserCell.xib */,
+				E16D530E178887DD00689645 /* Activity */,
+				E16D530F178887E700689645 /* Billboard */,
+				E16D5310178887F000689645 /* Comment */,
+				E16D5311178887F800689645 /* Course */,
+				E16D53131788880B00689645 /* News */,
+				E16D53141788881400689645 /* Notification */,
+				E16D53151788882600689645 /* Now */,
+				E16D53161788883000689645 /* Organization */,
+				E16D53121788880000689645 /* Root */,
+				E16D53171788883A00689645 /* Search */,
+				E16D53181788884A00689645 /* Star */,
+				E16D53191788885200689645 /* User */,
 			);
 			name = CustomCells;
 			sourceTree = "<group>";
