@@ -26,8 +26,6 @@
 
 + (WTUserProfileHeaderView *)createProfileHeaderViewWithUser:(User *)user;
 
-- (void)updateAvatarImage:(UIImage *)image;
-
 - (void)updateView;
 
 - (void)configureFunctionButton;

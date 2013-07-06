@@ -142,6 +142,24 @@
     });
 }
 
+- (void)updateAvatarImageView {
+    
+    [self.avatarImageView loadImageWithImageURLString:self.user.avatar success:^(UIImage *image) {
+        [self configureAvatarBgImageViewWithAvatarImage:image completion:^(UIImage *bgImage) {
+            if (self.avatarBgImageView.image) {
+                self.avatarBgPlaceholderImageView.image = self.avatarBgImageView.image;
+            }
+            self.avatarBgImageView.image = bgImage;
+            [self.avatarBgImageView fadeIn];
+        }];
+        
+        self.avatarPlaceholderImageView.image = self.avatarImageView.image;
+        self.avatarImageView.image = image;
+        [self.avatarImageView fadeIn];
+        
+    } failure:nil];
+}
+
 #pragma mark - Factory methods
 
 + (WTUserProfileHeaderView *)createProfileHeaderViewWithUser:(User *)user {
@@ -157,25 +175,8 @@
 
 #pragma mark - Public methods
 
-- (void)updateAvatarImage:(UIImage *)image {
-    
-    [self configureAvatarBgImageViewWithAvatarImage:image completion:^(UIImage *bgImage) {
-        if (self.avatarBgImageView.image) {
-            self.avatarBgPlaceholderImageView.image = self.avatarBgImageView.image;
-        }
-        self.avatarBgImageView.image = bgImage;
-        [self.avatarBgImageView fadeIn];
-    }];
-    
-    self.avatarPlaceholderImageView.image = self.avatarImageView.image;
-    self.avatarImageView.image = image;
-    [self.avatarImageView fadeIn];
-}
-
 - (void)updateView {
-    if (!self.avatarImageView.image) {
-        [self configureAvatarImageView];
-    }
+    [self updateAvatarImageView];
     [self configureInfoView];
 }
 

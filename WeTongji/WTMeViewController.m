@@ -258,7 +258,7 @@
         NSDictionary *responseDict = responseObject;
         User *currentUser = [User insertUser:responseDict[@"User"]];
         [WTCoreDataManager sharedManager].currentUser = currentUser;
-        [self.profileHeaderView updateAvatarImage:edittedImage];
+        [self.profileHeaderView updateView];
         [self.profileHeaderView configureFunctionButton];
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Upload avatar failure:%@", error.description);
@@ -328,6 +328,7 @@
         WTLOG(@"get user info success:%@", responseObject);
         [User insertUser:responseObject[@"User"]];
         [self.profileView updateView];
+        [self.profileHeaderView updateView];
         [self.dragToLoadDecorator topViewLoadFinished:YES];
     } failureBlock:^(NSError *error) {
         [WTErrorHandler handleError:error];
