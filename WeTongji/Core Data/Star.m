@@ -7,8 +7,6 @@
 //
 
 #import "Star.h"
-
-
 @implementation Star
 
 @dynamic avatar;

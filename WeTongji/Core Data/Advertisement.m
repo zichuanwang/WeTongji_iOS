@@ -7,8 +7,6 @@
 //
 
 #import "Advertisement.h"
-
-
 @implementation Advertisement
 
 @dynamic bgColorHex;

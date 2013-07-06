@@ -15,8 +15,6 @@
 
 static UIViewController *staticKeyWindowViewController;
 static UIView           *staticKeyWindowBgView;
-
-
 @implementation UIApplication (WTAddition)
 
 + (void)showTopCorner {

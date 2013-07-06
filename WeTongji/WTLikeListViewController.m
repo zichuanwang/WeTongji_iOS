@@ -61,12 +61,6 @@
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 + (WTLikeListViewController *)createViewControllerWithUser:(User *)user
                                            likeObjectClass:(NSString *)likeObjectClass
                                             backButtonText:(NSString *)backButtonText {

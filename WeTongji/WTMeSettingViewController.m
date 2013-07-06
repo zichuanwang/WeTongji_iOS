@@ -35,12 +35,6 @@
     [self registerTextFields];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (NSMutableArray *)textFieldArray {
     if (!_textFieldArray) {
         _textFieldArray = [NSMutableArray array];

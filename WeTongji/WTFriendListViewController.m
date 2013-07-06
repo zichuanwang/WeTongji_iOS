@@ -57,12 +57,6 @@
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 + (WTFriendListViewController *)createViewControllerWithUser:(User *)user
                                               backButtonText:(NSString *)backButtonText {
     WTFriendListViewController *vc = [[WTFriendListViewController alloc] init];

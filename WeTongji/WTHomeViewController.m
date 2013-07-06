@@ -68,12 +68,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleApplicationWillEnterForegroundNotification:)
                                                  name:UIApplicationWillEnterForegroundNotification
-                                               object:[UIApplication sharedApplication]];
+                                               object:[UIApplication sharedApplication]];    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self.scrollView resetHeight:self.view.frame.size.height];
-    
     [self updateBannerView];
     [self updateNowView];
     [self updateHomeSelectViews];
@@ -91,12 +89,6 @@
     [self refillViews];
     
     self.isVisible = NO;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Handel notifications 
@@ -468,6 +460,12 @@
 - (void)bannerContainerView:(WTBannerContainerView *)containerView
        didSelectModelObject:(Object *)modelObject {
     [self pushDetailViewControllerWithModelObject:modelObject];
+}
+
+#pragma mark - WTRootNavigationControllerDelegate
+
+- (UIScrollView *)sourceScrollView {
+    return self.scrollView;
 }
 
 @end

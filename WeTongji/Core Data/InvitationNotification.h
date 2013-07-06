@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "Notification.h"
-
-
 @interface InvitationNotification : Notification
 
 @property (nonatomic, retain) NSNumber * accepted;

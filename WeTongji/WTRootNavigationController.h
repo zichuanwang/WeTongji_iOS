@@ -39,4 +39,6 @@ typedef enum {
 
 - (void)willHideInnderModalViewController;
 
+- (UIScrollView *)sourceScrollView;
+
 @end

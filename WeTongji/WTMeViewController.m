@@ -303,6 +303,10 @@
 
 #pragma mark - WTRootNavigationControllerDelegate
 
+- (UIScrollView *)sourceScrollView {
+    return self.scrollView;
+}
+
 - (void)didHideInnderModalViewController {
     if (self.settingButton.selected == NO) {
         self.settingButton.selected = YES;

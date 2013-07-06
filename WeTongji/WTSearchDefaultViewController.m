@@ -32,16 +32,6 @@
     [self configureSearchHistoryView];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [self.historyView resetHeight:self.view.frame.size.height];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - UI methods
 
 - (void)configureSearchHistoryView {

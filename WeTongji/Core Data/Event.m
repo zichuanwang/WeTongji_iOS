@@ -8,8 +8,6 @@
 
 #import "Event.h"
 #import "User.h"
-
-
 @implementation Event
 
 @dynamic beginDay;

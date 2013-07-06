@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "LikeableObject.h"
-
-
 @interface Star : LikeableObject
 
 @property (nonatomic, retain) NSString * avatar;

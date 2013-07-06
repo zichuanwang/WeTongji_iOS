@@ -7,10 +7,13 @@
 //
 
 #import "WTLoginIntroViewController.h"
+#import "WTLoginIntroItemView.h"
 
 @interface WTLoginIntroViewController ()
 
 @property (nonatomic, assign) NSInteger currentIntroBgImageIndex;
+
+@property (nonatomic, strong) NSMutableArray *introItemViewArray;
 
 @end
 
@@ -38,16 +41,18 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)resetFrame:(CGRect)frame {
     self.view.frame = frame;
-    WTLOG(@"%@, %@", NSStringFromCGRect(frame), NSStringFromCGRect(self.introBgImageViewA.frame));
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 3, self.scrollView.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, self.scrollView.frame.size.height);
+}
+
+#pragma mark - Properties
+
+- (NSMutableArray *)introItemViewArray {
+    if (!_introItemViewArray) {
+        _introItemViewArray = [NSMutableArray array];
+    }
+    return _introItemViewArray;
 }
 
 #pragma mark - Animations
@@ -75,6 +80,16 @@
 
 #pragma mark - UI methods
 
+- (void)configureLoginIntroItemViews {
+    for (int i = 0; i < 4; i++) {
+        WTLoginIntroItemView *itemView = [WTLoginIntroItemView createViewWithImage:nil text:nil];
+        [itemView resetOriginX:i * itemView.frame.size.width];
+        [itemView resetCenterY:self.scrollView.frame.size.height / 2];
+        [self.scrollView addSubview:itemView];
+        [self.introItemViewArray addObject:itemView];
+    }
+}
+
 - (void)configureLocalizationLabels {
     self.campusInYourPocketLabel.text = NSLocalizedString(self.campusInYourPocketLabel.text, nil);
     [self.tourButton setTitle:NSLocalizedString(@"Tour", nil) forState:UIControlStateNormal];
@@ -92,7 +107,10 @@
 }
 
 - (void)configureScrollView {
-    self.pageControl.numberOfPages = 3;
+    [self configureLoginIntroItemViews];
+    
+    self.pageControl.numberOfPages = self.introItemViewArray.count;
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * self.introItemViewArray.count, self.scrollView.frame.size.height);
 }
 
 - (void)updateScrollView {

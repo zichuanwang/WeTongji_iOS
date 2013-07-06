@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "Object.h"
-
-
 @interface Advertisement : Object
 
 @property (nonatomic, retain) NSString * bgColorHex;

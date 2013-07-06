@@ -8,8 +8,6 @@
 
 #import "CommentableObject.h"
 #import "Comment.h"
-
-
 @implementation CommentableObject
 
 @dynamic commentCount;

@@ -20,6 +20,4 @@
 
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
                           activity:(Activity *)activity;
-
-
 @end

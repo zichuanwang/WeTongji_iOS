@@ -56,12 +56,6 @@
 - (void)viewDidLayoutSubviews {
     [self.waterflowDecorator adjustWaterflowView];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

@@ -8,8 +8,6 @@
 
 #import "CourseInstance.h"
 #import "Course.h"
-
-
 @implementation CourseInstance
 
 @dynamic course;

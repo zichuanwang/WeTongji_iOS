@@ -20,8 +20,6 @@
 
 @interface WTStarViewController () <WTDragToLoadDecoratorDelegate, WTDragToLoadDecoratorDataSource>
 
-@property (nonatomic, readonly) UIButton *filterButton;
-
 @property (nonatomic, strong) WTDragToLoadDecorator *dragToLoadDecorator;
 
 @property (nonatomic, assign) NSInteger nextPage;
@@ -58,7 +56,6 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self.tableView resetHeight:self.view.frame.size.height];
     [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
 }
 
@@ -68,12 +65,6 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [self.dragToLoadDecorator stopObservingChangesInDragToLoadScrollView];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Data load methods
@@ -119,8 +110,6 @@
     
     [[WTClient sharedClient] enqueueRequest:request];
 }
-
-
 #pragma mark - UI methods
 
 - (void)configureNavigationBar {
@@ -133,6 +122,8 @@
     self.tableView.alwaysBounceVertical = YES;
     
     self.tableView.scrollsToTop = NO;
+    
+    [self.tableView resetHeight:self.view.frame.size.height];
 }
 
 #pragma mark - Actions
@@ -194,13 +185,6 @@
     
     WTStarDetailViewController *detailVC = [WTStarDetailViewController createDetailViewControllerWithStar:star backBarButtonText:NSLocalizedString(@"Stars", nil)];
     [self.navigationController pushViewController:detailVC animated:YES];
-}
-
-
-#pragma mark - WTRootNavigationControllerDelegate
-
-- (void)didHideInnderModalViewController {
-    self.filterButton.selected = YES;
 }
 
 #pragma mark - WTDragToLoadDecoratorDataSource

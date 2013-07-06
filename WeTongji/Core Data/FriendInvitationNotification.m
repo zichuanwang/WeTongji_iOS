@@ -7,9 +7,5 @@
 //
 
 #import "FriendInvitationNotification.h"
-
-
 @implementation FriendInvitationNotification
-
-
 @end

@@ -41,12 +41,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Keyboard notification
 
 - (void)handleKeyboardWillShowNotification:(NSNotification *)notification {

@@ -37,11 +37,7 @@ either expressed or implied, of the FreeBSD Project.
 #import "UIImage+StackBlur.h"
 #import <Accelerate/Accelerate.h>
 #import <QuartzCore/QuartzCore.h>
-
-
 @implementation  UIImage (StackBlur)
-
-
 // Stackblur algorithm
 // from
 // http://incubator.quasimondo.com/processing/fast_blur_deluxe.php
@@ -300,8 +296,6 @@ either expressed or implied, of the FreeBSD Project.
     free(m_PixelBuf);
 	return finalImage;
 }
-
-
 - (UIImage *)normalize {
     
     CGColorSpaceRef genericColorSpace = CGColorSpaceCreateDeviceRGB();

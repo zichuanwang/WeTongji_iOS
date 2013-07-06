@@ -43,12 +43,6 @@
     [self configureUI];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 + (WTUserDetailViewController *)createDetailViewControllerWithUser:(User *)user
                                                  backBarButtonText:(NSString *)backBarButtonText {
     if ([WTCoreDataManager sharedManager].currentUser == user)

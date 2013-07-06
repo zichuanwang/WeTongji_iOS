@@ -10,6 +10,7 @@
 #import "Object+Addition.h"
 #import "NSString+WTAddition.h"
 #import "WTCoreDataManager.h"
+#import "Course+Addition.h"
 
 @implementation Event (Addition)
 
@@ -83,9 +84,19 @@
 - (void)setScheduledByCurrentUser:(BOOL)scheduledByCurrentUser {
     User *currentUser = [WTCoreDataManager sharedManager].currentUser;
     if (scheduledByCurrentUser) {
-        [currentUser addScheduledEventsObject:self];
+        if ([self isKindOfClass:[CourseInstance class]]) {
+            CourseInstance *courseInstance = (CourseInstance *)self;
+            courseInstance.course.registeredByCurrentUser = YES;
+        } else {
+            [currentUser addScheduledEventsObject:self];
+        }
     } else {
-        [currentUser removeScheduledEventsObject:self];
+        if ([self isKindOfClass:[CourseInstance class]]) {
+            CourseInstance *courseInstance = (CourseInstance *)self;
+            courseInstance.course.registeredByCurrentUser = NO;
+        } else {
+            [currentUser removeScheduledEventsObject:self];
+        }
     }
 }
 

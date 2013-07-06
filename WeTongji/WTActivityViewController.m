@@ -55,7 +55,6 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self.tableView resetHeight:self.view.frame.size.height];
     [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
 }
 
@@ -65,12 +64,6 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [self.dragToLoadDecorator stopObservingChangesInDragToLoadScrollView];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Properties
@@ -166,7 +159,7 @@
 - (void)configureTableView {
     self.tableView.alwaysBounceVertical = YES;
     
-    self.tableView.scrollsToTop = NO;
+    self.tableView.scrollsToTop = NO;    
 }
 
 #pragma mark - Actions
@@ -271,6 +264,10 @@
 }
 
 #pragma mark - WTRootNavigationControllerDelegate
+
+- (UIScrollView *)sourceScrollView {
+    return self.tableView;
+}
 
 - (void)didHideInnderModalViewController {
     [self configureFilterBarButton];

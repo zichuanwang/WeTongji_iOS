@@ -8,8 +8,6 @@
 
 #import "Object.h"
 #import "Controller.h"
-
-
 @implementation Object
 
 @dynamic identifier;

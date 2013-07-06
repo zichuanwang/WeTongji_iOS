@@ -8,8 +8,6 @@
 
 #import "CourseTimetable.h"
 #import "Course.h"
-
-
 @implementation CourseTimetable
 
 @dynamic endSection;

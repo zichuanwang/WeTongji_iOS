@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WTNowTableViewController.h"
 
 @interface WTNowWeekCell : UITableViewCell
+
+@property (nonatomic, readonly) WTNowTableViewController *tableViewController;
 
 - (void)configureCellWithWeekNumber:(NSUInteger)weekNumber;
 

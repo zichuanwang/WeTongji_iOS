@@ -44,12 +44,6 @@
     [self configureUI];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 + (WTOrganizationDetailViewController *)createDetailViewControllerWithOrganization:(Organization *)org
                                                                  backBarButtonText:(NSString *)backBarButtonText {
     WTOrganizationDetailViewController *result = [[WTOrganizationDetailViewController alloc] init];

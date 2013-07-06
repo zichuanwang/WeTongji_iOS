@@ -9,7 +9,6 @@
 #import "ActivityInvitationNotification.h"
 #import "Activity.h"
 
-
 @implementation ActivityInvitationNotification
 
 @dynamic activity;

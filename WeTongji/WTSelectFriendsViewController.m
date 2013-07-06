@@ -42,12 +42,6 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 + (WTSelectFriendsViewController *)showWithDelegate:(id<WTSelectFriendsViewControllerDelegate>)delegate {
     WTSelectFriendsViewController *vc = [[WTSelectFriendsViewController alloc] init];
     

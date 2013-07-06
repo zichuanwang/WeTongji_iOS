@@ -8,8 +8,6 @@
 
 #import "CourseInvitationNotification.h"
 #import "Course.h"
-
-
 @implementation CourseInvitationNotification
 
 @dynamic course;

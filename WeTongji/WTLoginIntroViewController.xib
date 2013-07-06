@@ -139,7 +139,7 @@
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
 						<array class="NSMutableArray" key="NSSubviews"/>
-						<string key="NSFrame">{{0, 90}, {320, 370}}</string>
+						<string key="NSFrame">{{0, 90}, {320, 340}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSNextKeyView" ref="863629997"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>

@@ -248,8 +248,6 @@
                       selectTitleColor:[UIColor colorWithRed:159.0f / 255 green:159.0f / 255 blue:159.0f / 255 alpha:1.0f]
                      selectShadowColor:[UIColor clearColor]];
 }
-
-
 + (void)configureFocusButton:(UIButton *)button
                         text:(NSString *)text {
     [WTResourceFactory configureButton:button

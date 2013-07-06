@@ -59,7 +59,7 @@
 - (void)configureParticipateButton {
     Course *course = [self targetCourse];
     if (!course.isAudit.boolValue) {
-        self.participateButton = [WTResourceFactory createDisableButtonWithText:NSLocalizedString(@"Participated", nil)];
+        self.participateButton = [WTResourceFactory createDisableButtonWithText:NSLocalizedString(@"Registered", nil)];
     } else {
         self.participateButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Audited", nil)];
         [self configureParticipateButtonStatus:course.registeredByCurrentUser];

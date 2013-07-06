@@ -9,9 +9,5 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "CourseInstance.h"
-
-
 @interface Exam : CourseInstance
-
-
 @end

@@ -36,12 +36,6 @@
     self.navigationItem.leftBarButtonItem = [WTResourceFactory createBackBarButtonWithText:self.org.name target:self action:@selector(didClickBackButton:)];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 + (WTOrganizationNewsViewController *)createViewControllerWithOrganization:(Organization *)org {
     WTOrganizationNewsViewController *result = [[WTOrganizationNewsViewController alloc] init];
     

@@ -9,8 +9,6 @@
 #import "Organization.h"
 #import "Activity.h"
 #import "News.h"
-
-
 @implementation Organization
 
 @dynamic about;

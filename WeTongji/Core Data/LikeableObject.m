@@ -8,8 +8,6 @@
 
 #import "LikeableObject.h"
 #import "User.h"
-
-
 @implementation LikeableObject
 
 @dynamic likeCount;

@@ -13,16 +13,18 @@
 #import "WTNotificationBarButton.h"
 #import "WTInnerModalViewController.h"
 
+#import "WTHomeViewController.h"
+
 @interface WTRootNavigationController () <UINavigationControllerDelegate>
 
 @property (nonatomic, strong) WTInnerModalViewController *innerModalViewController;
 @property (nonatomic, strong) UIViewController<WTRootNavigationControllerDelegate> *sourceViewController;
+@property (nonatomic, assign) CGPoint sourceScrollViewContentOffset;
 
 @property (nonatomic, strong) UIImageView *screenShootImageView;
 @property (nonatomic, strong) UIView *screenShootContainerView;
 
 @property (nonatomic, assign) WTDisableNavBarType currentWTDisableNavBarType;
-
 @end
 
 @implementation WTRootNavigationController
@@ -40,12 +42,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.   
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (BOOL)needUserLogin {
@@ -132,6 +128,8 @@
     [self.screenShootContainerView resetOriginY:innerController.view.frame.size.height - 41.0f];
     [innerController.view addSubview:self.screenShootContainerView];
     
+    self.sourceScrollViewContentOffset = [sourceController sourceScrollView].contentOffset;
+    
     WTRootTabBarController *tabBarVC = [UIApplication sharedApplication].rootTabBarController;
     [tabBarVC hideTabBar];
     
@@ -171,6 +169,8 @@
         
         if ([self.sourceViewController respondsToSelector:@selector(didHideInnderModalViewController)])
             [self.sourceViewController didHideInnderModalViewController];
+        
+        UIScrollView *sourceScrollView = [self.sourceViewController sourceScrollView];
         self.sourceViewController = nil;
         
         if ([self.innerModalViewController respondsToSelector:@selector(didHideInnderModalViewController)])
@@ -185,6 +185,8 @@
         
         WTRootTabBarController *tabBarVC = [UIApplication sharedApplication].rootTabBarController;
         [tabBarVC showTabBar];
+        
+        sourceScrollView.contentOffset = self.sourceScrollViewContentOffset;
     }];
 }
 

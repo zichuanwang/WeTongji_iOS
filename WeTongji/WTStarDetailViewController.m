@@ -40,12 +40,6 @@
     [self configureUI];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 + (WTStarDetailViewController *)createDetailViewControllerWithStar:(Star *)star
                                                  backBarButtonText:(NSString *)backBarButtonText {
     WTStarDetailViewController *result = [[WTStarDetailViewController alloc] init];

@@ -33,12 +33,6 @@
     [self configureNavigationBar];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - UI methods
 
 - (void)configureNavigationBar {

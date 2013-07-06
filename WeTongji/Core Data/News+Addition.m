@@ -112,8 +112,6 @@
 - (NSString *)categoryString {
     return [News convertCategoryStringFromCategory:self.category];
 }
-
-
 + (NSString *)convertCategoryStringFromCategory:(NSNumber *)category {
     switch (category.integerValue) {
         case NewsShowTypeCampusUpdate:

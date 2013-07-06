@@ -14,8 +14,6 @@
 #import "LikeableObject.h"
 #import "Notification.h"
 #import "User.h"
-
-
 @implementation User
 
 @dynamic avatar;

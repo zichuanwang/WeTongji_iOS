@@ -50,7 +50,6 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self.tableView resetHeight:self.view.frame.size.height];
     [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
 }
 
@@ -60,12 +59,6 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [self.dragToLoadDecorator stopObservingChangesInDragToLoadScrollView];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 + (WTScheduledCourseViewController *)createViewControllerWithUser:(User *)user {
@@ -114,8 +107,6 @@
     
     [[WTClient sharedClient] enqueueRequest:request];
 }
-
-
 #pragma mark - UI methods
 
 - (void)configureDragToLoadDecorator {
@@ -135,6 +126,8 @@
     self.tableView.scrollsToTop = NO;
     
     _noAnimationFlag = YES;
+    
+    [self.tableView resetHeight:self.view.frame.size.height];
 }
 
 #pragma mark - Actions

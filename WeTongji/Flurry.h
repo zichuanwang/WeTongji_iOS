@@ -425,8 +425,6 @@
 + (void)endTimedEvent:(NSString *)eventName withParameters:(NSDictionary *)parameters;	// non-nil parameters will update the parameters
 
 //@}
-
-
 /** @name Page View Methods
  *  Count page views. 
  */

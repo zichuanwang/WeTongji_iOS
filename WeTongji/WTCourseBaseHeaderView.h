@@ -15,8 +15,6 @@
 @property (nonatomic, strong) UIButton *friendCountButton;
 @property (nonatomic, strong) UIButton *participateButton;
 @property (nonatomic, strong) UIButton *inviteButton;
-
-
 #pragma mark - Methods to overwrite
 
 - (void)configureView;

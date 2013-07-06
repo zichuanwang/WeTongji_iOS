@@ -42,12 +42,6 @@
     [self configureUI];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 + (WTNewsDetailViewController *)createDetailViewControllerWithNews:(News *)news
                                                  backBarButtonText:(NSString *)backBarButtonText {
     WTNewsDetailViewController *result = [[WTNewsDetailViewController alloc] init];

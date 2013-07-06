@@ -11,8 +11,6 @@
 #import "CourseInvitationNotification.h"
 #import "CourseTimetable.h"
 #import "User.h"
-
-
 @implementation Course
 
 @dynamic courseName;

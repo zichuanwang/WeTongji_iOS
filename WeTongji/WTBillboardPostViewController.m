@@ -38,12 +38,6 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)show {
     WTNavigationViewController *nav = [[WTNavigationViewController alloc] initWithRootViewController:self];
     [[UIApplication sharedApplication].rootTabBarController presentViewController:nav animated:YES completion:nil];

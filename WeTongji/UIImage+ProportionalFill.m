@@ -6,11 +6,7 @@
 //
 
 #import "UIImage+ProportionalFill.h"
-
-
 @implementation UIImage (MGProportionalFill)
-
-
 - (UIImage *)imageToFitSize:(CGSize)fitSize method:(MGImageResizingMethod)resizeMethod
 {
 	float imageScaleFactor = 1.0;
@@ -118,18 +114,12 @@
 	
     return image;
 }
-
-
 - (UIImage *)imageCroppedToFitSize:(CGSize)fitSize
 {
     return [self imageToFitSize:fitSize method:MGImageResizeCrop];
 }
-
-
 - (UIImage *)imageScaledToFitSize:(CGSize)fitSize
 {
     return [self imageToFitSize:fitSize method:MGImageResizeScale];
 }
-
-
 @end

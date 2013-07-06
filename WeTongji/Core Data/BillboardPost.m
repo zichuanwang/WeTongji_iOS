@@ -8,8 +8,6 @@
 
 #import "BillboardPost.h"
 #import "User.h"
-
-
 @implementation BillboardPost
 
 @dynamic content;

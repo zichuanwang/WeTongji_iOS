@@ -9,8 +9,6 @@
 #import "Comment.h"
 #import "CommentableObject.h"
 #import "User.h"
-
-
 @implementation Comment
 
 @dynamic content;

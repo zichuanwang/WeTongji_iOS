@@ -28,6 +28,4 @@
     
     return manager;
 }
-
-
 @end

@@ -7,8 +7,6 @@
 //
 
 #import "WTRootNavigationController.h"
-
-
 @interface WTHomeNavigationController : WTRootNavigationController
 
 @end

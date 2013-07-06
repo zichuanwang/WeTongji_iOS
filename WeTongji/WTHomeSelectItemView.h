@@ -13,8 +13,6 @@
 @class Star;
 @class Organization;
 @class LikeableObject;
-
-
 @interface WTHomeSelectItemView : UIView
 
 @property (nonatomic, weak) IBOutlet UILabel *subCategoryLabel;

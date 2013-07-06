@@ -9,9 +9,5 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "InvitationNotification.h"
-
-
 @interface FriendInvitationNotification : InvitationNotification
-
-
 @end

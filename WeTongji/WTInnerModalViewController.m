@@ -30,7 +30,7 @@
     self.view.backgroundColor = [UIColor blackColor];
     
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
-    [self.view resetHeight:screenSize.height - 20 - 44];
+    [self.view resetHeight:screenSize.height - 20.0f - 44.0f];
     
     UIImage *topShadowImage = [UIImage imageNamed:@"WTTopShadow"];
     UIImageView *topShadowImageView = [[UIImageView alloc] initWithImage:topShadowImage];
@@ -38,12 +38,6 @@
     [topShadowImageView resetOrigin:CGPointMake(0, self.view.frame.size.height - 6)];
     
     [self.view addSubview:topShadowImageView];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

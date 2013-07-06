@@ -9,8 +9,6 @@
 #import "NSString+WTAddition.h"
 
 @implementation NSString (WTAddition)
-
-
 - (NSDate *)convertToDate {
     NSString *src = self;
     if([src characterAtIndex:src.length - 3] == ':') {

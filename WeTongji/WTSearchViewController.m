@@ -51,7 +51,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.resultViewController viewWillAppear:animated];
-    [self.defaultViewController viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -63,12 +62,6 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [self.resultViewController viewDidDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)showSearchResultWithSearchKeyword:(NSString *)keyword
@@ -265,6 +258,13 @@
 }
 
 #pragma mark - WTRootNavigationControllerDelegate
+
+- (UIScrollView *)sourceScrollView {
+    if (!self.resultViewController.view.hidden)
+        return self.resultViewController.tableView;
+    else
+        return self.defaultViewController.historyView.tableView;
+}
 
 - (void)didHideInnderModalViewController {
     [super didHideInnderModalViewController];

@@ -8,8 +8,6 @@
 
 #import "Notification.h"
 #import "User.h"
-
-
 @implementation Notification
 
 @dynamic sendTime;

@@ -48,17 +48,12 @@
     [self configureDragToLoadDecorator];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    [self.tableView resetHeight:self.view.frame.size.height];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-    [self.tableView resetHeight:self.view.frame.size.height];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

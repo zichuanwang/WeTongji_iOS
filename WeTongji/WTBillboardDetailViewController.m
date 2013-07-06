@@ -55,12 +55,6 @@
     [self.commentViewController viewDidDisappear:animated];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 + (WTBillboardDetailViewController *)createBillboardDetailViewControllerWithBillboardPost:(BillboardPost *)post
                                                                  backBarButtonText:(NSString *)backBarButtonText {
     WTBillboardDetailViewController *result = [[WTBillboardDetailViewController alloc] init];
@@ -80,8 +74,6 @@
     WTUserDetailViewController *vc = [WTUserDetailViewController createDetailViewControllerWithUser:self.post.author backBarButtonText:self.post.title];
     [self.navigationController pushViewController:vc animated:YES];
 }
-
-
 #pragma mark - UI methods
 
 - (void)configureHeaderView {

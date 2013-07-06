@@ -7,8 +7,6 @@
 //
 
 #import "InvitationNotification.h"
-
-
 @implementation InvitationNotification
 
 @dynamic accepted;

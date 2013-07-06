@@ -30,12 +30,6 @@
     [self configureUI];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - Properties
 
 - (WTCourseBaseHeaderView *)headerView {

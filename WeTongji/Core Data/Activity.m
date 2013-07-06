@@ -9,8 +9,6 @@
 #import "Activity.h"
 #import "ActivityInvitationNotification.h"
 #import "Organization.h"
-
-
 @implementation Activity
 
 @dynamic category;

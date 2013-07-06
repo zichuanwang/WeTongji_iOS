@@ -430,6 +430,8 @@
 		E17AE8E8171EEAB60026B644 /* WTDetailImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E17AE8E6171EEAB60026B644 /* WTDetailImageViewController.m */; };
 		E17AE8E9171EEAB60026B644 /* WTDetailImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17AE8E7171EEAB60026B644 /* WTDetailImageViewController.xib */; };
 		E17BEB94178755B80003D58B /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = E17BEB93178755B80003D58B /* Course.m */; };
+		E17BEB98178757860003D58B /* WTLoginIntroItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E17BEB97178757860003D58B /* WTLoginIntroItemView.m */; };
+		E17BEB9A178757960003D58B /* WTLoginIntroItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17BEB99178757960003D58B /* WTLoginIntroItemView.xib */; };
 		E17C664A1716C14400B91B25 /* WTNewPostNormalIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C66461716C14400B91B25 /* WTNewPostNormalIcon.png */; };
 		E17C664B1716C14400B91B25 /* WTNewPostNormalIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C66471716C14400B91B25 /* WTNewPostNormalIcon@2x.png */; };
 		E17C664C1716C14400B91B25 /* WTNewPostSelectIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C66481716C14400B91B25 /* WTNewPostSelectIcon.png */; };
@@ -1223,6 +1225,9 @@
 		E17AE8E7171EEAB60026B644 /* WTDetailImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTDetailImageViewController.xib; sourceTree = "<group>"; };
 		E17BEB92178755B80003D58B /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
 		E17BEB93178755B80003D58B /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		E17BEB96178757860003D58B /* WTLoginIntroItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTLoginIntroItemView.h; sourceTree = "<group>"; };
+		E17BEB97178757860003D58B /* WTLoginIntroItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTLoginIntroItemView.m; sourceTree = "<group>"; };
+		E17BEB99178757960003D58B /* WTLoginIntroItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTLoginIntroItemView.xib; sourceTree = "<group>"; };
 		E17C66461716C14400B91B25 /* WTNewPostNormalIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNewPostNormalIcon.png; sourceTree = "<group>"; };
 		E17C66471716C14400B91B25 /* WTNewPostNormalIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNewPostNormalIcon@2x.png"; sourceTree = "<group>"; };
 		E17C66481716C14400B91B25 /* WTNewPostSelectIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNewPostSelectIcon.png; sourceTree = "<group>"; };
@@ -2114,6 +2119,7 @@
 				E172AFF9174F6D8000DEB920 /* Course */,
 				E1E647BD1722D8DD00EB4C8D /* DetailImage */,
 				E17F9E6B1712C14800DC6AB6 /* Home */,
+				E17BEB95178757530003D58B /* Login */,
 				E1CD3F371720643B00359A79 /* News */,
 				E142869E171BE090006AB739 /* Now */,
 				03EE1090174534630062A06B /* Organization */,
@@ -2242,6 +2248,16 @@
 				E17AE8E7171EEAB60026B644 /* WTDetailImageViewController.xib */,
 			);
 			name = DetailImage;
+			sourceTree = "<group>";
+		};
+		E17BEB95178757530003D58B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E17BEB96178757860003D58B /* WTLoginIntroItemView.h */,
+				E17BEB97178757860003D58B /* WTLoginIntroItemView.m */,
+				E17BEB99178757960003D58B /* WTLoginIntroItemView.xib */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		E17F9E6B1712C14800DC6AB6 /* Home */ = {
@@ -3475,6 +3491,7 @@
 				E142642217834E8C00847C08 /* WTCourseTimetableView.xib in Resources */,
 				E15B4691178494BC00CE55F1 /* WTActivationViewController.xib in Resources */,
 				E15B46961784AE4C00CE55F1 /* WTForgetPasswordViewController.xib in Resources */,
+				E17BEB9A178757960003D58B /* WTLoginIntroItemView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3690,6 +3707,7 @@
 				E15B4690178494BC00CE55F1 /* WTActivationViewController.m in Sources */,
 				E15B46951784AE4C00CE55F1 /* WTForgetPasswordViewController.m in Sources */,
 				E17BEB94178755B80003D58B /* Course.m in Sources */,
+				E17BEB98178757860003D58B /* WTLoginIntroItemView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

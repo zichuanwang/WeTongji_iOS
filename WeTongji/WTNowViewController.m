@@ -57,7 +57,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self.tableView resetHeight:self.view.frame.size.height];
     if (self.shouldScrollToNow) {
         self.shouldScrollToNow = NO;
         [self scrollToNow:NO];
@@ -69,10 +68,6 @@
         return;
     WTNowWeekCell *visibleCell = (WTNowWeekCell *)self.tableView.visibleCells[0];
     [visibleCell cellDidAppear];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 #pragma mark - Public methods
@@ -127,10 +122,11 @@
     [[WTClient sharedClient] enqueueRequest:request];
 }
 
-- (NSUInteger)currentWeekNumber {
+- (NSUInteger)todayWeekNumber {
     NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:[semesterBeginTime convertToDate]];
-    NSUInteger currentWeekNumber = interval / WEEK_TIME_INTERVAL + 1;
-    return currentWeekNumber;
+    NSUInteger todayWeekNumber = interval / WEEK_TIME_INTERVAL + 1;
+    // TODO: 判断超过19的情况
+    return todayWeekNumber;
 }
 
 #pragma mark - UI methods
@@ -151,7 +147,7 @@
 - (void)configureTableView {
     CGRect frame = self.tableView.frame;
     self.tableView.transform = CGAffineTransformMakeRotation(-M_PI_2);
-    self.tableView.frame = frame;
+    self.tableView.frame = frame;    
 }
 
 - (void)configureCell:(WTNowWeekCell *)cell atIndexPath:(NSIndexPath *)indexPath {
@@ -175,7 +171,7 @@
     NSUInteger index = self.tableView.contentOffset.y / self.tableView.frame.size.width;
     self.barTitleView.weekNumber = index + 1;
     
-    if ([self currentWeekNumber] == self.barTitleView.weekNumber) {
+    if ([self todayWeekNumber] == self.barTitleView.weekNumber) {
         [self scrollToNow:YES];
     }
 }
@@ -184,8 +180,7 @@
     if (![WTCoreDataManager sharedManager].currentUser) {
         return;
     }
-    NSUInteger currentWeekNumber = [self currentWeekNumber];
-    // TODO: 判断超过19的情况
+    NSUInteger currentWeekNumber = [self todayWeekNumber];
     NSIndexPath *targetIndexPath = [NSIndexPath indexPathForRow:currentWeekNumber - 1 inSection:0];
     
     BOOL weekTableViewScrollAnimated = abs(currentWeekNumber - self.barTitleView.weekNumber) < 2 && currentWeekNumber != self.barTitleView.weekNumber;
@@ -247,6 +242,16 @@
     if (!decelerate) {
         [self updateTableView];
     }
+}
+
+#pragma mark - WTRootNavigationControllerDelegate
+
+- (UIScrollView *)sourceScrollView {
+    NSIndexPath *currentIndexPath = [NSIndexPath indexPathForRow:self.barTitleView.weekNumber - 1 inSection:0];
+    
+    WTNowWeekCell *weekCell = (WTNowWeekCell *)[self.tableView cellForRowAtIndexPath:currentIndexPath];
+    
+    return weekCell.tableViewController.tableView;
 }
 
 @end

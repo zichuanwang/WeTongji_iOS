@@ -8,8 +8,6 @@
 
 #import "News.h"
 #import "Organization.h"
-
-
 @implementation News
 
 @dynamic category;
