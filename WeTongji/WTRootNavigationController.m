@@ -20,6 +20,7 @@
 @property (nonatomic, strong) WTInnerModalViewController *innerModalViewController;
 @property (nonatomic, strong) UIViewController<WTRootNavigationControllerDelegate> *sourceViewController;
 @property (nonatomic, assign) CGPoint sourceScrollViewContentOffset;
+@property (nonatomic, strong) NSMutableDictionary *sourceScollViewSubviewOriginYDict;
 
 @property (nonatomic, strong) UIImageView *screenShootImageView;
 @property (nonatomic, strong) UIView *screenShootContainerView;
@@ -128,7 +129,15 @@
     [self.screenShootContainerView resetOriginY:innerController.view.frame.size.height - 41.0f];
     [innerController.view addSubview:self.screenShootContainerView];
     
-    self.sourceScrollViewContentOffset = [sourceController sourceScrollView].contentOffset;
+    UIScrollView *sourceScrollView = [sourceController sourceScrollView];
+    self.sourceScrollViewContentOffset = sourceScrollView.contentOffset;
+    
+    NSMutableDictionary *sourceScollViewSubviewOriginYDict = [NSMutableDictionary dictionary];
+    for (UIView *subview in sourceScrollView.subviews) {
+        sourceScollViewSubviewOriginYDict[[NSString stringWithFormat:@"%p", subview]] = @(subview.frame.origin.y);
+    }
+    self.sourceScollViewSubviewOriginYDict = sourceScollViewSubviewOriginYDict;
+    
     
     WTRootTabBarController *tabBarVC = [UIApplication sharedApplication].rootTabBarController;
     [tabBarVC hideTabBar];
@@ -187,6 +196,9 @@
         [tabBarVC showTabBar];
         
         sourceScrollView.contentOffset = self.sourceScrollViewContentOffset;
+        for (UIView *subview in sourceScrollView.subviews) {
+            [subview resetOriginY:[(self.sourceScollViewSubviewOriginYDict[[NSString stringWithFormat:@"%p", subview]]) floatValue]];
+        }
     }];
 }
 
