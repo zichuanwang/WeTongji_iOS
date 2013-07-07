@@ -33,6 +33,8 @@
 
 @property (nonatomic, strong) WTDragToLoadDecorator *dragToLoadDecorator;
 
+@property (nonatomic, assign) BOOL delayHandelCurrentUserDidChange;
+
 @end
 
 @implementation WTMeViewController
@@ -54,8 +56,6 @@
     [self configureDragToLoadDecorator];
     
     [NSNotificationCenter registerCurrentUserDidChangeNotificationWithSelector:@selector(hanldeCurrentUserDidChangeNotification:) target:self];
-    
-    [NSNotificationCenter registerCurrentUserLikeCountDidChangeNotificationWithSelector:@selector(handleCurrentUserLikeCountDidChangeNotification:) target:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -71,21 +71,16 @@
     [self.dragToLoadDecorator stopObservingChangesInDragToLoadScrollView];
 }
 
+#pragma mark - Public methods
+
 #pragma mark - Notification handler
 
-- (void)handleCurrentUserLikeCountDidChangeNotification:(NSNotification *)notification {
-    if ([WTCoreDataManager sharedManager].currentUser) {
-        [self.profileView updateView];
-    }
-}
-
 - (void)hanldeCurrentUserDidChangeNotification:(NSNotification *)notification {
-    if ([WTCoreDataManager sharedManager].currentUser) {
+    if (!self.settingButton.selected) {
+        [self didClickSettingButton:self.settingButton];
+        self.delayHandelCurrentUserDidChange = YES;
+    } else if ([WTCoreDataManager sharedManager].currentUser) {
         [self configureUI];
-    } else {
-        if (!self.settingButton.selected) {
-            [self didClickSettingButton:self.settingButton];
-        }
     }
 }
 
@@ -282,8 +277,13 @@
         [WTClient refreshSharedClient];
     }
     
-    if (![WTCoreDataManager sharedManager].currentUser) {
-        [[UIApplication sharedApplication].rootTabBarController clickTabWithName:WTRootTabBarViewControllerHome];
+    if (self.delayHandelCurrentUserDidChange) {
+        if (![WTCoreDataManager sharedManager].currentUser) {
+            [[UIApplication sharedApplication].rootTabBarController clickTabWithName:WTRootTabBarViewControllerHome];
+        } else {
+            [self configureUI];
+        }
+        self.delayHandelCurrentUserDidChange = NO;
         return;
     }
     

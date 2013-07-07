@@ -352,6 +352,7 @@
 		E16D531C1788B10300689645 /* WTLoginIntroImage1.png in Resources */ = {isa = PBXBuildFile; fileRef = E16D531A1788B10300689645 /* WTLoginIntroImage1.png */; };
 		E16D531D1788B10300689645 /* WTLoginIntroImage1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16D531B1788B10300689645 /* WTLoginIntroImage1@2x.png */; };
 		E16D531F1789C52B00689645 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16D531E1789C52800689645 /* Social.framework */; };
+		E16D53241789EE3C00689645 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16D53231789EE3600689645 /* MessageUI.framework */; };
 		E16D5DCA174619A900740D79 /* Advertisement+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E16D5DC9174619A900740D79 /* Advertisement+Addition.m */; };
 		E16E961D1733AA550055DE27 /* WTOrangeBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961B1733AA550055DE27 /* WTOrangeBg.png */; };
 		E16E961E1733AA550055DE27 /* WTOrangeBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961C1733AA550055DE27 /* WTOrangeBg@2x.png */; };
@@ -1127,6 +1128,7 @@
 		E16D531A1788B10300689645 /* WTLoginIntroImage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTLoginIntroImage1.png; sourceTree = "<group>"; };
 		E16D531B1788B10300689645 /* WTLoginIntroImage1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTLoginIntroImage1@2x.png"; sourceTree = "<group>"; };
 		E16D531E1789C52800689645 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		E16D53231789EE3600689645 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		E16D5DC8174619A900740D79 /* Advertisement+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Advertisement+Addition.h"; sourceTree = "<group>"; };
 		E16D5DC9174619A900740D79 /* Advertisement+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Advertisement+Addition.m"; sourceTree = "<group>"; };
 		E16E961B1733AA550055DE27 /* WTOrangeBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTOrangeBg.png; sourceTree = "<group>"; };
@@ -1521,6 +1523,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E11702FE1650F83F00D82F4A /* MobileCoreServices.framework in Frameworks */,
+				E16D53241789EE3C00689645 /* MessageUI.framework in Frameworks */,
 				E16D531F1789C52B00689645 /* Social.framework in Frameworks */,
 				E1BB2C3D175F2129003608B8 /* CoreLocation.framework in Frameworks */,
 				E1BB2C3B175F1EA2003608B8 /* MapKit.framework in Frameworks */,
@@ -1534,7 +1538,6 @@
 				E1D374721694CB170012E30A /* CoreData.framework in Frameworks */,
 				E1D373CF169350AF0012E30A /* CoreText.framework in Frameworks */,
 				E1C033E116692590004738EF /* libxml2.dylib in Frameworks */,
-				E11702FE1650F83F00D82F4A /* MobileCoreServices.framework in Frameworks */,
 				E11702FC1650F82A00D82F4A /* SystemConfiguration.framework in Frameworks */,
 				E125549416491530006D42F5 /* UIKit.framework in Frameworks */,
 				E125549616491530006D42F5 /* Foundation.framework in Frameworks */,
@@ -1922,6 +1925,7 @@
 		E125549216491530006D42F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E16D53231789EE3600689645 /* MessageUI.framework */,
 				E1E647B91722AD7A00EB4C8D /* AssetsLibrary.framework */,
 				E17703B1173FC4050086E550 /* AVFoundation.framework */,
 				E1D374711694CB140012E30A /* CoreData.framework */,

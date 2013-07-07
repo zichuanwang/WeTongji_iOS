@@ -13,8 +13,14 @@
 #import "UIApplication+WTAddition.h"
 #import "WTMeViewController.h"
 #import "WTTermOfUseViewController.h"
+#import "WTLoginViewController.h"
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface WTMeSettingViewController () <UIScrollViewDelegate, UITextFieldDelegate, UIAlertViewDelegate>
+#define WE_TONGJI_EMAIL             @"wetongji2012@gmail.com"
+#define WE_TONGJI_SINA_WEIBO_URL    @"http://www.weibo.com/wetongji"
+#define WE_TONGJI_APP_STORE_URL     @"http://itunes.apple.com/cn/app/id526260090?mt=8"
+
+@interface WTMeSettingViewController () <UIScrollViewDelegate, UITextFieldDelegate, UIAlertViewDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *textFieldArray;
 
@@ -88,6 +94,41 @@
     [nav pushViewController:vc animated:YES];
 }
 
+- (void)didClickRateButton:(UIButton *)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:WE_TONGJI_APP_STORE_URL]];
+}
+
+- (void)didClickFeedbackButton:(UIButton *)sneder {
+    if (![MFMailComposeViewController canSendMail]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Failure", nil)
+                                                        message:@"You have not bound a email account to your device"
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString(@"I see", nil)
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
+    MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+    picker.mailComposeDelegate = self;
+    [picker setSubject:@"微同济 3.0 用户反馈"];
+    [picker.navigationBar setBarStyle:UIBarStyleBlack];
+    
+    NSArray *toRecipients = [NSArray arrayWithObjects:WE_TONGJI_EMAIL, nil];
+    NSString *emailBody = @"请将需要反馈的信息填入邮件正文，您的宝贵建议会直接送达微同济开发团队。";
+    [picker setToRecipients:toRecipients];
+    [picker setMessageBody:emailBody isHTML:NO];
+    [[UIApplication sharedApplication].meViewController presentViewController:picker animated:YES completion:nil];
+}
+
+- (void)didClickTutorialButton:(UIButton *)sender {
+    [WTLoginViewController showWithIntro:YES];
+}
+
+- (void)didClickSwitchAccountButton:(UIButton *)sender {
+    [WTLoginViewController showWithIntro:NO];
+}
+
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -119,6 +160,28 @@
             [WTCoreDataManager sharedManager].currentUser = nil;
         }
     }
+}
+
+#pragma mark -
+#pragma mark MFMailComposeViewController delegate
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+    if(result == MFMailComposeResultSent) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Success", nil)
+                                                        message:@"Your feedback has been delieved successfully"
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString(@"I see", nil)
+                                              otherButtonTitles:nil];
+        [alert show];
+    } else if(result == MFMailComposeResultFailed) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Failure", nil)
+                                                        message:@"Your feedback has not been delieved"
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString(@"I see", nil)
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+	[[UIApplication sharedApplication].meViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

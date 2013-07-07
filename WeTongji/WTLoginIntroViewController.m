@@ -94,7 +94,7 @@
 
 - (void)configureLocalizationLabels {
     self.campusInYourPocketLabel.text = NSLocalizedString(self.campusInYourPocketLabel.text, nil);
-    [self.tourButton setTitle:NSLocalizedString(@"Tour", nil) forState:UIControlStateNormal];
+    [self.tourButton setTitle:NSLocalizedString(@"Tutorial", nil) forState:UIControlStateNormal];
     
     CGFloat tourButtonHeight = self.tourButton.frame.size.height;
     CGFloat tourButtonCenterY = self.tourButton.center.y;

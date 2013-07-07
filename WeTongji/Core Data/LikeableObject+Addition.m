@@ -45,23 +45,6 @@
         WTLOG(@"remove like object:%@, model:%@", self.identifier, self.objectClass);
         [currentUser removeLikedObjectsObject:self];
     }
-    
-    return;
-    NSInteger likeCountIncrement = liked ? 1 : -1;
-    if ([self isKindOfClass:[BillboardPost class]]) {
-        currentUser.likedBillboardCount = @(currentUser.likedBillboardCount.integerValue + likeCountIncrement);
-    } else if ([self isKindOfClass:[Activity class]]) {
-        currentUser.likedActivityCount = @(currentUser.likedActivityCount.integerValue + likeCountIncrement);
-    } else if ([self isKindOfClass:[News class]]) {
-        currentUser.likedNewsCount = @(currentUser.likedNewsCount.integerValue + likeCountIncrement);
-    } else if ([self isKindOfClass:[Star class]]) {
-        currentUser.likedStarCount = @(currentUser.likedStarCount.integerValue + likeCountIncrement);
-    } else if ([self isKindOfClass:[Organization class]]) {
-        currentUser.likedOrganizationCount = @(currentUser.likedOrganizationCount.integerValue + likeCountIncrement);
-    } else if ([self isKindOfClass:[User class]]) {
-        currentUser.likedUserCount = @(currentUser.likedUserCount.integerValue + likeCountIncrement);
-    }
-    [NSNotificationCenter postCurrentUserLikeCountDidChangeNotification];
 }
 
 @end

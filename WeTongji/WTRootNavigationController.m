@@ -197,7 +197,9 @@
         
         sourceScrollView.contentOffset = self.sourceScrollViewContentOffset;
         for (UIView *subview in sourceScrollView.subviews) {
-            [subview resetOriginY:[(self.sourceScollViewSubviewOriginYDict[[NSString stringWithFormat:@"%p", subview]]) floatValue]];
+            NSNumber *originYNumber = self.sourceScollViewSubviewOriginYDict[[NSString stringWithFormat:@"%p", subview]];
+            if (originYNumber)
+                [subview resetOriginY:originYNumber.floatValue];
         }
     }];
 }

@@ -73,8 +73,19 @@
 		<string>TableViewTypeSeparator</string>
 	</dict>
 	<dict>
-		<key>RequireOSVersion</key>
-		<real>6</real>
+		<key>TableViewType</key>
+		<string>TableViewTypeButton</string>
+		<key>TableViewContent</key>
+		<array>
+			<dict>
+				<key>ButtonTitle</key>
+				<string>Tutorail</string>
+				<key>ButtonTarget</key>
+				<string>didClickTutorialButton:</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
 		<key>TableViewType</key>
 		<string>TableViewTypeButton</string>
 		<key>TableViewContent</key>
@@ -84,6 +95,36 @@
 				<string>Term of Use</string>
 				<key>ButtonTarget</key>
 				<string>didClickTermOfUseButton:</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>TableViewType</key>
+		<string>TableViewTypeSeparator</string>
+	</dict>
+	<dict>
+		<key>TableViewType</key>
+		<string>TableViewTypeButton</string>
+		<key>TableViewContent</key>
+		<array>
+			<dict>
+				<key>ButtonTitle</key>
+				<string>Feedback</string>
+				<key>ButtonTarget</key>
+				<string>didClickFeedbackButton:</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>TableViewType</key>
+		<string>TableViewTypeButton</string>
+		<key>TableViewContent</key>
+		<array>
+			<dict>
+				<key>ButtonTitle</key>
+				<string>Rate WeTongji</string>
+				<key>ButtonTarget</key>
+				<string>didClickRateButton:</string>
 			</dict>
 		</array>
 	</dict>
@@ -112,6 +153,23 @@
 				<string>Visit Official Website</string>
 				<key>ButtonTarget</key>
 				<string>didClickVisitOfficialWebsiteButton:</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>TableViewType</key>
+		<string>TableViewTypeSeparator</string>
+	</dict>
+	<dict>
+		<key>TableViewType</key>
+		<string>TableViewTypeButton</string>
+		<key>TableViewContent</key>
+		<array>
+			<dict>
+				<key>ButtonTitle</key>
+				<string>Switch Account</string>
+				<key>ButtonTarget</key>
+				<string>didClickSwitchAccountButton:</string>
 			</dict>
 		</array>
 	</dict>
