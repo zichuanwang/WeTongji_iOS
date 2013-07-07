@@ -79,6 +79,19 @@
 		<array>
 			<dict>
 				<key>ButtonTitle</key>
+				<string>Visit Official Website</string>
+				<key>ButtonTarget</key>
+				<string>didClickVisitOfficialWebsiteButton:</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>TableViewType</key>
+		<string>TableViewTypeButton</string>
+		<key>TableViewContent</key>
+		<array>
+			<dict>
+				<key>ButtonTitle</key>
 				<string>Logout</string>
 				<key>ButtonTarget</key>
 				<string>didClickLogoutButton:</string>

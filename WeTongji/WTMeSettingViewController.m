@@ -46,6 +46,18 @@
     return [[WTConfigLoader sharedLoader] loadConfig:kWTMeConfig];
 }
 
+- (void)registerTextFields {
+    for (UIView *itemView in self.innerSettingItems) {
+        if ([itemView isKindOfClass:[WTSettingTextFieldCell class]]) {
+            WTSettingTextFieldCell *textFieldCell = (WTSettingTextFieldCell *)itemView;
+            textFieldCell.textField.delegate = self;
+            [self.textFieldArray addObject:textFieldCell.textField];
+        }
+    }
+}
+
+#pragma mark - Actions 
+
 - (void)didClickLogoutButton:(UIButton *)sender {
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Warning", nil)
@@ -56,14 +68,9 @@
     [alert show];
 }
 
-- (void)registerTextFields {
-    for (UIView *itemView in self.innerSettingItems) {
-        if ([itemView isKindOfClass:[WTSettingTextFieldCell class]]) {
-            WTSettingTextFieldCell *textFieldCell = (WTSettingTextFieldCell *)itemView;
-            textFieldCell.textField.delegate = self;
-            [self.textFieldArray addObject:textFieldCell.textField];
-        }
-    }
+- (void)didClickVisitOfficialWebsiteButton:(UIButton *)sender {
+    NSURL *url = [NSURL URLWithString:@"http://we.tongji.edu.cn"];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 #pragma mark - UIScrollViewDelegate
