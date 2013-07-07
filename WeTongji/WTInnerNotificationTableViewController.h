@@ -21,6 +21,6 @@
 @protocol WTInnerNotificationTableViewControllerDelegate <NSObject>
 
 - (void)innerNotificaionTableViewController:(WTInnerNotificationTableViewController *)vc
-                   wantToPushViewController:(UIViewController *)pushVc;
+                   wantToPushViewController:(UIViewController *)pushVC;
 
 @end

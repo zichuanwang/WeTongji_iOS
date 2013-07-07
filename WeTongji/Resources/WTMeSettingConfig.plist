@@ -81,6 +81,21 @@
 		<array>
 			<dict>
 				<key>ButtonTitle</key>
+				<string>Term of Use</string>
+				<key>ButtonTarget</key>
+				<string>didClickTermOfUseButton:</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>RequireOSVersion</key>
+		<real>6</real>
+		<key>TableViewType</key>
+		<string>TableViewTypeButton</string>
+		<key>TableViewContent</key>
+		<array>
+			<dict>
+				<key>ButtonTitle</key>
 				<string>Share</string>
 				<key>ButtonTarget</key>
 				<string>didClickShareButton:</string>

@@ -12,6 +12,7 @@
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import "UIApplication+WTAddition.h"
 #import "WTMeViewController.h"
+#import "WTTermOfUseViewController.h"
 
 @interface WTMeSettingViewController () <UIScrollViewDelegate, UITextFieldDelegate, UIAlertViewDelegate>
 
@@ -76,9 +77,15 @@
 }
 
 - (void)didClickShareButton:(UIButton *)sender {
-    NSArray *activityItems = @[@"微同济 3.0 震撼来袭——全新好友系统，强力搜索，通知推送，课程旁听等功能等你体验！", [UIImage imageNamed:@"icon@2x.png"]];
+    NSArray *activityItems = @[@"微同济 3.0 震撼来袭——好友系统，强力搜索，通知推送，课程旁听等精彩功能等你体验！", [UIImage imageNamed:@"icon@2x.png"]];
     UIActivityViewController *vc = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
     [[UIApplication sharedApplication].meViewController presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)didClickTermOfUseButton:(UIButton *)sender {
+    WTTermOfUseViewController *vc = [[WTTermOfUseViewController alloc] init];
+    UINavigationController *nav = (UINavigationController *)[UIApplication sharedApplication].rootTabBarController.selectedViewController;
+    [nav pushViewController:vc animated:YES];
 }
 
 #pragma mark - UIScrollViewDelegate

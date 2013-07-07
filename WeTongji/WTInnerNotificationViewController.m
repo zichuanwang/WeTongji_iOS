@@ -115,9 +115,9 @@
 #pragma mark - WTInnerNotificationTableViewControllerDelegate
 
 - (void)innerNotificaionTableViewController:(WTInnerNotificationTableViewController *)vc
-                   wantToPushViewController:(UIViewController *)pushVc {
+                   wantToPushViewController:(UIViewController *)pushVC {
     UINavigationController *nav = (UINavigationController *)[UIApplication sharedApplication].rootTabBarController.selectedViewController;
-    [nav pushViewController:pushVc animated:YES];
+    [nav pushViewController:pushVC animated:YES];
 }
 
 @end
