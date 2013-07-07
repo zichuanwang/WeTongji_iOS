@@ -33,9 +33,12 @@
 #define kTableViewSupportsMultiSelection    @"TableViewSupportsMultiSelection"
 #define kUserDefaultKey                     @"UserDefaultKey"
 
+#define kDistrictIndexArray                 @"DistrictIndexArray"
+
 #define kWTActivityConfig                   @"WTActivitySettingConfig"
 #define kWTNewsConfig                       @"WTNewsSettingConfig"
 #define kWTMeConfig                         @"WTMeSettingConfig"
+#define KWTDistrictBuildingMap              @"WTDistrictBuildingMap"
 
 @interface WTConfigLoader : NSObject {
     NSMutableDictionary *_configDictionary;
@@ -43,6 +46,6 @@
 
 + (WTConfigLoader *)sharedLoader;
 
-- (NSArray *)loadConfig:(NSString *)configKey;
+- (id)loadConfig:(NSString *)configKey;
 
 @end

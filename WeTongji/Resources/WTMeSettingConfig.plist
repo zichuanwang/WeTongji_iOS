@@ -47,6 +47,14 @@
 				<key>UserDefaultKey</key>
 				<string>CurrentUserQQ</string>
 			</dict>
+			<dict>
+				<key>CellTitle</key>
+				<string>Dorm</string>
+				<key>CellAccessoryType</key>
+				<string>CellAccessoryTypeTextField</string>
+				<key>UserDefaultKey</key>
+				<string>CurrentUserDorm</string>
+			</dict>
 		</array>
 	</dict>
 	<dict>

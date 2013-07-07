@@ -84,8 +84,7 @@
     return [self.fetchedResultsController.sections[section] numberOfObjects];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *name = [self customCellClassNameAtIndexPath:indexPath];
     
     NSString *cellIdentifier = name ? name : @"Cell";

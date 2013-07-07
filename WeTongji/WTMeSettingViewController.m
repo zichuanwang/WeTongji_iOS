@@ -17,6 +17,7 @@
 #import <MessageUI/MFMailComposeViewController.h>
 #import "WTTeamMemberViewController.h"
 #import "WTChangePasswordViewController.h"
+#import "WTSelectDormViewController.h"
 
 #define WE_TONGJI_EMAIL             @"wetongji2012@gmail.com"
 #define WE_TONGJI_SINA_WEIBO_URL    @"http://www.weibo.com/wetongji"
@@ -25,6 +26,8 @@
 @interface WTMeSettingViewController () <UIScrollViewDelegate, UITextFieldDelegate, UIAlertViewDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *textFieldArray;
+
+@property (nonatomic, weak) UITextField *dormTextField;
 
 @end
 
@@ -63,6 +66,10 @@
             WTSettingTextFieldCell *textFieldCell = (WTSettingTextFieldCell *)itemView;
             textFieldCell.textField.delegate = self;
             [self.textFieldArray addObject:textFieldCell.textField];
+            
+            if ([textFieldCell.titleLabel.text isEqualToString:NSLocalizedString(@"Dorm", nil)]) {
+                self.dormTextField = textFieldCell.textField;
+            }
         }
     }
 }
@@ -165,6 +172,16 @@
     return NO;
 }
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    if (textField == self.dormTextField) {
+        WTSelectDormViewController *vc = [[WTSelectDormViewController alloc] init];
+        UINavigationController *nav = (UINavigationController *)[UIApplication sharedApplication].rootTabBarController.selectedViewController;
+        [nav pushViewController:vc animated:YES];
+        return NO;
+    }
+    return YES;
+}
+
 #pragma mark - UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
@@ -176,8 +193,7 @@
     }
 }
 
-#pragma mark -
-#pragma mark MFMailComposeViewController delegate
+#pragma mark - MFMailComposeViewController delegate
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
     if(result == MFMailComposeResultSent) {

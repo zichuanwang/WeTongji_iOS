@@ -520,6 +520,10 @@
 		E19832DE16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E19832DD16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.m */; };
 		E199053516B7CDCE00F2C787 /* WTGrayPanel.png in Resources */ = {isa = PBXBuildFile; fileRef = E199053316B7CDCE00F2C787 /* WTGrayPanel.png */; };
 		E199053616B7CDCE00F2C787 /* WTGrayPanel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E199053416B7CDCE00F2C787 /* WTGrayPanel@2x.png */; };
+		E19B6ADB178A1EAC003BDCBB /* WTSelectDormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19B6AD9178A1EAC003BDCBB /* WTSelectDormViewController.m */; };
+		E19B6ADC178A1EAC003BDCBB /* WTSelectDormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19B6ADA178A1EAC003BDCBB /* WTSelectDormViewController.xib */; };
+		E19B6AE0178A268D003BDCBB /* WTDormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E19B6ADF178A268D003BDCBB /* WTDormCell.m */; };
+		E19B6AE2178A26A6003BDCBB /* WTDormCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19B6AE1178A26A6003BDCBB /* WTDormCell.xib */; };
 		E1A5816216F0F8EB00551149 /* WTDragToLoadDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A5816116F0F8EB00551149 /* WTDragToLoadDecorator.m */; };
 		E1A5816416F0FA6700551149 /* WTDragToLoadDecorator.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A5816316F0FA6700551149 /* WTDragToLoadDecorator.xib */; };
 		E1AEA9891691AFBC007DFA4C /* WTTopShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AEA9871691AFBB007DFA4C /* WTTopShadow.png */; };
@@ -1347,6 +1351,12 @@
 		E19832DD16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+WTAddition.m"; sourceTree = "<group>"; };
 		E199053316B7CDCE00F2C787 /* WTGrayPanel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTGrayPanel.png; sourceTree = "<group>"; };
 		E199053416B7CDCE00F2C787 /* WTGrayPanel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTGrayPanel@2x.png"; sourceTree = "<group>"; };
+		E19B6AD8178A1EAC003BDCBB /* WTSelectDormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSelectDormViewController.h; sourceTree = "<group>"; };
+		E19B6AD9178A1EAC003BDCBB /* WTSelectDormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSelectDormViewController.m; sourceTree = "<group>"; };
+		E19B6ADA178A1EAC003BDCBB /* WTSelectDormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSelectDormViewController.xib; sourceTree = "<group>"; };
+		E19B6ADE178A268D003BDCBB /* WTDormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTDormCell.h; sourceTree = "<group>"; };
+		E19B6ADF178A268D003BDCBB /* WTDormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTDormCell.m; sourceTree = "<group>"; };
+		E19B6AE1178A26A6003BDCBB /* WTDormCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTDormCell.xib; sourceTree = "<group>"; };
 		E1A5816016F0F8EB00551149 /* WTDragToLoadDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTDragToLoadDecorator.h; sourceTree = "<group>"; };
 		E1A5816116F0F8EB00551149 /* WTDragToLoadDecorator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTDragToLoadDecorator.m; sourceTree = "<group>"; };
 		E1A5816316F0FA6700551149 /* WTDragToLoadDecorator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTDragToLoadDecorator.xib; sourceTree = "<group>"; };
@@ -1845,6 +1855,7 @@
 		E117038E1651EFD900D82F4A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E19B6AD7178A1E82003BDCBB /* Dorm */,
 				E1250C0A16859A1D00802808 /* Activity */,
 				E1D3741316942E350012E30A /* Billboard */,
 				E1157DD9173B7CD700E62295 /* Comment */,
@@ -2793,6 +2804,26 @@
 			name = Bg;
 			sourceTree = "<group>";
 		};
+		E19B6AD7178A1E82003BDCBB /* Dorm */ = {
+			isa = PBXGroup;
+			children = (
+				E19B6AD8178A1EAC003BDCBB /* WTSelectDormViewController.h */,
+				E19B6AD9178A1EAC003BDCBB /* WTSelectDormViewController.m */,
+				E19B6ADA178A1EAC003BDCBB /* WTSelectDormViewController.xib */,
+			);
+			name = Dorm;
+			sourceTree = "<group>";
+		};
+		E19B6ADD178A2673003BDCBB /* Dorm */ = {
+			isa = PBXGroup;
+			children = (
+				E19B6ADE178A268D003BDCBB /* WTDormCell.h */,
+				E19B6ADF178A268D003BDCBB /* WTDormCell.m */,
+				E19B6AE1178A26A6003BDCBB /* WTDormCell.xib */,
+			);
+			name = Dorm;
+			sourceTree = "<group>";
+		};
 		E1A5815F16F0F8C000551149 /* Decorators */ = {
 			isa = PBXGroup;
 			children = (
@@ -2925,6 +2956,7 @@
 				E16D530F178887E700689645 /* Billboard */,
 				E16D5310178887F000689645 /* Comment */,
 				E16D5311178887F800689645 /* Course */,
+				E19B6ADD178A2673003BDCBB /* Dorm */,
 				E16D53131788880B00689645 /* News */,
 				E16D53141788881400689645 /* Notification */,
 				E16D53151788882600689645 /* Now */,
@@ -3622,6 +3654,8 @@
 				E16D531D1788B10300689645 /* WTLoginIntroImage1@2x.png in Resources */,
 				E16D53291789F9DA00689645 /* WTChangePasswordViewController.xib in Resources */,
 				E16D532E178A043600689645 /* WTTeamMemberViewController.xib in Resources */,
+				E19B6ADC178A1EAC003BDCBB /* WTSelectDormViewController.xib in Resources */,
+				E19B6AE2178A26A6003BDCBB /* WTDormCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3840,6 +3874,8 @@
 				E17BEB98178757860003D58B /* WTLoginIntroItemView.m in Sources */,
 				E16D53281789F9DA00689645 /* WTChangePasswordViewController.m in Sources */,
 				E16D532C1789FAA200689645 /* WTTeamMemberViewController.m in Sources */,
+				E19B6ADB178A1EAC003BDCBB /* WTSelectDormViewController.m in Sources */,
+				E19B6AE0178A268D003BDCBB /* WTDormCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

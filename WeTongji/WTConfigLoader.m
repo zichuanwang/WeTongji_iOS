@@ -18,7 +18,7 @@
     return self;
 }
 
-- (NSArray *)loadConfig:(NSString *)configKey {
+- (id)loadConfig:(NSString *)configKey {
     if (!_configDictionary[configKey]) {
         [self readPlist:configKey];
     }
@@ -37,8 +37,15 @@
 
 - (void)readPlist:(NSString *)configKey {
     NSString *configFilePath = [[NSBundle mainBundle] pathForResource:configKey ofType:@"plist"];
-    NSArray *array = [[NSArray alloc] initWithContentsOfFile:configFilePath];
-    _configDictionary[configKey] = array;
+    id result = nil;
+    if ([configKey isEqualToString:KWTDistrictBuildingMap]) {
+        NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:configFilePath];
+        result = dict;
+    } else {
+        NSArray *array = [[NSArray alloc] initWithContentsOfFile:configFilePath];
+        result = array;
+    }
+    _configDictionary[configKey] = result;
 }
 
 @end
