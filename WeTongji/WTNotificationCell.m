@@ -33,9 +33,14 @@
 
 - (void)awakeFromNib {
     [self configureAvatarImageView];
+    [self configureContentLabel];
 }
 
 #pragma mark - UI methods
+
+- (void)configureContentLabel {
+    self.notificationContentLabel.automaticallyAddLinksForType = 0;
+}
 
 - (void)configureAvatarImageView {
     self.avatarContainerView.layer.masksToBounds = YES;
