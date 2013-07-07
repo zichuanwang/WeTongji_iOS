@@ -10,6 +10,8 @@
 #import "WTConfigLoader.h"
 #import "WTCoreDataManager.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
+#import "UIApplication+WTAddition.h"
+#import "WTMeViewController.h"
 
 @interface WTMeSettingViewController () <UIScrollViewDelegate, UITextFieldDelegate, UIAlertViewDelegate>
 
@@ -71,6 +73,12 @@
 - (void)didClickVisitOfficialWebsiteButton:(UIButton *)sender {
     NSURL *url = [NSURL URLWithString:@"http://we.tongji.edu.cn"];
     [[UIApplication sharedApplication] openURL:url];
+}
+
+- (void)didClickShareButton:(UIButton *)sender {
+    NSArray *activityItems = @[@"微同济 3.0 震撼来袭——全新好友系统，强力搜索，通知推送，课程旁听等功能等你体验！", [UIImage imageNamed:@"icon@2x.png"]];
+    UIActivityViewController *vc = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    [[UIApplication sharedApplication].meViewController presentViewController:vc animated:YES completion:nil];
 }
 
 #pragma mark - UIScrollViewDelegate

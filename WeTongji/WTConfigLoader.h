@@ -10,6 +10,7 @@
 
 #define kTableViewType                      @"TableViewType"
 #define kTableViewContent                   @"TableViewContent"
+#define kRequireOSVersion                   @"RequireOSVersion"
 
 #define kCellTitle                          @"CellTitle"
 #define kCellThumbnail                      @"CellThumbnail"

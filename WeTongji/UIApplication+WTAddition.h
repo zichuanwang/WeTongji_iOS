@@ -12,6 +12,7 @@
 @class WTNowViewController;
 @class WTBillboardViewController;
 @class WTSearchViewController;
+@class WTMeViewController;
 
 @interface UIApplication (WTAddition)
 
@@ -22,6 +23,8 @@
 @property (nonatomic, readonly) WTBillboardViewController *billboardViewController;
 
 @property (nonatomic, readonly) WTSearchViewController *searchViewController;
+
+@property (nonatomic, readonly) WTMeViewController *meViewController;
 
 + (void)showTopCorner;
 

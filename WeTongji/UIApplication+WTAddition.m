@@ -12,6 +12,7 @@
 #import "WTNowNavigationController.h"
 #import "WTBillboardNavigationViewController.h"
 #import "WTSearchNavigationController.h"
+#import "WTMeNavigationController.h"
 
 static UIViewController *staticKeyWindowViewController;
 static UIView           *staticKeyWindowBgView;
@@ -38,20 +39,26 @@ static UIView           *staticKeyWindowBgView;
 
 - (WTNowViewController *)nowViewController {
     WTRootTabBarController *rootTabBarViewController = [UIApplication sharedApplication].rootTabBarController;
-    WTNowNavigationController *nowNavigationController = rootTabBarViewController.viewControllers[1];
+    WTNowNavigationController *nowNavigationController = rootTabBarViewController.viewControllers[WTRootTabBarViewControllerNow];
     return nowNavigationController.viewControllers[0];
 }
 
 - (WTBillboardViewController *)billboardViewController {
     WTRootTabBarController *rootTabBarViewController = [UIApplication sharedApplication].rootTabBarController;
-    WTBillboardNavigationViewController *billboardNavigationController = rootTabBarViewController.viewControllers[3];
+    WTBillboardNavigationViewController *billboardNavigationController = rootTabBarViewController.viewControllers[WTRootTabBarViewControllerBillboard];
     return billboardNavigationController.viewControllers[0];
 }
 
 - (WTSearchViewController *)searchViewController {
     WTRootTabBarController *rootTabBarViewController = [UIApplication sharedApplication].rootTabBarController;
-    WTSearchNavigationController *searchNavigationController = rootTabBarViewController.viewControllers[2];
+    WTSearchNavigationController *searchNavigationController = rootTabBarViewController.viewControllers[WTRootTabBarViewControllerSearch];
     return searchNavigationController.viewControllers[0];
+}
+
+- (WTMeViewController *)meViewController {
+    WTRootTabBarController *rootTabBarViewController = [UIApplication sharedApplication].rootTabBarController;
+    WTMeNavigationController *meNavigationController = rootTabBarViewController.viewControllers[WTRootTabBarViewControllerMe];
+    return meNavigationController.viewControllers[0];
 }
 
 #pragma mark - Key window view controller

@@ -97,6 +97,12 @@
     self.scrollView.alwaysBounceVertical = YES;
     CGFloat originY = 0;
     for (NSDictionary *dict in self.settingConfig) {
+        
+        NSNumber *requireOSVersion = dict[kRequireOSVersion];
+        if ([UIDevice currentDevice].systemVersion.floatValue < requireOSVersion.floatValue) {
+            continue;
+        }
+        
         NSString *tableViewType = dict[kTableViewType];
         if ([tableViewType isEqualToString:kTableViewTypePlain]) {
             NSArray *contentArray = dict[kTableViewContent];
