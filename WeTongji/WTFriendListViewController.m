@@ -17,7 +17,9 @@
 @interface WTFriendListViewController () <WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
 @property (nonatomic, strong) User *user;
+
 @property (nonatomic, copy) NSString *backButtonText;
+
 @property (nonatomic, strong) WTDragToLoadDecorator *dragToLoadDecorator;
 
 @end
@@ -107,8 +109,8 @@
 #pragma mark - UI methods
 
 - (void)configureNavigationBar {
-    UIBarButtonItem *cancalBarButtonItem = [WTResourceFactory createBackBarButtonWithText:self.backButtonText target:self action:@selector(didClickCancelButton:)];
-    self.navigationItem.leftBarButtonItem = cancalBarButtonItem;
+    UIBarButtonItem *backBarButtonItem = [WTResourceFactory createBackBarButtonWithText:self.backButtonText target:self action:@selector(didClickBackButton:)];
+    self.navigationItem.leftBarButtonItem = backBarButtonItem;
     
     // self.navigationItem.rightBarButtonItem = [WTResourceFactory createAddFriendBarButtonWithTarget:self action:@selector(didClickAddFriendButton:)];
     
@@ -122,7 +124,7 @@
 
 #pragma mark - Actions
 
-- (void)didClickCancelButton:(UIButton *)sender {
+- (void)didClickBackButton:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 

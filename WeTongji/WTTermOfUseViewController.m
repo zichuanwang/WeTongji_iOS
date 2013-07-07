@@ -13,6 +13,8 @@
 
 @interface WTTermOfUseViewController ()
 
+@property (nonatomic, copy) NSString *backButtonText;
+
 @end
 
 @implementation WTTermOfUseViewController
@@ -33,10 +35,18 @@
     [self configureNavigationBar];
 }
 
++ (WTTermOfUseViewController *)createViewControllerWithBackButtonText:(NSString *)backButtonText {
+    WTTermOfUseViewController *result = [[WTTermOfUseViewController alloc] init];
+    
+    result.backButtonText = backButtonText;
+    
+    return result;
+}
+
 #pragma mark - UI methods
 
 - (void)configureNavigationBar {
-    self.navigationItem.leftBarButtonItem = [WTResourceFactory createBackBarButtonWithText:NSLocalizedString(@"Activation", nil) target:self action:@selector(didClickBackButton:)];
+    self.navigationItem.leftBarButtonItem = [WTResourceFactory createBackBarButtonWithText:self.backButtonText target:self action:@selector(didClickBackButton:)];
     
     self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Term of Use", nil)];
 }

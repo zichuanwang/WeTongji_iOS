@@ -217,7 +217,7 @@
 - (BOOL)attributedLabel:(OHAttributedLabel *)attributedLabel
        shouldFollowLink:(NSTextCheckingResult *)linkInfo {
 	if ([linkInfo.URL.scheme isEqualToString:@"agreement"]) {
-        WTTermOfUseViewController *vc = [[WTTermOfUseViewController alloc] init];
+        WTTermOfUseViewController *vc = [WTTermOfUseViewController createViewControllerWithBackButtonText:NSLocalizedString(@"Activation", nil)];
         [self.navigationController pushViewController:vc animated:YES];
     }
     // Prevent the URL from opening in Safari, as we handled it here manually instead

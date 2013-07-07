@@ -79,6 +79,19 @@
 		<array>
 			<dict>
 				<key>ButtonTitle</key>
+				<string>Change Password</string>
+				<key>ButtonTarget</key>
+				<string>didClickChangePasswordButton:</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>TableViewType</key>
+		<string>TableViewTypeButton</string>
+		<key>TableViewContent</key>
+		<array>
+			<dict>
+				<key>ButtonTitle</key>
 				<string>Tutorail</string>
 				<key>ButtonTarget</key>
 				<string>didClickTutorialButton:</string>
@@ -153,6 +166,19 @@
 				<string>Visit Official Website</string>
 				<key>ButtonTarget</key>
 				<string>didClickVisitOfficialWebsiteButton:</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>TableViewType</key>
+		<string>TableViewTypeButton</string>
+		<key>TableViewContent</key>
+		<array>
+			<dict>
+				<key>ButtonTitle</key>
+				<string>Team Member</string>
+				<key>ButtonTarget</key>
+				<string>didClickTeamButton:</string>
 			</dict>
 		</array>
 	</dict>

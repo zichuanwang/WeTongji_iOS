@@ -10,4 +10,6 @@
 
 @interface WTTermOfUseViewController : UIViewController
 
++ (WTTermOfUseViewController *)createViewControllerWithBackButtonText:(NSString *)backButtonText;
+
 @end

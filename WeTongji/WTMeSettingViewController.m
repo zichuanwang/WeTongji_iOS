@@ -15,6 +15,7 @@
 #import "WTTermOfUseViewController.h"
 #import "WTLoginViewController.h"
 #import <MessageUI/MFMailComposeViewController.h>
+#import "WTTeamMemberViewController.h"
 
 #define WE_TONGJI_EMAIL             @"wetongji2012@gmail.com"
 #define WE_TONGJI_SINA_WEIBO_URL    @"http://www.weibo.com/wetongji"
@@ -89,7 +90,7 @@
 }
 
 - (void)didClickTermOfUseButton:(UIButton *)sender {
-    WTTermOfUseViewController *vc = [[WTTermOfUseViewController alloc] init];
+    WTTermOfUseViewController *vc = [WTTermOfUseViewController createViewControllerWithBackButtonText:NSLocalizedString(@"Setting", nil)];
     UINavigationController *nav = (UINavigationController *)[UIApplication sharedApplication].rootTabBarController.selectedViewController;
     [nav pushViewController:vc animated:YES];
 }
@@ -127,6 +128,16 @@
 
 - (void)didClickSwitchAccountButton:(UIButton *)sender {
     [WTLoginViewController showWithIntro:NO];
+}
+
+- (void)didClickTeamButton:(UIButton *)sender {
+    WTTeamMemberViewController *vc = [[WTTeamMemberViewController alloc] init];
+    UINavigationController *nav = (UINavigationController *)[UIApplication sharedApplication].rootTabBarController.selectedViewController;
+    [nav pushViewController:vc animated:YES];
+}
+
+- (void)didClickChangePasswordButton:(UIButton *)sender {
+    
 }
 
 #pragma mark - UIScrollViewDelegate

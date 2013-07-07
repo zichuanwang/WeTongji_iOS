@@ -353,6 +353,10 @@
 		E16D531D1788B10300689645 /* WTLoginIntroImage1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16D531B1788B10300689645 /* WTLoginIntroImage1@2x.png */; };
 		E16D531F1789C52B00689645 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16D531E1789C52800689645 /* Social.framework */; };
 		E16D53241789EE3C00689645 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16D53231789EE3600689645 /* MessageUI.framework */; };
+		E16D53281789F9DA00689645 /* WTChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E16D53261789F9D400689645 /* WTChangePasswordViewController.m */; };
+		E16D53291789F9DA00689645 /* WTChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16D53271789F9D700689645 /* WTChangePasswordViewController.xib */; };
+		E16D532C1789FAA200689645 /* WTTeamMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E16D532B1789FAA200689645 /* WTTeamMemberViewController.m */; };
+		E16D532E178A043600689645 /* WTTeamMemberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16D532D178A043400689645 /* WTTeamMemberViewController.xib */; };
 		E16D5DCA174619A900740D79 /* Advertisement+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E16D5DC9174619A900740D79 /* Advertisement+Addition.m */; };
 		E16E961D1733AA550055DE27 /* WTOrangeBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961B1733AA550055DE27 /* WTOrangeBg.png */; };
 		E16E961E1733AA550055DE27 /* WTOrangeBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16E961C1733AA550055DE27 /* WTOrangeBg@2x.png */; };
@@ -1129,6 +1133,12 @@
 		E16D531B1788B10300689645 /* WTLoginIntroImage1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTLoginIntroImage1@2x.png"; sourceTree = "<group>"; };
 		E16D531E1789C52800689645 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		E16D53231789EE3600689645 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		E16D53251789F9D200689645 /* WTChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTChangePasswordViewController.h; sourceTree = "<group>"; };
+		E16D53261789F9D400689645 /* WTChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTChangePasswordViewController.m; sourceTree = "<group>"; };
+		E16D53271789F9D700689645 /* WTChangePasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTChangePasswordViewController.xib; sourceTree = "<group>"; };
+		E16D532A1789FAA100689645 /* WTTeamMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTeamMemberViewController.h; sourceTree = "<group>"; };
+		E16D532B1789FAA200689645 /* WTTeamMemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTeamMemberViewController.m; sourceTree = "<group>"; };
+		E16D532D178A043400689645 /* WTTeamMemberViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTTeamMemberViewController.xib; sourceTree = "<group>"; };
 		E16D5DC8174619A900740D79 /* Advertisement+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Advertisement+Addition.h"; sourceTree = "<group>"; };
 		E16D5DC9174619A900740D79 /* Advertisement+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Advertisement+Addition.m"; sourceTree = "<group>"; };
 		E16E961B1733AA550055DE27 /* WTOrangeBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTOrangeBg.png; sourceTree = "<group>"; };
@@ -2385,6 +2395,9 @@
 				E12FB5D817746D1F0077A17D /* WTShareEventFriendsViewController.h */,
 				E12FB5D917746D1F0077A17D /* WTShareEventFriendsViewController.m */,
 				E12FB5DA17746D1F0077A17D /* WTShareEventFriendsViewController.xib */,
+				E16D532A1789FAA100689645 /* WTTeamMemberViewController.h */,
+				E16D532B1789FAA200689645 /* WTTeamMemberViewController.m */,
+				E16D532D178A043400689645 /* WTTeamMemberViewController.xib */,
 			);
 			name = Friend;
 			sourceTree = "<group>";
@@ -2693,6 +2706,9 @@
 				E15B46921784AE4A00CE55F1 /* WTForgetPasswordViewController.h */,
 				E15B46931784AE4B00CE55F1 /* WTForgetPasswordViewController.m */,
 				E15B46941784AE4B00CE55F1 /* WTForgetPasswordViewController.xib */,
+				E16D53251789F9D200689645 /* WTChangePasswordViewController.h */,
+				E16D53261789F9D400689645 /* WTChangePasswordViewController.m */,
+				E16D53271789F9D700689645 /* WTChangePasswordViewController.xib */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -3604,6 +3620,8 @@
 				E17BEB9A178757960003D58B /* WTLoginIntroItemView.xib in Resources */,
 				E16D531C1788B10300689645 /* WTLoginIntroImage1.png in Resources */,
 				E16D531D1788B10300689645 /* WTLoginIntroImage1@2x.png in Resources */,
+				E16D53291789F9DA00689645 /* WTChangePasswordViewController.xib in Resources */,
+				E16D532E178A043600689645 /* WTTeamMemberViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3820,6 +3838,8 @@
 				E15B46951784AE4C00CE55F1 /* WTForgetPasswordViewController.m in Sources */,
 				E17BEB94178755B80003D58B /* Course.m in Sources */,
 				E17BEB98178757860003D58B /* WTLoginIntroItemView.m in Sources */,
+				E16D53281789F9DA00689645 /* WTChangePasswordViewController.m in Sources */,
+				E16D532C1789FAA200689645 /* WTTeamMemberViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
