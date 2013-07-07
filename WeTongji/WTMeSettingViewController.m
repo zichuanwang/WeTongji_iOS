@@ -11,7 +11,7 @@
 #import "WTCoreDataManager.h"
 #import <WeTongjiSDK/WeTongjiSDK.h>
 
-@interface WTMeSettingViewController () <UIScrollViewDelegate, UITextFieldDelegate>
+@interface WTMeSettingViewController () <UIScrollViewDelegate, UITextFieldDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *textFieldArray;
 
@@ -47,8 +47,13 @@
 }
 
 - (void)didClickLogoutButton:(UIButton *)sender {
-    [[WTClient sharedClient] logout];
-    [WTCoreDataManager sharedManager].currentUser = nil;
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Warning", nil)
+                                                    message:NSLocalizedString(@"Are you sure you want to logout?", nil)
+                                                   delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
+                                          otherButtonTitles:NSLocalizedString(@"Logout", nil), nil];
+    
+    [alert show];
 }
 
 - (void)registerTextFields {
@@ -81,7 +86,17 @@
         return YES;
     }
     return NO;
-    
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if ([alertView.message isEqualToString:NSLocalizedString(@"Are you sure you want to logout?", nil)]) {
+        if (buttonIndex != alertView.cancelButtonIndex) {
+            [[WTClient sharedClient] logout];
+            [WTCoreDataManager sharedManager].currentUser = nil;
+        }
+    }
 }
 
 @end

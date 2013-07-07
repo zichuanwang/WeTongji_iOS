@@ -82,6 +82,10 @@
 - (void)hanldeCurrentUserDidChangeNotification:(NSNotification *)notification {
     if ([WTCoreDataManager sharedManager].currentUser) {
         [self configureUI];
+    } else {
+        if (!self.settingButton.selected) {
+            [self didClickSettingButton:self.settingButton];
+        }
     }
 }
 
