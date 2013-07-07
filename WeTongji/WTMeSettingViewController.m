@@ -16,6 +16,7 @@
 #import "WTLoginViewController.h"
 #import <MessageUI/MFMailComposeViewController.h>
 #import "WTTeamMemberViewController.h"
+#import "WTChangePasswordViewController.h"
 
 #define WE_TONGJI_EMAIL             @"wetongji2012@gmail.com"
 #define WE_TONGJI_SINA_WEIBO_URL    @"http://www.weibo.com/wetongji"
@@ -137,7 +138,9 @@
 }
 
 - (void)didClickChangePasswordButton:(UIButton *)sender {
-    
+    WTChangePasswordViewController *vc = [[WTChangePasswordViewController alloc] init];
+    UINavigationController *nav = (UINavigationController *)[UIApplication sharedApplication].rootTabBarController.selectedViewController;
+    [nav pushViewController:vc animated:YES];
 }
 
 #pragma mark - UIScrollViewDelegate

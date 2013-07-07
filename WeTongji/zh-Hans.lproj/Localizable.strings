@@ -223,3 +223,9 @@
 
 "Change Password" = "修改密码";
 "Team Member" = "团队成员";
+
+"Please enter your new password" = "请输入新的密码";
+"Please enter your current password" = "请输入当前的密码";
+"Current Password" = "当前密码";
+"New Password" = "新的密码";
+"You have successfully changed your password" = "您已经成功修改了密码";

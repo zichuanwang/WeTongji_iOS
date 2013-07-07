@@ -10,4 +10,9 @@
 
 @interface WTChangePasswordViewController : UIViewController
 
+@property (nonatomic, weak) IBOutlet UITextField *oldPasswordTextField;
+@property (nonatomic, weak) IBOutlet UITextField *passwordTextField;
+@property (nonatomic, weak) IBOutlet UITextField *repeatPasswordTextField;
+@property (nonatomic, weak) IBOutlet UIImageView *panelBgImageView;
+
 @end
