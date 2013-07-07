@@ -365,4 +365,31 @@
     [self synchronize];
 }
 
+#pragma - mark Semester begin end time info
+
+#define kCurrentSemesterBeginTime   @"CurrentSemesterBeginTime"
+#define kCurrentSemesterWeekCount   @"CurrentSemesterWeekCount"
+
+- (NSDate *)getCurrentSemesterBeginTime {
+    if (![self objectForKey:kCurrentSemesterBeginTime])
+        return nil;
+    NSTimeInterval interval = [self floatForKey:kCurrentSemesterBeginTime];
+    return [NSDate dateWithTimeIntervalSince1970:interval];
+}
+
+- (void)setCurrentSemesterBeginTime:(NSDate *)time {
+    NSTimeInterval interval = [time timeIntervalSince1970];
+    [self setFloat:interval forKey:kCurrentSemesterBeginTime];
+    [self synchronize];
+}
+
+- (NSInteger)getCurrentSemesterWeekCount {
+    return [self integerForKey:kCurrentSemesterWeekCount];
+}
+
+- (void)setCurrentSemesterWeekCount:(NSInteger)count {
+    [self setInteger:count forKey:kCurrentSemesterWeekCount];
+    [self synchronize];
+}
+
 @end

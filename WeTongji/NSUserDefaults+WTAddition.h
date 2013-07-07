@@ -123,4 +123,14 @@ typedef enum {
 
 - (void)setLastHomeUpdateTime:(NSTimeInterval)time;
 
+#pragma mark Semester begin end time info
+
+- (NSDate *)getCurrentSemesterBeginTime;
+
+- (void)setCurrentSemesterBeginTime:(NSDate *)time;
+
+- (NSInteger)getCurrentSemesterWeekCount;
+
+- (void)setCurrentSemesterWeekCount:(NSInteger)count;
+
 @end

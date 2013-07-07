@@ -87,7 +87,7 @@
 #pragma mark - Logic Method
 
 - (NSDate *)convertWeekNumberToDate:(NSUInteger)weekNumber {
-    return [[semesterBeginTime convertToDate] dateByAddingTimeInterval:weekNumber * WEEK_TIME_INTERVAL];
+    return [[[NSUserDefaults standardUserDefaults] getCurrentSemesterBeginTime] dateByAddingTimeInterval:weekNumber * WEEK_TIME_INTERVAL];
 }
 
 - (Event *)getNowEvent {

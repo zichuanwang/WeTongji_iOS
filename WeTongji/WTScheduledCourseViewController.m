@@ -14,6 +14,7 @@
 #import "WTCourseCell.h"
 #import "WTResourceFactory.h"
 #import "NSString+WTAddition.h"
+#import "NSUserDefaults+WTAddition.h"
 #import "WTCourseDetailViewController.h"
 
 @interface WTScheduledCourseViewController () <WTDragToLoadDecoratorDelegate, WTDragToLoadDecoratorDataSource>
@@ -99,11 +100,13 @@
         [WTErrorHandler handleError:error];
     }];
     
+    NSDate *semesterBeginTime = [[NSUserDefaults standardUserDefaults] getCurrentSemesterBeginTime];
+    NSInteger semesterWeekCount = [[NSUserDefaults standardUserDefaults] getCurrentSemesterWeekCount];
     BOOL isCurrentUser = [WTCoreDataManager sharedManager].currentUser == self.user;
     [request getCoursesRegisteredByUser:isCurrentUser ? nil : self.user.identifier
-                              beginDate:[semesterBeginTime convertToDate]
-                                endDate:[NSDate dateWithTimeInterval:60 * 60 * 24 * 7 * 19
-                                                           sinceDate:[semesterBeginTime convertToDate]]];
+                              beginDate:semesterBeginTime
+                                endDate:[NSDate dateWithTimeInterval:semesterWeekCount * WEEK_TIME_INTERVAL
+                                                           sinceDate:semesterBeginTime]];
     
     [[WTClient sharedClient] enqueueRequest:request];
 }

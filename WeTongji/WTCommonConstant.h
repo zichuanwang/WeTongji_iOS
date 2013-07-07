@@ -23,8 +23,6 @@
 
 #define WTBlueColor [UIColor colorWithRed:12.0f / 255 green:194.0f / 255 blue:203.0f / 255 alpha:1.0f]
 
-#define semesterBeginTime   @"2013-02-25T00:00:00+08:00"
-
 #define WEEK_TIME_INTERVAL  (60 * 60 * 24 * 7)
 
 #define CROP_AVATAR_SIZE CGSizeMake(100, 100)
