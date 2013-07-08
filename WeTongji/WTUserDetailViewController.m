@@ -19,11 +19,6 @@
 #import "WTUnknownPersonViewController.h"
 #import "UIApplication+WTAddition.h"
 
-typedef enum {
-    ChangeRelationshipActionSheetTag,
-    MoreActionSheetTag,
-} ActionSheetTag;
-
 @interface WTUserDetailViewController () <UIAlertViewDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, strong) User *user;
@@ -147,7 +142,7 @@ typedef enum {
 
 - (void)didClickMoreButton:(UIButton *)sender {
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Create Contact", nil), nil];
-    sheet.tag = MoreActionSheetTag;
+    sheet.delegate = self;
     [sheet showFromTabBar:[UIApplication sharedApplication].rootTabBarController.tabBar];
 }
 
@@ -159,15 +154,17 @@ typedef enum {
 
 #pragma mark - UIActionSheetDelegate
 
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [WTUnknownPersonViewController showWithUser:self.user avatar:self.profileHeaderView.avatarImageView.image];
+    }
+}
+
+#pragma mark - UIAlertViewDelegate
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (alertView.tag == ChangeRelationshipActionSheetTag) {
-        if (alertView.cancelButtonIndex != buttonIndex) {
-            [self changeFriendRelationship:YES];
-        }
-    } else if (alertView.tag == MoreActionSheetTag) {
-        if (buttonIndex == 0) {
-            [WTUnknownPersonViewController showWithUser:self.user avatar:self.profileHeaderView.avatarImageView.image];
-        }
+    if (alertView.cancelButtonIndex != buttonIndex) {
+        [self changeFriendRelationship:YES];
     }
 }
 
