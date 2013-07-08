@@ -10,12 +10,15 @@
 #import "WTConfigLoader.h"
 #import "WTResourceFactory.h"
 #import "WTDormCell.h"
+#import "WTInputDormRoomNumberView.h"
 
 @interface WTSelectDormViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray *districtIndexArray;
 
 @property (nonatomic, strong) NSDictionary *districtBuildingDictionary;
+
+@property (nonatomic, strong) WTInputDormRoomNumberView *dromRoomNumberView;
 
 @end
 

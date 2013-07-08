@@ -18,12 +18,13 @@
 #import "WTTeamMemberViewController.h"
 #import "WTChangePasswordViewController.h"
 #import "WTSelectDormViewController.h"
+#import "RDActivityViewController.h"
 
 #define WE_TONGJI_EMAIL             @"wetongji2012@gmail.com"
 #define WE_TONGJI_SINA_WEIBO_URL    @"http://www.weibo.com/wetongji"
 #define WE_TONGJI_APP_STORE_URL     @"http://itunes.apple.com/cn/app/id526260090?mt=8"
 
-@interface WTMeSettingViewController () <UIScrollViewDelegate, UITextFieldDelegate, UIAlertViewDelegate, MFMailComposeViewControllerDelegate>
+@interface WTMeSettingViewController () <UIScrollViewDelegate, UITextFieldDelegate, UIAlertViewDelegate, MFMailComposeViewControllerDelegate, RDActivityViewControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *textFieldArray;
 
@@ -92,8 +93,8 @@
 }
 
 - (void)didClickShareButton:(UIButton *)sender {
-    NSArray *activityItems = @[@"微同济 3.0 震撼来袭——好友系统，强力搜索，通知推送，课程旁听等精彩功能等你体验！", [UIImage imageNamed:@"icon@2x.png"]];
-    UIActivityViewController *vc = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    RDActivityViewController *vc = [[RDActivityViewController alloc] initWithDelegate:self];
+    vc.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
     [[UIApplication sharedApplication].meViewController presentViewController:vc animated:YES completion:nil];
 }
 
@@ -212,6 +213,19 @@
         [alert show];
     }
 	[[UIApplication sharedApplication].meViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - RDActivityViewControllerDelegate
+
+- (NSArray *)activityViewController:(NSArray *)activityViewController itemsForActivityType:(NSString *)activityType {
+    NSString *defaultText = [NSString stringWithFormat:@"微同济 3.0 震撼来袭——好友系统，强力搜索，通知推送，课程旁听等精彩功能等你体验!下载地址:%@", WE_TONGJI_APP_STORE_URL];
+    UIImage *defaultImage = [UIImage imageNamed:@"WTPropergate.jpg"];
+    if ([activityType isEqualToString:UIActivityTypePostToWeibo]) {
+        NSString *weiboText = [NSString stringWithFormat:@"%@ @WeTongji", defaultText];
+        return @[weiboText, defaultImage];
+    } else {
+        return @[defaultText, defaultImage];
+    }
 }
 
 @end

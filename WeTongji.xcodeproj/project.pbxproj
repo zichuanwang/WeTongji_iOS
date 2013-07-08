@@ -526,6 +526,10 @@
 		E19B6AE2178A26A6003BDCBB /* WTDormCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19B6AE1178A26A6003BDCBB /* WTDormCell.xib */; };
 		E1A5816216F0F8EB00551149 /* WTDragToLoadDecorator.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A5816116F0F8EB00551149 /* WTDragToLoadDecorator.m */; };
 		E1A5816416F0FA6700551149 /* WTDragToLoadDecorator.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A5816316F0FA6700551149 /* WTDragToLoadDecorator.xib */; };
+		E1AD8428178B2462001E35DB /* WTPropergate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1AD8427178B2462001E35DB /* WTPropergate.jpg */; };
+		E1AD842B178B2BAA001E35DB /* WTInputDormRoomNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AD842A178B2BAA001E35DB /* WTInputDormRoomNumberView.m */; };
+		E1AD842D178B2BBE001E35DB /* WTInputDormRoomNumberView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1AD842C178B2BBE001E35DB /* WTInputDormRoomNumberView.xib */; };
+		E1AD8433178B3212001E35DB /* RDActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AD8431178B3212001E35DB /* RDActivityViewController.m */; };
 		E1AEA9891691AFBC007DFA4C /* WTTopShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AEA9871691AFBB007DFA4C /* WTTopShadow.png */; };
 		E1AEA98A1691AFBC007DFA4C /* WTTopShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AEA9881691AFBC007DFA4C /* WTTopShadow@2x.png */; };
 		E1AEA98F1691B3BA007DFA4C /* WTLeftShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AEA98B1691B3BA007DFA4C /* WTLeftShadow.png */; };
@@ -1360,6 +1364,13 @@
 		E1A5816016F0F8EB00551149 /* WTDragToLoadDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTDragToLoadDecorator.h; sourceTree = "<group>"; };
 		E1A5816116F0F8EB00551149 /* WTDragToLoadDecorator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTDragToLoadDecorator.m; sourceTree = "<group>"; };
 		E1A5816316F0FA6700551149 /* WTDragToLoadDecorator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTDragToLoadDecorator.xib; sourceTree = "<group>"; };
+		E1AD8427178B2462001E35DB /* WTPropergate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WTPropergate.jpg; sourceTree = "<group>"; };
+		E1AD8429178B2BAA001E35DB /* WTInputDormRoomNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTInputDormRoomNumberView.h; sourceTree = "<group>"; };
+		E1AD842A178B2BAA001E35DB /* WTInputDormRoomNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTInputDormRoomNumberView.m; sourceTree = "<group>"; };
+		E1AD842C178B2BBE001E35DB /* WTInputDormRoomNumberView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTInputDormRoomNumberView.xib; sourceTree = "<group>"; };
+		E1AD8430178B3212001E35DB /* RDActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDActivityViewController.h; sourceTree = "<group>"; };
+		E1AD8431178B3212001E35DB /* RDActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDActivityViewController.m; sourceTree = "<group>"; };
+		E1AD8432178B3212001E35DB /* RDActivityViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDActivityViewControllerDelegate.h; sourceTree = "<group>"; };
 		E1AEA9871691AFBB007DFA4C /* WTTopShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTopShadow.png; sourceTree = "<group>"; };
 		E1AEA9881691AFBC007DFA4C /* WTTopShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTopShadow@2x.png"; sourceTree = "<group>"; };
 		E1AEA98B1691B3BA007DFA4C /* WTLeftShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTLeftShadow.png; sourceTree = "<group>"; };
@@ -1975,6 +1986,7 @@
 		E125549916491530006D42F5 /* WeTongji */ = {
 			isa = PBXGroup;
 			children = (
+				E1AD842E178B3212001E35DB /* External */,
 				E18821CE1680077C00A41F47 /* Categories */,
 				E1D3743C1694C3B90012E30A /* CoreData */,
 				E1D373F916936B5B0012E30A /* CustomCells */,
@@ -2820,6 +2832,9 @@
 				E19B6ADE178A268D003BDCBB /* WTDormCell.h */,
 				E19B6ADF178A268D003BDCBB /* WTDormCell.m */,
 				E19B6AE1178A26A6003BDCBB /* WTDormCell.xib */,
+				E1AD8429178B2BAA001E35DB /* WTInputDormRoomNumberView.h */,
+				E1AD842A178B2BAA001E35DB /* WTInputDormRoomNumberView.m */,
+				E1AD842C178B2BBE001E35DB /* WTInputDormRoomNumberView.xib */,
 			);
 			name = Dorm;
 			sourceTree = "<group>";
@@ -2834,6 +2849,24 @@
 				E10A8D3B16E4522B008B72E7 /* WTWaterflowDecorator.m */,
 			);
 			name = Decorators;
+			sourceTree = "<group>";
+		};
+		E1AD842E178B3212001E35DB /* External */ = {
+			isa = PBXGroup;
+			children = (
+				E1AD842F178B3212001E35DB /* RDActivityViewController */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		E1AD842F178B3212001E35DB /* RDActivityViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E1AD8430178B3212001E35DB /* RDActivityViewController.h */,
+				E1AD8431178B3212001E35DB /* RDActivityViewController.m */,
+				E1AD8432178B3212001E35DB /* RDActivityViewControllerDelegate.h */,
+			);
+			path = RDActivityViewController;
 			sourceTree = "<group>";
 		};
 		E1AEA9861691AF56007DFA4C /* Shadow */ = {
@@ -2930,6 +2963,7 @@
 		E1D373A61693473E0012E30A /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				E1AD8427178B2462001E35DB /* WTPropergate.jpg */,
 				E16ABDBE1767AA9200ED0CE9 /* WTTransparentImage.png */,
 				E12554A916491530006D42F5 /* Default-568h@2x.png */,
 				E12554A516491530006D42F5 /* Default@2x.png */,
@@ -3656,6 +3690,8 @@
 				E16D532E178A043600689645 /* WTTeamMemberViewController.xib in Resources */,
 				E19B6ADC178A1EAC003BDCBB /* WTSelectDormViewController.xib in Resources */,
 				E19B6AE2178A26A6003BDCBB /* WTDormCell.xib in Resources */,
+				E1AD8428178B2462001E35DB /* WTPropergate.jpg in Resources */,
+				E1AD842D178B2BBE001E35DB /* WTInputDormRoomNumberView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3876,6 +3912,8 @@
 				E16D532C1789FAA200689645 /* WTTeamMemberViewController.m in Sources */,
 				E19B6ADB178A1EAC003BDCBB /* WTSelectDormViewController.m in Sources */,
 				E19B6AE0178A268D003BDCBB /* WTDormCell.m in Sources */,
+				E1AD842B178B2BAA001E35DB /* WTInputDormRoomNumberView.m in Sources */,
+				E1AD8433178B3212001E35DB /* RDActivityViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
