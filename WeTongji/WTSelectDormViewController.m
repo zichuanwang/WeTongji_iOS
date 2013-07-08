@@ -79,7 +79,7 @@
 #pragma mark - UI methods
 
 - (void)configureNavigationBar {
-    self.navigationItem.leftBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:NSLocalizedString(@"Setting", nil) target:self action:@selector(didClickCancelButton:)];
+    self.navigationItem.leftBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:NSLocalizedString(@"Cancel", nil) target:self action:@selector(didClickCancelButton:)];
     
     self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Select Dorm", nil)];
 }

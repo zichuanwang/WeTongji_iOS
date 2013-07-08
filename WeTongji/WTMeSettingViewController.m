@@ -20,6 +20,7 @@
 #import "WTSelectDormViewController.h"
 #import "RDActivityViewController.h"
 #import "NSUserDefaults+WTAddition.h"
+#import "WTCopyrightView.h"
 
 #define WE_TONGJI_EMAIL             @"wetongji2012@gmail.com"
 #define WE_TONGJI_SINA_WEIBO_URL    @"http://www.weibo.com/wetongji"
@@ -49,6 +50,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self registerTextFields];
+    
+    [self configureCopyrightView];
+}
+
+- (void)configureCopyrightView {
+    WTCopyrightView *view = [WTCopyrightView createView];
+    [view resetOriginY:self.scrollView.contentSize.height];
+    [self.scrollView addSubview:view];
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, self.scrollView.contentSize.height + view.frame.size.height);
 }
 
 - (NSMutableArray *)textFieldArray {

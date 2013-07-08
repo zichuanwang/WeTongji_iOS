@@ -511,6 +511,8 @@
 		E19589C91707F6FE0040E669 /* WTDragToLoadCloud.png in Resources */ = {isa = PBXBuildFile; fileRef = E19589C51707F6FE0040E669 /* WTDragToLoadCloud.png */; };
 		E19589CC17081B570040E669 /* WTScrollViewPlaceholderShadowUnit.png in Resources */ = {isa = PBXBuildFile; fileRef = E19589CA17081B560040E669 /* WTScrollViewPlaceholderShadowUnit.png */; };
 		E19589CD17081B570040E669 /* WTScrollViewPlaceholderShadowUnit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E19589CB17081B570040E669 /* WTScrollViewPlaceholderShadowUnit@2x.png */; };
+		E1960FAF178B47BB009D7871 /* WTCopyrightView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1960FAE178B47BB009D7871 /* WTCopyrightView.m */; };
+		E1960FB1178B47CF009D7871 /* WTCopyrightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1960FB0178B47CF009D7871 /* WTCopyrightView.xib */; };
 		E198313F174CE41800C64CCE /* WTNewsImageShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = E198313D174CE41800C64CCE /* WTNewsImageShadow.png */; };
 		E1983140174CE41800C64CCE /* WTNewsImageShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E198313E174CE41800C64CCE /* WTNewsImageShadow@2x.png */; };
 		E1983144174D2CBC00C64CCE /* WTOtherUserProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1983142174D2CBB00C64CCE /* WTOtherUserProfileView.m */; };
@@ -1344,6 +1346,9 @@
 		E19589C51707F6FE0040E669 /* WTDragToLoadCloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTDragToLoadCloud.png; sourceTree = "<group>"; };
 		E19589CA17081B560040E669 /* WTScrollViewPlaceholderShadowUnit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTScrollViewPlaceholderShadowUnit.png; sourceTree = "<group>"; };
 		E19589CB17081B570040E669 /* WTScrollViewPlaceholderShadowUnit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTScrollViewPlaceholderShadowUnit@2x.png"; sourceTree = "<group>"; };
+		E1960FAD178B47BB009D7871 /* WTCopyrightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCopyrightView.h; sourceTree = "<group>"; };
+		E1960FAE178B47BB009D7871 /* WTCopyrightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCopyrightView.m; sourceTree = "<group>"; };
+		E1960FB0178B47CF009D7871 /* WTCopyrightView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTCopyrightView.xib; sourceTree = "<group>"; };
 		E198313D174CE41800C64CCE /* WTNewsImageShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNewsImageShadow.png; sourceTree = "<group>"; };
 		E198313E174CE41800C64CCE /* WTNewsImageShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNewsImageShadow@2x.png"; sourceTree = "<group>"; };
 		E1983141174D2CBB00C64CCE /* WTOtherUserProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTOtherUserProfileView.h; sourceTree = "<group>"; };
@@ -2515,6 +2520,9 @@
 				E19589BC170748A70040E669 /* WTScrollView.m */,
 				E19589BE170748BF0040E669 /* WTTableView.h */,
 				E19589BF170748C00040E669 /* WTTableView.m */,
+				E1960FAD178B47BB009D7871 /* WTCopyrightView.h */,
+				E1960FAE178B47BB009D7871 /* WTCopyrightView.m */,
+				E1960FB0178B47CF009D7871 /* WTCopyrightView.xib */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -3692,6 +3700,7 @@
 				E19B6AE2178A26A6003BDCBB /* WTDormCell.xib in Resources */,
 				E1AD8428178B2462001E35DB /* WTPropergate.jpg in Resources */,
 				E1AD842D178B2BBE001E35DB /* WTInputDormRoomNumberView.xib in Resources */,
+				E1960FB1178B47CF009D7871 /* WTCopyrightView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3914,6 +3923,7 @@
 				E19B6AE0178A268D003BDCBB /* WTDormCell.m in Sources */,
 				E1AD842B178B2BAA001E35DB /* WTInputDormRoomNumberView.m in Sources */,
 				E1AD8433178B3212001E35DB /* RDActivityViewController.m in Sources */,
+				E1960FAF178B47BB009D7871 /* WTCopyrightView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
