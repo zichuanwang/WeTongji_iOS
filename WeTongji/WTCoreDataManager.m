@@ -44,10 +44,12 @@
     [defaults setCurrentUserEmail:_currentUser.emailAddress];
     [defaults setCurrentUserQQ:_currentUser.qqAccount];
     [defaults setCurrentUserSinaWeibo:_currentUser.sinaWeiboName];
+    [defaults setCurrentUserDorm:_currentUser.dormString];
 }
 
 - (BOOL)isCurrentUserInfoDifferentFromDefaultInfo {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     if (![[defaults getCurrentUserMotto] isEqualToString:self.currentUser.motto])
         return YES;
     if (![[defaults getCurrentUserPhone] isEqualToString:self.currentUser.phoneNumber])
@@ -57,6 +59,8 @@
     if (![[defaults getCurrentUserQQ] isEqualToString:self.currentUser.qqAccount])
         return YES;
     if (![[defaults getCurrentUserSinaWeibo] isEqualToString:self.currentUser.sinaWeiboName])
+        return YES;
+    if (![[defaults getCurrentDorm] isEqualToString:self.currentUser.dormString])
         return YES;
     return NO;
 }

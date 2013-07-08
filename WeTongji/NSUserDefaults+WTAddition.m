@@ -308,6 +308,7 @@
 #define kCurrentUserEmail       @"CurrentUserEmail"
 #define kCurrentUserSinaWeibo   @"CurrentUserSinaWeibo"
 #define kCurrentUserQQ          @"CurrentUserQQ"
+#define kCurrentUserDorm        @"CurrentUserDorm"
 
 - (void)setCurrentUserMotto:(NSString *)motto {
     [self setObject:motto forKey:kCurrentUserMotto];
@@ -334,6 +335,11 @@
     [self synchronize];
 }
 
+- (void)setCurrentUserDorm:(NSString *)drom {
+    [self setObject:drom forKey:kCurrentUserDorm];
+    [self synchronize];
+}
+
 - (NSString *)getCurrentUserMotto {
     return [self stringForKey:kCurrentUserMotto];
 }
@@ -352,6 +358,10 @@
 
 - (NSString *)getCurrentUserQQ {
     return [self stringForKey:kCurrentUserQQ];
+}
+
+- (NSString *)getCurrentDorm {
+    return [self stringForKey:kCurrentUserDorm];
 }
 
 #define kLastHomeUpdateTime @"LastHomeUpdateTime"

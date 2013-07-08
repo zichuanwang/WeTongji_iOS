@@ -19,12 +19,13 @@
 #import "WTChangePasswordViewController.h"
 #import "WTSelectDormViewController.h"
 #import "RDActivityViewController.h"
+#import "NSUserDefaults+WTAddition.h"
 
 #define WE_TONGJI_EMAIL             @"wetongji2012@gmail.com"
 #define WE_TONGJI_SINA_WEIBO_URL    @"http://www.weibo.com/wetongji"
 #define WE_TONGJI_APP_STORE_URL     @"http://itunes.apple.com/cn/app/id526260090?mt=8"
 
-@interface WTMeSettingViewController () <UIScrollViewDelegate, UITextFieldDelegate, UIAlertViewDelegate, MFMailComposeViewControllerDelegate, RDActivityViewControllerDelegate>
+@interface WTMeSettingViewController () <UIScrollViewDelegate, UITextFieldDelegate, UIAlertViewDelegate, MFMailComposeViewControllerDelegate, RDActivityViewControllerDelegate, WTSelectDormViewControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *textFieldArray;
 
@@ -175,9 +176,7 @@
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     if (textField == self.dormTextField) {
-        WTSelectDormViewController *vc = [[WTSelectDormViewController alloc] init];
-        UINavigationController *nav = (UINavigationController *)[UIApplication sharedApplication].rootTabBarController.selectedViewController;
-        [nav pushViewController:vc animated:YES];
+        [WTSelectDormViewController showWithDelegate:self];
         return NO;
     }
     return YES;
@@ -226,6 +225,17 @@
     } else {
         return @[defaultText, defaultImage];
     }
+}
+
+#pragma mark - WTSelectDormViewControllerDelegate
+
+- (void)selectDormViewController:(WTSelectDormViewController *)vc
+             didSelectDistribute:(NSString *)distribute
+                        building:(NSString *)building
+                      roomNumber:(NSString *)roomNumber {
+    NSString *dormString = [NSString stringWithFormat:@"%@ %@ %@", distribute, building, roomNumber];
+    self.dormTextField.text = dormString;
+    [[NSUserDefaults standardUserDefaults] setCurrentUserDorm:dormString];
 }
 
 @end

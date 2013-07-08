@@ -11,14 +11,16 @@
 #import "WTResourceFactory.h"
 #import "WTDormCell.h"
 #import "WTInputDormRoomNumberView.h"
+#import "UIApplication+WTAddition.h"
+#import "WTNavigationViewController.h"
 
-@interface WTSelectDormViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface WTSelectDormViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, strong) NSArray *districtIndexArray;
 
 @property (nonatomic, strong) NSDictionary *districtBuildingDictionary;
 
-@property (nonatomic, strong) WTInputDormRoomNumberView *dromRoomNumberView;
+@property (nonatomic, strong) WTInputDormRoomNumberView *dormRoomNumberView;
 
 @end
 
@@ -39,11 +41,23 @@
     // Do any additional setup after loading the view from its nib.
     [self configureNavigationBar];
     
+    [self configureDormRoomNumberView];
+    
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+}
+
++ (void)showWithDelegate:(id<WTSelectDormViewControllerDelegate>)delegate {
+    WTSelectDormViewController *vc = [[WTSelectDormViewController alloc] init];
+    
+    vc.delegate = delegate;
+    
+    WTNavigationViewController *nav = [[WTNavigationViewController alloc] initWithRootViewController:vc];
+    
+    [[UIApplication sharedApplication].rootTabBarController presentViewController:nav animated:YES completion:nil];
 }
 
 #pragma mark - Properties
@@ -65,9 +79,14 @@
 #pragma mark - UI methods
 
 - (void)configureNavigationBar {
-    self.navigationItem.leftBarButtonItem = [WTResourceFactory createBackBarButtonWithText:NSLocalizedString(@"Setting", nil) target:self action:@selector(didClickBackButton:)];
+    self.navigationItem.leftBarButtonItem = [WTResourceFactory createNormalBarButtonWithText:NSLocalizedString(@"Setting", nil) target:self action:@selector(didClickCancelButton:)];
     
     self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Select Dorm", nil)];
+}
+
+- (void)configureDormRoomNumberView {
+    self.dormRoomNumberView = [WTInputDormRoomNumberView createView];
+    self.tableView.tableHeaderView = self.dormRoomNumberView;
 }
 
 - (void)configureCell:(WTDormCell *)cell atIndexPath:(NSIndexPath *)indexPath {
@@ -76,8 +95,8 @@
 
 #pragma mark - Actions
 
-- (void)didClickBackButton:(UIButton *)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+- (void)didClickCancelButton:(UIButton *)sender {
+    [[UIApplication sharedApplication].rootTabBarController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - UITableViewDelegate
@@ -114,7 +133,16 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NSString *roomNumber = self.dormRoomNumberView.roomNumberTextField.text;
+    if ([roomNumber isEqualToString:@""]) {
+        [self.dormRoomNumberView.roomNumberTextField becomeFirstResponder];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    } else {
+        NSString *distribute = self.districtIndexArray[indexPath.section];
+        NSString *building = self.districtBuildingDictionary[distribute][indexPath.row];
+        [self.delegate selectDormViewController:self didSelectDistribute:distribute building:building roomNumber:roomNumber];
+        [[UIApplication sharedApplication].rootTabBarController dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -126,6 +154,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.districtIndexArray.count;
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.view endEditing:YES];
 }
 
 @end

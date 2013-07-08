@@ -43,27 +43,39 @@
     result.enrollYear = @([[NSString stringWithFormat:@"%@", dict[@"Year"]] integerValue]);
     result.motto = [NSString stringWithFormat:@"%@", dict[@"Words"]];
     if ([result.motto isEqualToString:@"<null>"] || [result.motto isEqualToString:@"(null)"]) {
-        result.motto = nil;
+        result.motto = @"";
     }
     
     result.emailAddress = [NSString stringWithFormat:@"%@", dict[@"Email"]];
     if ([result.emailAddress isEqualToString:@"<null>"]) {
-        result.emailAddress = nil;
+        result.emailAddress = @"";
     }
     
     result.phoneNumber = [NSString stringWithFormat:@"%@", dict[@"Phone"]];
     if ([result.phoneNumber isEqualToString:@"<null>"]) {
-        result.phoneNumber = nil;
+        result.phoneNumber = @"";
     }
     
     result.sinaWeiboName = [NSString stringWithFormat:@"%@", dict[@"SinaWeibo"]];
     if ([result.sinaWeiboName isEqualToString:@"<null>"]) {
-        result.sinaWeiboName = nil;
+        result.sinaWeiboName = @"";
     }
     
     result.qqAccount = [NSString stringWithFormat:@"%@", dict[@"QQ"]];
     if ([result.qqAccount isEqualToString:@"<null>"]) {
-        result.qqAccount = nil;
+        result.qqAccount = @"";
+    }
+    
+    NSString *dormString = [NSString stringWithFormat:@"%@", dict[@"Room"]];
+    NSArray *dormComponentArray = [dormString componentsSeparatedByString:@" "];
+    if (dormComponentArray.count != 3) {
+        result.dormDistribute = @"";
+        result.dormBuilding = @"";
+        result.dormRoom = @"";
+    } else {
+        result.dormDistribute = dormComponentArray[0];
+        result.dormBuilding = dormComponentArray[1];
+        result.dormRoom = dormComponentArray[2];
     }
     
     BOOL isCurrentUserFriend = [[NSString stringWithFormat:@"%@", dict[@"IsFriend"]] boolValue];
@@ -98,6 +110,15 @@
     User *result = [[[WTCoreDataManager sharedManager].managedObjectContext executeFetchRequest:request error:NULL] lastObject];
     
     return result;
+}
+
+#pragma mark - Properties
+
+- (NSString *)dormString {
+    if (self.dormDistribute.length > 0 && self.dormBuilding.length > 0 && self.dormRoom.length > 0)
+        return [NSString stringWithFormat:@"%@ %@ %@", self.dormDistribute, self.dormBuilding, self.dormRoom];
+    else
+        return @"";
 }
 
 @end

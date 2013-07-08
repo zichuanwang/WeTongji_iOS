@@ -21,6 +21,8 @@
 
 - (BOOL)isCurrentUserInfoDifferentFromDefaultInfo;
 
+- (void)configureCurrentUserDefaultInfo;
+
 - (void)eraseAllData;
 - (void)saveContext;
 

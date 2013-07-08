@@ -290,7 +290,8 @@
     if ([[WTCoreDataManager sharedManager] isCurrentUserInfoDifferentFromDefaultInfo]) {
         WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
             WTLOG(@"Update user info success:%@", responseObject);
-            [WTCoreDataManager sharedManager].currentUser = [User insertUser:responseObject[@"User"]];
+            [User insertUser:responseObject[@"User"]];
+            [[WTCoreDataManager sharedManager] configureCurrentUserDefaultInfo];
             [self.profileHeaderView updateView];
             [self configureSettingBarButton];
         } failureBlock:^(NSError *error) {
@@ -298,7 +299,7 @@
             [self configureSettingBarButton];
         }];
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [request updateUserEmail:[defaults getCurrentUserEmail] weiboName:[defaults getCurrentUserSinaWeibo] phoneNum:[defaults getCurrentUserPhone] qqAccount:[defaults getCurrentUserQQ] motto:[defaults getCurrentUserMotto]];
+        [request updateUserEmail:[defaults getCurrentUserEmail] weiboName:[defaults getCurrentUserSinaWeibo] phoneNum:[defaults getCurrentUserPhone] qqAccount:[defaults getCurrentUserQQ] motto:[defaults getCurrentUserMotto] dorm:[defaults getCurrentDorm]];
         [[WTClient sharedClient] enqueueRequest:request];
         
         [WTResourceFactory configureActivityIndicatorBarButton:self.navigationItem.rightBarButtonItem activityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -331,6 +332,7 @@
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"get user info success:%@", responseObject);
         [User insertUser:responseObject[@"User"]];
+        [[WTCoreDataManager sharedManager] configureCurrentUserDefaultInfo];
         [self.profileView updateView];
         [self.profileHeaderView updateView];
         [self.dragToLoadDecorator topViewLoadFinished:YES];

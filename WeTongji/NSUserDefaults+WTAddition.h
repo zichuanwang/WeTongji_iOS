@@ -109,6 +109,8 @@ typedef enum {
 
 - (void)setCurrentUserQQ:(NSString *)QQ;
 
+- (void)setCurrentUserDorm:(NSString *)drom;
+
 - (NSString *)getCurrentUserMotto;
 
 - (NSString *)getCurrentUserPhone;
@@ -118,6 +120,8 @@ typedef enum {
 - (NSString *)getCurrentUserSinaWeibo;
 
 - (NSString *)getCurrentUserQQ;
+
+- (NSString *)getCurrentDorm;
 
 - (NSTimeInterval)getLastHomeUpdateTime;
 

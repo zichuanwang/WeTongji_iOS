@@ -10,6 +10,8 @@
 
 @interface User (Addition)
 
+@property (nonatomic, readonly) NSString *dormString;
+
 + (User *)insertUser:(NSDictionary *)dict;
 
 + (User *)userWithID:(NSString *)userID;
