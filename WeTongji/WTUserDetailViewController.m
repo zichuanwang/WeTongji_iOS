@@ -16,8 +16,15 @@
 #import "WTScheduledActivityViewController.h"
 #import "WTScheduledCourseViewController.h"
 #import "WTFriendListViewController.h"
+#import "WTUnknownPersonViewController.h"
+#import "UIApplication+WTAddition.h"
 
-@interface WTUserDetailViewController () <UIAlertViewDelegate>
+typedef enum {
+    ChangeRelationshipActionSheetTag,
+    MoreActionSheetTag,
+} ActionSheetTag;
+
+@interface WTUserDetailViewController () <UIAlertViewDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, strong) User *user;
 @property (nonatomic, weak) WTUserProfileHeaderView *profileHeaderView;
@@ -138,6 +145,12 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (void)didClickMoreButton:(UIButton *)sender {
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Create Contact", nil), nil];
+    sheet.tag = MoreActionSheetTag;
+    [sheet showFromTabBar:[UIApplication sharedApplication].rootTabBarController.tabBar];
+}
+
 #pragma mark - Methods to overwrite
 
 - (LikeableObject *)targetObject {
@@ -147,8 +160,14 @@
 #pragma mark - UIActionSheetDelegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (alertView.cancelButtonIndex != buttonIndex) {
-        [self changeFriendRelationship:YES];
+    if (alertView.tag == ChangeRelationshipActionSheetTag) {
+        if (alertView.cancelButtonIndex != buttonIndex) {
+            [self changeFriendRelationship:YES];
+        }
+    } else if (alertView.tag == MoreActionSheetTag) {
+        if (buttonIndex == 0) {
+            [WTUnknownPersonViewController showWithUser:self.user avatar:self.profileHeaderView.avatarImageView.image];
+        }
     }
 }
 

@@ -96,7 +96,7 @@
 
 - (void)configureMottoLabel {
     [self.mottoLabel resetWidth:MOTTO_LABEL_ORIGINAL_WIDTH];
-    if (self.user.motto) {
+    if (self.user.motto && self.user.motto.length > 0) {
         self.mottoLabel.text = [NSString stringWithFormat:@"“%@”", self.user.motto];
         self.mottoLabel.layer.masksToBounds = NO;
         self.mottoLabel.layer.shadowColor = [UIColor blackColor].CGColor;

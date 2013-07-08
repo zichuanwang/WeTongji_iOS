@@ -513,6 +513,9 @@
 		E19589CD17081B570040E669 /* WTScrollViewPlaceholderShadowUnit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E19589CB17081B570040E669 /* WTScrollViewPlaceholderShadowUnit@2x.png */; };
 		E1960FAF178B47BB009D7871 /* WTCopyrightView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1960FAE178B47BB009D7871 /* WTCopyrightView.m */; };
 		E1960FB1178B47CF009D7871 /* WTCopyrightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1960FB0178B47CF009D7871 /* WTCopyrightView.xib */; };
+		E1960FB4178B6970009D7871 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1960FB3178B6970009D7871 /* AddressBookUI.framework */; };
+		E1960FB6178B6976009D7871 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1960FB5178B6976009D7871 /* AddressBook.framework */; };
+		E1960FB9178B6CFE009D7871 /* WTUnknownPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1960FB8178B6CFE009D7871 /* WTUnknownPersonViewController.m */; };
 		E198313F174CE41800C64CCE /* WTNewsImageShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = E198313D174CE41800C64CCE /* WTNewsImageShadow.png */; };
 		E1983140174CE41800C64CCE /* WTNewsImageShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E198313E174CE41800C64CCE /* WTNewsImageShadow@2x.png */; };
 		E1983144174D2CBC00C64CCE /* WTOtherUserProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1983142174D2CBB00C64CCE /* WTOtherUserProfileView.m */; };
@@ -1349,6 +1352,10 @@
 		E1960FAD178B47BB009D7871 /* WTCopyrightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCopyrightView.h; sourceTree = "<group>"; };
 		E1960FAE178B47BB009D7871 /* WTCopyrightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTCopyrightView.m; sourceTree = "<group>"; };
 		E1960FB0178B47CF009D7871 /* WTCopyrightView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTCopyrightView.xib; sourceTree = "<group>"; };
+		E1960FB3178B6970009D7871 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		E1960FB5178B6976009D7871 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		E1960FB7178B6CFE009D7871 /* WTUnknownPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTUnknownPersonViewController.h; sourceTree = "<group>"; };
+		E1960FB8178B6CFE009D7871 /* WTUnknownPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTUnknownPersonViewController.m; sourceTree = "<group>"; };
 		E198313D174CE41800C64CCE /* WTNewsImageShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNewsImageShadow.png; sourceTree = "<group>"; };
 		E198313E174CE41800C64CCE /* WTNewsImageShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNewsImageShadow@2x.png"; sourceTree = "<group>"; };
 		E1983141174D2CBB00C64CCE /* WTOtherUserProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTOtherUserProfileView.h; sourceTree = "<group>"; };
@@ -1559,6 +1566,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1960FB6178B6976009D7871 /* AddressBook.framework in Frameworks */,
+				E1960FB4178B6970009D7871 /* AddressBookUI.framework in Frameworks */,
 				E11702FE1650F83F00D82F4A /* MobileCoreServices.framework in Frameworks */,
 				E16D53241789EE3C00689645 /* MessageUI.framework in Frameworks */,
 				E16D531F1789C52B00689645 /* Social.framework in Frameworks */,
@@ -1942,6 +1951,8 @@
 		E125548416491530006D42F5 = {
 			isa = PBXGroup;
 			children = (
+				E1960FB5178B6976009D7871 /* AddressBook.framework */,
+				E1960FB3178B6970009D7871 /* AddressBookUI.framework */,
 				E125549916491530006D42F5 /* WeTongji */,
 				E12554CB16491532006D42F5 /* WeTongjiTests */,
 				E117035A1651EF3E00D82F4A /* Resources */,
@@ -2399,6 +2410,8 @@
 				E1983141174D2CBB00C64CCE /* WTOtherUserProfileView.h */,
 				E1983142174D2CBB00C64CCE /* WTOtherUserProfileView.m */,
 				E1983143174D2CBB00C64CCE /* WTOtherUserProfileView.xib */,
+				E1960FB7178B6CFE009D7871 /* WTUnknownPersonViewController.h */,
+				E1960FB8178B6CFE009D7871 /* WTUnknownPersonViewController.m */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -3924,6 +3937,7 @@
 				E1AD842B178B2BAA001E35DB /* WTInputDormRoomNumberView.m in Sources */,
 				E1AD8433178B3212001E35DB /* RDActivityViewController.m in Sources */,
 				E1960FAF178B47BB009D7871 /* WTCopyrightView.m in Sources */,
+				E1960FB9178B6CFE009D7871 /* WTUnknownPersonViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
