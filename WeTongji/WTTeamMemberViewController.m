@@ -11,6 +11,7 @@
 #import "User+Addition.h"
 #import "WTUserDetailViewController.h"
 #import "WTUserCell.h"
+#import "UIApplication+WTAddition.h"
 
 @interface WTTeamMemberViewController ()
 
@@ -116,6 +117,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     User *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    if ([WTCoreDataManager sharedManager].currentUser == user) {
+        [[UIApplication sharedApplication].rootTabBarController clickTabWithName:WTRootTabBarViewControllerMe];
+        return;
+    }
+    
     WTUserDetailViewController *vc = [WTUserDetailViewController createDetailViewControllerWithUser:user backBarButtonText:NSLocalizedString(@"Team Member", nil)];
     [self.navigationController pushViewController:vc animated:YES];
 }

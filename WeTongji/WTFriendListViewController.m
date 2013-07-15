@@ -13,6 +13,7 @@
 #import "WTUserCell.h"
 #import "WTUserDetailViewController.h"
 #import "WTDragToLoadDecorator.h"
+#import "UIApplication+WTAddition.h"
 
 @interface WTFriendListViewController () <WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
@@ -165,6 +166,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     User *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    if ([WTCoreDataManager sharedManager].currentUser == user) {
+        [[UIApplication sharedApplication].rootTabBarController clickTabWithName:WTRootTabBarViewControllerMe];
+        return;
+    }
+
     WTUserDetailViewController *vc = [WTUserDetailViewController createDetailViewControllerWithUser:user backBarButtonText:NSLocalizedString(@"Friend List", nil)];
     [self.navigationController pushViewController:vc animated:YES];
 }

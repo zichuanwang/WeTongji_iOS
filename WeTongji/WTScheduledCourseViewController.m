@@ -200,7 +200,7 @@
     [[tableView cellForRowAtIndexPath:indexPath] setSelected:YES animated:YES];
     
     Course *course = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    WTCourseDetailViewController *vc = [WTCourseDetailViewController createDetailViewControllerWithCourse:course backBarButtonText:self.user.name];
+    WTCourseDetailViewController *vc = [WTCourseDetailViewController createDetailViewControllerWithCourse:course backBarButtonText:NSLocalizedString(@"Courses", nil)];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
