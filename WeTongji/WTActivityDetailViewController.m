@@ -224,6 +224,17 @@
     return self.activity;
 }
 
+- (NSArray *)imageArrayToShare {
+    UIImage *image = self.imageRollView.currentItemView.imageView.image;
+    if (image)
+        return @[image];
+    return nil;
+}
+
+- (NSString *)textToShare {
+    return [NSString stringWithFormat:@"%@\n\n%@\n\n%@\n\n%@", self.activity.what, self.activity.where, self.activity.yearMonthDayBeginToEndTimeString, self.activity.content];
+}
+
 #pragma mark - WTSelectFriendsViewControllerDelegate
 
 - (void)selectFriendViewController:(WTSelectFriendsViewController *)vc

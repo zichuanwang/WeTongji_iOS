@@ -23,4 +23,10 @@
 
 - (LikeableObject *)targetObject;
 
+- (BOOL)showMoreNavigationBarButton;
+
+- (NSArray *)imageArrayToShare;
+
+- (NSString *)textToShare;
+
 @end

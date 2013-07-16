@@ -51,6 +51,8 @@
 }
 
 - (WTBannerItemView *)currentItemView {
+    if (self.bannerItemViewArray.count == 0)
+        return nil;
     return [self itemViewAtIndex:self.bannerPageControl.currentPage];
 }
 

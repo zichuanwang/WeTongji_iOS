@@ -106,7 +106,7 @@
 - (void)didClickShareButton:(UIButton *)sender {
     RDActivityViewController *vc = [[RDActivityViewController alloc] initWithDelegate:self];
     vc.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
-    [[UIApplication sharedApplication].meViewController presentViewController:vc animated:YES completion:nil];
+    [[UIApplication sharedApplication].rootTabBarController presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)didClickTermOfUseButton:(UIButton *)sender {

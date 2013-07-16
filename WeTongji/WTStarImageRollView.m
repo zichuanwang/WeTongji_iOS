@@ -18,6 +18,8 @@
 @implementation WTStarImageRollView
 
 - (WTStarImageRollItemView *)currentItemView {
+    if (self.itemViewArray.count == 0)
+        return nil;
     return [self itemViewAtIndex:self.pageControl.currentPage];
 }
 

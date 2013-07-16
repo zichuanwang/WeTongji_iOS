@@ -95,6 +95,24 @@
     return self.star;
 }
 
+- (NSArray *)imageArrayToShare {
+    NSMutableArray *result = [NSMutableArray array];
+    UIImage *currentImage = self.imageRollView.currentItemView.imageView.image;
+    if (currentImage)
+        [result addObject:currentImage];
+    for (int i = 0; i < self.imageRollView.pageControl.numberOfPages; i++) {
+        WTStarImageRollItemView *itemView = [self.imageRollView itemViewAtIndex:i];
+        UIImage *image = itemView.imageView.image;
+        if (image != currentImage)
+            [result addObject:image];
+    }
+    return result;
+}
+
+- (NSString *)textToShare {
+    return [NSString stringWithFormat:@"济人第%@期——%@:“%@”\n\n%@\n\n%@", self.star.volume, self.star.name, self.star.motto, self.star.jobTitle, self.star.content];
+}
+
 #pragma mark - Handle gesture methods
 
 - (void)didTagImageRollView:(UITapGestureRecognizer *)gesture {

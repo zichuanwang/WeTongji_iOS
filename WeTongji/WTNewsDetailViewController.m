@@ -7,7 +7,7 @@
 //
 
 #import "WTNewsDetailViewController.h"
-#import "News.h"
+#import "News+Addition.h"
 #import "WTLikeButtonView.h"
 #import "WTNewsBriefIntroductionView.h"
 #import "OHAttributedLabel.h"
@@ -157,6 +157,24 @@
 
 - (LikeableObject *)targetObject {
     return self.news;
+}
+
+- (NSArray *)imageArrayToShare {
+    NSMutableArray *result = [NSMutableArray array];
+    UIImage *currentImage = self.imageRollView.currentItemView.imageView.image;
+    if (currentImage)
+        [result addObject:currentImage];
+    for (int i = 0; i < self.imageRollView.pageControl.numberOfPages; i++) {
+        WTNewsImageRollItemView *itemView = [self.imageRollView itemViewAtIndex:i];
+        UIImage *image = itemView.imageView.image;
+        if (image != currentImage)
+            [result addObject:image];
+    }
+    return result;
+}
+
+- (NSString *)textToShare {
+    return [NSString stringWithFormat:@"%@\n\n%@\n\n%@", self.news.title, self.news.yearMonthDayTimePublishTimeString, self.news.content];
 }
 
 @end

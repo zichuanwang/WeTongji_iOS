@@ -177,6 +177,10 @@ enum PhoneActionSheetButtonIndex {
     return self.user;
 }
 
+- (BOOL)showMoreNavigationBarButton {
+    return YES;
+}
+
 #pragma mark - UIActionSheetDelegate
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {

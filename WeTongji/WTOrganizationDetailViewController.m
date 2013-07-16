@@ -104,4 +104,15 @@
     return self.org;
 }
 
+- (NSArray *)imageArrayToShare {
+    UIImage *image = self.headerView.avatarImageView.image;
+    if (image)
+        return @[image];
+    return nil;
+}
+
+- (NSString *)textToShare {
+    return [NSString stringWithFormat:@"%@\n\n%@", self.org.name, self.org.about];
+}
+
 @end
