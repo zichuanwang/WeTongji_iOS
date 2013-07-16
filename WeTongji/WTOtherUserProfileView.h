@@ -40,6 +40,8 @@
 @property (nonatomic, weak) IBOutlet UIButton *scheduledActivityButton;
 @property (nonatomic, weak) IBOutlet UIButton *scheduledCourseButton;
 @property (nonatomic, weak) IBOutlet UIButton *friendButton;
+@property (nonatomic, weak) IBOutlet UIButton *phoneButton;
+@property (nonatomic, weak) IBOutlet UIButton *emailButton;
 
 + (WTOtherUserProfileView *)createProfileViewWithUser:(User *)user;
 

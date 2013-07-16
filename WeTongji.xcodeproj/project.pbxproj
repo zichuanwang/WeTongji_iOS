@@ -1951,8 +1951,6 @@
 		E125548416491530006D42F5 = {
 			isa = PBXGroup;
 			children = (
-				E1960FB5178B6976009D7871 /* AddressBook.framework */,
-				E1960FB3178B6970009D7871 /* AddressBookUI.framework */,
 				E125549916491530006D42F5 /* WeTongji */,
 				E12554CB16491532006D42F5 /* WeTongjiTests */,
 				E117035A1651EF3E00D82F4A /* Resources */,
@@ -1973,6 +1971,8 @@
 		E125549216491530006D42F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E1960FB5178B6976009D7871 /* AddressBook.framework */,
+				E1960FB3178B6970009D7871 /* AddressBookUI.framework */,
 				E16D53231789EE3600689645 /* MessageUI.framework */,
 				E1E647B91722AD7A00EB4C8D /* AssetsLibrary.framework */,
 				E17703B1173FC4050086E550 /* AVFoundation.framework */,

@@ -19,6 +19,17 @@
 #import "WTUnknownPersonViewController.h"
 #import "UIApplication+WTAddition.h"
 
+enum ActionSheetTag {
+    ActionSheetTagEmail = 0,
+    ActionSheetTagPhone = 1,
+    ActionSheetTagMore = 2,
+};
+
+enum PhoneActionSheetButtonIndex {
+    PhoneActionSheetButtonIndexCall = 0,
+    PhoneActionSheetButtonIndexMessage = 1,
+};
+
 @interface WTUserDetailViewController () <UIAlertViewDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, strong) User *user;
@@ -76,6 +87,8 @@
     [profileView.scheduledActivityButton addTarget:self action:@selector(didClickScheduledActivityButton:) forControlEvents:UIControlEventTouchUpInside];
     [profileView.scheduledCourseButton addTarget:self action:@selector(didClickScheduledCourseButton:) forControlEvents:UIControlEventTouchUpInside];
     [profileView.friendButton addTarget:self action:@selector(didClickFriendButton:) forControlEvents:UIControlEventTouchUpInside];
+    [profileView.emailButton addTarget:self action:@selector(didClickEmailButton:) forControlEvents:UIControlEventTouchUpInside];
+    [profileView.phoneButton addTarget:self action:@selector(didClickPhoneButton:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)configureScrollView {
@@ -116,6 +129,18 @@
 
 #pragma mark - Actions
 
+- (void)didClickPhoneButton:(UIButton *)sender {
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:[NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Call", nil), self.user.phoneNumber], [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Send message to", nil), self.user.phoneNumber], nil];
+    sheet.tag = ActionSheetTagPhone;
+    [sheet showFromTabBar:[UIApplication sharedApplication].rootTabBarController.tabBar];
+}
+
+- (void)didClickEmailButton:(UIButton *)sender {
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"%@ %@?", NSLocalizedString(@"Send email to", nil), self.user.emailAddress] delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+    sheet.tag = ActionSheetTagEmail;
+    [sheet showFromTabBar:[UIApplication sharedApplication].rootTabBarController.tabBar];
+}
+
 - (void)didClickChangeRelationshipButton:(UIButton *)sender {
     BOOL isFriend = [[WTCoreDataManager sharedManager].currentUser.friends containsObject:self.user];
     if (!isFriend)
@@ -142,7 +167,7 @@
 
 - (void)didClickMoreButton:(UIButton *)sender {
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Create Contact", nil), nil];
-    sheet.delegate = self;
+    sheet.tag = ActionSheetTagMore;
     [sheet showFromTabBar:[UIApplication sharedApplication].rootTabBarController.tabBar];
 }
 
@@ -155,8 +180,38 @@
 #pragma mark - UIActionSheetDelegate
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-        [WTUnknownPersonViewController showWithUser:self.user avatar:self.profileHeaderView.avatarImageView.image];
+    switch (actionSheet.tag) {
+        case ActionSheetTagEmail:
+        {
+            if (buttonIndex == 0) {
+                NSString *URLString = [[NSString alloc] initWithFormat:@"mailto://%@", self.user.emailAddress];
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URLString]];
+            }
+        }
+            break;
+            
+        case ActionSheetTagPhone:
+        {
+            NSString *URLString = nil;
+            if (buttonIndex == PhoneActionSheetButtonIndexCall) {
+                URLString = [[NSString alloc] initWithFormat:@"tel://%@", self.user.phoneNumber];
+            } else if (buttonIndex == PhoneActionSheetButtonIndexMessage) {
+                URLString = [[NSString alloc] initWithFormat:@"sms://%@", self.user.phoneNumber];
+            }
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URLString]];
+        }
+            break;
+            
+        case ActionSheetTagMore:
+        {
+            if (buttonIndex == 0) {
+                [WTUnknownPersonViewController showWithUser:self.user avatar:self.profileHeaderView.avatarImageView.image];
+            }
+        }
+            break;
+            
+        default:
+            break;
     }
 }
 
