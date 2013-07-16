@@ -213,6 +213,7 @@
 		E12FB5DC17746D1F0077A17D /* WTShareEventFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12FB5DA17746D1F0077A17D /* WTShareEventFriendsViewController.xib */; };
 		E13652CA1713FD8000ACA92D /* WTTranslucentHighlightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E13652C81713FD8000ACA92D /* WTTranslucentHighlightButton.png */; };
 		E13652CB1713FD8000ACA92D /* WTTranslucentHighlightButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13652C91713FD8000ACA92D /* WTTranslucentHighlightButton@2x.png */; };
+		E138F8D2179562DF00739A7D /* RDActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E138F8D0179562DF00739A7D /* RDActivityViewController.m */; };
 		E13B0E4C169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0E4A169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon.png */; };
 		E13B0E4D169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0E4B169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon@2x.png */; };
 		E13B0E5116A2E16C00A45079 /* WTNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0E5016A2E16C00A45079 /* WTNewsCell.m */; };
@@ -534,7 +535,6 @@
 		E1AD8428178B2462001E35DB /* WTPropergate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1AD8427178B2462001E35DB /* WTPropergate.jpg */; };
 		E1AD842B178B2BAA001E35DB /* WTInputDormRoomNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AD842A178B2BAA001E35DB /* WTInputDormRoomNumberView.m */; };
 		E1AD842D178B2BBE001E35DB /* WTInputDormRoomNumberView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1AD842C178B2BBE001E35DB /* WTInputDormRoomNumberView.xib */; };
-		E1AD8433178B3212001E35DB /* RDActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1AD8431178B3212001E35DB /* RDActivityViewController.m */; };
 		E1AEA9891691AFBC007DFA4C /* WTTopShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AEA9871691AFBB007DFA4C /* WTTopShadow.png */; };
 		E1AEA98A1691AFBC007DFA4C /* WTTopShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AEA9881691AFBC007DFA4C /* WTTopShadow@2x.png */; };
 		E1AEA98F1691B3BA007DFA4C /* WTLeftShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = E1AEA98B1691B3BA007DFA4C /* WTLeftShadow.png */; };
@@ -956,6 +956,9 @@
 		E12FB5DA17746D1F0077A17D /* WTShareEventFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTShareEventFriendsViewController.xib; sourceTree = "<group>"; };
 		E13652C81713FD8000ACA92D /* WTTranslucentHighlightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTranslucentHighlightButton.png; sourceTree = "<group>"; };
 		E13652C91713FD8000ACA92D /* WTTranslucentHighlightButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTranslucentHighlightButton@2x.png"; sourceTree = "<group>"; };
+		E138F8CF179562DF00739A7D /* RDActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDActivityViewController.h; sourceTree = "<group>"; };
+		E138F8D0179562DF00739A7D /* RDActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDActivityViewController.m; sourceTree = "<group>"; };
+		E138F8D1179562DF00739A7D /* RDActivityViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDActivityViewControllerDelegate.h; sourceTree = "<group>"; };
 		E13B0E4A169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNavigationBarBackNormalButtonIcon.png; sourceTree = "<group>"; };
 		E13B0E4B169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNavigationBarBackNormalButtonIcon@2x.png"; sourceTree = "<group>"; };
 		E13B0E4F16A2E16C00A45079 /* WTNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNewsCell.h; sourceTree = "<group>"; };
@@ -1380,9 +1383,6 @@
 		E1AD8429178B2BAA001E35DB /* WTInputDormRoomNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTInputDormRoomNumberView.h; sourceTree = "<group>"; };
 		E1AD842A178B2BAA001E35DB /* WTInputDormRoomNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTInputDormRoomNumberView.m; sourceTree = "<group>"; };
 		E1AD842C178B2BBE001E35DB /* WTInputDormRoomNumberView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTInputDormRoomNumberView.xib; sourceTree = "<group>"; };
-		E1AD8430178B3212001E35DB /* RDActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDActivityViewController.h; sourceTree = "<group>"; };
-		E1AD8431178B3212001E35DB /* RDActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDActivityViewController.m; sourceTree = "<group>"; };
-		E1AD8432178B3212001E35DB /* RDActivityViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDActivityViewControllerDelegate.h; sourceTree = "<group>"; };
 		E1AEA9871691AFBB007DFA4C /* WTTopShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTopShadow.png; sourceTree = "<group>"; };
 		E1AEA9881691AFBC007DFA4C /* WTTopShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTopShadow@2x.png"; sourceTree = "<group>"; };
 		E1AEA98B1691B3BA007DFA4C /* WTLeftShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTLeftShadow.png; sourceTree = "<group>"; };
@@ -2002,7 +2002,7 @@
 		E125549916491530006D42F5 /* WeTongji */ = {
 			isa = PBXGroup;
 			children = (
-				E1AD842E178B3212001E35DB /* External */,
+				E138F8CD179562DF00739A7D /* External */,
 				E18821CE1680077C00A41F47 /* Categories */,
 				E1D3743C1694C3B90012E30A /* CoreData */,
 				E1D373F916936B5B0012E30A /* CustomCells */,
@@ -2063,6 +2063,24 @@
 				E12E248417274BB000EFA9B5 /* WTDetailBillboardBottomSeparator@2x.png */,
 			);
 			name = Separator;
+			sourceTree = "<group>";
+		};
+		E138F8CD179562DF00739A7D /* External */ = {
+			isa = PBXGroup;
+			children = (
+				E138F8CE179562DF00739A7D /* RDActivityViewController */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		E138F8CE179562DF00739A7D /* RDActivityViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E138F8CF179562DF00739A7D /* RDActivityViewController.h */,
+				E138F8D0179562DF00739A7D /* RDActivityViewController.m */,
+				E138F8D1179562DF00739A7D /* RDActivityViewControllerDelegate.h */,
+			);
+			path = RDActivityViewController;
 			sourceTree = "<group>";
 		};
 		E1428693171AE02F006AB739 /* Billboard */ = {
@@ -2870,24 +2888,6 @@
 				E10A8D3B16E4522B008B72E7 /* WTWaterflowDecorator.m */,
 			);
 			name = Decorators;
-			sourceTree = "<group>";
-		};
-		E1AD842E178B3212001E35DB /* External */ = {
-			isa = PBXGroup;
-			children = (
-				E1AD842F178B3212001E35DB /* RDActivityViewController */,
-			);
-			path = External;
-			sourceTree = "<group>";
-		};
-		E1AD842F178B3212001E35DB /* RDActivityViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E1AD8430178B3212001E35DB /* RDActivityViewController.h */,
-				E1AD8431178B3212001E35DB /* RDActivityViewController.m */,
-				E1AD8432178B3212001E35DB /* RDActivityViewControllerDelegate.h */,
-			);
-			path = RDActivityViewController;
 			sourceTree = "<group>";
 		};
 		E1AEA9861691AF56007DFA4C /* Shadow */ = {
@@ -3935,9 +3935,9 @@
 				E19B6ADB178A1EAC003BDCBB /* WTSelectDormViewController.m in Sources */,
 				E19B6AE0178A268D003BDCBB /* WTDormCell.m in Sources */,
 				E1AD842B178B2BAA001E35DB /* WTInputDormRoomNumberView.m in Sources */,
-				E1AD8433178B3212001E35DB /* RDActivityViewController.m in Sources */,
 				E1960FAF178B47BB009D7871 /* WTCopyrightView.m in Sources */,
 				E1960FB9178B6CFE009D7871 /* WTUnknownPersonViewController.m in Sources */,
+				E138F8D2179562DF00739A7D /* RDActivityViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
