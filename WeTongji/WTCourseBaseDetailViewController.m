@@ -49,6 +49,10 @@
     return nil;
 }
 
+- (BOOL)showMoreNavigationBarButton {
+    return NO;
+}
+
 #pragma mark - UI methods
 
 - (void)configureUI {
