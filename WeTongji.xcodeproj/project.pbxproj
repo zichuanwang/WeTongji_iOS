@@ -213,7 +213,6 @@
 		E12FB5DC17746D1F0077A17D /* WTShareEventFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12FB5DA17746D1F0077A17D /* WTShareEventFriendsViewController.xib */; };
 		E13652CA1713FD8000ACA92D /* WTTranslucentHighlightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E13652C81713FD8000ACA92D /* WTTranslucentHighlightButton.png */; };
 		E13652CB1713FD8000ACA92D /* WTTranslucentHighlightButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13652C91713FD8000ACA92D /* WTTranslucentHighlightButton@2x.png */; };
-		E138F8D2179562DF00739A7D /* RDActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E138F8D0179562DF00739A7D /* RDActivityViewController.m */; };
 		E13B0E4C169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0E4A169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon.png */; };
 		E13B0E4D169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0E4B169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon@2x.png */; };
 		E13B0E5116A2E16C00A45079 /* WTNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0E5016A2E16C00A45079 /* WTNewsCell.m */; };
@@ -454,6 +453,7 @@
 		E17F9E831713457F00DC6AB6 /* WTTranslucentNormalButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17F9E811713457F00DC6AB6 /* WTTranslucentNormalButton@2x.png */; };
 		E17F9E8C1713547D00DC6AB6 /* WTRoundCornerPanelBgCover.png in Resources */ = {isa = PBXBuildFile; fileRef = E17F9E8A1713547D00DC6AB6 /* WTRoundCornerPanelBgCover.png */; };
 		E17F9E8D1713547D00DC6AB6 /* WTRoundCornerPanelBgCover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17F9E8B1713547D00DC6AB6 /* WTRoundCornerPanelBgCover@2x.png */; };
+		E186A20E179585CB007C5B7C /* RDActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E186A20C179585CB007C5B7C /* RDActivityViewController.m */; };
 		E187E92E16EA614C00599F47 /* WTSearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E187E92C16EA614C00599F47 /* WTSearchResultTableViewController.m */; };
 		E187E92F16EA614C00599F47 /* WTSearchResultTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E187E92D16EA614C00599F47 /* WTSearchResultTableViewController.xib */; };
 		E18821C51680059600A41F47 /* WTCornerBottomLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = E18821BD1680059600A41F47 /* WTCornerBottomLeft.png */; };
@@ -956,9 +956,6 @@
 		E12FB5DA17746D1F0077A17D /* WTShareEventFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTShareEventFriendsViewController.xib; sourceTree = "<group>"; };
 		E13652C81713FD8000ACA92D /* WTTranslucentHighlightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTranslucentHighlightButton.png; sourceTree = "<group>"; };
 		E13652C91713FD8000ACA92D /* WTTranslucentHighlightButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTranslucentHighlightButton@2x.png"; sourceTree = "<group>"; };
-		E138F8CF179562DF00739A7D /* RDActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDActivityViewController.h; sourceTree = "<group>"; };
-		E138F8D0179562DF00739A7D /* RDActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDActivityViewController.m; sourceTree = "<group>"; };
-		E138F8D1179562DF00739A7D /* RDActivityViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDActivityViewControllerDelegate.h; sourceTree = "<group>"; };
 		E13B0E4A169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNavigationBarBackNormalButtonIcon.png; sourceTree = "<group>"; };
 		E13B0E4B169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNavigationBarBackNormalButtonIcon@2x.png"; sourceTree = "<group>"; };
 		E13B0E4F16A2E16C00A45079 /* WTNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNewsCell.h; sourceTree = "<group>"; };
@@ -1279,6 +1276,9 @@
 		E17F9E8A1713547D00DC6AB6 /* WTRoundCornerPanelBgCover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTRoundCornerPanelBgCover.png; sourceTree = "<group>"; };
 		E17F9E8B1713547D00DC6AB6 /* WTRoundCornerPanelBgCover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTRoundCornerPanelBgCover@2x.png"; sourceTree = "<group>"; };
 		E181D83316DCE4FB00EA911C /* WTCommonConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCommonConstant.h; sourceTree = "<group>"; };
+		E186A20B179585CB007C5B7C /* RDActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDActivityViewController.h; sourceTree = "<group>"; };
+		E186A20C179585CB007C5B7C /* RDActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDActivityViewController.m; sourceTree = "<group>"; };
+		E186A20D179585CB007C5B7C /* RDActivityViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDActivityViewControllerDelegate.h; sourceTree = "<group>"; };
 		E187E92B16EA614C00599F47 /* WTSearchResultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSearchResultTableViewController.h; sourceTree = "<group>"; };
 		E187E92C16EA614C00599F47 /* WTSearchResultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSearchResultTableViewController.m; sourceTree = "<group>"; };
 		E187E92D16EA614C00599F47 /* WTSearchResultTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSearchResultTableViewController.xib; sourceTree = "<group>"; };
@@ -2002,7 +2002,7 @@
 		E125549916491530006D42F5 /* WeTongji */ = {
 			isa = PBXGroup;
 			children = (
-				E138F8CD179562DF00739A7D /* External */,
+				E186A20A179585CB007C5B7C /* RDActivityViewController */,
 				E18821CE1680077C00A41F47 /* Categories */,
 				E1D3743C1694C3B90012E30A /* CoreData */,
 				E1D373F916936B5B0012E30A /* CustomCells */,
@@ -2063,24 +2063,6 @@
 				E12E248417274BB000EFA9B5 /* WTDetailBillboardBottomSeparator@2x.png */,
 			);
 			name = Separator;
-			sourceTree = "<group>";
-		};
-		E138F8CD179562DF00739A7D /* External */ = {
-			isa = PBXGroup;
-			children = (
-				E138F8CE179562DF00739A7D /* RDActivityViewController */,
-			);
-			path = External;
-			sourceTree = "<group>";
-		};
-		E138F8CE179562DF00739A7D /* RDActivityViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E138F8CF179562DF00739A7D /* RDActivityViewController.h */,
-				E138F8D0179562DF00739A7D /* RDActivityViewController.m */,
-				E138F8D1179562DF00739A7D /* RDActivityViewControllerDelegate.h */,
-			);
-			path = RDActivityViewController;
 			sourceTree = "<group>";
 		};
 		E1428693171AE02F006AB739 /* Billboard */ = {
@@ -2591,6 +2573,16 @@
 				E1D374681694C9B60012E30A /* WTSmallPosterCover@2x.png */,
 			);
 			name = Cover;
+			sourceTree = "<group>";
+		};
+		E186A20A179585CB007C5B7C /* RDActivityViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E186A20B179585CB007C5B7C /* RDActivityViewController.h */,
+				E186A20C179585CB007C5B7C /* RDActivityViewController.m */,
+				E186A20D179585CB007C5B7C /* RDActivityViewControllerDelegate.h */,
+			);
+			path = RDActivityViewController;
 			sourceTree = "<group>";
 		};
 		E187E93016EA6E0300599F47 /* Setting */ = {
@@ -3937,7 +3929,7 @@
 				E1AD842B178B2BAA001E35DB /* WTInputDormRoomNumberView.m in Sources */,
 				E1960FAF178B47BB009D7871 /* WTCopyrightView.m in Sources */,
 				E1960FB9178B6CFE009D7871 /* WTUnknownPersonViewController.m in Sources */,
-				E138F8D2179562DF00739A7D /* RDActivityViewController.m in Sources */,
+				E186A20E179585CB007C5B7C /* RDActivityViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
