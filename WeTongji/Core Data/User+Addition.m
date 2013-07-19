@@ -95,6 +95,9 @@
     result.likedUserCount = @([[NSString stringWithFormat:@"%@", likedCountInfo[@"User"]] integerValue]);
     
     result.friendCount = @([[NSString stringWithFormat:@"%@", dict[@"FriendCount"]] integerValue]);
+    NSDictionary *scheduleCountInfo = dict[@"ScheduleCount"];
+    result.scheduledActivityCount = @([[NSString stringWithFormat:@"%@", scheduleCountInfo[@"Activity"]] integerValue]);
+    result.scheduledCourseCount = @([[NSString stringWithFormat:@"%@", scheduleCountInfo[@"Course"]] integerValue]);
     
     [result configureLikeInfo:dict];
     
