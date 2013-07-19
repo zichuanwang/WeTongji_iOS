@@ -137,4 +137,10 @@ typedef enum {
 
 - (void)setCurrentSemesterWeekCount:(NSInteger)count;
 
+#pragma mark First login
+
+- (BOOL)isFirstLogin;
+
+- (void)setFirstLogin:(BOOL)firstLogin;
+
 @end

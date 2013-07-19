@@ -29,6 +29,7 @@
 #import "WTHomeSelectContainerView.h"
 #import "WTHomeNowView.h"
 #import "UIImage+ScreenShoot.h"
+#import "WTLoginViewController.h"
 
 @interface WTHomeViewController () <WTHomeSelectContainerViewDelegate, WTHomeNowContainerViewDelegate, WTBannerContainerViewDelegate>
 
@@ -68,7 +69,12 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleApplicationWillEnterForegroundNotification:)
                                                  name:UIApplicationWillEnterForegroundNotification
-                                               object:[UIApplication sharedApplication]];    
+                                               object:[UIApplication sharedApplication]];
+    
+    if ([[NSUserDefaults standardUserDefaults] isFirstLogin]) {
+        [WTLoginViewController showWithIntro:YES];
+        [[NSUserDefaults standardUserDefaults] setFirstLogin:NO];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

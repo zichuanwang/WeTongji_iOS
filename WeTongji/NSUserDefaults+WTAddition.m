@@ -26,6 +26,8 @@
 #define NewsDefaultShowTypes        NewsShowTypesAll
 #define NewsDefaultSmartOrder       YES
 
+#define kFirstLogin @"FirstLogin"
+
 @implementation NSUserDefaults (WTAddition)
 
 + (void)initialize {
@@ -50,6 +52,9 @@
     }
     if ([userDefaults objectForKey:kActivityHidePast] == nil) {
         [userDefaults setActivityHidePastProperty:ActivityDefaultHidePast];
+    }
+    if ([userDefaults objectForKey:kFirstLogin] == nil) {
+        [userDefaults setFirstLogin:YES];
     }
     
     [userDefaults synchronize];
@@ -375,7 +380,7 @@
     [self synchronize];
 }
 
-#pragma - mark Semester begin end time info
+#pragma mark - Semester begin end time info
 
 #define kCurrentSemesterBeginTime   @"CurrentSemesterBeginTime"
 #define kCurrentSemesterWeekCount   @"CurrentSemesterWeekCount"
@@ -399,6 +404,17 @@
 
 - (void)setCurrentSemesterWeekCount:(NSInteger)count {
     [self setInteger:count forKey:kCurrentSemesterWeekCount];
+    [self synchronize];
+}
+
+#pragma mark - First login
+
+- (BOOL)isFirstLogin {
+    return [self boolForKey:kFirstLogin];
+}
+
+- (void)setFirstLogin:(BOOL)firstLogin {
+    [self setBool:firstLogin forKey:kFirstLogin];
     [self synchronize];
 }
 
