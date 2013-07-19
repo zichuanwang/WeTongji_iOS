@@ -49,9 +49,7 @@
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    WTLOG(@"row:%d, section:%d", indexPath.row, indexPath.section);
     Object *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    WTLOG(@"object:%@", object);
     if ([object isKindOfClass:[News class]]) {
         WTNewsCell *newsCell = (WTNewsCell *)cell;
         [newsCell configureCellWithIndexPath:indexPath news:(News *)object];

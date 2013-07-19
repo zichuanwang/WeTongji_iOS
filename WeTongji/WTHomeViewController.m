@@ -196,7 +196,7 @@
     self.isLoadingHomeItems = YES;
     
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
-        // WTLOG(@"Get home recommendation succuess:%@", responseObject);
+        WTLOG(@"Get home recommendation succuess:%@", responseObject);
         
         self.homeResponseDict = (NSDictionary *)responseObject;
         

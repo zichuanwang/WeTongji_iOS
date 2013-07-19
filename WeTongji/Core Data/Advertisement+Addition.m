@@ -33,6 +33,7 @@
     result.image = [NSString stringWithFormat:@"%@", dict[@"Image"]];
     result.publisher = [NSString stringWithFormat:@"%@", dict[@"Publisher"]];
     result.bgColorHex = [NSString stringWithFormat:@"%@", dict[@"BgColor"]];
+    result.website = [NSString stringWithFormat:@"%@", dict[@"URL"]];
     
     return result;
 }

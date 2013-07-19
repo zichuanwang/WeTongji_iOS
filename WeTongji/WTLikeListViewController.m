@@ -106,24 +106,18 @@
             
             if ([modelType isEqualToString:@"Activity"]) {
                 Activity *activity = [Activity insertActivity:modelDetailsInfo];
-                    [self.user addLikedObjectsObject:activity];
                 [activity setObjectHeldByHolder:[self class]];
             } else if ([modelType isEqualToString:@"Information"]) {
                 News *news = [News insertNews:modelDetailsInfo];
-                [self.user addLikedObjectsObject:news];
                 [news setObjectHeldByHolder:[self class]];
             } else if ([modelType isEqualToString:@"Person"]) {
                 Star *star = [Star insertStar:modelDetailsInfo];
-                [self.user addLikedObjectsObject:star];
                 [star setObjectHeldByHolder:[self class]];
             } else if ([modelType isEqualToString:@"Account"]) {
                 Organization *org = [Organization insertOrganization:modelDetailsInfo];
-                [self.user addLikedObjectsObject:org];
                 [org setObjectHeldByHolder:[self class]];
             } else if ([modelType isEqualToString:@"User"]) {
                 User *user = [User insertUser:modelDetailsInfo];
-                WTLOG(@"%@", user.studentNumber);
-                [self.user addLikedObjectsObject:user];
                 [user setObjectHeldByHolder:[self class]];
             }
         }

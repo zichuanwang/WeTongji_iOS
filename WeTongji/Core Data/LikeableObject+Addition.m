@@ -19,7 +19,6 @@
 
 - (void)configureLikeInfo:(NSDictionary *)dict {
     self.likeCount = @([([NSString stringWithFormat:@"%@", dict[@"Like"]]) integerValue]);
-    // TODO:
     if (dict[@"CanLike"])
         self.liked = ![[NSString stringWithFormat:@"%@", dict[@"CanLike"]] boolValue];
 }
