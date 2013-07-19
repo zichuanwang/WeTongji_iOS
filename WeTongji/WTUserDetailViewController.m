@@ -28,6 +28,12 @@ enum ActionSheetTag {
 enum PhoneActionSheetButtonIndex {
     PhoneActionSheetButtonIndexCall = 0,
     PhoneActionSheetButtonIndexMessage = 1,
+    PhoneActionSheetButtonCopy = 2,
+};
+
+enum EmailActionSheetButtonIndex {
+    EmailActionSheetButtonSendEmail = 0,
+    EmailActionSheetButtonCopy = 1,
 };
 
 @interface WTUserDetailViewController () <UIAlertViewDelegate, UIActionSheetDelegate>
@@ -130,13 +136,13 @@ enum PhoneActionSheetButtonIndex {
 #pragma mark - Actions
 
 - (void)didClickPhoneButton:(UIButton *)sender {
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:[NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Call", nil), self.user.phoneNumber], [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Send message to", nil), self.user.phoneNumber], nil];
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"Phone Number", nil), self.user.phoneNumber] delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Call", nil), NSLocalizedString(@"Send Message", nil), NSLocalizedString(@"Copy to Clipboard", nil), nil];
     sheet.tag = ActionSheetTagPhone;
     [sheet showFromTabBar:[UIApplication sharedApplication].rootTabBarController.tabBar];
 }
 
 - (void)didClickEmailButton:(UIButton *)sender {
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"%@ %@?", NSLocalizedString(@"Send email to", nil), self.user.emailAddress] delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"%@%@?", NSLocalizedString(@"Send email to ", nil), self.user.emailAddress] delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
     sheet.tag = ActionSheetTagEmail;
     [sheet showFromTabBar:[UIApplication sharedApplication].rootTabBarController.tabBar];
 }
@@ -187,7 +193,7 @@ enum PhoneActionSheetButtonIndex {
     switch (actionSheet.tag) {
         case ActionSheetTagEmail:
         {
-            if (buttonIndex == 0) {
+            if (buttonIndex == EmailActionSheetButtonSendEmail) {
                 NSString *URLString = [[NSString alloc] initWithFormat:@"mailto://%@", self.user.emailAddress];
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URLString]];
             }
@@ -196,13 +202,16 @@ enum PhoneActionSheetButtonIndex {
             
         case ActionSheetTagPhone:
         {
-            NSString *URLString = nil;
             if (buttonIndex == PhoneActionSheetButtonIndexCall) {
-                URLString = [[NSString alloc] initWithFormat:@"tel://%@", self.user.phoneNumber];
+                NSString *URLString = [[NSString alloc] initWithFormat:@"tel://%@", self.user.phoneNumber];
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URLString]];
             } else if (buttonIndex == PhoneActionSheetButtonIndexMessage) {
-                URLString = [[NSString alloc] initWithFormat:@"sms://%@", self.user.phoneNumber];
+                NSString *URLString = [[NSString alloc] initWithFormat:@"sms://%@", self.user.phoneNumber];
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URLString]];
+            } else if (buttonIndex == PhoneActionSheetButtonCopy) {
+                UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+                pasteboard.string = self.user.phoneNumber;
             }
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URLString]];
         }
             break;
             

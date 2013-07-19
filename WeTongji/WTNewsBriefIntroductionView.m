@@ -175,7 +175,7 @@
 #pragma mark - Actions
 
 - (void)didClickBookTicketButton:(UIButton *)sender {
-    NSString *actionSheetTitle = [NSString stringWithFormat:@"%@ %@?", NSLocalizedString(@"Call", nil), self.news.phoneNumber];
+    NSString *actionSheetTitle = [NSString stringWithFormat:@"%@%@?", NSLocalizedString(@"Call ", nil), self.news.phoneNumber];
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:actionSheetTitle
                                                              delegate:self
                                                     cancelButtonTitle:NSLocalizedString(@"Cancel", nil)

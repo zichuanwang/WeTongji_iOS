@@ -13,8 +13,6 @@
 
 @property (nonatomic, assign) NSInteger currentIntroBgImageIndex;
 
-@property (nonatomic, strong) NSMutableArray *introItemViewArray;
-
 @end
 
 @implementation WTLoginIntroViewController
@@ -46,15 +44,6 @@
     self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, self.scrollView.frame.size.height);
 }
 
-#pragma mark - Properties
-
-- (NSMutableArray *)introItemViewArray {
-    if (!_introItemViewArray) {
-        _introItemViewArray = [NSMutableArray array];
-    }
-    return _introItemViewArray;
-}
-
 #pragma mark - Animations
 
 - (void)introBgImageViewLoopAnimation {
@@ -80,15 +69,15 @@
 
 #pragma mark - UI methods
 
+#define INTOR_ITEM_COUNT    5
+
 - (void)configureLoginIntroItemViews {
-    NSArray *introItemTitleArray = @[@"喜欢就点赞"];
-    for (int i = 0; i < 1; i++) {
-        WTLoginIntroItemView *itemView = [WTLoginIntroItemView createViewWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"WTLoginIntroImage%d", i + 1]]
-                                                                              text:introItemTitleArray[i]];
-        [itemView resetOriginX:i * itemView.frame.size.width];
-        [itemView resetCenterY:self.scrollView.frame.size.height / 2];
-        [self.scrollView addSubview:itemView];
-        [self.introItemViewArray addObject:itemView];
+    for (int i = 0; i < INTOR_ITEM_COUNT; i++) {
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"WTLoginIntroImage%d", i + 1]]];
+        imageView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+        [imageView resetOriginX:i * self.scrollView.frame.size.width];
+        [imageView resetCenterY:self.scrollView.frame.size.height / 2];
+        [self.scrollView addSubview:imageView];
     }
 }
 
@@ -111,8 +100,8 @@
 - (void)configureScrollView {
     [self configureLoginIntroItemViews];
     
-    self.pageControl.numberOfPages = self.introItemViewArray.count;
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * self.introItemViewArray.count, self.scrollView.frame.size.height);
+    self.pageControl.numberOfPages = INTOR_ITEM_COUNT;
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * INTOR_ITEM_COUNT, self.scrollView.frame.size.height);
 }
 
 - (void)updateScrollView {

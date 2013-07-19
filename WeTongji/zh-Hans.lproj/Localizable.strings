@@ -38,10 +38,13 @@
 "Cancel" = "取消";
 "OK" = "好";
 "Yes" = "是的";
-"Call" = "打电话给";
-"Send email to" = "发邮件给";
-"Send message to" = "发短信给";
+"Call " = "打电话给";
+"Send email to " = "发邮件给 ";
+"Send message to " = "发短信给 ";
+"Call" = "拨打电话";
+"Send Message" = "发送短信";
 "Today" = "今天";
+"Copy to Clipboard" = "复制到剪切板";
 
 "Pull to refresh" = "下拉以刷新";
 "Release to refresh" = "松开以刷新";

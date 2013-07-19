@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">13A497d</string>
+		<string key="IBDocument.SystemVersion">13A510d</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
-		<string key="IBDocument.AppKitVersion">1240</string>
-		<string key="IBDocument.HIToolboxVersion">681.00</string>
+		<string key="IBDocument.AppKitVersion">1242.11</string>
+		<string key="IBDocument.HIToolboxVersion">683.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">2083</string>
@@ -114,10 +114,6 @@
 						<int key="IBUIContentMode">2</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<object class="NSCustomResource" key="IBUIImage">
-							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">WTLoginIntroImage1.jpg</string>
-						</object>
 					</object>
 					<object class="IBUIImageView" id="393677443">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -134,21 +130,6 @@
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">WTLoginIntroImage2.jpg</string>
 						</object>
-					</object>
-					<object class="IBUIScrollView" id="1018549140">
-						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">274</int>
-						<array class="NSMutableArray" key="NSSubviews"/>
-						<string key="NSFrame">{{0, 90}, {320, 340}}</string>
-						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSNextKeyView" ref="863629997"/>
-						<string key="NSReuseIdentifierKey">_NS:9</string>
-						<bool key="IBUIClipsSubviews">YES</bool>
-						<bool key="IBUIMultipleTouchEnabled">YES</bool>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<bool key="IBUIPagingEnabled">YES</bool>
-						<bool key="IBUIShowsHorizontalScrollIndicator">NO</bool>
-						<bool key="IBUIShowsVerticalScrollIndicator">NO</bool>
 					</object>
 					<object class="IBUIView" id="863629997">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -170,7 +151,7 @@
 							</object>
 							<object class="IBUIImageView" id="888565235">
 								<reference key="NSNextResponder" ref="863629997"/>
-								<int key="NSvFlags">268</int>
+								<int key="NSvFlags">-2147483380</int>
 								<string key="NSFrame">{{289, 330}, {12, 16}}</string>
 								<reference key="NSSuperview" ref="863629997"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -183,7 +164,7 @@
 							</object>
 							<object class="IBUIButton" id="400264041">
 								<reference key="NSNextResponder" ref="863629997"/>
-								<int key="NSvFlags">268</int>
+								<int key="NSvFlags">-2147483380</int>
 								<string key="NSFrame">{{158, 316}, {120, 44}}</string>
 								<reference key="NSSuperview" ref="863629997"/>
 								<reference key="NSNextKeyView" ref="888565235"/>
@@ -244,6 +225,22 @@
 						<reference key="IBUIBackgroundColor" ref="671195529"/>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+					</object>
+					<object class="IBUIScrollView" id="1018549140">
+						<reference key="NSNextResponder" ref="191373211"/>
+						<int key="NSvFlags">274</int>
+						<array class="NSMutableArray" key="NSSubviews"/>
+						<string key="NSFrame">{{0, 90}, {320, 340}}</string>
+						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSNextKeyView" ref="863629997"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<reference key="IBUIBackgroundColor" ref="671195529"/>
+						<bool key="IBUIClipsSubviews">YES</bool>
+						<bool key="IBUIMultipleTouchEnabled">YES</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<bool key="IBUIPagingEnabled">YES</bool>
+						<bool key="IBUIShowsHorizontalScrollIndicator">NO</bool>
+						<bool key="IBUIShowsVerticalScrollIndicator">NO</bool>
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 460}</string>
@@ -349,8 +346,8 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="474948531"/>
 							<reference ref="1018549140"/>
-							<reference ref="863629997"/>
 							<reference ref="735702051"/>
+							<reference ref="863629997"/>
 							<reference ref="393677443"/>
 						</array>
 						<reference key="parent" ref="0"/>
@@ -469,7 +466,6 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="WTLoginIntroImage1.jpg">{16, 16}</string>
 			<string key="WTLoginIntroImage2.jpg">{16, 16}</string>
 			<string key="WTLoginIntroMoreIndicator.png">{12, 16}</string>
 			<string key="WTLoginTourBottomShadow.png">{320, 180}</string>

@@ -258,6 +258,14 @@
 		E14286A4171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14286A2171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover@2x.png */; };
 		E14286A7171C5872006AB739 /* WTNowWeekCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E14286A6171C5871006AB739 /* WTNowWeekCell.m */; };
 		E14286A9171C5893006AB739 /* WTNowWeekCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14286A8171C5892006AB739 /* WTNowWeekCell.xib */; };
+		E145582A1799AB83000E5B46 /* WTLoginIntroImage2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14558291799AB83000E5B46 /* WTLoginIntroImage2@2x.png */; };
+		E145582C1799AE71000E5B46 /* WTLoginIntroImage2.png in Resources */ = {isa = PBXBuildFile; fileRef = E145582B1799AE71000E5B46 /* WTLoginIntroImage2.png */; };
+		E14558331799B7A4000E5B46 /* WTLoginIntroImage3.png in Resources */ = {isa = PBXBuildFile; fileRef = E145582D1799B7A3000E5B46 /* WTLoginIntroImage3.png */; };
+		E14558341799B7A4000E5B46 /* WTLoginIntroImage3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E145582E1799B7A3000E5B46 /* WTLoginIntroImage3@2x.png */; };
+		E14558351799B7A4000E5B46 /* WTLoginIntroImage4.png in Resources */ = {isa = PBXBuildFile; fileRef = E145582F1799B7A3000E5B46 /* WTLoginIntroImage4.png */; };
+		E14558361799B7A4000E5B46 /* WTLoginIntroImage4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14558301799B7A4000E5B46 /* WTLoginIntroImage4@2x.png */; };
+		E14558371799B7A4000E5B46 /* WTLoginIntroImage5.png in Resources */ = {isa = PBXBuildFile; fileRef = E14558311799B7A4000E5B46 /* WTLoginIntroImage5.png */; };
+		E14558381799B7A4000E5B46 /* WTLoginIntroImage5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14558321799B7A4000E5B46 /* WTLoginIntroImage5@2x.png */; };
 		E14EFECE1744A9C200C2009F /* WTUserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E14EFECC1744A9C200C2009F /* WTUserDetailViewController.m */; };
 		E14EFECF1744A9C200C2009F /* WTUserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14EFECD1744A9C200C2009F /* WTUserDetailViewController.xib */; };
 		E14F964F1696FCF40048414D /* TestAvatar1.png in Resources */ = {isa = PBXBuildFile; fileRef = E14F964E1696FCF40048414D /* TestAvatar1.png */; };
@@ -1021,6 +1029,14 @@
 		E14286A5171C5871006AB739 /* WTNowWeekCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNowWeekCell.h; sourceTree = "<group>"; };
 		E14286A6171C5871006AB739 /* WTNowWeekCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNowWeekCell.m; sourceTree = "<group>"; };
 		E14286A8171C5892006AB739 /* WTNowWeekCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNowWeekCell.xib; sourceTree = "<group>"; };
+		E14558291799AB83000E5B46 /* WTLoginIntroImage2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTLoginIntroImage2@2x.png"; sourceTree = "<group>"; };
+		E145582B1799AE71000E5B46 /* WTLoginIntroImage2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTLoginIntroImage2.png; sourceTree = "<group>"; };
+		E145582D1799B7A3000E5B46 /* WTLoginIntroImage3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTLoginIntroImage3.png; sourceTree = "<group>"; };
+		E145582E1799B7A3000E5B46 /* WTLoginIntroImage3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTLoginIntroImage3@2x.png"; sourceTree = "<group>"; };
+		E145582F1799B7A3000E5B46 /* WTLoginIntroImage4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTLoginIntroImage4.png; sourceTree = "<group>"; };
+		E14558301799B7A4000E5B46 /* WTLoginIntroImage4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTLoginIntroImage4@2x.png"; sourceTree = "<group>"; };
+		E14558311799B7A4000E5B46 /* WTLoginIntroImage5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTLoginIntroImage5.png; sourceTree = "<group>"; };
+		E14558321799B7A4000E5B46 /* WTLoginIntroImage5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTLoginIntroImage5@2x.png"; sourceTree = "<group>"; };
 		E14EFECB1744A9C200C2009F /* WTUserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTUserDetailViewController.h; sourceTree = "<group>"; };
 		E14EFECC1744A9C200C2009F /* WTUserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTUserDetailViewController.m; sourceTree = "<group>"; };
 		E14EFECD1744A9C200C2009F /* WTUserDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTUserDetailViewController.xib; sourceTree = "<group>"; };
@@ -2976,6 +2992,14 @@
 		E1D373A61693473E0012E30A /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				E145582D1799B7A3000E5B46 /* WTLoginIntroImage3.png */,
+				E145582E1799B7A3000E5B46 /* WTLoginIntroImage3@2x.png */,
+				E145582F1799B7A3000E5B46 /* WTLoginIntroImage4.png */,
+				E14558301799B7A4000E5B46 /* WTLoginIntroImage4@2x.png */,
+				E14558311799B7A4000E5B46 /* WTLoginIntroImage5.png */,
+				E14558321799B7A4000E5B46 /* WTLoginIntroImage5@2x.png */,
+				E145582B1799AE71000E5B46 /* WTLoginIntroImage2.png */,
+				E14558291799AB83000E5B46 /* WTLoginIntroImage2@2x.png */,
 				E1AD8427178B2462001E35DB /* WTPropergate.jpg */,
 				E16ABDBE1767AA9200ED0CE9 /* WTTransparentImage.png */,
 				E12554A916491530006D42F5 /* Default-568h@2x.png */,
@@ -3706,6 +3730,14 @@
 				E1AD8428178B2462001E35DB /* WTPropergate.jpg in Resources */,
 				E1AD842D178B2BBE001E35DB /* WTInputDormRoomNumberView.xib in Resources */,
 				E1960FB1178B47CF009D7871 /* WTCopyrightView.xib in Resources */,
+				E145582A1799AB83000E5B46 /* WTLoginIntroImage2@2x.png in Resources */,
+				E145582C1799AE71000E5B46 /* WTLoginIntroImage2.png in Resources */,
+				E14558331799B7A4000E5B46 /* WTLoginIntroImage3.png in Resources */,
+				E14558341799B7A4000E5B46 /* WTLoginIntroImage3@2x.png in Resources */,
+				E14558351799B7A4000E5B46 /* WTLoginIntroImage4.png in Resources */,
+				E14558361799B7A4000E5B46 /* WTLoginIntroImage4@2x.png in Resources */,
+				E14558371799B7A4000E5B46 /* WTLoginIntroImage5.png in Resources */,
+				E14558381799B7A4000E5B46 /* WTLoginIntroImage5@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
