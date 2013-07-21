@@ -17,6 +17,8 @@
 #define kCellAccessoryType                  @"CellAccessoryType"
 #define kButtonTitle                        @"ButtonTitle"
 #define kButtonTarget                       @"ButtonTarget"
+#define kButtonStyle                        @"ButtonStyle"
+#define kButtonStyleFocus                   @"ButtonStyleFocus"
 
 #define kCellAccessoryTypeNone              @"CellAccessoryTypeNone"
 #define kCellAccessoryTypeSwitch            @"CellAccessoryTypeSwitch"

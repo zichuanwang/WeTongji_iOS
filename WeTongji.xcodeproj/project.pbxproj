@@ -211,6 +211,8 @@
 		E12FB5D717746CA00077A17D /* WTScheduledCourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12FB5D517746CA00077A17D /* WTScheduledCourseViewController.xib */; };
 		E12FB5DB17746D1F0077A17D /* WTShareEventFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E12FB5D917746D1F0077A17D /* WTShareEventFriendsViewController.m */; };
 		E12FB5DC17746D1F0077A17D /* WTShareEventFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12FB5DA17746D1F0077A17D /* WTShareEventFriendsViewController.xib */; };
+		E1354C87179BB03700BA05AF /* WTNotificationCellFocusButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E1354C85179BB02E00BA05AF /* WTNotificationCellFocusButton.png */; };
+		E1354C88179BB03700BA05AF /* WTNotificationCellFocusButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1354C86179BB03200BA05AF /* WTNotificationCellFocusButton@2x.png */; };
 		E13652CA1713FD8000ACA92D /* WTTranslucentHighlightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E13652C81713FD8000ACA92D /* WTTranslucentHighlightButton.png */; };
 		E13652CB1713FD8000ACA92D /* WTTranslucentHighlightButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13652C91713FD8000ACA92D /* WTTranslucentHighlightButton@2x.png */; };
 		E13B0E4C169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0E4A169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon.png */; };
@@ -962,6 +964,8 @@
 		E12FB5D817746D1F0077A17D /* WTShareEventFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTShareEventFriendsViewController.h; sourceTree = "<group>"; };
 		E12FB5D917746D1F0077A17D /* WTShareEventFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTShareEventFriendsViewController.m; sourceTree = "<group>"; };
 		E12FB5DA17746D1F0077A17D /* WTShareEventFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTShareEventFriendsViewController.xib; sourceTree = "<group>"; };
+		E1354C85179BB02E00BA05AF /* WTNotificationCellFocusButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNotificationCellFocusButton.png; sourceTree = "<group>"; };
+		E1354C86179BB03200BA05AF /* WTNotificationCellFocusButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNotificationCellFocusButton@2x.png"; sourceTree = "<group>"; };
 		E13652C81713FD8000ACA92D /* WTTranslucentHighlightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTranslucentHighlightButton.png; sourceTree = "<group>"; };
 		E13652C91713FD8000ACA92D /* WTTranslucentHighlightButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTranslucentHighlightButton@2x.png"; sourceTree = "<group>"; };
 		E13B0E4A169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNavigationBarBackNormalButtonIcon.png; sourceTree = "<group>"; };
@@ -2143,6 +2147,8 @@
 				E188222C1680288100A41F47 /* WTNormalButton@2x.png */,
 				E10A8D3D16E48874008B72E7 /* WTNotificationCellButton.png */,
 				E10A8D3E16E48874008B72E7 /* WTNotificationCellButton@2x.png */,
+				E1354C85179BB02E00BA05AF /* WTNotificationCellFocusButton.png */,
+				E1354C86179BB03200BA05AF /* WTNotificationCellFocusButton@2x.png */,
 				E14FA6811680BBDD008A8D33 /* WTNotificationNormalButton.png */,
 				E14FA6821680BBDD008A8D33 /* WTNotificationNormalButton@2x.png */,
 				E14FA68D1680C546008A8D33 /* WTNotificationRing.png */,
@@ -3738,6 +3744,8 @@
 				E14558361799B7A4000E5B46 /* WTLoginIntroImage4@2x.png in Resources */,
 				E14558371799B7A4000E5B46 /* WTLoginIntroImage5.png in Resources */,
 				E14558381799B7A4000E5B46 /* WTLoginIntroImage5@2x.png in Resources */,
+				E1354C87179BB03700BA05AF /* WTNotificationCellFocusButton.png in Resources */,
+				E1354C88179BB03700BA05AF /* WTNotificationCellFocusButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

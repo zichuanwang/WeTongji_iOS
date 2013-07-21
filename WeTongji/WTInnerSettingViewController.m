@@ -445,7 +445,16 @@
         }
     }
     
-    UIImage *buttonBgImage = [result.button backgroundImageForState:UIControlStateNormal];
+    UIImage *buttonBgImage = nil;
+    NSString *buttonStyle = cellInfo[kButtonStyle];
+    if ([buttonStyle isEqualToString:kButtonStyleFocus]) {
+        buttonBgImage = [UIImage imageNamed:@"WTNotificationCellFocusButton"];
+        result.button.titleLabel.shadowOffset = CGSizeMake(0, 1.0f);
+        [result.button setTitleShadowColor:[UIColor colorWithWhite:0 alpha:0.35f] forState:UIControlStateNormal];
+    } else {
+        buttonBgImage = [UIImage imageNamed:@"WTNotificationCellButton"];
+    }
+    
     buttonBgImage = [buttonBgImage resizableImageWithCapInsets:UIEdgeInsetsMake(18.0f, 10.0f, 18.0f, 10.0f)];
     [result.button setBackgroundImage:buttonBgImage forState:UIControlStateNormal];
     
