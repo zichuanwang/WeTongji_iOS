@@ -51,31 +51,14 @@
 }
 
 - (void)configureNavigationBarRightButtons {
-    UIButton *commentButton = [[UIButton alloc] init];
-    commentButton.showsTouchWhenHighlighted = YES;
-    commentButton.adjustsImageWhenHighlighted = NO;
-    UIImage *commentImage = [UIImage imageNamed:@"WTCommentButton"];
-    [commentButton setBackgroundImage:commentImage forState:UIControlStateNormal];
-    [commentButton resetSize:commentImage.size];
-    [commentButton addTarget:self action:@selector(didClickCommentButton:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIButton *moreButton = [[UIButton alloc] init];
-    moreButton.showsTouchWhenHighlighted = YES;
-    moreButton.adjustsImageWhenHighlighted = NO;
-    UIImage *moreImage = [UIImage imageNamed:@"WTMoreButton"];
-    [moreButton resetSize:moreImage.size];
-    [moreButton setBackgroundImage:moreImage forState:UIControlStateNormal];
-    [moreButton addTarget:self action:@selector(didClickMoreButton:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *barCommentButton = [[UIBarButtonItem alloc] initWithCustomView:commentButton];
-    barCommentButton = nil;
-    
-    UIBarButtonItem *barMoreButton = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
-    
-    WTLikeButtonView *likeButtonContainerView = [WTLikeButtonView createLikeButtonViewWithObject:[self targetObject]];
-    self.likeButtonContainerView = likeButtonContainerView;
-    
-    UIBarButtonItem *barLikeButton = [[UIBarButtonItem alloc] initWithCustomView:likeButtonContainerView];
+//    UIButton *commentButton = [[UIButton alloc] init];
+//    commentButton.showsTouchWhenHighlighted = YES;
+//    commentButton.adjustsImageWhenHighlighted = NO;
+//    UIImage *commentImage = [UIImage imageNamed:@"WTCommentButton"];
+//    [commentButton setBackgroundImage:commentImage forState:UIControlStateNormal];
+//    [commentButton resetSize:commentImage.size];
+//    [commentButton addTarget:self action:@selector(didClickCommentButton:) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *barCommentButton = [[UIBarButtonItem alloc] initWithCustomView:commentButton];
     
     UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 110.0f, 44.0f)];
     [toolbar setBackgroundImage:[UIImage imageNamed:@"WTTransparentImage"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
@@ -86,13 +69,31 @@
 //    [buttons addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
     
     if ([self showMoreNavigationBarButton]) {
+        
+        UIButton *moreButton = [[UIButton alloc] init];
+        moreButton.showsTouchWhenHighlighted = YES;
+        moreButton.adjustsImageWhenHighlighted = NO;
+        UIImage *moreImage = [UIImage imageNamed:@"WTMoreButton"];
+        [moreButton resetSize:moreImage.size];
+        [moreButton setBackgroundImage:moreImage forState:UIControlStateNormal];
+        [moreButton addTarget:self action:@selector(didClickMoreButton:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *barMoreButton = [[UIBarButtonItem alloc] initWithCustomView:moreButton];
+        
         [buttons addObject:barMoreButton];
         [buttons addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
     } else {
         [toolbar resetWidth:56.0f];
     }
     
-    [buttons addObject:barLikeButton];
+    if ([self showLikeNavigationBarButton]) {
+        
+        WTLikeButtonView *likeButtonContainerView = [WTLikeButtonView createLikeButtonViewWithObject:[self targetObject]];
+        self.likeButtonContainerView = likeButtonContainerView;
+        UIBarButtonItem *barLikeButton = [[UIBarButtonItem alloc] initWithCustomView:likeButtonContainerView];
+        
+        [buttons addObject:barLikeButton];
+    }
+    
     [toolbar setItems:buttons animated:NO];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:toolbar];
 }
@@ -129,6 +130,10 @@
         return YES;
     else
         return NO;
+}
+
+- (BOOL)showLikeNavigationBarButton {
+    return YES;
 }
 
 - (NSArray *)imageArrayToShare {

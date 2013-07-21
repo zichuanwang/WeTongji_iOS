@@ -25,6 +25,8 @@
 
 - (BOOL)showMoreNavigationBarButton;
 
+- (BOOL)showLikeNavigationBarButton;
+
 - (NSArray *)imageArrayToShare;
 
 - (NSString *)textToShare;

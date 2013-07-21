@@ -53,6 +53,10 @@
     return NO;
 }
 
+- (BOOL)showLikeNavigationBarButton {
+    return NO;
+}
+
 #pragma mark - UI methods
 
 - (void)configureUI {
