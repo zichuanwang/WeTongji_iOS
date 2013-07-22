@@ -131,6 +131,11 @@ static UIView           *staticKeyWindowBgView;
 }
 
 - (void)addEventAlertNotificationWithEvent:(Event *)event {
+    
+    if (![[NSUserDefaults standardUserDefaults] scheduleNotificationEnabled]) {
+        return;
+    }
+    
     // Check whether event is overdue
     if ([event.beginTime compare:[NSDate date]] == NSOrderedAscending) {
         return;

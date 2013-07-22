@@ -283,6 +283,10 @@
         return;
     }
     
+    if (modified && ![[NSUserDefaults standardUserDefaults] scheduleNotificationEnabled]) {
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    }
+    
     if ([[WTCoreDataManager sharedManager] isCurrentUserInfoDifferentFromDefaultInfo]) {
         WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
             WTLOG(@"Update user info success:%@", responseObject);

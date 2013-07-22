@@ -68,6 +68,14 @@
 		<array>
 			<dict>
 				<key>CellTitle</key>
+				<string>Enable schedule notification</string>
+				<key>CellAccessoryType</key>
+				<string>CellAccessoryTypeSwitch</string>
+				<key>UserDefaultKey</key>
+				<string>ScheduleNotificationEnabled</string>
+			</dict>
+			<dict>
+				<key>CellTitle</key>
 				<string>Use test server</string>
 				<key>CellAccessoryType</key>
 				<string>CellAccessoryTypeSwitch</string>

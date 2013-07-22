@@ -563,6 +563,7 @@
 		E1BB2C3B175F1EA2003608B8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1BB2C3A175F1EA2003608B8 /* MapKit.framework */; };
 		E1BB2C3D175F2129003608B8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1BB2C3C175F2129003608B8 /* CoreLocation.framework */; };
 		E1BB2C40175F2310003608B8 /* WTLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BB2C3F175F2310003608B8 /* WTLocationManager.m */; };
+		E1BFBB4E179D88940026B885 /* WTNowConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1BFBB4D179D88940026B885 /* WTNowConfig.plist */; };
 		E1BFFDFC17415201004EF0D6 /* WTAddFriendNormalIconCN.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFFDF417415201004EF0D6 /* WTAddFriendNormalIconCN.png */; };
 		E1BFFDFD17415201004EF0D6 /* WTAddFriendNormalIconCN@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFFDF517415201004EF0D6 /* WTAddFriendNormalIconCN@2x.png */; };
 		E1BFFDFE17415201004EF0D6 /* WTAddFriendNormalIconEN.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFFDF617415201004EF0D6 /* WTAddFriendNormalIconEN.png */; };
@@ -1423,6 +1424,7 @@
 		E1BB2C3C175F2129003608B8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E1BB2C3E175F2310003608B8 /* WTLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTLocationManager.h; sourceTree = "<group>"; };
 		E1BB2C3F175F2310003608B8 /* WTLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTLocationManager.m; sourceTree = "<group>"; };
+		E1BFBB4D179D88940026B885 /* WTNowConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WTNowConfig.plist; sourceTree = "<group>"; };
 		E1BFFDF417415201004EF0D6 /* WTAddFriendNormalIconCN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTAddFriendNormalIconCN.png; sourceTree = "<group>"; };
 		E1BFFDF517415201004EF0D6 /* WTAddFriendNormalIconCN@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTAddFriendNormalIconCN@2x.png"; sourceTree = "<group>"; };
 		E1BFFDF617415201004EF0D6 /* WTAddFriendNormalIconEN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTAddFriendNormalIconEN.png; sourceTree = "<group>"; };
@@ -2233,6 +2235,7 @@
 				E1C033CB16691E75004738EF /* WTDistrictBuildingMap.plist */,
 				E1222C5F17423D7C004B4312 /* WTMeSettingConfig.plist */,
 				E1528D6A16C5533C00BD2B42 /* WTNewsSettingConfig.plist */,
+				E1BFBB4D179D88940026B885 /* WTNowConfig.plist */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -3746,6 +3749,7 @@
 				E14558381799B7A4000E5B46 /* WTLoginIntroImage5@2x.png in Resources */,
 				E1354C87179BB03700BA05AF /* WTNotificationCellFocusButton.png in Resources */,
 				E1354C88179BB03700BA05AF /* WTNotificationCellFocusButton@2x.png in Resources */,
+				E1BFBB4E179D88940026B885 /* WTNowConfig.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

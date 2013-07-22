@@ -151,4 +151,6 @@ typedef enum {
 
 - (void)registerEventNotification:(Event *)event;
 
+- (BOOL)scheduleNotificationEnabled;
+
 @end

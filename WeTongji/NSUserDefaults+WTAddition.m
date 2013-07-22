@@ -28,6 +28,9 @@
 #define NewsDefaultShowTypes        NewsShowTypesAll
 #define NewsDefaultSmartOrder       YES
 
+#define kScheduleNotificationEnabled        @"ScheduleNotificationEnabled"
+#define ScheduleNotificationDefaultEnabled  YES
+
 #define kFirstLogin @"FirstLogin"
 
 @implementation NSUserDefaults (WTAddition)
@@ -57,6 +60,9 @@
     }
     if ([userDefaults objectForKey:kFirstLogin] == nil) {
         [userDefaults setFirstLogin:YES];
+    }
+    if ([userDefaults objectForKey:kScheduleNotificationEnabled] == nil) {
+        [userDefaults setScheduleNotificationEnabled:ScheduleNotificationDefaultEnabled];
     }
     
     [userDefaults synchronize];
@@ -432,6 +438,15 @@
     NSString *eventNotificationID = [NSString stringWithFormat:@"%@%@%@", event.identifier, event.objectClass, event.beginToEndTimeString];
     [self setBool:YES forKey:eventNotificationID];
     [self synchronize];
+}
+
+- (void)setScheduleNotificationEnabled:(BOOL)enabled {
+    [self setBool:enabled forKey:kScheduleNotificationEnabled];
+    [self synchronize];
+}
+
+- (BOOL)scheduleNotificationEnabled {
+    return [self boolForKey:kScheduleNotificationEnabled];
 }
 
 @end
