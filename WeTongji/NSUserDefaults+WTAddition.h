@@ -42,6 +42,8 @@ typedef enum {
 
 #define ActivityShowTypesAll (ActivityShowTypeAcademics + ActivityShowTypeEntertainment + ActivityShowTypeEnterprise + ActivityShowTypeCompetition)
 
+@class Event;
+
 @interface NSUserDefaults (WTAddition)
 
 #pragma mark News
@@ -142,5 +144,11 @@ typedef enum {
 - (BOOL)isFirstLogin;
 
 - (void)setFirstLogin:(BOOL)firstLogin;
+
+#pragma mark - Event notification
+
+- (BOOL)eventNotificationRegistered:(Event *)event;
+
+- (void)registerEventNotification:(Event *)event;
 
 @end

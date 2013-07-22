@@ -21,6 +21,7 @@ typedef enum {
 - (void)clickTabWithName:(WTRootTabBarViewControllerName)name;
 
 - (void)hideTabBar;
+
 - (void)showTabBar;
 
 @end

@@ -29,6 +29,9 @@
 
 + (WTCourseInstanceDetailViewController *)createDetailViewControllerWithCourseInstance:(CourseInstance *)courseInstance
                                                                      backBarButtonText:(NSString *)backBarButtonText {
+    if (!courseInstance)
+        return nil;
+    
     WTCourseInstanceDetailViewController *result = [[WTCourseInstanceDetailViewController alloc] init];
     
     result.courseInstance = courseInstance;

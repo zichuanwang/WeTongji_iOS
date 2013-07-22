@@ -21,4 +21,6 @@
                                            fromDate:(NSDate *)beginDate
                                              toDate:(NSDate *)endDate;
 
+- (void)configureScheduleInfo:(NSDictionary *)infoDict;
+
 @end

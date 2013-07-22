@@ -11,6 +11,7 @@
 #import "NSString+WTAddition.h"
 #import "WTCoreDataManager.h"
 #import "Course+Addition.h"
+#import "UIApplication+WTAddition.h"
 
 @implementation Event (Addition)
 
@@ -87,17 +88,22 @@
         if ([self isKindOfClass:[CourseInstance class]]) {
             CourseInstance *courseInstance = (CourseInstance *)self;
             courseInstance.course.registeredByCurrentUser = YES;
-        } else {
-            [currentUser addScheduledEventsObject:self];
         }
+        [currentUser addScheduledEventsObject:self];
+        [[UIApplication sharedApplication] addEventAlertNotificationWithEvent:self];
     } else {
         if ([self isKindOfClass:[CourseInstance class]]) {
             CourseInstance *courseInstance = (CourseInstance *)self;
             courseInstance.course.registeredByCurrentUser = NO;
-        } else {
-            [currentUser removeScheduledEventsObject:self];
         }
+        [currentUser removeScheduledEventsObject:self];
+        [[UIApplication sharedApplication] removeEventAlertNotificationWithEvent:self];
     }
+}
+
+- (void)configureScheduleInfo:(NSDictionary *)infoDict {
+    BOOL canSchedule = ((NSString *)[NSString stringWithFormat:@"%@", infoDict[@"CanSchedule"]]).boolValue;
+    self.scheduledByCurrentUser = !canSchedule;
 }
 
 @end

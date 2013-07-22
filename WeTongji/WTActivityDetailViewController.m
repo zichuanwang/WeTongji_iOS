@@ -49,6 +49,9 @@
 
 + (WTActivityDetailViewController *)createDetailViewControllerWithActivity:(Activity *)activity
                                                          backBarButtonText:(NSString *)backBarButtonText {
+    if (!activity)
+        return nil;
+    
     WTActivityDetailViewController *result = [[WTActivityDetailViewController alloc] init];
     result.activity = activity;
     result.backBarButtonText = backBarButtonText;
@@ -188,11 +191,11 @@
         
         if (!participated) {
             [self.headerView.inviteButton fadeIn];
-            [[WTCoreDataManager sharedManager].currentUser addScheduledEventsObject:self.activity];
+            self.activity.scheduledByCurrentUser = YES;
         }
         else {
             [self.headerView.inviteButton fadeOut];
-            [[WTCoreDataManager sharedManager].currentUser removeScheduledEventsObject:self.activity];
+            self.activity.scheduledByCurrentUser = NO;
         }
         
         [WTErrorHandler handleError:error];

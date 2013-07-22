@@ -86,17 +86,17 @@
         UIImage *normalStateImage = nil;
         UIImage *selectStateImage = nil;
 		switch (i) {
-            case 0: {
+            case WTRootTabBarViewControllerHome: {
                 normalStateImage = [UIImage imageNamed:@"WTTabBarButtonHome"];
                 selectStateImage = [UIImage imageNamed:@"WTTabBarButtonHomeHl"];
                 break;
             }
-            case 1: {
+            case WTRootTabBarViewControllerNow: {
                 normalStateImage = [UIImage imageNamed:@"WTTabBarButtonNow"];
                 selectStateImage = [UIImage imageNamed:@"WTTabBarButtonNowHl"];
                 break;
             }
-            case 2: {
+            case WTRootTabBarViewControllerSearch: {
                 normalStateImage = [UIImage imageNamed:@"WTTabBarButtonPowerSearch"];
                 selectStateImage = [UIImage imageNamed:@"WTTabBarButtonPowerSearchHl"];
                 break;
@@ -106,7 +106,7 @@
 //                selectStateImage = [UIImage imageNamed:@"WTTabBarButtonBillBoardHl"];
 //                break;
 //            }
-            case 3: {
+            case WTRootTabBarViewControllerMe: {
                 normalStateImage = [UIImage imageNamed:@"WTTabBarButtonMe"];
                 selectStateImage = [UIImage imageNamed:@"WTTabBarButtonMeHl"];
                 break;

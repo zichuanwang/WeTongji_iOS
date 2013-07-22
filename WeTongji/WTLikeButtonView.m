@@ -37,7 +37,7 @@
 }
 
 - (void)configureViewWithObject:(LikeableObject *)object {
-    self.likeButton.selected = object.liked;
+    self.likeButton.selected = object.likedByCurrentUser;
     [self setLikeCount:object.likeCount.integerValue];
     self.object = object;
 }
@@ -85,7 +85,7 @@
         WTLOG(@"Set object liked:%d succeeded", sender.selected);
         self.object.likeCount = @(self.object.likeCount.integerValue + (sender.selected ? 1 : (-1)));
         [self setLikeCount:self.object.likeCount.integerValue];
-        self.object.liked = sender.selected;
+        self.object.likedByCurrentUser = sender.selected;
         self.userInteractionEnabled = YES;
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Set object liked:%d, reason:%@", sender.selected, error.localizedDescription);

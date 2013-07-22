@@ -7,6 +7,8 @@
 //
 
 #import "NSUserDefaults+WTAddition.h"
+#import "UIApplication+WTAddition.h"
+#import "Event+Addition.h"
 
 #define kNewsOrderMethod        @"NewsOrderMethod"
 #define kNewsShowTypes          @"NewsShowTypes"
@@ -415,6 +417,20 @@
 
 - (void)setFirstLogin:(BOOL)firstLogin {
     [self setBool:firstLogin forKey:kFirstLogin];
+    [self synchronize];
+}
+
+- (BOOL)eventNotificationRegistered:(Event *)event {
+    NSString *eventNotificationID = [NSString stringWithFormat:@"%@%@%@", event.identifier, event.objectClass, event.beginToEndTimeString];
+    if (![self objectForKey:eventNotificationID]) {
+        return NO;
+    }
+    return YES;
+}
+
+- (void)registerEventNotification:(Event *)event {
+    NSString *eventNotificationID = [NSString stringWithFormat:@"%@%@%@", event.identifier, event.objectClass, event.beginToEndTimeString];
+    [self setBool:YES forKey:eventNotificationID];
     [self synchronize];
 }
 

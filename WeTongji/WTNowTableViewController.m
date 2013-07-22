@@ -114,30 +114,26 @@
         if (success) {
             success();
         }
-        
-        User *currentUser = [WTCoreDataManager sharedManager].currentUser;
-        
+                
         NSDictionary *resultDict = (NSDictionary *)responseData;
         NSArray *activitiesArray = resultDict[@"Activities"];
         for (NSDictionary *dict in activitiesArray) {
             Activity *activity= [Activity insertActivity:dict];
             [activity setObjectHeldByHolder:[self class]];
-            [currentUser addScheduledEventsObject:activity];
         }
         
         NSArray *coursesArray = resultDict[@"CourseInstances"];
         for (NSDictionary *dict in coursesArray) {
             CourseInstance *courseInstance = [CourseInstance insertCourseInstance:dict];
             [courseInstance setObjectHeldByHolder:[self class]];
-            [currentUser addScheduledEventsObject:courseInstance];
-            [currentUser addRegisteredCoursesObject:courseInstance.course];
+            courseInstance.scheduledByCurrentUser = YES;
         }
         
         NSArray *examsArray = resultDict[@"Exams"];
         for (NSDictionary *dict in examsArray) {
             Exam *exam = [Exam insertExam:dict];
             [exam setObjectHeldByHolder:[self class]];
-            [currentUser addScheduledEventsObject:exam];
+            exam.scheduledByCurrentUser = YES;
         }
     } failureBlock:^(NSError * error) {
         WTLOGERROR(@"Get NowData Error:%@", error.localizedDescription);

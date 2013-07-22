@@ -10,7 +10,7 @@
 
 @interface LikeableObject (Addition)
 
-@property (nonatomic) BOOL liked;
+@property (nonatomic) BOOL likedByCurrentUser;
 
 - (void)configureLikeInfo:(NSDictionary *)dict;
 

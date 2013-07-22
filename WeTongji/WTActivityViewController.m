@@ -103,6 +103,8 @@
         
         if (failure)
             failure();
+        
+        [WTErrorHandler handleError:error];
     }];
     [self configureLoadDataRequest:request];
     [[WTClient sharedClient] enqueueRequest:request];

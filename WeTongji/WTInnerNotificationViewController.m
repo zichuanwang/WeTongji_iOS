@@ -68,8 +68,8 @@
 #pragma mark - Load data methods
 
 - (void)setUpLoadUnreadNotificationsTimer {
-    // 设定 20 秒刷新频率
-    self.loadUnreadNotificationsTimer = [NSTimer scheduledTimerWithTimeInterval:20
+    // 设定 120 秒刷新频率
+    self.loadUnreadNotificationsTimer = [NSTimer scheduledTimerWithTimeInterval:120
                                                                target:self
                                                              selector:@selector(loadUnreadNotificationsTimerFired:)
                                                              userInfo:nil

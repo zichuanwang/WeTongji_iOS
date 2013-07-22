@@ -16,10 +16,16 @@
 
 @implementation WTAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self.window makeKeyAndVisible];
+    
+    application.applicationIconBadgeNumber = 0;
+    UILocalNotification *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (notification) {
+        [application handleLocalNotification:notification];
+        [application cancelLocalNotification:notification];
+    }
     
     //[Flurry setDebugLogEnabled:YES];
     //[Flurry setShowErrorInLogEnabled:YES];
@@ -35,6 +41,16 @@
     [WTInnerNotificationViewController sharedViewController];
     
     return YES;
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    WTLOG(@"Application state:%d", application.applicationState);
+    if (application.applicationState == UIApplicationStateInactive) {
+        [application handleLocalNotification:notification];
+    }
+    if (notification) {
+        [application cancelLocalNotification:notification];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -53,6 +69,7 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    application.applicationIconBadgeNumber = 0;
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
 }
 

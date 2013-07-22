@@ -9,14 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "WTRootTabBarController.h"
 
+@class WTHomeViewController;
 @class WTNowViewController;
 @class WTBillboardViewController;
 @class WTSearchViewController;
 @class WTMeViewController;
+@class Event;
 
 @interface UIApplication (WTAddition)
 
 @property (nonatomic, readonly) WTRootTabBarController *rootTabBarController;
+
+@property (nonatomic, readonly) WTHomeViewController *homeViewController;
 
 @property (nonatomic, readonly) WTNowViewController *nowViewController;
 
@@ -31,5 +35,11 @@
 + (void)dismissKeyWindowViewControllerAnimated:(BOOL)animated;
 
 + (void)presentKeyWindowViewController:(UIViewController *)vc animated:(BOOL)animated;
+
+- (void)addEventAlertNotificationWithEvent:(Event *)event;
+
+- (void)removeEventAlertNotificationWithEvent:(Event *)event;
+
+- (void)handleLocalNotification:(UILocalNotification *)localNotif;
 
 @end

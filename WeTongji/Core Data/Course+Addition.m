@@ -10,6 +10,7 @@
 #import "NSString+WTAddition.h"
 #import "WTCoreDataManager.h"
 #import "LikeableObject+Addition.h"
+#import "Event+Addition.h"
 
 #define DAY_TIME_INTERVAL (60 * 60 * 24)
 #define HOUR_TIME_INTERVAL (60 * 60)
@@ -56,8 +57,8 @@
     
     result.beginDay = [result.beginTime convertToYearMonthDayString];
 
-    // TODO:
     [result configureLikeInfo:dict];
+    // [result configureScheduleInfo:dict];
     
     return result;
 }
@@ -126,12 +127,14 @@
     if (self.registeredByCurrentUser != registeredByCurrentUser) {
         if (registeredByCurrentUser) {
             [currentUser addRegisteredCoursesObject:self];
-            // TODO:
-            // 添加课程实例到scheduledEvents
-            [currentUser addScheduledEvents:self.instances];
+            for (CourseInstance *instance in self.instances) {
+                instance.scheduledByCurrentUser = YES;
+            }
         } else {
             [currentUser removeRegisteredCoursesObject:self];
-            [currentUser removeScheduledEvents:self.instances];
+            for (CourseInstance *instance in self.instances) {
+                instance.scheduledByCurrentUser = NO;
+            }
         }
     }
 }
@@ -188,10 +191,11 @@
     result.hours = @([[NSString stringWithFormat:@"%@", dict[@"Hours"]] integerValue]);
     result.credit = @([[NSString stringWithFormat:@"%@", dict[@"Point"]] floatValue]);
     result.required = [NSString stringWithFormat:@"%@", dict[@"Required"]];
-    result.isAudit = @([[NSString stringWithFormat:@"%@", dict[@"IsAudit"]] boolValue]);
     result.courseNo = [NSString stringWithFormat:@"%@", dict[@"NO"]];
     result.courseName = [NSString stringWithFormat:@"%@", dict[@"Name"]];
     result.friendsCount = @([[NSString stringWithFormat:@"%@", dict[@"FriendsCount"]] integerValue]);
+    
+    result.isAudit = @([[NSString stringWithFormat:@"%@", dict[@"IsAudit"]] boolValue]);
     
     result.year = @([[courseID substringToIndex:2] integerValue]);
     result.semester = @([[courseID substringWithRange:NSMakeRange(2, 2)] integerValue]);

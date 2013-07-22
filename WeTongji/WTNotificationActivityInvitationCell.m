@@ -64,7 +64,7 @@
         [self hideButtonsAnimated:YES];
         [self showAcceptedIconAnimated:YES];
         [self configureTypeIconImageView];
-        [[WTCoreDataManager sharedManager].currentUser addScheduledEventsObject:activityInvitation.activity];
+        activityInvitation.activity.scheduledByCurrentUser = YES;
         [self.delegate cellHeightDidChange];
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Accept activity invitation:%@", error.localizedDescription);

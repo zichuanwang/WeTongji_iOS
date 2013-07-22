@@ -20,20 +20,20 @@
 - (void)configureLikeInfo:(NSDictionary *)dict {
     self.likeCount = @([([NSString stringWithFormat:@"%@", dict[@"Like"]]) integerValue]);
     if (dict[@"CanLike"])
-        self.liked = ![[NSString stringWithFormat:@"%@", dict[@"CanLike"]] boolValue];
+        self.likedByCurrentUser = ![[NSString stringWithFormat:@"%@", dict[@"CanLike"]] boolValue];
 }
 
 #pragma mark - Properties
 
-- (BOOL)liked {
+- (BOOL)likedByCurrentUser {
     return [[WTCoreDataManager sharedManager].currentUser.likedObjects containsObject:self];
 }
 
-- (void)setLiked:(BOOL)liked {
+- (void)setLikedByCurrentUser:(BOOL)likedByCurrentUser {
     User *currentUser = [WTCoreDataManager sharedManager].currentUser;
     if (!currentUser)
         return;
-    if (liked) {
+    if (likedByCurrentUser) {
         if ([currentUser.likedObjects containsObject:self])
             return;
         WTLOG(@"add like object:%@, model:%@", self.identifier, self.objectClass);

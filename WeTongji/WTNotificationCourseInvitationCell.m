@@ -64,8 +64,7 @@
         [self hideButtonsAnimated:YES];
         [self showAcceptedIconAnimated:YES];
         [self configureTypeIconImageView];
-        // TODO
-        // [[WTCoreDataManager sharedManager].currentUser addScheduledEventsObject:courseInvitation.course];
+        courseInvitation.course.registeredByCurrentUser = YES;
         [self.delegate cellHeightDidChange];
     } failureBlock:^(NSError *error) {
         WTLOGERROR(@"Accept course invitation:%@", error.localizedDescription);
