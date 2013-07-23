@@ -12,11 +12,18 @@
 
 - (BOOL)isDateInToday;
 
+- (NSString *)convertToYearString;
+
 - (NSString *)convertToYearMonthDayString;
+
 - (NSString *)convertToYearMonthDayWeekString;
+
 - (NSString *)convertToYearMonthDayWeekTimeString;
+
 - (NSString *)convertToWeekString;
+
 - (NSString *)convertToYearMonthDayTimeString;
+
 - (NSString *)convertToTimeString;
 
 @end

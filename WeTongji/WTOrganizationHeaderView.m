@@ -60,7 +60,7 @@
 }
 
 - (void)configureEmailLabel {
-    // self.emailLabel.text = self.user.department;
+    self.emailLabel.text = self.org.email;
     self.emailLabel.layer.masksToBounds = NO;
     self.emailLabel.layer.shadowColor = [UIColor blackColor].CGColor;
     self.emailLabel.layer.shadowOpacity = 0.3f;
@@ -71,7 +71,7 @@
 }
 
 - (void)configureAdministratorLabel {
-    // self.adminLabel.text = self.user.department;
+    self.adminLabel.text = [NSString stringWithFormat:@"%@ %@", self.org.adminTitle, self.org.administrator];
     self.adminLabel.layer.masksToBounds = NO;
     self.adminLabel.layer.shadowColor = [UIColor blackColor].CGColor;
     self.adminLabel.layer.shadowOpacity = 0.3f;

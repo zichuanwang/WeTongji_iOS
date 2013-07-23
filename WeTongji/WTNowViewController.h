@@ -16,6 +16,4 @@
 
 - (void)showNowItemDetailViewWithEvent:(Event *)event;
 
-- (void)setBarTitleViewDisplayTime:(NSDate *)time;
-
 @end

@@ -158,7 +158,7 @@
         [star setObjectHeldByHolder:[WTHomeSelectContainerView class]];
     }
     
-    NSDictionary *popularOrgDict = resultDict[@"AccountPopulor"];
+    NSDictionary *popularOrgDict = resultDict[@"AccountPopular"];
     Organization *org = [Organization insertOrganization:popularOrgDict];
     [org setObjectHeldByHolder:[WTHomeSelectContainerView class]];
     

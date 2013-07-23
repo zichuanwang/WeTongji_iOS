@@ -11,7 +11,7 @@
 #import "Course+Addition.h"
 #import "Activity+Addition.h"
 #import "Controller+Addition.h"
-#import "NSUserDefaults+WTAddition.h"
+#import "WTNowConfigLoader.h"
 #import "WTNowActivityCell.h"
 #import "WTNowCourseCell.h"
 #import "Event+Addition.h"
@@ -62,18 +62,6 @@
 
 - (void)updateTableViewController {
     [self viewDidAppear:YES];
-    [self updateNowBarTitleViewTimeDisplay];
-}
-
-- (void)updateNowBarTitleViewTimeDisplay {
-    if (self.tableView.visibleCells.count == 0)
-        return;
-    UITableViewCell *firstVisibleCell = self.tableView.visibleCells[0];
-    
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:firstVisibleCell];
-    Event *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    WTNowViewController *nowViewController = [UIApplication sharedApplication].nowViewController;
-    [nowViewController setBarTitleViewDisplayTime:event.beginTime];
 }
 
 #pragma mark - Properties
@@ -87,7 +75,7 @@
 #pragma mark - Logic Method
 
 - (NSDate *)convertWeekNumberToDate:(NSUInteger)weekNumber {
-    return [[[NSUserDefaults standardUserDefaults] getCurrentSemesterBeginTime] dateByAddingTimeInterval:weekNumber * WEEK_TIME_INTERVAL];
+    return [[WTNowConfigLoader sharedLoader].baseStartDate dateByAddingTimeInterval:weekNumber * WEEK_TIME_INTERVAL];
 }
 
 - (Event *)getNowEvent {
@@ -293,10 +281,6 @@
     if (!decelerate) {
         [self adjustTableViewContentOffset];
     }
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self updateNowBarTitleViewTimeDisplay];
 }
 
 @end

@@ -131,13 +131,13 @@ typedef enum {
 
 #pragma mark Semester begin end time info
 
-- (NSDate *)getCurrentSemesterBeginTime;
-
-- (void)setCurrentSemesterBeginTime:(NSDate *)time;
-
-- (NSInteger)getCurrentSemesterWeekCount;
-
-- (void)setCurrentSemesterWeekCount:(NSInteger)count;
+//- (NSDate *)getCurrentSemesterBeginTime;
+//
+//- (void)setCurrentSemesterBeginTime:(NSDate *)time;
+//
+//- (NSInteger)getCurrentSemesterWeekCount;
+//
+//- (void)setCurrentSemesterWeekCount:(NSInteger)count;
 
 #pragma mark First login
 

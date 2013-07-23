@@ -7,6 +7,24 @@
 //
 
 #import "WTNowBarTitleView.h"
+#import "WTNowConfigLoader.h"
+
+@interface WTNowBarTitleView ()
+
+@property (nonatomic, weak) IBOutlet UILabel *weekDisplayLabel;
+@property (nonatomic, weak) IBOutlet UILabel *weekLabel;
+@property (nonatomic, weak) IBOutlet UILabel *timeLabel;
+@property (nonatomic, weak) IBOutlet UIView *weekContainerView;
+@property (nonatomic, weak) IBOutlet UIImageView *weekBgImageView;
+@property (nonatomic, weak) IBOutlet UIButton *prevButton;
+@property (nonatomic, weak) IBOutlet UIButton *nextButton;
+
+@property (nonatomic, assign) NSUInteger minWeekNumber;
+@property (nonatomic, assign) NSUInteger maxWeekNumber;
+
+@property (nonatomic, weak) id<WTNowBarTitleViewDelegate> delegate;
+
+@end
 
 @implementation WTNowBarTitleView
 
@@ -28,7 +46,7 @@
     result.delegate = delegate;
     
     result.minWeekNumber = 1;
-    result.maxWeekNumber = 19;
+    result.maxWeekNumber = [WTNowConfigLoader sharedLoader].numberOfWeeks;
     
     return result;
 }
@@ -37,7 +55,7 @@
 
 - (void)configureWeekContainerView {
     UIImage *weekBgImage = self.weekBgImageView.image;
-    UIEdgeInsets insets = UIEdgeInsetsMake(0, 4.0f, 0, 4.0f);
+    UIEdgeInsets insets = UIEdgeInsetsMake(0, 8.0f, 0, 8.0f);
     self.weekBgImageView.image = [weekBgImage resizableImageWithCapInsets:insets];
     
     self.weekDisplayLabel.text = NSLocalizedString(@"week", nil);
@@ -52,6 +70,8 @@
     if (weekNumber < self.minWeekNumber || weekNumber > self.maxWeekNumber)
         return;
     
+    self.timeLabel.text = [[WTNowConfigLoader sharedLoader] sectionNameForWeek:weekNumber];
+    
     self.prevButton.enabled = YES;
     self.nextButton.enabled = YES;
     
@@ -63,7 +83,7 @@
     
     _weekNumber = weekNumber;
     
-    self.weekLabel.text = [NSString stringWithFormat:@"%d", weekNumber];
+    self.weekLabel.text = [[WTNowConfigLoader sharedLoader] relativeWeekNumberStringForWeek:weekNumber]  ;
     [self.weekLabel sizeToFit];
     
     CGFloat weekLabelWidth = self.weekLabel.frame.size.width + WEEK_LABEL_ADD_WIDTH;

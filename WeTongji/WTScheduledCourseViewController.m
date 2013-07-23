@@ -16,6 +16,7 @@
 #import "NSString+WTAddition.h"
 #import "NSUserDefaults+WTAddition.h"
 #import "WTCourseDetailViewController.h"
+#import "WTNowConfigLoader.h"
 
 @interface WTScheduledCourseViewController () <WTDragToLoadDecoratorDelegate, WTDragToLoadDecoratorDataSource>
 
@@ -100,8 +101,10 @@
         [WTErrorHandler handleError:error];
     }];
     
-    NSDate *semesterBeginTime = [[NSUserDefaults standardUserDefaults] getCurrentSemesterBeginTime];
-    NSInteger semesterWeekCount = [[NSUserDefaults standardUserDefaults] getCurrentSemesterWeekCount];
+    // TODO:!!!!!
+    // 服务器貌似没有考虑begin和end参数？
+    NSDate *semesterBeginTime = [WTNowConfigLoader sharedLoader].baseStartDate;
+    NSInteger semesterWeekCount = [WTNowConfigLoader sharedLoader].numberOfWeeks;
     BOOL isCurrentUser = [WTCoreDataManager sharedManager].currentUser == self.user;
     [request getCoursesRegisteredByUser:isCurrentUser ? nil : self.user.identifier
                               beginDate:semesterBeginTime

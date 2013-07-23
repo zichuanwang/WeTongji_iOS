@@ -564,6 +564,8 @@
 		E1BB2C3D175F2129003608B8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1BB2C3C175F2129003608B8 /* CoreLocation.framework */; };
 		E1BB2C40175F2310003608B8 /* WTLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BB2C3F175F2310003608B8 /* WTLocationManager.m */; };
 		E1BFBB4E179D88940026B885 /* WTNowConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1BFBB4D179D88940026B885 /* WTNowConfig.plist */; };
+		E1BFBB51179D92760026B885 /* WTNowConfigLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFBB50179D92760026B885 /* WTNowConfigLoader.m */; };
+		E1BFBB54179EDE6B0026B885 /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = E1BFBB53179EDE6B0026B885 /* Organization.m */; };
 		E1BFFDFC17415201004EF0D6 /* WTAddFriendNormalIconCN.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFFDF417415201004EF0D6 /* WTAddFriendNormalIconCN.png */; };
 		E1BFFDFD17415201004EF0D6 /* WTAddFriendNormalIconCN@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFFDF517415201004EF0D6 /* WTAddFriendNormalIconCN@2x.png */; };
 		E1BFFDFE17415201004EF0D6 /* WTAddFriendNormalIconEN.png in Resources */ = {isa = PBXBuildFile; fileRef = E1BFFDF617415201004EF0D6 /* WTAddFriendNormalIconEN.png */; };
@@ -661,7 +663,6 @@
 		E1E647C01722D8F600EB4C8D /* WTDetailImageItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E647BF1722D8F600EB4C8D /* WTDetailImageItemView.m */; };
 		E1E647C21722D91500EB4C8D /* WTDetailImageItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E647C11722D91400EB4C8D /* WTDetailImageItemView.xib */; };
 		E1EC97B717802BF30058A9F7 /* WTOrganizationActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EC97B617802BF30058A9F7 /* WTOrganizationActivityViewController.m */; };
-		E1EC97BD178085240058A9F7 /* Organization.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EC97BC178085240058A9F7 /* Organization.m */; };
 		E1EC97C317808F390058A9F7 /* WTOrganizationNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EC97C217808F390058A9F7 /* WTOrganizationNewsViewController.m */; };
 		E1ED19171719D1E400B0A847 /* WTLoginIntroBgImage1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1ED19141719D1E400B0A847 /* WTLoginIntroBgImage1.jpg */; };
 		E1ED19181719D1E400B0A847 /* WTLoginIntroBgImage2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E1ED19151719D1E400B0A847 /* WTLoginIntroBgImage2.jpg */; };
@@ -1425,6 +1426,10 @@
 		E1BB2C3E175F2310003608B8 /* WTLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTLocationManager.h; sourceTree = "<group>"; };
 		E1BB2C3F175F2310003608B8 /* WTLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTLocationManager.m; sourceTree = "<group>"; };
 		E1BFBB4D179D88940026B885 /* WTNowConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WTNowConfig.plist; sourceTree = "<group>"; };
+		E1BFBB4F179D92760026B885 /* WTNowConfigLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNowConfigLoader.h; sourceTree = "<group>"; };
+		E1BFBB50179D92760026B885 /* WTNowConfigLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNowConfigLoader.m; sourceTree = "<group>"; };
+		E1BFBB52179EDE6A0026B885 /* Organization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Organization.h; sourceTree = "<group>"; };
+		E1BFBB53179EDE6B0026B885 /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Organization.m; sourceTree = "<group>"; };
 		E1BFFDF417415201004EF0D6 /* WTAddFriendNormalIconCN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTAddFriendNormalIconCN.png; sourceTree = "<group>"; };
 		E1BFFDF517415201004EF0D6 /* WTAddFriendNormalIconCN@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTAddFriendNormalIconCN@2x.png"; sourceTree = "<group>"; };
 		E1BFFDF617415201004EF0D6 /* WTAddFriendNormalIconEN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTAddFriendNormalIconEN.png; sourceTree = "<group>"; };
@@ -1545,8 +1550,6 @@
 		E1E647C11722D91400EB4C8D /* WTDetailImageItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTDetailImageItemView.xib; sourceTree = "<group>"; };
 		E1EC97B517802BF30058A9F7 /* WTOrganizationActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTOrganizationActivityViewController.h; sourceTree = "<group>"; };
 		E1EC97B617802BF30058A9F7 /* WTOrganizationActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTOrganizationActivityViewController.m; sourceTree = "<group>"; };
-		E1EC97BB178085240058A9F7 /* Organization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Organization.h; sourceTree = "<group>"; };
-		E1EC97BC178085240058A9F7 /* Organization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Organization.m; sourceTree = "<group>"; };
 		E1EC97C117808F390058A9F7 /* WTOrganizationNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTOrganizationNewsViewController.h; sourceTree = "<group>"; };
 		E1EC97C217808F390058A9F7 /* WTOrganizationNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTOrganizationNewsViewController.m; sourceTree = "<group>"; };
 		E1ED19141719D1E400B0A847 /* WTLoginIntroBgImage1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WTLoginIntroBgImage1.jpg; sourceTree = "<group>"; };
@@ -2699,6 +2702,8 @@
 				E14F9E7617193383009AFABA /* WTErrorHandler.m */,
 				E1BB2C3E175F2310003608B8 /* WTLocationManager.h */,
 				E1BB2C3F175F2310003608B8 /* WTLocationManager.m */,
+				E1BFBB4F179D92760026B885 /* WTNowConfigLoader.h */,
+				E1BFBB50179D92760026B885 /* WTNowConfigLoader.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -3153,8 +3158,6 @@
 				E15E4DE8175DDA5200BBAE9A /* Notification.m */,
 				E10E2355175737BF00DCF724 /* Object.h */,
 				E10E2356175737BF00DCF724 /* Object.m */,
-				E1EC97BB178085240058A9F7 /* Organization.h */,
-				E1EC97BC178085240058A9F7 /* Organization.m */,
 				E16B66301782110A0097901E /* User.h */,
 				E16B66311782110B0097901E /* User.m */,
 				E1FAB93617694A8600F7204F /* Star.h */,
@@ -3163,6 +3166,8 @@
 				E142640E1782290900847C08 /* CourseInvitationNotification.m */,
 				E17BEB92178755B80003D58B /* Course.h */,
 				E17BEB93178755B80003D58B /* Course.m */,
+				E1BFBB52179EDE6A0026B885 /* Organization.h */,
+				E1BFBB53179EDE6B0026B885 /* Organization.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3947,7 +3952,6 @@
 				E12FB5DB17746D1F0077A17D /* WTShareEventFriendsViewController.m in Sources */,
 				E18CB2F1177A36810044E85E /* Event.m in Sources */,
 				E1EC97B717802BF30058A9F7 /* WTOrganizationActivityViewController.m in Sources */,
-				E1EC97BD178085240058A9F7 /* Organization.m in Sources */,
 				E1EC97C317808F390058A9F7 /* WTOrganizationNewsViewController.m in Sources */,
 				E179FDD81781F22B00D0B979 /* WTTermOfUseViewController.m in Sources */,
 				E1F5F39B178208F900D2EC81 /* WTScheduledActivityViewController.m in Sources */,
@@ -3974,6 +3978,8 @@
 				E1960FAF178B47BB009D7871 /* WTCopyrightView.m in Sources */,
 				E1960FB9178B6CFE009D7871 /* WTUnknownPersonViewController.m in Sources */,
 				E186A20E179585CB007C5B7C /* RDActivityViewController.m in Sources */,
+				E1BFBB51179D92760026B885 /* WTNowConfigLoader.m in Sources */,
+				E1BFBB54179EDE6B0026B885 /* Organization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

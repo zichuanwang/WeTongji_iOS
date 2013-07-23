@@ -15,7 +15,9 @@
 @interface WTActivityHeaderView : UIView
 
 @property (nonatomic, strong) UIButton *friendCountButton;
+
 @property (nonatomic, strong) UIButton *participateButton;
+
 @property (nonatomic, strong) UIButton *inviteButton;
 
 @property (nonatomic, assign) BOOL activityOutdated;

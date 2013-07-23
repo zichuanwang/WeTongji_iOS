@@ -12,22 +12,10 @@
 
 @interface WTNowBarTitleView : UIView
 
-@property (nonatomic, weak) IBOutlet UILabel *weekDisplayLabel;
-@property (nonatomic, weak) IBOutlet UILabel *weekLabel;
-@property (nonatomic, weak) IBOutlet UILabel *timeLabel;
-@property (nonatomic, weak) IBOutlet UIView *weekContainerView;
-@property (nonatomic, weak) IBOutlet UIImageView *weekBgImageView;
-@property (nonatomic, weak) IBOutlet UIButton *prevButton;
-@property (nonatomic, weak) IBOutlet UIButton *nextButton;
-
-@property (nonatomic, assign) NSUInteger minWeekNumber;
-@property (nonatomic, assign) NSUInteger maxWeekNumber;
-
 @property (nonatomic, assign) NSUInteger weekNumber;
 
-@property (nonatomic, weak) id<WTNowBarTitleViewDelegate> delegate;
-
 - (IBAction)didClickPrevButton:(UIButton *)sender;
+
 - (IBAction)didClickNextButton:(UIButton *)sender;
 
 + (WTNowBarTitleView *)createBarTitleViewWithDelegate:(id<WTNowBarTitleViewDelegate>)delegate;

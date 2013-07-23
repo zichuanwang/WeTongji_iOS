@@ -12,10 +12,6 @@
 #import "LikeableObject+Addition.h"
 #import "Event+Addition.h"
 
-#define DAY_TIME_INTERVAL (60 * 60 * 24)
-#define HOUR_TIME_INTERVAL (60 * 60)
-#define MINUTE_TIME_INTERVAL 60
-
 @implementation CourseInstance (Addition)
 
 + (CourseInstance *)insertCourseInstance:(NSDictionary *)dict {
@@ -195,22 +191,27 @@
     result.courseName = [NSString stringWithFormat:@"%@", dict[@"Name"]];
     result.friendsCount = @([[NSString stringWithFormat:@"%@", dict[@"FriendsCount"]] integerValue]);
     
+    // TODO:
+//    BOOL canSchedule = [[NSString stringWithFormat:@"%@", dict[@"CanSchedule"]] boolValue];
+//    result.registeredByCurrentUser = !canSchedule;
+    
     result.isAudit = @([[NSString stringWithFormat:@"%@", dict[@"IsAudit"]] boolValue]);
+//    if (!result.isAudit.boolValue) {
+//        result.registeredByCurrentUser = YES;
+//    }
     
     result.year = @([[courseID substringToIndex:2] integerValue]);
     result.semester = @([[courseID substringWithRange:NSMakeRange(2, 2)] integerValue]);
-    WTLOG(@"year:%d, semester:%d", result.year.integerValue, result.semester.integerValue);
     [result generateYearSemesterString];
     
-    for (NSManagedObject *timetable in result.timetables) {
-        [[WTCoreDataManager sharedManager].managedObjectContext deleteObject:timetable];
-    }
-    NSArray *courseTimetableDictArray = dict[@"Sections"];
-    for (NSDictionary *timetableDict in courseTimetableDictArray) {
-        CourseTimetable *timetable = [CourseTimetable insertCourseTimetable:timetableDict];
-        if (timetable) {
-            [result addTimetablesObject:timetable];
-            timetable.identifier = result.identifier;
+    if (result.timetables.count == 0) {
+        NSArray *courseTimetableDictArray = dict[@"Sections"];
+        for (NSDictionary *timetableDict in courseTimetableDictArray) {
+            CourseTimetable *timetable = [CourseTimetable insertCourseTimetable:timetableDict];
+            if (timetable) {
+                [result addTimetablesObject:timetable];
+                timetable.identifier = result.identifier;
+            }
         }
     }
     

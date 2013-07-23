@@ -40,6 +40,10 @@
         result.about = nil;
     }
     
+    result.email = [NSString stringWithFormat:@"%@", dict[@"Email"]];
+    result.administrator = [NSString stringWithFormat:@"%@", dict[@"Admin"]];
+    result.adminTitle = [NSString stringWithFormat:@"%@", dict[@"Title"]];
+    
     result.activityCount = @([[NSString stringWithFormat:@"%@", dict[@"ActivitiesCount"]] integerValue]);
     result.newsCount = @([[NSString stringWithFormat:@"%@", dict[@"InformationCount"]] integerValue]);
     

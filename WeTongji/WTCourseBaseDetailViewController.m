@@ -169,4 +169,17 @@
     [WTResourceFactory configureActivityIndicatorButton:self.headerView.inviteButton activityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
 }
 
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (!self.headerView.courseOutdated) {
+        CGFloat briefDescriptionViewTopIndent = self.headerView.frame.size.height - HEADER_VIEW_BOTTOM_INDENT;
+        if (scrollView.contentOffset.y > briefDescriptionViewTopIndent) {
+            [self.headerView resetOriginY:scrollView.contentOffset.y - briefDescriptionViewTopIndent];
+        } else {
+            [self.headerView resetOriginY:0];
+        }
+    }
+}
+
 @end

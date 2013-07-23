@@ -17,7 +17,7 @@
 #import "CourseInstance.h"
 #import "WTActivityDetailViewController.h"
 #import "WTCourseInstanceDetailViewController.h"
-#import "NSUserDefaults+WTAddition.h"
+#import "WTNowConfigLoader.h"
 #import "NSString+WTAddition.h"
 
 @interface WTNowViewController () <WTNowBarTitleViewDelegate>
@@ -41,8 +41,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self updateScheduleSetting];
     
     [self configureNavigationBar];
     [self configureTableView];
@@ -84,10 +82,6 @@
     }
 }
 
-- (void)setBarTitleViewDisplayTime:(NSDate *)time {
-    self.barTitleView.timeLabel.text = [time convertToTimeString];
-}
-
 #pragma mark - Properties
 
 - (WTNowBarTitleView *)barTitleView {
@@ -111,51 +105,49 @@
 
 #pragma mark - Logic methods
 
-- (void)updateScheduleSetting {
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSDate *semesterBeginTime = [defaults getCurrentSemesterBeginTime];
-    if (semesterBeginTime) {
-        NSDate *semesterEndTime = [NSDate dateWithTimeInterval:[defaults getCurrentSemesterWeekCount] sinceDate:semesterBeginTime];
-        if ([semesterEndTime compare:[NSDate date]] == NSOrderedDescending)
-            return;
-    }
-    
-    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
-        WTLOG(@"Get schedule setting:%@", responseObject);
-        
-        NSDictionary *responseDict = (NSDictionary *)responseObject;
-        //    SchoolYearCourseWeekCount = 17;
-        //    SchoolYearStartAt = "2013-02-25T00:00:00+08:00";
-        //    SchoolYearWeekCount = 19;
-        
-        NSString *schoolYearStartAtString = [NSString stringWithFormat:@"%@", responseDict[@"SchoolYearStartAt"]];
-        NSDate *schoolYearStartAtDate = [schoolYearStartAtString convertToDate];
-        NSInteger schoolYearWeekCount = [[NSString stringWithFormat:@"%@", responseDict[@"SchoolYearWeekCount"]] integerValue];
-        
-        [defaults setCurrentSemesterBeginTime:schoolYearStartAtDate];
-        [defaults setCurrentSemesterWeekCount:schoolYearWeekCount];
-        
-        [self.tableView reloadData];
-    } failureBlock:^(NSError *error) {
-        WTLOGERROR(@"Get shedule setting failure:%@", error.localizedDescription);
-    }];
-    
-    [request getScheduleSetting];
-    [[WTClient sharedClient] enqueueRequest:request];
-}
+//- (void)updateScheduleSetting {
+//    
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSDate *semesterBeginTime = [defaults getCurrentSemesterBeginTime];
+//    if (semesterBeginTime) {
+//        NSDate *semesterEndTime = [NSDate dateWithTimeInterval:[defaults getCurrentSemesterWeekCount] sinceDate:semesterBeginTime];
+//        if ([semesterEndTime compare:[NSDate date]] == NSOrderedDescending)
+//            return;
+//    }
+//    
+//    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+//        WTLOG(@"Get schedule setting:%@", responseObject);
+//        
+//        NSDictionary *responseDict = (NSDictionary *)responseObject;
+//        //    SchoolYearCourseWeekCount = 17;
+//        //    SchoolYearStartAt = "2013-02-25T00:00:00+08:00";
+//        //    SchoolYearWeekCount = 19;
+//        
+//        NSString *schoolYearStartAtString = [NSString stringWithFormat:@"%@", responseDict[@"SchoolYearStartAt"]];
+//        NSDate *schoolYearStartAtDate = [schoolYearStartAtString convertToDate];
+//        NSInteger schoolYearWeekCount = [[NSString stringWithFormat:@"%@", responseDict[@"SchoolYearWeekCount"]] integerValue];
+//        
+//        [defaults setCurrentSemesterBeginTime:schoolYearStartAtDate];
+//        [defaults setCurrentSemesterWeekCount:schoolYearWeekCount];
+//        
+//        [self.tableView reloadData];
+//    } failureBlock:^(NSError *error) {
+//        WTLOGERROR(@"Get shedule setting failure:%@", error.localizedDescription);
+//    }];
+//    
+//    [request getScheduleSetting];
+//    [[WTClient sharedClient] enqueueRequest:request];
+//}
 
 - (NSInteger)todayWeekNumber {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    WTNowConfigLoader *configLoader = [WTNowConfigLoader sharedLoader];
     
-    NSDate *semesterBeginTime = [defaults getCurrentSemesterBeginTime];
-    if (!semesterBeginTime)
-        return 0;
+    NSDate *beginTime = configLoader.baseStartDate;
     
-    NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:semesterBeginTime];
+    NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:beginTime];
     NSInteger todayWeekNumber = interval / WEEK_TIME_INTERVAL + 1;
-    if (todayWeekNumber > [defaults getCurrentSemesterWeekCount]) {
-        todayWeekNumber = [defaults getCurrentSemesterWeekCount];
+    if (todayWeekNumber > configLoader.numberOfWeeks) {
+        todayWeekNumber = configLoader.numberOfWeeks;
     }
     return todayWeekNumber;
 }
@@ -166,10 +158,7 @@
     if ([WTCoreDataManager sharedManager].currentUser) {
         self.barTitleView.alpha = 1.0f;
         self.barTitleView.userInteractionEnabled = YES;
-    } else {
-        self.barTitleView.weekNumber = 1;
-        self.barTitleView.timeLabel.text = @"00:00";
-        
+    } else {        
         self.barTitleView.alpha = 0.5f;
         self.barTitleView.userInteractionEnabled = NO;
     }
@@ -252,7 +241,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if ([WTCoreDataManager sharedManager].currentUser) {
-        NSInteger weekCount = [[NSUserDefaults standardUserDefaults] getCurrentSemesterWeekCount];
+        NSInteger weekCount = [WTNowConfigLoader sharedLoader].numberOfWeeks;
         return weekCount;
     } else
         return 0;

@@ -87,10 +87,10 @@
 - (void)configureParticipateButton {
     
     if (!self.activityOutdated) {
-        self.participateButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Participate", nil)];
+        self.participateButton = [WTResourceFactory createNormalButtonWithText:@""];
         [self configureParticipateButtonStatus:self.activity.scheduledByCurrentUser];
     } else {
-        self.participateButton = [WTResourceFactory createDisableButtonWithText:self.activity.scheduledBy ? NSLocalizedString(@"Participated", nil) : NSLocalizedString(@"Outdated", nil)];
+        self.participateButton = [WTResourceFactory createDisableButtonWithText:self.activity.scheduledByCurrentUser ? NSLocalizedString(@"Participated", nil) : NSLocalizedString(@"Outdated", nil)];
     }
     
     if (self.participateButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)

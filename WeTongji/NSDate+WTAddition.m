@@ -20,6 +20,20 @@
     return ([self compare:lastMidnight] == NSOrderedDescending && [self compare:nextMidnight] == NSOrderedAscending);
 }
 
+- (NSString *)convertToYearString {
+    NSDateFormatter *form = [[NSDateFormatter alloc] init];
+    
+    NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    if ([language isEqualToString:@"zh-Hans"]) {
+        [form setDateFormat:@"yyyy年"];
+    } else {
+        [form setDateFormat:@"yy"];
+    }
+    
+    NSString *result = [form stringFromDate:self];
+    return result;
+}
+
 - (NSString *)convertToYearMonthDayString {
     if ([self isDateInToday]) {
         return NSLocalizedString(@"Today", nil);

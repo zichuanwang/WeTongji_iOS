@@ -10,6 +10,7 @@
 #import "WTResourceFactory.h"
 #import "Course+Addition.h"
 #import "NSString+WTAddition.h"
+#import "WTNowConfigLoader.h"
 
 @interface WTCourseBaseHeaderView ()
 
@@ -26,6 +27,9 @@
 }
 
 - (void)configureView {
+    
+    self.courseOutdated = [[WTNowConfigLoader sharedLoader] isCourseOutdated:[self targetCourse]];
+    
     [self configureBackgroundColor];
     [self configureBottomButtons];
     [self configureTitleLabelAndCalculateHeight];
@@ -50,7 +54,8 @@
 - (void)configureBottomButtons {
     [self configureParticipateButton];
     [self configureFriendCountButton];
-    [self configureInviteButton];
+    if (!self.courseOutdated)
+        [self configureInviteButton];
 }
 
 #define MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH    85.0f
@@ -58,11 +63,25 @@
 
 - (void)configureParticipateButton {
     Course *course = [self targetCourse];
-    if (!course.isAudit.boolValue) {
-        self.participateButton = [WTResourceFactory createDisableButtonWithText:NSLocalizedString(@"Registered", nil)];
+    if (!self.courseOutdated) {
+        if (!course.isAudit.boolValue) {
+            self.participateButton = [WTResourceFactory createDisableButtonWithText:NSLocalizedString(@"Registered", nil)];
+        } else {
+            self.participateButton = [WTResourceFactory createNormalButtonWithText:@""];
+            [self configureParticipateButtonStatus:course.registeredByCurrentUser];
+        }
     } else {
-        self.participateButton = [WTResourceFactory createNormalButtonWithText:NSLocalizedString(@"Audited", nil)];
-        [self configureParticipateButtonStatus:course.registeredByCurrentUser];
+        NSString *participateButtonText = nil;
+        if (course.registeredByCurrentUser) {
+            if (!course.isAudit) {
+                participateButtonText = NSLocalizedString(@"Registered", nil);
+            } else {
+                participateButtonText = NSLocalizedString(@"Audited", nil);
+            }
+        } else {
+            participateButtonText = NSLocalizedString(@"Outdated", nil);
+        }
+        self.participateButton = [WTResourceFactory createDisableButtonWithText:participateButtonText];
     }
     
     if (self.participateButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
