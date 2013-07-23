@@ -55,7 +55,7 @@
 
 - (void)configureWeekContainerView {
     UIImage *weekBgImage = self.weekBgImageView.image;
-    UIEdgeInsets insets = UIEdgeInsetsMake(0, 8.0f, 0, 8.0f);
+    UIEdgeInsets insets = UIEdgeInsetsMake(0, 6.0f, 0, 6.0f);
     self.weekBgImageView.image = [weekBgImage resizableImageWithCapInsets:insets];
     
     self.weekDisplayLabel.text = NSLocalizedString(@"week", nil);
