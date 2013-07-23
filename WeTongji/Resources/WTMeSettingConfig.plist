@@ -68,7 +68,7 @@
 		<array>
 			<dict>
 				<key>CellTitle</key>
-				<string>Enable schedule notification</string>
+				<string>Schedule notification</string>
 				<key>CellAccessoryType</key>
 				<string>CellAccessoryTypeSwitch</string>
 				<key>UserDefaultKey</key>

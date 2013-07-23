@@ -232,9 +232,9 @@
     NSInteger beginYear = isInFirstHalfYear ? self.year.integerValue - 1 : self.year.integerValue;
     NSInteger endYear = beginYear + 1;
     if ([language isEqualToString:@"zh-Hans"]) {
-        self.yearSemesterString = [NSString stringWithFormat:@"20%d年 - 20%d年 第%@学期", beginYear, endYear, isInFirstHalfYear ? @"二" : @"一"];
+        self.yearSemesterString = [NSString stringWithFormat:@"20%d年-20%d年 第%@学期", beginYear, endYear, isInFirstHalfYear ? @"二" : @"一"];
     } else {
-        self.yearSemesterString = [NSString stringWithFormat:@"20%d - 20%d Semester %d", beginYear, endYear, isInFirstHalfYear ? 2 : 1];
+        self.yearSemesterString = [NSString stringWithFormat:@"20%d-20%d Semester %d", beginYear, endYear, isInFirstHalfYear ? 2 : 1];
     }
 }
 
