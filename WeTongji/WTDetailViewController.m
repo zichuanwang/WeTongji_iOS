@@ -37,6 +37,10 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self.likeButtonContainerView configureViewWithObject:[self targetObject]];
+}
+
 #pragma mark - UI methods
 
 #pragma mark Configure navigation bar
