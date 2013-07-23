@@ -76,8 +76,11 @@
     }
     
     self.posterPlaceholderImageView.alpha = 1.0f;
-    
-    [self.posterImageView loadImageWithImageURLString:activity.image];
+    [self.posterImageView loadImageWithImageURLString:activity.image success:^(UIImage *image) {
+        self.posterImageView.image = image;
+        [self.posterImageView fadeIn];
+        self.posterPlaceholderImageView.alpha = 0;
+    } failure:nil];
 }
 
 @end
