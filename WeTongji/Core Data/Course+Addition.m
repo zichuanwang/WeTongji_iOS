@@ -191,14 +191,10 @@
     result.courseName = [NSString stringWithFormat:@"%@", dict[@"Name"]];
     result.friendsCount = @([[NSString stringWithFormat:@"%@", dict[@"FriendsCount"]] integerValue]);
     
-    // TODO:
-//    BOOL canSchedule = [[NSString stringWithFormat:@"%@", dict[@"CanSchedule"]] boolValue];
-//    result.registeredByCurrentUser = !canSchedule;
+    BOOL canSchedule = [[NSString stringWithFormat:@"%@", dict[@"CanSchedule"]] boolValue];
+    result.registeredByCurrentUser = !canSchedule;
     
     result.isAudit = @([[NSString stringWithFormat:@"%@", dict[@"IsAudit"]] boolValue]);
-//    if (!result.isAudit.boolValue) {
-//        result.registeredByCurrentUser = YES;
-//    }
     
     result.year = @([[courseID substringToIndex:2] integerValue]);
     result.semester = @([[courseID substringWithRange:NSMakeRange(2, 2)] integerValue]);

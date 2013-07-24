@@ -41,7 +41,7 @@
     }
     
     result.email = [NSString stringWithFormat:@"%@", dict[@"Email"]];
-    result.administrator = [NSString stringWithFormat:@"%@", dict[@"Admin"]];
+    result.administrator = [NSString stringWithFormat:@"%@", dict[@"Name"]];
     result.adminTitle = [NSString stringWithFormat:@"%@", dict[@"Title"]];
     
     result.activityCount = @([[NSString stringWithFormat:@"%@", dict[@"ActivitiesCount"]] integerValue]);

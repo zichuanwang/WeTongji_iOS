@@ -73,7 +73,7 @@
     } else {
         NSString *participateButtonText = nil;
         if (course.registeredByCurrentUser) {
-            if (!course.isAudit) {
+            if (!course.isAudit.boolValue) {
                 participateButtonText = NSLocalizedString(@"Registered", nil);
             } else {
                 participateButtonText = NSLocalizedString(@"Audited", nil);

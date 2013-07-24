@@ -42,7 +42,6 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    WTLOG(@"Now Table View Did Applear");
     [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
 }
 

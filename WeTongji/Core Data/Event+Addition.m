@@ -83,21 +83,25 @@
 }
 
 - (void)setScheduledByCurrentUser:(BOOL)scheduledByCurrentUser {
-    User *currentUser = [WTCoreDataManager sharedManager].currentUser;
-    if (scheduledByCurrentUser) {
-        if ([self isKindOfClass:[CourseInstance class]]) {
-            CourseInstance *courseInstance = (CourseInstance *)self;
-            courseInstance.course.registeredByCurrentUser = YES;
+    if (self.scheduledByCurrentUser != scheduledByCurrentUser) {
+        User *currentUser = [WTCoreDataManager sharedManager].currentUser;
+        if (scheduledByCurrentUser) {
+            [currentUser addScheduledEventsObject:self];
+            [[UIApplication sharedApplication] addEventAlertNotificationWithEvent:self];
+            
+            if ([self isKindOfClass:[CourseInstance class]]) {
+                CourseInstance *courseInstance = (CourseInstance *)self;
+                courseInstance.course.registeredByCurrentUser = YES;
+            }
+        } else {
+            [currentUser removeScheduledEventsObject:self];
+            [[UIApplication sharedApplication] removeEventAlertNotificationWithEvent:self];
+            
+            if ([self isKindOfClass:[CourseInstance class]]) {
+                CourseInstance *courseInstance = (CourseInstance *)self;
+                courseInstance.course.registeredByCurrentUser = NO;
+            }
         }
-        [currentUser addScheduledEventsObject:self];
-        [[UIApplication sharedApplication] addEventAlertNotificationWithEvent:self];
-    } else {
-        if ([self isKindOfClass:[CourseInstance class]]) {
-            CourseInstance *courseInstance = (CourseInstance *)self;
-            courseInstance.course.registeredByCurrentUser = NO;
-        }
-        [currentUser removeScheduledEventsObject:self];
-        [[UIApplication sharedApplication] removeEventAlertNotificationWithEvent:self];
     }
 }
 

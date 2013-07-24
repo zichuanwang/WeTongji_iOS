@@ -86,7 +86,7 @@
     [self.headerView.friendCountButton addTarget:self action:@selector(didClickFriendCountButton:) forControlEvents:UIControlEventTouchUpInside];
     
     Course *course = [self targetCourse];
-    if (course.isAudit) {
+    if (course.isAudit.boolValue) {
         [self.headerView.participateButton addTarget:self action:@selector(didClickParticipateButton:) forControlEvents:UIControlEventTouchUpInside];
     }
 }
