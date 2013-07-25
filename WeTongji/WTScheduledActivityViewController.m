@@ -79,7 +79,7 @@
                        smartOrder:YES
                        showExpire:YES
                              page:self.nextPage
-                  scheduledByUser:self.user.identifier];
+                  scheduledByUser:(self.user == [WTCoreDataManager sharedManager].currentUser) ? nil : self.user.identifier];
 }
 
 @end
