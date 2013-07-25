@@ -62,6 +62,7 @@
         self.switchContainerView.alpha = 0;
         return;
     } else if (events.count == 1) {
+        self.scrollView.contentOffset = CGPointZero;
         self.switchContainerView.alpha = 0.2f;
         self.switchContainerView.userInteractionEnabled = NO;
     } else {
