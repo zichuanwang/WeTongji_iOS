@@ -53,6 +53,8 @@
 - (void)configureCellWithEvent:(Event *)event {
     [super configureCellWithEvent:event];
     
+    if (![event isKindOfClass:[Activity class]])
+        return;
     Activity *activity = (Activity *)event;
     self.whenLabel.text = activity.beginToEndTimeString;
     

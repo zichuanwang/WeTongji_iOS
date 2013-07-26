@@ -8,6 +8,7 @@
 
 #import "WTNowCourseCell.h"
 #import "Event+Addition.h"
+#import "Course+Addition.h"
 
 @implementation WTNowCourseCell
 
@@ -46,6 +47,9 @@
 
 - (void)configureCellWithEvent:(Event *)event {
     [super configureCellWithEvent:event];
+    
+    if (![event isKindOfClass:[CourseInstance class]])
+        return;
     
     self.courseNameLabel.text = event.what;
     [self.courseNameLabel resetWidth:COURSE_NAME_LABEL_WIDTH];

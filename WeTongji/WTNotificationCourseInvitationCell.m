@@ -50,8 +50,7 @@
         
         NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
         if ([language isEqualToString:@"zh-Hans"]) {
-            messageContentString = [NSMutableAttributedString attributedStringWithString:@"接受了06
-                                    您旁听 的邀请。"];
+            messageContentString = [NSMutableAttributedString attributedStringWithString:@"接受了您旁听 的邀请。"];
             [messageContentString setTextColor:WTNotificationCellLightGrayColor];
             [messageContentString insertAttributedString:receiverNameString atIndex:0];
             [messageContentString insertAttributedString:courseTitleString atIndex:messageContentString.length - 5];
