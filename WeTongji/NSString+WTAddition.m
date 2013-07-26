@@ -188,7 +188,9 @@
     NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
     if ([language isEqualToString:@"zh-Hans"]) {
         result = [NSString stringWithFormat:@"邀请 %d 位", count];
-    } else {
+    } else if ([language isEqualToString:@"de"]) {
+        result = [NSString stringWithFormat:@"Laden %d ein", count];;
+    }else {
         result = [NSString stringWithFormat:@"Invite %d", count];
     }
     return result;
@@ -199,6 +201,8 @@
     NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
     if ([language isEqualToString:@"zh-Hans"]) {
         result = [NSString stringWithFormat:@"你确定要解除和%@的好友关系吗？", name];
+    } else if ([language isEqualToString:@"de"]) {
+        result = [NSString stringWithFormat:@"Sind Sie sicher, dass Sie %@ aus deiner Freundesliste entfernen?", name];
     } else {
         result = [NSString stringWithFormat:@"Are you sure you want to remove %@ from your friend list?", name];
     }

@@ -167,6 +167,8 @@ static UIView           *staticKeyWindowBgView;
     NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
     if ([language isEqualToString:@"zh-Hans"]) {
         localNotif.alertBody = [NSString stringWithFormat:@"%@ 将在30分钟内开始。", event.what];
+    } else if ([language isEqualToString:@"de"]) {
+      localNotif.alertBody = [NSString stringWithFormat:@"%@ wird in dreißig Minuten zu starten.", event.what];
     } else {
         localNotif.alertBody = [NSString stringWithFormat:@"%@ will start in thirty minutes.", event.what];
     }

@@ -42,12 +42,10 @@
     NSDateFormatter *form = [[NSDateFormatter alloc] init];
     
     NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
-    if ([language isEqualToString:@"en"]) {
-        [form setDateFormat:@"M/d/yyyy"];
-    } else if ([language isEqualToString:@"zh-Hans"]) {
+    if ([language isEqualToString:@"zh-Hans"]) {
         [form setDateFormat:@"yyyy年M月d日"];
     } else {
-        [form setDateFormat:@"yyyy.M.d"];
+       [form setDateFormat:@"M/d/yyyy"];
     }
     
     NSString *result = [form stringFromDate:self];

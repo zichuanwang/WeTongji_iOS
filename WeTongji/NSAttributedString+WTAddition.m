@@ -53,6 +53,11 @@
         result = [NSMutableAttributedString attributedStringWithString:hintString];
         [result setAttributes:attributes range:NSMakeRange(0, result.length)];
         [result setTextBold:YES range:NSMakeRange(5, keyword.length)];
+    } else if ([language isEqualToString:@"de"]) {
+        hintString = [NSString stringWithFormat:@"Suchen %@ nach %@", category, keyword];
+        result = [NSMutableAttributedString attributedStringWithString:hintString];
+        [result setAttributes:attributes range:NSMakeRange(0, result.length)];
+        [result setTextBold:YES range:NSMakeRange(hintString.length - keyword.length, keyword.length)];
     } else {
         hintString = [NSString stringWithFormat:@"Search %@ for %@", category, keyword];
         result = [NSMutableAttributedString attributedStringWithString:hintString];
