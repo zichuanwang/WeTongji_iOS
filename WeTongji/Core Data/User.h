@@ -2,7 +2,7 @@
 //  User.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-7-2.
+//  Created by 王 紫川 on 13-7-27.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -51,6 +51,7 @@
 @property (nonatomic, retain) NSSet *registeredCourses;
 @property (nonatomic, retain) NSSet *scheduledEvents;
 @property (nonatomic, retain) NSSet *sentNotifications;
+@property (nonatomic, retain) NSSet *ownedNotifications;
 @end
 
 @interface User (CoreDataGeneratedAccessors)
@@ -94,5 +95,10 @@
 - (void)removeSentNotificationsObject:(Notification *)value;
 - (void)addSentNotifications:(NSSet *)values;
 - (void)removeSentNotifications:(NSSet *)values;
+
+- (void)addOwnedNotificationsObject:(Notification *)value;
+- (void)removeOwnedNotificationsObject:(Notification *)value;
+- (void)addOwnedNotifications:(NSSet *)values;
+- (void)removeOwnedNotifications:(NSSet *)values;
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "WTOrganizationProfileView.h"
+#import "OHAttributedLabel.h"
+#import "Organization+Addition.h"
 
 @interface WTOrganizationProfileView()
 
@@ -35,45 +37,66 @@
     return profile;
 }
 
-#define DETAIL_VIEW_BOTTOM_INDENT   10.0f
+#pragma mark - UI methods
+
+#define DETAIL_VIEW_BOTTOM_INDENT   16.0f
 
 - (void)configureView {
-    [self configureContentLabelWithContent:self.org.about];
-    [self configureContentViewBgImageView];
+    [self configureFirstSectionLabels];
+    CGFloat introLabelOrginalHeight = self.introLabel.frame.size.height;
+    [self configureSecondSectionLabels];
+    CGFloat introLabelHeightIncrement = self.introLabel.frame.size.height - introLabelOrginalHeight;
+    [self configureFirstSectionView];
+    [self configureSecondSectionView];
+    [self.secondSectionContianerView resetHeightByOffset:introLabelHeightIncrement];
     
-    [self resetHeight:self.contentContainerView.frame.origin.y + self.contentContainerView.frame.size.height + DETAIL_VIEW_BOTTOM_INDENT];
+    [self resetHeight:self.secondSectionContianerView.frame.origin.y + self.secondSectionContianerView.frame.size.height + DETAIL_VIEW_BOTTOM_INDENT];
 }
 
-#define CONTENT_LABEL_LINE_SPACING 6.0f
-
-- (void)configureContentLabelWithContent:(NSString *)content {
-    self.aboutDisplayLabel.text = NSLocalizedString(@"About", nil);
-    
-    NSMutableAttributedString *contentAttributedString = [[NSMutableAttributedString alloc] initWithString:content ? content : @""];
-    
-    [contentAttributedString setAttributes:[self.contentLabel.attributedText attributesAtIndex:0 effectiveRange:NULL] range:NSMakeRange(0, contentAttributedString.length)];
-    
-    [contentAttributedString modifyParagraphStylesWithBlock:^(OHParagraphStyle *paragraphStyle) {
-        paragraphStyle.lineSpacing = CONTENT_LABEL_LINE_SPACING;
-    }];
-    
-    self.contentLabel.attributedText = contentAttributedString;
-    
-    CGFloat contentLabelHeight = [contentAttributedString sizeConstrainedToSize:CGSizeMake(self.contentLabel.frame.size.width, 200000.0f)].height;
-    
-    [self.contentLabel resetHeight:contentLabelHeight];
-    
-    self.contentLabel.automaticallyAddLinksForType = 0;    
+- (void)configureFirstSectionView {
+    UIEdgeInsets insets = UIEdgeInsetsMake(6.0, 7.0, 8.0, 7.0);
+    UIImage *bgImage = [[UIImage imageNamed:@"WTInfoPanelBg"] resizableImageWithCapInsets:insets];
+    self.firstSectionBgImageView.image = bgImage;
 }
 
-- (void)configureContentViewBgImageView {
-    UIImage *roundCornerPanelImage = [[UIImage imageNamed:@"WTRoundCornerPanelBg"] resizableImageWithCapInsets:UIEdgeInsetsMake(50.0f, 50.0f, 50.0f, 50.0f)];
-    UIImageView *aboutImageContainer = [[UIImageView alloc] initWithImage:roundCornerPanelImage];
-    [aboutImageContainer resetSize:CGSizeMake(self.contentContainerView.frame.size.width, 60.0 + self.contentLabel.frame.size.height)];
-    [aboutImageContainer resetOrigin:CGPointZero];
+- (void)configureFirstSectionLabels {
+    NSArray *countNumberArray = @[self.org.activityCount, self.org.newsCount];
+    NSArray *descriptionArray = @[self.org.activityCount.integerValue > 1 ? NSLocalizedString(@" Activities", nil) : NSLocalizedString(@" Activity", nil),
+                                  NSLocalizedString(@" News", nil)];
+    NSArray *labels = @[self.publishedActivityLabel,
+                        self.publishedNewsLabel];
     
-    [self.contentContainerView insertSubview:aboutImageContainer atIndex:0];
-    [self.contentContainerView resetHeight:aboutImageContainer.frame.size.height];
+    for (int i = 0; i < countNumberArray.count; i++) {
+        OHAttributedLabel *label = labels[i];
+        NSNumber *countNumber = countNumberArray[i];
+        NSString *description = descriptionArray[i];
+        NSMutableAttributedString *attributedString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@"%d%@", countNumber.integerValue, description]];
+        [attributedString setAttributes:[label.attributedText attributesAtIndex:label.attributedText.length - 1 effectiveRange:NULL] range:NSMakeRange(0, attributedString.length)];
+        [attributedString setTextBold:YES range:NSMakeRange(0, countNumber.stringValue.length)];
+        label.attributedText = attributedString;
+    }
+}
+
+- (void)configureSecondSectionView {
+    UIEdgeInsets insets = UIEdgeInsetsMake(6.0, 7.0, 8.0, 7.0);
+    UIImage *bgImage = [[UIImage imageNamed:@"WTInfoPanelBg"] resizableImageWithCapInsets:insets];
+    self.secondSectionBgImageView.image = bgImage;
+    
+    self.detailInformationDisplayLabel.text = NSLocalizedString(@"Detail Information", nil);
+}
+
+- (void)configureSecondSectionLabels {
+    self.adminNameDisplayLabel.text = NSLocalizedString(@"Admin Name", nil);
+    self.adminTitleDisplayLabel.text = NSLocalizedString(@"Admin Title", nil);
+    self.emailDisplayLabel.text = NSLocalizedString(@"Public Email", nil);
+    self.introDisplayDisplayLabel.text = NSLocalizedString(@"Intro", nil);
+    
+    self.adminNameLabel.text = self.org.administrator;
+    self.adminTitleLabel.text = self.org.adminTitle;
+    self.emailLabel.text = self.org.email;
+    self.introLabel.text = self.org.about;
+    
+    [self.introLabel sizeToFit];
 }
 
 @end

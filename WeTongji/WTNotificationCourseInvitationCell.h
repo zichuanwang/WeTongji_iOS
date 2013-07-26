@@ -10,10 +10,10 @@
 #import "WTNotificationCell.h"
 #import "WTNotificationInvitationCell.h"
 
+@class CourseInvitationNotification;
+
 @interface WTNotificationCourseInvitationCell : WTNotificationInvitationCell
 
-+ (NSMutableAttributedString *)generateNotificationContentAttributedStringWithSenderName:(NSString *)senderName
-                                                                             courseTitle:(NSString *)courseTitle
-                                                                                accepted:(BOOL)accepted;
++ (NSMutableAttributedString *)generateNotificationContentAttributedString:(CourseInvitationNotification *)invitation;
 
 @end

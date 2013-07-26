@@ -95,7 +95,7 @@
     return [WTResourceFactory createBarButtonWithButton:button];
 }
 
-#define MAX_NAVIGATION_BAR_TITLE_VIEW_WIDTH 180.0f
+#define MAX_NAVIGATION_BAR_TITLE_VIEW_WIDTH 140.0f
 
 + (UIView *)createNavigationBarTitleViewWithText:(NSString *)text {
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 44)];

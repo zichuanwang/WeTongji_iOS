@@ -12,6 +12,7 @@
 #import "Notification+Addition.h"
 #import "NSString+WTAddition.h"
 #import "UIImageView+AsyncLoading.h"
+#import "WTCoreDataManager.h"
 
 @implementation WTNotificationCell
 
@@ -51,7 +52,11 @@
 
 - (void)configureUIWithNotificaitonObject:(Notification *)notification {
     self.notification = notification;
-    [self.avatarImageView loadImageWithImageURLString:notification.sender.avatar];
+    NSString *avatarURLString = notification.sender.avatar;
+    if (notification.sender == [WTCoreDataManager sharedManager].currentUser) {
+        avatarURLString = notification.receiver.avatar;
+    }
+    [self.avatarImageView loadImageWithImageURLString:avatarURLString];
     self.timeLabel.text = [notification.sendTime convertToYearMonthDayWeekTimeString];
 }
 

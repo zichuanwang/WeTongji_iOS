@@ -22,17 +22,33 @@
 
 #pragma mark - Class methods
 
-+ (NSMutableAttributedString *)generateNotificationContentAttributedStringWithSenderName:(NSString *)senderName
-                                                                                accepted:(BOOL)accepted {
-    NSMutableAttributedString* senderNameString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@"%@ ", senderName]];
-    [senderNameString setTextBold:YES range:NSMakeRange(0, senderNameString.length)];
-    [senderNameString setTextColor:accepted ? WTNotificationCellDarkGrayColor : [UIColor whiteColor]];
-    [senderNameString setFont:[UIFont boldSystemFontOfSize:14.0f]];
-    NSMutableAttributedString* messageContentString = [NSMutableAttributedString attributedStringWithString:NSLocalizedString(@"wants to be your friend.", nil)];
-    [messageContentString setTextColor:accepted ? WTNotificationCellDarkGrayColor : WTNotificationCellLightGrayColor];
-    [messageContentString setFont:[UIFont systemFontOfSize:14.0f]];
-    [messageContentString insertAttributedString:senderNameString atIndex:0];
++ (NSMutableAttributedString *)generateNotificationContentAttributedString:(FriendInvitationNotification *)invitation {
+        
+    NSMutableAttributedString* messageContentString = nil;
+    BOOL accepted = invitation.accepted.boolValue;
     
+    if (invitation.sender != [WTCoreDataManager sharedManager].currentUser) {
+        NSString *senderName = invitation.sender.name;
+        NSMutableAttributedString* senderNameString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@"%@ ", senderName]];
+        [senderNameString setTextBold:YES range:NSMakeRange(0, senderNameString.length)];
+        [senderNameString setTextColor:accepted ? WTNotificationCellDarkGrayColor : [UIColor whiteColor]];
+        
+        messageContentString = [NSMutableAttributedString attributedStringWithString:NSLocalizedString(@"wants to be your friend.", nil)];
+        [messageContentString setTextColor:accepted ? WTNotificationCellDarkGrayColor : WTNotificationCellLightGrayColor];
+        
+        [messageContentString insertAttributedString:senderNameString atIndex:0];
+    } else {
+        NSString *receiverName = invitation.receiver.name;
+        NSMutableAttributedString *receiverNameString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@"%@ ", receiverName]];
+        [receiverNameString setTextBold:YES range:NSMakeRange(0, receiverNameString.length)];
+        [receiverNameString setTextColor:[UIColor whiteColor]];
+                
+        messageContentString = [NSMutableAttributedString attributedStringWithString:NSLocalizedString(@"accepted your friend invitation", nil)];
+        [messageContentString setTextColor:WTNotificationCellLightGrayColor];
+        [messageContentString insertAttributedString:receiverNameString atIndex:0];
+    }
+    
+    [messageContentString setFont:[UIFont systemFontOfSize:14.0f]];
     [messageContentString modifyParagraphStylesWithBlock:^(OHParagraphStyle *paragraphStyle) {
         paragraphStyle.lineSpacing = CONTENT_LABEL_LINE_SPACING;
     }];

@@ -107,7 +107,8 @@
     <entity name="Notification" representedClassName="Notification" parentEntity="Object" syncable="YES">
         <attribute name="sendTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="sourceID" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="owner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="receivedNotifications" inverseEntity="User" syncable="YES"/>
+        <relationship name="owner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="ownedNotifications" inverseEntity="User" syncable="YES"/>
+        <relationship name="receiver" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="receivedNotifications" inverseEntity="User" syncable="YES"/>
         <relationship name="sender" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="sentNotifications" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Object" representedClassName="Object" isAbstract="YES" syncable="YES">
@@ -172,9 +173,10 @@
         <attribute name="wechatAccount" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="friends" inverseEntity="User" syncable="YES"/>
         <relationship name="likedObjects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LikeableObject" inverseName="likedBy" inverseEntity="LikeableObject" syncable="YES"/>
+        <relationship name="ownedNotifications" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Notification" inverseName="owner" inverseEntity="Notification" syncable="YES"/>
         <relationship name="publishedBillboardPosts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BillboardPost" inverseName="author" inverseEntity="BillboardPost" syncable="YES"/>
         <relationship name="publishedComments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Comment" inverseName="author" inverseEntity="Comment" syncable="YES"/>
-        <relationship name="receivedNotifications" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Notification" inverseName="owner" inverseEntity="Notification" syncable="YES"/>
+        <relationship name="receivedNotifications" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Notification" inverseName="receiver" inverseEntity="Notification" syncable="YES"/>
         <relationship name="registeredCourses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Course" inverseName="registeredBy" inverseEntity="Course" syncable="YES"/>
         <relationship name="scheduledEvents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="scheduledBy" inverseEntity="Event" syncable="YES"/>
         <relationship name="sentNotifications" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Notification" inverseName="sender" inverseEntity="Notification" syncable="YES"/>
@@ -197,10 +199,10 @@
         <element name="InvitationNotification" positionX="43" positionY="-123" width="128" height="60"/>
         <element name="LikeableObject" positionX="160" positionY="192" width="128" height="75"/>
         <element name="News" positionX="205" positionY="-120" width="128" height="255"/>
-        <element name="Notification" positionX="-119" positionY="-126" width="128" height="105"/>
+        <element name="Notification" positionX="-119" positionY="-126" width="128" height="120"/>
         <element name="Object" positionX="-135" positionY="84" width="128" height="105"/>
         <element name="Organization" positionX="-423" positionY="-126" width="128" height="210"/>
         <element name="Star" positionX="-270" positionY="-126" width="128" height="180"/>
-        <element name="User" positionX="-423" positionY="-9" width="128" height="600"/>
+        <element name="User" positionX="-423" positionY="-9" width="128" height="615"/>
     </elements>
 </model>

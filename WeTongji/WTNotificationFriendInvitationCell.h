@@ -13,7 +13,6 @@
 
 @interface WTNotificationFriendInvitationCell : WTNotificationInvitationCell
 
-+ (NSMutableAttributedString *)generateNotificationContentAttributedStringWithSenderName:(NSString *)senderName
-                                                                                accepted:(BOOL)accepted;
++ (NSMutableAttributedString *)generateNotificationContentAttributedString:(FriendInvitationNotification *)invitation;
 
 @end

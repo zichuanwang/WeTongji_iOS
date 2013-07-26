@@ -82,8 +82,8 @@
     [self.scrollView addSubview:profileView];
     self.profileView = profileView;
     
-    [self.headerView.newsButton addTarget:self action:@selector(didClickNewsButton:) forControlEvents:UIControlEventTouchUpInside];
-    [self.headerView.activityButton addTarget:self action:@selector(didClickActivityButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.profileView.newsButton addTarget:self action:@selector(didClickNewsButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.profileView.activityButton addTarget:self action:@selector(didClickActivityButton:) forControlEvents:profileView];
 }
 
 #pragma mark - Actions

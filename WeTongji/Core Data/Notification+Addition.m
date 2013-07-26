@@ -80,6 +80,7 @@
     result.sourceID = [NSString stringWithFormat:@"%@", dict[@"SourceId"]];
     result.sendTime = [[NSString stringWithFormat:@"%@", dict[@"SentAt"]] convertToDate];
     result.sender = [User insertUser:dict[@"UserDetails"]];
+    result.receiver = [User insertUser:dict[@"ToUserDetails"]];
     result.course = [Course insertCourse:dict[@"CourseDetails"]];
     [result.course setObjectHeldByHolder:[Notification class]];
     
@@ -113,6 +114,7 @@
     result.sourceID = [NSString stringWithFormat:@"%@", dict[@"SourceId"]];
     result.sendTime = [[NSString stringWithFormat:@"%@", dict[@"SentAt"]] convertToDate];
     result.sender = [User insertUser:dict[@"UserDetails"]];
+    result.receiver = [User insertUser:dict[@"ToUserDetails"]];
     result.activity = [Activity insertActivity:dict[@"ActivityDetails"]];
     [result.activity setObjectHeldByHolder:[Notification class]];
     
@@ -146,6 +148,7 @@
     result.sourceID = [NSString stringWithFormat:@"%@", dict[@"SourceId"]];
     result.sendTime = [[NSString stringWithFormat:@"%@", dict[@"SentAt"]] convertToDate];
     result.sender = [User insertUser:dict[@"UserDetails"]];
+    result.receiver = [User insertUser:dict[@"ToUserDetails"]];
     
     if ([[NSString stringWithFormat:@"%@", dict[@"AcceptedAt"]] isEqualToString:@"<null>"]) {
         result.accepted = @(NO);

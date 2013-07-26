@@ -17,6 +17,7 @@
 #import "Activity+Addition.h"
 #import "User+Addition.h"
 #import "Course+Addition.h"
+#import "WTCoreDataManager.h"
 
 #define CELL_ORIGINAL_HEIGHT            120.0f
 #define BUTTON_CONTAINER_VIEW_HEIGHT    50.0f
@@ -31,13 +32,14 @@
     NSAttributedString *result = nil;
     if ([notification isKindOfClass:[ActivityInvitationNotification class]]) {
         ActivityInvitationNotification *activityInvitation = (ActivityInvitationNotification *)notification;
-        result = [WTNotificationActivityInvitationCell generateNotificationContentAttributedStringWithSenderName:activityInvitation.sender.name activityTitle:activityInvitation.activity.what accepted:notification.accepted.boolValue];
-    } else if ([notification isKindOfClass:[FriendInvitationNotification class]]) {
-        result = [WTNotificationFriendInvitationCell generateNotificationContentAttributedStringWithSenderName:notification.sender.name accepted:notification.accepted.boolValue];
+        result = [WTNotificationActivityInvitationCell generateNotificationContentAttributedString:activityInvitation];
     } else if ([notification isKindOfClass:[CourseInvitationNotification class]]) {
         CourseInvitationNotification *courseInvitation = (CourseInvitationNotification *)notification;
-        result = [WTNotificationCourseInvitationCell generateNotificationContentAttributedStringWithSenderName:notification.sender.name courseTitle:courseInvitation.course.courseName accepted:notification.accepted.boolValue];
-    }
+        result = [WTNotificationCourseInvitationCell generateNotificationContentAttributedString:courseInvitation];
+    } else if ([notification isKindOfClass:[FriendInvitationNotification class]]) {
+        FriendInvitationNotification *friendInvitation = (FriendInvitationNotification *)notification;
+        result = [WTNotificationFriendInvitationCell generateNotificationContentAttributedString:friendInvitation];
+    } 
     return result;
 }
 
@@ -111,14 +113,17 @@
     InvitationNotification *invitation = (InvitationNotification *)notification;
     if (invitation.accepted.boolValue) {
         [self hideButtonsAnimated:NO];
-        [self showAcceptedIconAnimated:NO];
+        if (invitation.sender != [WTCoreDataManager sharedManager].currentUser)
+            [self showAcceptedIconAnimated:NO];
+        else
+            [self hideAcceptedIcon];
     } else {
         [self showButtons];
         [self hideAcceptedIcon];
+        
+        [self.ignoreButton setTitle:NSLocalizedString(@"Ignore", nil) forState:UIControlStateNormal];
+        [self.acceptButton setTitle:NSLocalizedString(@"Accept", nil) forState:UIControlStateNormal];
     }
-    
-    [self.ignoreButton setTitle:NSLocalizedString(@"Ignore", nil) forState:UIControlStateNormal];
-    [self.acceptButton setTitle:NSLocalizedString(@"Accept", nil) forState:UIControlStateNormal];
     
     [self configureNotificationContentLabel];
     

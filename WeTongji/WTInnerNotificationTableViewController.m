@@ -95,7 +95,7 @@
         }
         
         NSSet *notificationsSet = [Notification insertNotifications:responseObject];
-        [[WTCoreDataManager sharedManager].currentUser addReceivedNotifications:notificationsSet];
+        [[WTCoreDataManager sharedManager].currentUser addOwnedNotifications:notificationsSet];
         
         if (success)
             success();
@@ -141,7 +141,12 @@
         [self.delegate innerNotificaionTableViewController:self wantToPushViewController:vc];
     } else if ([notification isKindOfClass:[FriendInvitationNotification class]]) {
         FriendInvitationNotification *friendInvitation = (FriendInvitationNotification *)notification;
-        WTUserDetailViewController *vc = [WTUserDetailViewController createDetailViewControllerWithUser:friendInvitation.sender backBarButtonText:NSLocalizedString(@"Notification", nil)];
+        // 如果是确认好友邀请的通知，则展示receiver
+        User *user = friendInvitation.sender;
+        if (user == [WTCoreDataManager sharedManager].currentUser) {
+            user = friendInvitation.receiver;
+        }
+        WTUserDetailViewController *vc = [WTUserDetailViewController createDetailViewControllerWithUser:user backBarButtonText:NSLocalizedString(@"Notification", nil)];
         [self.delegate innerNotificaionTableViewController:self wantToPushViewController:vc];
     }
 }
@@ -170,7 +175,7 @@
     NSSortDescriptor *sortBySendTime = [[NSSortDescriptor alloc] initWithKey:@"sendTime" ascending:NO];
     [request setSortDescriptors:@[sortBySendTime]];
 
-    [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@", [WTCoreDataManager sharedManager].currentUser.receivedNotifications]];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@", [WTCoreDataManager sharedManager].currentUser.ownedNotifications]];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {

@@ -2,7 +2,7 @@
 //  User.m
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-7-2.
+//  Created by 王 紫川 on 13-7-27.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -14,6 +14,8 @@
 #import "LikeableObject.h"
 #import "Notification.h"
 #import "User.h"
+
+
 @implementation User
 
 @dynamic avatar;
@@ -53,5 +55,6 @@
 @dynamic registeredCourses;
 @dynamic scheduledEvents;
 @dynamic sentNotifications;
+@dynamic ownedNotifications;
 
 @end

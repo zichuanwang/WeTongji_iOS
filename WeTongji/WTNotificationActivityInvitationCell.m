@@ -18,25 +18,51 @@
 
 #pragma mark - Class methods
 
-+ (NSMutableAttributedString *)generateNotificationContentAttributedStringWithSenderName:(NSString *)senderName
-                                                                           activityTitle:(NSString *)activityTitle
-                                                                                accepted:(BOOL)accepted {
-    NSMutableAttributedString* senderNameString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@"%@ ", senderName]];
-    [senderNameString setTextBold:YES range:NSMakeRange(0, senderNameString.length)];
-    [senderNameString setTextColor:accepted ? WTNotificationCellDarkGrayColor : [UIColor whiteColor]];
-    [senderNameString setFont:[UIFont boldSystemFontOfSize:14.0f]];
++ (NSMutableAttributedString *)generateNotificationContentAttributedString:(ActivityInvitationNotification *)invitation {
+    
+    NSMutableAttributedString* messageContentString = nil;
+    NSString *activityTitle = invitation.activity.what;
+    BOOL accepted = invitation.accepted.boolValue;
     
     NSMutableAttributedString* activityTitleString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@" %@", activityTitle]];
-    [activityTitleString setTextBold:YES range:NSMakeRange(0, senderNameString.length)];
-    [activityTitleString setTextColor:accepted ? WTNotificationCellDarkGrayColor : [UIColor whiteColor]];
-    [activityTitleString setFont:[UIFont boldSystemFontOfSize:14.0f]];
+    [activityTitleString setTextBold:YES range:NSMakeRange(0, activityTitleString.length)];
     
-    NSMutableAttributedString* messageContentString = [NSMutableAttributedString attributedStringWithString:NSLocalizedString(@"invites you to participate in.", nil)];
-    [messageContentString setTextColor:accepted ? WTNotificationCellDarkGrayColor : WTNotificationCellLightGrayColor];
+    if (invitation.sender != [WTCoreDataManager sharedManager].currentUser) {
+        NSString *senderName = invitation.sender.name;
+        NSMutableAttributedString* senderNameString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@"%@ ", senderName]];
+        [senderNameString setTextBold:YES range:NSMakeRange(0, senderNameString.length)];
+        [senderNameString setTextColor:accepted ? WTNotificationCellDarkGrayColor : [UIColor whiteColor]];
+        
+        [activityTitleString setTextColor:accepted ? WTNotificationCellDarkGrayColor : [UIColor whiteColor]];
+        
+        messageContentString = [NSMutableAttributedString attributedStringWithString:NSLocalizedString(@"invites you to participate in.", nil)];
+        [messageContentString setTextColor:accepted ? WTNotificationCellDarkGrayColor : WTNotificationCellLightGrayColor];
+        
+        [messageContentString insertAttributedString:senderNameString atIndex:0];
+        [messageContentString insertAttributedString:activityTitleString atIndex:messageContentString.length - 1];
+    } else {
+        NSString *receiverName = invitation.receiver.name;
+        NSMutableAttributedString *receiverNameString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@"%@ ", receiverName]];
+        [receiverNameString setTextBold:YES range:NSMakeRange(0, receiverNameString.length)];
+        [receiverNameString setTextColor:[UIColor whiteColor]];
+        
+        [activityTitleString setTextColor:[UIColor whiteColor]];
+        
+        NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
+        if ([language isEqualToString:@"zh-Hans"]) {
+            messageContentString = [NSMutableAttributedString attributedStringWithString:@"接受了您参加 的邀请。"];
+            [messageContentString setTextColor:WTNotificationCellLightGrayColor];
+            [messageContentString insertAttributedString:receiverNameString atIndex:0];
+            [messageContentString insertAttributedString:activityTitleString atIndex:messageContentString.length - 5];
+        } else {
+            messageContentString = [NSMutableAttributedString attributedStringWithString:@"accepted your activity invitation to."];
+            [messageContentString setTextColor:WTNotificationCellLightGrayColor];
+            [messageContentString insertAttributedString:receiverNameString atIndex:0];
+            [messageContentString insertAttributedString:activityTitleString atIndex:messageContentString.length - 1];
+        }
+    }
+    
     [messageContentString setFont:[UIFont systemFontOfSize:14.0f]];
-    [messageContentString insertAttributedString:senderNameString atIndex:0];
-    [messageContentString insertAttributedString:activityTitleString atIndex:messageContentString.length - 1];
-    
     [messageContentString modifyParagraphStylesWithBlock:^(OHParagraphStyle *paragraphStyle) {
         paragraphStyle.lineSpacing = CONTENT_LABEL_LINE_SPACING;
     }];

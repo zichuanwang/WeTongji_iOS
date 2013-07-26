@@ -43,44 +43,6 @@
     [self.avatarImageView loadImageWithImageURLString:self.org.avatar];
 }
 
-- (void)configureBottomButtons {
-    [self configureActivityButton];
-    [self configureNewsButton];
-}
-
-- (void)configureActivityButton {
-    NSString *activityCountString = [NSString stringWithFormat:@"%d%@", self.org.activityCount.integerValue,
-                                     self.org.activityCount.integerValue > 1 ? NSLocalizedString(@" Activities", nil) : NSLocalizedString(@" Activity", nil)];
-    [self.activityButton setTitle:activityCountString forState:UIControlStateNormal];
-}
-
-- (void)configureNewsButton {
-    NSString *activityCountString = [NSString stringWithFormat:@"%d%@", self.org.newsCount.integerValue, NSLocalizedString(@" News", nil)];
-    [self.newsButton setTitle:activityCountString forState:UIControlStateNormal];
-}
-
-- (void)configureEmailLabel {
-    self.emailLabel.text = self.org.email;
-    self.emailLabel.layer.masksToBounds = NO;
-    self.emailLabel.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.emailLabel.layer.shadowOpacity = 0.3f;
-    self.emailLabel.layer.shadowOffset = CGSizeMake(0, 1.0f);
-    self.emailLabel.layer.shadowRadius = 1.0f;
-    [self.emailLabel sizeToFit];
-    [self.emailLabel resetOriginY:self.orgNameLabel.frame.origin.y + self.orgNameLabel.frame.size.height + 4.0f];
-}
-
-- (void)configureAdministratorLabel {
-    self.adminLabel.text = [NSString stringWithFormat:@"%@ %@", self.org.adminTitle, self.org.administrator];
-    self.adminLabel.layer.masksToBounds = NO;
-    self.adminLabel.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.adminLabel.layer.shadowOpacity = 0.3f;
-    self.adminLabel.layer.shadowOffset = CGSizeMake(0, 1.0f);
-    self.adminLabel.layer.shadowRadius = 1.0f;
-    [self.adminLabel sizeToFit];
-    [self.adminLabel resetOriginY:self.emailLabel.frame.origin.y + self.emailLabel.frame.size.height + 4.0f];
-}
-
 #define MAX_ORG_NAME_LABEL_HEIGHT   48.0f
 
 - (void)configureOrganizationNameLabel {
@@ -90,23 +52,12 @@
     self.orgNameLabel.layer.shadowOpacity = 0.3f;
     self.orgNameLabel.layer.shadowOffset = CGSizeMake(0, 1.0f);
     self.orgNameLabel.layer.shadowRadius = 1.0f;
-    [self.orgNameLabel sizeToFit];
-    if (self.orgNameLabel.frame.size.height > MAX_ORG_NAME_LABEL_HEIGHT) {
-        [self.orgNameLabel resetHeight:MAX_ORG_NAME_LABEL_HEIGHT];
-    }
-}
-
-- (void)configureLabels {
-    [self configureOrganizationNameLabel];
-    [self configureEmailLabel];
-    [self configureAdministratorLabel];
 }
 
 - (void)configureView {
     [self configureAvatarImageView];
     [self configureOrganizerBgImageView];
-    [self configureLabels];
-    [self configureBottomButtons];
+    [self configureOrganizationNameLabel];
 }
 
 - (void)configureOrganizerBgImageView {
