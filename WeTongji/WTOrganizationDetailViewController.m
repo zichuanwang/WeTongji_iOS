@@ -16,14 +16,17 @@
 #import "WTOrganizationActivityViewController.h"
 #import "WTOrganizationNewsViewController.h"
 #import "UIApplication+WTAddition.h"
+#import "WTDragToLoadDecorator.h"
 
-@interface WTOrganizationDetailViewController () <UIActionSheetDelegate>
+@interface WTOrganizationDetailViewController () <UIActionSheetDelegate, WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic, weak) WTOrganizationProfileView *profileView;
 @property (nonatomic, weak) WTOrganizationHeaderView *headerView;
 @property (nonatomic, strong) Organization *org;
+
+@property (nonatomic, strong) WTDragToLoadDecorator *dragToLoadDecorator;
 
 @end
 
@@ -43,6 +46,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self configureUI];
+    [self configureDragToLoadDecorator];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [self.dragToLoadDecorator stopObservingChangesInDragToLoadScrollView];
 }
 
 + (WTOrganizationDetailViewController *)createDetailViewControllerWithOrganization:(Organization *)org
@@ -57,6 +69,11 @@
 }
 
 #pragma mark - UI methods
+
+- (void)configureDragToLoadDecorator {
+    self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self bottomActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [self.dragToLoadDecorator setBottomViewDisabled:YES immediately:YES];
+}
 
 - (void)configureUI {
     [self configureHeaderView];
@@ -129,6 +146,29 @@
 
 - (NSString *)textToShare {
     return [NSString stringWithFormat:@"%@\n\n%@", self.org.name, self.org.about];
+}
+
+#pragma mark - WTDragToLoadDecoratorDataSource
+
+- (UIScrollView *)dragToLoadScrollView {
+    return self.scrollView;
+}
+
+#pragma mark - WTDragToLoadDecoratorDelegate
+
+- (void)dragToLoadDecoratorDidDragDown {
+    WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
+        WTLOG(@"get account info success:%@", responseObject);
+        [Organization insertOrganization:responseObject[@"Account"]];
+        [self.profileView updateView];
+        [self.headerView updateView];
+        [self.dragToLoadDecorator topViewLoadFinished:YES];
+    } failureBlock:^(NSError *error) {
+        [WTErrorHandler handleError:error];
+        [self.dragToLoadDecorator topViewLoadFinished:NO];
+    }];
+    [request getAccount:self.org.identifier];
+    [[WTClient sharedClient] enqueueRequest:request];
 }
 
 @end

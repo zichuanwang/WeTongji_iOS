@@ -36,4 +36,6 @@
 
 + (WTOrganizationProfileView *)createProfileViewWithOrganization:(Organization *)org;
 
+- (void)updateView;
+
 @end

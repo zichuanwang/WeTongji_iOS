@@ -37,18 +37,28 @@
     return profile;
 }
 
+#pragma mark - Public methods
+
+- (void)updateView {
+    [self configureLabels];
+}
+
 #pragma mark - UI methods
 
 #define DETAIL_VIEW_BOTTOM_INDENT   16.0f
 
-- (void)configureView {
+- (void)configureLabels {
     [self configureFirstSectionLabels];
     CGFloat introLabelOrginalHeight = self.introLabel.frame.size.height;
     [self configureSecondSectionLabels];
     CGFloat introLabelHeightIncrement = self.introLabel.frame.size.height - introLabelOrginalHeight;
+    [self.secondSectionContianerView resetHeightByOffset:introLabelHeightIncrement];
+}
+
+- (void)configureView {
+    [self configureLabels];
     [self configureFirstSectionView];
     [self configureSecondSectionView];
-    [self.secondSectionContianerView resetHeightByOffset:introLabelHeightIncrement];
     
     [self resetHeight:self.secondSectionContianerView.frame.origin.y + self.secondSectionContianerView.frame.size.height + DETAIL_VIEW_BOTTOM_INDENT];
 }

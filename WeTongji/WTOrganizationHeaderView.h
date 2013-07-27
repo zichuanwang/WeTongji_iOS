@@ -19,4 +19,6 @@
 
 + (WTOrganizationHeaderView *)createHeaderViewWithOrganization:(Organization *)org;
 
+- (void)updateView;
+
 @end

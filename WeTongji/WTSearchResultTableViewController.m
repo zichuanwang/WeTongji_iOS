@@ -48,8 +48,6 @@
     [self configureDragToLoadDecorator];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
-    
-    [self.tableView resetHeight:self.view.frame.size.height];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

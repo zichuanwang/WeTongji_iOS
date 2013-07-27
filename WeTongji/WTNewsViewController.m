@@ -145,8 +145,6 @@
     self.tableView.alwaysBounceVertical = YES;
     
     self.tableView.scrollsToTop = NO;
-    
-    [self.tableView resetHeight:self.view.frame.size.height];
 }
 
 - (void)configureNavigationBar {

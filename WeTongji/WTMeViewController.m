@@ -59,7 +59,6 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self.scrollView resetHeight:self.view.frame.size.height];
     [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
 }
 

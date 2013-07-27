@@ -132,8 +132,6 @@
     self.tableView.scrollsToTop = NO;
     
     _noAnimationFlag = YES;
-    
-    [self.tableView resetHeight:self.view.frame.size.height];
 }
 
 #pragma mark - Actions

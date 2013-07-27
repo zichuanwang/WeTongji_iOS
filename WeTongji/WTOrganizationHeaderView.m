@@ -21,6 +21,13 @@
 
 @implementation WTOrganizationHeaderView
 
+#pragma mark - Public methods
+
+- (void)updateView {
+    [self.avatarImageView loadImageWithImageURLString:self.org.avatar];
+    [self.avatarBgImageView loadImageWithImageURLString:self.org.bgImage];
+}
+
 #pragma mark - Factory methods
 
 + (WTOrganizationHeaderView *)createHeaderViewWithOrganization:(Organization *)org; {
