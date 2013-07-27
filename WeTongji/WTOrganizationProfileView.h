@@ -21,6 +21,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *adminNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *adminTitleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *introLabel;
+@property (nonatomic, weak) IBOutlet UIButton *emailButton;
 
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *publishedActivityLabel;
 @property (nonatomic, weak) IBOutlet OHAttributedLabel *publishedNewsLabel;

@@ -15,8 +15,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "WTOrganizationActivityViewController.h"
 #import "WTOrganizationNewsViewController.h"
+#import "UIApplication+WTAddition.h"
 
-@interface WTOrganizationDetailViewController ()
+@interface WTOrganizationDetailViewController () <UIActionSheetDelegate>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
@@ -84,6 +85,7 @@
     
     [self.profileView.newsButton addTarget:self action:@selector(didClickNewsButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.profileView.activityButton addTarget:self action:@selector(didClickActivityButton:) forControlEvents:profileView];
+    [self.profileView.emailButton addTarget:self action:@selector(didClickEmailButton:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 #pragma mark - Actions
@@ -96,6 +98,20 @@
 - (void)didClickNewsButton:(UIButton *)sender {
     WTOrganizationNewsViewController *vc = [WTOrganizationNewsViewController createViewControllerWithOrganization:self.org];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)didClickEmailButton:(UIButton *)sender {
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"%@%@?", NSLocalizedString(@"Send email to ", nil), self.org.email] delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+    [sheet showFromTabBar:[UIApplication sharedApplication].rootTabBarController.tabBar];
+}
+
+#pragma mark - UIActionSheetDelegate 
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex != actionSheet.cancelButtonIndex) {
+        NSString *URLString = [[NSString alloc] initWithFormat:@"mailto://%@", self.org.email];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:URLString]];
+    }
 }
 
 #pragma mark - Methods to overwrite
