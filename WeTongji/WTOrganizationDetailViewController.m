@@ -17,6 +17,7 @@
 #import "WTOrganizationNewsViewController.h"
 #import "UIApplication+WTAddition.h"
 #import "WTDragToLoadDecorator.h"
+#import "WTLikeButtonView.h"
 
 @interface WTOrganizationDetailViewController () <UIActionSheetDelegate, WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
@@ -162,6 +163,7 @@
         [Organization insertOrganization:responseObject[@"Account"]];
         [self.profileView updateView];
         [self.headerView updateView];
+        [self.likeButtonContainerView configureViewWithObject:self.org];
         [self.dragToLoadDecorator topViewLoadFinished:YES];
     } failureBlock:^(NSError *error) {
         [WTErrorHandler handleError:error];

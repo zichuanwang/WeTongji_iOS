@@ -451,6 +451,7 @@
         buttonBgImage = [UIImage imageNamed:@"WTNotificationCellFocusButton"];
         result.button.titleLabel.shadowOffset = CGSizeMake(0, 1.0f);
         [result.button setTitleShadowColor:[UIColor colorWithWhite:0 alpha:0.35f] forState:UIControlStateNormal];
+        [result.button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     } else {
         buttonBgImage = [UIImage imageNamed:@"WTNotificationCellButton"];
     }

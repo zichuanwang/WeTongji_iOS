@@ -43,7 +43,7 @@
         [receiverNameString setTextBold:YES range:NSMakeRange(0, receiverNameString.length)];
         [receiverNameString setTextColor:[UIColor whiteColor]];
                 
-        messageContentString = [NSMutableAttributedString attributedStringWithString:NSLocalizedString(@"accepted your friend invitation", nil)];
+        messageContentString = [NSMutableAttributedString attributedStringWithString:NSLocalizedString(@"accepted your friend invitation.", nil)];
         [messageContentString setTextColor:WTNotificationCellLightGrayColor];
         [messageContentString insertAttributedString:receiverNameString atIndex:0];
     }
