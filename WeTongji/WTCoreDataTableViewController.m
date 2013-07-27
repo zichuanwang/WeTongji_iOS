@@ -85,6 +85,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSInteger numberOfRows = [self.fetchedResultsController.sections[indexPath.section] numberOfObjects];
+    if (indexPath.row >= numberOfRows)
+        return nil;
+    
     NSString *name = [self customCellClassNameAtIndexPath:indexPath];
     
     NSString *cellIdentifier = name ? name : @"Cell";
