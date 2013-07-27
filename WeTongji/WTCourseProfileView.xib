@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1280</int>
-		<string key="IBDocument.SystemVersion">13A497d</string>
+		<string key="IBDocument.SystemVersion">13A510d</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
-		<string key="IBDocument.AppKitVersion">1240</string>
-		<string key="IBDocument.HIToolboxVersion">681.00</string>
+		<string key="IBDocument.AppKitVersion">1242.11</string>
+		<string key="IBDocument.HIToolboxVersion">683.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">2083</string>
@@ -252,6 +252,7 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{80, 188}, {200, 20}}</string>
 										<reference key="NSSuperview" ref="68575262"/>
+										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<reference key="IBUIBackgroundColor" ref="201406382"/>
 										<bool key="IBUIOpaque">NO</bool>
@@ -290,6 +291,7 @@
 										</object>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
+										<float key="IBUIMinimumFontSize">8</float>
 										<int key="IBUITextAlignment">2</int>
 										<int key="IBUILineBreakMode">1</int>
 										<object class="IBUIFontDescription" key="IBUIFontDescription" id="137954906">
@@ -301,7 +303,6 @@
 											<double key="NSSize">12</double>
 											<int key="NSfFlags">16</int>
 										</object>
-										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUILabel" id="486694331">
 										<reference key="NSNextResponder" ref="68575262"/>
@@ -320,11 +321,11 @@
 										<reference key="IBUITextColor" ref="925286731"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
+										<float key="IBUIMinimumFontSize">8</float>
 										<int key="IBUITextAlignment">2</int>
 										<int key="IBUILineBreakMode">1</int>
 										<reference key="IBUIFontDescription" ref="137954906"/>
 										<reference key="IBUIFont" ref="106786784"/>
-										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUILabel" id="127000573">
 										<reference key="NSNextResponder" ref="68575262"/>
@@ -342,11 +343,11 @@
 										<reference key="IBUITextColor" ref="925286731"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
+										<float key="IBUIMinimumFontSize">8</float>
 										<int key="IBUITextAlignment">2</int>
 										<int key="IBUILineBreakMode">1</int>
 										<reference key="IBUIFontDescription" ref="137954906"/>
 										<reference key="IBUIFont" ref="106786784"/>
-										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUILabel" id="29645278">
 										<reference key="NSNextResponder" ref="68575262"/>
@@ -365,11 +366,11 @@
 										<reference key="IBUITextColor" ref="925286731"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
+										<float key="IBUIMinimumFontSize">8</float>
 										<int key="IBUITextAlignment">2</int>
 										<int key="IBUILineBreakMode">1</int>
 										<reference key="IBUIFontDescription" ref="137954906"/>
 										<reference key="IBUIFont" ref="106786784"/>
-										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUILabel" id="597612793">
 										<reference key="NSNextResponder" ref="68575262"/>
@@ -388,11 +389,11 @@
 										<reference key="IBUITextColor" ref="925286731"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
+										<float key="IBUIMinimumFontSize">8</float>
 										<int key="IBUITextAlignment">2</int>
 										<int key="IBUILineBreakMode">1</int>
 										<reference key="IBUIFontDescription" ref="137954906"/>
 										<reference key="IBUIFont" ref="106786784"/>
-										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 								</array>
 								<string key="NSFrame">{{10, 36}, {300, 220}}</string>
