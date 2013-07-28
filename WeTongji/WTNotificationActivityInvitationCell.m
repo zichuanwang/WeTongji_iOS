@@ -54,7 +54,12 @@
             [messageContentString setTextColor:WTNotificationCellLightGrayColor];
             [messageContentString insertAttributedString:receiverNameString atIndex:0];
             [messageContentString insertAttributedString:activityTitleString atIndex:messageContentString.length - 5];
-        } else {
+        } else if ([language isEqualToString:@"de"]) {
+            messageContentString = [NSMutableAttributedString attributedStringWithString:@"Ihrer Aktivität Einladung zu akzeptiert."];
+            [messageContentString setTextColor:WTNotificationCellLightGrayColor];
+            [messageContentString insertAttributedString:receiverNameString atIndex:0];
+            [messageContentString insertAttributedString:activityTitleString atIndex:messageContentString.length - 12];
+        }  else {
             messageContentString = [NSMutableAttributedString attributedStringWithString:@"accepted your activity invitation to."];
             [messageContentString setTextColor:WTNotificationCellLightGrayColor];
             [messageContentString insertAttributedString:receiverNameString atIndex:0];

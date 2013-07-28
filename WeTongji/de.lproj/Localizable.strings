@@ -30,8 +30,8 @@
 "Invite" = "Einladen";
 "Participate" = "Mitmachen";
 "Participated" = "Mitgemacht";
-"Audit" = "Revidieren";
-"Audited" = "Revidiet";
+"Audit" = "Teilnehmen";
+"Audited" = "Teilgenommen";
 "Registered" = "Registriert";
 "Outdated" = "Überholt";
 "wants to be your friend." = "will dein Freund sein.";
@@ -250,3 +250,10 @@
 
 "Summer Vac" = "Sommerurlaub";
 "Winter Vac" = "Winterurlaub";
+
+"accepted your friend invitation." = "Ihr Freund Einladung akzeptiert.";
+
+"Admin Name" = "Admin Name";
+"Admin Title" = "Admin Titel";
+"Public Email" = "Öffentliche Email";
+"Intro" = "Einleitung";

@@ -54,8 +54,13 @@
             [messageContentString setTextColor:WTNotificationCellLightGrayColor];
             [messageContentString insertAttributedString:receiverNameString atIndex:0];
             [messageContentString insertAttributedString:courseTitleString atIndex:messageContentString.length - 5];
+        } else if ([language isEqualToString:@"de"]) {
+            messageContentString = [NSMutableAttributedString attributedStringWithString:@"Ihrer Kurs Einladung zu akzeptiert."];
+            [messageContentString setTextColor:WTNotificationCellLightGrayColor];
+            [messageContentString insertAttributedString:receiverNameString atIndex:0];
+            [messageContentString insertAttributedString:courseTitleString atIndex:messageContentString.length - 12];
         } else {
-            messageContentString = [NSMutableAttributedString attributedStringWithString:@"accepted your activity invitation to."];
+            messageContentString = [NSMutableAttributedString attributedStringWithString:@"accepted your auditing invitation to."];
             [messageContentString setTextColor:WTNotificationCellLightGrayColor];
             [messageContentString insertAttributedString:receiverNameString atIndex:0];
             [messageContentString insertAttributedString:courseTitleString atIndex:messageContentString.length - 1];
