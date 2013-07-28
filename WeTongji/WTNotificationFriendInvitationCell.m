@@ -56,6 +56,15 @@
     return messageContentString;
 }
 
+- (void)configureTypeIconImageView {
+    CourseInvitationNotification *courseInvitation = (CourseInvitationNotification *)self.notification;
+    if (courseInvitation.accepted.boolValue) {
+        self.notificationTypeIconImageView.image = [UIImage imageNamed:@"WTNotificationAcceptIcon"];
+    } else {
+        self.notificationTypeIconImageView.image = [UIImage imageNamed:@"WTNotificationAddIcon"];
+    }
+}
+
 #pragma mark - Actions
 
 - (IBAction)didClickAcceptButton:(UIButton *)sender {
@@ -66,6 +75,7 @@
         friendInvitation.accepted = @(YES);
         [self hideButtonsAnimated:YES];
         [self showAcceptedIconAnimated:YES];
+        [self configureTypeIconImageView];
         [[WTCoreDataManager sharedManager].currentUser addFriendsObject:friendInvitation.sender];
         [self.delegate cellHeightDidChange];
     } failureBlock:^(NSError *error) {
@@ -88,6 +98,11 @@
     }];
     [request ignoreFriendInvitation:friendInvitation.sourceID];
     [[WTClient sharedClient] enqueueRequest:request];
+}
+
+- (void)configureUIWithNotificaitonObject:(Notification *)notification {
+    [super configureUIWithNotificaitonObject:notification];
+    [self configureTypeIconImageView];
 }
 
 @end

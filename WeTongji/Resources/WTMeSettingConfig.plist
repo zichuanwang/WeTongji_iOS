@@ -101,7 +101,7 @@
 			</dict>
 			<dict>
 				<key>ButtonTitle</key>
-				<string>Tutorail</string>
+				<string>Tutorial</string>
 				<key>ButtonTarget</key>
 				<string>didClickTutorialButton:</string>
 			</dict>
