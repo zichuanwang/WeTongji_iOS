@@ -184,10 +184,14 @@
         self.selectedViewController = lastViewController;
     }
     
+    [self setTabBarButtonSelected:button.tag];
+}
+
+- (void)setTabBarButtonSelected:(WTRootTabBarViewControllerName)controllerName {
     for (UIButton* btn in self.buttonArray) {
         btn.selected = NO;
     }
-    
+    UIButton *button = self.buttonArray[controllerName];
     button.selected = YES;
 }
 

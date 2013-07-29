@@ -202,6 +202,7 @@ static UIView           *staticKeyWindowBgView;
         }
         
         if (vc) {
+            [self.rootTabBarController setTabBarButtonSelected:WTRootTabBarViewControllerHome];
             self.rootTabBarController.selectedIndex = WTRootTabBarViewControllerHome;
             UINavigationController *nav = self.rootTabBarController.viewControllers[WTRootTabBarViewControllerHome];
             [nav popToRootViewControllerAnimated:NO];
