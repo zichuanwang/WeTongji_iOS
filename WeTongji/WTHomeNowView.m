@@ -65,6 +65,8 @@
         self.scrollView.contentOffset = CGPointZero;
         self.switchContainerView.alpha = 0.2f;
         self.switchContainerView.userInteractionEnabled = NO;
+        self.switchMoreIndicator.alpha = 1;
+        self.switchMoreReverseIndicator.alpha = 0;
     } else {
         self.switchContainerView.alpha = 1.0f;
         self.switchContainerView.userInteractionEnabled = YES;
