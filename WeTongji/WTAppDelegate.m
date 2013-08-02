@@ -14,6 +14,12 @@
 
 #define FLURRY_API_KEY @"SMBC9798JNZG6WQ7FDRJ"
 
+@interface WTAppDelegate () <UIAlertViewDelegate>
+
+@property (nonatomic, strong) NSMutableArray *localNotificationStack;
+
+@end
+
 @implementation WTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -24,7 +30,6 @@
     UILocalNotification *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (notification) {
         [application handleLocalNotification:notification];
-        [application cancelLocalNotification:notification];
     }
     
     //[Flurry setDebugLogEnabled:YES];
@@ -47,9 +52,11 @@
     WTLOG(@"Application state:%d", application.applicationState);
     if (application.applicationState == UIApplicationStateInactive) {
         [application handleLocalNotification:notification];
-    }
-    if (notification) {
-        [application cancelLocalNotification:notification];
+    } else {
+        application.applicationIconBadgeNumber = 0;
+        [self.localNotificationStack addObject:notification];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:notification.alertAction message:notification.alertBody delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+        [alert show];
     }
 }
 
@@ -82,6 +89,27 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     [[WTCoreDataManager sharedManager] saveContext];
+}
+
+#pragma mark - Properties
+
+- (NSMutableArray *)localNotificationStack {
+    if (!_localNotificationStack) {
+        _localNotificationStack = [NSMutableArray array];
+    }
+    return  _localNotificationStack;
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    UILocalNotification *notification = [self.localNotificationStack lastObject];
+    [self.localNotificationStack removeLastObject];
+    if (buttonIndex != alertView.cancelButtonIndex) {
+        [[UIApplication sharedApplication] handleLocalNotification:notification];
+    } else {
+        [[UIApplication sharedApplication] cancelLocalNotification:notification];
+    }
 }
 
 @end

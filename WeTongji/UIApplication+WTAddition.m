@@ -132,6 +132,9 @@ static UIView           *staticKeyWindowBgView;
 
 - (void)addEventAlertNotificationWithEvent:(Event *)event {
     
+    if (!event)
+        return;
+    
     if (![[NSUserDefaults standardUserDefaults] scheduleNotificationEnabled]) {
         return;
     }
@@ -154,13 +157,7 @@ static UIView           *staticKeyWindowBgView;
     UILocalNotification *localNotif = [[UILocalNotification alloc] init];
     if (localNotif == nil)
         return;
-    
-    // Check whether event notification has been canceled
-    if ([[NSUserDefaults standardUserDefaults] eventNotificationRegistered:event]) {
-        return;
-    }
-    [[NSUserDefaults standardUserDefaults] registerEventNotification:event];
-    
+        
     localNotif.fireDate = [event.beginTime dateByAddingTimeInterval:-60 * 30];
     localNotif.timeZone = [NSTimeZone defaultTimeZone];
     
@@ -178,7 +175,7 @@ static UIView           *staticKeyWindowBgView;
     localNotif.applicationIconBadgeNumber = 1;
     
     localNotif.userInfo = [NSDictionary dictionaryWithObjectsAndKeys:event.objectClass, kLocalNotificationEventType, event.identifier, kLocalNotificationEventID, [NSString stringWithFormat:@"%f", [event.beginTime timeIntervalSince1970]], kLocalNotificationEventBeginTime, nil];
-    WTLOG(@"add userInfo%@", localNotif.userInfo);
+    WTLOG(@"add localNotif userInfo%@", localNotif.userInfo);
     
     [self scheduleLocalNotification:localNotif];
 }
@@ -186,11 +183,13 @@ static UIView           *staticKeyWindowBgView;
 - (void)handleLocalNotification:(UILocalNotification *)localNotif {
     if (localNotif) {
         
+        [self cancelLocalNotification:localNotif];
+        
         NSString *eventType = localNotif.userInfo[kLocalNotificationEventType];
         NSString *eventID = localNotif.userInfo[kLocalNotificationEventID];
         NSDate *eventBeginTime = [NSDate dateWithTimeIntervalSince1970:[localNotif.userInfo[kLocalNotificationEventBeginTime] doubleValue]];
         
-        WTLOG(@"receive userInfo%@", localNotif.userInfo);
+        WTLOG(@"receive localNotif userInfo%@", localNotif.userInfo);
         UIViewController *vc = nil;
         if ([eventType isEqualToString:NSStringFromClass([Activity class])]) {
             Activity *activity = [Activity activityWithID:eventID];

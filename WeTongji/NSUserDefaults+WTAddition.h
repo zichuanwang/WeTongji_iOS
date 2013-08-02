@@ -147,9 +147,9 @@ typedef enum {
 
 #pragma mark - Event notification
 
-- (BOOL)eventNotificationRegistered:(Event *)event;
+- (BOOL)isEventLocalNotificationRegistered:(Event *)event;
 
-- (void)registerEventNotification:(Event *)event;
+- (void)setEvent:(Event *)event localNotificationRegistered:(BOOL)registered;
 
 - (BOOL)scheduleNotificationEnabled;
 

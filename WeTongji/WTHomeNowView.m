@@ -65,13 +65,15 @@
         self.scrollView.contentOffset = CGPointZero;
         self.switchContainerView.alpha = 0.2f;
         self.switchContainerView.userInteractionEnabled = NO;
+        
+        self.switchMoreReverseIndicator.alpha = 0;
+        self.switchMoreIndicator.alpha = 1;
     } else {
         self.switchContainerView.alpha = 1.0f;
         self.switchContainerView.userInteractionEnabled = YES;
     }
     
     NSUInteger eventIndex = 0;
-    
     for (Event *event in events) {
         WTHomeNowItemView *itemView = [WTHomeNowItemView createNowItemViewWithEvent:event];
         [self.itemViewArray addObject:itemView];

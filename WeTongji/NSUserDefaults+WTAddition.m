@@ -426,7 +426,7 @@
     [self synchronize];
 }
 
-- (BOOL)eventNotificationRegistered:(Event *)event {
+- (BOOL)isEventLocalNotificationRegistered:(Event *)event {
     NSString *eventNotificationID = [NSString stringWithFormat:@"%@%@%@", event.identifier, event.objectClass, event.beginToEndTimeString];
     if (![self objectForKey:eventNotificationID]) {
         return NO;
@@ -434,9 +434,9 @@
     return YES;
 }
 
-- (void)registerEventNotification:(Event *)event {
+- (void)setEvent:(Event *)event localNotificationRegistered:(BOOL)registered {
     NSString *eventNotificationID = [NSString stringWithFormat:@"%@%@%@", event.identifier, event.objectClass, event.beginToEndTimeString];
-    [self setBool:YES forKey:eventNotificationID];
+    [self setBool:registered forKey:eventNotificationID];
     [self synchronize];
 }
 
