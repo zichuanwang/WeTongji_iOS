@@ -89,7 +89,7 @@
     WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
         WTLOG(@"Get notification list succese:%@", responseObject);
         NSSet *notificationsSet = [Notification insertNotifications:responseObject];
-        [[WTCoreDataManager sharedManager].currentUser addReceivedNotifications:notificationsSet];
+        [[WTCoreDataManager sharedManager].currentUser addOwnedNotifications:notificationsSet];
         
         if (notificationsSet.count != 0) {
             if (!self.isVisible)

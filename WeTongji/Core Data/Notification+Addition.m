@@ -228,7 +228,6 @@
             if (courseInvitation.course.relatedCourseInvitations.count == 0)
                 [courseInvitation.course setObjectFreeFromHolder:[Notification class]];
         }
-        item.owner = nil;
         [context deleteObject:item];
     }
 }
