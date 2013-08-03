@@ -113,6 +113,10 @@
 
 - (void)configureTicketInfoView {
     self.ticketInfoLabel.text = self.news.ticketInfo;
+    
+    CGFloat ticketInfoLabelHeight = self.ticketInfoLabel.frame.size.height;
+    [self.ticketInfoLabel sizeToFit];
+    [self.ticketInfoContainerView resetHeightByOffset:self.ticketInfoLabel.frame.size.height - ticketInfoLabelHeight];
 }
 
 - (void)configureBookTicketButton {

@@ -163,6 +163,7 @@
         [Organization insertOrganization:responseObject[@"Account"]];
         [self.profileView updateView];
         [self.headerView updateView];
+        [self configureScrollView];
         [self.likeButtonContainerView configureViewWithObject:self.org];
         [self.dragToLoadDecorator topViewLoadFinished:YES];
     } failureBlock:^(NSError *error) {

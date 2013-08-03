@@ -41,6 +41,7 @@
 
 - (void)updateView {
     [self configureLabels];
+    [self configureHeight];
 }
 
 #pragma mark - UI methods
@@ -59,7 +60,10 @@
     [self configureLabels];
     [self configureFirstSectionView];
     [self configureSecondSectionView];
-    
+    [self configureHeight];
+}
+
+- (void)configureHeight {
     [self resetHeight:self.secondSectionContianerView.frame.origin.y + self.secondSectionContianerView.frame.size.height + DETAIL_VIEW_BOTTOM_INDENT];
 }
 
