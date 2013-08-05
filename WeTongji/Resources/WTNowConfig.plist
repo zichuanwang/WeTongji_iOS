@@ -20,7 +20,7 @@
 		<key>VacationType</key>
 		<string>Summer Vac</string>
 		<key>SectionStartAt</key>
-		<string>2012-07-30T00:00:00+08:00</string>
+		<string>2012-07-01T00:00:00+08:00</string>
 	</dict>
 	<dict>
 		<key>WeekCount</key>

@@ -83,7 +83,7 @@
     
     _weekNumber = weekNumber;
     
-    self.weekLabel.text = [[WTNowConfigLoader sharedLoader] relativeWeekNumberStringForWeek:weekNumber]  ;
+    self.weekLabel.text = [[WTNowConfigLoader sharedLoader] relativeWeekNumberStringForWeek:weekNumber];
     [self.weekLabel sizeToFit];
     
     CGFloat weekLabelWidth = self.weekLabel.frame.size.width + WEEK_LABEL_ADD_WIDTH;

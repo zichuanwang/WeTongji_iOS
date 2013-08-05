@@ -110,6 +110,7 @@
     self.emailLabel.text = self.org.email;
     self.introLabel.text = self.org.about;
     
+    if (self.introLabel.text.length > 0)
     [self.introLabel sizeToFit];
 }
 

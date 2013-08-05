@@ -73,4 +73,8 @@
     [news setObjectHeldByHolder:[self class]];
 }
 
+- (void)configureNaviationBarTitleView {
+    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"News", nil)];
+}
+
 @end

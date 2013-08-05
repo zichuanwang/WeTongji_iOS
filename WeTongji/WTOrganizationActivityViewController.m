@@ -61,24 +61,28 @@
     NSSortDescriptor *updateTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updatedAt" ascending:YES];
     NSSortDescriptor *beginTimeDescriptor = [[NSSortDescriptor alloc] initWithKey:@"beginTime" ascending:NO];
     [request setSortDescriptors:@[beginTimeDescriptor, updateTimeDescriptor]];
-     
-     [request setPredicate:[NSPredicate predicateWithFormat:@"(SELF in %@) AND (SELF in %@)", [Controller controllerModelForClass:[self class]].hasObjects, self.org.publishedActivities]];
-     }
-     
-     - (void)clearOutdatedData {
-         NSSet *activityShowTypesSet = [NSUserDefaults getActivityShowTypesSet];
-         for (NSNumber *showTypeNumber in activityShowTypesSet) {
-             [Activity setOutdatedActivitesFreeFromHolder:[self class] inCategory:showTypeNumber];
-         }
-     }
-     
-     - (void)configureLoadDataRequest:(WTRequest *)request {
-         [request getActivitiesInTypes:[NSUserDefaults getShowAllActivityTypesArray]
-                           orderMethod:ActivityOrderByStartDate
-                            smartOrder:YES
-                            showExpire:YES
-                                  page:self.nextPage
-                             byAccount:self.org.identifier];
-     }
-     
-     @end
+    
+    [request setPredicate:[NSPredicate predicateWithFormat:@"(SELF in %@) AND (SELF in %@)", [Controller controllerModelForClass:[self class]].hasObjects, self.org.publishedActivities]];
+}
+
+- (void)clearOutdatedData {
+    NSSet *activityShowTypesSet = [NSUserDefaults getActivityShowTypesSet];
+    for (NSNumber *showTypeNumber in activityShowTypesSet) {
+        [Activity setOutdatedActivitesFreeFromHolder:[self class] inCategory:showTypeNumber];
+    }
+}
+
+- (void)configureLoadDataRequest:(WTRequest *)request {
+    [request getActivitiesInTypes:[NSUserDefaults getShowAllActivityTypesArray]
+                      orderMethod:ActivityOrderByStartDate
+                       smartOrder:YES
+                       showExpire:YES
+                             page:self.nextPage
+                        byAccount:self.org.identifier];
+}
+
+- (void)configureNaviationBarTitleView {
+    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Activities", nil)];
+}
+
+@end

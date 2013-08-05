@@ -110,7 +110,7 @@
     
     // self.navigationItem.rightBarButtonItem = [WTResourceFactory createAddFriendBarButtonWithTarget:self action:@selector(didClickAddFriendButton:)];
     
-    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Team Member", nil)];
+    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Team Members", nil)];
 }
 
 #pragma mark - UITableViewDelegate
@@ -123,7 +123,7 @@
         return;
     }
     
-    WTUserDetailViewController *vc = [WTUserDetailViewController createDetailViewControllerWithUser:user backBarButtonText:NSLocalizedString(@"Team Member", nil)];
+    WTUserDetailViewController *vc = [WTUserDetailViewController createDetailViewControllerWithUser:user backBarButtonText:NSLocalizedString(@"Team Members", nil)];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

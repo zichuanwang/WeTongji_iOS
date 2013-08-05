@@ -82,4 +82,8 @@
                   scheduledByUser:(self.user == [WTCoreDataManager sharedManager].currentUser) ? nil : self.user.identifier];
 }
 
+- (void)configureNaviationBarTitleView {
+    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Activities", nil)];
+}
+
 @end

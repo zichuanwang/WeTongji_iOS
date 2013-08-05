@@ -10,6 +10,7 @@
 #import "WTCoreDataManager.h"
 #import "NSString+WTAddition.h"
 #import "LikeableObject+Addition.h"
+#import "Course+Addition.h"
 
 @implementation Exam (Addition)
 
@@ -21,7 +22,11 @@
         return nil;
     }
     
-    NSString *examID = [NSString stringWithFormat:@"%@", dict[@"NO"]];
+    Course *course = [Course insertCourse:dict[@"CourseDetails"]];
+    if (!course)
+        return nil;
+    
+    NSString *examID = course.identifier;
     
     Exam *result = [Exam examWithID:examID];
     if (!result) {
@@ -32,12 +37,20 @@
     }
     
     result.updatedAt = [NSDate date];
-    result.what = [NSString stringWithFormat:@"%@", dict[@"Name"]];
-        
+    
+    result.course = course;
+    result.beginTime = [[NSString stringWithFormat:@"%@", dict[@"Begin"]] convertToDate];
+    result.endTime = [[NSString stringWithFormat:@"%@", dict[@"End"]] convertToDate];
+    
+    result.what = course.courseName;
+    result.where = [NSString stringWithFormat:@"%@", dict[@"Location"]];
+    result.friendsCount = course.friendsCount;
+    
     result.beginDay = [result.beginTime convertToYearMonthDayString];
     
-    [result configureLikeInfo:dict];
-
+    // [result configureLikeInfo:dict];
+    // [result configureScheduleInfo:dict];
+    
     return result;
 }
 
