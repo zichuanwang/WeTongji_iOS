@@ -454,6 +454,7 @@
 		E17C664B1716C14400B91B25 /* WTNewPostNormalIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C66471716C14400B91B25 /* WTNewPostNormalIcon@2x.png */; };
 		E17C664C1716C14400B91B25 /* WTNewPostSelectIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C66481716C14400B91B25 /* WTNewPostSelectIcon.png */; };
 		E17C664D1716C14400B91B25 /* WTNewPostSelectIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C66491716C14400B91B25 /* WTNewPostSelectIcon@2x.png */; };
+		E17E02BA17B9E43B00243863 /* WeTongjiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17E02B917B9E43B00243863 /* WeTongjiSDK.framework */; };
 		E17F9E681712A17300DC6AB6 /* WTHomeNowView.m in Sources */ = {isa = PBXBuildFile; fileRef = E17F9E671712A17300DC6AB6 /* WTHomeNowView.m */; };
 		E17F9E6A1712A19E00DC6AB6 /* WTHomeNowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17F9E691712A19E00DC6AB6 /* WTHomeNowView.xib */; };
 		E17F9E6F1712D43100DC6AB6 /* WTDarkGrayMoreReverseIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = E17F9E6D1712D43100DC6AB6 /* WTDarkGrayMoreReverseIndicator.png */; };
@@ -1286,6 +1287,7 @@
 		E17C66481716C14400B91B25 /* WTNewPostSelectIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNewPostSelectIcon.png; sourceTree = "<group>"; };
 		E17C66491716C14400B91B25 /* WTNewPostSelectIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNewPostSelectIcon@2x.png"; sourceTree = "<group>"; };
 		E17D0243177A3926000F34ED /* WTCourseInstanceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTCourseInstanceDetailViewController.h; sourceTree = "<group>"; };
+		E17E02B917B9E43B00243863 /* WeTongjiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WeTongjiSDK.framework; path = "../../Library/Developer/Xcode/DerivedData/WeTongji-haxzmecxsluyiegvzukrqyecviwx/Build/Products/Release-iphoneos/WeTongjiSDK.framework"; sourceTree = "<group>"; };
 		E17F9E661712A17300DC6AB6 /* WTHomeNowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTHomeNowView.h; sourceTree = "<group>"; };
 		E17F9E671712A17300DC6AB6 /* WTHomeNowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTHomeNowView.m; sourceTree = "<group>"; };
 		E17F9E691712A19E00DC6AB6 /* WTHomeNowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTHomeNowView.xib; sourceTree = "<group>"; };
@@ -1612,6 +1614,7 @@
 				E125549416491530006D42F5 /* UIKit.framework in Frameworks */,
 				E125549616491530006D42F5 /* Foundation.framework in Frameworks */,
 				E125549816491530006D42F5 /* CoreGraphics.framework in Frameworks */,
+				E17E02BA17B9E43B00243863 /* WeTongjiSDK.framework in Frameworks */,
 				E1D373F216935DD30012E30A /* libOHAttributedLabel.a in Frameworks */,
 				E11A7F4C16FC08050068C074 /* libFlurry.a in Frameworks */,
 			);
@@ -1976,6 +1979,7 @@
 		E125548416491530006D42F5 = {
 			isa = PBXGroup;
 			children = (
+				E17E02B917B9E43B00243863 /* WeTongjiSDK.framework */,
 				E125549916491530006D42F5 /* WeTongji */,
 				E12554CB16491532006D42F5 /* WeTongjiTests */,
 				E117035A1651EF3E00D82F4A /* Resources */,
@@ -4099,7 +4103,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/WeTongji-haxzmecxsluyiegvzukrqyecviwx/Build/Products/Release-iphoneos\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WeTongji/WeTongji-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -4130,8 +4137,12 @@
 		E12554D816491532006D42F5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/WeTongji-haxzmecxsluyiegvzukrqyecviwx/Build/Products/Release-iphoneos\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WeTongji/WeTongji-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -4153,7 +4164,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "58580D79-9AB5-4D46-AE62-F6FB85A9F27F";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				USER_HEADER_SEARCH_PATHS = "../OHAttributedLabel/OHAttributedLabel/**";
 				WRAPPER_EXTENSION = app;
 			};

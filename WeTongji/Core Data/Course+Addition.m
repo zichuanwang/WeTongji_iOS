@@ -53,7 +53,7 @@
     
     result.beginDay = [result.beginTime convertToYearMonthDayString];
 
-    [result configureLikeInfo:dict];
+    // [result configureLikeInfo:dict];
     // [result configureScheduleInfo:dict];
     
     return result;

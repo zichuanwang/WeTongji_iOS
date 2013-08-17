@@ -18,11 +18,13 @@
     if (![dict isKindOfClass:[NSDictionary class]])
         return nil;
     
-    if (!dict[@"NO"]) {
+    if (!dict[@"UNO"]) {
         return nil;
     }
     
-    Course *course = [Course insertCourse:dict[@"CourseDetails"]];
+    NSString *courseID = [NSString stringWithFormat:@"%@", dict[@"UNO"]];
+    
+    Course *course = [Course courseWithCourseID:courseID];
     if (!course)
         return nil;
     
@@ -42,7 +44,7 @@
     result.beginTime = [[NSString stringWithFormat:@"%@", dict[@"Begin"]] convertToDate];
     result.endTime = [[NSString stringWithFormat:@"%@", dict[@"End"]] convertToDate];
     
-    result.what = course.courseName;
+    result.what = [NSString stringWithFormat:@"%@(%@)", course.courseName, NSLocalizedString(@"Exam", nil)];
     result.where = [NSString stringWithFormat:@"%@", dict[@"Location"]];
     result.friendsCount = course.friendsCount;
     

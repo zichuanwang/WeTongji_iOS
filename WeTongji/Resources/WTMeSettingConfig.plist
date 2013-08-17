@@ -74,14 +74,6 @@
 				<key>UserDefaultKey</key>
 				<string>ScheduleNotificationEnabled</string>
 			</dict>
-			<dict>
-				<key>CellTitle</key>
-				<string>Use test server</string>
-				<key>CellAccessoryType</key>
-				<string>CellAccessoryTypeSwitch</string>
-				<key>UserDefaultKey</key>
-				<string>UseTestServer</string>
-			</dict>
 		</array>
 	</dict>
 	<dict>
