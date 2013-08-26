@@ -361,7 +361,7 @@
 		E16B662917820D9D0097901E /* Exam.m in Sources */ = {isa = PBXBuildFile; fileRef = E16B662817820D9D0097901E /* Exam.m */; };
 		E16D531C1788B10300689645 /* WTLoginIntroImage1.png in Resources */ = {isa = PBXBuildFile; fileRef = E16D531A1788B10300689645 /* WTLoginIntroImage1.png */; };
 		E16D531D1788B10300689645 /* WTLoginIntroImage1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16D531B1788B10300689645 /* WTLoginIntroImage1@2x.png */; };
-		E16D531F1789C52B00689645 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16D531E1789C52800689645 /* Social.framework */; };
+		E16D531F1789C52B00689645 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16D531E1789C52800689645 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		E16D53241789EE3C00689645 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16D53231789EE3600689645 /* MessageUI.framework */; };
 		E16D53281789F9DA00689645 /* WTChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E16D53261789F9D400689645 /* WTChangePasswordViewController.m */; };
 		E16D53291789F9DA00689645 /* WTChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16D53271789F9D700689645 /* WTChangePasswordViewController.xib */; };
@@ -4048,7 +4048,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hongming Zhu (4RUZ3YUMFH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hongming Zhu (4RUZ3YUMFH)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -4068,6 +4069,8 @@
 					WeTongjiSDK,
 					"-Objc",
 				);
+				PROVISIONING_PROFILE = "41630322-6A9C-43C9-857B-DB64E0F568A5";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "41630322-6A9C-43C9-857B-DB64E0F568A5";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -4081,7 +4084,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hongming Zhu (4RUZ3YUMFH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hongming Zhu (4RUZ3YUMFH)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -4094,6 +4098,8 @@
 					WeTongjiSDK,
 					"-Objc",
 				);
+				PROVISIONING_PROFILE = "41630322-6A9C-43C9-857B-DB64E0F568A5";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "41630322-6A9C-43C9-857B-DB64E0F568A5";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -4103,6 +4109,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/WeTongji-haxzmecxsluyiegvzukrqyecviwx/Build/Products/Release-iphoneos\"",
@@ -4128,7 +4135,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "58580D79-9AB5-4D46-AE62-F6FB85A9F27F";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				USER_HEADER_SEARCH_PATHS = "../OHAttributedLabel/OHAttributedLabel/**";
 				WRAPPER_EXTENSION = app;
 			};
