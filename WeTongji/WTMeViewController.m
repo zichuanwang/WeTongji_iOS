@@ -236,7 +236,7 @@
         ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
     }
     
-    [self presentModalViewController:ipc animated:YES];
+    [self presentViewController:ipc animated:YES completion:nil];
 }
 
 #pragma mark - UIImagePickerController delegate

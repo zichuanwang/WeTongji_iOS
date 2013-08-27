@@ -141,8 +141,8 @@
 "organizations" = "组织机构";
 "Organizer" = "组织机构";
 
-" Scheduled Courses" = " 个参加的课程";
-" Scheduled Course" = " 个参加的课程";
+" Current Semester Courses" = " 个当前学期课程";
+" Current Semester Course" = " 个当前学期课程";
 "Courses" = "课程";
 
 " Users" = " 个用户";

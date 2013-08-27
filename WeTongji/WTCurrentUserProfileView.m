@@ -59,7 +59,7 @@
     
     NSArray *descriptionArray = @[self.user.friendCount.integerValue > 1 ? NSLocalizedString(@" Friends", nil) : NSLocalizedString(@" Friend", nil),
                                   4 > 1 ? NSLocalizedString(@" Scheduled Activities", nil) : NSLocalizedString(@" Scheduled Activity", nil),
-                                  3 > 1 ? NSLocalizedString(@" Scheduled Courses", nil) : NSLocalizedString(@" Scheduled Course", nil),
+                                  3 > 1 ? NSLocalizedString(@" Current Semester Courses", nil) : NSLocalizedString(@" Current Semester Course", nil),
                                   self.user.likedActivityCount.integerValue > 1 ? NSLocalizedString(@" Activities", nil) : NSLocalizedString(@" Activity", nil),
                                   NSLocalizedString(@" News", nil),
                                   self.user.likedStarCount.integerValue > 1 ? NSLocalizedString(@" Stars", nil) : NSLocalizedString(@" Star", nil),

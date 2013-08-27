@@ -141,8 +141,8 @@
 "organizations" = "Organisationen";
 "Organizer" = "Organisator";
 
-" Scheduled Courses" = " geplant Kurse";
-" Scheduled Course" = " geplant Kurs";
+" Current Semester Courses" = " geplant Kurse";
+" Current Semester Course" = " geplant Kurs";
 "Courses" = "Kurse";
 
 " Users" = " Users";

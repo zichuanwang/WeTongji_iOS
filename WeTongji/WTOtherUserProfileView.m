@@ -63,7 +63,7 @@
     NSArray *countNumberArray = @[self.user.friendCount, self.user.scheduledActivityCount, self.user.scheduledCourseCount];
     NSArray *descriptionArray = @[self.user.friendCount.integerValue > 1 ? NSLocalizedString(@" Friends", nil) : NSLocalizedString(@" Friend", nil),
                                   4 > 1 ? NSLocalizedString(@" Scheduled Activities", nil) : NSLocalizedString(@" Scheduled Activity", nil),
-                                  100 > 1 ? NSLocalizedString(@" Scheduled Courses", nil) : NSLocalizedString(@" Scheduled Course", nil)];
+                                  100 > 1 ? NSLocalizedString(@" Current Semester Courses", nil) : NSLocalizedString(@" Current Semester Course", nil)];
     NSArray *labels = @[self.friendLabel,
                         self.scheduledActivityLabel,
                         self.scheduledCourseLabel];
