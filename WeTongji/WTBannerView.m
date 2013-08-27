@@ -119,6 +119,14 @@
     }
 }
 
+#pragma mark - Actions
+
+- (IBAction)didChangePageControl:(UIPageControl *)pageControl {
+    [UIView animateWithDuration:0.25f animations:^{
+        self.bannerScrollView.contentOffset = CGPointMake(self.bannerScrollView.frame.size.width * pageControl.currentPage, 0);
+    }];
+}
+
 #pragma mark - Properties
 
 - (NSMutableArray *)bannerItemViewArray {
