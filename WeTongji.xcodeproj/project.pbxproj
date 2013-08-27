@@ -454,7 +454,6 @@
 		E17C664B1716C14400B91B25 /* WTNewPostNormalIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C66471716C14400B91B25 /* WTNewPostNormalIcon@2x.png */; };
 		E17C664C1716C14400B91B25 /* WTNewPostSelectIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C66481716C14400B91B25 /* WTNewPostSelectIcon.png */; };
 		E17C664D1716C14400B91B25 /* WTNewPostSelectIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E17C66491716C14400B91B25 /* WTNewPostSelectIcon@2x.png */; };
-		E17E02BA17B9E43B00243863 /* WeTongjiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17E02B917B9E43B00243863 /* WeTongjiSDK.framework */; };
 		E17F9E681712A17300DC6AB6 /* WTHomeNowView.m in Sources */ = {isa = PBXBuildFile; fileRef = E17F9E671712A17300DC6AB6 /* WTHomeNowView.m */; };
 		E17F9E6A1712A19E00DC6AB6 /* WTHomeNowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E17F9E691712A19E00DC6AB6 /* WTHomeNowView.xib */; };
 		E17F9E6F1712D43100DC6AB6 /* WTDarkGrayMoreReverseIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = E17F9E6D1712D43100DC6AB6 /* WTDarkGrayMoreReverseIndicator.png */; };
@@ -503,6 +502,7 @@
 		E18B2117174B327000142A82 /* WTBillboardSmallItemHighlightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E18B2113174B326F00142A82 /* WTBillboardSmallItemHighlightButton.png */; };
 		E18B2118174B327000142A82 /* WTBillboardSmallItemHighlightButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E18B2114174B327000142A82 /* WTBillboardSmallItemHighlightButton@2x.png */; };
 		E18CB2F1177A36810044E85E /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = E18CB2F0177A36810044E85E /* Event.m */; };
+		E18FEBF917CC7E3A007F1C62 /* WeTongjiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E17E02B917B9E43B00243863 /* WeTongjiSDK.framework */; };
 		E191D91216C72E7100384CF6 /* WTActivitySettingConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E191D91116C72E7100384CF6 /* WTActivitySettingConfig.plist */; };
 		E191D91516C78F2E00384CF6 /* WTActivitySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E191D91416C78F2E00384CF6 /* WTActivitySettingViewController.m */; };
 		E19589A91706BFD30040E669 /* WTBluePlaceholderImage@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E19589A51706BFD30040E669 /* WTBluePlaceholderImage@2x.jpg */; };
@@ -1612,9 +1612,9 @@
 				E1C033E116692590004738EF /* libxml2.dylib in Frameworks */,
 				E11702FC1650F82A00D82F4A /* SystemConfiguration.framework in Frameworks */,
 				E125549416491530006D42F5 /* UIKit.framework in Frameworks */,
+				E18FEBF917CC7E3A007F1C62 /* WeTongjiSDK.framework in Frameworks */,
 				E125549616491530006D42F5 /* Foundation.framework in Frameworks */,
 				E125549816491530006D42F5 /* CoreGraphics.framework in Frameworks */,
-				E17E02BA17B9E43B00243863 /* WeTongjiSDK.framework in Frameworks */,
 				E1D373F216935DD30012E30A /* libOHAttributedLabel.a in Frameworks */,
 				E11A7F4C16FC08050068C074 /* libFlurry.a in Frameworks */,
 			);
@@ -1979,7 +1979,6 @@
 		E125548416491530006D42F5 = {
 			isa = PBXGroup;
 			children = (
-				E17E02B917B9E43B00243863 /* WeTongjiSDK.framework */,
 				E125549916491530006D42F5 /* WeTongji */,
 				E12554CB16491532006D42F5 /* WeTongjiTests */,
 				E117035A1651EF3E00D82F4A /* Resources */,
@@ -2000,6 +1999,7 @@
 		E125549216491530006D42F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E17E02B917B9E43B00243863 /* WeTongjiSDK.framework */,
 				E1960FB5178B6976009D7871 /* AddressBook.framework */,
 				E1960FB3178B6970009D7871 /* AddressBookUI.framework */,
 				E16D53231789EE3600689645 /* MessageUI.framework */,
