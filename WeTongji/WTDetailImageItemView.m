@@ -14,6 +14,8 @@
 
 @interface WTDetailImageItemView () <UIActionSheetDelegate, UIScrollViewDelegate>
 
+@property (nonatomic, assign) BOOL detectedDoubleTapOnScrollView;
+
 @end
 
 @implementation WTDetailImageItemView
@@ -43,6 +45,11 @@
     UITapGestureRecognizer* tapGestureRecognizer;
     tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTagScollViewView:)];
     [self.scrollView addGestureRecognizer:tapGestureRecognizer];
+    
+    UITapGestureRecognizer* doubleTapGestureRecognizer;
+    doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didDoubleTapScrollView:)];
+    doubleTapGestureRecognizer.numberOfTapsRequired = 2;
+    [self.scrollView addGestureRecognizer:doubleTapGestureRecognizer];
     
     self.scrollView.decelerationRate = UIScrollViewDecelerationRateFast;
 }
@@ -88,8 +95,39 @@
     }
 }
 
-- (void)didTagScollViewView:(UITapGestureRecognizer *)gesture {
-    [self.delegate userTappedDetailImageItemView:self];
+- (CGRect)scrollViewZoomRectWithCenter:(CGPoint)center {
+    CGRect zoomRect;
+    
+    zoomRect.size.height = self.scrollView.frame.size.height / self.scrollView.maximumZoomScale;
+    zoomRect.size.width  = self.scrollView.frame.size.width  / self.scrollView.maximumZoomScale;
+    
+    // choose an origin so as to get the right center.
+    zoomRect.origin.x = center.x - (zoomRect.size.width  / 2.0);
+    zoomRect.origin.y = center.y - (zoomRect.size.height / 2.0);
+    
+    return zoomRect;
+}
+
+- (void)didDoubleTapScrollView:(UITapGestureRecognizer *)gesture {
+    self.detectedDoubleTapOnScrollView = YES;
+    if (self.scrollView.zoomScale > self.scrollView.minimumZoomScale) {
+        [self.scrollView setZoomScale:self.scrollView.minimumZoomScale animated:YES];
+    } else {
+        CGRect zoomRect = [self scrollViewZoomRectWithCenter:[gesture locationInView:self.imageView]];
+        [self.scrollView zoomToRect:zoomRect animated:YES];
+    }
+    self.scrollView.userInteractionEnabled = NO;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 300 * NSEC_PER_MSEC), dispatch_get_current_queue(), ^{
+        self.detectedDoubleTapOnScrollView = NO;
+        self.scrollView.userInteractionEnabled = YES;
+    });
+}
+
+- (void)didTagScollViewView:(UITapGestureRecognizer *)gesture {    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 300 * NSEC_PER_MSEC), dispatch_get_current_queue(), ^{
+        if (!self.detectedDoubleTapOnScrollView)
+            [self.delegate userTappedDetailImageItemView:self];
+    });
 }
 
 #pragma mark - UIAlertViewDelegate
