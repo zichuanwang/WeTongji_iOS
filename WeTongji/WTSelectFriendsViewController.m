@@ -13,6 +13,7 @@
 #import "NSString+WTAddition.h"
 #import "WTCoreDataManager.h"
 #import "WTSelectUserCell.h"
+#import "UIView+TableViewSectionHeader.h"
 
 @interface WTSelectFriendsViewController ()
 
@@ -115,15 +116,18 @@
 - (void)configureFetchRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
-    NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    
-    [request setSortDescriptors:@[nameDescriptor]];
+    NSSortDescriptor *pinyinDescriptor = [[NSSortDescriptor alloc] initWithKey:@"pinyin" ascending:YES];
+    [request setSortDescriptors:@[pinyinDescriptor]];
     
     [request setPredicate:[NSPredicate predicateWithFormat:@"(SELF in %@)", [WTCoreDataManager sharedManager].currentUser.friends]];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
     return @"WTSelectUserCell";
+}
+
+- (NSString *)customSectionNameKeyPath {
+    return @"pinyinFirstLetter";
 }
 
 #pragma mark - UITableViewDelegate
@@ -144,6 +148,11 @@
     userCell.checkmarkButton.selected = NO;
     
     [self updateFinishSelectButton];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    NSString *sectionName = [self.fetchedResultsController.sections[section] name];
+    return [UIView sectionHeaderViewWithSectionName:sectionName];
 }
 
 @end

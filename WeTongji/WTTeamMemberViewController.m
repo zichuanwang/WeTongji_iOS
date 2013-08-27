@@ -79,9 +79,8 @@
 - (void)configureFetchRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
-    NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    
-    [request setSortDescriptors:@[nameDescriptor]];
+    NSSortDescriptor *pinyinDescriptor = [[NSSortDescriptor alloc] initWithKey:@"pinyin" ascending:YES];
+    [request setSortDescriptors:@[pinyinDescriptor]];
     
     [request setPredicate:[NSPredicate predicateWithFormat:@"studentNumber in %@", self.memberStudentNoArray]];
 }

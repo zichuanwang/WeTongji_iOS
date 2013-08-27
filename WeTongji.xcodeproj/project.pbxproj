@@ -29,7 +29,6 @@
 		A1ADA9EB16AC655400E3A62E /* Activity+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ADA9EA16AC655400E3A62E /* Activity+Addition.m */; };
 		A1DD01CF169F244E009EBE02 /* WTNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DD01CD169F244E009EBE02 /* WTNewsViewController.m */; };
 		A1DD01D0169F244E009EBE02 /* WTNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1DD01CE169F244E009EBE02 /* WTNewsViewController.xib */; };
-		E103E3CF17A2E9B200F214EC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E103E3CE17A2E9B200F214EC /* User.m */; };
 		E103E3D217A2E9B300F214EC /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = E103E3D117A2E9B300F214EC /* Notification.m */; };
 		E10A8D0416E24525008B72E7 /* WTElectricityQueryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10A8D0316E24525008B72E7 /* WTElectricityQueryViewController.m */; };
 		E10A8D0616E24553008B72E7 /* WTElectricityQueryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10A8D0516E24553008B72E7 /* WTElectricityQueryViewController.xib */; };
@@ -233,6 +232,10 @@
 		E13B0ED316A4704900A45079 /* NSString+WTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E13B0ED216A4704900A45079 /* NSString+WTAddition.m */; };
 		E13B0EDC16A486F300A45079 /* WTTableViewSeperatorUnit.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0EDA16A486F300A45079 /* WTTableViewSeperatorUnit.png */; };
 		E13B0EDD16A486F300A45079 /* WTTableViewSeperatorUnit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E13B0EDB16A486F300A45079 /* WTTableViewSeperatorUnit@2x.png */; };
+		E13CCDCB17CD602E005B79D1 /* pinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = E13CCDC917CD602E005B79D1 /* pinyin.c */; };
+		E13CCDCE17CD6059005B79D1 /* NSString+Pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = E13CCDCD17CD6059005B79D1 /* NSString+Pinyin.m */; };
+		E13CCDD117CD612C005B79D1 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E13CCDD017CD612C005B79D1 /* User.m */; };
+		E13CCDD717CD6568005B79D1 /* UIView+TableViewSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E13CCDD617CD6568005B79D1 /* UIView+TableViewSectionHeader.m */; };
 		E140C7991754950C005C56B7 /* NSDate+WTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E140C7981754950B005C56B7 /* NSDate+WTAddition.m */; };
 		E140C7BA1754F8A5005C56B7 /* Comment+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E140C7B91754F8A3005C56B7 /* Comment+Addition.m */; };
 		E140ED9E16E90831004E2DA9 /* WTSearchBarNormalBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E140ED9C16E90831004E2DA9 /* WTSearchBarNormalBg.png */; };
@@ -735,8 +738,6 @@
 		A1DD01CC169F244E009EBE02 /* WTNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNewsViewController.h; sourceTree = "<group>"; };
 		A1DD01CD169F244E009EBE02 /* WTNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNewsViewController.m; sourceTree = "<group>"; };
 		A1DD01CE169F244E009EBE02 /* WTNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNewsViewController.xib; sourceTree = "<group>"; };
-		E103E3CD17A2E9B200F214EC /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		E103E3CE17A2E9B200F214EC /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		E103E3D017A2E9B300F214EC /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		E103E3D117A2E9B300F214EC /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		E10A8D0216E24525008B72E7 /* WTElectricityQueryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTElectricityQueryViewController.h; sourceTree = "<group>"; };
@@ -997,6 +998,15 @@
 		E13B0ED216A4704900A45079 /* NSString+WTAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+WTAddition.m"; sourceTree = "<group>"; };
 		E13B0EDA16A486F300A45079 /* WTTableViewSeperatorUnit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTableViewSeperatorUnit.png; sourceTree = "<group>"; };
 		E13B0EDB16A486F300A45079 /* WTTableViewSeperatorUnit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTableViewSeperatorUnit@2x.png"; sourceTree = "<group>"; };
+		E13CCDC917CD602E005B79D1 /* pinyin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pinyin.c; sourceTree = "<group>"; };
+		E13CCDCA17CD602E005B79D1 /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
+		E13CCDCC17CD6059005B79D1 /* NSString+Pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Pinyin.h"; sourceTree = "<group>"; };
+		E13CCDCD17CD6059005B79D1 /* NSString+Pinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Pinyin.m"; sourceTree = "<group>"; };
+		E13CCDCF17CD612C005B79D1 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		E13CCDD017CD612C005B79D1 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		E13CCDD517CD6568005B79D1 /* UIView+TableViewSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TableViewSectionHeader.h"; sourceTree = "<group>"; };
+		E13CCDD617CD6568005B79D1 /* UIView+TableViewSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TableViewSectionHeader.m"; sourceTree = "<group>"; };
+		E13CCDD817CD66FB005B79D1 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		E140C7971754950B005C56B7 /* NSDate+WTAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+WTAddition.h"; sourceTree = "<group>"; };
 		E140C7981754950B005C56B7 /* NSDate+WTAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+WTAddition.m"; sourceTree = "<group>"; };
 		E140C7B81754F8A1005C56B7 /* Comment+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Comment+Addition.h"; sourceTree = "<group>"; };
@@ -2029,6 +2039,7 @@
 		E125549916491530006D42F5 /* WeTongji */ = {
 			isa = PBXGroup;
 			children = (
+				E13CCDC817CD6021005B79D1 /* Pinyin */,
 				E186A20A179585CB007C5B7C /* RDActivityViewController */,
 				E18821CE1680077C00A41F47 /* Categories */,
 				E1D3743C1694C3B90012E30A /* CoreData */,
@@ -2090,6 +2101,17 @@
 				E12E248417274BB000EFA9B5 /* WTDetailBillboardBottomSeparator@2x.png */,
 			);
 			name = Separator;
+			sourceTree = "<group>";
+		};
+		E13CCDC817CD6021005B79D1 /* Pinyin */ = {
+			isa = PBXGroup;
+			children = (
+				E13CCDCC17CD6059005B79D1 /* NSString+Pinyin.h */,
+				E13CCDCD17CD6059005B79D1 /* NSString+Pinyin.m */,
+				E13CCDC917CD602E005B79D1 /* pinyin.c */,
+				E13CCDCA17CD602E005B79D1 /* pinyin.h */,
+			);
+			name = Pinyin;
 			sourceTree = "<group>";
 		};
 		E1428693171AE02F006AB739 /* Billboard */ = {
@@ -2739,6 +2761,8 @@
 				E18821D0168007B800A41F47 /* UIView+Resize.m */,
 				E140C7971754950B005C56B7 /* NSDate+WTAddition.h */,
 				E140C7981754950B005C56B7 /* NSDate+WTAddition.m */,
+				E13CCDD517CD6568005B79D1 /* UIView+TableViewSectionHeader.h */,
+				E13CCDD617CD6568005B79D1 /* UIView+TableViewSectionHeader.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -3118,6 +3142,7 @@
 				E1D3743E1694C3E50012E30A /* Categories */,
 				E1D3743D1694C3D90012E30A /* Models */,
 				E16B661817820D3E0097901E /* WeTongji.xcdatamodeld */,
+				E13CCDD817CD66FB005B79D1 /* User.h */,
 			);
 			name = CoreData;
 			path = "Core Data";
@@ -3168,8 +3193,8 @@
 				E1BFBB53179EDE6B0026B885 /* Organization.m */,
 				E1FAB93617694A8600F7204F /* Star.h */,
 				E1FAB93717694A8600F7204F /* Star.m */,
-				E103E3CD17A2E9B200F214EC /* User.h */,
-				E103E3CE17A2E9B200F214EC /* User.m */,
+				E13CCDCF17CD612C005B79D1 /* User.h */,
+				E13CCDD017CD612C005B79D1 /* User.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3980,8 +4005,11 @@
 				E186A20E179585CB007C5B7C /* RDActivityViewController.m in Sources */,
 				E1BFBB51179D92760026B885 /* WTNowConfigLoader.m in Sources */,
 				E1BFBB54179EDE6B0026B885 /* Organization.m in Sources */,
-				E103E3CF17A2E9B200F214EC /* User.m in Sources */,
 				E103E3D217A2E9B300F214EC /* Notification.m in Sources */,
+				E13CCDCB17CD602E005B79D1 /* pinyin.c in Sources */,
+				E13CCDCE17CD6059005B79D1 /* NSString+Pinyin.m in Sources */,
+				E13CCDD117CD612C005B79D1 /* User.m in Sources */,
+				E13CCDD717CD6568005B79D1 /* UIView+TableViewSectionHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4125,7 +4153,7 @@
 					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/WeTongji-haxzmecxsluyiegvzukrqyecviwx/Build/Products/Debug-iphoneos\"",
 					"\"$(SRCROOT)\"",
 				);
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-framework",
 					WeTongjiSDK,

@@ -164,6 +164,8 @@
         <attribute name="motto" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pinyin" optional="YES" attributeType="String" defaultValueString="zunknown" indexed="YES" syncable="YES"/>
+        <attribute name="pinyinFirstLetter" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="qqAccount" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="scheduledActivityCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="scheduledCourseCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -203,6 +205,6 @@
         <element name="Object" positionX="-135" positionY="84" width="128" height="105"/>
         <element name="Organization" positionX="-423" positionY="-126" width="128" height="210"/>
         <element name="Star" positionX="-270" positionY="-126" width="128" height="180"/>
-        <element name="User" positionX="-423" positionY="-9" width="128" height="615"/>
+        <element name="User" positionX="-423" positionY="-9" width="128" height="645"/>
     </elements>
 </model>

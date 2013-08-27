@@ -16,6 +16,7 @@
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import "WTUserCell.h"
 #import "WTUserDetailViewController.h"
+#import "UIView+TableViewSectionHeader.h"
 
 @interface WTShareEventFriendsViewController () <WTDragToLoadDecoratorDelegate, WTDragToLoadDecoratorDataSource>
 
@@ -187,9 +188,8 @@
 - (void)configureFetchRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
-    NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    
-    [request setSortDescriptors:@[nameDescriptor]];
+    NSSortDescriptor *pinyinDescriptor = [[NSSortDescriptor alloc] initWithKey:@"pinyin" ascending:YES];
+    [request setSortDescriptors:@[pinyinDescriptor]];
     
     if ([self.object isKindOfClass:[Event class]]) {
         Event *event = (Event *)self.object;
@@ -204,6 +204,10 @@
     return @"WTUserCell";
 }
 
+- (NSString *)customSectionNameKeyPath {
+    return @"pinyinFirstLetter";
+}
+
 - (void)fetchedResultsControllerDidPerformFetch {
     if ([self.fetchedResultsController.sections.lastObject numberOfObjects] == 0) {
         [self.dragToLoadDecorator setTopViewLoading:YES];
@@ -216,6 +220,11 @@
     User *user = [self.fetchedResultsController objectAtIndexPath:indexPath];
     WTUserDetailViewController *vc = [WTUserDetailViewController createDetailViewControllerWithUser:user backBarButtonText:[NSString friendCountStringConvertFromCountNumber:[self targetObjectFriendsCount]]];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    NSString *sectionName = [self.fetchedResultsController.sections[section] name];
+    return [UIView sectionHeaderViewWithSectionName:sectionName];
 }
 
 #pragma mark - WTDragToLoadDecoratorDataSource

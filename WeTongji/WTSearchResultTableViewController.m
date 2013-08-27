@@ -19,6 +19,8 @@
 #import "Controller+Addition.h"
 #import "User+Addition.h"
 
+#import "UIView+TableViewSectionHeader.h"
+
 @interface WTSearchResultTableViewController () <WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
 @property (nonatomic, strong) WTDragToLoadDecorator *dragToLoadDecorator;
@@ -177,21 +179,8 @@
 #pragma mark - UITableViewDelegate
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"WTTableViewSectionBg"]];
-    CGFloat sectionHeaderHeight = 24.0f;
-    
     NSString *sectionName = NSLocalizedString([self.fetchedResultsController.sections[section] name], nil);
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 0, tableView.bounds.size.width, sectionHeaderHeight)];
-    label.text = sectionName;
-    label.font = [UIFont boldSystemFontOfSize:12.0f];
-    label.textColor = WTSectionHeaderViewGrayColor;
-    label.backgroundColor = [UIColor clearColor];
-    
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, sectionHeaderHeight)];
-    [headerView addSubview:bgImageView];
-    [headerView addSubview:label];
-    
-    return headerView;
+    return [UIView sectionHeaderViewWithSectionName:sectionName];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

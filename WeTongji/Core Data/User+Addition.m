@@ -10,6 +10,7 @@
 #import "WTCoreDataManager.h"
 #import "NSString+WTAddition.h"
 #import "LikeableObject+Addition.h"
+#import "NSString+Pinyin.h"
 
 @implementation User (Addition)
 
@@ -36,6 +37,7 @@
     result.birthday = [[NSString stringWithFormat:@"%@", dict[@"Birthday"]] convertToDate];
     result.department = [NSString stringWithFormat:@"%@", dict[@"Department"]];
     result.name = [NSString stringWithFormat:@"%@", dict[@"Name"]];
+    [result generatePinyinString];
     result.gender = [NSString stringWithFormat:@"%@", dict[@"Gender"]];
     result.major = [NSString stringWithFormat:@"%@", dict[@"Major"]];
     result.studentNumber = [NSString stringWithFormat:@"%@", dict[@"NO"]];
@@ -113,6 +115,11 @@
     User *result = [[[WTCoreDataManager sharedManager].managedObjectContext executeFetchRequest:request error:NULL] lastObject];
     
     return result;
+}
+
+- (void)generatePinyinString {
+    self.pinyin = [self.name pinyinFirstLetterForEachCharacter];
+    self.pinyinFirstLetter = [self.pinyin substringToIndex:1];
 }
 
 #pragma mark - Properties

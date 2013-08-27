@@ -14,6 +14,7 @@
 #import "WTUserDetailViewController.h"
 #import "WTDragToLoadDecorator.h"
 #import "UIApplication+WTAddition.h"
+#import "UIView+TableViewSectionHeader.h"
 
 @interface WTFriendListViewController () <WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
@@ -145,15 +146,18 @@
 - (void)configureFetchRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
-    NSSortDescriptor *nameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    
-    [request setSortDescriptors:@[nameDescriptor]];
+    NSSortDescriptor *pinyinDescriptor = [[NSSortDescriptor alloc] initWithKey:@"pinyin" ascending:YES];
+    [request setSortDescriptors:@[pinyinDescriptor]];
 
     [request setPredicate:[NSPredicate predicateWithFormat:@"SELF in %@", self.user.friends]];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
     return @"WTUserCell";
+}
+
+- (NSString *)customSectionNameKeyPath {
+    return @"pinyinFirstLetter";
 }
 
 - (void)fetchedResultsControllerDidPerformFetch {
@@ -174,6 +178,11 @@
 
     WTUserDetailViewController *vc = [WTUserDetailViewController createDetailViewControllerWithUser:user backBarButtonText:NSLocalizedString(@"Friend List", nil)];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    NSString *sectionName = [self.fetchedResultsController.sections[section] name];
+    return [UIView sectionHeaderViewWithSectionName:sectionName];
 }
 
 #pragma mark - WTDragToLoadDecoratorDataSource
