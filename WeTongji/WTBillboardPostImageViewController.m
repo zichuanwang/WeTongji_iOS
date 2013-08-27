@@ -65,7 +65,7 @@
     ipc.delegate = self;
     ipc.allowsEditing = YES;
     ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
-    [self presentModalViewController:ipc animated:YES];
+    [self presentViewController:ipc animated:YES completion:nil];
 }
 
 - (IBAction)didClickPickImageFromLibraryButton:(UIButton *)sender {
@@ -73,7 +73,7 @@
     ipc.delegate = self;
     ipc.allowsEditing = YES;
     ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self presentModalViewController:ipc animated:YES];
+    [self presentViewController:ipc animated:YES completion:nil];
 }
 
 #pragma mark - UIActionSheetDelegate
@@ -92,7 +92,7 @@
         ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
     }
     
-    [self presentModalViewController:ipc animated:YES];
+    [self presentViewController:ipc animated:YES completion:nil];
 }
 
 #pragma mark - UIImagePickerController delegate
