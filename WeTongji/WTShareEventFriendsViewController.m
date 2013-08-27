@@ -209,7 +209,14 @@
 }
 
 - (void)fetchedResultsControllerDidPerformFetch {
-    if ([self.fetchedResultsController.sections.lastObject numberOfObjects] == 0) {
+    NSInteger allFetchedResultsCount = 0;
+    for (id section in self.fetchedResultsController.sections) {
+        allFetchedResultsCount += [section numberOfObjects];
+    }
+
+    id targetObject = self.object;
+    
+    if (allFetchedResultsCount != [[targetObject friendsCount] integerValue]) {
         [self.dragToLoadDecorator setTopViewLoading:YES];
     }
 }
