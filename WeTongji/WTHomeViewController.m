@@ -320,7 +320,18 @@
 }
 
 - (void)fillBannerView {
-    [self.bannerContainerView configureBannerWithObjectsArray:[Object getAllObjectsHeldByHolder:[WTBannerContainerView class] objectEntityName:@"Object"]];
+    NSArray *bannerActivites = [Object getAllObjectsHeldByHolder:[WTBannerContainerView class] objectEntityName:@"Activity"];
+    NSArray *bannerNews = [Object getAllObjectsHeldByHolder:[WTBannerContainerView class] objectEntityName:@"News"];
+    NSArray *bannerAds = [Object getAllObjectsHeldByHolder:[WTBannerContainerView class] objectEntityName:@"Advertisement"];
+    NSArray *bannerCategoriedObjectsArray = @[bannerActivites, bannerNews, bannerAds];
+    NSMutableArray *resultObjects = [NSMutableArray arrayWithCapacity:4];
+    for (NSArray *bannerObjects in bannerCategoriedObjectsArray) {
+        for (Object *bannerObject in bannerObjects) {
+            [resultObjects addObject:bannerObject];
+        }
+    }
+    
+    [self.bannerContainerView configureBannerWithObjectsArray:resultObjects];
 }
 
 - (void)updateBannerView {
