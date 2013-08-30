@@ -40,9 +40,20 @@
     result.readCount = @([[NSString stringWithFormat:@"%@", dict[@"Read"]] integerValue]);
     result.source = [NSString stringWithFormat:@"%@", dict[@"Source"]];
     
-    result.hasTicket = @([[NSString stringWithFormat:@"%@", dict[@"HasTicket"]] boolValue]);
-    result.phoneNumber = [NSString stringWithFormat:@"%@", dict[@"Contact"]];
-    if ([result.phoneNumber isEqualToString:@""])
+    if (dict[@"HasTicket"])
+        result.hasTicket = @([[NSString stringWithFormat:@"%@", dict[@"HasTicket"]] boolValue]);
+    else
+        result.hasTicket = @(NO);
+    
+    if (dict[@"Contact"]) {
+        result.phoneNumber = [NSString stringWithFormat:@"%@", dict[@"Contact"]];
+        NSRange illegalPhoneNumberRange = [result.phoneNumber rangeOfString:@"[^[0-9]-\\s+()]" options:NSRegularExpressionSearch];
+        if (illegalPhoneNumberRange.location != NSNotFound)
+            result.phoneNumber = nil;
+        else if ([result.phoneNumber isEqualToString:@""])
+            result.phoneNumber = nil;
+    }
+    else
         result.phoneNumber = nil;
     
     result.ticketInfo = [NSString stringWithFormat:@"%@", dict[@"TicketService"]];
