@@ -10,6 +10,7 @@
 #import "WTInnerNotificationViewController.h"
 #import "WTCoreDataManager.h"
 #import "WTLoginViewController.h"
+#import "NSNotificationCenter+WTAddition.h"
 
 @interface WTRootViewController ()
 
@@ -31,6 +32,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self configureRootViewUI];
+    
+    [NSNotificationCenter registerCurrentUserDidChangeNotificationWithSelector:@selector(hanldeCurrentUserDidChangeNotification:) target:self];
+}
+
+#pragma mark - Notification handler
+
+- (void)hanldeCurrentUserDidChangeNotification:(NSNotification *)notification {
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 #pragma mark - UI methods

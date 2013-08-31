@@ -27,13 +27,6 @@
         NSString *notificationType = [NSString stringWithFormat:@"%@", info[@"SourceType"]];
         NSDictionary *sourceDetailsInfo = info[@"SourceDetails"];
         
-        // TODO:
-//        if (sourceDetailsInfo[@"RejectedAt"]) {
-//            if (![[NSString stringWithFormat:@"%@", sourceDetailsInfo[@"RejectedAt"]] isEqualToString:@"<null>"]) {
-//                WTLOGERROR(@"Rejected at is not null");
-//                continue;
-//            }
-//        }
         Notification *notification = nil;
         if ([notificationType isEqualToString:@"FriendInvite"]) {
             NSMutableDictionary *friendInviteInfo = [NSMutableDictionary dictionaryWithDictionary:sourceDetailsInfo];

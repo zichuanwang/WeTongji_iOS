@@ -18,4 +18,6 @@
 
 - (void)didClickNotificationButton:(WTNotificationBarButton *)sender;
 
+- (void)hanldeCurrentUserDidChangeNotification:(NSNotification *)notification;
+
 @end

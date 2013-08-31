@@ -61,7 +61,8 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [self.resultViewController viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)showSearchResultWithSearchKeyword:(NSString *)keyword
@@ -87,6 +88,11 @@
 
 - (void)handleKeyboardWillDismissNotification:(NSNotification *)notification {
     [self configureSearchHintViewSizeWithKeyboardHeight:0];
+}
+
+- (void)hanldeCurrentUserDidChangeNotification:(NSNotification *)notification {
+    [super hanldeCurrentUserDidChangeNotification:notification];
+    [self didClickCustomSearchBarCancelButton:nil];
 }
 
 #pragma mark - UI methods
