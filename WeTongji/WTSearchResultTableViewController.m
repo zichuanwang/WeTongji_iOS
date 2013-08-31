@@ -129,10 +129,12 @@
             [org setObjectHeldByHolder:[self class]];
         }
         
-        NSArray *userArray = resultDict[@"Users"];
-        for (NSDictionary *infoDict in userArray) {
-            User *user = [User insertUser:infoDict];
-            [user setObjectHeldByHolder:[self class]];
+        if ([WTCoreDataManager sharedManager].currentUser) {
+            NSArray *userArray = resultDict[@"Users"];
+            for (NSDictionary *infoDict in userArray) {
+                User *user = [User insertUser:infoDict];
+                [user setObjectHeldByHolder:[self class]];
+            }
         }
         
         [self.dragToLoadDecorator topViewLoadFinished:YES];
