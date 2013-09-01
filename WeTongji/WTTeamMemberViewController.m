@@ -12,6 +12,7 @@
 #import "WTUserDetailViewController.h"
 #import "WTUserCell.h"
 #import "UIApplication+WTAddition.h"
+#import "UIView+TableViewSectionHeader.h"
 
 @interface WTTeamMemberViewController ()
 
@@ -29,6 +30,7 @@
         // Custom initialization
         self.memberStudentNoArray = @[@"1235145", @"092932", @"092969", @"093011", @"092988", @"082915"];
         self.memberIDArray = @[@"201211272254565", @"201301231200313", @"201205161608512", @"201205162002093", @"201301052111477", @"201209231418181"];
+        _noAnimationFlag = YES;
     }
     return self;
 }
@@ -46,16 +48,24 @@
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
+- (void)configureMemberTitle:(User *)member {
+    if ([member.studentNumber isEqualToString:@"1235145"]) member.note = @"0Director";
+    else if ([member.studentNumber isEqualToString:@"093011"]) member.note = @"3Project Manager";
+    else if ([member.studentNumber isEqualToString:@"092932"]) member.note = @"1Designer";
+    else member.note = @"2Developer";
+}
+
 - (void)loadTeamMemberData {
     for (int i = 0; i < self.memberIDArray.count; i++) {
         NSString *userID = self.memberIDArray[i];
-        if (![User userWithID:userID]) {
+        User *member = [User userWithID:userID];
+        if (!member) {
             WTRequest *request = [WTRequest requestWithSuccessBlock:^(id responseObject) {
                 NSDictionary *responseDict = (NSDictionary *)responseObject;
                 NSArray *userInfoArray = responseDict[@"Users"];
-                for (NSDictionary *userInfo in userInfoArray) {
-                    [User insertUser:userInfo];
-                }
+                NSDictionary *userInfo = userInfoArray.lastObject;
+                User *newMember = [User insertUser:userInfo];
+                [self configureMemberTitle:newMember];
             } failureBlock:^(NSError *error) {
                 
             }];
@@ -63,6 +73,8 @@
             NSString *studentNo = self.memberStudentNoArray[i];
             [request getSearchResultInCategory:searchUserCategory keyword:studentNo];
             [[WTClient sharedClient] enqueueRequest:request];
+        } else {
+            [self configureMemberTitle:member];
         }
     }
 }
@@ -79,14 +91,19 @@
 - (void)configureFetchRequest:(NSFetchRequest *)request {
     [request setEntity:[NSEntityDescription entityForName:@"User" inManagedObjectContext:[WTCoreDataManager sharedManager].managedObjectContext]];
     
+    NSSortDescriptor *titleDescriptor = [[NSSortDescriptor alloc] initWithKey:@"note" ascending:YES];
     NSSortDescriptor *pinyinDescriptor = [[NSSortDescriptor alloc] initWithKey:@"pinyin" ascending:YES];
-    [request setSortDescriptors:@[pinyinDescriptor]];
+    [request setSortDescriptors:@[titleDescriptor, pinyinDescriptor]];
     
     [request setPredicate:[NSPredicate predicateWithFormat:@"studentNumber in %@", self.memberStudentNoArray]];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
     return @"WTUserCell";
+}
+
+- (NSString *)customSectionNameKeyPath {
+    return @"note";
 }
 
 - (void)fetchedResultsControllerDidPerformFetch {
@@ -113,6 +130,11 @@
 }
 
 #pragma mark - UITableViewDelegate
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    NSString *sectionName = NSLocalizedString([self.fetchedResultsController.sections[section] name], nil);
+    return [UIView sectionHeaderViewWithSectionName:sectionName];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     User *user = [self.fetchedResultsController objectAtIndexPath:indexPath];

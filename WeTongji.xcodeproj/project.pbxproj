@@ -29,6 +29,7 @@
 		A1ADA9EB16AC655400E3A62E /* Activity+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ADA9EA16AC655400E3A62E /* Activity+Addition.m */; };
 		A1DD01CF169F244E009EBE02 /* WTNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DD01CD169F244E009EBE02 /* WTNewsViewController.m */; };
 		A1DD01D0169F244E009EBE02 /* WTNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1DD01CE169F244E009EBE02 /* WTNewsViewController.xib */; };
+		E10099B817D3CE3E00CF7F0C /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E10099B717D3CE3E00CF7F0C /* Object.m */; };
 		E103E3D217A2E9B300F214EC /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = E103E3D117A2E9B300F214EC /* Notification.m */; };
 		E10A8D0416E24525008B72E7 /* WTElectricityQueryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10A8D0316E24525008B72E7 /* WTElectricityQueryViewController.m */; };
 		E10A8D0616E24553008B72E7 /* WTElectricityQueryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10A8D0516E24553008B72E7 /* WTElectricityQueryViewController.xib */; };
@@ -109,7 +110,6 @@
 		E10E234B1757366600DCF724 /* BillboardPost.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E234A1757366600DCF724 /* BillboardPost.m */; };
 		E10E234E1757366600DCF724 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E234D1757366600DCF724 /* Comment.m */; };
 		E10E23541757366700DCF724 /* FriendInvitationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E23531757366700DCF724 /* FriendInvitationNotification.m */; };
-		E10E2357175737BF00DCF724 /* Object.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E2356175737BF00DCF724 /* Object.m */; };
 		E10E235D17573A2600DCF724 /* LikeableObject+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E235C17573A2600DCF724 /* LikeableObject+Addition.m */; };
 		E10E236E17577F3500DCF724 /* WTLikeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10E236C17577F3500DCF724 /* WTLikeListViewController.m */; };
 		E10E236F17577F3500DCF724 /* WTLikeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10E236D17577F3500DCF724 /* WTLikeListViewController.xib */; };
@@ -738,6 +738,8 @@
 		A1DD01CC169F244E009EBE02 /* WTNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNewsViewController.h; sourceTree = "<group>"; };
 		A1DD01CD169F244E009EBE02 /* WTNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNewsViewController.m; sourceTree = "<group>"; };
 		A1DD01CE169F244E009EBE02 /* WTNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNewsViewController.xib; sourceTree = "<group>"; };
+		E10099B617D3CE3E00CF7F0C /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
+		E10099B717D3CE3E00CF7F0C /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
 		E103E3D017A2E9B300F214EC /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		E103E3D117A2E9B300F214EC /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		E10A8D0216E24525008B72E7 /* WTElectricityQueryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTElectricityQueryViewController.h; sourceTree = "<group>"; };
@@ -844,8 +846,6 @@
 		E10E234D1757366600DCF724 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		E10E23521757366700DCF724 /* FriendInvitationNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendInvitationNotification.h; sourceTree = "<group>"; };
 		E10E23531757366700DCF724 /* FriendInvitationNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendInvitationNotification.m; sourceTree = "<group>"; };
-		E10E2355175737BF00DCF724 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Object.h; sourceTree = "<group>"; };
-		E10E2356175737BF00DCF724 /* Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Object.m; sourceTree = "<group>"; };
 		E10E235B17573A2500DCF724 /* LikeableObject+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LikeableObject+Addition.h"; sourceTree = "<group>"; };
 		E10E235C17573A2600DCF724 /* LikeableObject+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LikeableObject+Addition.m"; sourceTree = "<group>"; };
 		E10E236B17577F3500DCF724 /* WTLikeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTLikeListViewController.h; sourceTree = "<group>"; };
@@ -3187,14 +3187,14 @@
 				E15E4DAE175C798800BBAE9A /* News.m */,
 				E103E3D017A2E9B300F214EC /* Notification.h */,
 				E103E3D117A2E9B300F214EC /* Notification.m */,
-				E10E2355175737BF00DCF724 /* Object.h */,
-				E10E2356175737BF00DCF724 /* Object.m */,
 				E1BFBB52179EDE6A0026B885 /* Organization.h */,
 				E1BFBB53179EDE6B0026B885 /* Organization.m */,
 				E1FAB93617694A8600F7204F /* Star.h */,
 				E1FAB93717694A8600F7204F /* Star.m */,
 				E13CCDCF17CD612C005B79D1 /* User.h */,
 				E13CCDD017CD612C005B79D1 /* User.m */,
+				E10099B617D3CE3E00CF7F0C /* Object.h */,
+				E10099B717D3CE3E00CF7F0C /* Object.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3953,7 +3953,6 @@
 				E10E234B1757366600DCF724 /* BillboardPost.m in Sources */,
 				E10E234E1757366600DCF724 /* Comment.m in Sources */,
 				E10E23541757366700DCF724 /* FriendInvitationNotification.m in Sources */,
-				E10E2357175737BF00DCF724 /* Object.m in Sources */,
 				E10E235D17573A2600DCF724 /* LikeableObject+Addition.m in Sources */,
 				E10E236E17577F3500DCF724 /* WTLikeListViewController.m in Sources */,
 				E110F6D11757AEB500F19B7D /* WTShowAllKindsOfCellsViewController.m in Sources */,
@@ -4010,6 +4009,7 @@
 				E13CCDCE17CD6059005B79D1 /* NSString+Pinyin.m in Sources */,
 				E13CCDD117CD612C005B79D1 /* User.m in Sources */,
 				E13CCDD717CD6568005B79D1 /* UIView+TableViewSectionHeader.m in Sources */,
+				E10099B817D3CE3E00CF7F0C /* Object.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

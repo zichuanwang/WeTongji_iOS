@@ -259,3 +259,8 @@
 "Intro" = "Einleitung";
 
 "Exam" = "Prüfung";
+
+"0Director" = "Director";
+"1Designer" = "Designer";
+"2Developer" = "Developer";
+"3Project Manager" = "Project Manager";

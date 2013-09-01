@@ -259,3 +259,8 @@
 "Intro" = "简介";
 
 "Exam" = "考试";
+
+"0Director" = "总监";
+"1Designer" = "设计师";
+"2Developer" = "开发者";
+"3Project Manager" = "项目经理";

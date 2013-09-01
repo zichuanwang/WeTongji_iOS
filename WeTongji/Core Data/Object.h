@@ -2,7 +2,7 @@
 //  Object.h
 //  WeTongji
 //
-//  Created by 王 紫川 on 13-5-30.
+//  Created by 王 紫川 on 13-9-1.
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSString * objectClass;
 @property (nonatomic, retain) NSDate * updatedAt;
+@property (nonatomic, retain) NSString * note;
 @property (nonatomic, retain) NSSet *belongToControllers;
 @end
 
