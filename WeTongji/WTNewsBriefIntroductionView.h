@@ -43,6 +43,7 @@
 
 @property (nonatomic, weak) IBOutlet UIView *avatarContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *avatarImageView;
+@property (nonatomic, weak) IBOutlet UIButton *avatarCoverButton;
 
 + (WTClubNewsBriefIntroductionView *)createClubNewsBriefIntroductionView;
 

@@ -69,6 +69,11 @@
     self.briefIntroductionView = [WTNewsBriefIntroductionView createNewsBriefIntroductionViewWithNews:self.news];
     [self.scrollView addSubview:self.briefIntroductionView];
     [self.view sendSubviewToBack:self.briefIntroductionView];
+    
+    if (self.news.category.integerValue == NewsShowTypeClubNews) {
+        WTClubNewsBriefIntroductionView *clubNewsBriefIntroView = (WTClubNewsBriefIntroductionView *)self.briefIntroductionView;
+        [clubNewsBriefIntroView.avatarCoverButton addTarget:self action:@selector(didClickOrganizerButton:) forControlEvents:UIControlEventTouchUpInside];
+    }
 }
 
 - (void)configureDetailView {
