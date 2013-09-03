@@ -102,7 +102,7 @@
     self.profileView = profileView;
     
     [self.profileView.newsButton addTarget:self action:@selector(didClickNewsButton:) forControlEvents:UIControlEventTouchUpInside];
-    [self.profileView.activityButton addTarget:self action:@selector(didClickActivityButton:) forControlEvents:profileView];
+    [self.profileView.activityButton addTarget:self action:@selector(didClickActivityButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.profileView.emailButton addTarget:self action:@selector(didClickEmailButton:) forControlEvents:UIControlEventTouchUpInside];
 }
 
