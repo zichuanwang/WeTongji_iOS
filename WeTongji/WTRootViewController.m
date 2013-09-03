@@ -11,6 +11,7 @@
 #import "WTCoreDataManager.h"
 #import "WTLoginViewController.h"
 #import "NSNotificationCenter+WTAddition.h"
+#import "UIApplication+WTAddition.h"
 
 @interface WTRootViewController ()
 
@@ -39,7 +40,8 @@
 #pragma mark - Notification handler
 
 - (void)hanldeCurrentUserDidChangeNotification:(NSNotification *)notification {
-    [self.navigationController popToRootViewControllerAnimated:NO];
+    if ([UIApplication sharedApplication].rootTabBarController.selectedViewController != self.navigationController)
+        [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 #pragma mark - UI methods
