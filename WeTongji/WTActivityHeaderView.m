@@ -74,7 +74,7 @@
     if (self.inviteButton.frame.size.width < MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH)
         [self.inviteButton resetWidth:MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_WIDTH];
     
-    [self.inviteButton resetOrigin:CGPointMake(9.0, MIN_BRIEF_INTRODUCTION_VIEW_BUTTON_ORIGIN_Y)];
+    [self.inviteButton resetOrigin:CGPointMake(9.0, self.participateButton.frame.origin.y)];
     self.inviteButton.autoresizingMask |= UIViewAutoresizingFlexibleTopMargin;
     
     [self addSubview:self.inviteButton];
