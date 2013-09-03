@@ -14,6 +14,7 @@
 #import "WTSearchResultTableViewController.h"
 #import "WTSearchDefaultViewController.h"
 #import <WeTongjiSDK/NSUserDefaults+WTSDKAddition.h>
+#import "WTLoginViewController.h"
 
 @interface WTSearchViewController () <UITableViewDelegate, WTSearchResultTableViewControllerDelegate>
 
@@ -51,6 +52,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.resultViewController viewWillAppear:animated];
+    [self.searchHintView.tableView deselectRowAtIndexPath:[self.searchHintView.tableView indexPathForSelectedRow] animated:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -285,6 +287,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == self.searchHintView.tableView) {
+        
+        // Show login UI when not-logged-in user try to search users
+        if (![WTCoreDataManager sharedManager].currentUser && indexPath.row == 1) {
+            
+            [WTLoginViewController showWithIntro:NO];
+            return;
+        }
         [self updateSearchResultViewForSearchKeyword:self.searchBar.text searchCategory:indexPath.row];
         [self.searchBar resignFirstResponder];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
