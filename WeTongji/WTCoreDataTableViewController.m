@@ -137,7 +137,7 @@
 }
 
 - (void)updateCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    if (cell)
+    if (cell && [[self.fetchedResultsController sections][indexPath.section] numberOfObjects] > indexPath.row)
         [self configureCell:[self.tableView cellForRowAtIndexPath:indexPath]
             atIndexPath:indexPath];
 }
