@@ -41,7 +41,7 @@
 
 #define CONTENT_CONTAINER_VIEW_TOP_INDENT       10.0f
 #define CONTENT_LABEL_LINE_SPACING              6.0f
-#define CONTENT_CONTAINER_VIEW_BOTTOM_INDENT    70.0f
+#define CONTENT_CONTAINER_VIEW_BOTTOM_INDENT    90.0f
 
 - (void)configureContentLabelWithContent:(NSString *)content {
     self.aboutDisplayLabel.text = NSLocalizedString(@"About", nil);

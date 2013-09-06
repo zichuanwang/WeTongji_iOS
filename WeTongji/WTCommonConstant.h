@@ -33,7 +33,7 @@
 
 #define CROP_AVATAR_SIZE CGSizeMake(200, 200)
 
-#define DEFAULT_VOID_COLOR [UIColor colorWithRed:12.0f / 255 green:194.0f / 255 blue:203.0f / 255 alpha:0.6f]
+#define DEFAULT_VOID_COLOR [UIColor colorWithRed:234 / 255.0f green:82 / 255.0f blue:81 / 255.0f alpha:0.6f]
 
 #define WTScrollViewHeight  ([UIScreen mainScreen].bounds.frame.size.height - 20.0f - 44.0f - 41.0f)
 

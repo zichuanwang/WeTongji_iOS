@@ -32,7 +32,12 @@
     result.title = [NSString stringWithFormat:@"%@", dict[@"Title"]];
     result.image = [NSString stringWithFormat:@"%@", dict[@"Image"]];
     result.publisher = [NSString stringWithFormat:@"%@", dict[@"Publisher"]];
-    result.bgColorHex = [NSString stringWithFormat:@"%@", dict[@"BgColor"]];
+    
+    if (dict[@"BgColor"])
+        result.bgColorHex = [NSString stringWithFormat:@"%@", dict[@"BgColor"]];
+    else
+        result.bgColorHex = @"";
+    
     result.website = [NSString stringWithFormat:@"%@", dict[@"URL"]];
     
     return result;

@@ -54,7 +54,7 @@
     // [self configureContentViewBgImageView];
 }
 
-#define CONTENT_CONTAINER_VIEW_BOTTOM_INDENT    70.0f
+#define CONTENT_CONTAINER_VIEW_BOTTOM_INDENT    90.0f
 
 - (void)configureContentLabel:(NSString *)content {
     self.aboutDisplayLabel.text = NSLocalizedString(@"About", nil);
