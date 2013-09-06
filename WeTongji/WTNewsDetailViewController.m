@@ -94,7 +94,7 @@
     }
 }
 
-#define CONTENT_LABEL_BOTTOM_PADDING    20.0f
+#define CONTENT_LABEL_BOTTOM_INDENT     20.0f
 
 - (void)configureContentLabelContainerView {
     [self.contentLabelContainerView resetOriginY:self.briefIntroductionView.frame.size.height + self.briefIntroductionView.frame.origin.y];
@@ -104,10 +104,10 @@
     self.contentLabelContainerView.layer.shadowOpacity = 0.25f;
     self.contentLabelContainerView.layer.shadowRadius = 0;
     
-    [self.contentLabelContainerView resetHeight:self.contentLabel.frame.size.height + self.contentLabel.frame.origin.y + CONTENT_LABEL_BOTTOM_PADDING];
+    [self.contentLabelContainerView resetHeight:self.contentLabel.frame.size.height + self.contentLabel.frame.origin.y + CONTENT_LABEL_BOTTOM_INDENT];
 }
 
-#define CONTENT_LABEL_LINE_SPACING  8.0f
+#define CONTENT_LABEL_LINE_SPACING      8.0f
 
 - (void)configureContentLabel {
     NSMutableAttributedString *contentAttributedString = [NSMutableAttributedString attributedStringWithString:self.news.content];
@@ -124,8 +124,6 @@
     
     [self.contentLabel resetHeight:contentLabelHeight];
     [self.contentLabel resetOriginY:self.imageRollView ? self.imageRollView.frame.size.height : 15.0f];
-    
-    self.contentLabel.automaticallyAddLinksForType = NSTextCheckingTypeLink;
 }
 
 #pragma mark - Actions

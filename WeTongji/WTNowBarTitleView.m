@@ -64,7 +64,7 @@
 #pragma mark - Properties
 
 #define WEEK_LABEL_ADD_WIDTH            9.0f
-#define WEEK_DISPLAY_LABEL_PADDING_X    1.0f
+#define WEEK_DISPLAY_LABEL_INDENT_X     1.0f
 
 - (void)setWeekNumber:(NSUInteger)weekNumber {
     if (weekNumber < self.minWeekNumber || weekNumber > self.maxWeekNumber)
@@ -93,7 +93,7 @@
     [self.weekContainerView resetWidth:weekLabelWidth - 1.0f];
     [self.weekLabel resetCenterX:self.weekContainerView.frame.size.width / 2];
     
-    [self.weekDisplayLabel resetOriginX:self.weekContainerView.frame.origin.x + self.weekContainerView.frame.size.width + WEEK_DISPLAY_LABEL_PADDING_X];
+    [self.weekDisplayLabel resetOriginX:self.weekContainerView.frame.origin.x + self.weekContainerView.frame.size.width + WEEK_DISPLAY_LABEL_INDENT_X];
 }
 
 #pragma mark - Actions

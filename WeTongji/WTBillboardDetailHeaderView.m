@@ -137,7 +137,6 @@
     }];
     
     self.contentLabel.attributedText = contentAttributedString;
-    self.contentLabel.automaticallyAddLinksForType = NSTextCheckingTypeLink;
     
     CGFloat contentLabelHeight = [contentAttributedString sizeConstrainedToSize:CGSizeMake(self.contentLabel.frame.size.width, 200000.0f)].height;
     

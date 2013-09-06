@@ -22,27 +22,26 @@
 
 #pragma mark - UI methods
 
-#define DETAIL_VIEW_BOTTOM_INDENT   10.0f
-
 - (void)configureViewWithStar:(Star *)star {
     [self configuretitleViewWithTitle:star.jobTitle];
     [self configureContentLabelWithContent:star.content];
-    [self configureContentViewBgImageView];
+    // [self configureContentViewBgImageView];
     
-    [self resetHeight:self.contentContainerView.frame.origin.y + self.contentContainerView.frame.size.height + DETAIL_VIEW_BOTTOM_INDENT];
+    [self resetHeight:self.contentContainerView.frame.origin.y + self.contentContainerView.frame.size.height];
 }
 
-#define TITLE_LABEL_BOTTOM_PADDING 8.0f
+#define TITLE_LABEL_BOTTOM_INDENT               8.0f
 
 - (void)configuretitleViewWithTitle:(NSString *)title {
     self.titleDisplayLabel.text = NSLocalizedString(@"Title", nil);
     self.titleLabel.text = title;
     [self.titleLabel sizeToFit];
-    [self.titleContainerView resetHeight:self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height + TITLE_LABEL_BOTTOM_PADDING];
+    [self.titleContainerView resetHeight:self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height + TITLE_LABEL_BOTTOM_INDENT];
 }
 
-#define CONTENT_CONTAINER_VIEW_TOP_INDENT 10.0f
-#define CONTENT_LABEL_LINE_SPACING 6.0f
+#define CONTENT_CONTAINER_VIEW_TOP_INDENT       10.0f
+#define CONTENT_LABEL_LINE_SPACING              6.0f
+#define CONTENT_CONTAINER_VIEW_BOTTOM_INDENT    70.0f
 
 - (void)configureContentLabelWithContent:(NSString *)content {
     self.aboutDisplayLabel.text = NSLocalizedString(@"About", nil);
@@ -60,10 +59,10 @@
     CGFloat contentLabelHeight = [contentAttributedString sizeConstrainedToSize:CGSizeMake(self.contentLabel.frame.size.width, 200000.0f)].height;
     
     [self.contentLabel resetHeight:contentLabelHeight];
-    
-    self.contentLabel.automaticallyAddLinksForType = 0;
-    
+        
     [self.contentContainerView resetOriginY:self.titleContainerView.frame.size.height + CONTENT_CONTAINER_VIEW_TOP_INDENT];
+    
+    [self.contentContainerView resetHeight:self.contentLabel.frame.size.height + CONTENT_CONTAINER_VIEW_BOTTOM_INDENT];
 }
 
 - (void)configureContentViewBgImageView {

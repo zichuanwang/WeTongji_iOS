@@ -34,14 +34,12 @@
 
 #pragma mark - UI methods
 
-#define DETAIL_VIEW_BOTTOM_INDENT   10.0f
-
 - (void)configureViewWithActivity:(Activity *)activity {
     [self configureOrganizerDisplayLabelAndButton:activity.author.name];
     [self configureContentView:activity.content];
     [self configureOrganizerAvatar:activity.author.avatar];
     
-    [self resetHeight:self.contentContainerView.frame.origin.y + self.contentContainerView.frame.size.height + DETAIL_VIEW_BOTTOM_INDENT];
+    [self resetHeight:self.contentContainerView.frame.origin.y + self.contentContainerView.frame.size.height];
 }
 
 #define CONTENT_LABEL_LINE_SPACING 6.0f
@@ -53,12 +51,13 @@
 
 - (void)configureContentView:(NSString *)content {
     [self configureContentLabel:content];
-    [self configureContentViewBgImageView];
+    // [self configureContentViewBgImageView];
 }
+
+#define CONTENT_CONTAINER_VIEW_BOTTOM_INDENT    70.0f
 
 - (void)configureContentLabel:(NSString *)content {
     self.aboutDisplayLabel.text = NSLocalizedString(@"About", nil);
-    
 
     NSMutableAttributedString *contentAttributedString = [[NSMutableAttributedString alloc] initWithString:content];
     
@@ -74,7 +73,7 @@
     
     [self.contentLabel resetHeight:contentLabelHeight];
     
-    self.contentLabel.automaticallyAddLinksForType = NSTextCheckingTypeLink;
+    [self.contentContainerView resetHeight:self.contentLabel.frame.size.height + CONTENT_CONTAINER_VIEW_BOTTOM_INDENT];
 }
 
 - (void)configureContentViewBgImageView {
