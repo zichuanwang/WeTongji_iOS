@@ -65,6 +65,7 @@
                                   self.user.likedStarCount.integerValue > 1 ? NSLocalizedString(@" Stars", nil) : NSLocalizedString(@" Star", nil),
                                   self.user.likedOrganizationCount.integerValue > 1 ? NSLocalizedString(@" Organizations", nil) : NSLocalizedString(@" Organization", nil),
                                   self.user.likedUserCount.integerValue > 1 ? NSLocalizedString(@" Users", nil) : NSLocalizedString(@" User", nil)];
+    
     NSArray *labels = @[self.myFriendLabel,
                         self.myScheduledActivityLabel,
                         self.myScheduledCourseLabel,
@@ -77,11 +78,15 @@
     for (int i = 0; i < countNumberArray.count; i++) {
         OHAttributedLabel *label = labels[i];
         NSNumber *countNumber = countNumberArray[i];
-        NSString *description = descriptionArray[i];
-        NSMutableAttributedString *attributedString = [NSMutableAttributedString attributedStringWithString:[NSString stringWithFormat:@"%d%@", countNumber.integerValue, description]];
-        [attributedString setAttributes:[label.attributedText attributesAtIndex:label.attributedText.length - 1 effectiveRange:NULL] range:NSMakeRange(0, attributedString.length)];
+        NSString *description = descriptionArray[i];        
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d%@", countNumber.integerValue, description]];
+        [attributedString setAttributes:[label.attributedText attributesAtIndex:0 effectiveRange:NULL] range:NSMakeRange(0, attributedString.length)];
         [attributedString setTextBold:YES range:NSMakeRange(0, countNumber.stringValue.length)];
+        
         label.attributedText = attributedString;
+        
+        CGFloat labelHeight = [attributedString sizeConstrainedToSize:CGSizeMake(label.frame.size.width, 200000.0f)].height;
+        [label resetHeight:labelHeight];
     }
 }
 

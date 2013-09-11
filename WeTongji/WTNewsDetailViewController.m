@@ -94,15 +94,10 @@
     }
 }
 
-#define CONTENT_LABEL_BOTTOM_INDENT     20.0f
+#define CONTENT_LABEL_BOTTOM_INDENT 30.0f
 
 - (void)configureContentLabelContainerView {
     [self.contentLabelContainerView resetOriginY:self.briefIntroductionView.frame.size.height + self.briefIntroductionView.frame.origin.y];
-    
-    self.contentLabelContainerView.layer.shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1.0f].CGColor;
-    self.contentLabelContainerView.layer.shadowOffset = CGSizeMake(0, 1.0f);
-    self.contentLabelContainerView.layer.shadowOpacity = 0.25f;
-    self.contentLabelContainerView.layer.shadowRadius = 0;
     
     [self.contentLabelContainerView resetHeight:self.contentLabel.frame.size.height + self.contentLabel.frame.origin.y + CONTENT_LABEL_BOTTOM_INDENT];
 }

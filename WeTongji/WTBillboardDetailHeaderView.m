@@ -121,7 +121,7 @@
 }
 
 #define CONTENT_LABEL_TOP_INDENT    25.0f
-#define CONTENT_LABEL_BOTTOM_INDENT 20.0f
+#define CONTENT_LABEL_BOTTOM_INDENT 30.0f
 #define CONTENT_LABEL_LINE_SPACING  8.0f
 
 - (void)configureViewWithBillboardPost:(BillboardPost *)post {

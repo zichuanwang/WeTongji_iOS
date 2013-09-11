@@ -28,7 +28,9 @@
 @interface WTMeViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, WTInnerSettingViewControllerDelegate, WTRootNavigationControllerDelegate, WTDragToLoadDecoratorDataSource, WTDragToLoadDecoratorDelegate>
 
 @property (nonatomic, weak) WTUserProfileHeaderView *profileHeaderView;
+
 @property (nonatomic, weak) WTCurrentUserProfileView *profileView;
+
 @property (nonatomic, readonly) UIButton *settingButton;
 
 @property (nonatomic, strong) WTDragToLoadDecorator *dragToLoadDecorator;
@@ -91,7 +93,7 @@
     [self configureNavigationBar];
     [self configureProfileHeaderView];
     [self configureProfileView];
-    [self configureScrollView];
+    [self configureScrollView];    
 }
 
 - (void)configureDragToLoadDecorator {

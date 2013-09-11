@@ -39,9 +39,9 @@
     [self.titleContainerView resetHeight:self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height + TITLE_LABEL_BOTTOM_INDENT];
 }
 
-#define CONTENT_CONTAINER_VIEW_TOP_INDENT       10.0f
-#define CONTENT_LABEL_LINE_SPACING              6.0f
-#define CONTENT_CONTAINER_VIEW_BOTTOM_INDENT    90.0f
+#define CONTENT_CONTAINER_VIEW_TOP_INDENT   10.0f
+#define CONTENT_LABEL_LINE_SPACING          6.0f
+#define CONTENT_LABEL_BOTTOM_INDENT         30.0f
 
 - (void)configureContentLabelWithContent:(NSString *)content {
     self.aboutDisplayLabel.text = NSLocalizedString(@"About", nil);
@@ -62,7 +62,7 @@
         
     [self.contentContainerView resetOriginY:self.titleContainerView.frame.size.height + CONTENT_CONTAINER_VIEW_TOP_INDENT];
     
-    [self.contentContainerView resetHeight:self.contentLabel.frame.size.height + CONTENT_CONTAINER_VIEW_BOTTOM_INDENT];
+    [self.contentContainerView resetHeight:self.contentLabel.frame.size.height + self.contentLabel.frame.origin.y + CONTENT_LABEL_BOTTOM_INDENT];
 }
 
 - (void)configureContentViewBgImageView {
