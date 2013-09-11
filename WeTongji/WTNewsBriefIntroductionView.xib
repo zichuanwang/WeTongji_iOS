@@ -42,7 +42,6 @@
 						<int key="NSvFlags">269</int>
 						<string key="NSFrame">{{0, 82}, {320, 1}}</string>
 						<reference key="NSSuperview" ref="523577142"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<float key="IBUIAlpha">0.80000001192092896</float>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -272,7 +271,6 @@
 						<int key="NSvFlags">269</int>
 						<string key="NSFrame">{{0, 82}, {320, 1}}</string>
 						<reference key="NSSuperview" ref="1040147034"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<float key="IBUIAlpha">0.80000001192092896</float>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -444,7 +442,6 @@
 								<int key="NSvFlags">269</int>
 								<string key="NSFrame">{{0, 124}, {320, 1}}</string>
 								<reference key="NSSuperview" ref="216666602"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<float key="IBUIAlpha">0.80000001192092896</float>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
