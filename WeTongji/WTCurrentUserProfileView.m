@@ -84,9 +84,6 @@
         [attributedString setTextBold:YES range:NSMakeRange(0, countNumber.stringValue.length)];
         
         label.attributedText = attributedString;
-        
-        CGFloat labelHeight = [attributedString sizeConstrainedToSize:CGSizeMake(label.frame.size.width, 200000.0f)].height;
-        [label resetHeight:labelHeight];
     }
 }
 
