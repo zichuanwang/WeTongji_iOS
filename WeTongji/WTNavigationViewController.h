@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CRNavigationController.h"
 
-@interface WTNavigationViewController : UINavigationController
+@interface WTNavigationViewController : CRNavigationController
 
 @property (nonatomic, strong) UIImageView *navigationBarShadowImageView;
 

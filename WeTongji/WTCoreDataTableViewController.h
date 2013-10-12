@@ -9,11 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "WTCoreDataManager.h"
 
-@interface WTCoreDataTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate> {
+@interface WTCoreDataTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate> {
     BOOL _noAnimationFlag;
 }
 
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 // methods to override

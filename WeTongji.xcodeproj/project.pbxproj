@@ -23,7 +23,6 @@
 		03EE1092174534A20062A06B /* WTOrganizationProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03EE1091174534A20062A06B /* WTOrganizationProfileView.xib */; };
 		03EE1095174535770062A06B /* WTOrganizationProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EE1094174535770062A06B /* WTOrganizationProfileView.m */; };
 		A1ADA9DB16AC460500E3A62E /* WTActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ADA9D916AC460500E3A62E /* WTActivityViewController.m */; };
-		A1ADA9DC16AC460500E3A62E /* WTActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1ADA9DA16AC460500E3A62E /* WTActivityViewController.xib */; };
 		A1ADA9E016AC58E400E3A62E /* WTActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ADA9DF16AC58E400E3A62E /* WTActivityCell.m */; };
 		A1ADA9E516AC5AE400E3A62E /* WTActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1ADA9E416AC5AE400E3A62E /* WTActivityCell.xib */; };
 		A1ADA9EB16AC655400E3A62E /* Activity+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ADA9EA16AC655400E3A62E /* Activity+Addition.m */; };
@@ -65,8 +64,6 @@
 		E10C1F24171A80FB0009C673 /* WTNowBarTitleViewPrevHighlightButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E10C1F1C171A80FB0009C673 /* WTNowBarTitleViewPrevHighlightButton@2x.png */; };
 		E10C1F25171A80FB0009C673 /* WTNowBarTitleViewPrevNormalButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E10C1F1D171A80FB0009C673 /* WTNowBarTitleViewPrevNormalButton.png */; };
 		E10C1F26171A80FB0009C673 /* WTNowBarTitleViewPrevNormalButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E10C1F1E171A80FB0009C673 /* WTNowBarTitleViewPrevNormalButton@2x.png */; };
-		E10C1F29171A8AC60009C673 /* WTRoundCornerPanelHighlightBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E10C1F27171A8AC60009C673 /* WTRoundCornerPanelHighlightBg.png */; };
-		E10C1F2A171A8AC60009C673 /* WTRoundCornerPanelHighlightBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E10C1F28171A8AC60009C673 /* WTRoundCornerPanelHighlightBg@2x.png */; };
 		E10C1F2E171A8EF30009C673 /* WTRegisterInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10C1F2C171A8EF30009C673 /* WTRegisterInfoViewController.m */; };
 		E10C1F2F171A8EF30009C673 /* WTRegisterInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10C1F2D171A8EF30009C673 /* WTRegisterInfoViewController.xib */; };
 		E10C1F33171A8F0B0009C673 /* WTRegisterVarifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10C1F31171A8F0B0009C673 /* WTRegisterVarifyViewController.m */; };
@@ -273,6 +270,10 @@
 		E14558361799B7A4000E5B46 /* WTLoginIntroImage4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14558301799B7A4000E5B46 /* WTLoginIntroImage4@2x.png */; };
 		E14558371799B7A4000E5B46 /* WTLoginIntroImage5.png in Resources */ = {isa = PBXBuildFile; fileRef = E14558311799B7A4000E5B46 /* WTLoginIntroImage5.png */; };
 		E14558381799B7A4000E5B46 /* WTLoginIntroImage5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14558321799B7A4000E5B46 /* WTLoginIntroImage5@2x.png */; };
+		E14774121809B09E00E65DEF /* CRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E147740D1809B09E00E65DEF /* CRNavigationBar.m */; };
+		E14774131809B09E00E65DEF /* CRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E147740F1809B09E00E65DEF /* CRNavigationController.m */; };
+		E14774141809B09E00E65DEF /* CRTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E14774111809B09E00E65DEF /* CRTabBar.m */; };
+		E14774171809B6B600E65DEF /* AMBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = E14774161809B6B600E65DEF /* AMBlurView.m */; };
 		E14EFECE1744A9C200C2009F /* WTUserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E14EFECC1744A9C200C2009F /* WTUserDetailViewController.m */; };
 		E14EFECF1744A9C200C2009F /* WTUserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14EFECD1744A9C200C2009F /* WTUserDetailViewController.xib */; };
 		E14F964F1696FCF40048414D /* TestAvatar1.png in Resources */ = {isa = PBXBuildFile; fileRef = E14F964E1696FCF40048414D /* TestAvatar1.png */; };
@@ -504,6 +505,7 @@
 		E18B2116174B327000142A82 /* WTBillboardLargeItemHighlightButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E18B2112174B326F00142A82 /* WTBillboardLargeItemHighlightButton@2x.png */; };
 		E18B2117174B327000142A82 /* WTBillboardSmallItemHighlightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = E18B2113174B326F00142A82 /* WTBillboardSmallItemHighlightButton.png */; };
 		E18B2118174B327000142A82 /* WTBillboardSmallItemHighlightButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E18B2114174B327000142A82 /* WTBillboardSmallItemHighlightButton@2x.png */; };
+		E18B4BB6180677910072EC5A /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E18B4BB5180677910072EC5A /* images.xcassets */; };
 		E18CB2F1177A36810044E85E /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = E18CB2F0177A36810044E85E /* Event.m */; };
 		E18FEBFC17CC805D007F1C62 /* libOHAttributedLabel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1D373F116935DD30012E30A /* libOHAttributedLabel.a */; };
 		E191D91216C72E7100384CF6 /* WTActivitySettingConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = E191D91116C72E7100384CF6 /* WTActivitySettingConfig.plist */; };
@@ -540,6 +542,7 @@
 		E19832DE16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = E19832DD16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.m */; };
 		E199053516B7CDCE00F2C787 /* WTGrayPanel.png in Resources */ = {isa = PBXBuildFile; fileRef = E199053316B7CDCE00F2C787 /* WTGrayPanel.png */; };
 		E199053616B7CDCE00F2C787 /* WTGrayPanel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E199053416B7CDCE00F2C787 /* WTGrayPanel@2x.png */; };
+		E19A6A431807C21200266DDF /* WTActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19A6A421807C21200266DDF /* WTActivityViewController.xib */; };
 		E19B6ADB178A1EAC003BDCBB /* WTSelectDormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E19B6AD9178A1EAC003BDCBB /* WTSelectDormViewController.m */; };
 		E19B6ADC178A1EAC003BDCBB /* WTSelectDormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19B6ADA178A1EAC003BDCBB /* WTSelectDormViewController.xib */; };
 		E19B6AE0178A268D003BDCBB /* WTDormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E19B6ADF178A268D003BDCBB /* WTDormCell.m */; };
@@ -624,8 +627,6 @@
 		E1D3740916936D560012E30A /* WTDarkGrayMoreIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D3740716936D560012E30A /* WTDarkGrayMoreIndicator@2x.png */; };
 		E1D3740C1694134A0012E30A /* WTHomeSelectItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D3740B1694134A0012E30A /* WTHomeSelectItemView.m */; };
 		E1D3740E1694135D0012E30A /* WTHomeSelectItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D3740D1694135D0012E30A /* WTHomeSelectItemView.xib */; };
-		E1D37411169415460012E30A /* WTRoundCornerPanelBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D3740F169415460012E30A /* WTRoundCornerPanelBg.png */; };
-		E1D37412169415460012E30A /* WTRoundCornerPanelBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1D37410169415460012E30A /* WTRoundCornerPanelBg@2x.png */; };
 		E1D3741616942E740012E30A /* WTBillboardNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D3741516942E740012E30A /* WTBillboardNavigationViewController.m */; };
 		E1D3741A16942ECE0012E30A /* WTBillboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D3741816942ECE0012E30A /* WTBillboardViewController.m */; };
 		E1D3741B16942ECE0012E30A /* WTBillboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1D3741916942ECE0012E30A /* WTBillboardViewController.xib */; };
@@ -729,7 +730,6 @@
 		03EE1094174535770062A06B /* WTOrganizationProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTOrganizationProfileView.m; sourceTree = "<group>"; };
 		A1ADA9D816AC460500E3A62E /* WTActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTActivityViewController.h; sourceTree = "<group>"; };
 		A1ADA9D916AC460500E3A62E /* WTActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTActivityViewController.m; sourceTree = "<group>"; };
-		A1ADA9DA16AC460500E3A62E /* WTActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTActivityViewController.xib; sourceTree = "<group>"; };
 		A1ADA9DE16AC58E300E3A62E /* WTActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTActivityCell.h; sourceTree = "<group>"; };
 		A1ADA9DF16AC58E400E3A62E /* WTActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTActivityCell.m; sourceTree = "<group>"; };
 		A1ADA9E416AC5AE400E3A62E /* WTActivityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTActivityCell.xib; sourceTree = "<group>"; };
@@ -786,8 +786,6 @@
 		E10C1F1C171A80FB0009C673 /* WTNowBarTitleViewPrevHighlightButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNowBarTitleViewPrevHighlightButton@2x.png"; sourceTree = "<group>"; };
 		E10C1F1D171A80FB0009C673 /* WTNowBarTitleViewPrevNormalButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTNowBarTitleViewPrevNormalButton.png; sourceTree = "<group>"; };
 		E10C1F1E171A80FB0009C673 /* WTNowBarTitleViewPrevNormalButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTNowBarTitleViewPrevNormalButton@2x.png"; sourceTree = "<group>"; };
-		E10C1F27171A8AC60009C673 /* WTRoundCornerPanelHighlightBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTRoundCornerPanelHighlightBg.png; sourceTree = "<group>"; };
-		E10C1F28171A8AC60009C673 /* WTRoundCornerPanelHighlightBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTRoundCornerPanelHighlightBg@2x.png"; sourceTree = "<group>"; };
 		E10C1F2B171A8EF30009C673 /* WTRegisterInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTRegisterInfoViewController.h; sourceTree = "<group>"; };
 		E10C1F2C171A8EF30009C673 /* WTRegisterInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTRegisterInfoViewController.m; sourceTree = "<group>"; };
 		E10C1F2D171A8EF30009C673 /* WTRegisterInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTRegisterInfoViewController.xib; sourceTree = "<group>"; };
@@ -1057,6 +1055,14 @@
 		E14558301799B7A4000E5B46 /* WTLoginIntroImage4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTLoginIntroImage4@2x.png"; sourceTree = "<group>"; };
 		E14558311799B7A4000E5B46 /* WTLoginIntroImage5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTLoginIntroImage5.png; sourceTree = "<group>"; };
 		E14558321799B7A4000E5B46 /* WTLoginIntroImage5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTLoginIntroImage5@2x.png"; sourceTree = "<group>"; };
+		E147740C1809B09E00E65DEF /* CRNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRNavigationBar.h; sourceTree = "<group>"; };
+		E147740D1809B09E00E65DEF /* CRNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRNavigationBar.m; sourceTree = "<group>"; };
+		E147740E1809B09E00E65DEF /* CRNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRNavigationController.h; sourceTree = "<group>"; };
+		E147740F1809B09E00E65DEF /* CRNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRNavigationController.m; sourceTree = "<group>"; };
+		E14774101809B09E00E65DEF /* CRTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRTabBar.h; sourceTree = "<group>"; };
+		E14774111809B09E00E65DEF /* CRTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTabBar.m; sourceTree = "<group>"; };
+		E14774151809B6B600E65DEF /* AMBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMBlurView.h; sourceTree = "<group>"; };
+		E14774161809B6B600E65DEF /* AMBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMBlurView.m; sourceTree = "<group>"; };
 		E14EFECB1744A9C200C2009F /* WTUserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTUserDetailViewController.h; sourceTree = "<group>"; };
 		E14EFECC1744A9C200C2009F /* WTUserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTUserDetailViewController.m; sourceTree = "<group>"; };
 		E14EFECD1744A9C200C2009F /* WTUserDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTUserDetailViewController.xib; sourceTree = "<group>"; };
@@ -1359,6 +1365,7 @@
 		E18B2112174B326F00142A82 /* WTBillboardLargeItemHighlightButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTBillboardLargeItemHighlightButton@2x.png"; sourceTree = "<group>"; };
 		E18B2113174B326F00142A82 /* WTBillboardSmallItemHighlightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTBillboardSmallItemHighlightButton.png; sourceTree = "<group>"; };
 		E18B2114174B327000142A82 /* WTBillboardSmallItemHighlightButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTBillboardSmallItemHighlightButton@2x.png"; sourceTree = "<group>"; };
+		E18B4BB5180677910072EC5A /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		E18CB2EF177A36810044E85E /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		E18CB2F0177A36810044E85E /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		E18FEBFA17CC7F9C007F1C62 /* WeTongjiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WeTongjiSDK.framework; path = "../../Library/Developer/Xcode/DerivedData/WeTongji-haxzmecxsluyiegvzukrqyecviwx/Build/Products/Release-iphoneos/WeTongjiSDK.framework"; sourceTree = "<group>"; };
@@ -1403,6 +1410,7 @@
 		E19832DD16FEFBD000AB83E8 /* NSNotificationCenter+WTAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+WTAddition.m"; sourceTree = "<group>"; };
 		E199053316B7CDCE00F2C787 /* WTGrayPanel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTGrayPanel.png; sourceTree = "<group>"; };
 		E199053416B7CDCE00F2C787 /* WTGrayPanel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTGrayPanel@2x.png"; sourceTree = "<group>"; };
+		E19A6A421807C21200266DDF /* WTActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTActivityViewController.xib; sourceTree = "<group>"; };
 		E19B6AD8178A1EAC003BDCBB /* WTSelectDormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTSelectDormViewController.h; sourceTree = "<group>"; };
 		E19B6AD9178A1EAC003BDCBB /* WTSelectDormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTSelectDormViewController.m; sourceTree = "<group>"; };
 		E19B6ADA178A1EAC003BDCBB /* WTSelectDormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSelectDormViewController.xib; sourceTree = "<group>"; };
@@ -1507,8 +1515,6 @@
 		E1D3740A169413490012E30A /* WTHomeSelectItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTHomeSelectItemView.h; sourceTree = "<group>"; };
 		E1D3740B1694134A0012E30A /* WTHomeSelectItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTHomeSelectItemView.m; sourceTree = "<group>"; };
 		E1D3740D1694135D0012E30A /* WTHomeSelectItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTHomeSelectItemView.xib; sourceTree = "<group>"; };
-		E1D3740F169415460012E30A /* WTRoundCornerPanelBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTRoundCornerPanelBg.png; sourceTree = "<group>"; };
-		E1D37410169415460012E30A /* WTRoundCornerPanelBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTRoundCornerPanelBg@2x.png"; sourceTree = "<group>"; };
 		E1D3741416942E740012E30A /* WTBillboardNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBillboardNavigationViewController.h; sourceTree = "<group>"; };
 		E1D3741516942E740012E30A /* WTBillboardNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTBillboardNavigationViewController.m; sourceTree = "<group>"; };
 		E1D3741716942ECE0012E30A /* WTBillboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTBillboardViewController.h; sourceTree = "<group>"; };
@@ -1908,6 +1914,7 @@
 				E1AEA9861691AF56007DFA4C /* Shadow */,
 				E10C422616AB05110084337C /* Switch */,
 				E18821BB1680058000A41F47 /* TabBar */,
+				E18B4BB5180677910072EC5A /* images.xcassets */,
 			);
 			name = Resources;
 			path = WeTongji/Resources;
@@ -1975,7 +1982,7 @@
 				E14FA6A81681EBC3008A8D33 /* WTActivityDetailViewController.xib */,
 				A1ADA9D816AC460500E3A62E /* WTActivityViewController.h */,
 				A1ADA9D916AC460500E3A62E /* WTActivityViewController.m */,
-				A1ADA9DA16AC460500E3A62E /* WTActivityViewController.xib */,
+				E19A6A421807C21200266DDF /* WTActivityViewController.xib */,
 				E1EC97B517802BF30058A9F7 /* WTOrganizationActivityViewController.h */,
 				E1EC97B617802BF30058A9F7 /* WTOrganizationActivityViewController.m */,
 				E1F5F399178208F900D2EC81 /* WTScheduledActivityViewController.h */,
@@ -2039,6 +2046,14 @@
 		E125549916491530006D42F5 /* WeTongji */ = {
 			isa = PBXGroup;
 			children = (
+				E14774151809B6B600E65DEF /* AMBlurView.h */,
+				E14774161809B6B600E65DEF /* AMBlurView.m */,
+				E147740C1809B09E00E65DEF /* CRNavigationBar.h */,
+				E147740D1809B09E00E65DEF /* CRNavigationBar.m */,
+				E147740E1809B09E00E65DEF /* CRNavigationController.h */,
+				E147740F1809B09E00E65DEF /* CRNavigationController.m */,
+				E14774101809B09E00E65DEF /* CRTabBar.h */,
+				E14774111809B09E00E65DEF /* CRTabBar.m */,
 				E13CCDC817CD6021005B79D1 /* Pinyin */,
 				E186A20A179585CB007C5B7C /* RDActivityViewController */,
 				E18821CE1680077C00A41F47 /* Categories */,
@@ -2885,12 +2900,8 @@
 				E10C1F36171A93350009C673 /* WTRegisterAccountPanelBg@2x.png */,
 				E1B892801690F4B1009D901C /* WTRootBgUnit.png */,
 				E1B892811690F4B1009D901C /* WTRootBgUnit@2x.png */,
-				E1D3740F169415460012E30A /* WTRoundCornerPanelBg.png */,
-				E1D37410169415460012E30A /* WTRoundCornerPanelBg@2x.png */,
 				E15BBF221717D5F40021CCCD /* WTRoundCornerPanelCuppedBg.png */,
 				E15BBF231717D5F40021CCCD /* WTRoundCornerPanelCuppedBg@2x.png */,
-				E10C1F27171A8AC60009C673 /* WTRoundCornerPanelHighlightBg.png */,
-				E10C1F28171A8AC60009C673 /* WTRoundCornerPanelHighlightBg@2x.png */,
 				E140ED9C16E90831004E2DA9 /* WTSearchBarNormalBg.png */,
 				E140ED9D16E90831004E2DA9 /* WTSearchBarNormalBg@2x.png */,
 				E140EDA816E90B53004E2DA9 /* WTSearchBarSelectBg.png */,
@@ -3432,8 +3443,6 @@
 				E1D3740816936D560012E30A /* WTDarkGrayMoreIndicator.png in Resources */,
 				E1D3740916936D560012E30A /* WTDarkGrayMoreIndicator@2x.png in Resources */,
 				E1D3740E1694135D0012E30A /* WTHomeSelectItemView.xib in Resources */,
-				E1D37411169415460012E30A /* WTRoundCornerPanelBg.png in Resources */,
-				E1D37412169415460012E30A /* WTRoundCornerPanelBg@2x.png in Resources */,
 				E1D3741B16942ECE0012E30A /* WTBillboardViewController.xib in Resources */,
 				E1D374251694321A0012E30A /* WTMeViewController.xib in Resources */,
 				E1D37430169432D30012E30A /* WTNowViewController.xib in Resources */,
@@ -3473,7 +3482,6 @@
 				E10C423016AB051A0084337C /* WTSwitchCover@2x.png in Resources */,
 				E10C423116AB051A0084337C /* WTSwitchHandler.png in Resources */,
 				E10C423216AB051A0084337C /* WTSwitchHandler@2x.png in Resources */,
-				A1ADA9DC16AC460500E3A62E /* WTActivityViewController.xib in Resources */,
 				A1ADA9E516AC5AE400E3A62E /* WTActivityCell.xib in Resources */,
 				E199053516B7CDCE00F2C787 /* WTGrayPanel.png in Resources */,
 				E199053616B7CDCE00F2C787 /* WTGrayPanel@2x.png in Resources */,
@@ -3584,9 +3592,8 @@
 				E10C1F24171A80FB0009C673 /* WTNowBarTitleViewPrevHighlightButton@2x.png in Resources */,
 				E10C1F25171A80FB0009C673 /* WTNowBarTitleViewPrevNormalButton.png in Resources */,
 				E10C1F26171A80FB0009C673 /* WTNowBarTitleViewPrevNormalButton@2x.png in Resources */,
-				E10C1F29171A8AC60009C673 /* WTRoundCornerPanelHighlightBg.png in Resources */,
-				E10C1F2A171A8AC60009C673 /* WTRoundCornerPanelHighlightBg@2x.png in Resources */,
 				E10C1F2F171A8EF30009C673 /* WTRegisterInfoViewController.xib in Resources */,
+				E19A6A431807C21200266DDF /* WTActivityViewController.xib in Resources */,
 				E10C1F34171A8F0B0009C673 /* WTRegisterVarifyViewController.xib in Resources */,
 				E10C1F37171A93350009C673 /* WTRegisterAccountPanelBg.png in Resources */,
 				E10C1F38171A93350009C673 /* WTRegisterAccountPanelBg@2x.png in Resources */,
@@ -3696,6 +3703,7 @@
 				E1BFFE0A17415DB7004EF0D6 /* WTGenderGrayMaleIcon.png in Resources */,
 				E1BFFE0B17415DB7004EF0D6 /* WTGenderGrayMaleIcon@2x.png in Resources */,
 				E1BFFE1217415FA0004EF0D6 /* WTUserCell.xib in Resources */,
+				E18B4BB6180677910072EC5A /* images.xcassets in Resources */,
 				E1222C5217420BFB004B4312 /* WTOrganizationCell.xib in Resources */,
 				E1222C5817421AB4004B4312 /* WTOrganizationDetailViewController.xib in Resources */,
 				E1222C6017423D7C004B4312 /* WTMeSettingConfig.plist in Resources */,
@@ -3853,6 +3861,7 @@
 				E13B0E6D16A4476000A45079 /* User+Addition.m in Sources */,
 				E13B0E7516A448C100A45079 /* News+Addition.m in Sources */,
 				E13B0EA516A45F4B00A45079 /* WTDebugTool.m in Sources */,
+				E14774171809B6B600E65DEF /* AMBlurView.m in Sources */,
 				E13B0ED316A4704900A45079 /* NSString+WTAddition.m in Sources */,
 				E10C422316AB03410084337C /* WTSwitch.m in Sources */,
 				A1ADA9DB16AC460500E3A62E /* WTActivityViewController.m in Sources */,
@@ -3872,6 +3881,7 @@
 				E10A8D3516E3BD22008B72E7 /* WTInnerNotificationTableViewController.m in Sources */,
 				E10A8D3C16E4522C008B72E7 /* WTWaterflowDecorator.m in Sources */,
 				E10A8D4316E4ECC8008B72E7 /* UIView+Animation.m in Sources */,
+				E14774131809B09E00E65DEF /* CRNavigationController.m in Sources */,
 				E10A8D5216E4EFE3008B72E7 /* Notification+Addition.m in Sources */,
 				03B7261116E62CBD00093638 /* Exam+Addition.m in Sources */,
 				03B3E06416E7784D008BB481 /* WTNowTableViewController.m in Sources */,
@@ -3934,6 +3944,7 @@
 				E14EFECE1744A9C200C2009F /* WTUserDetailViewController.m in Sources */,
 				E4D164231744D01700F11A2C /* WTStarViewController.m in Sources */,
 				E4D164291744D7B000F11A2C /* WTStarCell.m in Sources */,
+				E14774141809B09E00E65DEF /* CRTabBar.m in Sources */,
 				E47686711745287A003C9627 /* UIImage+StackBlur.m in Sources */,
 				03EE1095174535770062A06B /* WTOrganizationProfileView.m in Sources */,
 				E16D5DCA174619A900740D79 /* Advertisement+Addition.m in Sources */,
@@ -3989,6 +4000,7 @@
 				E142641517830D5C00847C08 /* WTCourseBaseHeaderView.m in Sources */,
 				E142641A17833C0500847C08 /* WTCourseBaseDetailViewController.m in Sources */,
 				E142641D17834B9100847C08 /* WTCourseDetailViewController.m in Sources */,
+				E14774121809B09E00E65DEF /* CRNavigationBar.m in Sources */,
 				E142642017834E7800847C08 /* WTCourseTimetableView.m in Sources */,
 				E15B4690178494BC00CE55F1 /* WTActivationViewController.m in Sources */,
 				E15B46951784AE4C00CE55F1 /* WTForgetPasswordViewController.m in Sources */,
@@ -4147,7 +4159,7 @@
 					"../GPUImage/framework/**",
 				);
 				INFOPLIST_FILE = "WeTongji/WeTongji-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/WeTongji-haxzmecxsluyiegvzukrqyecviwx/Build/Products/Debug-iphoneos\"",
@@ -4184,7 +4196,7 @@
 					"../GPUImage/framework/**",
 				);
 				INFOPLIST_FILE = "WeTongji/WeTongji-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/WeTongji-haxzmecxsluyiegvzukrqyecviwx/Build/Products/Debug-iphoneos\"",

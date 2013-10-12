@@ -383,9 +383,10 @@
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    CGFloat scrollViewOffsetY = scrollView.contentOffset.y;
-    scrollViewOffsetY = scrollViewOffsetY < 0 ? 0 : scrollViewOffsetY;
-    [self.bannerContainerView configureBannerContainerViewHeight:-scrollView.contentOffset.y + BANNER_VIEW_ORIGINAL_HIEHGT];
+    WTLOG(@"inset %@", NSStringFromUIEdgeInsets(self.scrollView.contentInset));
+    CGFloat scrollViewOffsetY = scrollView.contentOffset.y + self.scrollView.contentInset.top;
+    scrollViewOffsetY = scrollViewOffsetY > 0 ? 0 : scrollViewOffsetY;
+    [self.bannerContainerView configureBannerContainerViewHeight:BANNER_VIEW_ORIGINAL_HIEHGT - scrollViewOffsetY];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
@@ -416,14 +417,15 @@
         case WTHomeSelectContainerViewCategoryNews:
             [Flurry logEvent:@"Check All News" timed:YES];
             [[NSUserDefaults standardUserDefaults] setNewsShowTypes:NewsShowTypesAll];
-            [self.navigationController pushViewController:[[WTNewsViewController alloc] init] animated:YES];
+            [self.navigationController pushViewController:[WTNewsViewController createViewController] animated:YES];
             break;
             
         case WTHomeSelectContainerViewCategoryActivity:
         {
             [Flurry logEvent:@"Check All Activities" timed:YES];
             [[NSUserDefaults standardUserDefaults] setActivityShowTypes:ActivityShowTypesAll];
-            [self.navigationController pushViewController:[[WTActivityViewController alloc] init] animated:YES];
+            WTActivityViewController *vc = [WTActivityViewController createViewController];
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
             
@@ -447,12 +449,12 @@
     if ([modelObject isKindOfClass:[Activity class]]) {
         Activity *activity = (Activity *)modelObject;
         [[NSUserDefaults standardUserDefaults] setActivityShowTypes:activity.category.integerValue];
-        WTActivityViewController *vc = [[WTActivityViewController alloc] init];
+        WTActivityViewController *vc = [WTActivityViewController createViewController];
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([modelObject isKindOfClass:[News class]]) {
         News *news = (News *)modelObject;
         [[NSUserDefaults standardUserDefaults] setNewsShowTypes:news.category.integerValue];
-        WTNewsViewController *vc = [[WTNewsViewController alloc] init];
+        WTNewsViewController *vc = [WTNewsViewController createViewController];
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([modelObject isKindOfClass:[Star class]]) {
         WTStarViewController *vc = [[WTStarViewController alloc] init];

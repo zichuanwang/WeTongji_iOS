@@ -44,7 +44,7 @@
     
     // [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
     
-    [UIApplication showTopCorner];
+    // [UIApplication showTopCorner];
     [WTInnerNotificationViewController sharedViewController];
     
     return YES;

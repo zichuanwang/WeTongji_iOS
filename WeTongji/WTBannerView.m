@@ -8,7 +8,6 @@
 
 #import "WTBannerView.h"
 #import "UIImageView+AsyncLoading.h"
-#import <QuartzCore/QuartzCore.h>
 #import "Activity+Addition.h"
 #import "News+Addition.h"
 #import "Advertisement+Addition.h"
@@ -244,14 +243,6 @@
         }
     }
     return result;
-}
-
-- (void)awakeFromNib {
-    self.titleLabel.layer.masksToBounds = NO;
-    self.titleLabel.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.titleLabel.layer.shadowOpacity = 0.4f;
-    self.titleLabel.layer.shadowOffset = CGSizeMake(0, 1.0f);
-    self.titleLabel.layer.shadowRadius = 2.0f;
 }
 
 - (void)configureBannerItemViewHeight:(CGFloat)height

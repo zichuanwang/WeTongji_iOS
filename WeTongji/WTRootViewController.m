@@ -32,9 +32,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self configureRootViewUI];
+    // [self configureRootViewUI];
     
-    [NSNotificationCenter registerCurrentUserDidChangeNotificationWithSelector:@selector(hanldeCurrentUserDidChangeNotification:) target:self];
+    // [NSNotificationCenter registerCurrentUserDidChangeNotificationWithSelector:@selector(hanldeCurrentUserDidChangeNotification:) target:self];
 }
 
 #pragma mark - Notification handler

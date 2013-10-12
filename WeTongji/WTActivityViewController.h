@@ -20,4 +20,6 @@
 
 - (void)configureLoadedActivity:(Activity *)activity;
 
++ (WTActivityViewController *)createViewController;
+
 @end

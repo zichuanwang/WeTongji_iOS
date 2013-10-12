@@ -17,6 +17,7 @@
 #import "News+Addition.h"
 #import "Star+Addition.h"
 #import "Organization+Addition.h"
+#import "AMBlurView.h"
 
 typedef enum {
     WTHomeSelectItemStyleNormal,
@@ -101,12 +102,14 @@ typedef enum {
     self.itemStyle = (newsImageArray.count == 0) ? WTHomeSelectItemStyleNormal : WTHomeSelectItemStyleWithImage;
     if (self.itemStyle == WTHomeSelectItemStyleWithImage) {
         self.bgImageContainerView.hidden = NO;
-        self.subCategoryLabel.shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5f];
+        self.bgCoverButton.hidden = NO;
+        self.subCategoryLabel.shadowColor = [UIColor clearColor];
         self.newsTitleLabel.textColor = [UIColor whiteColor];
-        self.newsTitleLabel.shadowColor = [UIColor blackColor];
+        self.newsTitleLabel.shadowColor = [UIColor clearColor];
         [self configureBgImageView:newsImageArray[0]];
     } else {
         self.bgImageContainerView.hidden = YES;
+        self.bgCoverButton.hidden = YES;
         self.subCategoryLabel.shadowColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.6f];
         self.newsTitleLabel.textColor = [UIColor colorWithRed:55 / 255.0f green:55 / 255.0f blue:55 / 255.0f alpha:1.0f];
         self.newsTitleLabel.shadowColor = [UIColor clearColor];
@@ -123,7 +126,7 @@ typedef enum {
 
 - (void)configureBgImageView:(NSString *)imageURL {
     self.bgImageContainerView.layer.masksToBounds = YES;
-    self.bgImageContainerView.layer.cornerRadius = 8.0f;
+    self.bgImageContainerView.layer.cornerRadius = 9.0f;
     
     [self.bgImageView loadImageWithImageURLString:imageURL];
 }
@@ -174,6 +177,9 @@ typedef enum {
     
     [self createShowCategoryButton];
     [self addSubview:self.showCategoryButton];
+    
+    self.posterContainerView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.posterContainerView.layer.borderWidth = 0.5f;
 }
 
 @end
@@ -212,6 +218,9 @@ typedef enum {
 - (void)configureAvatarImageView {
     self.avatarContainerView.layer.masksToBounds = YES;
     self.avatarContainerView.layer.cornerRadius = 6.0f;
+    
+    self.avatarContainerView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.avatarContainerView.layer.borderWidth = 0.5f;
 }
 
 @end
@@ -255,6 +264,9 @@ typedef enum {
 - (void)configureAvatarImageView {
     self.avatarContainerView.layer.masksToBounds = YES;
     self.avatarContainerView.layer.cornerRadius = 6.0f;
+    
+    self.avatarContainerView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.avatarContainerView.layer.borderWidth = 0.5f;
 }
 
 @end
@@ -289,6 +301,9 @@ typedef enum {
     
     [self createShowCategoryButton];
     [self addSubview:self.showCategoryButton];
+    
+    self.posterContainerView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.posterContainerView.layer.borderWidth = 0.5f;
 }
 
 - (void)configurePosterImageView:(NSString *)imageURL {

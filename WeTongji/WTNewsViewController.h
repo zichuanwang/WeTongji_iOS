@@ -21,4 +21,6 @@
 
 - (void)configureLoadDataRequest:(WTRequest *)request;
 
++ (WTNewsViewController *)createViewController;
+
 @end

@@ -62,7 +62,7 @@
 
 - (WTNowTableViewController *)tableViewController {
     if (!_tableViewController) {
-        _tableViewController = [[WTNowTableViewController alloc] init];
+        _tableViewController = [WTNowTableViewController createViewController];
     }
     return _tableViewController;
 }

@@ -13,6 +13,7 @@
 @class Star;
 @class Organization;
 @class LikeableObject;
+
 @interface WTHomeSelectItemView : UIView
 
 @property (nonatomic, weak) IBOutlet UILabel *subCategoryLabel;
@@ -38,6 +39,7 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *newsTitleLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *posterImageView;
+@property (nonatomic, weak) IBOutlet UIView *posterContainerView;
 @property (nonatomic, weak) IBOutlet UIImageView *ticketIconImageView;
 @property (nonatomic, weak) IBOutlet UILabel *timeLabel;
 

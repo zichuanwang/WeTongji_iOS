@@ -18,4 +18,6 @@
 
 - (void)updateTableViewController;
 
++ (WTNowTableViewController *)createViewController;
+
 @end

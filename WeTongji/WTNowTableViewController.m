@@ -30,6 +30,14 @@
 
 @implementation WTNowTableViewController
 
++ (WTNowTableViewController *)createViewController {
+    NSArray *objects = [[NSBundle mainBundle] loadNibNamed:@"WTNowTableViewController" owner:nil options:nil];
+    
+    WTNowTableViewController *result = objects.lastObject;
+    
+    return result;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

@@ -19,17 +19,23 @@
 #import <WeTongjiSDK/WeTongjiSDK.h>
 #import "UIView+TableViewSectionHeader.h"
 
-@interface WTNewsViewController () <WTDragToLoadDecoratorDelegate, WTDragToLoadDecoratorDataSource>
+@interface WTNewsViewController ()
 
 @property (nonatomic, readonly) UIButton *filterButton;
-
-@property (nonatomic, strong) WTDragToLoadDecorator *dragToLoadDecorator;
 
 @property (nonatomic, assign) NSInteger nextPage;
 
 @end
 
 @implementation WTNewsViewController
+
++ (WTNewsViewController *)createViewController {
+    NSArray *objects = [[NSBundle mainBundle] loadNibNamed:@"WTNewsViewController" owner:nil options:nil];
+    
+    WTNewsViewController *result = objects.lastObject;
+    
+    return result;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -49,21 +55,12 @@
     
     [self configureTableView];
         
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
-    
-    self.dragToLoadDecorator = [WTDragToLoadDecorator createDecoratorWithDataSource:self delegate:self bottomActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [self.dragToLoadDecorator startObservingChangesInDragToLoadScrollView];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshControlDidChange:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [self.dragToLoadDecorator stopObservingChangesInDragToLoadScrollView];
 }
 
 #pragma mark - Data load methods
@@ -78,9 +75,9 @@
         self.nextPage = nextPage.integerValue;
         
         if (self.nextPage == 0) {
-            [self.dragToLoadDecorator setBottomViewDisabled:YES];
+            // [self.dragToLoadDecorator setBottomViewDisabled:YES];
         } else {
-            [self.dragToLoadDecorator setBottomViewDisabled:NO];
+            // [self.dragToLoadDecorator setBottomViewDisabled:NO];
         }
         
         NSArray *resultArray = resultDict[@"Information"];
@@ -136,9 +133,11 @@
 - (void)configureNaviationBarTitleView {
     NSSet *newsShowTypesSet = [NSUserDefaults getNewsShowTypesSet];
     if (newsShowTypesSet.count == 1) {
-        self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:[News convertCategoryStringFromCategory:newsShowTypesSet.anyObject]];
+        self.navigationItem.title = [News convertCategoryStringFromCategory:newsShowTypesSet.anyObject];
+        // self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:[News convertCategoryStringFromCategory:newsShowTypesSet.anyObject]];
     } else {
-        self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"News", nil)];
+        self.navigationItem.title = NSLocalizedString(@"News", nil);
+        // self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"News", nil)];
     }
 }
 
@@ -151,9 +150,8 @@
 - (void)configureNavigationBar {
     [self configureNaviationBarTitleView];
     
-    self.navigationItem.leftBarButtonItem = [WTResourceFactory createLogoBackBarButtonWithTarget:self
-                                                                                          action:@selector(didClickBackButton:)];
-    [self configureFilterBarButton];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Featured" style:UIBarButtonItemStyleBordered target:self action:@selector(didClickBackButton:)];
+    // [self configureFilterBarButton];
 }
 
 - (void)configureFilterBarButton {
@@ -182,6 +180,16 @@
     } else {
         [nav hideInnerModalViewController];
     }
+}
+
+- (IBAction)refreshControlDidChange:(UIRefreshControl *)refresh {
+    self.nextPage = 1;
+    [self loadMoreDataWithSuccessBlock:^{
+        [self clearOutdatedData];
+        [self.refreshControl endRefreshing];
+    } failureBlock:^{
+        [self.refreshControl endRefreshing];
+    }];
 }
 
 #pragma mark - UITableViewDelegate
@@ -239,7 +247,7 @@
 
 - (void)insertCellAtIndexPath:(NSIndexPath *)indexPath {
     [super insertCellAtIndexPath:indexPath];
-    [self.dragToLoadDecorator scrollViewDidInsertNewCell];
+    // [self.dragToLoadDecorator scrollViewDidInsertNewCell];
 }
 
 - (NSString *)customCellClassNameAtIndexPath:(NSIndexPath *)indexPath {
@@ -252,7 +260,7 @@
 
 - (void)fetchedResultsControllerDidPerformFetch {
     if ([self.fetchedResultsController.sections.lastObject numberOfObjects] == 0) {
-        [self.dragToLoadDecorator setTopViewLoading:YES];
+        // [self.dragToLoadDecorator setTopViewLoading:YES];
     }
 }
 
@@ -275,7 +283,7 @@
         [self configureNaviationBarTitleView];
         self.fetchedResultsController = nil;
         [self.tableView reloadData];
-        [self.dragToLoadDecorator setTopViewLoading:NO];
+        // [self.dragToLoadDecorator setTopViewLoading:NO];
     }
 }
 
@@ -289,9 +297,9 @@
 
 - (void)dragToLoadDecoratorDidDragUp {    
     [self loadMoreDataWithSuccessBlock:^{
-        [self.dragToLoadDecorator bottomViewLoadFinished:YES];
+        // [self.dragToLoadDecorator bottomViewLoadFinished:YES];
     } failureBlock:^{
-        [self.dragToLoadDecorator bottomViewLoadFinished:NO];
+        // [self.dragToLoadDecorator bottomViewLoadFinished:NO];
     }];
 }
 
@@ -299,9 +307,9 @@
     self.nextPage = 1;
     [self loadMoreDataWithSuccessBlock:^{
         [self clearOutdatedData];
-        [self.dragToLoadDecorator topViewLoadFinished:YES];
+        // [self.dragToLoadDecorator topViewLoadFinished:YES];
     } failureBlock:^{
-        [self.dragToLoadDecorator topViewLoadFinished:NO];
+        // [self.dragToLoadDecorator topViewLoadFinished:NO];
     }];
 }
 

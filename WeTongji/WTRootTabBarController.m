@@ -37,11 +37,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self showCustomTabBar];
-    [self adjustBuiltInTabBar];
+    // [self showCustomTabBar];
+    // [self adjustBuiltInTabBar];
     
-    [self clickTabWithName:WTRootTabBarViewControllerHome];
-    self.selectedViewController.view.superview.clipsToBounds = NO;
+    // [self clickTabWithName:WTRootTabBarViewControllerHome];
+    // self.selectedViewController.view.superview.clipsToBounds = NO;
 }
 
 #pragma mark - UI methods

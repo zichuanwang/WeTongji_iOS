@@ -7,6 +7,7 @@
 //
 
 #import "WTResourceFactory.h"
+#import "AMBlurView.h"
 
 #define BUTTON_WIDTH_INCREMENT      30.0f
 #define MIN_BACK_BAR_BUTTON_WIDTH   59.0f
@@ -224,6 +225,12 @@
 + (UIButton *)createTranslucentButtonWithText:(NSString *)text {
     UIButton *button = [[UIButton alloc] init];
     [WTResourceFactory configureTranslucentButton:button text:text];
+    AMBlurView *blur = [[AMBlurView alloc] initWithFrame:CGRectMake(1, 6.5, button.frame.size.width - 2, 30)];
+    blur.layer.cornerRadius = 5.0f;
+    blur.blurTintColor = [UIColor whiteColor];
+    blur.userInteractionEnabled = NO;
+    [button insertSubview:blur atIndex:0];
+    button.showsTouchWhenHighlighted = YES;
     return button;
 }
 
@@ -270,25 +277,25 @@
                            normalImage:[UIImage imageNamed:@"WTSelectButton"]
                         highlightImage:[UIImage imageNamed:@"WTSelectButton"]
                            selectImage:[UIImage imageNamed:@"WTNormalButton"]
-                      normalTitleColor:[UIColor whiteColor]
-                     normalShadowColor:[UIColor grayColor]
-                   highlightTitleColor:[UIColor whiteColor]
-                  highlightShadowColor:[UIColor grayColor]
+                      normalTitleColor:[UIColor darkGrayColor]
+                     normalShadowColor:[UIColor clearColor]
+                   highlightTitleColor:[UIColor darkGrayColor]
+                  highlightShadowColor:[UIColor clearColor]
                       selectTitleColor:[UIColor darkGrayColor]
-                     selectShadowColor:[UIColor whiteColor]];
+                     selectShadowColor:[UIColor clearColor]];
 }
 
 + (void)configureTranslucentButton:(UIButton *)button
                               text:(NSString *)text {
     [WTResourceFactory configureButton:button
                                   text:text
-                           normalImage:[UIImage imageNamed:@"WTTranslucentNormalButton"]
+                           normalImage:[UIImage imageNamed:@"WTTranslucentHighlightButton"]
                         highlightImage:[UIImage imageNamed:@"WTTranslucentHighlightButton"]
-                           selectImage:nil
-                      normalTitleColor:[UIColor whiteColor]
-                     normalShadowColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3f]
-                   highlightTitleColor:[UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.8f]
-                  highlightShadowColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5f]
+                           selectImage:[UIImage imageNamed:@"WTTranslucentNormalButton"]
+                      normalTitleColor:[UIColor blackColor]
+                     normalShadowColor:[UIColor clearColor]
+                   highlightTitleColor:[UIColor blackColor]
+                  highlightShadowColor:[UIColor clearColor]
                       selectTitleColor:nil
                      selectShadowColor:nil];
 }
