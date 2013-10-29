@@ -36,6 +36,14 @@
 		20040F7B181F82E4006BBF45 /* WTRouteImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20040F7A181F82E4006BBF45 /* WTRouteImageView.xib */; };
 		20040F84181FC4E7006BBF45 /* WTRouteDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20040F82181FC4E7006BBF45 /* WTRouteDetailView.m */; };
 		20040F85181FC4E7006BBF45 /* WTRouteDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20040F83181FC4E7006BBF45 /* WTRouteDetailView.xib */; };
+		20040F8E181FEA20006BBF45 /* WTWebViewControlBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 20040F86181FEA20006BBF45 /* WTWebViewControlBar.png */; };
+		20040F8F181FEA20006BBF45 /* WTWebViewControlBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20040F87181FEA20006BBF45 /* WTWebViewControlBar@2x.png */; };
+		20040F90181FEA20006BBF45 /* WTWebViewControlBarBackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 20040F88181FEA20006BBF45 /* WTWebViewControlBarBackButton.png */; };
+		20040F91181FEA20006BBF45 /* WTWebViewControlBarBackButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20040F89181FEA20006BBF45 /* WTWebViewControlBarBackButton@2x.png */; };
+		20040F92181FEA20006BBF45 /* WTWebViewControlBarForwardButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 20040F8A181FEA20006BBF45 /* WTWebViewControlBarForwardButton.png */; };
+		20040F93181FEA20006BBF45 /* WTWebViewControlBarForwardButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20040F8B181FEA20006BBF45 /* WTWebViewControlBarForwardButton@2x.png */; };
+		20040F94181FEA20006BBF45 /* WTWebViewControlBarReloadButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 20040F8C181FEA20006BBF45 /* WTWebViewControlBarReloadButton.png */; };
+		20040F95181FEA20006BBF45 /* WTWebViewControlBarReloadButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20040F8D181FEA20006BBF45 /* WTWebViewControlBarReloadButton@2x.png */; };
 		2015FB9418158D9600D96EE0 /* WTRouteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2015FB9318158D9600D96EE0 /* WTRouteCell.m */; };
 		2038DFA01816D3EA005365D7 /* WTRouteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2038DF9F1816D3EA005365D7 /* WTRouteCell.xib */; };
 		20727C8B1812B9A100F6470C /* WTYellowPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20727C8A1812B9A100F6470C /* WTYellowPageCell.m */; };
@@ -812,6 +820,14 @@
 		20040F81181FC4E7006BBF45 /* WTRouteDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTRouteDetailView.h; sourceTree = "<group>"; };
 		20040F82181FC4E7006BBF45 /* WTRouteDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTRouteDetailView.m; sourceTree = "<group>"; };
 		20040F83181FC4E7006BBF45 /* WTRouteDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTRouteDetailView.xib; sourceTree = "<group>"; };
+		20040F86181FEA20006BBF45 /* WTWebViewControlBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTWebViewControlBar.png; sourceTree = "<group>"; };
+		20040F87181FEA20006BBF45 /* WTWebViewControlBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTWebViewControlBar@2x.png"; sourceTree = "<group>"; };
+		20040F88181FEA20006BBF45 /* WTWebViewControlBarBackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTWebViewControlBarBackButton.png; sourceTree = "<group>"; };
+		20040F89181FEA20006BBF45 /* WTWebViewControlBarBackButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTWebViewControlBarBackButton@2x.png"; sourceTree = "<group>"; };
+		20040F8A181FEA20006BBF45 /* WTWebViewControlBarForwardButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTWebViewControlBarForwardButton.png; sourceTree = "<group>"; };
+		20040F8B181FEA20006BBF45 /* WTWebViewControlBarForwardButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTWebViewControlBarForwardButton@2x.png"; sourceTree = "<group>"; };
+		20040F8C181FEA20006BBF45 /* WTWebViewControlBarReloadButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTWebViewControlBarReloadButton.png; sourceTree = "<group>"; };
+		20040F8D181FEA20006BBF45 /* WTWebViewControlBarReloadButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTWebViewControlBarReloadButton@2x.png"; sourceTree = "<group>"; };
 		2015FB9218158D9600D96EE0 /* WTRouteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTRouteCell.h; sourceTree = "<group>"; };
 		2015FB9318158D9600D96EE0 /* WTRouteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTRouteCell.m; sourceTree = "<group>"; };
 		2038DF9F1816D3EA005365D7 /* WTRouteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTRouteCell.xib; sourceTree = "<group>"; };
@@ -1885,6 +1901,14 @@
 		20769A36180EC11B003FE1A0 /* Assistant */ = {
 			isa = PBXGroup;
 			children = (
+				20040F86181FEA20006BBF45 /* WTWebViewControlBar.png */,
+				20040F87181FEA20006BBF45 /* WTWebViewControlBar@2x.png */,
+				20040F88181FEA20006BBF45 /* WTWebViewControlBarBackButton.png */,
+				20040F89181FEA20006BBF45 /* WTWebViewControlBarBackButton@2x.png */,
+				20040F8A181FEA20006BBF45 /* WTWebViewControlBarForwardButton.png */,
+				20040F8B181FEA20006BBF45 /* WTWebViewControlBarForwardButton@2x.png */,
+				20040F8C181FEA20006BBF45 /* WTWebViewControlBarReloadButton.png */,
+				20040F8D181FEA20006BBF45 /* WTWebViewControlBarReloadButton@2x.png */,
 				20727C901812C17700F6470C /* WTYellowPageCellCall.png */,
 				20727C911812C17700F6470C /* WTYellowPageCellCall@2x.png */,
 				20038ABE1812699300FE9C35 /* guide.json */,
@@ -3655,6 +3679,7 @@
 				E18821C61680059600A41F47 /* WTCornerBottomLeft@2x.png in Resources */,
 				E18821C71680059600A41F47 /* WTCornerBottomRight.png in Resources */,
 				E18821C81680059600A41F47 /* WTCornerBottomRight@2x.png in Resources */,
+				20040F94181FEA20006BBF45 /* WTWebViewControlBarReloadButton.png in Resources */,
 				E18821C91680059600A41F47 /* WTCornerTopLeft.png in Resources */,
 				E18821CA1680059600A41F47 /* WTCornerTopLeft@2x.png in Resources */,
 				E18821CB1680059600A41F47 /* WTCornerTopRight.png in Resources */,
@@ -3721,6 +3746,7 @@
 				E1D3737B1691D0370012E30A /* WTPanelMoreHighlightButton@2x.png in Resources */,
 				E1D3737C1691D0370012E30A /* WTPanelMoreHighlightButton.png in Resources */,
 				E1D3737F1691D09C0012E30A /* WTPanelMoreNormalButton.png in Resources */,
+				20040F91181FEA20006BBF45 /* WTWebViewControlBarBackButton@2x.png in Resources */,
 				E1D373801691D09C0012E30A /* WTPanelMoreNormalButton@2x.png in Resources */,
 				E1D373931692ED2C0012E30A /* WTBannerView.xib in Resources */,
 				E1D373981692F4EE0012E30A /* WTPanelHighlightButton.png in Resources */,
@@ -3775,6 +3801,7 @@
 				E13B0EC516A468B800A45079 /* WTTableViewSectionBg.png in Resources */,
 				E13B0EC616A468B800A45079 /* WTTableViewSectionBg@2x.png in Resources */,
 				E13B0EDC16A486F300A45079 /* WTTableViewSeperatorUnit.png in Resources */,
+				20040F93181FEA20006BBF45 /* WTWebViewControlBarForwardButton@2x.png in Resources */,
 				E13B0EDD16A486F300A45079 /* WTTableViewSeperatorUnit@2x.png in Resources */,
 				E10C422516AB03550084337C /* WTSwitch.xib in Resources */,
 				E10C422D16AB051A0084337C /* WTSwitchBg.png in Resources */,
@@ -3844,6 +3871,7 @@
 				20A2F55E1816E99700878135 /* guide_metro11_2.png in Resources */,
 				03A3455216EF5ED400F6893E /* WTPullTableHeaderView.xib in Resources */,
 				E1A5816416F0FA6700551149 /* WTDragToLoadDecorator.xib in Resources */,
+				20040F8F181FEA20006BBF45 /* WTWebViewControlBar@2x.png in Resources */,
 				E1F02F4B16F38B5900699C81 /* WTNavigationBarBackHighlightButtonIcon.png in Resources */,
 				E1F02F4C16F38B5900699C81 /* WTNavigationBarBackHighlightButtonIcon@2x.png in Resources */,
 				E1F02F4F16F38B6E00699C81 /* WTNavigationBarBackHighlightButton.png in Resources */,
@@ -3901,6 +3929,7 @@
 				E14F9E8E1719CA3F009AFABA /* WTLoginIntroMoreIndicator@2x.png in Resources */,
 				E1ED19171719D1E400B0A847 /* WTLoginIntroBgImage1.jpg in Resources */,
 				E1ED19181719D1E400B0A847 /* WTLoginIntroBgImage2.jpg in Resources */,
+				20040F95181FEA20006BBF45 /* WTWebViewControlBarReloadButton@2x.png in Resources */,
 				E1ED19191719D1E400B0A847 /* WTLoginIntroBgImage3.jpg in Resources */,
 				20A2F54D1816E99700878135 /* guide_817_1.png in Resources */,
 				E10C1F1F171A80FB0009C673 /* WTNowBarTitleViewNextHighlightButton.png in Resources */,
@@ -3925,6 +3954,7 @@
 				E10C24D7171A94B90009C673 /* WTRegisterAvatarNormalButton.png in Resources */,
 				E10C24D8171A94B90009C673 /* WTRegisterAvatarNormalButton@2x.png in Resources */,
 				E10C24EB171AB3910009C673 /* WTBillboardLargeItemBg.png in Resources */,
+				20040F8E181FEA20006BBF45 /* WTWebViewControlBar.png in Resources */,
 				E10C24EC171AB3910009C673 /* WTBillboardLargeItemBg@2x.png in Resources */,
 				E10C24ED171AB3910009C673 /* WTBillboardLargeItemCover.png in Resources */,
 				E10C24EE171AB3910009C673 /* WTBillboardLargeItemCover@2x.png in Resources */,
@@ -4091,6 +4121,7 @@
 				E15E4DDC175D0D6900BBAE9A /* WTCheckmarkNormalButton.png in Resources */,
 				E15E4DDD175D0D6900BBAE9A /* WTCheckmarkNormalButton@2x.png in Resources */,
 				E15E4DEE175DDBF900BBAE9A /* WTInvitationAcceptedIconCN.png in Resources */,
+				20040F90181FEA20006BBF45 /* WTWebViewControlBarBackButton.png in Resources */,
 				E15E4DEF175DDBF900BBAE9A /* WTInvitationAcceptedIconCN@2x.png in Resources */,
 				E15E4DF0175DDBF900BBAE9A /* WTInvitationAcceptedIconEN.png in Resources */,
 				E15E4DF1175DDBF900BBAE9A /* WTInvitationAcceptedIconEN@2x.png in Resources */,
@@ -4108,6 +4139,7 @@
 				E142641717830D6C00847C08 /* WTCourseHeaderView.xib in Resources */,
 				E142642217834E8C00847C08 /* WTCourseTimetableView.xib in Resources */,
 				E15B4691178494BC00CE55F1 /* WTActivationViewController.xib in Resources */,
+				20040F92181FEA20006BBF45 /* WTWebViewControlBarForwardButton.png in Resources */,
 				E15B46961784AE4C00CE55F1 /* WTForgetPasswordViewController.xib in Resources */,
 				E17BEB9A178757960003D58B /* WTLoginIntroItemView.xib in Resources */,
 				E16D531C1788B10300689645 /* WTLoginIntroImage1.png in Resources */,

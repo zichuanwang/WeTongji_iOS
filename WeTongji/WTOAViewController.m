@@ -12,6 +12,7 @@
 @interface WTOAViewController ()
 
 @property (weak, nonatomic) IBOutlet UIWebView *oaWebView;
+@property (nonatomic, weak) IBOutlet UIView *controlBar;
 
 @end
 
@@ -32,6 +33,7 @@
     // Do any additional setup after loading the view from its nib.
     [self configureNavigationBar];
     [self configureWebView];
+    [self configureControlBar];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
 }
@@ -54,6 +56,32 @@
     NSURL *oaURL = [NSURL URLWithString:@"http://wapoa.tongji.edu.cn/keryec/indexmb.nsf/gotoserver?openagent"];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:oaURL];
     [self.oaWebView loadRequest:requestObj];
+}
+
+- (void)configureControlBar {
+    self.controlBar.frame = CGRectMake(0, 420, 320, 50);
+    
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *backButtonImage = [UIImage imageNamed:@"WTWebViewControlBarBackButton"];
+    [backButton setBackgroundImage:backButtonImage forState:UIControlStateNormal];
+    [backButton addTarget:self.oaWebView action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    backButton.frame = CGRectMake(70, 10, 20, 20);
+    
+    UIButton *forwardButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *forwardButtonImage = [UIImage imageNamed:@"WTWebViewControlBarForwardButton"];
+    [forwardButton setBackgroundImage:forwardButtonImage forState:UIControlStateNormal];
+    [forwardButton addTarget:self.oaWebView action:@selector(goForward) forControlEvents:UIControlEventTouchUpInside];
+    forwardButton.frame = CGRectMake(150, 10, 20, 20);
+    
+    UIButton *reloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *reloadButtonImage = [UIImage imageNamed:@"WTWebViewControlBarReloadButton"];
+    [reloadButton setBackgroundImage:reloadButtonImage forState:UIControlStateNormal];
+    [reloadButton addTarget:self.oaWebView action:@selector(reload) forControlEvents:UIControlEventTouchUpInside];
+    reloadButton.frame = CGRectMake(230, 10, 20, 20);
+    
+    [self.controlBar addSubview:backButton];
+    [self.controlBar addSubview:forwardButton];
+    [self.controlBar addSubview:reloadButton];
 }
 
 #pragma mark - Actions

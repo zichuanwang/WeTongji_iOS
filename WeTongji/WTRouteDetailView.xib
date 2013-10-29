@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="276"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" id="dDK-4V-65K">
+                <view opaque="NO" contentMode="scaleToFill" id="dDK-4V-65K">
                     <rect key="frame" x="10" y="36" width="300" height="220"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
