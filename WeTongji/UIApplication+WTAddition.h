@@ -13,6 +13,7 @@
 @class WTNowViewController;
 @class WTBillboardViewController;
 @class WTSearchViewController;
+@class WTAssistantViewController;
 @class WTMeViewController;
 @class Event;
 
@@ -27,6 +28,8 @@
 @property (nonatomic, readonly) WTBillboardViewController *billboardViewController;
 
 @property (nonatomic, readonly) WTSearchViewController *searchViewController;
+
+@property (nonatomic, readonly) WTAssistantViewController *assistantViewController;
 
 @property (nonatomic, readonly) WTMeViewController *meViewController;
 

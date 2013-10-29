@@ -264,3 +264,19 @@
 "1Designer" = "设计师";
 "2Developer" = "开发者";
 "3Project Manager" = "项目经理";
+
+"Assistant" = "出行助手";
+"OA System" = "同济大学办公系统";
+"My Library" = "移动图书馆";
+"Yellow Page" = "校园黄页";
+"Traffic Guide" = "校园出行指南";
+
+"Siping Road Campus" = "四平路校区";
+"Jiading Campus" = "嘉定校区";
+"Huxi Campus" = "沪西校区";
+
+"Frequented Locations" = "常去地点";
+"time_interval_1" = "起始站首末班车时间";
+"time_interval_2" = "终点站首末班车时间";
+"where" = "推荐上车地点";
+"cost" = "票价";

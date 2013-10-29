@@ -22,6 +22,71 @@
 		03B7261116E62CBD00093638 /* Exam+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B7261016E62CBD00093638 /* Exam+Addition.m */; };
 		03EE1092174534A20062A06B /* WTOrganizationProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03EE1091174534A20062A06B /* WTOrganizationProfileView.xib */; };
 		03EE1095174535770062A06B /* WTOrganizationProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EE1094174535770062A06B /* WTOrganizationProfileView.m */; };
+		20038AB51812553400FE9C35 /* WTOAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20038AB31812553400FE9C35 /* WTOAViewController.m */; };
+		20038AB61812553400FE9C35 /* WTOAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20038AB41812553400FE9C35 /* WTOAViewController.xib */; };
+		20038ABB1812592B00FE9C35 /* WTLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20038AB91812592B00FE9C35 /* WTLibraryViewController.m */; };
+		20038ABC1812592B00FE9C35 /* WTLibraryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20038ABA1812592B00FE9C35 /* WTLibraryViewController.xib */; };
+		20038AC01812699300FE9C35 /* guide.json in Resources */ = {isa = PBXBuildFile; fileRef = 20038ABE1812699300FE9C35 /* guide.json */; };
+		20038AC11812699300FE9C35 /* tel.json in Resources */ = {isa = PBXBuildFile; fileRef = 20038ABF1812699300FE9C35 /* tel.json */; };
+		20038AC618126ED500FE9C35 /* WTYellowPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20038AC418126ED500FE9C35 /* WTYellowPageViewController.m */; };
+		20038AC718126ED500FE9C35 /* WTYellowPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20038AC518126ED500FE9C35 /* WTYellowPageViewController.xib */; };
+		20038AD11812724600FE9C35 /* WTRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20038ACF1812724600FE9C35 /* WTRouteViewController.m */; };
+		20038AD21812724600FE9C35 /* WTRouteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20038AD01812724600FE9C35 /* WTRouteViewController.xib */; };
+		20040F79181F82B6006BBF45 /* WTRouteImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20040F78181F82B6006BBF45 /* WTRouteImageView.m */; };
+		20040F7B181F82E4006BBF45 /* WTRouteImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20040F7A181F82E4006BBF45 /* WTRouteImageView.xib */; };
+		20040F84181FC4E7006BBF45 /* WTRouteDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20040F82181FC4E7006BBF45 /* WTRouteDetailView.m */; };
+		20040F85181FC4E7006BBF45 /* WTRouteDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20040F83181FC4E7006BBF45 /* WTRouteDetailView.xib */; };
+		2015FB9418158D9600D96EE0 /* WTRouteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2015FB9318158D9600D96EE0 /* WTRouteCell.m */; };
+		2038DFA01816D3EA005365D7 /* WTRouteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2038DF9F1816D3EA005365D7 /* WTRouteCell.xib */; };
+		20727C8B1812B9A100F6470C /* WTYellowPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20727C8A1812B9A100F6470C /* WTYellowPageCell.m */; };
+		20727C8F1812BD0700F6470C /* WTYellowPageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20727C8E1812BD0700F6470C /* WTYellowPageCell.xib */; };
+		20727C921812C17700F6470C /* WTYellowPageCellCall.png in Resources */ = {isa = PBXBuildFile; fileRef = 20727C901812C17700F6470C /* WTYellowPageCellCall.png */; };
+		20727C931812C17700F6470C /* WTYellowPageCellCall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20727C911812C17700F6470C /* WTYellowPageCellCall@2x.png */; };
+		20769A32180EC114003FE1A0 /* WTTabBarButtonAssistant.png in Resources */ = {isa = PBXBuildFile; fileRef = 20769A2E180EC114003FE1A0 /* WTTabBarButtonAssistant.png */; };
+		20769A33180EC114003FE1A0 /* WTTabBarButtonAssistant@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20769A2F180EC114003FE1A0 /* WTTabBarButtonAssistant@2x.png */; };
+		20769A34180EC114003FE1A0 /* WTTabBarButtonAssistantHl.png in Resources */ = {isa = PBXBuildFile; fileRef = 20769A30180EC114003FE1A0 /* WTTabBarButtonAssistantHl.png */; };
+		20769A35180EC114003FE1A0 /* WTTabBarButtonAssistantHl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20769A31180EC114003FE1A0 /* WTTabBarButtonAssistantHl@2x.png */; };
+		20769A3F180EC127003FE1A0 /* WTAssistantLibrary.png in Resources */ = {isa = PBXBuildFile; fileRef = 20769A37180EC127003FE1A0 /* WTAssistantLibrary.png */; };
+		20769A40180EC127003FE1A0 /* WTAssistantLibrary@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20769A38180EC127003FE1A0 /* WTAssistantLibrary@2x.png */; };
+		20769A41180EC127003FE1A0 /* WTAssistantOA.png in Resources */ = {isa = PBXBuildFile; fileRef = 20769A39180EC127003FE1A0 /* WTAssistantOA.png */; };
+		20769A42180EC127003FE1A0 /* WTAssistantOA@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20769A3A180EC127003FE1A0 /* WTAssistantOA@2x.png */; };
+		20769A43180EC127003FE1A0 /* WTAssistantRoute.png in Resources */ = {isa = PBXBuildFile; fileRef = 20769A3B180EC127003FE1A0 /* WTAssistantRoute.png */; };
+		20769A44180EC127003FE1A0 /* WTAssistantRoute@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20769A3C180EC127003FE1A0 /* WTAssistantRoute@2x.png */; };
+		20769A45180EC127003FE1A0 /* WTAssistantYellowPage.png in Resources */ = {isa = PBXBuildFile; fileRef = 20769A3D180EC127003FE1A0 /* WTAssistantYellowPage.png */; };
+		20769A46180EC127003FE1A0 /* WTAssistantYellowPage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20769A3E180EC127003FE1A0 /* WTAssistantYellowPage@2x.png */; };
+		20769A4A180EC1E2003FE1A0 /* WTAssistantNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20769A49180EC1E2003FE1A0 /* WTAssistantNavigationController.m */; };
+		20769A4E180EC21C003FE1A0 /* WTAssistantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20769A4C180EC21C003FE1A0 /* WTAssistantViewController.m */; };
+		20769A4F180EC21C003FE1A0 /* WTAssistantViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20769A4D180EC21C003FE1A0 /* WTAssistantViewController.xib */; };
+		20A2F5241816E7CF00878135 /* WTRouteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20A2F5221816E7CF00878135 /* WTRouteDetailViewController.m */; };
+		20A2F5251816E7CF00878135 /* WTRouteDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F5231816E7CF00878135 /* WTRouteDetailViewController.xib */; };
+		20A2F5431816E99700878135 /* guide_115_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F5271816E99700878135 /* guide_115_1.png */; };
+		20A2F5441816E99700878135 /* guide_115_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F5281816E99700878135 /* guide_115_2.png */; };
+		20A2F5451816E99700878135 /* guide_123_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F5291816E99700878135 /* guide_123_1.png */; };
+		20A2F5461816E99700878135 /* guide_123_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F52A1816E99700878135 /* guide_123_2.png */; };
+		20A2F5471816E99700878135 /* guide_307_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F52B1816E99700878135 /* guide_307_1.png */; };
+		20A2F5481816E99700878135 /* guide_307_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F52C1816E99700878135 /* guide_307_2.png */; };
+		20A2F5491816E99700878135 /* guide_310_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F52D1816E99700878135 /* guide_310_1.png */; };
+		20A2F54A1816E99700878135 /* guide_310_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F52E1816E99700878135 /* guide_310_2.png */; };
+		20A2F54B1816E99700878135 /* guide_744_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F52F1816E99700878135 /* guide_744_1.png */; };
+		20A2F54C1816E99700878135 /* guide_744_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F5301816E99700878135 /* guide_744_2.png */; };
+		20A2F54D1816E99700878135 /* guide_817_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F5311816E99700878135 /* guide_817_1.png */; };
+		20A2F54E1816E99700878135 /* guide_817_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F5321816E99700878135 /* guide_817_2.png */; };
+		20A2F54F1816E99700878135 /* guide_937_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F5331816E99700878135 /* guide_937_1.png */; };
+		20A2F5501816E99700878135 /* guide_937_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F5341816E99700878135 /* guide_937_2.png */; };
+		20A2F5511816E99700878135 /* guide_960_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F5351816E99700878135 /* guide_960_1.png */; };
+		20A2F5521816E99700878135 /* guide_960_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F5361816E99700878135 /* guide_960_2.png */; };
+		20A2F5531816E99700878135 /* guide_anting4_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F5371816E99700878135 /* guide_anting4_1.png */; };
+		20A2F5541816E99700878135 /* guide_anting4_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F5381816E99700878135 /* guide_anting4_2.png */; };
+		20A2F5551816E99700878135 /* guide_beian_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F5391816E99700878135 /* guide_beian_1.png */; };
+		20A2F5561816E99700878135 /* guide_beian_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F53A1816E99700878135 /* guide_beian_2.png */; };
+		20A2F5571816E99700878135 /* guide_beiankua_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F53B1816E99700878135 /* guide_beiankua_1.png */; };
+		20A2F5581816E99700878135 /* guide_beiankua_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F53C1816E99700878135 /* guide_beiankua_2.png */; };
+		20A2F5591816E99700878135 /* guide_luan_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F53D1816E99700878135 /* guide_luan_1.png */; };
+		20A2F55A1816E99700878135 /* guide_luan_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F53E1816E99700878135 /* guide_luan_2.png */; };
+		20A2F55B1816E99700878135 /* guide_metro10_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F53F1816E99700878135 /* guide_metro10_1.png */; };
+		20A2F55C1816E99700878135 /* guide_metro10_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F5401816E99700878135 /* guide_metro10_2.png */; };
+		20A2F55D1816E99700878135 /* guide_metro11_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F5411816E99700878135 /* guide_metro11_1.png */; };
+		20A2F55E1816E99700878135 /* guide_metro11_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 20A2F5421816E99700878135 /* guide_metro11_2.png */; };
 		A1ADA9DB16AC460500E3A62E /* WTActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ADA9D916AC460500E3A62E /* WTActivityViewController.m */; };
 		A1ADA9DC16AC460500E3A62E /* WTActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1ADA9DA16AC460500E3A62E /* WTActivityViewController.xib */; };
 		A1ADA9E016AC58E400E3A62E /* WTActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ADA9DF16AC58E400E3A62E /* WTActivityCell.m */; };
@@ -727,6 +792,82 @@
 		03EE1091174534A20062A06B /* WTOrganizationProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTOrganizationProfileView.xib; sourceTree = "<group>"; };
 		03EE1093174535770062A06B /* WTOrganizationProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTOrganizationProfileView.h; sourceTree = "<group>"; };
 		03EE1094174535770062A06B /* WTOrganizationProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTOrganizationProfileView.m; sourceTree = "<group>"; };
+		20038AB21812553400FE9C35 /* WTOAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTOAViewController.h; sourceTree = "<group>"; };
+		20038AB31812553400FE9C35 /* WTOAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTOAViewController.m; sourceTree = "<group>"; };
+		20038AB41812553400FE9C35 /* WTOAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTOAViewController.xib; sourceTree = "<group>"; };
+		20038AB81812592B00FE9C35 /* WTLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTLibraryViewController.h; sourceTree = "<group>"; };
+		20038AB91812592B00FE9C35 /* WTLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTLibraryViewController.m; sourceTree = "<group>"; };
+		20038ABA1812592B00FE9C35 /* WTLibraryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTLibraryViewController.xib; sourceTree = "<group>"; };
+		20038ABE1812699300FE9C35 /* guide.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = guide.json; sourceTree = "<group>"; };
+		20038ABF1812699300FE9C35 /* tel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tel.json; sourceTree = "<group>"; };
+		20038AC318126ED500FE9C35 /* WTYellowPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTYellowPageViewController.h; sourceTree = "<group>"; };
+		20038AC418126ED500FE9C35 /* WTYellowPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTYellowPageViewController.m; sourceTree = "<group>"; };
+		20038AC518126ED500FE9C35 /* WTYellowPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTYellowPageViewController.xib; sourceTree = "<group>"; };
+		20038ACE1812724600FE9C35 /* WTRouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTRouteViewController.h; sourceTree = "<group>"; };
+		20038ACF1812724600FE9C35 /* WTRouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTRouteViewController.m; sourceTree = "<group>"; };
+		20038AD01812724600FE9C35 /* WTRouteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTRouteViewController.xib; sourceTree = "<group>"; };
+		20040F77181F82B6006BBF45 /* WTRouteImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTRouteImageView.h; sourceTree = "<group>"; };
+		20040F78181F82B6006BBF45 /* WTRouteImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTRouteImageView.m; sourceTree = "<group>"; };
+		20040F7A181F82E4006BBF45 /* WTRouteImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTRouteImageView.xib; sourceTree = "<group>"; };
+		20040F81181FC4E7006BBF45 /* WTRouteDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTRouteDetailView.h; sourceTree = "<group>"; };
+		20040F82181FC4E7006BBF45 /* WTRouteDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTRouteDetailView.m; sourceTree = "<group>"; };
+		20040F83181FC4E7006BBF45 /* WTRouteDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTRouteDetailView.xib; sourceTree = "<group>"; };
+		2015FB9218158D9600D96EE0 /* WTRouteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTRouteCell.h; sourceTree = "<group>"; };
+		2015FB9318158D9600D96EE0 /* WTRouteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTRouteCell.m; sourceTree = "<group>"; };
+		2038DF9F1816D3EA005365D7 /* WTRouteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTRouteCell.xib; sourceTree = "<group>"; };
+		20727C891812B9A100F6470C /* WTYellowPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTYellowPageCell.h; sourceTree = "<group>"; };
+		20727C8A1812B9A100F6470C /* WTYellowPageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTYellowPageCell.m; sourceTree = "<group>"; };
+		20727C8E1812BD0700F6470C /* WTYellowPageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTYellowPageCell.xib; sourceTree = "<group>"; };
+		20727C901812C17700F6470C /* WTYellowPageCellCall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTYellowPageCellCall.png; sourceTree = "<group>"; };
+		20727C911812C17700F6470C /* WTYellowPageCellCall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTYellowPageCellCall@2x.png"; sourceTree = "<group>"; };
+		20769A2E180EC114003FE1A0 /* WTTabBarButtonAssistant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTabBarButtonAssistant.png; sourceTree = "<group>"; };
+		20769A2F180EC114003FE1A0 /* WTTabBarButtonAssistant@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTabBarButtonAssistant@2x.png"; sourceTree = "<group>"; };
+		20769A30180EC114003FE1A0 /* WTTabBarButtonAssistantHl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTabBarButtonAssistantHl.png; sourceTree = "<group>"; };
+		20769A31180EC114003FE1A0 /* WTTabBarButtonAssistantHl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTabBarButtonAssistantHl@2x.png"; sourceTree = "<group>"; };
+		20769A37180EC127003FE1A0 /* WTAssistantLibrary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTAssistantLibrary.png; sourceTree = "<group>"; };
+		20769A38180EC127003FE1A0 /* WTAssistantLibrary@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTAssistantLibrary@2x.png"; sourceTree = "<group>"; };
+		20769A39180EC127003FE1A0 /* WTAssistantOA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTAssistantOA.png; sourceTree = "<group>"; };
+		20769A3A180EC127003FE1A0 /* WTAssistantOA@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTAssistantOA@2x.png"; sourceTree = "<group>"; };
+		20769A3B180EC127003FE1A0 /* WTAssistantRoute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTAssistantRoute.png; sourceTree = "<group>"; };
+		20769A3C180EC127003FE1A0 /* WTAssistantRoute@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTAssistantRoute@2x.png"; sourceTree = "<group>"; };
+		20769A3D180EC127003FE1A0 /* WTAssistantYellowPage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTAssistantYellowPage.png; sourceTree = "<group>"; };
+		20769A3E180EC127003FE1A0 /* WTAssistantYellowPage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTAssistantYellowPage@2x.png"; sourceTree = "<group>"; };
+		20769A48180EC1E2003FE1A0 /* WTAssistantNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTAssistantNavigationController.h; sourceTree = "<group>"; };
+		20769A49180EC1E2003FE1A0 /* WTAssistantNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTAssistantNavigationController.m; sourceTree = "<group>"; };
+		20769A4B180EC21C003FE1A0 /* WTAssistantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTAssistantViewController.h; sourceTree = "<group>"; };
+		20769A4C180EC21C003FE1A0 /* WTAssistantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTAssistantViewController.m; sourceTree = "<group>"; };
+		20769A4D180EC21C003FE1A0 /* WTAssistantViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTAssistantViewController.xib; sourceTree = "<group>"; };
+		20A2F5211816E7CF00878135 /* WTRouteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTRouteDetailViewController.h; sourceTree = "<group>"; };
+		20A2F5221816E7CF00878135 /* WTRouteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTRouteDetailViewController.m; sourceTree = "<group>"; };
+		20A2F5231816E7CF00878135 /* WTRouteDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTRouteDetailViewController.xib; sourceTree = "<group>"; };
+		20A2F5271816E99700878135 /* guide_115_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_115_1.png; sourceTree = "<group>"; };
+		20A2F5281816E99700878135 /* guide_115_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_115_2.png; sourceTree = "<group>"; };
+		20A2F5291816E99700878135 /* guide_123_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_123_1.png; sourceTree = "<group>"; };
+		20A2F52A1816E99700878135 /* guide_123_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_123_2.png; sourceTree = "<group>"; };
+		20A2F52B1816E99700878135 /* guide_307_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_307_1.png; sourceTree = "<group>"; };
+		20A2F52C1816E99700878135 /* guide_307_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_307_2.png; sourceTree = "<group>"; };
+		20A2F52D1816E99700878135 /* guide_310_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_310_1.png; sourceTree = "<group>"; };
+		20A2F52E1816E99700878135 /* guide_310_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_310_2.png; sourceTree = "<group>"; };
+		20A2F52F1816E99700878135 /* guide_744_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_744_1.png; sourceTree = "<group>"; };
+		20A2F5301816E99700878135 /* guide_744_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_744_2.png; sourceTree = "<group>"; };
+		20A2F5311816E99700878135 /* guide_817_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_817_1.png; sourceTree = "<group>"; };
+		20A2F5321816E99700878135 /* guide_817_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_817_2.png; sourceTree = "<group>"; };
+		20A2F5331816E99700878135 /* guide_937_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_937_1.png; sourceTree = "<group>"; };
+		20A2F5341816E99700878135 /* guide_937_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_937_2.png; sourceTree = "<group>"; };
+		20A2F5351816E99700878135 /* guide_960_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_960_1.png; sourceTree = "<group>"; };
+		20A2F5361816E99700878135 /* guide_960_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_960_2.png; sourceTree = "<group>"; };
+		20A2F5371816E99700878135 /* guide_anting4_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_anting4_1.png; sourceTree = "<group>"; };
+		20A2F5381816E99700878135 /* guide_anting4_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_anting4_2.png; sourceTree = "<group>"; };
+		20A2F5391816E99700878135 /* guide_beian_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_beian_1.png; sourceTree = "<group>"; };
+		20A2F53A1816E99700878135 /* guide_beian_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_beian_2.png; sourceTree = "<group>"; };
+		20A2F53B1816E99700878135 /* guide_beiankua_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_beiankua_1.png; sourceTree = "<group>"; };
+		20A2F53C1816E99700878135 /* guide_beiankua_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_beiankua_2.png; sourceTree = "<group>"; };
+		20A2F53D1816E99700878135 /* guide_luan_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_luan_1.png; sourceTree = "<group>"; };
+		20A2F53E1816E99700878135 /* guide_luan_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_luan_2.png; sourceTree = "<group>"; };
+		20A2F53F1816E99700878135 /* guide_metro10_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_metro10_1.png; sourceTree = "<group>"; };
+		20A2F5401816E99700878135 /* guide_metro10_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_metro10_2.png; sourceTree = "<group>"; };
+		20A2F5411816E99700878135 /* guide_metro11_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_metro11_1.png; sourceTree = "<group>"; };
+		20A2F5421816E99700878135 /* guide_metro11_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_metro11_2.png; sourceTree = "<group>"; };
 		A1ADA9D816AC460500E3A62E /* WTActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTActivityViewController.h; sourceTree = "<group>"; };
 		A1ADA9D916AC460500E3A62E /* WTActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTActivityViewController.m; sourceTree = "<group>"; };
 		A1ADA9DA16AC460500E3A62E /* WTActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTActivityViewController.xib; sourceTree = "<group>"; };
@@ -1665,6 +1806,148 @@
 			name = Organization;
 			sourceTree = "<group>";
 		};
+		20038AAC181249D400FE9C35 /* OA */ = {
+			isa = PBXGroup;
+			children = (
+				20038AB21812553400FE9C35 /* WTOAViewController.h */,
+				20038AB31812553400FE9C35 /* WTOAViewController.m */,
+				20038AB41812553400FE9C35 /* WTOAViewController.xib */,
+			);
+			name = OA;
+			sourceTree = "<group>";
+		};
+		20038AB7181258E300FE9C35 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				20038AB81812592B00FE9C35 /* WTLibraryViewController.h */,
+				20038AB91812592B00FE9C35 /* WTLibraryViewController.m */,
+				20038ABA1812592B00FE9C35 /* WTLibraryViewController.xib */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		20038AC218126BE500FE9C35 /* YellowPage */ = {
+			isa = PBXGroup;
+			children = (
+				20038AC318126ED500FE9C35 /* WTYellowPageViewController.h */,
+				20038AC418126ED500FE9C35 /* WTYellowPageViewController.m */,
+				20038AC518126ED500FE9C35 /* WTYellowPageViewController.xib */,
+			);
+			name = YellowPage;
+			sourceTree = "<group>";
+		};
+		20038ACD1812723400FE9C35 /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				20038ACE1812724600FE9C35 /* WTRouteViewController.h */,
+				20038ACF1812724600FE9C35 /* WTRouteViewController.m */,
+				20038AD01812724600FE9C35 /* WTRouteViewController.xib */,
+				20A2F5211816E7CF00878135 /* WTRouteDetailViewController.h */,
+				20A2F5221816E7CF00878135 /* WTRouteDetailViewController.m */,
+				20A2F5231816E7CF00878135 /* WTRouteDetailViewController.xib */,
+			);
+			name = Route;
+			sourceTree = "<group>";
+		};
+		20040F76181F827E006BBF45 /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				20040F81181FC4E7006BBF45 /* WTRouteDetailView.h */,
+				20040F82181FC4E7006BBF45 /* WTRouteDetailView.m */,
+				20040F83181FC4E7006BBF45 /* WTRouteDetailView.xib */,
+				20040F77181F82B6006BBF45 /* WTRouteImageView.h */,
+				20040F78181F82B6006BBF45 /* WTRouteImageView.m */,
+				20040F7A181F82E4006BBF45 /* WTRouteImageView.xib */,
+			);
+			name = Route;
+			sourceTree = "<group>";
+		};
+		2015FB91181517AA00D96EE0 /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				2015FB9218158D9600D96EE0 /* WTRouteCell.h */,
+				2015FB9318158D9600D96EE0 /* WTRouteCell.m */,
+				2038DF9F1816D3EA005365D7 /* WTRouteCell.xib */,
+			);
+			name = Route;
+			sourceTree = "<group>";
+		};
+		20727C881812B91E00F6470C /* YellowPage */ = {
+			isa = PBXGroup;
+			children = (
+				20727C891812B9A100F6470C /* WTYellowPageCell.h */,
+				20727C8A1812B9A100F6470C /* WTYellowPageCell.m */,
+				20727C8E1812BD0700F6470C /* WTYellowPageCell.xib */,
+			);
+			name = YellowPage;
+			sourceTree = "<group>";
+		};
+		20769A36180EC11B003FE1A0 /* Assistant */ = {
+			isa = PBXGroup;
+			children = (
+				20727C901812C17700F6470C /* WTYellowPageCellCall.png */,
+				20727C911812C17700F6470C /* WTYellowPageCellCall@2x.png */,
+				20038ABE1812699300FE9C35 /* guide.json */,
+				20038ABF1812699300FE9C35 /* tel.json */,
+				20769A37180EC127003FE1A0 /* WTAssistantLibrary.png */,
+				20769A38180EC127003FE1A0 /* WTAssistantLibrary@2x.png */,
+				20769A39180EC127003FE1A0 /* WTAssistantOA.png */,
+				20769A3A180EC127003FE1A0 /* WTAssistantOA@2x.png */,
+				20769A3B180EC127003FE1A0 /* WTAssistantRoute.png */,
+				20769A3C180EC127003FE1A0 /* WTAssistantRoute@2x.png */,
+				20769A3D180EC127003FE1A0 /* WTAssistantYellowPage.png */,
+				20769A3E180EC127003FE1A0 /* WTAssistantYellowPage@2x.png */,
+			);
+			name = Assistant;
+			sourceTree = "<group>";
+		};
+		20769A47180EC12F003FE1A0 /* Assistant */ = {
+			isa = PBXGroup;
+			children = (
+				20769A48180EC1E2003FE1A0 /* WTAssistantNavigationController.h */,
+				20769A49180EC1E2003FE1A0 /* WTAssistantNavigationController.m */,
+				20769A4B180EC21C003FE1A0 /* WTAssistantViewController.h */,
+				20769A4C180EC21C003FE1A0 /* WTAssistantViewController.m */,
+				20769A4D180EC21C003FE1A0 /* WTAssistantViewController.xib */,
+			);
+			name = Assistant;
+			sourceTree = "<group>";
+		};
+		20A2F5261816E96800878135 /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				20A2F5271816E99700878135 /* guide_115_1.png */,
+				20A2F5281816E99700878135 /* guide_115_2.png */,
+				20A2F5291816E99700878135 /* guide_123_1.png */,
+				20A2F52A1816E99700878135 /* guide_123_2.png */,
+				20A2F52B1816E99700878135 /* guide_307_1.png */,
+				20A2F52C1816E99700878135 /* guide_307_2.png */,
+				20A2F52D1816E99700878135 /* guide_310_1.png */,
+				20A2F52E1816E99700878135 /* guide_310_2.png */,
+				20A2F52F1816E99700878135 /* guide_744_1.png */,
+				20A2F5301816E99700878135 /* guide_744_2.png */,
+				20A2F5311816E99700878135 /* guide_817_1.png */,
+				20A2F5321816E99700878135 /* guide_817_2.png */,
+				20A2F5331816E99700878135 /* guide_937_1.png */,
+				20A2F5341816E99700878135 /* guide_937_2.png */,
+				20A2F5351816E99700878135 /* guide_960_1.png */,
+				20A2F5361816E99700878135 /* guide_960_2.png */,
+				20A2F5371816E99700878135 /* guide_anting4_1.png */,
+				20A2F5381816E99700878135 /* guide_anting4_2.png */,
+				20A2F5391816E99700878135 /* guide_beian_1.png */,
+				20A2F53A1816E99700878135 /* guide_beian_2.png */,
+				20A2F53B1816E99700878135 /* guide_beiankua_1.png */,
+				20A2F53C1816E99700878135 /* guide_beiankua_2.png */,
+				20A2F53D1816E99700878135 /* guide_luan_1.png */,
+				20A2F53E1816E99700878135 /* guide_luan_2.png */,
+				20A2F53F1816E99700878135 /* guide_metro10_1.png */,
+				20A2F5401816E99700878135 /* guide_metro10_2.png */,
+				20A2F5411816E99700878135 /* guide_metro11_1.png */,
+				20A2F5421816E99700878135 /* guide_metro11_2.png */,
+			);
+			name = Route;
+			sourceTree = "<group>";
+		};
 		A1DD01CA169F2437009EBE02 /* News */ = {
 			isa = PBXGroup;
 			children = (
@@ -1889,6 +2172,8 @@
 		E117035A1651EF3E00D82F4A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				20A2F5261816E96800878135 /* Route */,
+				20769A36180EC11B003FE1A0 /* Assistant */,
 				E19832D716FEF21300AB83E8 /* Bg */,
 				E10C24DE171AB3840009C673 /* Billboard */,
 				E14FA67C1680A9F7008A8D33 /* Button */,
@@ -1916,6 +2201,11 @@
 		E117038E1651EFD900D82F4A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				20038ACD1812723400FE9C35 /* Route */,
+				20038AC218126BE500FE9C35 /* YellowPage */,
+				20038AB7181258E300FE9C35 /* Library */,
+				20038AAC181249D400FE9C35 /* OA */,
+				20769A47180EC12F003FE1A0 /* Assistant */,
 				E1250C0A16859A1D00802808 /* Activity */,
 				E1D3741316942E350012E30A /* Billboard */,
 				E1157DD9173B7CD700E62295 /* Comment */,
@@ -2225,6 +2515,7 @@
 		E14FA67D1680B9BB008A8D33 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				20040F76181F827E006BBF45 /* Route */,
 				E11825DA17154A8000B4B9BF /* Activity */,
 				E17F9E7317130C4100DC6AB6 /* Banner */,
 				E1428693171AE02F006AB739 /* Billboard */,
@@ -2670,6 +2961,10 @@
 		E18821BB1680058000A41F47 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				20769A2E180EC114003FE1A0 /* WTTabBarButtonAssistant.png */,
+				20769A2F180EC114003FE1A0 /* WTTabBarButtonAssistant@2x.png */,
+				20769A30180EC114003FE1A0 /* WTTabBarButtonAssistantHl.png */,
+				20769A31180EC114003FE1A0 /* WTTabBarButtonAssistantHl@2x.png */,
 				E117035B1651EF4700D82F4A /* WTTabBarBg.png */,
 				E117035C1651EF4700D82F4A /* WTTabBarBg@2x.png */,
 				E117035D1651EF4700D82F4A /* WTTabBarButtonBillBoard.png */,
@@ -3063,6 +3358,8 @@
 		E1D373F916936B5B0012E30A /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				2015FB91181517AA00D96EE0 /* Route */,
+				20727C881812B91E00F6470C /* YellowPage */,
 				E16D530E178887DD00689645 /* Activity */,
 				E16D530F178887E700689645 /* Billboard */,
 				E16D5310178887F000689645 /* Comment */,
@@ -3320,6 +3617,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20A2F5461816E99700878135 /* guide_123_2.png in Resources */,
 				E125549E16491530006D42F5 /* InfoPlist.strings in Resources */,
 				E12554A616491530006D42F5 /* Default@2x.png in Resources */,
 				E12554A816491530006D42F5 /* Default.png in Resources */,
@@ -3340,6 +3638,8 @@
 				E117037C1651EF4800D82F4A /* WTTabBarButtonMe@2x.png in Resources */,
 				E117037D1651EF4800D82F4A /* WTTabBarButtonMeHl.png in Resources */,
 				E117037E1651EF4800D82F4A /* WTTabBarButtonMeHl@2x.png in Resources */,
+				20769A40180EC127003FE1A0 /* WTAssistantLibrary@2x.png in Resources */,
+				20769A4F180EC21C003FE1A0 /* WTAssistantViewController.xib in Resources */,
 				E117037F1651EF4800D82F4A /* WTTabBarButtonNow.png in Resources */,
 				E11703801651EF4800D82F4A /* WTTabBarButtonNow@2x.png in Resources */,
 				E11703811651EF4800D82F4A /* WTTabBarButtonNowHl.png in Resources */,
@@ -3392,9 +3692,11 @@
 				E14FA6AA1681EBC5008A8D33 /* WTActivityDetailViewController.xib in Resources */,
 				E14FA6AD1681EC23008A8D33 /* WTNavigationBarBackNormalButton.png in Resources */,
 				E14FA6AE1681EC23008A8D33 /* WTNavigationBarBackNormalButton@2x.png in Resources */,
+				20A2F5501816E99700878135 /* guide_937_2.png in Resources */,
 				E14FA6B31681F7FC008A8D33 /* WTCommentButton.png in Resources */,
 				E14FA6B41681F7FC008A8D33 /* WTMoreButton.png in Resources */,
 				E14FA6B51681F7FC008A8D33 /* WTCommentButton@2x.png in Resources */,
+				20038AC11812699300FE9C35 /* tel.json in Resources */,
 				E14FA6B61681F7FC008A8D33 /* WTMoreButton@2x.png in Resources */,
 				E14FA6BF16820012008A8D33 /* WTLikeNormalButton.png in Resources */,
 				E14FA6C016820012008A8D33 /* WTLikeSelectButton.png in Resources */,
@@ -3409,6 +3711,7 @@
 				E1B89295169181CB009D901C /* WTBottomShadowUnit@2x.png in Resources */,
 				E1B89298169184E2009D901C /* WTTestBanner3.png in Resources */,
 				E1B89299169184E2009D901C /* WTTestBanner2.png in Resources */,
+				20A2F5431816E99700878135 /* guide_115_1.png in Resources */,
 				E1AEA9891691AFBC007DFA4C /* WTTopShadow.png in Resources */,
 				E1AEA98A1691AFBC007DFA4C /* WTTopShadow@2x.png in Resources */,
 				E1AEA98F1691B3BA007DFA4C /* WTLeftShadow.png in Resources */,
@@ -3429,10 +3732,13 @@
 				E1D373A4169346F20012E30A /* WTPanelNowIcon.png in Resources */,
 				E1D373A5169346F20012E30A /* WTPanelNowIcon@2x.png in Resources */,
 				E1D373F816936B540012E30A /* WTHomeSelectContainerView.xib in Resources */,
+				20769A3F180EC127003FE1A0 /* WTAssistantLibrary.png in Resources */,
 				E1D3740816936D560012E30A /* WTDarkGrayMoreIndicator.png in Resources */,
+				20A2F5491816E99700878135 /* guide_310_1.png in Resources */,
 				E1D3740916936D560012E30A /* WTDarkGrayMoreIndicator@2x.png in Resources */,
 				E1D3740E1694135D0012E30A /* WTHomeSelectItemView.xib in Resources */,
 				E1D37411169415460012E30A /* WTRoundCornerPanelBg.png in Resources */,
+				20A2F54A1816E99700878135 /* guide_310_2.png in Resources */,
 				E1D37412169415460012E30A /* WTRoundCornerPanelBg@2x.png in Resources */,
 				E1D3741B16942ECE0012E30A /* WTBillboardViewController.xib in Resources */,
 				E1D374251694321A0012E30A /* WTMeViewController.xib in Resources */,
@@ -3445,23 +3751,27 @@
 				E1D3746E1694C9B60012E30A /* WTLargePosterCover@2x.png in Resources */,
 				E1D3746F1694C9B60012E30A /* WTSmallPosterCover.png in Resources */,
 				E1D374701694C9B60012E30A /* WTSmallPosterCover@2x.png in Resources */,
+				20038AC01812699300FE9C35 /* guide.json in Resources */,
 				039E37ED169701BC00178F1C /* WTRedDot.png in Resources */,
 				039E37EE169701BC00178F1C /* WTRedDot@2x.png in Resources */,
 				039E380316970FF600178F1C /* WTNowActivityCell.xib in Resources */,
 				039E380E16971F8C00178F1C /* WTNowCourseCell.xib in Resources */,
 				E14F964F1696FCF40048414D /* TestAvatar1.png in Resources */,
 				E1C482EA16988AD8004F025A /* WTRoundCornerPanelRing.png in Resources */,
+				20038ABC1812592B00FE9C35 /* WTLibraryViewController.xib in Resources */,
 				E1C482EB16988AD9004F025A /* WTRoundCornerPanelRing@2x.png in Resources */,
 				E1C482F01698A83D004F025A /* WTNowBarTitleCountViewBg.png in Resources */,
 				E1C482F11698A83D004F025A /* WTNowBarTitleCountViewBg@2x.png in Resources */,
 				E1C482F21698A83D004F025A /* WTNowBarTitleViewBg.png in Resources */,
 				E1C482F31698A83D004F025A /* WTNowBarTitleViewBg@2x.png in Resources */,
 				A1DD01D0169F244E009EBE02 /* WTNewsViewController.xib in Resources */,
+				20A2F55B1816E99700878135 /* guide_metro10_1.png in Resources */,
 				E13B0E4C169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon.png in Resources */,
 				E13B0E4D169F4F5500A45079 /* WTNavigationBarBackNormalButtonIcon@2x.png in Resources */,
 				E13B0E5316A2E18800A45079 /* WTNewsCell.xib in Resources */,
 				E13B0E5616A2F31100A45079 /* WTFilterSelectIcon.png in Resources */,
 				E13B0E5716A2F31100A45079 /* WTFilterSelectIcon@2x.png in Resources */,
+				20A2F5481816E99700878135 /* guide_307_2.png in Resources */,
 				E13B0EC516A468B800A45079 /* WTTableViewSectionBg.png in Resources */,
 				E13B0EC616A468B800A45079 /* WTTableViewSectionBg@2x.png in Resources */,
 				E13B0EDC16A486F300A45079 /* WTTableViewSeperatorUnit.png in Resources */,
@@ -3487,11 +3797,13 @@
 				E1132E6E16C632F6004CB808 /* WTEventIcon@2x.png in Resources */,
 				E1132E6F16C632F6004CB808 /* WTPopularityIcon.png in Resources */,
 				E1132E7016C632F6004CB808 /* WTPopularityIcon@2x.png in Resources */,
+				20A2F5571816E99700878135 /* guide_beiankua_1.png in Resources */,
 				E1132E7116C632F6004CB808 /* WTPublishDateIcon.png in Resources */,
 				E1132E7216C632F6004CB808 /* WTPublishDateIcon@2x.png in Resources */,
 				E1132E7516C63308004CB808 /* WTCheckmarkIcon.png in Resources */,
 				E1132E7616C63308004CB808 /* WTCheckmarkIcon@2x.png in Resources */,
 				E191D91216C72E7100384CF6 /* WTActivitySettingConfig.plist in Resources */,
+				20038AC718126ED500FE9C35 /* WTYellowPageViewController.xib in Resources */,
 				E1767A4A16D14D2700E58CCC /* WTBlackMoreIndicator.png in Resources */,
 				E1767A4B16D14D2700E58CCC /* WTBlackMoreIndicator@2x.png in Resources */,
 				E1767A4C16D14D2700E58CCC /* WTBlueMoreIndicator.png in Resources */,
@@ -3503,6 +3815,7 @@
 				E10A8D1E16E33005008B72E7 /* WTNotificationAcceptIcon.png in Resources */,
 				E10A8D1F16E33005008B72E7 /* WTNotificationAcceptIcon@2x.png in Resources */,
 				E10A8D2016E33005008B72E7 /* WTNotificationAddIcon.png in Resources */,
+				20769A34180EC114003FE1A0 /* WTTabBarButtonAssistantHl.png in Resources */,
 				E10A8D2116E33005008B72E7 /* WTNotificationAddIcon@2x.png in Resources */,
 				E10A8D2216E33005008B72E7 /* WTNotificationLikeIcon.png in Resources */,
 				E10A8D2316E33005008B72E7 /* WTNotificationLikeIcon@2x.png in Resources */,
@@ -3520,12 +3833,15 @@
 				E140EDA216E90A23004E2DA9 /* WTSearchBarNormalSearchIcon.png in Resources */,
 				E140EDA316E90A23004E2DA9 /* WTSearchBarNormalSearchIcon@2x.png in Resources */,
 				E140EDA616E90B48004E2DA9 /* WTSearchBarSelectSearchIcon.png in Resources */,
+				20A2F55A1816E99700878135 /* guide_luan_2.png in Resources */,
 				E140EDA716E90B48004E2DA9 /* WTSearchBarSelectSearchIcon@2x.png in Resources */,
 				E140EDAA16E90B53004E2DA9 /* WTSearchBarSelectBg.png in Resources */,
+				20040F7B181F82E4006BBF45 /* WTRouteImageView.xib in Resources */,
 				E140EDAB16E90B53004E2DA9 /* WTSearchBarSelectBg@2x.png in Resources */,
 				E187E92F16EA614C00599F47 /* WTSearchResultTableViewController.xib in Resources */,
 				E177E63316EE11720029130F /* WTFriendListViewController.xib in Resources */,
 				E177E64216EE35B60029130F /* public_key.der in Resources */,
+				20A2F55E1816E99700878135 /* guide_metro11_2.png in Resources */,
 				03A3455216EF5ED400F6893E /* WTPullTableHeaderView.xib in Resources */,
 				E1A5816416F0FA6700551149 /* WTDragToLoadDecorator.xib in Resources */,
 				E1F02F4B16F38B5900699C81 /* WTNavigationBarBackHighlightButtonIcon.png in Resources */,
@@ -3535,6 +3851,7 @@
 				E19832DA16FEF60900AB83E8 /* WTFilterNormalIcon.png in Resources */,
 				E19832DB16FEF60900AB83E8 /* WTFilterNormalIcon@2x.png in Resources */,
 				E19589A91706BFD30040E669 /* WTBluePlaceholderImage@2x.jpg in Resources */,
+				20A2F55D1816E99700878135 /* guide_metro11_1.png in Resources */,
 				E19589AA1706BFD30040E669 /* WTBluePlaceholderImage.jpg in Resources */,
 				E19589AB1706BFD30040E669 /* WTGrayPlaceholderImage@2x.jpg in Resources */,
 				E19589AC1706BFD30040E669 /* WTGrayPlaceholderImage.jpg in Resources */,
@@ -3551,31 +3868,41 @@
 				E19589CC17081B570040E669 /* WTScrollViewPlaceholderShadowUnit.png in Resources */,
 				E19589CD17081B570040E669 /* WTScrollViewPlaceholderShadowUnit@2x.png in Resources */,
 				E17F9E6A1712A19E00DC6AB6 /* WTHomeNowView.xib in Resources */,
+				20A2F5561816E99700878135 /* guide_beian_2.png in Resources */,
 				E17F9E6F1712D43100DC6AB6 /* WTDarkGrayMoreReverseIndicator.png in Resources */,
 				E17F9E701712D43100DC6AB6 /* WTDarkGrayMoreReverseIndicator@2x.png in Resources */,
 				E17F9E821713457F00DC6AB6 /* WTTranslucentNormalButton.png in Resources */,
 				E17F9E831713457F00DC6AB6 /* WTTranslucentNormalButton@2x.png in Resources */,
 				E17F9E8C1713547D00DC6AB6 /* WTRoundCornerPanelBgCover.png in Resources */,
 				E17F9E8D1713547D00DC6AB6 /* WTRoundCornerPanelBgCover@2x.png in Resources */,
+				20A2F5551816E99700878135 /* guide_beian_1.png in Resources */,
+				20A2F54F1816E99700878135 /* guide_937_1.png in Resources */,
 				E13652CA1713FD8000ACA92D /* WTTranslucentHighlightButton.png in Resources */,
 				E13652CB1713FD8000ACA92D /* WTTranslucentHighlightButton@2x.png in Resources */,
 				E11825DF17154AD400B4B9BF /* WTActivityDetailDescriptionView.xib in Resources */,
 				E17C664A1716C14400B91B25 /* WTNewPostNormalIcon.png in Resources */,
+				20769A32180EC114003FE1A0 /* WTTabBarButtonAssistant.png in Resources */,
 				E17C664B1716C14400B91B25 /* WTNewPostNormalIcon@2x.png in Resources */,
 				E17C664C1716C14400B91B25 /* WTNewPostSelectIcon.png in Resources */,
+				20A2F5521816E99700878135 /* guide_960_2.png in Resources */,
 				E17C664D1716C14400B91B25 /* WTNewPostSelectIcon@2x.png in Resources */,
+				20769A43180EC127003FE1A0 /* WTAssistantRoute.png in Resources */,
 				E15BBF241717D5F40021CCCD /* WTRoundCornerPanelCuppedBg.png in Resources */,
+				20A2F55C1816E99700878135 /* guide_metro10_2.png in Resources */,
 				E15BBF251717D5F40021CCCD /* WTRoundCornerPanelCuppedBg@2x.png in Resources */,
+				20769A42180EC127003FE1A0 /* WTAssistantOA@2x.png in Resources */,
 				E14F9E7C17194B07009AFABA /* WTLoginIntroViewController.xib in Resources */,
 				E14F9E7F171951F8009AFABA /* WTLoginTourIcon.png in Resources */,
 				E14F9E80171951F8009AFABA /* WTLoginTourIcon@2x.png in Resources */,
 				E14F9E831719BBE1009AFABA /* WTLoginTourBottomShadow.png in Resources */,
 				E14F9E841719BBE1009AFABA /* WTLoginTourBottomShadow@2x.png in Resources */,
 				E14F9E8D1719CA3F009AFABA /* WTLoginIntroMoreIndicator.png in Resources */,
+				20769A35180EC114003FE1A0 /* WTTabBarButtonAssistantHl@2x.png in Resources */,
 				E14F9E8E1719CA3F009AFABA /* WTLoginIntroMoreIndicator@2x.png in Resources */,
 				E1ED19171719D1E400B0A847 /* WTLoginIntroBgImage1.jpg in Resources */,
 				E1ED19181719D1E400B0A847 /* WTLoginIntroBgImage2.jpg in Resources */,
 				E1ED19191719D1E400B0A847 /* WTLoginIntroBgImage3.jpg in Resources */,
+				20A2F54D1816E99700878135 /* guide_817_1.png in Resources */,
 				E10C1F1F171A80FB0009C673 /* WTNowBarTitleViewNextHighlightButton.png in Resources */,
 				E10C1F20171A80FB0009C673 /* WTNowBarTitleViewNextHighlightButton@2x.png in Resources */,
 				E10C1F21171A80FB0009C673 /* WTNowBarTitleViewNextNormalButton.png in Resources */,
@@ -3583,6 +3910,9 @@
 				E10C1F23171A80FB0009C673 /* WTNowBarTitleViewPrevHighlightButton.png in Resources */,
 				E10C1F24171A80FB0009C673 /* WTNowBarTitleViewPrevHighlightButton@2x.png in Resources */,
 				E10C1F25171A80FB0009C673 /* WTNowBarTitleViewPrevNormalButton.png in Resources */,
+				20038AD21812724600FE9C35 /* WTRouteViewController.xib in Resources */,
+				20040F85181FC4E7006BBF45 /* WTRouteDetailView.xib in Resources */,
+				20769A33180EC114003FE1A0 /* WTTabBarButtonAssistant@2x.png in Resources */,
 				E10C1F26171A80FB0009C673 /* WTNowBarTitleViewPrevNormalButton@2x.png in Resources */,
 				E10C1F29171A8AC60009C673 /* WTRoundCornerPanelHighlightBg.png in Resources */,
 				E10C1F2A171A8AC60009C673 /* WTRoundCornerPanelHighlightBg@2x.png in Resources */,
@@ -3603,11 +3933,13 @@
 				E10C24F1171AB3910009C673 /* WTBillboardSmallItemBg.png in Resources */,
 				E10C24F2171AB3910009C673 /* WTBillboardSmallItemBg@2x.png in Resources */,
 				E10C24F3171AB3910009C673 /* WTBillboardSmallItemCover.png in Resources */,
+				20A2F5581816E99700878135 /* guide_beiankua_2.png in Resources */,
 				E10C24F4171AB3910009C673 /* WTBillboardSmallItemCover@2x.png in Resources */,
 				E10C24F5171AB3910009C673 /* WTBillboardSmallItemTitleBg.png in Resources */,
 				E10C24F6171AB3910009C673 /* WTBillboardSmallItemTitleBg@2x.png in Resources */,
 				E10C24FB171AC5600009C673 /* WTBillboardTableViewController.xib in Resources */,
 				E10C2500171AC73D0009C673 /* WTBillboardCell.xib in Resources */,
+				20769A44180EC127003FE1A0 /* WTAssistantRoute@2x.png in Resources */,
 				E142869A171AE066006AB739 /* WTBillboardItemView.xib in Resources */,
 				E14286A0171BE0B1006AB739 /* WTNowBarTitleView.xib in Resources */,
 				E14286A3171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover.png in Resources */,
@@ -3619,7 +3951,9 @@
 				E1E40829171DEBFB00C6FD51 /* WTWhiteMoreIndicator@2x.png in Resources */,
 				E17AE8DD171EE5B30026B644 /* WTBillboardPostPlainTextViewController.xib in Resources */,
 				E17AE8E2171EE5CD0026B644 /* WTBillboardPostImageViewController.xib in Resources */,
+				20A2F54C1816E99700878135 /* guide_744_2.png in Resources */,
 				E17AE8E9171EEAB60026B644 /* WTDetailImageViewController.xib in Resources */,
+				20A2F5511816E99700878135 /* guide_960_1.png in Resources */,
 				E1CD3F33171FF5F600359A79 /* WTNewsDetailViewController.xib in Resources */,
 				E1CD3F3C1720648A00359A79 /* WTNewsBriefIntroductionView.xib in Resources */,
 				E179D63F172127FC00C6D789 /* WTNewsImageRollView.xib in Resources */,
@@ -3634,7 +3968,9 @@
 				E12E248D17274CC300EFA9B5 /* WTBillboardDetailHeaderView.xib in Resources */,
 				E12E249017274E1500EFA9B5 /* WTDetailBillboardImageCover.png in Resources */,
 				E12E249117274E1500EFA9B5 /* WTDetailBillboardImageCover@2x.png in Resources */,
+				20727C8F1812BD0700F6470C /* WTYellowPageCell.xib in Resources */,
 				E12E2494172806F800EFA9B5 /* WTAnonymousAvatarPlaceholder.png in Resources */,
+				20A2F5471816E99700878135 /* guide_307_1.png in Resources */,
 				E12E2495172806F800EFA9B5 /* WTAnonymousAvatarPlaceholder@2x.png in Resources */,
 				E179668B1728302A00761BD5 /* WTBillboardCommentViewController.xib in Resources */,
 				E17966901728315600761BD5 /* WTCommentCell.xib in Resources */,
@@ -3647,8 +3983,10 @@
 				E1157DD8173B7A3300E62295 /* WTCourseBaseDetailViewController.xib in Resources */,
 				E1157DDE173B7CF000E62295 /* WTCommentViewController.xib in Resources */,
 				E1157DE5173CCD4B00E62295 /* WTBannerBottomShadowUnit.png in Resources */,
+				20A2F54B1816E99700878135 /* guide_744_1.png in Resources */,
 				E1157DE6173CCD4B00E62295 /* WTBannerBottomShadowUnit@2x.png in Resources */,
 				E1157DE7173CCD4B00E62295 /* WTBannerLeftShadowUnit.png in Resources */,
+				20A2F5531816E99700878135 /* guide_anting4_1.png in Resources */,
 				E1157DE8173CCD4B00E62295 /* WTBannerLeftShadowUnit@2x.png in Resources */,
 				E1157DE9173CCD4B00E62295 /* WTBannerRightShadowUnit.png in Resources */,
 				E1157DEA173CCD4B00E62295 /* WTBannerRightShadowUnit@2x.png in Resources */,
@@ -3675,15 +4013,19 @@
 				E17703D41740010E0086E550 /* WTSmallLikeIcon@2x.png in Resources */,
 				E17703E41740BA720086E550 /* WTSilverBillboardIcon.png in Resources */,
 				E17703E51740BA720086E550 /* WTSilverBillboardIcon@2x.png in Resources */,
+				20A2F5541816E99700878135 /* guide_anting4_2.png in Resources */,
 				E17703E61740BA720086E550 /* WTSilverFlagIcon.png in Resources */,
 				E17703E71740BA720086E550 /* WTSilverFlagIcon@2x.png in Resources */,
 				E17703E81740BA720086E550 /* WTSilverNewsIcon.png in Resources */,
 				E17703E91740BA720086E550 /* WTSilverNewsIcon@2x.png in Resources */,
 				E17703EA1740BA720086E550 /* WTSilverOrgnizationIcon.png in Resources */,
 				E17703EB1740BA720086E550 /* WTSilverOrgnizationIcon@2x.png in Resources */,
+				20A2F5591816E99700878135 /* guide_luan_1.png in Resources */,
+				20A2F54E1816E99700878135 /* guide_817_2.png in Resources */,
 				E17703EC1740BA720086E550 /* WTSilverUserIcon.png in Resources */,
 				E17703ED1740BA720086E550 /* WTSilverUserIcon@2x.png in Resources */,
 				E1BFFDFC17415201004EF0D6 /* WTAddFriendNormalIconCN.png in Resources */,
+				20727C931812C17700F6470C /* WTYellowPageCellCall@2x.png in Resources */,
 				E1BFFDFD17415201004EF0D6 /* WTAddFriendNormalIconCN@2x.png in Resources */,
 				E1BFFDFE17415201004EF0D6 /* WTAddFriendNormalIconEN.png in Resources */,
 				E1BFFDFF17415201004EF0D6 /* WTAddFriendNormalIconEN@2x.png in Resources */,
@@ -3693,6 +4035,7 @@
 				E1BFFE0317415201004EF0D6 /* WTAddFriendSelectIconEN@2x.png in Resources */,
 				E1BFFE0817415DB7004EF0D6 /* WTGenderGrayFemaleIcon.png in Resources */,
 				E1BFFE0917415DB7004EF0D6 /* WTGenderGrayFemaleIcon@2x.png in Resources */,
+				20769A41180EC127003FE1A0 /* WTAssistantOA.png in Resources */,
 				E1BFFE0A17415DB7004EF0D6 /* WTGenderGrayMaleIcon.png in Resources */,
 				E1BFFE0B17415DB7004EF0D6 /* WTGenderGrayMaleIcon@2x.png in Resources */,
 				E1BFFE1217415FA0004EF0D6 /* WTUserCell.xib in Resources */,
@@ -3717,10 +4060,12 @@
 				E1DA84D4174B65DF0038B1E4 /* WTBillboardImageSourceLeftHighlightButton.png in Resources */,
 				E1DA84D5174B65DF0038B1E4 /* WTBillboardImageSourceLeftHighlightButton@2x.png in Resources */,
 				E1DA84D6174B65DF0038B1E4 /* WTBillboardImageSourceRightHighlightButton.png in Resources */,
+				20769A46180EC127003FE1A0 /* WTAssistantYellowPage@2x.png in Resources */,
 				E1DA84D7174B65DF0038B1E4 /* WTBillboardImageSourceRightHighlightButton@2x.png in Resources */,
 				E1DA84D8174B65DF0038B1E4 /* WTBillboardSelectImageSourcePanelBg.png in Resources */,
 				E1DA84D9174B65DF0038B1E4 /* WTBillboardSelectImageSourcePanelBg@2x.png in Resources */,
 				E1DA84DE174B6A470038B1E4 /* WTBillboardImageSourceLeftNormalButton.png in Resources */,
+				20038AB61812553400FE9C35 /* WTOAViewController.xib in Resources */,
 				E1DA84DF174B6A470038B1E4 /* WTBillboardImageSourceLeftNormalButton@2x.png in Resources */,
 				E1DA84E0174B6A470038B1E4 /* WTBillboardImageSourceRightNormalButton.png in Resources */,
 				E1DA84E1174B6A470038B1E4 /* WTBillboardImageSourceRightNormalButton@2x.png in Resources */,
@@ -3741,6 +4086,7 @@
 				E15E4DD0175D0B3E00BBAE9A /* WTSelectFriendsViewController.xib in Resources */,
 				E15E4DD5175D0CA300BBAE9A /* WTSelectUserCell.xib in Resources */,
 				E15E4DDA175D0D6900BBAE9A /* WTCheckmarkHighlightButton.png in Resources */,
+				20769A45180EC127003FE1A0 /* WTAssistantYellowPage.png in Resources */,
 				E15E4DDB175D0D6900BBAE9A /* WTCheckmarkHighlightButton@2x.png in Resources */,
 				E15E4DDC175D0D6900BBAE9A /* WTCheckmarkNormalButton.png in Resources */,
 				E15E4DDD175D0D6900BBAE9A /* WTCheckmarkNormalButton@2x.png in Resources */,
@@ -3750,6 +4096,8 @@
 				E15E4DF1175DDBF900BBAE9A /* WTInvitationAcceptedIconEN@2x.png in Resources */,
 				E1BB2C39175F1E57003608B8 /* WTMapViewController.xib in Resources */,
 				E1C97B191764045800F4241B /* WTNotificationCourseInvitationCell.xib in Resources */,
+				20727C921812C17700F6470C /* WTYellowPageCellCall.png in Resources */,
+				20A2F5451816E99700878135 /* guide_123_1.png in Resources */,
 				E16ABDBF1767AA9200ED0CE9 /* WTTransparentImage.png in Resources */,
 				E16ABDC21767BE3900ED0CE9 /* WTSilverStarIcon.png in Resources */,
 				E16ABDC31767BE3900ED0CE9 /* WTSilverStarIcon@2x.png in Resources */,
@@ -3766,6 +4114,7 @@
 				E16D531D1788B10300689645 /* WTLoginIntroImage1@2x.png in Resources */,
 				E16D53291789F9DA00689645 /* WTChangePasswordViewController.xib in Resources */,
 				E16D532E178A043600689645 /* WTTeamMemberViewController.xib in Resources */,
+				20A2F5251816E7CF00878135 /* WTRouteDetailViewController.xib in Resources */,
 				E19B6ADC178A1EAC003BDCBB /* WTSelectDormViewController.xib in Resources */,
 				E19B6AE2178A26A6003BDCBB /* WTDormCell.xib in Resources */,
 				E1AD8428178B2462001E35DB /* WTPropergate.jpg in Resources */,
@@ -3779,9 +4128,11 @@
 				E14558361799B7A4000E5B46 /* WTLoginIntroImage4@2x.png in Resources */,
 				E14558371799B7A4000E5B46 /* WTLoginIntroImage5.png in Resources */,
 				E14558381799B7A4000E5B46 /* WTLoginIntroImage5@2x.png in Resources */,
+				2038DFA01816D3EA005365D7 /* WTRouteCell.xib in Resources */,
 				E1354C87179BB03700BA05AF /* WTNotificationCellFocusButton.png in Resources */,
 				E1354C88179BB03700BA05AF /* WTNotificationCellFocusButton@2x.png in Resources */,
 				E1BFBB4E179D88940026B885 /* WTNowConfig.plist in Resources */,
+				20A2F5441816E99700878135 /* guide_115_2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3841,6 +4192,7 @@
 				E1D37428169432320012E30A /* WTMeNavigationController.m in Sources */,
 				E1D3742B169432C00012E30A /* WTNowNavigationController.m in Sources */,
 				E1D3742F169432D30012E30A /* WTNowViewController.m in Sources */,
+				20038ABB1812592B00FE9C35 /* WTLibraryViewController.m in Sources */,
 				E1D37433169433890012E30A /* WTSearchNavigationController.m in Sources */,
 				E1D3743A1694B4CE0012E30A /* WTLikeButtonView.m in Sources */,
 				039E37FE16970FBB00178F1C /* WTNowActivityCell.m in Sources */,
@@ -3848,8 +4200,11 @@
 				039E38111697205000178F1C /* WTNowBaseCell.m in Sources */,
 				A1DD01CF169F244E009EBE02 /* WTNewsViewController.m in Sources */,
 				E13B0E5116A2E16C00A45079 /* WTNewsCell.m in Sources */,
+				20040F79181F82B6006BBF45 /* WTRouteImageView.m in Sources */,
 				E13B0E5D16A302A500A45079 /* WTCoreDataTableViewController.m in Sources */,
 				E13B0E6A16A3078300A45079 /* WTCoreDataManager.m in Sources */,
+				20038AD11812724600FE9C35 /* WTRouteViewController.m in Sources */,
+				20040F84181FC4E7006BBF45 /* WTRouteDetailView.m in Sources */,
 				E13B0E6D16A4476000A45079 /* User+Addition.m in Sources */,
 				E13B0E7516A448C100A45079 /* News+Addition.m in Sources */,
 				E13B0EA516A45F4B00A45079 /* WTDebugTool.m in Sources */,
@@ -3888,6 +4243,7 @@
 				E11825DD17154AB500B4B9BF /* WTActivityDetailDescriptionView.m in Sources */,
 				E14F9E7717193383009AFABA /* WTErrorHandler.m in Sources */,
 				E14F9E7B17194B07009AFABA /* WTLoginIntroViewController.m in Sources */,
+				20A2F5241816E7CF00878135 /* WTRouteDetailViewController.m in Sources */,
 				E10C1F2E171A8EF30009C673 /* WTRegisterInfoViewController.m in Sources */,
 				E10C1F33171A8F0B0009C673 /* WTRegisterVarifyViewController.m in Sources */,
 				E10C24DD171AA5510009C673 /* UIImage+ProportionalFill.m in Sources */,
@@ -3904,6 +4260,7 @@
 				E1CD3F32171FF5F600359A79 /* WTNewsDetailViewController.m in Sources */,
 				E1CD3F36171FF7E600359A79 /* WTDetailViewController.m in Sources */,
 				E1CD3F3A1720646900359A79 /* WTNewsBriefIntroductionView.m in Sources */,
+				20769A4A180EC1E2003FE1A0 /* WTAssistantNavigationController.m in Sources */,
 				E179D63D172127E800C6D789 /* WTNewsImageRollView.m in Sources */,
 				E179D6421721951900C6D789 /* UIImageView+AsyncLoading.m in Sources */,
 				E1E647B81722AD5200EB4C8D /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
@@ -3936,6 +4293,7 @@
 				E4D164291744D7B000F11A2C /* WTStarCell.m in Sources */,
 				E47686711745287A003C9627 /* UIImage+StackBlur.m in Sources */,
 				03EE1095174535770062A06B /* WTOrganizationProfileView.m in Sources */,
+				20038AB51812553400FE9C35 /* WTOAViewController.m in Sources */,
 				E16D5DCA174619A900740D79 /* Advertisement+Addition.m in Sources */,
 				E1C8321D1746772A002C0567 /* Controller+Addition.m in Sources */,
 				E1F0AE3C174A4E6D00EA2CED /* WTStarDetailViewController.m in Sources */,
@@ -3944,11 +4302,13 @@
 				E172B001174FD88000DEB920 /* WTActivityImageRollView.m in Sources */,
 				E172B004174FD89300DEB920 /* WTActivityHeaderView.m in Sources */,
 				E140C7991754950C005C56B7 /* NSDate+WTAddition.m in Sources */,
+				2015FB9418158D9600D96EE0 /* WTRouteCell.m in Sources */,
 				E140C7BA1754F8A5005C56B7 /* Comment+Addition.m in Sources */,
 				E10E231517566C8A00DCF724 /* WTHighlightableCell.m in Sources */,
 				E10E232A1757366400DCF724 /* InvitationNotification.m in Sources */,
 				E10E23391757366500DCF724 /* CommentableObject.m in Sources */,
 				E10E233F1757366500DCF724 /* Controller.m in Sources */,
+				20038AC618126ED500FE9C35 /* WTYellowPageViewController.m in Sources */,
 				E10E23481757366600DCF724 /* Advertisement.m in Sources */,
 				E10E234B1757366600DCF724 /* BillboardPost.m in Sources */,
 				E10E234E1757366600DCF724 /* Comment.m in Sources */,
@@ -3956,6 +4316,7 @@
 				E10E235D17573A2600DCF724 /* LikeableObject+Addition.m in Sources */,
 				E10E236E17577F3500DCF724 /* WTLikeListViewController.m in Sources */,
 				E110F6D11757AEB500F19B7D /* WTShowAllKindsOfCellsViewController.m in Sources */,
+				20727C8B1812B9A100F6470C /* WTYellowPageCell.m in Sources */,
 				E15E4DA4175B21DD00BBAE9A /* WTStarHeaderView.m in Sources */,
 				E15E4DAF175C798900BBAE9A /* News.m in Sources */,
 				E15E4DB6175C8E8100BBAE9A /* WTOrganizationHeaderView.m in Sources */,
@@ -4009,6 +4370,7 @@
 				E13CCDCE17CD6059005B79D1 /* NSString+Pinyin.m in Sources */,
 				E13CCDD117CD612C005B79D1 /* User.m in Sources */,
 				E13CCDD717CD6568005B79D1 /* UIView+TableViewSectionHeader.m in Sources */,
+				20769A4E180EC21C003FE1A0 /* WTAssistantViewController.m in Sources */,
 				E10099B817D3CE3E00CF7F0C /* Object.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

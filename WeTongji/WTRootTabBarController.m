@@ -77,12 +77,13 @@
 
 - (void)addCustomTabBarButtons {
     int viewCount = self.viewControllers.count;
+    int buttonWidth = 320 / viewCount;
 	self.buttonArray = [NSMutableArray arrayWithCapacity:viewCount];
 	for (int i = 0; i < viewCount; i++) {
 		UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
 		btn.tag = i;
 		[btn addTarget:self action:@selector(didClickTabBarButton:) forControlEvents:UIControlEventTouchUpInside];
-        btn.frame = CGRectMake(80 * i, 0, 80, self.tabBarBgImageView.frame.size.height + 4);
+        btn.frame = CGRectMake(buttonWidth * i, 0, buttonWidth, self.tabBarBgImageView.frame.size.height + 4);
         UIImage *normalStateImage = nil;
         UIImage *selectStateImage = nil;
 		switch (i) {
@@ -106,6 +107,11 @@
 //                selectStateImage = [UIImage imageNamed:@"WTTabBarButtonBillBoardHl"];
 //                break;
 //            }
+            case WTRootTabBarViewControllerAssistant: {
+                normalStateImage = [UIImage imageNamed:@"WTTabBarButtonAssistant"];
+                selectStateImage = [UIImage imageNamed:@"WTTabBarButtonAssistantHl"];
+                break;
+            }
             case WTRootTabBarViewControllerMe: {
                 normalStateImage = [UIImage imageNamed:@"WTTabBarButtonMe"];
                 selectStateImage = [UIImage imageNamed:@"WTTabBarButtonMeHl"];

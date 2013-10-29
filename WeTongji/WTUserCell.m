@@ -23,6 +23,7 @@
     self.nameLabel.shadowOffset = labelShadowOffset;
     self.schoolLabel.shadowOffset = labelShadowOffset;
 }
+
 - (void)configureCellWithIndexPath:(NSIndexPath *)indexPath
                               user:(User *)user {
     [super configureCellWithIndexPath:indexPath];

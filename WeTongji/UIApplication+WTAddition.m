@@ -59,6 +59,12 @@ static UIView           *staticKeyWindowBgView;
     return searchNavigationController.viewControllers[0];
 }
 
+- (WTAssistantViewController *)assistantViewController {
+    WTRootTabBarController *rootTabBarViewController = [UIApplication sharedApplication].rootTabBarController;
+    UINavigationController *assistantNavigationController = rootTabBarViewController.viewControllers[WTRootTabBarViewControllerAssistant];
+    return assistantNavigationController.viewControllers[0];
+}
+
 - (WTMeViewController *)meViewController {
     WTRootTabBarController *rootTabBarViewController = [UIApplication sharedApplication].rootTabBarController;
     UINavigationController *meNavigationController = rootTabBarViewController.viewControllers[WTRootTabBarViewControllerMe];
