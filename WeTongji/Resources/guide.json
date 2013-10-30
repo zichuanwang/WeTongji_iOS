@@ -17,8 +17,8 @@
         "id": "115",
         "title": "115路公交",
         "frequent_target": "上海火车站北广场；地铁3号线赤峰路站",
-        "time_interval_1": "04:30-23:30",
-        "time_interval_2": "05:00-23:30",
+        "time_interval_1": "05:00-23:30",
+        "time_interval_2": "04:30-23:30",
         "where": "正门到同济大学站；南门到巴士一汽或赤峰路密云路站",
         "cost": "2.00"
     },
@@ -27,19 +27,9 @@
         "id": "960",
         "title": "960路公交",
         "frequent_target": "复旦大学；上海财经大学",
-        "time_interval_1": "05:00-22:00",
-        "time_interval_2": "05:00-22:00",
+        "time_interval_1": "05:00-22:30",
+        "time_interval_2": "05:30-22:30",
         "where": "正门到同济大学站；南门到巴士一汽或赤峰路密云路站；西门到密云路赤峰路站",
-        "cost": "2.00"
-    },
-    {
-        "type": "bus",
-        "id": "874",
-        "title": "874路公交",
-        "frequent_target": "上海理工大学",
-        "time_interval_1": "06:20-20:40",
-        "time_interval_2": "05:55-20:00",
-        "where": "正门到同济大学站；南门到巴士一汽或赤峰路密云路站",
         "cost": "2.00"
     },
     {
@@ -67,8 +57,8 @@
         "id": "123",
         "title": "123路公交",
         "frequent_target": "外滩；人民广场",
-        "time_interval_1": "04:30-23:10",
-        "time_interval_2": "05:00-23:30",
+        "time_interval_1": "05:00-23:30",
+        "time_interval_2": "04:30-23:10",
         "where": "南门到巴士一汽或赤峰路密云路站",
         "cost": "2.00"
     },
@@ -77,8 +67,8 @@
         "id": "817",
         "title": "817路公交",
         "frequent_target": "上海火车站北广场；五角场；地铁3号线赤峰路站",
-        "time_interval_1": "05:45-21:30",
-        "time_interval_2": "05:45-22:30",
+        "time_interval_1": "05:30-22:30",
+        "time_interval_2": "05:30-22:30",
         "where": "正门到同济大学站；南门到巴士一汽或赤峰路密云路站",
         "cost": "2.00"
     },
@@ -87,8 +77,8 @@
         "id": "310",
         "title": "310路公交",
         "frequent_target": "上海火车站北广场；新华医院",
-        "time_interval_1": "00:15-04:05",
-        "time_interval_2": "00:00-03:45",
+        "time_interval_1": "00:00-03:45",
+        "time_interval_2": "00:15-04:05",
         "where": "正门到同济大学站；南门到巴士一汽站",
         "cost": "2.00"
     },
@@ -97,8 +87,8 @@
         "id": "307",
         "title": "307路公交",
         "frequent_target": "五角场；南京东路；十六铺",
-        "time_interval_1": "00:30-03:30",
-        "time_interval_2": "00:27-03:30",
+        "time_interval_1": "23:20-03:20",
+        "time_interval_2": "22:50-04:00",
         "where": "南门到巴士一汽站",
         "cost": "2.00"
     },
@@ -121,7 +111,7 @@
         "title": "北安线",
         "frequent_target": "安亭镇；江桥；轨交11号线上海汽车城站",
         "time_interval_1": "04:30-20:30",
-        "time_interval_2": "04:30-20:30",
+        "time_interval_2": "04:30-21:00",
         "where": "曹安路绿苑路站（嘉定校区正门）",
         "cost": "分段计价"
     },
@@ -130,8 +120,8 @@
         "id": "anting4",
         "title": "安亭4路",
         "frequent_target": "安亭老街；墨玉路；轨交11号线上海汽车城站",
-        "time_interval_1": "7:15-18:15",
-        "time_interval_2": "6:30-17:30",
+        "time_interval_1": "6:30-17:30",
+        "time_interval_2": "7:15-18:15",
         "where": "曹安路绿苑路站（嘉定校区正门）",
         "cost": "1.00"
     },
@@ -140,8 +130,8 @@
         "id": "luan",
         "title": "陆安专线",
         "frequent_target": "江桥；轨交11号线上海汽车城站",
-        "time_interval_1": "05:45-18:00",
-        "time_interval_2": "",
+        "time_interval_1": "06:00-18:30",
+        "time_interval_2": "05:45-18:00",
         "where": "曹安路绿苑路站（嘉定校区正门）",
         "cost": "分段计价"
     },
@@ -173,8 +163,8 @@
         "id": "744",
         "title": "744路",
         "frequent_target": "上海火车站",
-        "time_interval_1": "05:30-22:30",
-        "time_interval_2": "05:30-23:00",
+        "time_interval_1": "05:30-23:00",
+        "time_interval_2": "05:30-22:30",
         "where": "交通路真南路站",
         "cost": "分段计价"
     },

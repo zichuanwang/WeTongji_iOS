@@ -35,7 +35,7 @@
                             <rect key="frame" x="2" y="175" width="296" height="2"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <label userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="characterWrap" baselineAdjustment="none" minimumFontSize="9" id="RSl-an-QaJ">
+                        <label userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" id="RSl-an-QaJ">
                             <rect key="frame" x="134" y="12" width="152" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -43,7 +43,7 @@
                             <color key="textColor" red="0.2156862745" green="0.2156862745" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="characterWrap" baselineAdjustment="none" minimumFontSize="9" id="iby-bm-ws3">
+                        <label userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" id="iby-bm-ws3">
                             <rect key="frame" x="134" y="56" width="152" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -51,7 +51,7 @@
                             <color key="textColor" red="0.2156862745" green="0.2156862745" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="characterWrap" baselineAdjustment="none" minimumFontSize="9" id="uZp-d4-lN9">
+                        <label userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" id="uZp-d4-lN9">
                             <rect key="frame" x="134" y="100" width="152" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -59,7 +59,7 @@
                             <color key="textColor" red="0.2156862745" green="0.2156862745" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="characterWrap" baselineAdjustment="none" minimumFontSize="9" id="VFW-Wk-yab">
+                        <label userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" id="VFW-Wk-yab">
                             <rect key="frame" x="134" y="144" width="152" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -67,7 +67,7 @@
                             <color key="textColor" red="0.2156862745" green="0.2156862745" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="characterWrap" baselineAdjustment="none" minimumFontSize="9" id="lMF-B6-wXw">
+                        <label userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" id="lMF-B6-wXw">
                             <rect key="frame" x="134" y="188" width="152" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -129,19 +129,23 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="costDisplayLabel" destination="dqT-kV-giU" id="HSF-ue-7nc"/>
-                <outlet property="costLabel" destination="lMF-B6-wXw" id="Fpb-du-6Qu"/>
-                <outlet property="detailInformationDisplayLabel" destination="VDY-Ne-Cyc" id="g4w-By-H05"/>
-                <outlet property="firstTimeIntervalDisplayLabel" destination="la4-Qo-YUy" id="Bzf-WS-dVl"/>
-                <outlet property="firstTimeIntervalLabel" destination="iby-bm-ws3" id="GtD-3Y-6yH"/>
-                <outlet property="frequentTargetDisplayLabel" destination="fsG-eK-L94" id="41D-FJ-5cK"/>
-                <outlet property="frequentTargetLabel" destination="RSl-an-QaJ" id="Icc-tO-t6d"/>
-                <outlet property="secondTimeIntervalDisplayLabel" destination="9K1-ul-UIo" id="6En-ei-9Ej"/>
-                <outlet property="secondTimeIntervalLabel" destination="uZp-d4-lN9" id="IAT-NV-xcC"/>
-                <outlet property="sectionBgImageView" destination="ysE-wB-fWk" id="kmi-4j-jfA"/>
-                <outlet property="sectionContianerView" destination="dDK-4V-65K" id="2iI-sg-zJi"/>
-                <outlet property="whereDisplayLabel" destination="2kt-yu-X65" id="6aQ-aN-IZq"/>
-                <outlet property="whereLabel" destination="VFW-Wk-yab" id="rSN-Jg-HY4"/>
+                <outlet property="costDisplayLabel" destination="dqT-kV-giU" id="zHU-jl-7i4"/>
+                <outlet property="costLabel" destination="lMF-B6-wXw" id="maj-vC-a6I"/>
+                <outlet property="detailInformationDisplayLabel" destination="VDY-Ne-Cyc" id="lND-ow-M6f"/>
+                <outlet property="firstInfoPanelDivier" destination="QAK-Qu-Z7o" id="aJR-SS-JSs"/>
+                <outlet property="firstTimeIntervalDisplayLabel" destination="la4-Qo-YUy" id="m7z-03-xzf"/>
+                <outlet property="firstTimeIntervalLabel" destination="iby-bm-ws3" id="NiE-Kg-hZy"/>
+                <outlet property="fourthInfoPanelDivier" destination="3WE-dR-U7H" id="3Qa-SL-6gx"/>
+                <outlet property="frequentTargetDisplayLabel" destination="fsG-eK-L94" id="Rfg-Ce-KNC"/>
+                <outlet property="frequentTargetLabel" destination="RSl-an-QaJ" id="bLg-Du-wtN"/>
+                <outlet property="secondInfoPanelDivier" destination="KRP-A6-Tdk" id="upA-g8-bVW"/>
+                <outlet property="secondTimeIntervalDisplayLabel" destination="9K1-ul-UIo" id="onN-O5-HSz"/>
+                <outlet property="secondTimeIntervalLabel" destination="uZp-d4-lN9" id="MMb-Rv-qXF"/>
+                <outlet property="sectionBgImageView" destination="ysE-wB-fWk" id="wie-Ci-DbA"/>
+                <outlet property="sectionContianerView" destination="dDK-4V-65K" id="0is-Oi-oPh"/>
+                <outlet property="thirdInfoPanelDivier" destination="WT0-Zo-uX5" id="XOw-gj-15H"/>
+                <outlet property="whereDisplayLabel" destination="2kt-yu-X65" id="r3i-1S-Eqo"/>
+                <outlet property="whereLabel" destination="VFW-Wk-yab" id="uzS-g0-YfZ"/>
             </connections>
         </view>
     </objects>

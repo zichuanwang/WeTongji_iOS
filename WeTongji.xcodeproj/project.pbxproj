@@ -32,10 +32,6 @@
 		20038AC718126ED500FE9C35 /* WTYellowPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20038AC518126ED500FE9C35 /* WTYellowPageViewController.xib */; };
 		20038AD11812724600FE9C35 /* WTRouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20038ACF1812724600FE9C35 /* WTRouteViewController.m */; };
 		20038AD21812724600FE9C35 /* WTRouteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20038AD01812724600FE9C35 /* WTRouteViewController.xib */; };
-		20040F79181F82B6006BBF45 /* WTRouteImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20040F78181F82B6006BBF45 /* WTRouteImageView.m */; };
-		20040F7B181F82E4006BBF45 /* WTRouteImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20040F7A181F82E4006BBF45 /* WTRouteImageView.xib */; };
-		20040F84181FC4E7006BBF45 /* WTRouteDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20040F82181FC4E7006BBF45 /* WTRouteDetailView.m */; };
-		20040F85181FC4E7006BBF45 /* WTRouteDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20040F83181FC4E7006BBF45 /* WTRouteDetailView.xib */; };
 		20040F8E181FEA20006BBF45 /* WTWebViewControlBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 20040F86181FEA20006BBF45 /* WTWebViewControlBar.png */; };
 		20040F8F181FEA20006BBF45 /* WTWebViewControlBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20040F87181FEA20006BBF45 /* WTWebViewControlBar@2x.png */; };
 		20040F90181FEA20006BBF45 /* WTWebViewControlBarBackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 20040F88181FEA20006BBF45 /* WTWebViewControlBarBackButton.png */; };
@@ -46,6 +42,10 @@
 		20040F95181FEA20006BBF45 /* WTWebViewControlBarReloadButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20040F8D181FEA20006BBF45 /* WTWebViewControlBarReloadButton@2x.png */; };
 		2015FB9418158D9600D96EE0 /* WTRouteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2015FB9318158D9600D96EE0 /* WTRouteCell.m */; };
 		2038DFA01816D3EA005365D7 /* WTRouteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2038DF9F1816D3EA005365D7 /* WTRouteCell.xib */; };
+		206BF3891820162A00AA5615 /* WTRouteImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 206BF3851820162A00AA5615 /* WTRouteImageView.m */; };
+		206BF38A1820162A00AA5615 /* WTRouteImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 206BF3861820162A00AA5615 /* WTRouteImageView.xib */; };
+		206BF38E18201E6000AA5615 /* WTRouteDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 206BF38C18201E6000AA5615 /* WTRouteDetailView.m */; };
+		206BF38F18201E6000AA5615 /* WTRouteDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 206BF38D18201E6000AA5615 /* WTRouteDetailView.xib */; };
 		20727C8B1812B9A100F6470C /* WTYellowPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20727C8A1812B9A100F6470C /* WTYellowPageCell.m */; };
 		20727C8F1812BD0700F6470C /* WTYellowPageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20727C8E1812BD0700F6470C /* WTYellowPageCell.xib */; };
 		20727C921812C17700F6470C /* WTYellowPageCellCall.png in Resources */ = {isa = PBXBuildFile; fileRef = 20727C901812C17700F6470C /* WTYellowPageCellCall.png */; };
@@ -814,12 +814,6 @@
 		20038ACE1812724600FE9C35 /* WTRouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTRouteViewController.h; sourceTree = "<group>"; };
 		20038ACF1812724600FE9C35 /* WTRouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTRouteViewController.m; sourceTree = "<group>"; };
 		20038AD01812724600FE9C35 /* WTRouteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTRouteViewController.xib; sourceTree = "<group>"; };
-		20040F77181F82B6006BBF45 /* WTRouteImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTRouteImageView.h; sourceTree = "<group>"; };
-		20040F78181F82B6006BBF45 /* WTRouteImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTRouteImageView.m; sourceTree = "<group>"; };
-		20040F7A181F82E4006BBF45 /* WTRouteImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTRouteImageView.xib; sourceTree = "<group>"; };
-		20040F81181FC4E7006BBF45 /* WTRouteDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTRouteDetailView.h; sourceTree = "<group>"; };
-		20040F82181FC4E7006BBF45 /* WTRouteDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTRouteDetailView.m; sourceTree = "<group>"; };
-		20040F83181FC4E7006BBF45 /* WTRouteDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTRouteDetailView.xib; sourceTree = "<group>"; };
 		20040F86181FEA20006BBF45 /* WTWebViewControlBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTWebViewControlBar.png; sourceTree = "<group>"; };
 		20040F87181FEA20006BBF45 /* WTWebViewControlBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTWebViewControlBar@2x.png"; sourceTree = "<group>"; };
 		20040F88181FEA20006BBF45 /* WTWebViewControlBarBackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTWebViewControlBarBackButton.png; sourceTree = "<group>"; };
@@ -831,6 +825,12 @@
 		2015FB9218158D9600D96EE0 /* WTRouteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTRouteCell.h; sourceTree = "<group>"; };
 		2015FB9318158D9600D96EE0 /* WTRouteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTRouteCell.m; sourceTree = "<group>"; };
 		2038DF9F1816D3EA005365D7 /* WTRouteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTRouteCell.xib; sourceTree = "<group>"; };
+		206BF3841820162A00AA5615 /* WTRouteImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTRouteImageView.h; sourceTree = "<group>"; };
+		206BF3851820162A00AA5615 /* WTRouteImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTRouteImageView.m; sourceTree = "<group>"; };
+		206BF3861820162A00AA5615 /* WTRouteImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTRouteImageView.xib; sourceTree = "<group>"; };
+		206BF38B18201E6000AA5615 /* WTRouteDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTRouteDetailView.h; sourceTree = "<group>"; };
+		206BF38C18201E6000AA5615 /* WTRouteDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTRouteDetailView.m; sourceTree = "<group>"; };
+		206BF38D18201E6000AA5615 /* WTRouteDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTRouteDetailView.xib; sourceTree = "<group>"; };
 		20727C891812B9A100F6470C /* WTYellowPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTYellowPageCell.h; sourceTree = "<group>"; };
 		20727C8A1812B9A100F6470C /* WTYellowPageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTYellowPageCell.m; sourceTree = "<group>"; };
 		20727C8E1812BD0700F6470C /* WTYellowPageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTYellowPageCell.xib; sourceTree = "<group>"; };
@@ -1868,12 +1868,12 @@
 		20040F76181F827E006BBF45 /* Route */ = {
 			isa = PBXGroup;
 			children = (
-				20040F81181FC4E7006BBF45 /* WTRouteDetailView.h */,
-				20040F82181FC4E7006BBF45 /* WTRouteDetailView.m */,
-				20040F83181FC4E7006BBF45 /* WTRouteDetailView.xib */,
-				20040F77181F82B6006BBF45 /* WTRouteImageView.h */,
-				20040F78181F82B6006BBF45 /* WTRouteImageView.m */,
-				20040F7A181F82E4006BBF45 /* WTRouteImageView.xib */,
+				206BF38B18201E6000AA5615 /* WTRouteDetailView.h */,
+				206BF38C18201E6000AA5615 /* WTRouteDetailView.m */,
+				206BF38D18201E6000AA5615 /* WTRouteDetailView.xib */,
+				206BF3841820162A00AA5615 /* WTRouteImageView.h */,
+				206BF3851820162A00AA5615 /* WTRouteImageView.m */,
+				206BF3861820162A00AA5615 /* WTRouteImageView.xib */,
 			);
 			name = Route;
 			sourceTree = "<group>";
@@ -3670,6 +3670,7 @@
 				E11703821651EF4800D82F4A /* WTTabBarButtonNowHl@2x.png in Resources */,
 				E11703831651EF4800D82F4A /* WTTabBarButtonPowerSearch.png in Resources */,
 				E11703841651EF4800D82F4A /* WTTabBarButtonPowerSearch@2x.png in Resources */,
+				206BF38A1820162A00AA5615 /* WTRouteImageView.xib in Resources */,
 				E11703851651EF4800D82F4A /* WTTabBarButtonPowerSearchHl.png in Resources */,
 				E11703861651EF4800D82F4A /* WTTabBarButtonPowerSearchHl@2x.png in Resources */,
 				E11703991651F35B00D82F4A /* MainWindow.xib in Resources */,
@@ -3863,7 +3864,6 @@
 				20A2F55A1816E99700878135 /* guide_luan_2.png in Resources */,
 				E140EDA716E90B48004E2DA9 /* WTSearchBarSelectSearchIcon@2x.png in Resources */,
 				E140EDAA16E90B53004E2DA9 /* WTSearchBarSelectBg.png in Resources */,
-				20040F7B181F82E4006BBF45 /* WTRouteImageView.xib in Resources */,
 				E140EDAB16E90B53004E2DA9 /* WTSearchBarSelectBg@2x.png in Resources */,
 				E187E92F16EA614C00599F47 /* WTSearchResultTableViewController.xib in Resources */,
 				E177E63316EE11720029130F /* WTFriendListViewController.xib in Resources */,
@@ -3903,6 +3903,7 @@
 				E17F9E831713457F00DC6AB6 /* WTTranslucentNormalButton@2x.png in Resources */,
 				E17F9E8C1713547D00DC6AB6 /* WTRoundCornerPanelBgCover.png in Resources */,
 				E17F9E8D1713547D00DC6AB6 /* WTRoundCornerPanelBgCover@2x.png in Resources */,
+				206BF38F18201E6000AA5615 /* WTRouteDetailView.xib in Resources */,
 				20A2F5551816E99700878135 /* guide_beian_1.png in Resources */,
 				20A2F54F1816E99700878135 /* guide_937_1.png in Resources */,
 				E13652CA1713FD8000ACA92D /* WTTranslucentHighlightButton.png in Resources */,
@@ -3940,7 +3941,6 @@
 				E10C1F24171A80FB0009C673 /* WTNowBarTitleViewPrevHighlightButton@2x.png in Resources */,
 				E10C1F25171A80FB0009C673 /* WTNowBarTitleViewPrevNormalButton.png in Resources */,
 				20038AD21812724600FE9C35 /* WTRouteViewController.xib in Resources */,
-				20040F85181FC4E7006BBF45 /* WTRouteDetailView.xib in Resources */,
 				20769A33180EC114003FE1A0 /* WTTabBarButtonAssistant@2x.png in Resources */,
 				E10C1F26171A80FB0009C673 /* WTNowBarTitleViewPrevNormalButton@2x.png in Resources */,
 				E10C1F29171A8AC60009C673 /* WTRoundCornerPanelHighlightBg.png in Resources */,
@@ -4232,12 +4232,11 @@
 				039E38111697205000178F1C /* WTNowBaseCell.m in Sources */,
 				A1DD01CF169F244E009EBE02 /* WTNewsViewController.m in Sources */,
 				E13B0E5116A2E16C00A45079 /* WTNewsCell.m in Sources */,
-				20040F79181F82B6006BBF45 /* WTRouteImageView.m in Sources */,
 				E13B0E5D16A302A500A45079 /* WTCoreDataTableViewController.m in Sources */,
 				E13B0E6A16A3078300A45079 /* WTCoreDataManager.m in Sources */,
 				20038AD11812724600FE9C35 /* WTRouteViewController.m in Sources */,
-				20040F84181FC4E7006BBF45 /* WTRouteDetailView.m in Sources */,
 				E13B0E6D16A4476000A45079 /* User+Addition.m in Sources */,
+				206BF38E18201E6000AA5615 /* WTRouteDetailView.m in Sources */,
 				E13B0E7516A448C100A45079 /* News+Addition.m in Sources */,
 				E13B0EA516A45F4B00A45079 /* WTDebugTool.m in Sources */,
 				E13B0ED316A4704900A45079 /* NSString+WTAddition.m in Sources */,
@@ -4344,6 +4343,7 @@
 				E10E23481757366600DCF724 /* Advertisement.m in Sources */,
 				E10E234B1757366600DCF724 /* BillboardPost.m in Sources */,
 				E10E234E1757366600DCF724 /* Comment.m in Sources */,
+				206BF3891820162A00AA5615 /* WTRouteImageView.m in Sources */,
 				E10E23541757366700DCF724 /* FriendInvitationNotification.m in Sources */,
 				E10E235D17573A2600DCF724 /* LikeableObject+Addition.m in Sources */,
 				E10E236E17577F3500DCF724 /* WTLikeListViewController.m in Sources */,

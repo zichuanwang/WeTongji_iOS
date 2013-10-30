@@ -50,14 +50,16 @@
 }
 
 - (void)configureWebView {
+    [self.libraryWebView removeFromSuperview];
     NSURL *libraryURL = [NSURL URLWithString:@"http://www.lib.tongji.edu.cn/m/index.action"];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:libraryURL];
     [self.libraryWebView loadRequest:requestObj];
     [self.libraryWebView setContentMode:UIViewContentModeScaleAspectFill];
+    [self.view addSubview:self.libraryWebView];
 }
 
 - (void)configureControlBar {
-    self.controlBar.frame = CGRectMake(0, 420, 320, 50);
+    self.controlBar.frame = CGRectMake(0, self.libraryWebView.frame.size.height, 320, 50);
     
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *backButtonImage = [UIImage imageNamed:@"WTWebViewControlBarBackButton"];

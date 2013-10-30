@@ -44,7 +44,7 @@
 
 - (void)configureScrollView {
     [self.firstRouteScrollView setFrame:CGRectMake(0, 0, 320, 100)];
-    [self.secondRouteScrollView setFrame:CGRectMake(0, 100, 320, 100)];
+    [self.secondRouteScrollView setFrame:CGRectMake(0, self.firstRouteScrollView.frame.size.height, 320, 100)];
 }
 
 //Add Image

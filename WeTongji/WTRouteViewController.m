@@ -126,8 +126,6 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    WTRouteDetailViewController *vc = [[WTRouteDetailViewController alloc] init];
-    
     NSDictionary *routeInfo = nil;
     if (indexPath.section == 0) {
         routeInfo = [self.sipingRouteList objectAtIndex:indexPath.row];

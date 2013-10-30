@@ -276,7 +276,7 @@
 "Huxi Campus" = "沪西校区";
 
 "Frequented Locations" = "常去地点";
-"time_interval_1" = "起始站首末班车时间";
-"time_interval_2" = "终点站首末班车时间";
-"where" = "推荐上车地点";
-"cost" = "票价";
+"Starts" = "起始站首末班车时间";
+"Ends" = "终点站首末班车时间";
+"Boarding Location" = "推荐上车地点";
+"Ticket Price" = "票价";

@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WTRouteDetailViewController">
             <connections>
                 <outlet property="scrollView" destination="V3R-ua-GmF" id="MXs-dt-Lak"/>
-                <outlet property="view" destination="1" id="JOZ-vx-26i"/>
+                <outlet property="view" destination="1" id="DcW-Yf-7c9"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

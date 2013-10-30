@@ -23,6 +23,10 @@
 @property (nonatomic, weak) IBOutlet UILabel *whereDisplayLabel;
 @property (nonatomic, weak) IBOutlet UILabel *costDisplayLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *sectionBgImageView;
+@property (nonatomic, weak) IBOutlet UIImageView *firstInfoPanelDivier;
+@property (nonatomic, weak) IBOutlet UIImageView *secondInfoPanelDivier;
+@property (nonatomic, weak) IBOutlet UIImageView *thirdInfoPanelDivier;
+@property (nonatomic, weak) IBOutlet UIImageView *fourthInfoPanelDivier;
 
 + (WTRouteDetailView *)createRouteDetailViewWithRouteInfo:(NSDictionary *)routeInfo;
 

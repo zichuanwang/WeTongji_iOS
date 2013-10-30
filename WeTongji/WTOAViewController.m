@@ -59,7 +59,7 @@
 }
 
 - (void)configureControlBar {
-    self.controlBar.frame = CGRectMake(0, 420, 320, 50);
+    self.controlBar.frame = CGRectMake(0, self.oaWebView.frame.size.height, 320, 50);
     
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *backButtonImage = [UIImage imageNamed:@"WTWebViewControlBarBackButton"];

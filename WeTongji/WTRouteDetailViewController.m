@@ -14,9 +14,8 @@
 @interface WTRouteDetailViewController ()
 
 @property (nonatomic, strong) NSDictionary *routeInfo;
-
-@property (nonatomic, strong) WTRouteImageView *routeImageView;
-@property (nonatomic, strong) WTRouteDetailView *routeDetailView;
+@property (nonatomic, weak) WTRouteImageView *routeImageView;
+@property (nonatomic, weak) WTRouteDetailView *routeDetailView;
 
 @end
 
@@ -34,7 +33,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self configureNavigationBar];
-    [self configureRouteImageView];
+    if (![[self.routeInfo objectForKey:@"id"] isEqualToString:@"874"]) {
+        [self configureRouteImageView];
+    }
     [self configureRouteDetailView];
     [self configureScrollView];
 }
@@ -45,7 +46,7 @@
 }
 
 + (WTRouteDetailViewController *)createDetailViewControllerWithRouteInfo:(NSDictionary *)routeInfo {
-    WTRouteDetailViewController *result = [[WTRouteDetailViewController alloc] init];
+    WTRouteDetailViewController *result = [[WTRouteDetailViewController alloc] initWithNibName:@"WTRouteDetailViewController" bundle:nil];
     result.routeInfo = routeInfo;
     return result;
 }
@@ -74,7 +75,9 @@
 - (void)configureRouteDetailView {
     [self.routeDetailView removeFromSuperview];
     WTRouteDetailView *routeDetailView = [WTRouteDetailView createRouteDetailViewWithRouteInfo:self.routeInfo];
-    [routeDetailView resetOriginY:self.routeImageView.frame.size.height];
+    if (![[self.routeInfo objectForKey:@"id"] isEqualToString:@"874"]) {
+        [routeDetailView resetOriginY:self.routeImageView.frame.size.height];
+    }
     [self.scrollView addSubview:routeDetailView];
     self.routeDetailView = routeDetailView;
 }
