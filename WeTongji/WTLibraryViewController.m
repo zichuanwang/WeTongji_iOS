@@ -50,12 +50,10 @@
 }
 
 - (void)configureWebView {
-    [self.libraryWebView removeFromSuperview];
     NSURL *libraryURL = [NSURL URLWithString:@"http://www.lib.tongji.edu.cn/m/index.action"];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:libraryURL];
     [self.libraryWebView loadRequest:requestObj];
     [self.libraryWebView setContentMode:UIViewContentModeScaleAspectFill];
-    [self.view addSubview:self.libraryWebView];
 }
 
 - (void)configureControlBar {
