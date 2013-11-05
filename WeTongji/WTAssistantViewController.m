@@ -12,6 +12,8 @@
 #import "WTLibraryViewController.h"
 #import "WTYellowPageViewController.h"
 #import "WTRouteViewController.h"
+#import "NSNotificationCenter+WTAddition.h"
+#import "WTRootTabBarController.h"
 
 @interface WTAssistantViewController ()
 
@@ -19,8 +21,7 @@
 
 @implementation WTAssistantViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -28,17 +29,31 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self configureUI];
+    
+    [NSNotificationCenter registerCurrentUserDidChangeNotificationWithSelector:@selector(hanldeCurrentUserDidChangeNotification:) target:self];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self showTabBar];
+}
+
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Notification handler
+
+- (void)hanldeCurrentUserDidChangeNotification:(NSNotification *)notification {
+    [super hanldeCurrentUserDidChangeNotification:notification];
+    if ([WTCoreDataManager sharedManager].currentUser) {
+        [self configureUI];
+    }
 }
 
 #pragma mark - UI methods
@@ -87,6 +102,11 @@
     }
 }
 
+- (void)showTabBar {
+    WTRootTabBarController *tabBarController = (WTRootTabBarController *)self.tabBarController;
+    [tabBarController showTabBar];
+}
+
 #pragma mark - Actions
 
 - (void)didClickAssistantButton:(UIButton *)button {
@@ -119,6 +139,12 @@
         default:
             break;
     }
+}
+
+#pragma mark - WTRootNavigationControllerDelegate
+
+- (UIScrollView *)sourceScrollView {
+    return nil;
 }
 
 @end

@@ -56,7 +56,7 @@
 - (void)configureNavigationBar {
     UIBarButtonItem *backBarButtonItem = [WTResourceFactory createBackBarButtonWithText:NSLocalizedString(@"Traffic Guide", nil) target:self action:@selector(didClickBackButton:)];
     self.navigationItem.leftBarButtonItem = backBarButtonItem;
-    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Detail", nil)];
+    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Guide Detail", nil)];
 }
 
 - (void)configureScrollView {
@@ -68,6 +68,7 @@
 - (void)configureRouteImageView {
     [self.routeImageView removeFromSuperview];
     WTRouteImageView *routeImageView = [WTRouteImageView createRouteImageViewWithImageNamge:self.routeInfo];
+    routeImageView.frame = CGRectMake(0, 0, self.view.frame.size.width, 200);
     [self.scrollView addSubview:routeImageView];
     self.routeImageView = routeImageView;
 }

@@ -37,14 +37,16 @@
 #pragma mark - UI methods
 
 - (void)configureView {
-    [self configureScrollView];
+    //[self configureScrollView];
     [self configureRouteImageInRouteScrollView:self.firstRouteScrollView index:1];
     [self configureRouteImageInRouteScrollView:self.secondRouteScrollView index:2];
+    
+    WTLOG(@"%f", self.secondRouteScrollView.frame.origin.y);
 }
 
 - (void)configureScrollView {
-    [self.firstRouteScrollView setFrame:CGRectMake(0, 0, 320, 100)];
-    [self.secondRouteScrollView setFrame:CGRectMake(0, self.firstRouteScrollView.frame.size.height, 320, 100)];
+    [self.firstRouteScrollView setFrame:CGRectMake(0, 0, 320, self.frame.size.height / 2)];
+    [self.secondRouteScrollView setFrame:CGRectMake(0, self.firstRouteScrollView.frame.size.height, 320, self.frame.size.height / 2)];
 }
 
 //Add Image

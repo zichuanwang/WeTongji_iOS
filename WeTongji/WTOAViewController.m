@@ -8,11 +8,12 @@
 
 #import "WTOAViewController.h"
 #import "WTResourceFactory.h"
+#import "WTRootTabBarController.h"
 
 @interface WTOAViewController ()
 
-@property (weak, nonatomic) IBOutlet UIWebView *oaWebView;
-@property (nonatomic, weak) IBOutlet UIView *controlBar;
+@property (nonatomic, strong) UIWebView *oaWebView;
+@property (nonatomic, strong) UIImageView *controlBarBgImageView;
 
 @end
 
@@ -31,6 +32,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self hideTabBar];
+    [self.view resetHeight:[[UIScreen mainScreen] bounds].size.height - 20];
     [self configureNavigationBar];
     [self configureWebView];
     [self configureControlBar];
@@ -53,19 +56,30 @@
 }
 
 - (void)configureWebView {
+    self.oaWebView = [[UIWebView alloc] init];
     NSURL *oaURL = [NSURL URLWithString:@"http://wapoa.tongji.edu.cn/keryec/indexmb.nsf/gotoserver?openagent"];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:oaURL];
     [self.oaWebView loadRequest:requestObj];
+    [self.oaWebView setContentMode:UIViewContentModeScaleAspectFill];
+    
+    self.oaWebView.backgroundColor = [UIColor clearColor];
+    self.oaWebView.scrollView.backgroundColor = [UIColor clearColor];
+    
+    self.oaWebView.frame = CGRectMake(0, 0, 320, self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height - 40);
+    [self.view addSubview:self.oaWebView];
 }
 
 - (void)configureControlBar {
-    self.controlBar.frame = CGRectMake(0, self.oaWebView.frame.size.height, 320, 50);
+    UIImage *controlBarBgImage = [UIImage imageNamed:@"WTWebViewControlBar"];
+    self.controlBarBgImageView = [[UIImageView alloc] initWithImage:controlBarBgImage];
+    [self.controlBarBgImageView resetOriginY:self.oaWebView.frame.size.height];
+    self.controlBarBgImageView.userInteractionEnabled = YES;
     
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *backButtonImage = [UIImage imageNamed:@"WTWebViewControlBarBackButton"];
     [backButton setBackgroundImage:backButtonImage forState:UIControlStateNormal];
     [backButton addTarget:self.oaWebView action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
-    backButton.frame = CGRectMake(70, 10, 20, 20);
+    backButton.frame = CGRectMake(50, 10, 20, 20);
     
     UIButton *forwardButton = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *forwardButtonImage = [UIImage imageNamed:@"WTWebViewControlBarForwardButton"];
@@ -77,11 +91,17 @@
     UIImage *reloadButtonImage = [UIImage imageNamed:@"WTWebViewControlBarReloadButton"];
     [reloadButton setBackgroundImage:reloadButtonImage forState:UIControlStateNormal];
     [reloadButton addTarget:self.oaWebView action:@selector(reload) forControlEvents:UIControlEventTouchUpInside];
-    reloadButton.frame = CGRectMake(230, 10, 20, 20);
+    reloadButton.frame = CGRectMake(250, 10, 20, 20);
     
-    [self.controlBar addSubview:backButton];
-    [self.controlBar addSubview:forwardButton];
-    [self.controlBar addSubview:reloadButton];
+    [self.controlBarBgImageView addSubview:backButton];
+    [self.controlBarBgImageView addSubview:forwardButton];
+    [self.controlBarBgImageView addSubview:reloadButton];
+    [self.view addSubview:self.controlBarBgImageView];
+}
+
+- (void)hideTabBar {
+    WTRootTabBarController *tabBarController = (WTRootTabBarController *)self.tabBarController;
+    [tabBarController hideTabBar];
 }
 
 #pragma mark - Actions

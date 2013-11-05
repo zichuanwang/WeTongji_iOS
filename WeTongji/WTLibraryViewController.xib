@@ -7,8 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WTLibraryViewController">
             <connections>
-                <outlet property="controlBar" destination="Nsb-xg-g1Y" id="2Vw-ce-hMd"/>
-                <outlet property="libraryWebView" destination="R3S-g2-Kbc" id="UWr-Od-9Dk"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -16,29 +14,8 @@
         <view contentMode="scaleToFill" id="1">
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <webView contentMode="scaleToFill" scalesPageToFit="YES" id="R3S-g2-Kbc">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="440"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                </webView>
-                <view contentMode="scaleToFill" id="Nsb-xg-g1Y">
-                    <rect key="frame" x="0.0" y="440" width="320" height="50"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WTWebViewControlBar.png" id="nQD-Fa-sYA">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        </imageView>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </view>
-            </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
         </view>
     </objects>
-    <resources>
-        <image name="WTWebViewControlBar.png" width="320" height="41"/>
-    </resources>
 </document>

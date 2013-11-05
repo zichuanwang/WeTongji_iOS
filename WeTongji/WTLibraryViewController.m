@@ -8,11 +8,12 @@
 
 #import "WTLibraryViewController.h"
 #import "WTResourceFactory.h"
+#import "WTRootTabBarController.h"
 
 @interface WTLibraryViewController ()
 
-@property (weak, nonatomic) IBOutlet UIWebView *libraryWebView;
-@property (nonatomic, weak) IBOutlet UIView *controlBar;
+@property (nonatomic, strong) UIWebView *libraryWebView;
+@property (nonatomic, strong) UIImageView *controlBarBgImageView;
 
 @end
 
@@ -29,6 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self hideTabBar];
+    [self.view resetHeight:[[UIScreen mainScreen] bounds].size.height - 20];
     [self configureNavigationBar];
     [self configureWebView];
     [self configureControlBar];
@@ -50,36 +53,52 @@
 }
 
 - (void)configureWebView {
+    self.libraryWebView = [[UIWebView alloc] init];
     NSURL *libraryURL = [NSURL URLWithString:@"http://www.lib.tongji.edu.cn/m/index.action"];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:libraryURL];
     [self.libraryWebView loadRequest:requestObj];
     [self.libraryWebView setContentMode:UIViewContentModeScaleAspectFill];
+    
+    self.libraryWebView.backgroundColor = [UIColor clearColor];
+    self.libraryWebView.scrollView.backgroundColor = [UIColor clearColor];
+    
+    self.libraryWebView.frame = CGRectMake(0, 0, 320, self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height - 40);
+    [self.view addSubview:self.libraryWebView];
 }
 
 - (void)configureControlBar {
-    self.controlBar.frame = CGRectMake(0, self.libraryWebView.frame.size.height, 320, 50);
+    UIImage *controlBarBgImage = [UIImage imageNamed:@"WTWebViewControlBar"];
+    self.controlBarBgImageView = [[UIImageView alloc] initWithImage:controlBarBgImage];
+    [self.controlBarBgImageView resetOriginY:self.libraryWebView.frame.size.height];
+    self.controlBarBgImageView.userInteractionEnabled = YES;
     
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *backButtonImage = [UIImage imageNamed:@"WTWebViewControlBarBackButton"];
-    [backButton setBackgroundImage:backButtonImage forState:UIControlStateNormal];
+    [backButton setImage:backButtonImage forState:UIControlStateNormal];
     [backButton addTarget:self.libraryWebView action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
-    backButton.frame = CGRectMake(70, 10, 20, 20);
+    backButton.frame = CGRectMake(50, 10, 20, 20);
     
     UIButton *forwardButton = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *forwardButtonImage = [UIImage imageNamed:@"WTWebViewControlBarForwardButton"];
-    [forwardButton setBackgroundImage:forwardButtonImage forState:UIControlStateNormal];
+    [forwardButton setImage:forwardButtonImage forState:UIControlStateNormal];
     [forwardButton addTarget:self.libraryWebView action:@selector(goForward) forControlEvents:UIControlEventTouchUpInside];
     forwardButton.frame = CGRectMake(150, 10, 20, 20);
     
     UIButton *reloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *reloadButtonImage = [UIImage imageNamed:@"WTWebViewControlBarReloadButton"];
-    [reloadButton setBackgroundImage:reloadButtonImage forState:UIControlStateNormal];
+    [reloadButton setImage:reloadButtonImage forState:UIControlStateNormal];
     [reloadButton addTarget:self.libraryWebView action:@selector(reload) forControlEvents:UIControlEventTouchUpInside];
-    reloadButton.frame = CGRectMake(230, 10, 20, 20);
+    reloadButton.frame = CGRectMake(250, 10, 20, 20);
     
-    [self.controlBar addSubview:backButton];
-    [self.controlBar addSubview:forwardButton];
-    [self.controlBar addSubview:reloadButton];
+    [self.controlBarBgImageView addSubview:backButton];
+    [self.controlBarBgImageView addSubview:forwardButton];
+    [self.controlBarBgImageView addSubview:reloadButton];
+    [self.view addSubview:self.controlBarBgImageView];
+}
+
+- (void)hideTabBar {
+    WTRootTabBarController *tabBarController = (WTRootTabBarController *)self.tabBarController;
+    [tabBarController hideTabBar];
 }
 
 #pragma mark - Actions
