@@ -74,29 +74,34 @@
         assistantButton.frame = CGRectMake(5 + (i % 2) * 155, 5 + (i >= 2) * 155, 155, 155);
         [assistantButton addTarget:self action:@selector(didClickAssistantButton:) forControlEvents:UIControlEventTouchUpInside];
         
-        UIImage *assistantButtonImage = nil;
-        
+        UIImage *normalStateImage = nil;
+        UIImage *selectStateImage = nil;
         switch (i) {
             case WTAssistantButtonCategoryOA: {
-                assistantButtonImage = [UIImage imageNamed:@"WTAssistantOA"];
+                normalStateImage = [UIImage imageNamed:@"WTAssistantOA"];
+                selectStateImage = [UIImage imageNamed:@"WTAssistantOAHl"];
                 break;
             }
             case WTAssistantButtonCategoryLibrary: {
-                assistantButtonImage = [UIImage imageNamed:@"WTAssistantLibrary"];
+                normalStateImage = [UIImage imageNamed:@"WTAssistantLibrary"];
+                selectStateImage = [UIImage imageNamed:@"WTAssistantLibraryHl"];
                 break;
             }
             case WTAssistantButtonCategoryYellowPage: {
-                assistantButtonImage = [UIImage imageNamed:@"WTAssistantYellowPage"];
+                normalStateImage = [UIImage imageNamed:@"WTAssistantYellowPage"];
+                selectStateImage = [UIImage imageNamed:@"WTAssistantYellowPageHl"];
                 break;
             }
             case WTAssistantButtonCategoryRoute: {
-                assistantButtonImage = [UIImage imageNamed:@"WTAssistantRoute"];
+                normalStateImage = [UIImage imageNamed:@"WTAssistantRoute"];
+                selectStateImage = [UIImage imageNamed:@"WTAssistantRouteHl"];
                 break;
             }
             default:
                 break;
         }
-        [assistantButton setImage:assistantButtonImage forState:UIControlStateNormal];
+        [assistantButton setImage:normalStateImage forState:UIControlStateNormal];
+        [assistantButton setImage:selectStateImage forState:UIControlStateHighlighted];
         
         [self.view addSubview:assistantButton];
     }
