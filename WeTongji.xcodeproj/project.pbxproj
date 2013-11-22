@@ -4523,7 +4523,7 @@
 				);
 				PROVISIONING_PROFILE = "41630322-6A9C-43C9-857B-DB64E0F568A5";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "41630322-6A9C-43C9-857B-DB64E0F568A5";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos6.1;
 			};
 			name = Debug;
 		};
@@ -4552,7 +4552,7 @@
 				);
 				PROVISIONING_PROFILE = "41630322-6A9C-43C9-857B-DB64E0F568A5";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "41630322-6A9C-43C9-857B-DB64E0F568A5";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos6.1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
