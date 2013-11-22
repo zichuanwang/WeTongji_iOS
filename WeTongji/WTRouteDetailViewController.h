@@ -6,9 +6,9 @@
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
-#import "WTRootViewController.h"
+#import "WTDetailViewController.h"
 
-@interface WTRouteDetailViewController : WTRootViewController
+@interface WTRouteDetailViewController : WTDetailViewController
 
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 

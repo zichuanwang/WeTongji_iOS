@@ -9,6 +9,7 @@
 #import "WTLibraryViewController.h"
 #import "WTResourceFactory.h"
 #import "WTRootTabBarController.h"
+#import "UIApplication+WTAddition.h"
 
 @interface WTLibraryViewController ()
 
@@ -30,7 +31,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self hideTabBar];
     [self.view resetHeight:[[UIScreen mainScreen] bounds].size.height - 20];
     [self configureNavigationBar];
     [self configureWebView];
@@ -42,6 +42,16 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Methods to overwrite
+
+- (BOOL)showMoreNavigationBarButton {
+    return NO;
+}
+
+- (BOOL)showLikeNavigationBarButton {
+    return NO;
 }
 
 #pragma mark - UI methods
@@ -94,11 +104,6 @@
     [self.controlBarBgImageView addSubview:forwardButton];
     [self.controlBarBgImageView addSubview:reloadButton];
     [self.view addSubview:self.controlBarBgImageView];
-}
-
-- (void)hideTabBar {
-    WTRootTabBarController *tabBarController = (WTRootTabBarController *)self.tabBarController;
-    [tabBarController hideTabBar];
 }
 
 #pragma mark - Actions

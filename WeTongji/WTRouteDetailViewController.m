@@ -51,6 +51,16 @@
     return result;
 }
 
+#pragma mark - Methods to overwrite
+
+- (BOOL)showMoreNavigationBarButton {
+    return NO;
+}
+
+- (BOOL)showLikeNavigationBarButton {
+    return NO;
+}
+
 #pragma mark - UI methods
 
 - (void)configureNavigationBar {

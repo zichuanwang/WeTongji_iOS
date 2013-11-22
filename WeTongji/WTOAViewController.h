@@ -6,8 +6,8 @@
 //  Copyright (c) 2013年 Tongji Apple Club. All rights reserved.
 //
 
-#import "WTRootViewController.h"
+#import "WTDetailViewController.h"
 
-@interface WTOAViewController : WTRootViewController
+@interface WTOAViewController : WTDetailViewController
 
 @end

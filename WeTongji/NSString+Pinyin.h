@@ -10,6 +10,8 @@
 
 @interface NSString(Pinyin)
 
+@property (nonatomic) NSString *test;
+
 - (NSString *)pinyinFirstLetterForCharacterAtIndex:(NSUInteger)i;
 
 - (NSString *)pinyinFirstLetterForEachCharacter;

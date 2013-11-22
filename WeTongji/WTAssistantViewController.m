@@ -14,8 +14,13 @@
 #import "WTRouteViewController.h"
 #import "NSNotificationCenter+WTAddition.h"
 #import "WTRootTabBarController.h"
+#import "UIApplication+WTAddition.h"
+#import "UIImage+ScreenShoot.h"
 
 @interface WTAssistantViewController ()
+
+@property (nonatomic, strong) UIImageView *screenShootImageView;
+@property (nonatomic, strong) UIView *screenShootContainerView;
 
 @end
 
@@ -34,12 +39,17 @@
     // Do any additional setup after loading the view from its nib.
     [self configureUI];
     
-    [NSNotificationCenter registerCurrentUserDidChangeNotificationWithSelector:@selector(hanldeCurrentUserDidChangeNotification:) target:self];
+//    [NSNotificationCenter registerCurrentUserDidChangeNotificationWithSelector:@selector(hanldeCurrentUserDidChangeNotification:) target:self];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self showTabBar];
+    [self.screenShootContainerView removeFromSuperview];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,13 +57,29 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Notification handler
+#pragma mark - Properties
 
-- (void)hanldeCurrentUserDidChangeNotification:(NSNotification *)notification {
-    [super hanldeCurrentUserDidChangeNotification:notification];
-    if ([WTCoreDataManager sharedManager].currentUser) {
-        [self configureUI];
+- (UIView *)screenShootContainerView {
+    if (!_screenShootContainerView) {
+        _screenShootContainerView = [[UIView alloc] init];
+        
+        CGSize screenSize = [UIScreen mainScreen].bounds.size;
+        [_screenShootContainerView resetSize:CGSizeMake(screenSize.width, screenSize.height - 44 - 20)];
+        [self.screenShootImageView resetOriginY:0 - 44 - 20];
+        
+        [_screenShootContainerView addSubview:self.screenShootImageView];
+        
+        _screenShootContainerView.clipsToBounds = YES;
     }
+    return _screenShootContainerView;
+}
+
+- (UIImageView *)screenShootImageView {
+    if (!_screenShootImageView) {
+        _screenShootImageView = [[UIImageView alloc] initWithImage:[UIImage screenShoot]];
+        [_screenShootImageView resetSize:[UIScreen mainScreen].bounds.size];
+    }
+    return _screenShootImageView;
 }
 
 #pragma mark - UI methods
@@ -107,25 +133,34 @@
     }
 }
 
+- (void)hideTabBar {
+    WTRootTabBarController *tabBarVC = [UIApplication sharedApplication].rootTabBarController;
+    [tabBarVC hideTabBar];
+}
+
 - (void)showTabBar {
-    WTRootTabBarController *tabBarController = (WTRootTabBarController *)self.tabBarController;
-    [tabBarController showTabBar];
+    WTRootTabBarController *tabBarVC = [UIApplication sharedApplication].rootTabBarController;
+    [tabBarVC showTabBar];
 }
 
 #pragma mark - Actions
 
 - (void)didClickAssistantButton:(UIButton *)button {
+    [self.view addSubview:self.screenShootContainerView];
+
     NSLog(@"click button %d", button.tag);
     switch (button.tag) {
         case WTAssistantButtonCategoryOA: {
             NSLog(@"OA");
             WTOAViewController *vc = [[WTOAViewController alloc] init];
+            [self hideTabBar];
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
         case WTAssistantButtonCategoryLibrary: {
             NSLog(@"Library");
             WTLibraryViewController *vc = [[WTLibraryViewController alloc] init];
+            [self hideTabBar];
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
