@@ -30,6 +30,40 @@
     return self;
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    [self configureNavigationBar];
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
+    
+    [self loadData];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UI methods
+
+- (void)configureNavigationBar {
+    UIBarButtonItem *backBarButtonItem = [WTResourceFactory createBackBarButtonWithText:NSLocalizedString(@"Assistant", nil) target:self action:@selector(didClickBackButton:)];
+    self.navigationItem.leftBarButtonItem = backBarButtonItem;
+    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Traffic Guide", nil)];
+}
+
+#pragma mark - Actions
+
+- (void)didClickBackButton:(UIButton *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - Properties
 
 - (NSMutableArray *)sipingRouteList {
@@ -51,35 +85,6 @@
         _huxiRouteList = [[NSMutableArray alloc] init];
     }
     return _huxiRouteList;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    [self configureNavigationBar];
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
-    
-    [self loadData];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - UI methods
-
-- (void)configureNavigationBar {
-    UIBarButtonItem *backBarButtonItem = [WTResourceFactory createBackBarButtonWithText:NSLocalizedString(@"Assistant", nil) target:self action:@selector(didClickBackButton:)];
-    self.navigationItem.leftBarButtonItem = backBarButtonItem;
-    self.navigationItem.titleView = [WTResourceFactory createNavigationBarTitleViewWithText:NSLocalizedString(@"Traffic Guide", nil)];
-}
-
-#pragma mark - Actions
-
-- (void)didClickBackButton:(UIButton *)sender {
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Data
@@ -137,8 +142,6 @@
     
     WTRouteDetailViewController *vc = [WTRouteDetailViewController createDetailViewControllerWithRouteInfo:routeInfo];
     [self.navigationController pushViewController:vc animated:YES];
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

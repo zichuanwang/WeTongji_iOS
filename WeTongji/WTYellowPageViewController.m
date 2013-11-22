@@ -28,22 +28,6 @@
     return self;
 }
 
-#pragma mark - Properties
-
-- (NSMutableArray *)sipingPhoneNumberList {
-    if (_sipingPhoneNumberList == nil) {
-        _sipingPhoneNumberList = [[NSMutableArray alloc] init];
-    }
-    return _sipingPhoneNumberList;
-}
-
-- (NSMutableArray *)jiadingPhoneNumberList {
-    if (_jiadingPhoneNumberList == nil) {
-        _jiadingPhoneNumberList = [[NSMutableArray alloc] init];
-    }
-    return _jiadingPhoneNumberList;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -52,6 +36,11 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
     
     [self loadData];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,6 +60,22 @@
 
 - (void)didClickBackButton:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Properties
+
+- (NSMutableArray *)sipingPhoneNumberList {
+    if (_sipingPhoneNumberList == nil) {
+        _sipingPhoneNumberList = [[NSMutableArray alloc] init];
+    }
+    return _sipingPhoneNumberList;
+}
+
+- (NSMutableArray *)jiadingPhoneNumberList {
+    if (_jiadingPhoneNumberList == nil) {
+        _jiadingPhoneNumberList = [[NSMutableArray alloc] init];
+    }
+    return _jiadingPhoneNumberList;
 }
 
 #pragma mark - Data
