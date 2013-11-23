@@ -226,8 +226,6 @@
 		E115FAA4173A3DFF00DE5649 /* WTSearchHintCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E115FAA3173A3DFF00DE5649 /* WTSearchHintCell.xib */; };
 		E11702FC1650F82A00D82F4A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11702FB1650F82A00D82F4A /* SystemConfiguration.framework */; };
 		E11702FE1650F83F00D82F4A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */; };
-		E1170316165156A400D82F4A /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1170315165156A400D82F4A /* icon@2x.png */; };
-		E1170318165156BE00D82F4A /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E1170317165156BE00D82F4A /* icon.png */; };
 		E11703711651EF4800D82F4A /* WTTabBarBg.png in Resources */ = {isa = PBXBuildFile; fileRef = E117035B1651EF4700D82F4A /* WTTabBarBg.png */; };
 		E11703721651EF4800D82F4A /* WTTabBarBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E117035C1651EF4700D82F4A /* WTTabBarBg@2x.png */; };
 		E11703731651EF4800D82F4A /* WTTabBarButtonBillBoard.png in Resources */ = {isa = PBXBuildFile; fileRef = E117035D1651EF4700D82F4A /* WTTabBarButtonBillBoard.png */; };
@@ -266,9 +264,6 @@
 		E125549E16491530006D42F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E125549C16491530006D42F5 /* InfoPlist.strings */; };
 		E12554A016491530006D42F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E125549F16491530006D42F5 /* main.m */; };
 		E12554A416491530006D42F5 /* WTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E12554A316491530006D42F5 /* WTAppDelegate.m */; };
-		E12554A616491530006D42F5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12554A516491530006D42F5 /* Default@2x.png */; };
-		E12554A816491530006D42F5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E12554A716491530006D42F5 /* Default.png */; };
-		E12554AA16491530006D42F5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E12554A916491530006D42F5 /* Default-568h@2x.png */; };
 		E12554C616491532006D42F5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E12554C516491531006D42F5 /* SenTestingKit.framework */; };
 		E12554C716491532006D42F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549316491530006D42F5 /* UIKit.framework */; };
 		E12554C816491532006D42F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E125549516491530006D42F5 /* Foundation.framework */; };
@@ -346,6 +341,7 @@
 		E14286A4171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14286A2171C14BF006AB739 /* WTRoundCornerPanelBgHighlightCover@2x.png */; };
 		E14286A7171C5872006AB739 /* WTNowWeekCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E14286A6171C5871006AB739 /* WTNowWeekCell.m */; };
 		E14286A9171C5893006AB739 /* WTNowWeekCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14286A8171C5892006AB739 /* WTNowWeekCell.xib */; };
+		E1433D83183F087400D6D788 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1433D82183F087400D6D788 /* Images.xcassets */; };
 		E145582A1799AB83000E5B46 /* WTLoginIntroImage2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E14558291799AB83000E5B46 /* WTLoginIntroImage2@2x.png */; };
 		E145582C1799AE71000E5B46 /* WTLoginIntroImage2.png in Resources */ = {isa = PBXBuildFile; fileRef = E145582B1799AE71000E5B46 /* WTLoginIntroImage2.png */; };
 		E14558331799B7A4000E5B46 /* WTLoginIntroImage3.png in Resources */ = {isa = PBXBuildFile; fileRef = E145582D1799B7A3000E5B46 /* WTLoginIntroImage3.png */; };
@@ -1064,8 +1060,6 @@
 		E115FAA3173A3DFF00DE5649 /* WTSearchHintCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTSearchHintCell.xib; sourceTree = "<group>"; };
 		E11702FB1650F82A00D82F4A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E11702FD1650F83F00D82F4A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		E1170315165156A400D82F4A /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../../icon@2x.png"; sourceTree = "<group>"; };
-		E1170317165156BE00D82F4A /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../icon.png; sourceTree = "<group>"; };
 		E117035B1651EF4700D82F4A /* WTTabBarBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTabBarBg.png; sourceTree = "<group>"; };
 		E117035C1651EF4700D82F4A /* WTTabBarBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTTabBarBg@2x.png"; sourceTree = "<group>"; };
 		E117035D1651EF4700D82F4A /* WTTabBarButtonBillBoard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTTabBarButtonBillBoard.png; sourceTree = "<group>"; };
@@ -1111,9 +1105,6 @@
 		E12554A116491530006D42F5 /* WeTongji-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeTongji-Prefix.pch"; sourceTree = "<group>"; };
 		E12554A216491530006D42F5 /* WTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WTAppDelegate.h; sourceTree = "<group>"; };
 		E12554A316491530006D42F5 /* WTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTAppDelegate.m; sourceTree = "<group>"; };
-		E12554A516491530006D42F5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
-		E12554A716491530006D42F5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
-		E12554A916491530006D42F5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		E12554C416491531006D42F5 /* WeTongjiTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeTongjiTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E12554C516491531006D42F5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		E12554CD16491532006D42F5 /* WeTongjiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WeTongjiTests-Info.plist"; sourceTree = "<group>"; };
@@ -1222,6 +1213,7 @@
 		E14286A5171C5871006AB739 /* WTNowWeekCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNowWeekCell.h; sourceTree = "<group>"; };
 		E14286A6171C5871006AB739 /* WTNowWeekCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNowWeekCell.m; sourceTree = "<group>"; };
 		E14286A8171C5892006AB739 /* WTNowWeekCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNowWeekCell.xib; sourceTree = "<group>"; };
+		E1433D82183F087400D6D788 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E14558291799AB83000E5B46 /* WTLoginIntroImage2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTLoginIntroImage2@2x.png"; sourceTree = "<group>"; };
 		E145582B1799AE71000E5B46 /* WTLoginIntroImage2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTLoginIntroImage2.png; sourceTree = "<group>"; };
 		E145582D1799B7A3000E5B46 /* WTLoginIntroImage3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTLoginIntroImage3.png; sourceTree = "<group>"; };
@@ -2388,6 +2380,7 @@
 				E125549A16491530006D42F5 /* Supporting Files */,
 				E18821CD1680077000A41F47 /* Tools */,
 				E117038E1651EFD900D82F4A /* ViewControllers */,
+				E1433D82183F087400D6D788 /* Images.xcassets */,
 			);
 			path = WeTongji;
 			sourceTree = "<group>";
@@ -3385,13 +3378,8 @@
 				E14558291799AB83000E5B46 /* WTLoginIntroImage2@2x.png */,
 				E1AD8427178B2462001E35DB /* WTPropergate.jpg */,
 				E16ABDBE1767AA9200ED0CE9 /* WTTransparentImage.png */,
-				E12554A916491530006D42F5 /* Default-568h@2x.png */,
-				E12554A516491530006D42F5 /* Default@2x.png */,
 				E16D531A1788B10300689645 /* WTLoginIntroImage1.png */,
 				E16D531B1788B10300689645 /* WTLoginIntroImage1@2x.png */,
-				E12554A716491530006D42F5 /* Default.png */,
-				E1170317165156BE00D82F4A /* icon.png */,
-				E1170315165156A400D82F4A /* icon@2x.png */,
 				E14F964E1696FCF40048414D /* TestAvatar1.png */,
 				E1ED19141719D1E400B0A847 /* WTLoginIntroBgImage1.jpg */,
 				E1ED19151719D1E400B0A847 /* WTLoginIntroBgImage2.jpg */,
@@ -3667,11 +3655,6 @@
 			files = (
 				20A2F5461816E99700878135 /* guide_123_2.png in Resources */,
 				E125549E16491530006D42F5 /* InfoPlist.strings in Resources */,
-				E12554A616491530006D42F5 /* Default@2x.png in Resources */,
-				E12554A816491530006D42F5 /* Default.png in Resources */,
-				E12554AA16491530006D42F5 /* Default-568h@2x.png in Resources */,
-				E1170316165156A400D82F4A /* icon@2x.png in Resources */,
-				E1170318165156BE00D82F4A /* icon.png in Resources */,
 				E11703711651EF4800D82F4A /* WTTabBarBg.png in Resources */,
 				E11703721651EF4800D82F4A /* WTTabBarBg@2x.png in Resources */,
 				E11703731651EF4800D82F4A /* WTTabBarButtonBillBoard.png in Resources */,
@@ -4149,6 +4132,7 @@
 				20769A45180EC127003FE1A0 /* WTAssistantYellowPage.png in Resources */,
 				E15E4DDB175D0D6900BBAE9A /* WTCheckmarkHighlightButton@2x.png in Resources */,
 				E15E4DDC175D0D6900BBAE9A /* WTCheckmarkNormalButton.png in Resources */,
+				E1433D83183F087400D6D788 /* Images.xcassets in Resources */,
 				E15E4DDD175D0D6900BBAE9A /* WTCheckmarkNormalButton@2x.png in Resources */,
 				E15E4DEE175DDBF900BBAE9A /* WTInvitationAcceptedIconCN.png in Resources */,
 				20040F90181FEA20006BBF45 /* WTWebViewControlBarBackButton.png in Resources */,
@@ -4560,6 +4544,8 @@
 		E12554D716491532006D42F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4598,8 +4584,10 @@
 		E12554D816491532006D42F5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hongming Zhu (2XYAGB2947)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hongming Zhu (2XYAGB2947)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/WeTongji-haxzmecxsluyiegvzukrqyecviwx/Build/Products/Release-iphoneos\"",
@@ -4625,8 +4613,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "96B26090-413E-442B-8339-7AC0BDFAB9D4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "96B26090-413E-442B-8339-7AC0BDFAB9D4";
 				SDKROOT = iphoneos6.1;
 				USER_HEADER_SEARCH_PATHS = "../OHAttributedLabel/OHAttributedLabel/**";
 				WRAPPER_EXTENSION = app;
