@@ -48,7 +48,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self showTabBar];
     [self.screenShootContainerView removeFromSuperview];
 }
 
@@ -153,14 +152,12 @@
         case WTAssistantButtonCategoryOA: {
             NSLog(@"OA");
             WTOAViewController *vc = [[WTOAViewController alloc] init];
-            [self hideTabBar];
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
         case WTAssistantButtonCategoryLibrary: {
             NSLog(@"Library");
             WTLibraryViewController *vc = [[WTLibraryViewController alloc] init];
-            [self hideTabBar];
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }

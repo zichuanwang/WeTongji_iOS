@@ -39,6 +39,16 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self hideTabBar];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self showTabBar];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -104,6 +114,16 @@
     [self.controlBarBgImageView addSubview:forwardButton];
     [self.controlBarBgImageView addSubview:reloadButton];
     [self.view addSubview:self.controlBarBgImageView];
+}
+
+- (void)hideTabBar {
+    WTRootTabBarController *tabBarVC = [UIApplication sharedApplication].rootTabBarController;
+    [tabBarVC hideTabBar];
+}
+
+- (void)showTabBar {
+    WTRootTabBarController *tabBarVC = [UIApplication sharedApplication].rootTabBarController;
+    [tabBarVC showTabBar];
 }
 
 #pragma mark - Actions
