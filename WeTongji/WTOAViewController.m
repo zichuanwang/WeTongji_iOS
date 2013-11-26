@@ -16,6 +16,7 @@
 @property (nonatomic, strong) UIWebView *oaWebView;
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) UIImageView *controlBarBgImageView;
+@property (nonatomic, strong) NSMutableArray *webviewControlButtonArray;
 
 @end
 
@@ -38,6 +39,7 @@
     [self configureNavigationBar];
     [self configureWebView];
     [self configureControlBar];
+    [self configureActivityIndicator];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"WTRootBgUnit"]];
 }
@@ -88,18 +90,6 @@
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:oaURL];
     [self.oaWebView loadRequest:requestObj];
     [self.oaWebView setContentMode:UIViewContentModeScaleAspectFill];
-    
-    //创建UIActivityIndicatorView背底半透明View
-    UIView *loadingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-    [loadingView setTag:103];
-    [loadingView setBackgroundColor:[UIColor blackColor]];
-    [loadingView setAlpha:0.8];
-    [self.view addSubview:loadingView];
-    
-    self.activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
-    [self.activityIndicator setCenter:loadingView.center];
-    [self.activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
-    [loadingView addSubview:self.activityIndicator];
 
     [self.view addSubview:self.oaWebView];
 }
@@ -132,6 +122,17 @@
     [self.controlBarBgImageView addSubview:forwardButton];
     [self.controlBarBgImageView addSubview:reloadButton];
     [self.view addSubview:self.controlBarBgImageView];
+    
+    self.webviewControlButtonArray = [[NSMutableArray alloc] initWithObjects:backButton, forwardButton, reloadButton, nil];
+}
+
+- (void)configureActivityIndicator {
+    UIButton *reloadButton = [self.webviewControlButtonArray lastObject];
+    self.activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 20.0f, 20.0f)];
+    [self.activityIndicator setCenter:reloadButton.center];
+    [self.activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
+    [self.activityIndicator setHidesWhenStopped:YES];
+    [self.controlBarBgImageView insertSubview:self.activityIndicator belowSubview:reloadButton];
 }
 
 - (void)hideTabBar {
@@ -153,13 +154,15 @@
 #pragma mark - UIWebViewDelegate
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
+    [[self.webviewControlButtonArray lastObject] setHidden:YES];
+    [[self.webviewControlButtonArray lastObject] setUserInteractionEnabled:NO];
     [self.activityIndicator startAnimating];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [[self.webviewControlButtonArray lastObject] setHidden:NO];
+    [[self.webviewControlButtonArray lastObject] setUserInteractionEnabled:YES];
     [self.activityIndicator stopAnimating];
-    UIView *view = (UIView *)[self.view viewWithTag:103];
-    [view removeFromSuperview];
 }
 
 @end
