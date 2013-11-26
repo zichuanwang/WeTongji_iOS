@@ -14,6 +14,7 @@
 @interface WTOAViewController ()
 
 @property (nonatomic, strong) UIWebView *oaWebView;
+@property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) UIImageView *controlBarBgImageView;
 
 @end
@@ -77,15 +78,29 @@
 
 - (void)configureWebView {
     self.oaWebView = [[UIWebView alloc] init];
+    self.oaWebView.backgroundColor = [UIColor clearColor];
+    self.oaWebView.scrollView.backgroundColor = [UIColor clearColor];
+    [self.oaWebView setDelegate:self];
+    [self.oaWebView setOpaque:NO];
+    self.oaWebView.frame = CGRectMake(0, 0, 320, self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height - 40);
+    
     NSURL *oaURL = [NSURL URLWithString:@"http://wapoa.tongji.edu.cn/keryec/indexmb.nsf/gotoserver?openagent"];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:oaURL];
     [self.oaWebView loadRequest:requestObj];
     [self.oaWebView setContentMode:UIViewContentModeScaleAspectFill];
     
-    self.oaWebView.backgroundColor = [UIColor clearColor];
-    self.oaWebView.scrollView.backgroundColor = [UIColor clearColor];
+    //创建UIActivityIndicatorView背底半透明View
+    UIView *loadingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    [loadingView setTag:103];
+    [loadingView setBackgroundColor:[UIColor blackColor]];
+    [loadingView setAlpha:0.8];
+    [self.view addSubview:loadingView];
     
-    self.oaWebView.frame = CGRectMake(0, 0, 320, self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height - 40);
+    self.activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+    [self.activityIndicator setCenter:loadingView.center];
+    [self.activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
+    [loadingView addSubview:self.activityIndicator];
+
     [self.view addSubview:self.oaWebView];
 }
 
@@ -133,6 +148,18 @@
 
 - (void)didClickBackButton:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - UIWebViewDelegate
+
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    [self.activityIndicator startAnimating];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [self.activityIndicator stopAnimating];
+    UIView *view = (UIView *)[self.view viewWithTag:103];
+    [view removeFromSuperview];
 }
 
 @end

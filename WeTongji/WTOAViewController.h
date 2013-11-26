@@ -8,6 +8,6 @@
 
 #import "WTDetailViewController.h"
 
-@interface WTOAViewController : WTDetailViewController
+@interface WTOAViewController : WTDetailViewController<UIWebViewDelegate>
 
 @end
