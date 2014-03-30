@@ -14,8 +14,10 @@ typedef enum {
     WTAssistantButtonCategoryLibrary = 1,
     WTAssistantButtonCategoryYellowPage = 2,
     WTAssistantButtonCategoryRoute = 3,
+    WTAssistantButtonCategoryYiban = 4
 } WTAssistantButtonCategory;
 
 @interface WTAssistantViewController : WTRootViewController
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end

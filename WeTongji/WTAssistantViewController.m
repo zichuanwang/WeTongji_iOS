@@ -16,6 +16,7 @@
 #import "WTRootTabBarController.h"
 #import "UIApplication+WTAddition.h"
 #import "UIImage+ScreenShoot.h"
+#import "WTYibanViewController.h"
 
 @interface WTAssistantViewController ()
 
@@ -93,7 +94,7 @@
 }
 
 - (void)configureAssistantButton {
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 5; i++) {
         UIButton *assistantButton = [UIButton buttonWithType:UIButtonTypeCustom];
         assistantButton.tag = i;
         assistantButton.frame = CGRectMake(5 + (i % 2) * 155, 5 + (i >= 2) * 155, 155, 155);
@@ -122,13 +123,24 @@
                 selectStateImage = [UIImage imageNamed:@"WTAssistantRouteHl"];
                 break;
             }
+            case WTAssistantButtonCategoryYiban: {
+                normalStateImage = [UIImage imageNamed:@"WTAssistantYiban"];
+                selectStateImage = [UIImage imageNamed:@"WTAssistantYibanHl"];
+                
+                [assistantButton resetWidth:155 * 2 + 5];
+                [assistantButton resetOriginXByOffset:-2];
+                [assistantButton resetOriginYByOffset:155];
+                break;
+            }
+
             default:
                 break;
         }
         [assistantButton setImage:normalStateImage forState:UIControlStateNormal];
         [assistantButton setImage:selectStateImage forState:UIControlStateHighlighted];
         
-        [self.view addSubview:assistantButton];
+        [self.scrollView addSubview:assistantButton];
+        [self.scrollView setContentSize:CGSizeMake(CGRectGetWidth(self.scrollView.frame), CGRectGetMaxY(assistantButton.frame))];
     }
 }
 
@@ -143,7 +155,6 @@
 }
 
 #pragma mark - Actions
-
 - (void)didClickAssistantButton:(UIButton *)button {
     [self.view addSubview:self.screenShootContainerView];
 
@@ -172,6 +183,11 @@
             WTRouteViewController *vc = [[WTRouteViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
             break;
+        }
+        case WTAssistantButtonCategoryYiban: {
+            NSLog(@"Yi Ban");
+            WTYibanViewController *vc = [[WTYibanViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
         }
         default:
             break;

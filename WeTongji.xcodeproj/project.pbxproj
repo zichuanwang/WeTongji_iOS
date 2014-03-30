@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		033D2D2016EA4586007242D0 /* Course+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 033D2D1F16EA4586007242D0 /* Course+Addition.m */; };
+		036CD5EF18E857AB009D90C4 /* WTAssistantYiban.png in Resources */ = {isa = PBXBuildFile; fileRef = 036CD5EB18E857AB009D90C4 /* WTAssistantYiban.png */; };
+		036CD5F018E857AB009D90C4 /* WTAssistantYiban@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 036CD5EC18E857AB009D90C4 /* WTAssistantYiban@2x.png */; };
+		036CD5F118E857AB009D90C4 /* WTAssistantYibanHl.png in Resources */ = {isa = PBXBuildFile; fileRef = 036CD5ED18E857AB009D90C4 /* WTAssistantYibanHl.png */; };
+		036CD5F218E857AB009D90C4 /* WTAssistantYibanHl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 036CD5EE18E857AB009D90C4 /* WTAssistantYibanHl@2x.png */; };
+		036CD5F718E858FC009D90C4 /* WTYibanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 036CD5F518E858FC009D90C4 /* WTYibanViewController.m */; };
+		036CD5F818E858FC009D90C4 /* WTYibanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 036CD5F618E858FC009D90C4 /* WTYibanViewController.xib */; };
 		039E37ED169701BC00178F1C /* WTRedDot.png in Resources */ = {isa = PBXBuildFile; fileRef = 039E37E1169701BC00178F1C /* WTRedDot.png */; };
 		039E37EE169701BC00178F1C /* WTRedDot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 039E37E2169701BC00178F1C /* WTRedDot@2x.png */; };
 		039E37FE16970FBB00178F1C /* WTNowActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 039E37FD16970FBB00178F1C /* WTNowActivityCell.m */; };
@@ -783,6 +789,13 @@
 /* Begin PBXFileReference section */
 		033D2D1E16EA4586007242D0 /* Course+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Course+Addition.h"; sourceTree = "<group>"; };
 		033D2D1F16EA4586007242D0 /* Course+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Course+Addition.m"; sourceTree = "<group>"; };
+		036CD5EB18E857AB009D90C4 /* WTAssistantYiban.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTAssistantYiban.png; sourceTree = "<group>"; };
+		036CD5EC18E857AB009D90C4 /* WTAssistantYiban@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTAssistantYiban@2x.png"; sourceTree = "<group>"; };
+		036CD5ED18E857AB009D90C4 /* WTAssistantYibanHl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTAssistantYibanHl.png; sourceTree = "<group>"; };
+		036CD5EE18E857AB009D90C4 /* WTAssistantYibanHl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTAssistantYibanHl@2x.png"; sourceTree = "<group>"; };
+		036CD5F418E858FC009D90C4 /* WTYibanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTYibanViewController.h; sourceTree = "<group>"; };
+		036CD5F518E858FC009D90C4 /* WTYibanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTYibanViewController.m; sourceTree = "<group>"; };
+		036CD5F618E858FC009D90C4 /* WTYibanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTYibanViewController.xib; sourceTree = "<group>"; };
 		039E37E1169701BC00178F1C /* WTRedDot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WTRedDot.png; sourceTree = "<group>"; };
 		039E37E2169701BC00178F1C /* WTRedDot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WTRedDot@2x.png"; sourceTree = "<group>"; };
 		039E37FC16970FBB00178F1C /* WTNowActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNowActivityCell.h; sourceTree = "<group>"; };
@@ -1806,6 +1819,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		036CD5F318E858A8009D90C4 /* Yiban */ = {
+			isa = PBXGroup;
+			children = (
+				036CD5F418E858FC009D90C4 /* WTYibanViewController.h */,
+				036CD5F518E858FC009D90C4 /* WTYibanViewController.m */,
+				036CD5F618E858FC009D90C4 /* WTYibanViewController.xib */,
+			);
+			name = Yiban;
+			sourceTree = "<group>";
+		};
 		039E37D9169701AE00178F1C /* Now */ = {
 			isa = PBXGroup;
 			children = (
@@ -1921,6 +1944,10 @@
 				20727C911812C17700F6470C /* WTYellowPageCellCall@2x.png */,
 				20038ABE1812699300FE9C35 /* guide.json */,
 				20038ABF1812699300FE9C35 /* tel.json */,
+				036CD5EB18E857AB009D90C4 /* WTAssistantYiban.png */,
+				036CD5EC18E857AB009D90C4 /* WTAssistantYiban@2x.png */,
+				036CD5ED18E857AB009D90C4 /* WTAssistantYibanHl.png */,
+				036CD5EE18E857AB009D90C4 /* WTAssistantYibanHl@2x.png */,
 				20769A37180EC127003FE1A0 /* WTAssistantLibrary.png */,
 				20769A38180EC127003FE1A0 /* WTAssistantLibrary@2x.png */,
 				201713B31829BA4200994E8E /* WTAssistantLibraryHl.png */,
@@ -2241,6 +2268,7 @@
 		E117038E1651EFD900D82F4A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				036CD5F318E858A8009D90C4 /* Yiban */,
 				20038ACD1812723400FE9C35 /* Route */,
 				20038AC218126BE500FE9C35 /* YellowPage */,
 				20038AB7181258E300FE9C35 /* Library */,
@@ -3679,6 +3707,7 @@
 				E11703841651EF4800D82F4A /* WTTabBarButtonPowerSearch@2x.png in Resources */,
 				206BF38A1820162A00AA5615 /* WTRouteImageView.xib in Resources */,
 				E11703851651EF4800D82F4A /* WTTabBarButtonPowerSearchHl.png in Resources */,
+				036CD5F018E857AB009D90C4 /* WTAssistantYiban@2x.png in Resources */,
 				E11703861651EF4800D82F4A /* WTTabBarButtonPowerSearchHl@2x.png in Resources */,
 				E11703991651F35B00D82F4A /* MainWindow.xib in Resources */,
 				E1C53DD316523DCE0011C8A1 /* WTSearchViewController.xib in Resources */,
@@ -3973,6 +4002,7 @@
 				E10C24F1171AB3910009C673 /* WTBillboardSmallItemBg.png in Resources */,
 				E10C24F2171AB3910009C673 /* WTBillboardSmallItemBg@2x.png in Resources */,
 				E10C24F3171AB3910009C673 /* WTBillboardSmallItemCover.png in Resources */,
+				036CD5F818E858FC009D90C4 /* WTYibanViewController.xib in Resources */,
 				20A2F5581816E99700878135 /* guide_beiankua_2.png in Resources */,
 				E10C24F4171AB3910009C673 /* WTBillboardSmallItemCover@2x.png in Resources */,
 				E10C24F5171AB3910009C673 /* WTBillboardSmallItemTitleBg.png in Resources */,
@@ -4108,6 +4138,7 @@
 				E1DA84D8174B65DF0038B1E4 /* WTBillboardSelectImageSourcePanelBg.png in Resources */,
 				E1DA84D9174B65DF0038B1E4 /* WTBillboardSelectImageSourcePanelBg@2x.png in Resources */,
 				E1DA84DE174B6A470038B1E4 /* WTBillboardImageSourceLeftNormalButton.png in Resources */,
+				036CD5EF18E857AB009D90C4 /* WTAssistantYiban.png in Resources */,
 				20038AB61812553400FE9C35 /* WTOAViewController.xib in Resources */,
 				E1DA84DF174B6A470038B1E4 /* WTBillboardImageSourceLeftNormalButton@2x.png in Resources */,
 				E1DA84E0174B6A470038B1E4 /* WTBillboardImageSourceRightNormalButton.png in Resources */,
@@ -4121,6 +4152,7 @@
 				E172B00E174FF5EA00DEB920 /* WTDisableButton.png in Resources */,
 				E172B00F174FF5EA00DEB920 /* WTDisableButton@2x.png in Resources */,
 				E10E236F17577F3500DCF724 /* WTLikeListViewController.xib in Resources */,
+				036CD5F218E857AB009D90C4 /* WTAssistantYibanHl@2x.png in Resources */,
 				E15E4DA6175B23FE00BBAE9A /* WTStarHeaderView.xib in Resources */,
 				E15E4DB5175C8E7C00BBAE9A /* WTOrganizationHeaderView.xib in Resources */,
 				E15E4DBB175C970A00BBAE9A /* WTStarDetailDescriptionView.xib in Resources */,
@@ -4166,6 +4198,7 @@
 				E19B6AE2178A26A6003BDCBB /* WTDormCell.xib in Resources */,
 				E1AD8428178B2462001E35DB /* WTPropergate.jpg in Resources */,
 				E1AD842D178B2BBE001E35DB /* WTInputDormRoomNumberView.xib in Resources */,
+				036CD5F118E857AB009D90C4 /* WTAssistantYibanHl.png in Resources */,
 				E1960FB1178B47CF009D7871 /* WTCopyrightView.xib in Resources */,
 				E145582A1799AB83000E5B46 /* WTLoginIntroImage2@2x.png in Resources */,
 				E145582C1799AE71000E5B46 /* WTLoginIntroImage2.png in Resources */,
@@ -4250,6 +4283,7 @@
 				E13B0E5116A2E16C00A45079 /* WTNewsCell.m in Sources */,
 				E13B0E5D16A302A500A45079 /* WTCoreDataTableViewController.m in Sources */,
 				E13B0E6A16A3078300A45079 /* WTCoreDataManager.m in Sources */,
+				036CD5F718E858FC009D90C4 /* WTYibanViewController.m in Sources */,
 				20038AD11812724600FE9C35 /* WTRouteViewController.m in Sources */,
 				E13B0E6D16A4476000A45079 /* User+Addition.m in Sources */,
 				206BF38E18201E6000AA5615 /* WTRouteDetailView.m in Sources */,
